@@ -160,8 +160,8 @@ input-column phase, output-row phase, projective action, or basis measurement.
 
 ## Stage Results
 
-- Milestone active. The stable operator leaf has 68 declarations and the
-  stable circuit leaf has 82, for an independently reproduced boundary of 150.
+- The stable operator leaf has 68 declarations and the stable circuit leaf has
+  82, for an independently reproduced boundary of 150.
 - Both stable leaves pass focused builds and direct warning-as-error checks.
   Independent review confirmed the global, input-right, output-left, and
   projective orientations; finite/input quantifiers; unitary hypotheses; and
