@@ -110,16 +110,20 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 
 ## Build Structure
 
-- `Matrix/DirectRealification.lean`: proof leaf importing the two existing
-  embedding definitions plus their unitary/determinant consequences; owns the
-  direct coordinate map, reindex equivalence, and inherited algebra.  It does
-  not import circuits or simulations.
+- `Matrix/QuaternionRealification.lean`: algebraic proof leaf importing the two
+  existing embedding definitions; owns the direct coordinate map, checked
+  reindex equivalence, sixteen entries, and inherited rectangular algebra.
+- `Matrix/QuaternionRealificationUnitary.lean`: heavier group/determinant leaf;
+  owns the star embedding, `SO(4N)` consequence, and equivalence with the exact
+  image.  Neither matrix leaf imports circuits or simulations.
 - `Matrix/ProperImage.lean`: diagnostic/public correction leaf importing
   `Matrix/Determinant` and direct/complexification group facts; explicit
   finite-dimensional witnesses stay out of high-fanout embedding cores.
-- `State/EntanglementWitness.lean`: narrow pure-state example importing the
-  real state encoding; owns factorization terminology and rational witness,
-  without a density-matrix hierarchy.
+- `Simulation/NonProductWitness.lean`: high-level pure-state example importing
+  the wire-facing real simulator; owns factorization terminology and the
+  rational witness without reversing the low-level state dependency or
+  introducing a density-matrix hierarchy.  Its neutral name avoids claiming an
+  entanglement theorem.
 - `Circuit/ProductInputOrderingWitness.lean`: diagnostic leaf importing the
   existing ordering witness; owns only the ground-product-input state
   inequality and its exact coordinate checks.
@@ -185,3 +189,29 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 
 - In progress.  Stage opened after verified completion of 8-RESOURCES on
   2026-07-09.
+- The selected leaves are implemented and pass strict focused builds:
+  `Matrix/QuaternionRealification.lean`,
+  `Matrix/QuaternionRealificationUnitary.lean`, `Matrix/ProperImage.lean`,
+  `State/ComplexPhase.lean`, `Circuit/BasisPreparation.lean`,
+  `Circuit/ProductInputOrderingWitness.lean`, and
+  `Simulation/NonProductWitness.lean`.
+- Equation 63 is exactly the established composition after the pure sector
+  permutation `[3,1,0,2]`; all sixteen entries, `4N` cardinality,
+  multiplicativity, adjoint preservation, injectivity, determinant one on
+  unitaries, and the corrected embedding into `SO(4N)` compile.
+- Explicit matrices prove qualified non-surjectivity for complex-to-real in
+  `SO(4)`, quaternion-to-complex relative to `SU(4)`, and direct rank-one
+  quaternion-to-real in `SO(4)`.  No operational lower bound is inferred.
+- A normalized rational complex state has a proved non-product real encoding.
+  A separate normalized ground product input gives two output rays that are
+  not right-phase equivalent even though every computational-basis weight is
+  equal.  This closes the state/observable distinction without a signaling,
+  entanglement, or security claim.
+- Known computational-basis preparation is a certified XOR permutation gate;
+  complex unit right phase is an equivalence preserving basis/total weight and
+  arbitrary matrix evolution.
+- All paper inventory rows now have an allowed terminal status.  Corrections
+  C-025 and C-026 record the direct-map isomorphism overstatement and the
+  ground-state preparation ambiguity.  Public-root and axiom-audit integration
+  compile; final documentation alignment, independent review, and the required
+  root/full/downstream verification remain before marking the stage complete.

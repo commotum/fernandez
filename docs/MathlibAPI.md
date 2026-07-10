@@ -16,6 +16,7 @@ import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.UnitaryGroup
 import Mathlib.LinearAlgebra.SymplecticGroup
 import Mathlib.LinearAlgebra.Matrix.Kronecker
+import Mathlib.LinearAlgebra.Matrix.Permutation
 ```
 
 The isolated determinant leaf additionally uses
@@ -116,7 +117,10 @@ Reindexing uses:
 ```lean
 Matrix.reindex
 Matrix.reindexRingEquiv
+Matrix.reindexLinearEquiv_mul
 Matrix.conjTranspose_reindex
+Matrix.transpose_reindex
+Matrix.det_reindex_self
 Matrix.submatrix_mulVec_equiv
 Equiv.sumArrowEquivProdArrow
 Equiv.sumCompl
@@ -131,6 +135,25 @@ For arbitrary supports, `Equiv.sumCompl` plus
 `Equiv.sumArrowEquivProdArrow` supplies a full-basis split into local and
 complement assignments.  `Matrix.submatrix_mulVec_equiv` proves that the same
 reindexing commutes with column action without expanding a brittle double sum.
+
+Direct quaternionic realification uses simultaneous `Matrix.reindex` on four
+nested sum sectors.  `Matrix.reindexLinearEquiv_mul` transports compatible
+rectangular products, `Matrix.transpose_reindex` transports the adjoint law,
+and `Matrix.det_reindex_self` proves that applying the same sector permutation
+to rows and columns leaves the determinant unchanged.  These APIs support the
+checked `[3,1,0,2]` Equation 63 permutation without a second block calculation.
+
+Known basis preparation uses the permutation-matrix surface:
+
+```lean
+Equiv.Perm.permMatrix
+Matrix.conjTranspose_permMatrix
+Matrix.permMatrix_mul
+PEquiv.toMatrix_toPEquiv_mulVec
+```
+
+This makes XOR preparation scalar-generic and proves its action on the one-hot
+ground column directly, without introducing a circuit synthesis algorithm.
 
 ## Unitary matrices and determinants
 
@@ -300,6 +323,8 @@ without placeholders:
 
 - complex/`j`-component multiplication, conjugation, reconstruction, and norm-square
   scalar identities;
+- complex unit-right-phase equivalence, normalization/weight invariance, and
+  preservation by arbitrary compatible matrix evolution;
 - right-linearity of quaternionic `mulVec`;
 - preservation of `star x ⬝ᵥ x` and real/complex/quaternionic total weights by
   generic unitary matrix action;
@@ -308,14 +333,22 @@ without placeholders:
 - injective star-monoid and unitary-group maps for both embeddings;
 - orthogonal, special-orthogonal, unitary, and complex-symplectic image facts
   with the determinant boundary stated above;
+- the direct four-sector Equation 63 map, all sixteen coordinates, exact
+  `[3,1,0,2]` relation to the composed embedding, injective star homomorphism,
+  and quaternionic-unitary embedding into `SO(4N)`;
+- explicit `SO(4)`/`SU(4)` nonimage witnesses, including rank-one properness of
+  the direct quaternion-to-real image;
 - noncommutative-safe contextual placement, added-wire reindexing, and unitary
   preservation;
+- unitary XOR preparation of any classically known computational-basis input;
 - corrected Kronecker interchange under entrywise commutation, its
   commutative/zero–one special cases, and explicit quaternionic success and
   failure checks;
 - finite legal schedules, occurrence completeness/count/permutation laws,
   pairwise-commuting schedule independence, and an observable disjoint-gate
   order-dependence witness;
+- a normalized product-input witness whose two outputs are distinct right-phase
+  rays but have identical computational-basis weights;
 - whole ordered-circuit embedding, normalized state evolution, bottom
   probability preservation, and exact abstract count/width/arity results;
 - exact quaternion-to-complex simulation for each supplied legal schedule,
@@ -330,6 +363,8 @@ without placeholders:
   `s*K` count/serial-depth bounds from a supplied compiler and per-gate premise;
 - normalized finite distributions plus event and deterministic-pushforward
   preservation for both primary simulations; and
+- a normalized realification example whose added top wire does not factor as
+  a pure product with the bottom system; and
 - the pinned project baseline and axiom smoke audit.
 
 Their stable declarations live in the narrow scalar, matrix, state, circuit,

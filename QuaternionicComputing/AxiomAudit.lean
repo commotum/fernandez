@@ -206,3 +206,40 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Simulation.complexifyCircuitBottomDistribution_eq
 #print axioms QuaternionicComputing.Simulation.complexifyCircuitOutput_eventWeight
 #print axioms QuaternionicComputing.Simulation.complexifyCircuitOutput_pushforward_eq
+
+#print axioms QuaternionicComputing.Quaternion.card_directRealIndex
+#print axioms QuaternionicComputing.Quaternion.directRealify_eq_reindex
+#print axioms QuaternionicComputing.Quaternion.directRealify_mul
+#print axioms QuaternionicComputing.Quaternion.directRealify_conjTranspose
+#print axioms QuaternionicComputing.Quaternion.directRealify_injective
+#print axioms QuaternionicComputing.Quaternion.directRealify_mem_specialOrthogonal
+#print axioms QuaternionicComputing.Quaternion.directRealifyUnitaryEquivImage
+
+#print axioms
+  QuaternionicComputing.Matrix.ProperImage.realWitness_specialOrthogonal_not_realify
+#print axioms
+  QuaternionicComputing.Matrix.ProperImage.complexWitness_specialUnitary_not_complexify
+#print axioms
+  QuaternionicComputing.Matrix.ProperImage.directWitness_specialOrthogonal_not_directRealify
+
+#print axioms QuaternionicComputing.Complex.rightPhaseEquivalent_equivalence
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_complexBasisWeight
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_complexTotalWeight
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_complex_mulVec
+
+#print axioms QuaternionicComputing.Circuit.basisPreparationMatrix_mem_unitary
+#print axioms QuaternionicComputing.Circuit.basisPreparationGate_mulVec_ground
+#print axioms
+  QuaternionicComputing.Circuit.eval_prepend_basisPreparation_mulVec_ground
+
+#print axioms
+  QuaternionicComputing.Circuit.ProductInputOrderingWitness.groundColumn_product
+#print axioms
+  QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_not_rightPhaseEquivalent
+#print axioms
+  QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_basis_weights_eq
+
+#print axioms
+  QuaternionicComputing.Simulation.NonProductWitness.sourceColumn_normalization
+#print axioms
+  QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct

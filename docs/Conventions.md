@@ -38,6 +38,13 @@ silently confused with ordinary left scalar action.  The state API proves that
 this right phase preserves every basis weight, total weight, normalization,
 and arbitrary compatible matrix action.
 
+Complex phase is also written on the right so the two state APIs have the same
+shape.  Because `ℂ` is commutative, this is equivalent to the usual left-phase
+convention.  `Complex.RightPhaseEquivalent` and
+`Quaternion.RightPhaseEquivalent` are explicit relations on representative
+columns; `ComplexState` and `QuaternionState` remain normalized-column
+subtypes, not quotient types.
+
 ## Conjugation and adjoints
 
 - Complex and quaternionic conjugation use `star`.
@@ -79,6 +86,14 @@ Matrix embeddings use `Matrix.fromBlocks`, so an index `ι` is doubled to
 `BitBasis W` to `BitBasis (Unit ⊕ W)`.  The `Unit` summand is one shared,
 distinguished leading/top wire; its `false` and `true` assignments select the
 two matrix blocks.
+
+Equation 63 uses a separate transparent four-sector order
+`[Re, ImI, ImK, ImJ]`.  `DirectRealIndex ι` has cardinality `4 * card ι`, and
+`eq63PaperToComposed` maps paper sectors to the nested composition in order
+`[3,1,0,2]`.  Thus `directRealify A` is a simultaneous row/column reindexing of
+`realify (complexify A)`, with no hidden diagonal sign change.  This is a
+matrix-level convention; the canonical circuit corollary continues to use the
+two explicit added wires of the compositional translators.
 
 ## States, phases, and measurements
 
@@ -153,6 +168,10 @@ finite postprocessing.  It does not include randomized machines or their cost.
   coefficients.  The library's `i`/`j` example proves that some disjoint
   locally unitary pairs have order-dependent operators and observable weights;
   it does not say that all such pairs do.
+- On the normalized ground product input, the same pair has outputs that are
+  not related by unit right phase, yet all computational-basis weights agree.
+  This is an explicit reminder that ray inequality, operator inequality, and
+  equality for one measurement family are different conclusions.
 - Semantic permutation matrices used to describe placement are not counted as
   physical swap gates unless a separate synthesis theorem constructs them.
 - A chronological list `[g₁, …, gₛ]` evaluates to `Gₛ * ⋯ * G₁`.  The added
@@ -174,6 +193,9 @@ finite postprocessing.  It does not include randomized machines or their cost.
   simulation operator theorem has the typed form `eval target = wireEmbed
   (eval source)`; source and target operators are never asserted literally
   equal across scalar fields or dimensions.
+- The direct Equation 63 map is proved only as a checked matrix reindexing of
+  the same composition.  No distinct direct placed-gate or wire-facing circuit
+  translator is part of the public semantics.
 - Circuit-facing state columns are defined independently by transporting the
   sum-index columns through `addedBasisEquiv`.  Evolution theorems apply the
   actual translated evaluator to these columns and prove the resulting
@@ -240,9 +262,11 @@ are not retained.
 
 ## Dimensions and empty types
 
-An `N × N` source matrix embeds into a `2N × 2N` target matrix, represented by a
-sum index rather than informal arithmetic on dimensions.  Circuit basis types
-are nonempty even for zero wires.  General matrix lemmas retain empty index
-types when true.  In particular, the realification determinant identity and
-its special-orthogonal consequence need no `Nonempty` hypothesis; both sides
-have determinant `1` in dimension zero.
+An `N × N` source matrix embeds into a `2N × 2N` target matrix under either
+primary embedding, represented by a sum index rather than informal arithmetic
+on dimensions.  Direct quaternionic realification uses four sum sectors and
+has target dimension `4N`.  Circuit basis types are nonempty even for zero
+wires.  General matrix lemmas retain empty index types when true.  In
+particular, the realification determinant identity and its special-orthogonal
+consequence need no `Nonempty` hypothesis; both sides have determinant `1` in
+dimension zero.

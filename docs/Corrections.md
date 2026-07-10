@@ -372,14 +372,22 @@ means the corrected mathematical target is known but not yet formalized;
   whose operators are unequal.  On one explicitly normalized input, their
   `00` outcome weights are respectively `8281/15625` and `1369/15625`.
   Complexification preserves the operator inequality and both exact weights.
-  This is one existential witness, not a theorem about every disjoint pair or
-  every input/measurement.
+  A complementary diagnostic starts from the normalized, pointwise-factorized
+  ground column.  The two orders agree at `00`, `01`, and `10` but give
+  opposite `∓(16/25)k` amplitudes at `11`; their normalized outputs are not
+  related by any unit right phase, while every computational-basis weight is
+  nevertheless equal.  Together these are existential witnesses, not a
+  theorem about every disjoint pair or every input/measurement, and neither
+  establishes signaling, entanglement, causality violation, or security.
 - **Lean declarations:** `Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute`;
   `Circuit.OrderingWitness.gate_supports_disjoint`, `iGate_locallyUnitary`,
   `jGate_locallyUnitary`, `scheduled_operators_ne`,
   `output_basis00_weight_ne`; and
   `Simulation.OrderingWitness.complexified_scheduled_operators_ne`,
-  `complexOutput_basis00_weight_ne`.
+  `complexOutput_basis00_weight_ne`; plus
+  `Circuit.ProductInputOrderingWitness.groundColumn_product`,
+  `ground_outputs_not_rightPhaseEquivalent`, and
+  `ground_outputs_basis_weights_eq`.
 - **Dependents:** Definitions 4–5, physical interpretations, and bit-commitment
   discussion.
 

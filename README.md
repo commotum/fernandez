@@ -30,8 +30,12 @@ import QuaternionicComputing.Matrix.Realification
 import QuaternionicComputing.Matrix.Complexification
 import QuaternionicComputing.Matrix.Unitary
 import QuaternionicComputing.Matrix.Determinant
+import QuaternionicComputing.Matrix.QuaternionRealification
+import QuaternionicComputing.Matrix.QuaternionRealificationUnitary
+import QuaternionicComputing.Matrix.ProperImage
 import QuaternionicComputing.Matrix.KroneckerCommute
 import QuaternionicComputing.State.Basic
+import QuaternionicComputing.State.ComplexPhase
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
@@ -39,11 +43,13 @@ import QuaternionicComputing.State.Distribution
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
+import QuaternionicComputing.Circuit.BasisPreparation
 import QuaternionicComputing.Circuit.Realification
 import QuaternionicComputing.Circuit.Complexification
 import QuaternionicComputing.Circuit.Cost
 import QuaternionicComputing.Circuit.Ordering
 import QuaternionicComputing.Circuit.OrderingWitness
+import QuaternionicComputing.Circuit.ProductInputOrderingWitness
 import QuaternionicComputing.Circuit.Depth
 import QuaternionicComputing.Circuit.DescriptionCost
 import QuaternionicComputing.Circuit.Compilation
@@ -51,6 +57,7 @@ import QuaternionicComputing.Circuit.ScheduleCount
 import QuaternionicComputing.Simulation.ComplexToReal
 import QuaternionicComputing.Simulation.QuaternionToComplex
 import QuaternionicComputing.Simulation.QuaternionToReal
+import QuaternionicComputing.Simulation.NonProductWitness
 import QuaternionicComputing.Simulation.Scheduled
 import QuaternionicComputing.Simulation.OrderingWitness
 import QuaternionicComputing.Simulation.Resources
@@ -58,17 +65,25 @@ import QuaternionicComputing.Simulation.CompiledResources
 import QuaternionicComputing.Simulation.Postprocessing
 ```
 
-The matrix layer currently exports dimension-safe, injective, multiplicative,
+The matrix layer exports dimension-safe, injective, multiplicative,
 adjoint-preserving embeddings on sum indices.  Complex unitaries realify to
 special orthogonal matrices.  Quaternionic unitaries complexify injectively to
 complex unitary and symplectic matrices; the available formal proof narrows
 their determinant to `1` or `-1`, while selecting the positive sign remains a
 documented paper-proof obligation that is not needed by the simulation.
+Equation 63's direct four-real-sector map is also formalized: all sixteen
+coordinate formulas compile, its `4N` dimension is explicit, and it is exactly
+the composed embedding after the checked sector permutation `[3,1,0,2]`.
+Quaternionic unitaries embed into `SO(4N)` and are equivalent to their image,
+not to the whole target.  Explicit `SO(4)` and `SU(4)` witnesses record the
+qualified non-surjectivity results without inferring operational lower bounds.
 
 The state layer supplies explicitly normalized finite real, complex, and
-quaternionic states, repairs quaternionic phase to act on the right, proves
-both representation-column evolution identities, and proves pointwise bottom
-computational-basis weight preservation for every normalized pure top
+quaternionic states.  Complex unit right phase is an explicit equivalence
+relation preserving weights and matrix evolution; quaternionic phase is
+corrected to act on the right and has the analogous operational laws.  Both
+representation-column evolution identities and pointwise bottom
+computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite
 events and deterministic pushforwards of normalized outcome weights.
 
@@ -82,9 +97,13 @@ is sufficient for all legal schedules to agree.  Conversely, an explicit pair
 of disjoint, locally unitary quaternionic one-wire gates has two legal orders
 with unequal operators and unequal normalized output weights.  This is an
 existential witness, not a claim that every disjoint quaternionic pair is
-order-sensitive.  One-gate realification and complexification reuse one shared
-distinguished top wire, commute with actual contextual placement, preserve
-local unitarity, and increase local arity by exactly one.
+order-sensitive.  On the normalized ground product input, the same orders
+instead yield distinct right-phase rays while agreeing on every
+computational-basis weight; this is not a signaling or entanglement theorem.
+A known computational-basis input can be prepared from the ground column by a
+certified XOR permutation gate.  One-gate realification and complexification
+reuse one shared distinguished top wire, commute with actual contextual
+placement, preserve local unitarity, and increase local arity by exactly one.
 
 The resource layer measures only explicitly stated finite structures.  A
 `SupportLayering` consists of nonempty, support-disjoint layers whose flattening
@@ -105,6 +124,12 @@ Abstract gate count is unchanged, width grows by exactly one, and every local
 gate grows by exactly one wire; maximum-arity theorems handle the empty circuit
 explicitly.  Composing the two translations proves the corrected
 quaternion-to-real corollary with two added wires and exact `+2` arity.
+The direct Equation 63 API is a matrix-level reindexing theorem supplementing
+this canonical compositional circuit construction; it does not introduce a
+second wire-facing translator.  A high-level `NonProductWitness` gives a
+normalized realified state whose added top wire cannot be factored from the
+bottom system, without upgrading that fact to a mixed-state or signaling
+claim.
 For a supplied finite legal schedule, the scheduled bridge applies the same
 exact quaternion-to-complex theorem to that schedule's chronological circuit
 without selecting a schedule or asserting schedule independence.  The

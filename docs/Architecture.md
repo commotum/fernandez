@@ -3,8 +3,8 @@
 ## Design objective
 
 The library is organized by reusable mathematics rather than the paper's
-section order.  Paper-specific statements will be thin packaging over general
-scalar, matrix, state, and circuit results.
+section order.  Paper-specific statements are thin packaging over general
+scalar, matrix, state, circuit, and simulation results.
 
 ## Module layers
 
@@ -18,9 +18,13 @@ QuaternionicComputing/
     Complexification.lean    quaternion matrices → complex matrices
     Unitary.lean             star homomorphisms and unitary/symplectic images
     Determinant.lean         isolated determinant and SO/sign results
+    QuaternionRealification.lean         Equation 63 coordinates and algebra
+    QuaternionRealificationUnitary.lean  direct unitary → SO(4N) image
+    ProperImage.lean         explicit qualified non-surjectivity witnesses
     KroneckerCommute.lean    corrected noncommutative interchange boundary
   State/
     Basic.lean               normalized columns, weights, right phases
+    ComplexPhase.lean        complex unit-phase equivalence and invariance
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
@@ -29,12 +33,14 @@ QuaternionicComputing/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
     Basic.lean               locality-certified gates and ordered semantics
+    BasisPreparation.lean    known basis input as a unitary XOR permutation
     OrderSanity.lean         concrete noncommuting evaluator audit
     Cost.lean                generic width/arity bounds and maxima
     Realification.lean       one-gate complex-to-real translation
     Complexification.lean    one-gate quaternion-to-complex translation
     Ordering.lean            finite legal schedules and independence criterion
     OrderingWitness.lean     disjoint unitary order-dependence witness
+    ProductInputOrderingWitness.lean  ray dependence with equal basis weights
     Depth.lean               support-disjoint layering certificates
     DescriptionCost.lean     dense scalar-slot and conditional work measures
     Compilation.lean         supplied exact primitive-compiler interface
@@ -44,15 +50,13 @@ QuaternionicComputing/
     ComplexToReal.lean       corrected Theorem 2 family
     QuaternionToComplex.lean corrected Theorem 4 family
     QuaternionToReal.lean    corrected Corollary 1 family
+    NonProductWitness.lean   high-level pure nonfactorization example
     Scheduled.lean           fixed legal-schedule simulation bridge
     OrderingWitness.lean     translated observable ordering witness
     Resources.lean           shared-top depth and dense-slot consequences
     CompiledResources.lean   conditional compiled count/depth consequences
     Postprocessing.lean      finite event and deterministic-output closure
     Examples.lean            exact non-real and quaternionic end-to-end checks
-  Paper/
-    Results.lean             source-numbered wrappers where useful
-  Examples.lean
   AxiomAudit.lean
 QuaternionicComputing.lean   stable public root import
 ```
@@ -78,6 +82,16 @@ circuit boundary, `addedBasisEquiv` identifies `BitBasis W ⊕ BitBasis W` with
 assignments of one distinguished top wire.  This keeps wire bookkeeping out of
 the scalar/matrix proofs while making the shared added wire explicit.
 
+`Matrix/QuaternionRealification.lean` gives Equation 63 a transparent
+four-sector index ordered `[Re, ImI, ImK, ImJ]`.  All sixteen component entries
+are proved, and `directRealify_eq_reindex` identifies the map with
+`realify (complexify A)` after the same pure sector permutation `[3,1,0,2]` on
+rows and columns.  Algebraic laws are inherited through that checked equality.
+The heavier unitary leaf packages the injective star homomorphism into
+`SO(4N)` and an equivalence only with its image.  `ProperImage.lean` keeps
+finite counterexamples out of the embedding core and proves explicitly that
+the direct image is already proper in `SO(4)`.
+
 Scalar component maps still receive direct entry-level theorems and concrete
 sign tests.  Star/adjoint compatibility is a separate proof obligation; it is
 not assumed merely from multiplicativity.
@@ -97,7 +111,10 @@ quaternion-linear without the exact scalar action needed for that claim.
 scalar weight instead of introducing a global norm-square typeclass.  Its real,
 complex, and quaternion specializations expose nonnegative basis weights and
 normalization equations.  Quaternionic right phase is proved to preserve each
-weight and commute with arbitrary matrix action.
+weight and commute with arbitrary matrix action.  `State/ComplexPhase.lean`
+provides the commutative complex analogue as an explicit equivalence relation,
+including basis-weight, total-weight, and arbitrary-matrix invariance.  Neither
+relation is silently identified with equality of representative columns.
 
 Outcome preservation is proved coordinatewise:
 
@@ -138,6 +155,14 @@ before multiplying, so `[g₁, …, gₛ]` denotes `Gₛ * ⋯ * G₁`.  A gener
 noncommutation theorem and a concrete quaternionic `i`/`j` witness guard this
 order.  Gate count is list length; semantic reindexing does not add gates.
 
+`Circuit/BasisPreparation.lean` handles only a classically known
+computational-basis assignment.  XOR by that assignment is a self-inverse
+permutation whose matrix is unitary over a compatible star semiring; as a
+full-support placed gate it maps the all-zero basis column to the requested
+column.  Prepending the gate obeys the established chronological evaluator.
+There is no unknown-state preparation, primitive synthesis, or uniform cost
+claim.
+
 `AddedWire W := Unit ⊕ W` is shared by every translated gate.  `addTopSplit`
 puts this one distinguished wire into the translated local support while
 leaving the complement unchanged.  The separate realification and
@@ -177,6 +202,15 @@ Boolean wires and proves that the two legal schedules have unequal operators
 and unequal normalized `00` outcome weights.  This witness establishes
 existence only; disjoint support is not by itself either a universal
 order-dependence theorem or an order-independence theorem over quaternions.
+
+`Circuit/ProductInputOrderingWitness.lean` reuses the same gates on the
+normalized pointwise-factorized ground input.  The resulting normalized
+columns agree at three basis coordinates and have opposite `k` components at
+the fourth.  Their common nonzero `00` coordinate proves that they are not
+related by any unit right phase, while a separate theorem proves equality of
+every computational-basis weight.  This leaf therefore audits the distinction
+between ray-level state dependence and the observable chosen by the model; it
+does not assert signaling, entanglement, causality violation, or security.
 
 The paper's cut-poset language is not identified with this occurrence-order
 API.  No type of temporal cuts, theorem that one topological sort totally
@@ -226,7 +260,16 @@ The corrected Corollary 1 is the visible composition
 `realifyCircuit (complexifyCircuit c)`.  It uses two shared distinguished
 wires, proves operator embedding `wireRealify (wireComplexify (eval c))`, exact
 gate count, width and arity `+2`, nested state intertwining, and the four-sector
-bottom probability sum.  It introduces no direct quaternion-to-real map.
+bottom probability sum.  Equation 63's `directRealify` is a matrix-level
+reindexing theorem supplementing this canonical compositional circuit API; no
+second wire-facing circuit translator is introduced.
+
+`Simulation/NonProductWitness.lean` sits deliberately above the primary
+simulator because it uses the actual added-wire encoding.  A normalized source
+with rational amplitudes `3/5` and `(4/5)i` has canonical real coordinates
+`(3/5,0,0,-4/5)`, which cannot factor even into unnormalized pure top and
+bottom columns.  The neutral module name reflects its exact theorem surface:
+no density-state, signaling, or cryptographic conclusion is drawn.
 
 `Simulation/Postprocessing.lean` upgrades the pointwise normalized outcome
 equalities to equality of the complete finite bottom distributions.  It then
@@ -279,6 +322,10 @@ determinant boundary is therefore explicit:
   unitary maps to `SO(2N)`;
 - a quaternionic unitary maps injectively to a complex unitary preserving the
   canonical symplectic form;
+- simultaneous reindexing of the composed embedding proves that direct
+  realification sends a quaternionic unitary to `SO(4N)` with determinant one;
+  the induced group map is injective but not onto the whole target, with an
+  explicit rank-one `SO(4)` nonimage witness;
 - the available block and unitary laws prove only that its complex determinant
   is real and lies in `{1, -1}`.  The proof selecting `1` needs Pfaffian,
   connectedness, or Study-determinant infrastructure absent from the pinned
