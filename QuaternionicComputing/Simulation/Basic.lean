@@ -70,6 +70,35 @@ theorem transportAddedColumn_injective :
   have hi := congrFun h (addedBasisEquiv W i)
   simpa [transportAddedColumn] using hi
 
+/-- Added-wire transport preserves the total weight of every finite column. -/
+@[simp]
+theorem totalWeight_transportAddedColumn [Finite W] (weight : R → ℝ)
+    (v : BitBasis W ⊕ BitBasis W → R) :
+    QuaternionicComputing.State.totalWeight weight (transportAddedColumn v) =
+      QuaternionicComputing.State.totalWeight weight v := by
+  simpa [QuaternionicComputing.State.totalWeight,
+    QuaternionicComputing.State.basisWeight, transportAddedColumn,
+    Function.comp_def] using
+    ((addedBasisEquiv W).symm.sum_comp (fun i => weight (v i)))
+
+/-- Transport a normalized sum-index state to the explicit added-wire basis. -/
+def transportAddedState [Finite W] {weight : R → ℝ}
+    (v : QuaternionicComputing.State.NormalizedState
+      (BitBasis W ⊕ BitBasis W) R weight) :
+    QuaternionicComputing.State.NormalizedState
+      (BitBasis (AddedWire W)) R weight :=
+  ⟨transportAddedColumn v, by
+    rw [totalWeight_transportAddedColumn]
+    exact v.property⟩
+
+@[simp]
+theorem transportAddedState_apply [Finite W] {weight : R → ℝ}
+    (v : QuaternionicComputing.State.NormalizedState
+      (BitBasis W ⊕ BitBasis W) R weight)
+    (x : BitBasis (AddedWire W)) :
+    transportAddedState v x = transportAddedColumn v x :=
+  rfl
+
 /--
 Reindexing a square matrix to the explicit added-wire basis commutes with
 matrix action on transported columns.
