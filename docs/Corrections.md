@@ -87,7 +87,7 @@ means the corrected mathematical target is known but not yet formalized;
 - **Dependents:** measurement probabilities and all state-level simulation
   statements.
 
-## C-006 — Quaternionic global phase is on the wrong side
+## C-006 — Quaternionic state/ray phase is on the wrong side
 
 - **Source:** Definition 3, Equation (45), lines 802–810.
 - **Status:** confirmed convention error; obstruction and generic repair proved.
@@ -96,14 +96,22 @@ means the corrected mathematical target is known but not yet formalized;
   `A(ψq) = (Aψ)q`.  The paper's left phase generally is not:
   `A(qψ)` cannot move `q` past arbitrary entries of `A`.
 - **Evidence:** `phaseWitnessGate` is the norm-preserving two-coordinate
-  evolution `diag(1,j)`.  Its input and `i`-left-multiple begin on the same
-  left-phase ray, but `not_leftPhaseEquivalent_gate_i_input` proves that no
-  output left phase exists.  The separate theorem
+  evolution `diag(1,j)`. The original `phaseWitnessInput = (1,1)` and its
+  `i`-left-multiple begin on the same left-phase ray, but that raw column has
+  total weight `2`, not `1`; `not_leftPhaseEquivalent_gate_i_input` is therefore
+  a valid raw-column diagnostic, not normalized-state evidence. Goal 2 repairs
+  the evidence with the normalized `(3/5,4/5)` pair. Both inputs and both gate
+  outputs are packaged as `QuaternionState Bool`, and
+  `normalized_not_leftPhaseEquivalent_gate_i_input` proves that no output left
+  phase exists. The separate theorem
   `fixed_left_phase_not_natural` records the one-dimensional noncommutation
   diagnostic without overclaiming ray failure.
-- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`.  Unit right
-  phase is now proved to preserve every basis weight, total weight,
-  normalization, and arbitrary compatible quaternionic matrix evolution.
+- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`. Unit right phase
+  is proved to preserve every basis weight, the complete normalized
+  computational-basis distribution, arbitrary compatible matrix and ordered-
+  circuit action, and normalized unitary evolution. These are state/ray and
+  computational-basis results, not operator global-phase, channel, or
+  all-effect equality.
 - **Lean declarations:**
   `QuaternionicComputing.Quaternion.LeftPhaseEquivalent`,
   `RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`,
@@ -113,7 +121,10 @@ means the corrected mathematical target is known but not yet formalized;
   `State.QuaternionState.rightPhase`,
   `State.rightPhaseEquivalent_quaternionBasisWeight`,
   `State.quaternion_mulVec_right_smul`, and
-  `State.rightPhaseEquivalent_mulVec`.
+  `State.rightPhaseEquivalent_mulVec`; plus
+  `Semantics.QuaternionStatePhaseEq`, its equivalence, distribution,
+  `raw_eval`, and `evolveUnitary` theorems, and the normalized certificates in
+  `Semantics.StatePhaseAudit`.
 - **Dependents:** Definition 3, physical-state equivalence, initialization, and
   any statement phrased as state rather than measurement equality.
 

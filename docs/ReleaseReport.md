@@ -130,7 +130,7 @@ Representative exported declarations include:
 | Area | Main declarations |
 |---|---|
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
-| Phase | `Quaternion.RightPhaseEquivalent`, `Quaternion.rightPhaseEquivalent_equivalence`, `Complex.RightPhaseEquivalent`, `Complex.rightPhaseEquivalent_equivalence`, `State.rightPhaseEquivalent_mulVec`, `rightPhaseEquivalent_complex_mulVec` |
+| State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, their equivalence/distribution theorems, and their raw-matrix/circuit and normalized-unitary preservation laws |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
 | Quaternion → complex matrices | `Quaternion.complexify`, `complexify_mul`, `complexify_conjTranspose`, `complexify_mem_unitary`, `complexify_mem_symplectic` |
 | Direct quaternion → real | `Quaternion.directRealify`, `directRealify_eq_reindex`, `directRealify_mem_specialOrthogonal`, `directRealifyUnitaryEquivImage` |
@@ -173,7 +173,7 @@ The detailed source locations, diagnoses, proofs, and dependent effects are in
 4. The paper omits the determinant-one proof for quaternionic
    complexification; only the justified `±1` result is exported.
 5. Quaterbit normalization omits the displayed `= 1`.
-6. Quaternionic global phase must act on the right.
+6. Quaternionic state/ray phase must act on the right.
 7. State embeddings are real-linear, not silently complex/quaternion-linear.
 8. The source gives the wrong codomain for `h₀` and `h₁`.
 9. The stated noncommutative Kronecker condition names the wrong crossing
@@ -283,7 +283,7 @@ declarations; the selected list in the repository README and the module tree in
 
 When extending the library:
 
-- keep quaternionic columns as right modules and put global phase on the right;
+- keep quaternionic columns as right modules and put state/ray phase on the right;
 - preserve the chronological convention `[g₁,…,gₛ] ↦ Gₛ⋯G₁`;
 - use generic `unitary (Matrix … ℍ)` rather than the commutative-only
   `Matrix.unitaryGroup` for quaternionic matrices;

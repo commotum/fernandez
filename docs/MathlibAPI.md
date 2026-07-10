@@ -394,6 +394,26 @@ Three boundaries are mandatory:
 - an empty index type has no trace-one density matrix.  Channel theorems must
   state a nonempty hypothesis where existence of physical inputs is used.
 
+## Goal 2 state-phase and quotient preparation
+
+The real sign characterization uses mathlib's `sq_eq_one_iff`; after rewriting
+`pow_two`, it gives `s * s = 1 ↔ s = 1 ∨ s = -1` with no positivity or
+nonzero side condition. Pointwise negation is the ordinary function `Neg`
+instance, so function extensionality closes the corresponding column theorem.
+
+For exact quaternion diagnostics, `QuaternionAlgebra.ext` separates the four
+real components. Applying `congrArg` to `re`, `imI`, `imJ`, and `imK` is a
+robust way to cancel a nonzero real coordinate without assuming quaternionic
+commutativity. This is the route used by the normalized left-phase rejection
+witness.
+
+A strict Stage 4 readiness probe confirms that the three representative phase
+relations can be installed as `Setoid`s and consumed through `Quotient.sound`.
+Basis weights, finite distributions, raw matrix/circuit action, and normalized
+unitary evolution all have the required respectfulness theorems. The public
+quotient types and descended operations remain Stage 4 deliverables; the probe
+does not itself count as an export.
+
 ## Promoted compiled APIs
 
 The following formerly probed results now compile as public declarations
@@ -403,6 +423,10 @@ without placeholders:
   scalar identities;
 - complex unit-right-phase equivalence, normalization/weight invariance, and
   preservation by arbitrary compatible matrix evolution;
+- real sign equivalence with exact `±1` characterization, plus normalized
+  real/complex/quaternion representative-phase equivalence, basis-distribution
+  preservation, raw matrix/circuit naturality, and normalized unitary
+  evolution;
 - right-linearity of quaternionic `mulVec`;
 - preservation of `star x ⬝ᵥ x` and real/complex/quaternionic total weights by
   generic unitary matrix action;

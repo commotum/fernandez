@@ -62,7 +62,7 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 
 | ID | Evidence / representative declarations | Space | Subject | Input scope | Observation scope | Phase side | Exactness | Ancilla / marginal policy | Provisional disposition | Primary owner; consumer stages |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `EQC-001-Q-LEFT-PHASE-FAILURE` | `LeftPhaseEquivalent`, `not_leftPhaseEquivalent_gate_i_input`, `fixed_left_phase_not_natural`; `Corrections.md:90-116` | same | state columns and one evolution | one explicit normalized two-coordinate input pair | ray preservation failure | quaternion left, deliberately rejected | exact counterexample | none | Existing diagnostic; classify as a failed convention, never physical ray equality | G2 `3A-STATEPHASE`, `8B-WITNESSES` |
+| `EQC-001-Q-LEFT-PHASE-FAILURE` | `LeftPhaseEquivalent`, `not_leftPhaseEquivalent_gate_i_input`, `fixed_left_phase_not_natural`; `Corrections.md:90-116` | same | state columns and one evolution | one explicit raw unnormalized pair of weight `2`; the Stage 3A overlay supplies a normalized replacement | ray preservation failure | quaternion left, deliberately rejected | exact counterexample | none | Existing diagnostic; classify as a failed convention, never physical ray equality | G2 `3A-STATEPHASE`, `8B-WITNESSES` |
 | `EQC-002-Q-RIGHT-RAY` | `Quaternion.RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`, `rightPhaseEquivalent_mulVec`; `Architecture.md:111-119` | same | quaternionic state columns | arbitrary compatible columns; normalized wrappers where probabilities are claimed | ray, basis weight, total weight, evolution | quaternion right | exact | none | Existing state-ray API; relation-valued wrappers and normalized quotient remain future work | G2 `3A-STATEPHASE`, `4-RAYS` |
 | `EQC-003-C-RIGHT-RAY` | `Complex.RightPhaseEquivalent`, `rightPhaseEquivalent_complex_mulVec`; `Traceability.md:53` | same | complex state columns | arbitrary compatible columns; normalized wrappers | ray, basis weight, total weight, evolution | complex right, equal to left by commutativity | exact | none | Existing state-ray API; quotient and hierarchy classification unimplemented | G2 `3A-STATEPHASE`, `4-RAYS` |
 | `EQC-004-NORMALIZED-BASIS-DIST` | `FiniteDistribution.ofNormalizedState`, `FiniteDistribution.ext`; `Architecture.md:132-136` | same | normalized state and finite distribution | one normalized state or two distributions | full computational-basis distribution | none | exact | none | Existing distribution construction/extensionality; classify independently of state-ray equality | G2 `2-CORE` |
@@ -133,18 +133,54 @@ second requires explicit normalization of every basis ket for the supplied
 weight function. Exact operator and circuit equality imply all three, but no
 converse is published at this stage.
 
+## Immutable cohort erratum: `EQC-001`
+
+The frozen `Goal1ComparisonCohort` JSON and its SHA-256 sidecar preserve the
+Stage 1 discovery boundary byte-for-byte. Its `EQC-001.classification.inputScope`
+field says `one explicit normalized two-coordinate input pair`. That field is
+factually wrong: `Quaternion.phaseWitnessInput = (1,1)` has quaternionic total
+weight exactly `2`, proved by
+`StatePhaseAudit.phaseWitnessInput_totalWeight`. The original no-go theorem is
+still a valid raw-column counterexample, so the family membership and its
+declarations remain correct.
+
+The JSON is intentionally not rewritten because doing so would destroy the
+immutable pre-retrofit checksum. The corrected human rendering appears in the
+seed table above, and Stage 3A supplies a separate normalized `(3/5,4/5)` pair,
+its left-`i` mate, and both evolved outputs as actual `QuaternionState Bool`
+values. Stage 11's final classifier must apply this explicit erratum and the
+proof-bearing overlay rather than treating the frozen prose field as final
+semantic authority.
+
+## Stage 3A proof-bearing realization
+
+These are relations on normalized representatives. They do not yet identify
+quotient values; quotient equality and descended operations remain Stage 4.
+
+| Frozen row | Strongest checked Stage 3A classification | Proof-bearing API | Excluded upgrade |
+|---|---|---|---|
+| `EQC-001-Q-LEFT-PHASE-FAILURE` | Same-space exact rejection certificate: a normalized Bool-indexed pair related by unit left `i` phase is separated by the norm-preserving `diag(1,j)` endomap. | `StatePhaseAudit.normalizedWitness_all_totalWeights`, `normalized_leftPhaseEquivalent_i_input`, `normalized_not_leftPhaseEquivalent_gate_i_input` | Not failure of right phase, not a universal restricted-operator theorem, and not circuit/channel inequivalence. |
+| `EQC-002-Q-RIGHT-RAY` | Exact same-space unit-right-phase equivalence on normalized quaternionic representatives for arbitrary finite index types; preserved by basis distributions, raw matrices/circuits, and normalized unitary evolution. | `QuaternionStatePhaseEq` and its `equivalence`, `of_exact`, `basisWeightEq`, `normalizedDistributionEq`, `raw_mulVec`, `raw_eval`, and `evolveUnitary` theorems | Not quotient equality, arbitrary quaternion operator phase, channel equality, or a converse from basis distributions. |
+| `EQC-003-C-RIGHT-RAY` | Exact same-space unit-phase equivalence on normalized complex representatives, written on the right and central by commutativity, with the same distribution and evolution guarantees. | `ComplexStatePhaseEq` and its corresponding theorem family | Not quotient or channel equality; no converse from basis distributions. |
+| `EQC-043-REAL-SIGN-RAY` | Exact same-space sign equivalence on normalized real representatives. The unit condition is exactly `s=1 ∨ s=-1`, and the raw relation is exactly equality or pointwise negation. | `Real.SignEquivalent`, `sign_sq_eq_one_iff`, `signEquivalent_iff_eq_or_eq_neg`, and `RealStatePhaseEq` with its distribution and evolution theorem family | Not quotient equality, not realification of arbitrary complex phase, and no distribution converse. |
+
+`ExactStateEq` separately names literal equality of normalized representatives
+and implies each scalar-specific phase relation. No Stage 3A result upgrades
+`FER03-D01-REBIT` or `FER03-FND-COMPLEX-STATE-RAY` to a completed quotient
+result.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label
 must not silently choose one reading.
 
-1. `docs/ReleaseReport.md:176` and `docs/ReleaseReport.md:286` say
-   quaternionic “global phase” acts on the right.  Read as operator phase this
-   is false; the completed result concerns state/ray phase.
-2. `docs/Corrections.md:90` uses the same ambiguous phrase in its heading,
-   although `docs/Corrections.md:94-118` correctly discusses state columns.
-3. `docs/Conventions.md:33-39` is correct in vector context but must be tagged
-   as state-ray phase, not arbitrary quaternionic operator phase.
+1. **Resolved in Stage 3A:** `docs/ReleaseReport.md` now says quaternionic
+   state/ray phase acts on the right, not unqualified “global phase.”
+2. **Resolved in Stage 3A:** correction C-006 is now titled “Quaternionic
+   state/ray phase is on the wrong side” and distinguishes raw from normalized
+   evidence.
+3. **Resolved in Stage 3A:** `docs/Conventions.md` explicitly tags the relation
+   as state/ray representative phase and excludes arbitrary operator phase.
 4. `goal-1/6-SIMULATION.md:203` says a real probability equals a quaternionic
    output.  The intended comparison is with the source output basis
    probability/weight.  `goal-1/0-plan.md:129-132` has the same type-confused
