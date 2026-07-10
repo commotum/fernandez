@@ -165,7 +165,7 @@ this checksum mechanically before implementation begins.
 | 8-ENCODING | `FER03-R-LOCAL-GATE-COST`; `FER03-R-PREPROCESSING-COST`; `FER03-RES-UNIFORM-CIRCUIT-WITHOUT-UNIVERSAL-SET`; `FER03-RES-EXPLICIT-MATRIX-ARITY` | 4 partial | Executable codes, translators, validators, and bit/work bounds |
 | 9-APPROX | `FER03-FND-FINITE-PRECISION` | 1 partial | Certified rounding and accumulated state/outcome error bounds |
 | 10-SYNTHESIS | `FER03-RES-GENERIC-DECOMPOSITION`; `FER03-RES-CONSTANT-D`; `FER03-RES-ARBITRARY-D-OVERHEAD` | 2 partial + 1 unresolved | Refute unsupported bounds and instantiate a corrected explicit synthesis theorem |
-| 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Separate exact impossibility from approximate density; prove a finite dense set or a model-wide no-go |
+| 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Prove one width-independent finite bounded-arity schema dense at every quaterbit width, or a model-wide no-go |
 | 12-UNIFORMITY | `FER03-D02-REAL-ALGORITHM`; `FER03-D05-QUATERNIONIC-ALGORITHM`; `FER03-R-COMPUTATIONAL-UNIVERSALITY`; `FER03-RES-ABSTRACT-LITTLE-OVERHEAD`; `FER03-INT-PREFERRED-PATH-BQP` | 5 partial | Encoded uniform families, runtime, randomized outcomes, and corrected class containment |
 | 13-REALQTM | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | 1 excluded | Independently state and prove the external approximate-real QTM result or its strongest verified correction |
 | 14-STRUCTURE | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT` | 3 partial | Exact complex-structure and subsystem characterizations |
@@ -205,8 +205,10 @@ open until every milestone and its source-facing consumer is verified.
 | Workstream | Required milestones and independent exits |
 |---|---|
 | 6-ROUTING | `6A-SWAPS`: emitted adjacent-swap network and semantics; `6B-TOPOSORT`: in-memory executable sorter/cycle certificate and work count; `6C-CUTS`: order-ideal/maximal-chain theorems consuming schedules |
+| 7-PHASEFANOUT | `7A-REALOPT`: independent real-gate optimization; `7B-SPLITTER`: two-rail orthogonal/intertwining smoke theorem; `7C-RAILTREE`: balanced code and resource arithmetic; `7D-MULTITOPSIM`: circuit/operator/state/outcome simulation and depth theorem |
 | 8-ENCODING | `8A-SCALARCODE`: exact component codecs/round trips; `8B-CIRCUITCODE`: gate/DAG/schedule codecs and validators; `8C-CODECOST`: executable translations plus bit/output/work bounds |
 | 10-SYNTHESIS | `10A-GATEMODELS`: exact/approximate primitive semantics and image-internal no-go; `10B-FACTOR`: mathematical two-level factorization; `10C-LOCALIZE`: bounded-local decomposition/lower bound; `10D-COMPILER`: encoded standard-library compiler and simulation consumer |
+| 11-UNIVERSALITY | `11A-DEFINITIONS`: exact/dense/kernel-correct notions; `11B-LIE`: fixed-dimension Lie generation; `11C-ALLWIDTH`: one finite bounded-arity schema across all widths; `11D-DENSITY`: closure theorem and public certificate |
 | 12-UNIFORMITY | `12A-FAMILIES`: encoded generators/postprocessors; `12B-RAMCOST`: executable translation and explicit work proofs; `12C-TMBRIDGE`: machine-level polynomial bridge; `12D-BQP`: library-relative then standard-library bounded-error containment |
 | 13-REALQTM | `13A-SOURCE`: primary statement audit; `13B-QTMMODEL`: finite-time semantics; `13C-STABILITY`: approximation/error theorem; `13D-SIMULATOR`: real-amplitude construction and overhead |
 | 16-CHANNELS | `16A-QDENSITY`: native quaternionic positivity/closure; `16B-CHANNELS`: channels/instruments/marginals; `16C-WITNESS`: exact operational classification; `16D-CAPACITY`: scoped capacity/rebit case study |
@@ -287,8 +289,10 @@ types while preserving the sided quaternionic convention.
   representative induction, and nonempty/normalization facts.
 - Descend basis distributions and compatible unitary evolution to the
   quotients; prove identity and composition laws.
-- State embedding compatibility using the actual induced target symmetry.  Do
-  not falsely identify a complex global phase with mere real sign.
+- State embedding compatibility using the actual induced target symmetry.  If
+  realification is descended, define a distinct top-rotation encoding-orbit
+  relation (for example `RealEncodingOrbit`); otherwise omit that quotient map.
+  Do not falsely identify a complex global phase with mere real sign.
 - Add exact two-coordinate examples distinguishing representative equality,
   ray equality, and equal computational outcomes.
 
@@ -606,7 +610,9 @@ approximate/dense meaning.
 #### Detailed Implementation Plan
 
 - Define exact word generation, topological closure, and epsilon generation in
-  operator norm on the compact symplectic matrix group, plus local placement.
+  operator norm on the compact symplectic matrix group, plus local placement of
+  one finite bounded-arity gate schema whose labels do not depend on total
+  circuit width.
   Quotient operators only by a rigorously proved kernel of their action on
   right-phase rays (expected at most the central `±I`), never by arbitrary unit
   quaternion right phase.
@@ -619,6 +625,10 @@ approximate/dense meaning.
   prove that conjugates of the added quaternionic direction generate the
   missing complement, and use a verified compact-Lie closure theorem or build
   the needed special case to prove density.
+- Lift the fixed-arity generators by placement and prove density in every
+  `Sp(2^n)` from one width-independent schema, with any small-width base cases
+  or exceptions stated explicitly.  A fixed-`n`, `n`-dependent dense set is
+  only an intermediate theorem and does not resolve the source claim.
 - Export a dense-generator certificate and only then connect it to approximate
   synthesis.  Efficiency is a separate Stage 12 obligation.
 - If a candidate fails, record its counterexample and test another candidate.
@@ -631,9 +641,10 @@ approximate/dense meaning.
   the entire approximate-universality class under the source's intended model.
   A candidate-specific no-go or conditional interface alone does not complete
   the stage.
-- Fixed arity, allowed central operator phases, topology, and fixed-`n` local
-  schema assumptions are explicit.  Encoded all-`n` uniformity belongs to
-  Stage 12.
+- The same finite labels and arity bound work at every circuit width; allowed
+  central operator phases, topology, placement, and small-width cases are
+  explicit.  Stage 12 handles effective word finding and runtime, not existence
+  of a width-independent universal schema.
 - The unresolved row receives a proved resolution and axiom-audited public or
   research-leaf theorem.
 
