@@ -79,8 +79,9 @@ Equation 63's direct four-real-sector map is also formalized: all sixteen
 coordinate formulas compile, its `4N` dimension is explicit, and it is exactly
 the composed embedding after the checked sector permutation `[3,1,0,2]`.
 Quaternionic unitaries embed into `SO(4N)` and are equivalent to their image,
-not to the whole target.  Explicit `SO(4)` and `SU(4)` witnesses record the
-qualified non-surjectivity results without inferring operational lower bounds.
+while at rank one an explicit witness proves that the image is proper in
+`SO(4)`.  Separate `SO(4)` and `SU(4)` witnesses record the other qualified
+non-surjectivity results without inferring operational lower bounds.
 
 The state layer supplies explicitly normalized finite real, complex, and
 quaternionic states.  Complex unit right phase is an explicit equivalence

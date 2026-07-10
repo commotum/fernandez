@@ -106,7 +106,8 @@ means the corrected mathematical target is known but not yet formalized;
   normalization, and arbitrary compatible quaternionic matrix evolution.
 - **Lean declarations:**
   `QuaternionicComputing.Quaternion.LeftPhaseEquivalent`,
-  `RightPhaseEquivalent`, `phaseWitnessGate_normSq`,
+  `RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`,
+  `phaseWitnessGate_normSq`,
   `not_leftPhaseEquivalent_gate_i_input`, and
   `rightPhaseEquivalent_gate`; plus
   `State.QuaternionState.rightPhase`,

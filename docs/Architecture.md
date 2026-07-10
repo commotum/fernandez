@@ -325,8 +325,8 @@ determinant boundary is therefore explicit:
   canonical symplectic form;
 - simultaneous reindexing of the composed embedding proves that direct
   realification sends a quaternionic unitary to `SO(4N)` with determinant one;
-  the induced group map is injective but not onto the whole target, with an
-  explicit rank-one `SO(4)` nonimage witness;
+  the induced group map is injective and equivalent to its image, and an
+  explicit rank-one witness proves that image is not all of `SO(4)`;
 - the available block and unitary laws prove only that its complex determinant
   is real and lies in `{1, -1}`.  The proof selecting `1` needs Pfaffian,
   connectedness, or Study-determinant infrastructure absent from the pinned

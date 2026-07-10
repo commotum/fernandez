@@ -200,8 +200,8 @@ The detailed source locations, diagnoses, proofs, and dependent effects are in
 23. A Hilbert space alone does not supply coherent local circuit semantics.
 24. Exact algebraic matrices and finite-precision descriptions are different
     models.
-25. Equation 63 embeds into `SO(4N)` and is an isomorphism only onto its image,
-    not onto the full group.
+25. Equation 63 embeds into `SO(4N)` and is always equivalent to its image; at
+    rank one the explicit `SO(4)` witness proves it is not onto the full target.
 26. Ground-state “without loss of generality” hides state-preparation and
     uniformity assumptions; only the known basis-input reduction used here is
     packaged as a gate.
@@ -241,7 +241,7 @@ lake build QuaternionicComputing.AxiomAudit
 ```
 
 The final full build completed 2,553 jobs successfully.  The executable audit
-contains 184 `#print axioms` commands; every audited endpoint uses only
+contains 186 `#print axioms` commands; every audited endpoint uses only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.
 

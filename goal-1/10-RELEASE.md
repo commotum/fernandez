@@ -21,6 +21,10 @@
 
 - Release work should not change the mathematical model unless the completion
   audit finds a real correctness or usability defect.
+- The public API audit found one such defect: quaternionic
+  `RightPhaseEquivalent` had operational invariance theorems but, unlike the
+  complex relation, no reflexive/symmetric/transitive packaging.  The checked
+  repair belongs in the existing low-dependency phase owner.
 - A persistent `docs/ReleaseReport.md` should carry the user-requested report;
   `docs/AxiomAudit.md` should explain the executable audit and its accepted
   standard foundations.
@@ -39,6 +43,8 @@ build alone as completion evidence.
 
 - Audit public namespaces, root imports, module paths, theorem names, and README
   usage guidance against the actual compiled environment.
+- Add the missing quaternionic right-phase equivalence laws, focused-build the
+  owning leaf, and extend the axiom audit before the final broad verification.
 - Add a persistent axiom-audit explanation recording the command, audited
   surface, accepted Lean/mathlib foundations, and absence of project axioms.
 - Add the final release report covering formalized mathematics, main exports,
@@ -54,7 +60,10 @@ build alone as completion evidence.
 
 ## Build Structure
 
-- No new mathematical core module is planned.
+- `Scalar/Phase.lean`: existing low-dependency public API owner; touched only to
+  add `rightPhaseEquivalent_refl`, `_symm`, `_trans`, and `_equivalence` after
+  the release audit exposed the missing relation packaging.  No scalar
+  representation or downstream semantics changes.
 - `docs/AxiomAudit.md`: documentary audit result; the executable source remains
   `QuaternionicComputing/AxiomAudit.lean`.
 - `docs/ReleaseReport.md`: durable user-facing handoff and requirement summary.

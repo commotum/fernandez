@@ -25,6 +25,39 @@ def LeftPhaseEquivalent {ι : Type*} (x y : ι → ℍ[ℝ]) : Prop :=
 def RightPhaseEquivalent {ι : Type*} (x y : ι → ℍ[ℝ]) : Prop :=
   ∃ η : ℍ[ℝ], _root_.Quaternion.normSq η = 1 ∧ x = y <• η
 
+/-- Quaternionic right-phase equivalence is reflexive. -/
+theorem rightPhaseEquivalent_refl {ι : Type*} (x : ι → ℍ[ℝ]) :
+    RightPhaseEquivalent x x := by
+  refine ⟨1, by simp, ?_⟩
+  funext i
+  simp
+
+/-- Quaternionic right-phase equivalence is symmetric. -/
+theorem rightPhaseEquivalent_symm {ι : Type*} {x y : ι → ℍ[ℝ]}
+    (hxy : RightPhaseEquivalent x y) : RightPhaseEquivalent y x := by
+  rcases hxy with ⟨η, hη, rfl⟩
+  refine ⟨star η, by simpa using hη, ?_⟩
+  funext i
+  change y i = (y i * η) * star η
+  rw [mul_assoc, _root_.Quaternion.self_mul_star, hη]
+  simp
+
+/-- Quaternionic right-phase equivalence is transitive. -/
+theorem rightPhaseEquivalent_trans {ι : Type*} {x y z : ι → ℍ[ℝ]}
+    (hxy : RightPhaseEquivalent x y) (hyz : RightPhaseEquivalent y z) :
+    RightPhaseEquivalent x z := by
+  rcases hxy with ⟨η, hη, rfl⟩
+  rcases hyz with ⟨θ, hθ, rfl⟩
+  refine ⟨θ * η, by rw [map_mul, hθ, hη, one_mul], ?_⟩
+  funext i
+  simp [mul_assoc]
+
+/-- Unit right phase is an equivalence relation on quaternionic columns. -/
+theorem rightPhaseEquivalent_equivalence {ι : Type*} :
+    Equivalence (@RightPhaseEquivalent ι) :=
+  ⟨rightPhaseEquivalent_refl, rightPhaseEquivalent_symm,
+    rightPhaseEquivalent_trans⟩
+
 /-- Multiplication by a unit quaternion on the right preserves scalar norm square. -/
 theorem normSq_mul_of_normSq_eq_one (x η : ℍ[ℝ])
     (hη : _root_.Quaternion.normSq η = 1) :

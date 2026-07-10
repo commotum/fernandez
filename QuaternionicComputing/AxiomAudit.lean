@@ -18,6 +18,7 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Quaternion.normSq_eq_complexPart_add_jPart
 #print axioms QuaternionicComputing.Quaternion.phaseWitnessGate_normSq
 #print axioms QuaternionicComputing.Quaternion.not_leftPhaseEquivalent_gate_i_input
+#print axioms QuaternionicComputing.Quaternion.rightPhaseEquivalent_equivalence
 #print axioms QuaternionicComputing.Quaternion.rightPhaseEquivalent_gate
 
 #print axioms QuaternionicComputing.Matrix.realify_injective
@@ -44,6 +45,7 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.State.quaternionBasisWeight_right_smul_of_normSq_eq_one
 #print axioms QuaternionicComputing.State.QuaternionState.rightPhaseEquivalent_rightPhase
 #print axioms QuaternionicComputing.State.rightPhaseEquivalent_quaternionBasisWeight
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_quaternionTotalWeight
 #print axioms QuaternionicComputing.State.quaternion_mulVec_right_smul
 #print axioms QuaternionicComputing.State.rightPhaseEquivalent_mulVec
 
