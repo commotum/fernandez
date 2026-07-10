@@ -211,7 +211,9 @@ finite postprocessing.  It does not include randomized machines or their cost.
 - For a supplied `LegalSchedule`, scheduled simulation applies the fixed-order
   theorem to exactly that chronological circuit.  It does not select a
   schedule, establish schedule independence, or implement Definition 5's
-  uniform classical generator, runtime, encoding, or postprocessing.
+  uniform classical generator, runtime, discrete encoding, or postprocessing
+  machine.  Separately, deterministic functions between finite outcome types
+  are covered extensionally, without a computation-cost claim.
 
 ### Corrected Table 1 boundary
 

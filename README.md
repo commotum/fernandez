@@ -87,7 +87,7 @@ distinguished top wire, commute with actual contextual placement, preserve
 local unitarity, and increase local arity by exactly one.
 
 The resource layer measures only explicitly stated finite structures.  A
-`SupportLayering` is a nonempty, support-disjoint layering whose flattening
+`SupportLayering` consists of nonempty, support-disjoint layers whose flattening
 retains the chronological circuit.  Every layering of either literal
 one-added-wire image has depth exactly the source gate count because every
 image gate uses the shared top wire.  Empty-precedence occurrence families

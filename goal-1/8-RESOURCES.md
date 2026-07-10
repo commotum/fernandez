@@ -187,5 +187,79 @@ to a complexity-class theorem.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 7-ORDERING on
-  2026-07-09.
+- Completed on 2026-07-09.
+- `Circuit/Depth.lean` now exports `SupportLayering`: nonempty
+  support-disjoint layers whose flattening is the exact chronological circuit.
+  `SupportLayering.serial` supplies the canonical singleton layering,
+  `depth_le_gateCount` handles every certificate, and
+  `depth_eq_gateCount_of_commonWire` proves that a wire shared by all gates
+  forces every layer to be a singleton.  The API is resource-only and never
+  infers quaternionic commutation from disjoint support.
+- `Simulation/Resources.lean` proves that the literal realified and
+  complexified image of every source gate contains the common added top wire.
+  Hence every support layering of either primary image, and of the visible
+  quaternion-to-real composition, has depth exactly the source gate count.
+  This construction-specific theorem is not a lower bound against alternative
+  or multi-top encodings.
+- `Circuit/DescriptionCost.lean` defines dense scalar-entry slots and proves
+  exactly `denseEntrySlots g = 4 ^ g.localArity`.  A finite slot bound yields
+  the base-four logarithmic arity bound; gatewise `+1` and `+2` translations
+  multiply total slots by `4` and `16`.  The simulation resource leaf
+  instantiates both factors.  `translationWork_le_gateCount_mul` derives a
+  finite `s*K` work bound only from an explicit per-occurrence premise.
+- `Circuit/Compilation.lean` defines `ExactGateCompiler` as supplied certified
+  data: a primitive predicate, chronological gate expansions, primitive
+  membership, and exact evaluator equality.  Whole-circuit compilation
+  preserves chronological evaluation, every compiled gate is primitive,
+  arity bounds lift, compiled count is an exact sum, and count is at most
+  `s*K` only under the stated per-gate bound.  No synthesis existence instance
+  or universal primitive library is introduced.
+- `Simulation/CompiledResources.lean` composes any such supplied ancilla-free
+  compiler with either primary image circuit.  It preserves the embedded
+  operator and gives conditional compiled count and canonical serial-depth
+  bounds `≤ s*K`; it does not assert optimal depth or the paper's numerical
+  synthesis bound.
+- `Circuit/ScheduleCount.lean` enumerates all permutations of a canonical
+  finite identifier list without duplicates and proves exact length
+  `(Fintype.card ι)!`.  Every order is legal for empty precedence and every
+  general legal order belongs to this universe.  The strict Boolean chain has
+  a unique legal order, while its reverse remains in the unconstrained
+  enumeration but is proved illegal for the chain, refuting a blanket
+  factorial/exponential legal-path claim.
+- `State/Distribution.lean` packages normalized finite weights, finite-event
+  sums, and deterministic fiber pushforwards.  Pushforwards remain nonnegative
+  and normalized, and pointwise-equal source weights give equal event and
+  pushforward distributions.
+- `Simulation/Postprocessing.lean` packages both primary source outputs and
+  target bottom weights as `FiniteDistribution`s.  It proves equality of the
+  whole normalized distributions, every finite event, and every deterministic
+  finite postprocessing pushforward.  This closes the finite semantic
+  postprocessing claim without claiming a classical-machine runtime.
+- Documentation now distinguishes three resource levels: source circuit,
+  literal abstract image circuit, and conditionally primitive-compiled target.
+  Corrections C-013/C-014/C-015/C-019/C-024 and all resource traceability rows
+  record that dense slots are not bits/time; fixed arity alone supplies no
+  compiler; the multi-top `O(log s)`, generic `2^(d+1)` synthesis, and finite
+  quaternionic universal-set claims remain unresolved; uniform encodings,
+  finite-precision error, TM runtime, and BQP conclusions remain only partial
+  boundaries rather than Lean theorems.
+- An independent review rebuilt all eight Stage 8 leaves strictly, recomputed
+  empty and small factorial cases, checked noncommutative compiler evaluator
+  orientation and exact counts, exercised dense-slot base cases, and tested
+  normalized constant/identity pushforwards.  It found the resource
+  interpretations and empty/K-zero edge cases sound.  Its only adjacent
+  finding was a long Stage 7 audit line, which was wrapped and reverified.
+- Strict direct `-DwarningAsError=true` checks passed for every new leaf and the
+  public root.  The combined focused build of the eight resource leaves
+  completed 2,367 jobs.  After root promotion, `lake build
+  QuaternionicComputing` completed 2,527 jobs, `lake build
+  QuaternionicComputing.AxiomAudit` completed 2,527 jobs without warnings, and
+  the full `lake build` completed 2,527 jobs.
+- `/tmp/Stage8ImportSmoke.lean`, importing only `QuaternionicComputing`,
+  successfully checked the layering, dense-slot, conditional compiler,
+  factorial/chain, distribution, direct/composed resource, and deterministic
+  postprocessing APIs.  The expanded audit reports only `propext`,
+  `Classical.choice`, and `Quot.sound` (with some theorems using a subset).
+  Lean-only hole/project-axiom/opaque/unsafe scans, forbidden complexity/
+  synthesis-shortcut scans, documentation consistency checks, and
+  `git diff --check` passed.

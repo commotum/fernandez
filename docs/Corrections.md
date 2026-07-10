@@ -190,11 +190,17 @@ means the corrected mathematical target is known but not yet formalized;
   embedding, state-column evolution, normalized source/target output, and
   bottom probability equality.  The packaged exact-simulation theorems include
   these observable conclusions without identifying differently typed states
-  or operators.
+  or operators.  The normalized bottom weights are additionally packaged as
+  equal finite distributions, yielding equal weight for every finite event and
+  equal distribution after every deterministic finite postprocessing map.
 - **Lean declarations:** `eval_realifyCircuit`,
   `eval_complexifyCircuit`, all `eval_*_mulVec_wire*` theorems,
   `realifyCircuitOutput_bottomProbability`,
   `complexifyCircuitOutput_bottomProbability`,
+  `realifyCircuitBottomDistribution_eq`,
+  `complexifyCircuitBottomDistribution_eq`,
+  `realifyCircuitOutput_pushforward_eq`,
+  `complexifyCircuitOutput_pushforward_eq`,
   `complexToReal_exactSimulation`, and
   `quaternionToComplex_exactSimulation`.
 - **Dependents:** all “exact simulation” and computational-power prose.
@@ -229,39 +235,74 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-013 — Generic gate-decomposition bound is unsupported and likely false
 
 - **Source:** Section 5.1, lines 1180–1198, especially line 1182 and Table 1.
-- **Status:** confirmed gap; quantitative repair deferred to Stage 8.
+- **Status:** confirmed gap; generic synthesis remains unresolved, while its
+  valid conditional consequences are formalized.
 - **Diagnosis:** the paper asserts that a generic `2^(d+1) × 2^(d+1)` unitary
   can be decomposed into at most `2^(d+1)` elementary gates.  No decomposition
-  theorem or gate model is supplied.  Standard parameter counting for fixed-
-  arity gates indicates a generic unitary requires order `4^d`, not `2^d`,
-  gates.  The table therefore cannot be accepted as proved.
-- **Repair:** define the gate library/encoding and use a verified synthesis bound
-  if formalized; otherwise retain only the exact same-count bound for
-  unrestricted `(d+1)`-ary image gates and mark elementary-gate asymptotics
-  unresolved/corrected.
+  theorem, primitive library, approximation convention, or gate model is
+  supplied.  Moreover, the advertised full dense local matrix already has
+  exactly `4^d` scalar-entry slots before adding the image wire, so neither the
+  claimed `O(2^d)` reading time nor the primitive count follows from dense
+  description size.  Slot count alone is not a formal runtime lower bound, but
+  it exposes the missing encoding assumption.
+- **Repair:** retain the exact same-count result for unrestricted `(d+1)`-ary
+  abstract image gates and prove the dense-slot formula separately.  An
+  `ExactGateCompiler` is only user-supplied certified data containing a
+  primitive predicate, exact expansion, primitive membership, and evaluator
+  equality.  From such data, compiled count is the exact sum of per-gate
+  counts and is at most `s*K` under an explicit per-image-gate bound `K`.
+  No compiler instance or `2^(d+1)` synthesis theorem is postulated.
+- **Lean declarations:** `PlacedGate.denseEntrySlots_eq_four_pow`,
+  `OrderedCircuit.totalDenseEntrySlots_le_gateCount_mul_four_pow`,
+  `Circuit.ExactGateCompiler`, `ExactGateCompiler.eval_compileCircuit`,
+  `gateCount_compileCircuit`, `gateCount_compileCircuit_le`,
+  `Simulation.eval_compile_realifyCircuit`,
+  `eval_compile_complexifyCircuit`, `gateCount_compile_realifyCircuit_le`,
+  and `gateCount_compile_complexifyCircuit_le`.
 - **Dependents:** Table 1, “efficient similar size” conclusions, and BQP prose.
 
 ## C-014 — Gate-count variable typo and depth inconsistency
 
 - **Source:** lines 1184 and 1178–1196.
-- **Status:** confirmed textual inconsistency; cost theorem open.
+- **Status:** confirmed textual inconsistency; corrected finite count/depth
+  statements are proved in explicit models.
 - **Diagnosis:** line 1184 says the total gate count is not exactly `n` but
   `O(n)`, although gate count is denoted `s`.  Table 1 gives target depth
   `t 2^(d+1)`, while the shared-top-wire construction serializes gates and the
   preceding text allows worst-case depth `s` before decomposition.
-- **Repair:** define size, width, and depth independently; derive bounds from
-  the actual translated schedule rather than repairing symbols by guesswork.
+- **Repair:** gate count is consistently `s`.  `SupportLayering` defines depth
+  by nonempty support-disjoint layers that flatten to the exact chronology.
+  Every layering has depth at most gate count, while every layering of either
+  literal shared-top image has depth exactly `s`.  After a supplied exact
+  compiler, the exact primitive count is a sum and only the canonical serial
+  depth is bounded by `s*K` under the explicit per-gate premise.  Corrected
+  Table 1 therefore separates the source, literal abstract image, and
+  conditional compiled target instead of retaining `t*2^(d+1)`.
+- **Lean declarations:** `Circuit.SupportLayering`, `depth_le_gateCount`,
+  `depth_eq_gateCount_of_commonWire`,
+  `Simulation.depth_realifyCircuit_eq_gateCount`,
+  `depth_complexifyCircuit_eq_gateCount`,
+  `depth_quaternionToRealCircuit_eq_gateCount`, and the conditional
+  `depth_compileRealifyCircuitSerialLayering_le` and
+  `depth_compileComplexifyCircuitSerialLayering_le`.
 - **Dependents:** Section 5.1 and final efficiency claims.
 
 ## C-015 — Unproved logarithmic-depth alternative
 
 - **Source:** line 671.
-- **Status:** open proof obligation.
+- **Status:** unresolved; the missing construction cannot be recovered from
+  the paper or the one-shared-wire implementation.
 - **Diagnosis:** the claim that several top wires can be recombined with only
   `O(log s)` depth increase gives no construction, ancilla bound, gate set, or
   correctness proof.
-- **Repair:** formalize a fan-in/recombination construction and cost model, or
-  classify this claim unresolved.  It is not needed for exact simulation.
+- **Repair:** no logarithmic-depth theorem is stated.  The proved result is
+  instead exact for the literal construction: every support-disjoint layering
+  has depth `s` because all image gates use its one shared top wire.  This
+  neither proves nor rules out a different multi-top translation.  Recovering
+  the source claim would require the missing construction, ancilla count,
+  fan-in/gate-set model, and correctness proof.
+- **Lean declarations:** `Simulation.depth_realifyCircuit_eq_gateCount` and
+  `depth_complexifyCircuit_eq_gateCount` delimit the available construction.
 - **Dependents:** real-simulation resource discussion.
 
 ## C-016 — Improper-image target typo and low-dimensional exception
@@ -327,8 +368,9 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-019 — Resource conclusions require an encoding model
 
 - **Source:** lines 432, 673, 1176–1198, and 1239–1241.
-- **Status:** confirmed missing assumptions; exact abstract structural costs
-  proved, encoding/synthesis conclusions remain Stage 8.
+- **Status:** confirmed missing assumptions; exact finite structural and
+  conditional compiler results are proved, but runtime/uniformity conclusions
+  remain outside the formal model.
 - **Diagnosis:** constant-time gate conversion, linear description conversion,
   and BQP-level efficiency depend on how arbitrary real/complex/quaternionic
   entries and gates are encoded and synthesized.  Matrix dimensions alone do
@@ -337,11 +379,21 @@ means the corrected mathematical target is known but not yet formalized;
   computable circuit families.  The abstract model now proves unchanged list
   gate count, exact width `+1`/`+2`, exact per-gate local arity `+1`/`+2`,
   transformed arity bounds, and maximum-arity results with the necessary
-  nonempty hypothesis.  Runtime, synthesis, depth, and uniformity still require
-  an explicit encoding/primitive-gate model.
+  nonempty hypothesis.  It additionally proves literal shared-top support
+  depth, exact dense scalar-slot factors, exact empty-precedence schedule
+  count, and deterministic finite postprocessing preservation.  Generic work
+  and primitive-count bounds expose explicit per-gate `K` premises and a
+  supplied `ExactGateCompiler`; they do not produce either.  Discrete scalar
+  encodings, arithmetic/approximation cost, topological sorting, synthesis,
+  uniform generators, polynomial runtime, and BQP containment remain
+  unformalized.
 - **Lean declarations:** `Circuit.card_addedWire`, `ArityBound`,
   `maxLocalArity`, the primary `gateCount_*`, `mem_*_arity`,
-  `arityBound_*`, `maxLocalArity_*` families, and their composed analogues.
+  `arityBound_*`, `maxLocalArity_*` families and their composed analogues;
+  `SupportLayering`, `denseEntrySlots`, `totalDenseEntrySlots`,
+  `translationWork_le_gateCount_mul`, `ExactGateCompiler`,
+  `allChronologicalOrders`, `FiniteDistribution`, and the simulation resource
+  and postprocessing theorem families.
 - **Dependents:** Theorems 2/4 as complexity claims, Section 5, and conclusions.
 
 ## C-020 — Theorem 3 also omits determinant one
@@ -427,8 +479,9 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-024 — Algebraic exactness conflicts with finite-precision descriptions
 
 - **Source:** Theorems 2/4 and footnote 6 at line 1292.
-- **Status:** confirmed scope ambiguity; exact abstract side proved and
-  finite-precision side isolated.
+- **Status:** confirmed scope ambiguity; exact abstract and conditional exact
+  compilation sides are proved, while finite-precision compilation remains
+  deliberately unclaimed.
 - **Diagnosis:** the main theorems repeatedly say “exact,” while the footnote
   says gate matrices supplied to the simulator are finite-precision
   approximations.  Exact equality of abstract matrices and approximate,
@@ -436,7 +489,13 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** `complexToReal_exactSimulation`,
   `quaternionToComplex_exactSimulation`, and
   `quaternionToReal_exactSimulation` prove exact algebraic translations for
-  exact input matrices.  Approximation error, computable encodings, and uniform
-  compilation remain separate Stage 8 obligations and are not consequences of
-  these theorems.
+  exact input matrices.  `ExactGateCompiler` can further preserve those
+  operators only from a supplied exact certificate.  The library has no
+  discrete scalar representation, rounding semantics, error metric,
+  accumulation/stability theorem, or computable approximate compiler.
+  Consequently finite precision, uniform approximation, and their runtimes
+  are not consequences of any exact theorem here.
+- **Lean declarations:** the three `*exactSimulation` families and
+  `ExactGateCompiler.eval_compileCircuit` mark the exact side of the boundary;
+  no approximation declaration is introduced.
 - **Dependents:** Theorems 2/4, preprocessing bounds, and BQP conclusions.

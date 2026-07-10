@@ -237,16 +237,19 @@ postprocessing.
 
 ## Resource implementation
 
-`Circuit/Depth.lean` defines `SupportLayering c` as nonempty chronological
-layers whose flattening is exactly `c` and whose distinct gates have pairwise
-disjoint certified supports within a layer.  It is a cost certificate, not an
-alternative evaluator: disjoint support is never used to infer quaternionic
-commutation.  Any layering has depth at most gate count.  If every gate uses a
-common wire, every layer is a singleton and every valid layering has depth
-exactly gate count.  `Simulation/Resources.lean` applies this to the literal
-realified, complexified, and composed circuits; their shared added top wire
+`Circuit/Depth.lean` defines `SupportLayering c` as chronological layers, each
+nonempty, whose flattening is exactly `c` and whose distinct gates have
+pairwise disjoint certified supports within a layer.  It is a cost certificate,
+not an alternative evaluator: disjoint support is never used to infer
+quaternionic commutation.  Any layering has depth at most gate count.  If every
+gate uses a common wire, every layer is a singleton and every valid layering
+has depth exactly gate count.  `Simulation/Resources.lean` applies this to the
+literal realified, complexified, and composed circuits; their shared added top wire
 forces support depth exactly equal to the source occurrence count.  This is
-not a lower bound for other encodings or multi-top constructions.
+not a lower bound for other encodings or multi-top constructions.  Although a
+real-valued source matrix has a proved block-diagonal realification identity,
+the literal uniform gate translator does not implement the optional
+real-gate/top-wire elimination.
 
 `Circuit/DescriptionCost.lean` counts scalar-entry slots in explicit dense
 local matrices.  A `d`-wire gate has exactly `4^d` slots, and a finite slot

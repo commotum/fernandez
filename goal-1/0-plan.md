@@ -147,6 +147,27 @@ disposition, and the pinned project builds and passes its axiom audit without
   Definition 5's finite scheduled semantics is present, while uniform
   generation, encodings, runtime, and postprocessing complexity remain Stage 8
   obligations rather than consequences of the algebraic simulation.
+- Stage 8 completed on 2026-07-09.  A support-layering cost model proves that
+  every literal shared-top image circuit has depth exactly its unchanged
+  source gate count; this is deliberately construction-specific and does not
+  validate the unconstructed multi-top logarithmic-depth claim.
+- Dense local matrix descriptions have exactly `4^d` scalar-entry slots at
+  arity `d`; the primary and composed translations multiply total slots by
+  exactly `4` and `16`.  Slots are not bit complexity.  Generic finite work and
+  primitive-count bounds now expose explicit per-gate `K` premises.
+- `ExactGateCompiler` gives reusable conditional primitive expansion with
+  exact evaluator preservation, primitive/arity certificates, exact summed
+  count, and canonical serial depth at most `s*K`.  The library supplies no
+  generic synthesis instance, so the paper's `2^(d+1)` bound remains
+  unresolved rather than assumed.
+- Empty precedence has exactly `s!` chronological orders, while a checked
+  strict two-gate chain has only one legal order.  Normalized simulation
+  equality now closes under every finite event and deterministic finite
+  postprocessing map.
+- Encoding, finite-precision error, topological-sort/runtime, uniform TM
+  generation, a finite quaternionic universal set, the multi-top construction,
+  and BQP containment remain explicitly non-proved with terminal resource
+  dispositions.
 
 ## Current Assumptions to Test
 
@@ -501,6 +522,6 @@ without learning the paper's original organization.
 - [x] 5-CIRCUITS — completed 2026-07-09
 - [x] 6-SIMULATION — completed 2026-07-09
 - [x] 7-ORDERING — completed 2026-07-09
-- [ ] 8-RESOURCES — in progress
-- [ ] 9-COVERAGE
+- [x] 8-RESOURCES — completed 2026-07-09
+- [ ] 9-COVERAGE — in progress
 - [ ] 10-RELEASE

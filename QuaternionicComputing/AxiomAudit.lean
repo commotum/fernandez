@@ -139,7 +139,8 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute
 
 #print axioms QuaternionicComputing.Simulation.eval_complexify_scheduledCircuit
-#print axioms QuaternionicComputing.Simulation.eval_complexify_scheduledCircuit_ne_of_scheduledEval_ne
+#print axioms
+  QuaternionicComputing.Simulation.eval_complexify_scheduledCircuit_ne_of_scheduledEval_ne
 #print axioms QuaternionicComputing.Simulation.scheduledQuaternionToComplex_exactSimulation
 
 #print axioms QuaternionicComputing.Circuit.OrderingWitness.iMixer_unitary
