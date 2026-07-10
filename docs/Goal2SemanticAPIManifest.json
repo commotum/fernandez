@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schemaVersion": 1,
+  "manifestKind": "goal2-semantic-api",
+  "baselineCommit": "aade00ea3c46a6bc00735d11b88767a089c63022",
+  "purpose": "Track every public semantic declaration introduced by Goal 2 separately from the frozen Goal 1 comparison cohort.",
+  "itemSchema": {
+    "required": [
+      "declaration",
+      "relation",
+      "owner",
+      "consumer",
+      "axiomAudit",
+      "classification"
+    ],
+    "additionalProperties": false,
+    "allowedFields": {
+      "declaration": "Fully qualified Lean declaration name.",
+      "relation": "Named semantic relation established or defined by the declaration.",
+      "owner": "Goal 2 stage or milestone responsible for the declaration.",
+      "consumer": "A real public or downstream declaration that exercises the API.",
+      "axiomAudit": "Axiom-audit declaration name or explicit pending status.",
+      "classification": {
+        "requiredAxes": [
+          "space",
+          "subject",
+          "inputScope",
+          "observationScope",
+          "phase",
+          "exactness",
+          "ancillaPolicy"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "items": []
+}
