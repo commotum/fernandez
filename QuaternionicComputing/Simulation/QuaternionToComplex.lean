@@ -1,7 +1,9 @@
 module
 
 public import QuaternionicComputing.Circuit.Complexification
+public import QuaternionicComputing.Circuit.Cost
 public import QuaternionicComputing.State.Complexification
+public import QuaternionicComputing.State.Unitary
 public import QuaternionicComputing.Simulation.Basic
 
 /-!
@@ -60,6 +62,49 @@ theorem gateCount_complexifyCircuit {W : Type v} [Fintype W]
       OrderedCircuit.gateCount c := by
   simp [complexifyCircuit]
 
+/-- The target circuit has exactly one more global wire than the source. -/
+theorem width_complexifyCircuit (W : Type v) [Fintype W] :
+    Fintype.card (AddedWire W) = Fintype.card W + 1 :=
+  card_addedWire W
+
+/-- Every target gate comes from one source gate with exactly one more local wire. -/
+theorem mem_complexifyCircuit_arity {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (k : PlacedGate ℂ (AddedWire W)) :
+    k ∈ complexifyCircuit c ↔
+      ∃ g, g ∈ c ∧ complexifyPlacedGate g = k ∧
+        k.localArity = g.localArity + 1 := by
+  exact OrderedCircuit.mem_map_arity_provenance complexifyPlacedGate
+    localArity_complexifyPlacedGate c k
+
+/-- A source arity bound `d` becomes the exact abstract bound `d+1`. -/
+theorem arityBound_complexifyCircuit {W : Type v} [Fintype W]
+    {c : OrderedCircuit ℍ[ℝ] W} {d : ℕ}
+    (hc : c.ArityBound d) :
+    (complexifyCircuit c).ArityBound (d + 1) := by
+  exact OrderedCircuit.arityBound_map_add_one complexifyPlacedGate
+    localArity_complexifyPlacedGate hc
+
+/-- The corresponding `d+1` target bound also reflects the source bound. -/
+theorem arityBound_complexifyCircuit_iff {W : Type v} [Fintype W]
+    {c : OrderedCircuit ℍ[ℝ] W} {d : ℕ} :
+    (complexifyCircuit c).ArityBound (d + 1) ↔ c.ArityBound d := by
+  exact OrderedCircuit.arityBound_map_add_one_iff complexifyPlacedGate
+    localArity_complexifyPlacedGate
+
+/-- The target maximum local arity is at most the source maximum plus one. -/
+theorem maxLocalArity_complexifyCircuit_le {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) :
+    (complexifyCircuit c).maxLocalArity ≤ c.maxLocalArity + 1 := by
+  exact OrderedCircuit.maxLocalArity_map_le_add_one complexifyPlacedGate
+    localArity_complexifyPlacedGate c
+
+/-- A nonempty circuit's maximum local arity increases by exactly one. -/
+theorem maxLocalArity_complexifyCircuit_of_nonempty
+    {W : Type v} [Fintype W] {c : OrderedCircuit ℍ[ℝ] W} (hc : c ≠ []) :
+    (complexifyCircuit c).maxLocalArity = c.maxLocalArity + 1 := by
+  exact OrderedCircuit.maxLocalArity_map_eq_add_one_of_nonempty
+    complexifyPlacedGate localArity_complexifyPlacedGate hc
+
 /-- Local unitarity is preserved gatewise by circuit complexification. -/
 theorem isLocallyUnitary_complexifyCircuit {W : Type v} [Fintype W]
     {c : OrderedCircuit ℍ[ℝ] W} (hc : c.IsLocallyUnitary) :
@@ -92,6 +137,46 @@ def wireComplexColumn1 {W : Type v} (psi : BitBasis W → ℍ[ℝ]) :
 def wireComplexTopCombination {W : Type v} (a b : ℂ)
     (psi : BitBasis W → ℍ[ℝ]) : BitBasis (AddedWire W) → ℂ :=
   transportAddedColumn (complexTopCombination a b psi)
+
+/-- The first canonical wire-facing embedding of a normalized quaternionic state. -/
+def wireComplexColumn0State {W : Type v} [Fintype W]
+    (psi : QuaternionState (BitBasis W)) :
+    ComplexState (BitBasis (AddedWire W)) :=
+  transportAddedState (complexColumn0State psi)
+
+/-- The second canonical wire-facing embedding of a normalized quaternionic state. -/
+def wireComplexColumn1State {W : Type v} [Fintype W]
+    (psi : QuaternionState (BitBasis W)) :
+    ComplexState (BitBasis (AddedWire W)) :=
+  transportAddedState (complexColumn1State psi)
+
+/-- Every normalized pure top qubit gives a normalized wire-facing target state. -/
+def wireComplexTopState {W : Type v} [Fintype W]
+    (top : Qubit) (psi : QuaternionState (BitBasis W)) :
+    ComplexState (BitBasis (AddedWire W)) :=
+  transportAddedState (complexTopState top psi)
+
+@[simp]
+theorem wireComplexColumn0State_apply {W : Type v} [Fintype W]
+    (psi : QuaternionState (BitBasis W))
+    (x : BitBasis (AddedWire W)) :
+    wireComplexColumn0State psi x = wireComplexColumn0 psi x :=
+  rfl
+
+@[simp]
+theorem wireComplexColumn1State_apply {W : Type v} [Fintype W]
+    (psi : QuaternionState (BitBasis W))
+    (x : BitBasis (AddedWire W)) :
+    wireComplexColumn1State psi x = wireComplexColumn1 psi x :=
+  rfl
+
+@[simp]
+theorem wireComplexTopState_apply {W : Type v} [Fintype W]
+    (top : Qubit) (psi : QuaternionState (BitBasis W))
+    (x : BitBasis (AddedWire W)) :
+    wireComplexTopState top psi x =
+      wireComplexTopCombination (top false) (top true) psi x :=
+  rfl
 
 /-- Wire-facing complexification intertwines the first state column. -/
 theorem wireComplexify_mulVec_wireComplexColumn0
@@ -226,5 +311,85 @@ theorem complexifyCircuit_bottomWeight_of_qubit
       quaternionBasisWeight (OrderedCircuit.eval c *ᵥ psi) x := by
   rw [eval_complexifyCircuit_mulVec_wireComplexTopCombination]
   exact wireComplexTopCombination_bottomWeight_of_qubit top _ x
+
+/-! ## Normalized outputs and corrected Theorem 4 -/
+
+/-- The normalized output of the source quaternionic circuit. -/
+def quaternionCircuitOutput {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (psi : QuaternionState (BitBasis W)) : QuaternionState (BitBasis W) :=
+  QuaternionState.evolveUnitary psi (OrderedCircuit.eval c)
+    (OrderedCircuit.eval_mem_unitary hc)
+
+/-- The normalized complex output produced from a normalized pure top qubit. -/
+def complexifyCircuitOutput {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary) (top : Qubit)
+    (psi : QuaternionState (BitBasis W)) :
+    ComplexState (BitBasis (AddedWire W)) :=
+  ComplexState.evolveUnitary (wireComplexTopState top psi)
+    (OrderedCircuit.eval (complexifyCircuit c))
+    (eval_complexifyCircuit_mem_unitary hc)
+
+@[simp]
+theorem quaternionCircuitOutput_apply {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (psi : QuaternionState (BitBasis W)) (x : BitBasis W) :
+    quaternionCircuitOutput c hc psi x =
+      (OrderedCircuit.eval c *ᵥ (psi : BitBasis W → ℍ[ℝ])) x :=
+  rfl
+
+@[simp]
+theorem complexifyCircuitOutput_apply {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary) (top : Qubit)
+    (psi : QuaternionState (BitBasis W))
+    (x : BitBasis (AddedWire W)) :
+    complexifyCircuitOutput c hc top psi x =
+      wireComplexTopCombination (top false) (top true)
+        (OrderedCircuit.eval c *ᵥ (psi : BitBasis W → ℍ[ℝ])) x := by
+  change
+    (OrderedCircuit.eval (complexifyCircuit c) *ᵥ
+      wireComplexTopCombination (top false) (top true) psi) x = _
+  exact congrFun
+    (eval_complexifyCircuit_mulVec_wireComplexTopCombination
+      c (top false) (top true) psi) x
+
+/--
+For normalized input and locally unitary gates, the equal bottom weights are
+actual probabilities: both source and target outputs are normalized states.
+-/
+theorem complexifyCircuitOutput_bottomProbability
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary) (top : Qubit)
+    (psi : QuaternionState (BitBasis W)) (x : BitBasis W) :
+    wireComplexBottomWeight (complexifyCircuitOutput c hc top psi) x =
+      quaternionBasisWeight (quaternionCircuitOutput c hc psi) x := by
+  change
+    wireComplexBottomWeight
+        (OrderedCircuit.eval (complexifyCircuit c) *ᵥ
+          wireComplexTopCombination (top false) (top true) psi) x =
+      quaternionBasisWeight (OrderedCircuit.eval c *ᵥ psi) x
+  exact complexifyCircuit_bottomWeight_of_qubit c top psi x
+
+/--
+Corrected constructive form of paper Theorem 4 in the exact abstract-matrix
+model.  The conclusions separately expose operator embedding, gate count,
+width, local-arity bound, and equality of normalized bottom probabilities.
+-/
+theorem quaternionToComplex_exactSimulation
+    {W : Type v} [Fintype W] {c : OrderedCircuit ℍ[ℝ] W} {d : ℕ}
+    (hc : c.IsLocallyUnitary) (hArity : c.ArityBound d)
+    (top : Qubit) (psi : QuaternionState (BitBasis W)) :
+    OrderedCircuit.eval (complexifyCircuit c) =
+        wireComplexify (OrderedCircuit.eval c) ∧
+      OrderedCircuit.gateCount (complexifyCircuit c) =
+        OrderedCircuit.gateCount c ∧
+      Fintype.card (AddedWire W) = Fintype.card W + 1 ∧
+      (complexifyCircuit c).ArityBound (d + 1) ∧
+      ∀ x : BitBasis W,
+        wireComplexBottomWeight (complexifyCircuitOutput c hc top psi) x =
+          quaternionBasisWeight (quaternionCircuitOutput c hc psi) x := by
+  refine ⟨eval_complexifyCircuit c, gateCount_complexifyCircuit c,
+    card_addedWire W, arityBound_complexifyCircuit hArity, ?_⟩
+  exact complexifyCircuitOutput_bottomProbability c hc top psi
 
 end QuaternionicComputing.Simulation

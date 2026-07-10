@@ -3,6 +3,7 @@ module
 public import QuaternionicComputing.Circuit.Realification
 public import QuaternionicComputing.Circuit.Cost
 public import QuaternionicComputing.State.Realification
+public import QuaternionicComputing.State.Unitary
 public import QuaternionicComputing.Simulation.Basic
 
 /-!
@@ -293,5 +294,84 @@ theorem realifyCircuit_bottomWeight_of_rebit
       complexBasisWeight (OrderedCircuit.eval c *ᵥ psi) x := by
   rw [eval_realifyCircuit_mulVec_wireRealTopCombination]
   exact wireRealTopCombination_bottomWeight_of_rebit top _ x
+
+/-! ## Normalized outputs and corrected Theorem 2 -/
+
+/-- The normalized output of the source complex circuit. -/
+def complexCircuitOutput {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary)
+    (psi : ComplexState (BitBasis W)) : ComplexState (BitBasis W) :=
+  ComplexState.evolveUnitary psi (OrderedCircuit.eval c)
+    (OrderedCircuit.eval_mem_unitary hc)
+
+/-- The normalized real output produced from a normalized pure top rebit. -/
+def realifyCircuitOutput {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary) (top : Rebit)
+    (psi : ComplexState (BitBasis W)) :
+    RealState (BitBasis (AddedWire W)) :=
+  RealState.evolveUnitary (wireRealTopState top psi)
+    (OrderedCircuit.eval (realifyCircuit c))
+    (eval_realifyCircuit_mem_unitary hc)
+
+@[simp]
+theorem complexCircuitOutput_apply {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary)
+    (psi : ComplexState (BitBasis W)) (x : BitBasis W) :
+    complexCircuitOutput c hc psi x =
+      (OrderedCircuit.eval c *ᵥ (psi : BitBasis W → ℂ)) x :=
+  rfl
+
+@[simp]
+theorem realifyCircuitOutput_apply {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary) (top : Rebit)
+    (psi : ComplexState (BitBasis W)) (x : BitBasis (AddedWire W)) :
+    realifyCircuitOutput c hc top psi x =
+      wireRealTopCombination (top false) (top true)
+        (OrderedCircuit.eval c *ᵥ (psi : BitBasis W → ℂ)) x := by
+  change
+    (OrderedCircuit.eval (realifyCircuit c) *ᵥ
+      wireRealTopCombination (top false) (top true) psi) x = _
+  exact congrFun
+    (eval_realifyCircuit_mulVec_wireRealTopCombination
+      c (top false) (top true) psi) x
+
+/--
+For normalized input and locally unitary gates, the equal bottom weights are
+actual probabilities: both source and target outputs are normalized states.
+-/
+theorem realifyCircuitOutput_bottomProbability
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary) (top : Rebit)
+    (psi : ComplexState (BitBasis W)) (x : BitBasis W) :
+    wireRealBottomWeight (realifyCircuitOutput c hc top psi) x =
+      complexBasisWeight (complexCircuitOutput c hc psi) x := by
+  change
+    wireRealBottomWeight
+        (OrderedCircuit.eval (realifyCircuit c) *ᵥ
+          wireRealTopCombination (top false) (top true) psi) x =
+      complexBasisWeight (OrderedCircuit.eval c *ᵥ psi) x
+  exact realifyCircuit_bottomWeight_of_rebit c top psi x
+
+/--
+Corrected constructive form of paper Theorem 2 in the exact abstract-matrix
+model.  The conclusions separately expose operator embedding, gate count,
+width, local-arity bound, and equality of normalized bottom probabilities.
+-/
+theorem complexToReal_exactSimulation
+    {W : Type v} [Fintype W] {c : OrderedCircuit ℂ W} {d : ℕ}
+    (hc : c.IsLocallyUnitary) (hArity : c.ArityBound d)
+    (top : Rebit) (psi : ComplexState (BitBasis W)) :
+    OrderedCircuit.eval (realifyCircuit c) =
+        wireRealify (OrderedCircuit.eval c) ∧
+      OrderedCircuit.gateCount (realifyCircuit c) =
+        OrderedCircuit.gateCount c ∧
+      Fintype.card (AddedWire W) = Fintype.card W + 1 ∧
+      (realifyCircuit c).ArityBound (d + 1) ∧
+      ∀ x : BitBasis W,
+        wireRealBottomWeight (realifyCircuitOutput c hc top psi) x =
+          complexBasisWeight (complexCircuitOutput c hc psi) x := by
+  refine ⟨eval_realifyCircuit c, gateCount_realifyCircuit c,
+    card_addedWire W, arityBound_realifyCircuit hArity, ?_⟩
+  exact realifyCircuitOutput_bottomProbability c hc top psi
 
 end QuaternionicComputing.Simulation
