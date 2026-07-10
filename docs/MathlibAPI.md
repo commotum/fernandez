@@ -14,10 +14,14 @@ import Mathlib.Data.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.Reindex
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.UnitaryGroup
+import Mathlib.LinearAlgebra.SymplecticGroup
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 ```
 
-Add `Mathlib.Algebra.QuaternionBasis` only where canonical `i,j,k` basis
+The isolated determinant leaf additionally uses
+`Mathlib.LinearAlgebra.Basis.SMul`, `Mathlib.RingTheory.Complex`, and
+`Mathlib.RingTheory.Norm.Transitivity`; consumers of the basic embeddings do
+not inherit that proof machinery.  Add `Mathlib.Algebra.QuaternionBasis` only where canonical `i,j,k` basis
 machinery is useful, `Mathlib.Analysis.InnerProductSpace.PiL2` for complex/real
 Euclidean spaces, and determinant imports only in determinant-specific modules.
 
@@ -137,6 +141,33 @@ determinant-one claims must be proved after complexification, not by applying
 ordinary determinant to a quaternion matrix.  Unitarity and determinant one
 remain separate proof obligations.
 
+The bundled maps use:
+
+```lean
+StarMonoidHom
+Unitary.map
+Unitary.map_injective
+MonoidHom.ofInjective
+```
+
+The determinant proof for realification uses the restricted-scalar linear map
+rather than a block determinant division argument:
+
+```lean
+LinearMap.det_restrictScalars
+LinearMap.restrictScalars_toMatrix
+LinearMap.det_toLin'
+Matrix.det_reindex_self
+Algebra.norm_complex_apply
+```
+
+This proves `det (realify A) = Complex.normSq (det A)` even for an empty index
+type.  For the quaternionic image, `Matrix.J`, `Matrix.isUnit_det_J`, and the
+proved block intertwining show that the complex determinant is real; combined
+with unitarity it is `1` or `-1`.  Pinned mathlib's symplectic-group module does
+not yet prove determinant one, so no `SU` membership is inferred from
+unitarity alone.
+
 ## Kronecker products and the noncommutative boundary
 
 `Matrix.kronecker` (`A ⊗ₖ B`) is valid over quaternion coefficients, and
@@ -149,18 +180,23 @@ is the noncommutative adjoint formula and includes the required factor swap.
 These API boundaries match the paper's ordering phenomenon and will be
 preserved rather than bypassed.
 
-## Compiled architectural probes
+## Promoted compiled APIs
 
-The intake probes compiled all of the following without placeholders:
+The following formerly probed results now compile as public declarations
+without placeholders:
 
 - complex/`j`-component multiplication, conjugation, reconstruction, and norm-square
   scalar identities;
 - right-linearity of quaternionic `mulVec`;
 - preservation of `star x ⬝ᵥ y` by a quaternionic unitary matrix;
-- quaternion-to-complex block-embedding multiplication and adjoint laws for
-  arbitrary compatible finite shapes;
+- complex-to-real and quaternion-to-complex block-embedding multiplication and
+  adjoint laws for arbitrary compatible finite shapes;
+- injective star-monoid and unitary-group maps for both embeddings;
+- orthogonal, special-orthogonal, unitary, and complex-symplectic image facts
+  with the determinant boundary stated above;
 - unitary preservation under reindexing; and
 - the pinned project baseline and axiom smoke audit.
 
-These probes establish feasibility; Stage 2 and later move the proofs into
-public, documented source modules and give them stable declarations.
+Their stable declarations live in `Scalar/Quaternion.lean` and the four
+`Matrix/*.lean` leaves.  Remaining probes are temporary only and are not
+accepted as completion evidence under `BUILD-PLAN.md`.

@@ -46,8 +46,11 @@ silently confused with ordinary left scalar action.
   `Aᴴ * A = 1` and `A * Aᴴ = 1`.  Mathlib's convenience abbreviation
   `Matrix.unitaryGroup` assumes a commutative coefficient ring and therefore is
   not used for quaternion matrices.
-- “Symplectic group” in the paper means the compact quaternionic unitary group,
-  not a separately chosen bilinear-form matrix group.
+- “Symplectic group” in the paper means the compact quaternionic unitary group.
+  Its complexification is proved to preserve mathlib's canonical skew form
+  `Matrix.J`, so the image also lies in `Matrix.symplecticGroup`.  This
+  form-preservation result is not silently strengthened to determinant one;
+  the pinned symplectic API does not yet supply that theorem.
 
 ## Scalar decompositions and embeddings
 
@@ -114,7 +117,8 @@ for the paper's computational claim.
 ## Dimensions and empty types
 
 An `N × N` source matrix embeds into a `2N × 2N` target matrix, represented by a
-sum index rather than informal arithmetic on dimensions.  Circuit
-basis types are nonempty even for zero wires.  General matrix lemmas may retain
-empty index types when true; determinant/group claims will state any required
-`Nonempty` assumptions explicitly.
+sum index rather than informal arithmetic on dimensions.  Circuit basis types
+are nonempty even for zero wires.  General matrix lemmas retain empty index
+types when true.  In particular, the realification determinant identity and
+its special-orthogonal consequence need no `Nonempty` hypothesis; both sides
+have determinant `1` in dimension zero.

@@ -6,16 +6,18 @@ The library is organized by reusable mathematics rather than the paper's
 section order.  Paper-specific statements will be thin packaging over general
 scalar, matrix, state, and circuit results.
 
-## Planned module layers
+## Module layers
 
 ```text
 QuaternionicComputing/
   Scalar/
     Quaternion.lean          complex/`j`-component decomposition and identities
+    Phase.lean               phase-side correction and counterexample
   Matrix/
-    BlockEmbedding.lean      reusable entrywise 2×2 block lift
     Realification.lean       complex matrices → real matrices
     Complexification.lean    quaternion matrices → complex matrices
+    Unitary.lean             star homomorphisms and unitary/symplectic images
+    Determinant.lean         isolated determinant and SO/sign results
   State/
     Basic.lean               finite vectors, norm-square weights, right phases
     Embeddings.lean          state maps and measurement preservation
@@ -33,7 +35,7 @@ QuaternionicComputing/
 QuaternionicComputing.lean   stable public root import
 ```
 
-Names may change after API probes, but the dependency direction must remain
+Later names may change as their APIs are implemented, but the dependency direction must remain
 scalar → matrix → state → minimal circuits → simulation → broader ordering and
 resources.  Generic modules must not import paper-specific wrappers.
 
@@ -45,8 +47,8 @@ visible, and lets multiplication and adjoint proofs use
 `Matrix.fromBlocks_multiply` and `Matrix.fromBlocks_conjTranspose`, both valid
 over noncommutative coefficient rings where applicable.
 
-For square matrices, the proved maps can then be bundled as ring or
-`ℝ`-algebra homomorphisms.  At the circuit boundary,
+For square matrices, complexification is bundled as a ring homomorphism and
+both embeddings are bundled as injective star-monoid homomorphisms.  At the circuit boundary,
 `Matrix.reindexRingEquiv` and `Equiv.boolProdEquivSum` convert `ι ⊕ ι` to
 `Bool × ι`, making the added top wire explicit without burdening scalar/matrix
 proofs with wire encodings.
@@ -58,8 +60,12 @@ not assumed merely from multiplicativity.
 ## State implementation
 
 State maps use the two columns suggested by each scalar representation, stated
-as explicit functions on finite vectors.  They are not declared complex- or
-quaternion-linear without the exact scalar action needed for that claim.
+as explicit functions on finite vectors.  The low-level `realifyVec` map and
+its matrix-action theorem live beside `realify` because they directly guard
+the embedding's sign convention; the State layer will supply the second
+column, normalized wrappers, and measurement API.  These maps are not declared
+complex- or quaternion-linear without the exact scalar action needed for that
+claim.
 
 Outcome preservation is first proved coordinatewise:
 
@@ -98,13 +104,19 @@ paper's “temporal chain” language and to exhibit order dependence.
 ## Group and determinant scope
 
 The simulations require multiplicativity, adjoint preservation, injectivity,
-and unitarity preservation.  They do not require determinant one.  Therefore:
+and unitarity preservation.  They do not require determinant one.  The current
+determinant boundary is therefore explicit:
 
-- unitary/orthogonal image theorems are established first;
-- determinant-one assertions are kept as independent paper-coverage
-  obligations;
-- failure or delay of a special-unitary proof cannot be hidden inside a custom
-  definition and cannot block the stronger useful operator simulation.
+- `realify_det` proves `detℝ(realify A) = normSq(detℂ A)`, so a complex
+  unitary maps to `SO(2N)`;
+- a quaternionic unitary maps injectively to a complex unitary preserving the
+  canonical symplectic form;
+- the available block and unitary laws prove only that its complex determinant
+  is real and lies in `{1, -1}`.  The proof selecting `1` needs Pfaffian,
+  connectedness, or Study-determinant infrastructure absent from the pinned
+  mathlib, so that one refinement is recorded as unresolved;
+- this unresolved special-unitary sign cannot be hidden inside a custom
+  definition and does not block operator or measurement simulation.
 
 ## Verification architecture
 

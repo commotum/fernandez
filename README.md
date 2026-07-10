@@ -22,6 +22,24 @@ The public import is:
 import QuaternionicComputing
 ```
 
-Traceability, mathematical conventions, corrections, and downstream usage will
-be expanded alongside the formalization.  No completed module may contain
-`sorry`, `admit`, or an unexplained project-specific axiom.
+Narrow consumers can instead import one of the current leaves:
+
+```lean
+import QuaternionicComputing.Scalar.Quaternion
+import QuaternionicComputing.Matrix.Realification
+import QuaternionicComputing.Matrix.Complexification
+import QuaternionicComputing.Matrix.Unitary
+import QuaternionicComputing.Matrix.Determinant
+```
+
+The matrix layer currently exports dimension-safe, injective, multiplicative,
+adjoint-preserving embeddings on sum indices.  Complex unitaries realify to
+special orthogonal matrices.  Quaternionic unitaries complexify injectively to
+complex unitary and symplectic matrices; the available formal proof narrows
+their determinant to `1` or `-1`, while selecting the positive sign remains a
+documented paper-proof obligation that is not needed by the simulation.
+
+See `docs/Traceability.md`, `docs/Corrections.md`,
+`docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and
+mathematical conventions.  No completed module may contain `sorry`, `admit`,
+or an unexplained project-specific axiom.

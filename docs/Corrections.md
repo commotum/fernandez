@@ -18,43 +18,58 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-002 — Realification target dimension and domain
 
 - **Source:** Theorem 3, line 207; compare Equation (8), lines 181–189.
-- **Status:** confirmed statement error; proof target open.
+- **Status:** corrected and proved.
 - **Diagnosis:** Equation (8) has four `N × N` blocks, so its image is
   `2N × 2N`, not `N × N`.  Thus `G_N ≤ SO(N)` is ill-typed and must read
   `G_N ≤ SO(2N)`.  Moreover, the construction and proof begin with an arbitrary
   unitary matrix; restriction from `U(N)` to `SU(N)` is unnecessary for the
   orthogonal image result.
-- **Repair:** prove the stronger embedding of the full complex unitary group
-  into `SO(2N)`, separating orthogonality from the determinant calculation.
-- **Lean declaration:** to be assigned in Stage 3.
+- **Repair:** the full complex unitary group is embedded into `SO(2N)`; the
+  orthogonal and determinant-one parts are proved separately.
+- **Lean declarations:** `Matrix.realifyStarMonoidHom`,
+  `Matrix.realifyUnitaryEquivImage`, `Matrix.realify_mem_orthogonal`, and
+  `Matrix.realify_mem_specialOrthogonal`.
 - **Dependents:** Lemmas 1–5, Theorem 2, the universality discussion, and the
   quaternionic proof template.
 
 ## C-003 — Quaternionic image target dimension
 
 - **Source:** Theorem 5, line 891; compare Equations (47)–(48), lines 863–886.
-- **Status:** confirmed statement error; proof target open.
+- **Status:** dimension and unitary-image correction proved; special-unitary
+  refinement remains C-004.
 - **Diagnosis:** the displayed image has four `N × N` complex blocks and hence
   lies in dimension `2N`; `\widehat G_N ≤ SU(N)` must be
   `\widehat G_N ≤ SU(2N)`.
-- **Repair:** prove an injective star-preserving group homomorphism into the
-  complex unitary group in dimension `2N`; treat determinant one separately as
-  C-004.
-- **Lean declaration:** to be assigned in Stage 3.
+- **Repair:** an injective star-preserving group homomorphism into the complex
+  unitary group in dimension `2N` is proved; its image is also complex
+  symplectic.  Determinant one is treated separately as C-004.
+- **Lean declarations:** `Quaternion.complexifyStarMonoidHom`,
+  `Quaternion.complexifyUnitaryEquivImage`,
+  `Quaternion.complexify_mem_unitary`, and
+  `Quaternion.complexify_mem_symplectic`.
 - **Dependents:** Lemmas 6–10, Theorem 4, Corollary 1, and Section 5.
 
 ## C-004 — Missing determinant-one argument in Theorem 5
 
 - **Source:** Theorem 5 and its claimed proof, lines 889–965.
-- **Status:** confirmed proof gap; open proof obligation.
+- **Status:** confirmed proof gap; unitary image and strongest currently
+  justified determinant alternative proved; positive sign unresolved.
 - **Diagnosis:** Lemmas 6 and 7 prove multiplicativity and adjoint preservation,
   which imply a unitary image.  They do not prove that the complex determinant
   is `1`.  Unitarity alone only gives determinant modulus one.
-- **Repair:** first export the sufficient and stronger-for-reuse unitary image
-  theorem.  Prove the special-unitary refinement independently if an algebraic
-  or topological proof can be formalized; otherwise mark only that refinement
-  unresolved and explain that the simulation does not depend on it.
-- **Lean declaration:** to be assigned in Stage 3.
+- **Repair:** the reusable unitary and symplectic image theorems are exported.
+  The block symmetry proves that the complex determinant is real, and
+  unitarity then gives the formally checked alternative `det = 1 ∨ det = -1`.
+  Excluding the negative branch requires infrastructure absent from the pinned
+  mathlib: a Pfaffian congruence theorem, connectedness of the finite compact
+  symplectic group, or nonnegativity of the Study determinant.  Mathlib's own
+  `LinearAlgebra.SymplecticGroup` file lists determinant one as a TODO and
+  proves only that the determinant is a unit.  The simulation does not depend
+  on resolving this sign.
+- **Lean declarations:** `Quaternion.complexify_det_star_fixed`,
+  `complexify_det_im_eq_zero`,
+  `complexify_det_sq_eq_one_of_mem_unitary`, and
+  `complexify_det_eq_one_or_neg_one_of_mem_unitary`.
 - **Dependents:** the exact status of Theorem 5; no dependency of the central
   operator or measurement simulation on determinant one.
 
@@ -153,12 +168,14 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-011 — Malformed tensor display for `\widehat h`
 
 - **Source:** Equation (48), lines 875–886.
-- **Status:** confirmed presentation error.
+- **Status:** confirmed presentation error; corrected definition and laws proved.
 - **Diagnosis:** the displayed aligned equation starts with a bare equals sign
   and no left-hand expression.  Its “tensor” is an operator-valued mnemonic,
   not a standard scalar Kronecker product.
 - **Repair:** use the explicit block matrix as the definition and treat the
   tensor notation only as source motivation.
+- **Lean declarations:** `Quaternion.complexify`, its four block-entry lemmas,
+  `complexify_mul`, and `complexify_conjTranspose`.
 - **Dependents:** Lemmas 6–10.
 
 ## C-012 — Undefined final state in Lemma 9
@@ -265,14 +282,17 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-020 — Theorem 3 also omits determinant one
 
 - **Source:** proof of Theorem 3, lines 273–320.
-- **Status:** confirmed proof gap; open proof obligation.
+- **Status:** confirmed source proof gap; repaired and proved.
 - **Diagnosis:** the proof concludes after showing `h(U)ᵀ = h(U)⁻¹`.  This is
   orthogonality, not membership in the special orthogonal group; `det = 1` is
   never established.  The intended stronger result is true via
-  `detℝ h(A) = |detℂ A|²`, but that identity still requires proof.
-- **Repair:** first prove the orthogonal image used by simulation, then prove
-  the determinant identity and special-orthogonal refinement independently.
-- **Lean declaration:** to be assigned in Stage 3.
+  `detℝ h(A) = |detℂ A|²`; the source omits that identity entirely.
+- **Repair:** `realify_det` proves the determinant identity for every finite
+  index type, including the empty type.  It yields determinant one for a
+  complex unitary and hence the special-orthogonal refinement.
+- **Lean declarations:** `Matrix.realify_det`,
+  `Matrix.realify_det_eq_one_of_mem_unitary`, and
+  `Matrix.realify_mem_specialOrthogonal`.
 - **Dependents:** Theorem 3's final codomain only; Theorem 2 needs orthogonality,
   not determinant one.
 

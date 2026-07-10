@@ -1,6 +1,6 @@
 module
 
-public import QuaternionicComputing.Scalar.Phase
+public import QuaternionicComputing
 
 /-!
 # Axiom audit
@@ -19,3 +19,23 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Quaternion.phaseWitnessGate_normSq
 #print axioms QuaternionicComputing.Quaternion.not_leftPhaseEquivalent_gate_i_input
 #print axioms QuaternionicComputing.Quaternion.rightPhaseEquivalent_gate
+
+#print axioms QuaternionicComputing.Matrix.realify_injective
+#print axioms QuaternionicComputing.Matrix.realify_mul
+#print axioms QuaternionicComputing.Matrix.realify_conjTranspose
+#print axioms QuaternionicComputing.Matrix.realify_mulVec
+#print axioms QuaternionicComputing.Matrix.realify_map_ofReal
+#print axioms QuaternionicComputing.Matrix.realifyUnitaryEquivImage
+#print axioms QuaternionicComputing.Matrix.realify_mem_orthogonal
+#print axioms QuaternionicComputing.Matrix.realify_det
+#print axioms QuaternionicComputing.Matrix.realify_mem_specialOrthogonal
+
+#print axioms QuaternionicComputing.Quaternion.complexify_injective
+#print axioms QuaternionicComputing.Quaternion.complexify_mul
+#print axioms QuaternionicComputing.Quaternion.complexify_conjTranspose
+#print axioms QuaternionicComputing.Quaternion.complexify_mul_complexificationJ
+#print axioms QuaternionicComputing.Quaternion.complexifyUnitaryEquivImage
+#print axioms QuaternionicComputing.Quaternion.complexify_mem_unitary
+#print axioms QuaternionicComputing.Quaternion.complexify_mem_symplectic
+#print axioms QuaternionicComputing.Quaternion.complexify_det_star_fixed
+#print axioms QuaternionicComputing.Quaternion.complexify_det_eq_one_or_neg_one_of_mem_unitary
