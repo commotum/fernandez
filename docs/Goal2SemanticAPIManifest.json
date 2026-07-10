@@ -34,5 +34,1110 @@
       }
     }
   },
-  "items": []
++  "items": [
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.refl",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.symm",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.trans",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.equivalence",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.iff_eq",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.of_eq",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.eq",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.mul",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operator",
+        "inputScope": "all entries of one fixed matrix type",
+        "observationScope": "literal matrix equality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.refl",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.symm",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.trans",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.equivalence",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.iff_eval_eq",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.of_eq",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.eval_eq",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.of_gatewise",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.append",
+      "relation": "ExactCircuitEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.refl",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.symm",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.trans",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.equivalence",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.of_eq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt.refl",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt.symm",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt.trans",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt.equivalence",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OutputWeightEqAt.of_exact",
+      "relation": "OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "one explicitly supplied input column",
+        "observationScope": "all output computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.refl",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.symm",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.trans",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.equivalence",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.of_exact",
+      "relation": "BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisMeasurementEq_iff_outputWeightEqAt_basis",
+      "relation": "BasisMeasurementEq↔basis-OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all computational-basis input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.outputWeightEqAt_basis_iff_column_weight",
+      "relation": "basis-OutputWeightEqAt↔column-weight-equality",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "semantic bridge theorem",
+        "inputScope": "the explicit scopes named by both linked relations",
+        "observationScope": "the linked computational-basis semantics",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.refl",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.symm",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.trans",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.equivalence",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.of_exact",
+      "relation": "PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.basisMeasurementEq",
+      "relation": "PureInputBasisMeasurementEq→BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "matrix operators",
+        "inputScope": "all normalized pure input columns",
+        "observationScope": "all computational-basis output weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.refl",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.symm",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.trans",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.equivalence",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.eventWeight_eq",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.NormalizedDistributionEq.pushforward_eq",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "normalized states and finite distributions",
+        "inputScope": "one pair of normalized pure states",
+        "observationScope": "full finite distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisWeightEq_iff_normalizedDistributionEq",
+      "relation": "BasisWeightEq↔NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.normalizedDistributionEq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_weight_eq",
+      "relation": "BasisWeightEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "state columns",
+        "inputScope": "one pair of columns",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.outputWeightEqAt",
+      "relation": "ExactCircuitEq→OutputWeightEqAt",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.basisMeasurementEq",
+      "relation": "ExactCircuitEq→BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.pureInputBasisMeasurementEq",
+      "relation": "ExactCircuitEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "ordered circuit",
+        "inputScope": "whole chronological circuit",
+        "observationScope": "literal equality of evaluated operators",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.emptyOperator_exact",
+      "relation": "ExactOperatorEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.realBasisKet_normalized",
+      "relation": "basis-ket-normalization",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.complexBasisKet_normalized",
+      "relation": "basis-ket-normalization",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.quaternionBasisKet_normalized",
+      "relation": "basis-ket-normalization",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.complexPureInput_to_basis",
+      "relation": "PureInputBasisMeasurementEq→BasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.basisPreparation_exact",
+      "relation": "ExactCircuitEq/PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.basisPreparation_pureInputAgreement",
+      "relation": "ExactCircuitEq/PureInputBasisMeasurementEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "direct CoreAudit #print axioms endpoint",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CoreAudit.complexState_distribution_refl",
+      "relation": "NormalizedDistributionEq",
+      "owner": "goal-2/2-CORE",
+      "consumer": "diagnostic endpoint in QuaternionicComputing.Semantics.CoreAudit",
+      "axiomAudit": "standard-foundation spot audit passed; release endpoint pending",
+      "classification": {
+        "space": "same finite scalar/index space",
+        "subject": "diagnostic consumer",
+        "inputScope": "exact example scope",
+        "observationScope": "the relation named by the diagnostic",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
+    }
+  ]
 }
