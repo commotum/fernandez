@@ -9,6 +9,7 @@ public import QuaternionicComputing.State.Realification
 public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
+public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
@@ -57,7 +58,18 @@ phase, and quaternionic states strictly up to unit right phase.  Each is an
 equivalence relation, follows from exact representative equality, preserves
 the complete computational-basis distribution, and is natural under raw
 matrix/circuit action and normalized unitary evolution.  Quotient state spaces
-and operator/channel phase notions remain separate layers.
+remain a separate layer.
+
+Real and complex evaluated operators and chronological circuits additionally
+have distinct global, input-column, output-row, and projective-action phase
+relations. Global phase implies both sided basis-phase relations and
+projective action; input-column phase guarantees basis-input measurement
+agreement, while output-row phase and projective action guarantee
+all-normalized-pure-input basis agreement. Chronological congruences preserve
+the multiplication side, and common-earlier projective evolution carries an
+explicit local-unitarity premise. These relations are neither channel equality
+nor cross-model simulation, and the quaternionic operator kernel remains in a
+separate phase layer.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

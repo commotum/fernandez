@@ -225,6 +225,50 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_eval
 #print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.evolveUnitary
 
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.RealInputBasisSignEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.RealOutputBasisSignEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.RealProjectiveActionEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ComplexProjectiveActionEq.equivalence
+
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.inputBasisSignEq
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.outputBasisSignEq
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.projectiveActionEq
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.inputBasisPhaseEq
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.outputBasisPhaseEq
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.projectiveActionEq
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.mem_unitary_iff
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.mem_unitary_iff
+
+#print axioms QuaternionicComputing.Semantics.RealInputBasisSignEq.basisMeasurementEq
+#print axioms QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.basisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.RealOutputBasisSignEq.pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.RealProjectiveActionEq.pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexProjectiveActionEq.pureInputBasisMeasurementEq
+
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.realGlobalSignEq
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.complexGlobalPhaseEq
+#print axioms QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.append
+#print axioms QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.append
+#print axioms QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.append_same_later
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.append_same_later
+#print axioms QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.prepend_same_earlier
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.prepend_same_earlier
+#print axioms
+  QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

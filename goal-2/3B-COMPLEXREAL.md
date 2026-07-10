@@ -17,14 +17,18 @@
 - Real unit phase is exactly ±1. Complex unit phase uses
   Complex.normSq ζ = 1; mathlib provides normSq multiplication/inversion and
   matrix scalar/mulVec compatibility.
-- No public operator-phase, basis-phase, or projective-action relation exists.
-  Stage 3B creates new semantic infrastructure; no frozen Goal 1 family is
-  reclassified merely because a relation name is added.
+- `Semantics/OperatorPhase/ComplexReal.lean` and
+  `ComplexRealCircuit.lean` now provide the stable operator and circuit
+  surfaces. Stage 3B creates new semantic infrastructure; no frozen Goal 1
+  family is reclassified merely because a relation name is added.
 - Projective action can quantify over normalized inputs while returning the raw
   output-column phase relation. This needs finite input indices but no output
   normalization or unitarity premise.
-- Stage 3A closed with 133 manifest declarations and 217 root audit endpoints;
-  both counts must grow exactly by the stable Stage 3B public surface.
+- Stage 3A closed with 133 manifest declarations and 217 root audit endpoints.
+  The two Stage 3B stable leaves contain exactly 150 new declarations
+  (68 operator and 82 circuit declarations), so the semantic manifest must
+  contain 283 items after promotion. The root axiom audit samples main
+  endpoints rather than duplicating every manifest entry.
 
 ## Updated Assumptions
 
@@ -64,8 +68,11 @@ input-column phase, output-row phase, projective action, or basis measurement.
   on the left.
 - Define real/complex projective action by requiring raw output-column phase
   equivalence for every normalized input representative.
-- Prove unfolding lemmas, reflexivity, symmetry, transitivity, packaged
-  Equivalence, and exact-to-phase constructors for every genuine relation.
+- Keep the eight operator definitions intentionally transparent as their
+  unfolding interface; prove reflexivity, symmetry, transitivity, packaged
+  `Equivalence`, and exact-to-phase constructors for every genuine relation.
+  Circuit wrappers additionally expose explicit `iff_eval` and `eval`
+  projections because they cross the circuit/operator abstraction boundary.
 - Prove exact-to-global, global-to-input/output/projective,
   input/output-to-`BasisMeasurementEq`, and output/projective-to-
   `PureInputBasisMeasurementEq` for both scalars.
@@ -153,5 +160,21 @@ input-column phase, output-row phase, projective action, or basis measurement.
 
 ## Stage Results
 
-- Milestone active. Stage 3A is closed; real/complex operator-phase probes and
-  implementation remain in progress.
+- Milestone active. The stable operator leaf has 68 declarations and the
+  stable circuit leaf has 82, for an independently reproduced boundary of 150.
+- Both stable leaves pass focused builds and direct warning-as-error checks.
+  Independent review confirmed the global, input-right, output-left, and
+  projective orientations; finite/input quantifiers; unitary hypotheses; and
+  chronological composition directions. It found no mathematical or build
+  blocker.
+- The eight operator relations remain transparent definitions rather than
+  acquiring eight tautological unfolding theorems. This is the explicit
+  resolution of the provisional “unfolding lemmas” plan item; the circuit
+  wrappers retain real `iff_eval`/`eval` boundary lemmas.
+- Projective action is deliberately allowed on an empty finite input type,
+  where its normalized-input quantifier is vacuous. No converse or kernel
+  characterization may use that relation without the explicit nonempty or
+  positive-cardinality hypotheses proved by its owning later stage.
+- The non-root audit, rational-unitary strictness witnesses, 283-item manifest,
+  root promotion, release axiom endpoints, documentation fold-back, and broad
+  verification remain in progress.
