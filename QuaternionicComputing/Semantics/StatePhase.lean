@@ -165,6 +165,16 @@ theorem raw_mulVec {O : Type v} (A : Matrix O I ℝ)
       (A *ᵥ (a : I → ℝ)) (A *ᵥ (b : I → ℝ)) :=
   State.signEquivalent_real_mulVec A h
 
+/-- Chronological real-circuit evaluation preserves the underlying sign ray. -/
+theorem raw_eval {W : Type v} [Fintype W]
+    (C : Circuit.OrderedCircuit ℝ W)
+    {a b : State.RealState (Circuit.BitBasis W)}
+    (h : RealStatePhaseEq a b) :
+    Real.SignEquivalent
+      (C.eval *ᵥ (a : Circuit.BitBasis W → ℝ))
+      (C.eval *ᵥ (b : Circuit.BitBasis W → ℝ)) :=
+  h.raw_mulVec C.eval
+
 /-- Real unitary evolution preserves normalized real state-phase equality. -/
 theorem evolveUnitary [DecidableEq I] (U : Matrix I I ℝ)
     (hU : U ∈ unitary (Matrix I I ℝ)) (h : RealStatePhaseEq a b) :
@@ -240,6 +250,16 @@ theorem raw_mulVec {O : Type v} (A : Matrix O I ℂ)
     Complex.RightPhaseEquivalent
       (A *ᵥ (a : I → ℂ)) (A *ᵥ (b : I → ℂ)) :=
   State.rightPhaseEquivalent_complex_mulVec A h
+
+/-- Chronological complex-circuit evaluation preserves the underlying phase ray. -/
+theorem raw_eval {W : Type v} [Fintype W]
+    (C : Circuit.OrderedCircuit ℂ W)
+    {a b : State.ComplexState (Circuit.BitBasis W)}
+    (h : ComplexStatePhaseEq a b) :
+    Complex.RightPhaseEquivalent
+      (C.eval *ᵥ (a : Circuit.BitBasis W → ℂ))
+      (C.eval *ᵥ (b : Circuit.BitBasis W → ℂ)) :=
+  h.raw_mulVec C.eval
 
 /-- Complex unitary evolution preserves normalized complex state-phase equality. -/
 theorem evolveUnitary [DecidableEq I] (U : Matrix I I ℂ)
@@ -320,6 +340,16 @@ theorem raw_mulVec {O : Type v} (A : Matrix O I ℍ[ℝ])
     Quaternion.RightPhaseEquivalent
       (A *ᵥ (a : I → ℍ[ℝ])) (A *ᵥ (b : I → ℍ[ℝ])) :=
   State.rightPhaseEquivalent_mulVec A h
+
+/-- Chronological quaternionic-circuit evaluation preserves right phase. -/
+theorem raw_eval {W : Type v} [Fintype W]
+    (C : Circuit.OrderedCircuit ℍ[ℝ] W)
+    {a b : State.QuaternionState (Circuit.BitBasis W)}
+    (h : QuaternionStatePhaseEq a b) :
+    Quaternion.RightPhaseEquivalent
+      (C.eval *ᵥ (a : Circuit.BitBasis W → ℍ[ℝ]))
+      (C.eval *ᵥ (b : Circuit.BitBasis W → ℍ[ℝ])) :=
+  h.raw_mulVec C.eval
 
 /-- Quaternionic unitary evolution preserves normalized right-phase equality. -/
 theorem evolveUnitary [DecidableEq I] (U : Matrix I I ℍ[ℝ])

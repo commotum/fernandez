@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean`.  It imports only
-the public root and runs 201 `#print axioms` commands covering representative
+the public root and runs 217 `#print axioms` commands covering representative
 endpoints from every public layer:
 
 - quaternion scalar decomposition and phase correction;
@@ -12,6 +12,9 @@ endpoints from every public layer:
 - normalized states, phase equivalence, state embeddings, and measurements;
 - exact operator/circuit equality and the distinct fixed-input, basis-input,
   pure-input, distribution, event, and deterministic-pushforward relations;
+- normalized exact-state equality plus real-sign, complex-unit-phase, and
+  quaternionic right-phase equivalence, distribution, circuit, and unitary
+  evolution endpoints;
 - gate placement, chronological circuits, schedules, ordering witnesses, and
   basis preparation;
 - exact fixed-order and scheduled simulations;

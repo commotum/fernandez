@@ -37,6 +37,7 @@ import QuaternionicComputing.Matrix.QuaternionRealificationUnitary
 import QuaternionicComputing.Matrix.ProperImage
 import QuaternionicComputing.Matrix.KroneckerCommute
 import QuaternionicComputing.State.Basic
+import QuaternionicComputing.State.RealPhase
 import QuaternionicComputing.State.ComplexPhase
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
@@ -44,6 +45,7 @@ import QuaternionicComputing.State.Unitary
 import QuaternionicComputing.State.Distribution
 import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
+import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
@@ -87,10 +89,12 @@ while at rank one an explicit witness proves that the image is proper in
 non-surjectivity results without inferring operational lower bounds.
 
 The state layer supplies explicitly normalized finite real, complex, and
-quaternionic states.  Complex unit right phase is an explicit equivalence
-relation preserving weights and matrix evolution; quaternionic phase is
-corrected to act on the right and is likewise proved to be an equivalence with
-the analogous operational laws.  Both
+quaternionic states. Real sign, complex unit right phase, and quaternionic unit
+right phase are explicit equivalence relations on normalized representatives.
+They preserve computational-basis weights and finite distributions, commute
+with compatible raw matrix/circuit action, and are preserved by normalized
+unitary evolution; no channel or all-effect conclusion is inferred.
+Quaternionic phase is corrected to act strictly on the right. Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite

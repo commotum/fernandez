@@ -8,6 +8,7 @@ public import QuaternionicComputing.State.ComplexPhase
 public import QuaternionicComputing.State.Realification
 public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.Semantics.Measurement
+public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
@@ -49,6 +50,14 @@ packaged finite-distribution equality as separate relations.  Exact equality
 has the expected congruence lifts, while distribution equality supplies finite
 event and deterministic-pushforward consequences without being mislabeled as
 ray or channel equality.
+
+Normalized state representatives have a parallel phase layer: real states are
+identified up to a proved `±1` sign relation, complex states up to unit right
+phase, and quaternionic states strictly up to unit right phase.  Each is an
+equivalence relation, follows from exact representative equality, preserves
+the complete computational-basis distribution, and is natural under raw
+matrix/circuit action and normalized unitary evolution.  Quotient state spaces
+and operator/channel phase notions remain separate layers.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

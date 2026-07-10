@@ -207,6 +207,24 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Semantics.ExactCircuitEq.basisMeasurementEq
 #print axioms QuaternionicComputing.Semantics.ExactCircuitEq.pureInputBasisMeasurementEq
 
+#print axioms QuaternionicComputing.Real.signEquivalent_iff_eq_or_eq_neg
+#print axioms QuaternionicComputing.State.RealState.rightSign_basisWeight
+#print axioms QuaternionicComputing.State.signEquivalent_real_mulVec
+#print axioms QuaternionicComputing.Semantics.ExactStateEq.normalizedDistributionEq
+#print axioms QuaternionicComputing.Semantics.RealStatePhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.RealStatePhaseEq.normalizedDistributionEq
+#print axioms QuaternionicComputing.Semantics.RealStatePhaseEq.raw_eval
+#print axioms QuaternionicComputing.Semantics.RealStatePhaseEq.evolveUnitary
+#print axioms QuaternionicComputing.Semantics.ComplexStatePhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq
+#print axioms QuaternionicComputing.Semantics.ComplexStatePhaseEq.raw_eval
+#print axioms QuaternionicComputing.Semantics.ComplexStatePhaseEq.evolveUnitary
+#print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq
+#print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_eval
+#print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.evolveUnitary
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

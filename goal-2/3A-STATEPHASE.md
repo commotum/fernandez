@@ -23,11 +23,12 @@
   amplitudes `3/5` and `4/5`: the column has total weight one, is
   left-phase equivalent to its left `i` multiple before the
   `diag(1,j)` evolution, and is not left-phase equivalent afterward.
-- A direct theorem type repeating large normalized circuit-evolution terms hit
-  the default deterministic heartbeat limit during reduction. Raw-column
-  matrix/circuit phase preservation compiles; any normalized circuit operation
-  needed by Stage 4 should first receive a named definition rather than raising
-  heartbeats.
+- One early expanded normalized circuit-evolution proof hit the default
+  deterministic heartbeat limit during reduction. A later independent strict
+  probe compiled all three direct theorem shapes, so this is not a mathematical
+  or current API blocker. Stage 3A exports cheap raw ordered-circuit lifts and
+  normalized matrix-unitary lifts; Stage 4 still owns a named descended circuit
+  operation and should choose a compact definition rather than raise heartbeats.
 
 ## Updated Assumptions
 

@@ -204,7 +204,7 @@ theorem realSign_api
       realTotalWeight (fun i => x i * s) = realTotalWeight x ∧
       realBasisWeight x b = realBasisWeight y b ∧
       realTotalWeight x = realTotalWeight y ∧
-      A *ᵥ (fun i => x i * s) = fun i => (A *ᵥ x) i * s ∧
+      A *ᵥ (fun i => x i * s) = (fun i => (A *ᵥ x) i * s) ∧
       Real.SignEquivalent (A *ᵥ x) (A *ᵥ y) := by
   exact ⟨Real.signEquivalent_refl x,
     Real.signEquivalent_symm hxy,
@@ -401,12 +401,41 @@ theorem quaternionJ_semantic_api
     QuaternionStatePhaseEq.raw_mulVec U hphase,
     QuaternionStatePhaseEq.evolveUnitary U hU hphase⟩
 
+/-- The three circuit-specialized raw-evaluation theorems have one direct consumer. -/
+theorem circuitRawEval_api
+    {W : Type*} [Fintype W]
+    (realCircuit : Circuit.OrderedCircuit ℝ W)
+    (complexCircuit : Circuit.OrderedCircuit ℂ W)
+    (quaternionCircuit : Circuit.OrderedCircuit ℍ[ℝ] W)
+    {realA realB : RealState (Circuit.BitBasis W)}
+    {complexA complexB : ComplexState (Circuit.BitBasis W)}
+    {quaternionA quaternionB : QuaternionState (Circuit.BitBasis W)}
+    (hreal : RealStatePhaseEq realA realB)
+    (hcomplex : ComplexStatePhaseEq complexA complexB)
+    (hquaternion : QuaternionStatePhaseEq quaternionA quaternionB) :
+    Real.SignEquivalent
+        (realCircuit.eval *ᵥ (realA : Circuit.BitBasis W → ℝ))
+        (realCircuit.eval *ᵥ (realB : Circuit.BitBasis W → ℝ)) ∧
+      Complex.RightPhaseEquivalent
+        (complexCircuit.eval *ᵥ (complexA : Circuit.BitBasis W → ℂ))
+        (complexCircuit.eval *ᵥ (complexB : Circuit.BitBasis W → ℂ)) ∧
+      RightPhaseEquivalent
+        (quaternionCircuit.eval *ᵥ
+          (quaternionA : Circuit.BitBasis W → ℍ[ℝ]))
+        (quaternionCircuit.eval *ᵥ
+          (quaternionB : Circuit.BitBasis W → ℍ[ℝ])) := by
+  exact ⟨RealStatePhaseEq.raw_eval realCircuit hreal,
+    ComplexStatePhaseEq.raw_eval complexCircuit hcomplex,
+    QuaternionStatePhaseEq.raw_eval quaternionCircuit hquaternion⟩
+
 end QuaternionicComputing.Semantics.StatePhaseAudit
 
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.normalizedWitness_all_totalWeights
-#print axioms QuaternionicComputing.Semantics.StatePhaseAudit.normalized_not_leftPhaseEquivalent_gate_i_input
+#print axioms
+  QuaternionicComputing.Semantics.StatePhaseAudit.normalized_not_leftPhaseEquivalent_gate_i_input
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api
 #print axioms QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api
+#print axioms QuaternionicComputing.Semantics.StatePhaseAudit.circuitRawEval_api

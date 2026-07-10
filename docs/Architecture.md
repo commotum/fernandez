@@ -24,6 +24,7 @@ QuaternionicComputing/
     KroneckerCommute.lean    corrected noncommutative interchange boundary
   State/
     Basic.lean               normalized columns, weights, right phases
+    RealPhase.lean           real `±1` ray relation and invariance
     ComplexPhase.lean        complex unit-phase equivalence and invariance
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
@@ -33,6 +34,8 @@ QuaternionicComputing/
     Core.lean                literal operator and chronological-circuit equality
     Measurement.lean         fixed-input, basis-input, pure-input, and distribution agreement
     CoreAudit.lean           edge-index examples and semantic axiom spot checks
+    StatePhase.lean          normalized exact/sign/right-phase relations
+    StatePhaseAudit.lean     normalized left-phase rejection and API consumers
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -121,6 +124,16 @@ weight and commute with arbitrary matrix action, and
 relation.  `State/ComplexPhase.lean` provides the commutative complex analogue,
 including basis-weight, total-weight, and arbitrary-matrix invariance.  Neither
 relation is silently identified with equality of representative columns.
+
+`State/RealPhase.lean` completes the scalar-level picture: its unit-sign
+condition is proved equivalent to `s = 1 ∨ s = -1`, and real sign equivalence
+is exactly literal equality or pointwise negation. `Semantics/StatePhase.lean`
+then restricts exact equality and the three phase relations to normalized
+representatives. It proves their equivalence laws, exact-to-phase implications,
+computational-basis distribution consequences, raw rectangular matrix and
+ordered-circuit naturality, and normalized unitary-evolution preservation.
+These are representative relations; quotient state spaces and descended
+operations are owned by the separate ray layer.
 
 Outcome preservation is proved coordinatewise:
 

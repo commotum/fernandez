@@ -30,8 +30,8 @@ right scaling by associativity.  This is exposed by
 A *ᵥ (ψ · q) = (A *ᵥ ψ) · q.
 ```
 
-Consequently, equality up to global quaternionic phase is represented using a
-unit quaternion on the **right**, `ψ = ψ' <• q`.  The paper places the phase on
+Consequently, equality of quaternionic state/ray representatives up to phase is
+represented using a unit quaternion on the **right**, `ψ = ψ' <• q`. The paper places the phase on
 the left in Equation (45); that relation is not preserved by arbitrary left
 matrix evolution and is corrected here.  Lean's ordinary `SMul` notation is not
 silently confused with ordinary left scalar action.  The state API proves that
@@ -44,6 +44,13 @@ convention.  `Complex.RightPhaseEquivalent` and
 `Quaternion.RightPhaseEquivalent` are explicit relations on representative
 columns; `ComplexState` and `QuaternionState` remain normalized-column
 subtypes, not quotient types.
+
+Real phase is written on the right as well. `Real.SignEquivalent x y` carries
+a scalar witness `s` with `s*s=1` and `x i = y i*s`; the library proves this is
+exactly `s=1` or `s=-1`, hence exactly equality or pointwise negation. The
+normalized wrappers `RealStatePhaseEq`, `ComplexStatePhaseEq`, and
+`QuaternionStatePhaseEq` remain relations on concrete representatives. They
+are not quotient equality, operator global phase, or channel equality.
 
 ## Conjugation and adjoints
 
