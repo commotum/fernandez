@@ -142,13 +142,31 @@ mathlib representations before introducing public Goal 2 relation names.
 - The root build completed successfully with 2,553 jobs, and the explicit
   audit replay completed successfully with the same 2,553-job closure.
 - Warning-as-error compilation of `QuaternionicComputing.lean` passed.
-- Five temporary representation probes compile:
+- Six temporary representation probes compile:
   `/tmp/OrderOnlyProbe.lean`, `/tmp/L2OnlyProbe.lean`,
   `/tmp/SemanticsAPIProbe.lean`, `/tmp/PositiveBridgeProbe.lean`, and
-  `/tmp/EffectSeparationRouteProbe.lean`.
+  `/tmp/EffectSeparationRouteProbe.lean`, plus the warning-as-error finite-
+  basis probe using `Pi.basisFun`, `EuclideanSpace.basisFun`,
+  `Fintype.equivFin`, and `Matrix.mulVec_single_one`.
 - The 51-row human-readable classification and 25-item ambiguity backlog are
   present in `docs/EquivalenceClassification.md`.
 - The selected density/effect/trace/operator-norm APIs and their exact scope
   cautions are folded into `docs/MathlibAPI.md`.
-- The machine-manifest freeze, checksum, declaration-name probe, and final
-  validation remain the active work before this stage may be marked complete.
+- `docs/Goal1ComparisonCohort.json` freezes all 51 family IDs and conservatively
+  assigns 936 public declarations exactly once. Ten rows have deliberately
+  empty arrays: the exact-versus-approximation absence boundary and the nine
+  source-only families.
+- Every one of the 936 names compiled through a temporary warning-as-error file
+  importing only `QuaternionicComputing`; the file was removed after the
+  successful check.
+- `docs/Goal2SemanticAPIManifest.json` is structurally separate and contains
+  zero items at the Stage 1 boundary.
+- JSON validation reports 51/51 unique family IDs, 936/936 unique declaration
+  assignments, all seven semantic axes on every row, one valid primary owner
+  per row, exact agreement with the documentation row order, and zero Goal 2
+  API entries.
+- The frozen cohort checksum is
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`
+  and is verified by `docs/Goal1ComparisonCohort.sha256`.
+- Hole/project-axiom/opaque/unsafe scans, trailing-whitespace checks, and
+  `git diff --check` pass. No Lean source or public import changed in Stage 1.

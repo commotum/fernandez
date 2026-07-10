@@ -139,6 +139,20 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 - Goal 3 has been reindexed and now treats Goal 2's clean release, immutable
   pre-retrofit comparison cohort, semantic API manifest, and traceability
   fold-back as hard prerequisites.
+- Stage 1 independently discovered 51 comparison families: 42 represented in
+  the completed Goal 1 implementation/release surface and nine additional
+  source-level families whose missing models or proofs remain explicit.
+  `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
+  its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
+- The separate `docs/Goal2SemanticAPIManifest.json` contains zero entries at
+  the Stage 1 boundary. New public Goal 2 semantic declarations must be added
+  there without changing the frozen Goal 1 cohort.
+- Pinned mathlib probes validate positive-semidefinite trace-one real/complex
+  densities, Loewner-interval effects, rank-one physical effects, a viable
+  physical-effect separation route, finite basis columns, and the scoped L2
+  induced operator norm. Complex PSD needs `ComplexOrder`; Loewner matrices
+  need `MatrixOrder`; trace-one densities require a nonempty index when
+  existence is used.
 
 ## Inventory and Manifest Policy
 
@@ -768,7 +782,7 @@ use without learning the retrofit's implementation history.
 
 ## Stage Status
 
-- [ ] 1-INVENTORY
+- [x] 1-INVENTORY
 - [ ] 2-CORE
 - [ ] 3-PHASE
 - [ ] 4-RAYS
