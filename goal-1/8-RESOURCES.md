@@ -85,8 +85,14 @@ to a complexity-class theorem.
   factor `16` under `+2`, the logarithmic arity consequence of a finite slot
   bound, and a generic conditional additive-work bound.
 - Connect dense-slot theorems to `realifyCircuit`, `complexifyCircuit`, and the
-  composed translation.  Do not introduce or assume an elementary-gate
-  decomposition theorem.
+  composed translation.
+- Add a conditional exact primitive-compiler interface.  A compiler must
+  supply its primitive predicate, a chronological replacement list for each
+  gate, proof that every replacement gate is primitive, and equality of the
+  replacement evaluation with the source gate denotation.  Prove whole-list
+  semantic preservation, exact summed compiled count, and the bound
+  `compiledCount ≤ sourceGateCount * K` from an explicit per-gate `K` premise.
+  No compiler instance is postulated for arbitrary unitaries.
 - Add a schedule-count leaf enumerating the permutations of all finite gate
   identifiers.  Prove the list has exactly `(Fintype.card ι)!` distinct orders
   and that each gives a `LegalSchedule` for the empty precedence relation.
@@ -111,6 +117,9 @@ to a complexity-class theorem.
 - `Circuit/DescriptionCost.lean`: low-dependency public proof leaf importing
   `Circuit/Cost` and natural-log/list-sum lemmas; owns dense slot counts and
   conditional additive work bounds, not runtime implementations.
+- `Circuit/Compilation.lean`: conditional public API importing the ordered
+  core and description-cost list bounds; owns certified exact gate expansion
+  and count aggregation, with no global synthesis instance or gate library.
 - `Circuit/ScheduleCount.lean`: ordering-specific proof leaf importing
   `Circuit/Ordering` and list permutation APIs; owns factorial enumeration and
   stays out of the generic schedule core.
@@ -139,6 +148,8 @@ to a complexity-class theorem.
   hypotheses.
 - No use of a nonexistent or assumed generic unitary synthesis routine; no
   project axiom may encode the paper's `2^(d+1)` elementary-gate assertion.
+  `ExactGateCompiler` results are implications from user-supplied compiler
+  data and cannot be presented as existence of such data.
 - A factorial count is proved only for empty precedence.  General DAGs can have
   fewer legal orders, including one.
 - Pushforward preservation is for finite deterministic postprocessing of the
@@ -157,6 +168,8 @@ to a complexity-class theorem.
   compile, with both primary translations instantiated.
 - Dense scalar-entry slots are exact, their translation factors are proved,
   and any linear-work conclusion carries an explicit per-gate cost premise.
+- Conditional primitive compilation preserves evaluation and has exact summed
+  gate count; every multiplicative count bound exposes its per-gate premise.
 - Empty-precedence chronological orders are enumerated without duplicates and
   counted exactly by a factorial, with certified legal schedules.
 - Event/marginal and deterministic finite postprocessing preservation are
