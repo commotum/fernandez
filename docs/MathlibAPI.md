@@ -189,8 +189,48 @@ unitaries is unitary without assuming coefficient commutativity.
 By contrast, `Matrix.mul_kronecker_mul` requires `CommSemiring`; it is
 intentionally unavailable over quaternions.  `Matrix.conjTranspose_kronecker'`
 is the noncommutative adjoint formula and includes the required factor swap.
-These API boundaries match the paper's ordering phenomenon and will be
-preserved rather than bypassed.
+These API boundaries match the paper's ordering phenomenon and are preserved
+rather than bypassed.
+
+The project supplies the missing corrected boundary in
+`Matrix/KroneckerCommute.lean`:
+
+```lean
+Matrix.EntrywiseCommute B C
+Matrix.kronecker_mul_kronecker_of_entrywiseCommute A B C D h
+Matrix.kronecker_mul_kronecker_commutative A B C D
+Matrix.disjoint_kronecker_factors_commute_of_entrywiseCommute U V h
+```
+
+Here `EntrywiseCommute B C` means that every entry of the left product's
+second factor commutes with every entry of the right product's first factor.
+It is a sufficient hypothesis for the rectangular interchange law, not a
+proved necessity characterization.  `IsZeroOneMatrix` supplies useful
+sufficient special cases.  The quaternionic `oneByOne` declarations prove
+both that interchange can hold when the paper's named right-hand factors are
+not zero–one and that it fails when the relevant middle entries are `i` and
+`j`.
+
+## Finite scheduling APIs
+
+Mathlib's list permutation and pairwise-product lemmas support the finite
+schedule layer:
+
+```lean
+List.Perm.prod_eq'
+List.Nodup.pairwise_of_forall_ne
+List.perm_of_nodup_nodup_toFinset_eq
+```
+
+The project bundles the semantic data as `Circuit.LegalSchedule`: its list is
+noduplicate, complete for a finite identifier type, and certified to respect a
+supplied precedence relation through `List.idxOf`.  No mathlib graph or
+topological-sort object is silently inferred.  `order_perm` shows that legal
+schedules enumerate the same occurrences, while
+`scheduledEval_eq_of_pairwise_commute` uses `List.Perm.prod_eq'` to prove
+evaluation equality under pairwise commutation of distinct global gate
+denotations.  The proof explicitly transports the reversed factor list used by
+the chronological evaluator.
 
 ## Promoted compiled APIs
 
@@ -209,8 +249,16 @@ without placeholders:
   with the determinant boundary stated above;
 - noncommutative-safe contextual placement, added-wire reindexing, and unitary
   preservation;
+- corrected Kronecker interchange under entrywise commutation, its
+  commutative/zero–one special cases, and explicit quaternionic success and
+  failure checks;
+- finite legal schedules, occurrence completeness/count/permutation laws,
+  pairwise-commuting schedule independence, and an observable disjoint-gate
+  order-dependence witness;
 - whole ordered-circuit embedding, normalized state evolution, bottom
   probability preservation, and exact abstract count/width/arity results; and
+- exact quaternion-to-complex simulation for each supplied legal schedule,
+  without schedule selection or schedule-independence assumptions; and
 - the pinned project baseline and axiom smoke audit.
 
 Their stable declarations live in the narrow scalar, matrix, state, circuit,

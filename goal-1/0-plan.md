@@ -130,6 +130,23 @@ disposition, and the pinned project builds and passes its axiom audit without
   wires and exact per-gate arity `+2`; its four-sector bottom probability is
   equal to the normalized quaternionic source output.  No direct
   quaternion-to-real definition is hidden in the result.
+- Stage 7 completed on 2026-07-09.  The general Kronecker interchange law is
+  now proved over noncommutative semirings under the exact entrywise
+  commutation hypothesis on the crossing factors, with a non-zero-one success
+  example and an explicit quaternionic `i`/`j` failure.
+- `LegalSchedule` certifies a complete, duplicate-free chronological
+  enumeration respecting an arbitrary precedence relation.  Scheduled
+  circuits use the existing reverse-product evaluator; pairwise commuting
+  global denotations give schedule independence, while every fixed legal
+  quaternionic schedule inherits the Stage 6 exact complex simulation.
+- A fully checked two-wire witness uses disjoint, locally unitary rational
+  `i`/`j` mixers and a normalized interfering input.  Its two legal orders have
+  exact `00` weights `8281/15625` and `1369/15625`; complexification preserves
+  both the operator inequality and those normalized bottom probabilities.
+- Definition 4 is therefore corrected and proved at the finite schedule level.
+  Definition 5's finite scheduled semantics is present, while uniform
+  generation, encodings, runtime, and postprocessing complexity remain Stage 8
+  obligations rather than consequences of the algebraic simulation.
 
 ## Current Assumptions to Test
 
@@ -483,7 +500,7 @@ without learning the paper's original organization.
 - [x] 4-STATES — completed 2026-07-09
 - [x] 5-CIRCUITS — completed 2026-07-09
 - [x] 6-SIMULATION — completed 2026-07-09
-- [ ] 7-ORDERING — in progress
-- [ ] 8-RESOURCES
+- [x] 7-ORDERING — completed 2026-07-09
+- [ ] 8-RESOURCES — in progress
 - [ ] 9-COVERAGE
 - [ ] 10-RELEASE

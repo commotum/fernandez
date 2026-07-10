@@ -120,8 +120,14 @@ they are not silently inferred from the pure-state theorems.
 - A placed gate stores a finite local type, a finite complement type, a split
   `Local ⊕ Complement ≃ W`, and a local matrix.  Its global operator is derived
   from these fields, so locality is not detachable metadata.
-- A later DAG/topological-sort layer may produce such lists, but it will not be
-  required to prove the algebraic embedding theorem.
+- A `LegalSchedule ι precedes` is a finite chronological list containing every
+  gate-occurrence identifier exactly once, together with a proof that every
+  supplied precedence constraint points forward in the list.  The relation is
+  not assumed transitive or acyclic; existence of the schedule is itself the
+  consistency certificate used by the finite semantics.
+- Instantiating a legal schedule with a gate family produces an
+  `OrderedCircuit`.  Different legal schedules remain different supplied
+  chronological circuits unless an explicit independence theorem applies.
 - A local gate is lifted to global basis states by restricting bit assignments
   to its support and requiring equality off that support.  Concretely, a split
   equivalence identifies the full basis with `local × rest`, forms
@@ -130,11 +136,24 @@ they are not silently inferred from the pure-state theorems.
   identity.  Its multiplication law uses identity block diagonalization;
   permutations and contextual padding use only `0`, `1`, and explicit index
   equivalences, with multiplication order visible in definitions.
+- For `(A ⊗ₖ B)(C ⊗ₖ D)`, entrywise commutation of `B` with `C` is
+  a sufficient hypothesis for the usual interchange equality.  A zero–one
+  middle factor is one sufficient special case, not a necessary
+  characterization.  No interchange `iff` is asserted.
+- Pairwise commutation of distinct placed-gate denotations is sufficient for
+  every legal schedule of the same occurrence family to evaluate equally.
+  Disjoint supports alone do not supply this hypothesis over quaternion
+  coefficients.  The library's `i`/`j` example proves that some disjoint
+  locally unitary pairs have order-dependent operators and observable weights;
+  it does not say that all such pairs do.
 - Semantic permutation matrices used to describe placement are not counted as
   physical swap gates unless a separate synthesis theorem constructs them.
 - A chronological list `[g₁, …, gₛ]` evaluates to `Gₛ * ⋯ * G₁`.  The added
   target wire has type `Unit ⊕ W`, is shared by every translated gate, and is
   never duplicated per gate.
+- The paper's temporal-cut poset is not represented as the gate-occurrence
+  precedence relation.  In particular, the library does not identify one gate
+  topological sort with a total order on every cut.
 
 ## Simulation and abstract resources
 
@@ -159,6 +178,10 @@ they are not silently inferred from the pure-state theorems.
   primitive-gate synthesis, finite-precision encoding, runtime, scheduling
   depth, or uniform circuit generation.  Those require explicit later cost
   models.
+- For a supplied `LegalSchedule`, scheduled simulation applies the fixed-order
+  theorem to exactly that chronological circuit.  It does not select a
+  schedule, establish schedule independence, or implement Definition 5's
+  uniform classical generator, runtime, encoding, or postprocessing.
 
 ## Dimensions and empty types
 

@@ -94,6 +94,9 @@ outcome probability.
 - `Circuit/OrderingWitness.lean`: narrow quaternion-specific diagnostic/public
   example importing `Circuit/Ordering` and scalar/state basics as needed; heavy
   rational evaluation proofs stay out of the generic schedule core.
+- `Simulation/OrderingWitness.lean`: narrow end-to-end consumer importing the
+  witness and scheduled bridge; it proves that complexification preserves the
+  exact operator and observable separation for the supplied schedules.
 - `QuaternionicComputing.lean` and `AxiomAudit.lean`: changed only after all
   ordering leaves and adjacent scheduled-simulation consumers compile; root
   change requires full build.
@@ -144,5 +147,70 @@ outcome probability.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 6-SIMULATION on
-  2026-07-09.
+- Completed on 2026-07-09.
+- `Matrix/KroneckerCommute.lean` now exports
+  `EntrywiseCommute` and
+  `kronecker_mul_kronecker_of_entrywiseCommute` over an arbitrary semiring,
+  with the exact crossing direction `B` against `C`.  It also proves the
+  commutative specialization, zero-one sufficiency on either side, and
+  commutation of canonical disjoint tensor factors under the corresponding
+  entrywise hypothesis.
+- `Matrix.QuaternionExamples.oneByOne_interchange_without_zeroOne` is a
+  checked non-zero-one success example, while
+  `oneByOne_interchange_i_j_failure` evaluates the failed interchange to the
+  quaternionic `i`/`j` sign conflict.  Thus the paper's “only if” wording is
+  disproved rather than retained as an API promise.
+- `Circuit/Ordering.lean` defines `LegalSchedule`: a complete, duplicate-free
+  chronological enumeration with an explicit precedence-index certificate.
+  It proves full length, permutation, membership, count, and precedence facts;
+  `scheduledCircuit` feeds the list directly to `OrderedCircuit`, and
+  `scheduledEval_eq_of_pairwise_commute` proves independence only under an
+  explicit pairwise-commutation premise on the global denotations.
+- `Simulation/Scheduled.lean` applies the established Stage 6 theorem to the
+  exact supplied schedule.  `scheduledQuaternionToComplex_exactSimulation`
+  exposes operator embedding, unchanged occurrence count, width `+1`, arity
+  bound `+1`, and normalized bottom-probability equality without choosing or
+  quotienting schedules.
+- `Circuit/OrderingWitness.lean` constructs two rational one-wire quaternionic
+  mixers with off-diagonal `i` and `j` directions.  The placed gates have
+  supports exactly `{false}` and `{true}`, are locally unitary with local arity
+  one, and admit the two opposite legal schedules for the empty precedence
+  relation.  The normalized input has amplitudes `3/5` at `00` and `(4/5)k` at
+  `11`.  The two chronological output amplitudes at `00` are exactly `91/125`
+  and `-37/125`, so their weights are `8281/15625` and `1369/15625`.
+  `scheduled_operators_ne` and `output_basis00_weight_ne` record the operator
+  and observable distinctions separately.
+- `Simulation/OrderingWitness.lean` initializes the added complex wire in the
+  normalized state `|0⟩`, translates both exact schedules, and proves both the
+  retained operator inequality and the same two exact bottom weights through
+  `complexifyCircuitOutput_bottomProbability`.
+- An independent review unfolded the supports to `{false}` and `{true}`, the
+  chronological matrices to `jGate.denote * iGate.denote` versus
+  `iGate.denote * jGate.denote`, and the scalar calculation to
+  `(3/5)^3 + (4/5)^3` versus `(3/5)^3 - (4/5)^3`.  It separately checked input
+  normalization, schedule certificates, complexification injectivity, and the
+  normalized probability bridge and found no defect.
+- Strict direct compilation with `-DwarningAsError=true` passed for every new
+  leaf and for the public root.  The combined focused build
+  `lake build QuaternionicComputing.Matrix.KroneckerCommute
+  QuaternionicComputing.Circuit.Ordering
+  QuaternionicComputing.Circuit.OrderingWitness
+  QuaternionicComputing.Simulation.Scheduled
+  QuaternionicComputing.Simulation.OrderingWitness` completed 2,358 jobs.
+- After the public-root import change, `lake build QuaternionicComputing`
+  completed 2,519 jobs and the full `lake build` completed 2,519 jobs.
+  `/tmp/Stage7ImportSmoke.lean`, importing only `QuaternionicComputing`,
+  successfully checked the corrected Kronecker theorem, legal schedules,
+  schedule independence, scheduled exact simulation, disjointness, and both
+  source/translated observable inequalities.
+- The expanded strict `AxiomAudit.lean` passed.  Every audited Stage 7 result
+  reports only the established Lean/mathlib foundations `propext`,
+  `Classical.choice`, and `Quot.sound` (with some results using a subset).
+  Lean-only scans found no `sorry`, `admit`, `sorryAx`, project `axiom`,
+  `opaque`, or `unsafe`; the forbidden
+  `Matrix.mul_kronecker_mul` shortcut has no hit in the noncommutative leaf;
+  schedule/witness boundary scans and `git diff --check` passed.
+- Definition 4 now has a corrected finite formal counterpart.  Definition 5
+  is formalized only through its fixed finite schedule/evaluation/simulation
+  core; a uniform classical generator, description encoding, runtime, and
+  postprocessing cost remain explicitly assigned to Stage 8.

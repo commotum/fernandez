@@ -18,6 +18,7 @@ QuaternionicComputing/
     Complexification.lean    quaternion matrices → complex matrices
     Unitary.lean             star homomorphisms and unitary/symplectic images
     Determinant.lean         isolated determinant and SO/sign results
+    KroneckerCommute.lean    corrected noncommutative interchange boundary
   State/
     Basic.lean               normalized columns, weights, right phases
     Realification.lean       complex → real state columns and outcomes
@@ -31,12 +32,15 @@ QuaternionicComputing/
     Cost.lean                generic width/arity bounds and maxima
     Realification.lean       one-gate complex-to-real translation
     Complexification.lean    one-gate quaternion-to-complex translation
-    Ordering.lean            DAG/topological orders and ambiguity witnesses
+    Ordering.lean            finite legal schedules and independence criterion
+    OrderingWitness.lean     disjoint unitary order-dependence witness
   Simulation/
     Basic.lean               generic sum-index → added-wire state transport
     ComplexToReal.lean       corrected Theorem 2 family
     QuaternionToComplex.lean corrected Theorem 4 family
     QuaternionToReal.lean    corrected Corollary 1 family
+    Scheduled.lean           fixed legal-schedule simulation bridge
+    OrderingWitness.lean     translated observable ordering witness
     Examples.lean            exact non-real and quaternionic end-to-end checks
   Paper/
     Results.lean             source-numbered wrappers where useful
@@ -126,13 +130,42 @@ translated gate has local arity exactly one larger and the same complement.
 
 The development must never use `Matrix.mul_kronecker_mul` for quaternionic
 semantics: mathlib correctly requires commutative coefficients for that
-interchange law.  Ordered evaluation remains an explicit list/fold, which is
-precisely where quaternionic order dependence is observable.
+interchange law.  `Matrix/KroneckerCommute.lean` proves the corrected
+rectangular interchange theorem under the sufficient condition that every
+entry of the two middle factors commutes.  It also proves the commutative and
+zero–one special cases, exhibits a non-zero–one quaternionic success, and
+exhibits failure for middle entries `i` and `j`.  It does not claim that
+entrywise commutation is necessary.
 
 The main simulation leaves use the exported monoid-hom evaluation lemma to
-lift these one-gate identities over an ordered list.  DAGs and
-topological sorting are an extension layer used to connect the theorem to the
-paper's “temporal chain” language and to exhibit order dependence.
+lift these one-gate identities over an ordered list.
+
+## Scheduling and order dependence
+
+`Circuit/Ordering.lean` separates a finite family of gate occurrences from its
+chronological execution order.  A `LegalSchedule ι precedes` contains a list
+of every identifier exactly once and a certificate that each supplied
+precedence edge points forward in the list.  The relation is deliberately not
+required to be a transitive partial order or an acyclic graph: existence of a
+legal schedule is the finite consistency certificate needed by the evaluator.
+Instantiating a schedule with a gate family produces an `OrderedCircuit`, so
+Definition 4's corrected finite semantics is a thin layer over the established
+chronological product.
+
+Any two legal schedules enumerate permutation-equivalent gate occurrences,
+but their products need not agree.  `scheduledEval_eq_of_pairwise_commute`
+proves equality when all distinct global gate denotations commute.  The
+separate witness leaf places rational unitary `i`- and `j`-mixers on disjoint
+Boolean wires and proves that the two legal schedules have unequal operators
+and unequal normalized `00` outcome weights.  This witness establishes
+existence only; disjoint support is not by itself either a universal
+order-dependence theorem or an order-independence theorem over quaternions.
+
+The paper's cut-poset language is not identified with this occurrence-order
+API.  No type of temporal cuts, theorem that one topological sort totally
+orders all cuts, topological-sorting algorithm, or uniform circuit-family
+generator is supplied.  Those graph, runtime, and Definition 5 uniformity
+claims remain outside the finite core.
 
 ## Simulation implementation
 
@@ -156,6 +189,14 @@ operator embedding, state intertwining, bottom probability equality, unchanged
 gate count, width `+1`, and exact per-gate arity `+1`.  Empty circuits have
 maximum local arity zero; maximum-arity equality therefore carries the
 necessary nonempty hypothesis.
+
+`Simulation/Scheduled.lean` applies the fixed-order quaternion-to-complex
+results to the exact chronological circuit selected by a supplied
+`LegalSchedule`.  It preserves occurrence count, pointwise unitarity and arity
+bounds, operator embedding, and bottom probability equality separately for
+that schedule.  It neither chooses among legal schedules nor equates them.
+`Simulation/OrderingWitness.lean` confirms that complexification preserves the
+explicit operator gap and the two exact observable weights.
 
 The corrected Corollary 1 is the visible composition
 `realifyCircuit (complexifyCircuit c)`.  It uses two shared distinguished
