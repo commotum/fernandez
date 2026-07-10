@@ -54,64 +54,76 @@ def k : ℍ[ℝ] := ⟨0, 0, 0, 1⟩
 def complexPart : ℍ[ℝ] →ₗ[ℝ] ℂ where
   toFun q := ⟨q.re, q.imI⟩
   map_add' _ _ := rfl
-  map_smul' _ _ := rfl
+  map_smul' r q := by
+    apply Complex.ext <;> simp
 
 /-- The `j,k` coordinates of a quaternion, bundled as a real-linear map. -/
 def weirdPart : ℍ[ℝ] →ₗ[ℝ] ℂ where
   toFun q := ⟨q.imJ, q.imK⟩
   map_add' _ _ := rfl
-  map_smul' _ _ := rfl
+  map_smul' r q := by
+    apply Complex.ext <;> simp
 
 @[simp]
 theorem complexPart_re (q : ℍ[ℝ]) : (complexPart q).re = q.re :=
-  rfl
+  by simp [complexPart]
 
 @[simp]
 theorem complexPart_im (q : ℍ[ℝ]) : (complexPart q).im = q.imI :=
-  rfl
+  by simp [complexPart]
 
 @[simp]
 theorem weirdPart_re (q : ℍ[ℝ]) : (weirdPart q).re = q.imJ :=
-  rfl
+  by simp [weirdPart]
 
 @[simp]
 theorem weirdPart_im (q : ℍ[ℝ]) : (weirdPart q).im = q.imK :=
-  rfl
+  by simp [weirdPart]
 
 @[simp]
 theorem complexPart_coeComplex (z : ℂ) : complexPart (z : ℍ[ℝ]) = z := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
 @[simp]
 theorem weirdPart_coeComplex (z : ℂ) : weirdPart (z : ℍ[ℝ]) = 0 := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
-@[simp] theorem complexPart_i : complexPart i = Complex.I := by ext <;> simp
-@[simp] theorem weirdPart_i : weirdPart i = 0 := by ext <;> simp
-@[simp] theorem complexPart_j : complexPart j = 0 := by ext <;> simp
-@[simp] theorem weirdPart_j : weirdPart j = 1 := by ext <;> simp
-@[simp] theorem complexPart_k : complexPart k = 0 := by ext <;> simp
-@[simp] theorem weirdPart_k : weirdPart k = Complex.I := by ext <;> simp
+@[simp] theorem complexPart_i : complexPart i = Complex.I := by
+  apply Complex.ext <;> simp
+
+@[simp] theorem weirdPart_i : weirdPart i = 0 := by
+  apply Complex.ext <;> simp
+
+@[simp] theorem complexPart_j : complexPart j = 0 := by
+  apply Complex.ext <;> simp
+
+@[simp] theorem weirdPart_j : weirdPart j = 1 := by
+  apply Complex.ext <;> simp
+
+@[simp] theorem complexPart_k : complexPart k = 0 := by
+  apply Complex.ext <;> simp
+
+@[simp] theorem weirdPart_k : weirdPart k = Complex.I := by
+  apply Complex.ext <;> simp
 
 /-- Right multiplication by `j` embeds a complex number in the `j,k` plane. -/
 @[simp]
 theorem coeComplex_mul_j_complexPart (z : ℂ) :
     complexPart ((z : ℍ[ℝ]) * j) = 0 := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
 /-- Right multiplication by `j` preserves the complex coordinates as weird coordinates. -/
 @[simp]
 theorem coeComplex_mul_j_weirdPart (z : ℂ) :
     weirdPart ((z : ℍ[ℝ]) * j) = z := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
 /-- A quaternion is reconstructed from its complex and weird components. -/
 theorem reconstruction (q : ℍ[ℝ]) :
     q = (complexPart q : ℍ[ℝ]) + (weirdPart q : ℍ[ℝ]) * j := by
-  ext <;> simp
+  apply QuaternionAlgebra.ext <;> simp
 
 /-- Quaternions with equal complex and weird components are equal. -/
-@[ext]
 theorem ext_parts {p q : ℍ[ℝ]}
     (hcomplex : complexPart p = complexPart q)
     (hweird : weirdPart p = weirdPart q) : p = q := by
@@ -135,7 +147,7 @@ theorem components_injective :
 /-- Moving an embedded complex scalar past `j` conjugates it. -/
 theorem j_mul_coeComplex (z : ℂ) :
     j * (z : ℍ[ℝ]) = ((star z : ℂ) : ℍ[ℝ]) * j := by
-  ext <;> simp
+  apply QuaternionAlgebra.ext <;> simp
 
 /-- Complex component of a quaternion product (Equation 41, first identity). -/
 @[simp]
@@ -163,13 +175,13 @@ theorem weirdPart_mul (p q : ℍ[ℝ]) :
 @[simp]
 theorem complexPart_star (q : ℍ[ℝ]) :
     complexPart (star q) = star (complexPart q) := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
 /-- Quaternion conjugation negates, but does not complex-conjugate, the weird component. -/
 @[simp]
 theorem weirdPart_star (q : ℍ[ℝ]) :
     weirdPart (star q) = -weirdPart q := by
-  ext <;> simp
+  apply Complex.ext <;> simp
 
 /-- Quaternion norm square is the sum of the two complex norm squares. -/
 theorem normSq_eq_complex_normSq_add (q : ℍ[ℝ]) :
@@ -182,16 +194,32 @@ theorem normSq_eq_complex_normSq_add (q : ℍ[ℝ]) :
 
 /-! The following exact identities are executable sanity checks for signs and order. -/
 
-@[simp] theorem i_mul_i : i * i = (-1 : ℍ[ℝ]) := by ext <;> norm_num
-@[simp] theorem j_mul_j : j * j = (-1 : ℍ[ℝ]) := by ext <;> norm_num
-@[simp] theorem k_mul_k : k * k = (-1 : ℍ[ℝ]) := by ext <;> norm_num
+@[simp] theorem i_mul_i : i * i = (-1 : ℍ[ℝ]) := by
+  apply QuaternionAlgebra.ext <;> norm_num
 
-@[simp] theorem i_mul_j : i * j = k := by ext <;> norm_num
-@[simp] theorem j_mul_i : j * i = -k := by ext <;> norm_num
-@[simp] theorem j_mul_k : j * k = i := by ext <;> norm_num
-@[simp] theorem k_mul_j : k * j = -i := by ext <;> norm_num
-@[simp] theorem k_mul_i : k * i = j := by ext <;> norm_num
-@[simp] theorem i_mul_k : i * k = -j := by ext <;> norm_num
+@[simp] theorem j_mul_j : j * j = (-1 : ℍ[ℝ]) := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem k_mul_k : k * k = (-1 : ℍ[ℝ]) := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem i_mul_j : i * j = k := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem j_mul_i : j * i = -k := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem j_mul_k : j * k = i := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem k_mul_j : k * j = -i := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem k_mul_i : k * i = j := by
+  apply QuaternionAlgebra.ext <;> norm_num
+
+@[simp] theorem i_mul_k : i * k = -j := by
+  apply QuaternionAlgebra.ext <;> norm_num
 
 /-- Hamilton's ordered product `i*j*k` is `-1`. -/
 @[simp]

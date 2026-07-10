@@ -10,8 +10,10 @@
 - Compiling probes show that bundled maps
   `complexPart, weirdPart : ℍ →ₗ[ℝ] ℂ` make the required finite-sum proofs
   straightforward.
-- Quaternionic column vectors are right modules.  The paper's left-phase
-  Equation (45) fails already for the one-dimensional gate `j` and phase `i`.
+- Quaternionic column vectors are right modules.  In one dimension, `j*i ≠ i*j`
+  shows that the same left phase does not commute through evolution, but a true
+  failure of the existential left-ray relation needs at least two coordinates.
+  The checked witness uses `diag(1,j)`, state `(1,1)`, and phase `i`.
 - `Matrix.fromBlocks` is reserved for Stage 3; this stage establishes every
   scalar identity it will consume.
 
@@ -43,9 +45,10 @@ multiplication order, conjugation, norm square, and module-side diagnostics.
 - Prove the two order-sensitive product formulas from Equation (41), the
   conjugation formulas from Equation (43), and the norm-square decomposition
   from Equation (42).
-- Add exact sanity theorems for `i²=j²=k²=-1`, `i*j=k`, `j*i=-k`, and a formal
-  witness showing left phase is not respected by left multiplication while
-  right phase is.
+- Add exact sanity theorems for `i²=j²=k²=-1`, `i*j=k`, `j*i=-k`, a
+  fixed-phase noncommutation diagnostic, and a genuine two-coordinate witness
+  showing that the existential left-ray relation is not preserved, while right
+  phase is.
 - Add any minimal complex real/imaginary helper lemmas not already provided by
   mathlib, without duplicating existing APIs.
 - Replace the baseline smoke import with the new scalar module and expand the
@@ -56,8 +59,8 @@ multiplication order, conjugation, norm square, and module-side diagnostics.
 
 - Multiplication formulas must be proved from quaternion coordinates with the
   exact source order; no commutativity assumption may be added to `ℍ`.
-- The left-phase diagnostic must prove an actual inequality/non-equality, not
-  merely fail to typecheck or cite prose.
+- The left-ray diagnostic must rule out every possible common output phase; the
+  one-dimensional inequality `j*i ≠ i*j` alone is not sufficient evidence.
 - The right-phase theorem must use the opposite-ring/right-action semantics or
   explicit pointwise right multiplication; it must not rename left action.
 - Reconstruction and injectivity tests prevent component definitions from
@@ -85,4 +88,3 @@ multiplication order, conjugation, norm square, and module-side diagnostics.
 
 - In progress.  Stage opened after the verified completion of 1-INVENTORY on
   2026-07-09.
-
