@@ -39,8 +39,9 @@
   Do not encode it as existence of an arbitrary unit quaternion followed by a
   separate centrality proposition.
 - Raw and normalized projective action are equivalent for every finite input
-  type, including the empty type. For the empty type both universal relations
-  are vacuous; this bridge does not manufacture a normalized state.
+  type, including the empty type. For the empty type the normalized relation is
+  vacuous, while the raw relation checks only the unique zero column and holds
+  trivially; this bridge does not manufacture a normalized state.
 - The kernel converse needs a square matrix, `DecidableEq I`, explicit
   `1 < Fintype.card I`, and unitarity of `U`. It does not need a separately
   assumed unitarity proof for `V`.
@@ -139,6 +140,9 @@ generic global operator phase.
 - Projective action compares complete output rays for all normalized pure
   inputs. It is not basis-only equality, channel equality, or all-effect
   equality, and it does not assert output normalization.
+- The rectangular operator relation may be vacuous on an empty input index;
+  the circuit wrapper uses inhabited `BitBasis W` and is nonvacuous even at
+  zero wires.
 - The normalized/raw bridge is an iff of universal action predicates, not an
   assertion that every raw column is normalized.
 - Circuit predicates compare only `OrderedCircuit.eval`; they do not compare

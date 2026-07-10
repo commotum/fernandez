@@ -77,10 +77,13 @@ by a common earlier circuit. A common earlier projective evolution needs a
 unitary certificate; arbitrary two-sided congruence is not assumed.
 
 Projective action compares raw output rays and does not claim output
-normalization. Its quantifier is vacuous when the finite input type has no
-normalized state, so converse and kernel theorems must carry explicit
-nonempty/cardinality and unitarity hypotheses. None of these phase relations
-is channel equality or all-effect equality.
+normalization. The rectangular operator relation is vacuous when its arbitrary
+finite input index type has no normalized state, so converse and kernel
+theorems must carry explicit nonempty/cardinality and unitarity hypotheses. A
+circuit wrapper instead acts on `BitBasis W = W → Bool`, which is inhabited and
+admits normalized basis states even when `W` has zero wires; that quantifier is
+not vacuous. None of these phase relations is channel equality or all-effect
+equality.
 
 ## Conjugation and adjoints
 

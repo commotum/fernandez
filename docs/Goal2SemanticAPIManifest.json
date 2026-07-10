@@ -2261,7 +2261,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact relation",
         "ancillaPolicy": "none"
       }
@@ -2677,7 +2677,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -2693,7 +2693,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -2709,7 +2709,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -2725,7 +2725,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -2851,9 +2851,9 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the conclusion is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -2947,7 +2947,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the conclusion is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3187,9 +3187,9 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every literally equal pair of same-typed operators; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every literally equal pair on a finite input index; the conclusion quantifies every normalized pure input; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -3205,7 +3205,7 @@
         "subject": "matrix operators",
         "inputScope": "every normalized pure input on the finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "all computational-basis output weights",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -3219,7 +3219,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every literally equal pair of same-typed operators; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every literally equal pair on a finite input index; the conclusion quantifies every normalized pure input; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3281,9 +3281,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
       "classification": {
-        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same real scalar with arbitrary external row/input types and a finite intermediate row index",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator",
+        "inputScope": "every related pair and every common compatible later operator with finite intermediate row index",
         "observationScope": "the same relation after left matrix multiplication",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact implication",
@@ -3297,9 +3297,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
       "classification": {
-        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same complex scalar with arbitrary external row/input types and a finite intermediate row index",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator",
+        "inputScope": "every related pair and every common compatible later operator with finite intermediate row index",
         "observationScope": "the same relation after left matrix multiplication",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact implication",
@@ -3313,9 +3313,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
       "classification": {
-        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same real scalar with arbitrary output/external-input types and a finite intermediate input index",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible earlier operator",
+        "inputScope": "every related pair and every common compatible earlier operator with finite intermediate input index",
         "observationScope": "the same relation after right matrix multiplication",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact implication",
@@ -3329,9 +3329,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
       "classification": {
-        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same complex scalar with arbitrary output/external-input types and a finite intermediate input index",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible earlier operator",
+        "inputScope": "every related pair and every common compatible earlier operator with finite intermediate input index",
         "observationScope": "the same relation after right matrix multiplication",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact implication",
@@ -3345,11 +3345,11 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
       "classification": {
-        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same real scalar with finite normalized-input and finite intermediate/output index types; external output arbitrary",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related pair and every common compatible later operator; both the normalized-input and intermediate/output types are finite; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same relation after left matrix multiplication",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -3361,11 +3361,11 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
       "classification": {
-        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same real scalar with arbitrary output type and finite decidable input type",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common unitary earlier operator; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related pair and every square unitary common earlier operator on the finite decidable input type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after right matrix multiplication",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication under a unitary premise",
         "ancillaPolicy": "none"
       }
@@ -3377,9 +3377,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
       "classification": {
-        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same complex scalar with finite normalized-input and finite intermediate/output index types; external output arbitrary",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related pair and every common compatible later operator; both the normalized-input and intermediate/output types are finite; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same relation after left matrix multiplication",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3393,9 +3393,9 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
       "classification": {
-        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "space": "same complex scalar with arbitrary output type and finite decidable input type",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common unitary earlier operator; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related pair and every square unitary common earlier operator on the finite decidable input type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after right matrix multiplication",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication under a unitary premise",
@@ -3507,9 +3507,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact relation",
         "ancillaPolicy": "none"
       }
@@ -3523,7 +3523,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact relation",
@@ -4115,9 +4115,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -4131,9 +4131,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -4147,9 +4147,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -4163,9 +4163,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -4179,9 +4179,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -4195,9 +4195,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
         "ancillaPolicy": "none"
       }
@@ -4211,7 +4211,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact iff",
@@ -4227,7 +4227,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4243,7 +4243,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4259,7 +4259,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4275,7 +4275,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4291,7 +4291,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every normalized pure input on the nonempty finite circuit basis type; nonvacuous even for zero wires",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4499,9 +4499,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common later circuit; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related circuit pair and common later circuit",
         "observationScope": "the same evaluated-operator relation after chronological append",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -4515,9 +4515,9 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common locally unitary earlier circuit; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
         "observationScope": "projective action after chronological prepend",
-        "phase": "one output-state real sign may depend on the normalized pure input",
+        "phase": "one output-state unit real sign on the right, which may depend on the normalized pure input",
         "exactness": "exact implication under a local-unitarity certificate",
         "ancillaPolicy": "none"
       }
@@ -4531,7 +4531,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common later circuit; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related circuit pair and common later circuit",
         "observationScope": "the same evaluated-operator relation after chronological append",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4547,7 +4547,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common locally unitary earlier circuit; the relation is vacuous if that type admits no normalized state",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
         "observationScope": "projective action after chronological prepend",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication under a local-unitarity certificate",

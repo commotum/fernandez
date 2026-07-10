@@ -179,9 +179,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   Common-later and common-earlier composition are asymmetric, and projective
   common-earlier evolution requires unitarity. Rational unitary witnesses prove
   exact/global strictness, basis-side incomparability, superposition
-  sensitivity, and output-measurement/projective separation. Projective action
-  is vacuous on an empty input type, so later converses retain explicit
-  positive-cardinality/nonempty hypotheses.
+  sensitivity, and output-measurement/projective separation. Rectangular
+  operator projective action is vacuous on an empty input type, so later
+  converses retain explicit positive-cardinality/nonempty hypotheses; circuit
+  projective action on the inhabited `BitBasis W` is nonvacuous even at zero
+  wires.
 
 ## Inventory and Manifest Policy
 

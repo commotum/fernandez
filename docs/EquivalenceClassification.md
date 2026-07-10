@@ -209,9 +209,11 @@ pure-input basis distribution while failing projective action. The zero-wire
 without exact circuit equality.
 
 Projective action is meaningful without assuming the operator preserves
-normalization, but it is vacuous on an empty input type because there is no
-normalized input. Later converse and kernel characterizations must state
-positive-cardinality/nonempty and unitarity hypotheses explicitly. Stage 3B
+normalization, but the rectangular operator relation is vacuous on an empty
+input index because there is no normalized input. Later converse and kernel
+characterizations must state positive-cardinality/nonempty and unitarity
+hypotheses explicitly. Circuit projective action is not vacuous: `BitBasis W`
+is inhabited and admits normalized basis states even for zero wires. Stage 3B
 publishes no quaternionic operator phase; Stage 3C owns the central-sign kernel
 and the rank-one exception.
 

@@ -171,10 +171,11 @@ input-column phase, output-row phase, projective action, or basis measurement.
   acquiring eight tautological unfolding theorems. This is the explicit
   resolution of the provisional “unfolding lemmas” plan item; the circuit
   wrappers retain real `iff_eval`/`eval` boundary lemmas.
-- Projective action is deliberately allowed on an empty finite input type,
-  where its normalized-input quantifier is vacuous. No converse or kernel
-  characterization may use that relation without the explicit nonempty or
-  positive-cardinality hypotheses proved by its owning later stage.
+- Rectangular operator projective action is deliberately allowed on an empty
+  finite input type, where its normalized-input quantifier is vacuous. No
+  converse or kernel characterization may use that relation without explicit
+  nonempty or positive-cardinality hypotheses. Circuit projective action acts
+  on the inhabited type `BitBasis W`, so it remains nonvacuous at zero wires.
 - `ComplexRealAudit.lean` supplies 16 named consumers whose checked allocation
   exercises all 150 stable declarations. Its packaged
   `real_unitary_strictness` and `complex_unitary_strictness` theorems certify
