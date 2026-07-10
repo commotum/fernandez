@@ -152,6 +152,60 @@ semantics.
 
 ## Stage Results
 
-- Milestone active. The representation probe has fixed the scalar conventions,
-  exposed the old witness's missing normalization, and validated a normalized
-  repair. Repository implementation and release evidence remain in progress.
+- Added `QuaternionicComputing/State/RealPhase.lean` with 20 stable
+  declarations. `Real.SignEquivalent` is an exact right-sign relation on raw
+  columns; `sign_sq_eq_one_iff` proves its witnesses are exactly `±1`, and
+  `signEquivalent_iff_eq_or_eq_neg` identifies the relation with equality or
+  pointwise negation. Basis/total-weight scaling, unit-sign invariance,
+  normalized `RealState.rightSign`, and arbitrary rectangular matrix
+  naturality all compile with minimal finiteness assumptions.
+- Added `QuaternionicComputing/Semantics/StatePhase.lean` with 52 stable
+  declarations. It separates `ExactStateEq`, `RealStatePhaseEq`,
+  `ComplexStatePhaseEq`, and `QuaternionStatePhaseEq`; supplies transparent
+  raw-relation iff lemmas, equivalence laws, exact and explicit phase
+  constructors, basis/distribution consequences, raw rectangular matrix and
+  ordered-circuit lifts, and normalized unitary-evolution preservation.
+  Quaternionic phase is strictly right-sided in every public signature.
+- Added non-root `Semantics/StatePhaseAudit.lean`. The old `(1,1)` witness is
+  proved to have total weight `2`. The repaired `(3/5,4/5)` input, its left-`i`
+  mate, and both `diag(1,j)` outputs are each packaged as
+  `QuaternionState Bool`; all four total weights are proved equal to `1`, the
+  inputs are left-phase equivalent, and the outputs are not. Concrete real
+  `-1`, complex `I`, and quaternionic right-`j` states exercise the intended
+  public conventions.
+- Seven named audit consumers directly exercise every one of the 72 new stable
+  declarations. Eight diagnostic `#print axioms` endpoints use only `propext`,
+  `Classical.choice`, and `Quot.sound`. Two independent mathematical/API
+  reviews found no blocker and a strict Stage 4 readiness probe successfully
+  constructed quotient setoids plus descended distribution, matrix, unitary,
+  and locally-unitary circuit operations.
+- Promoted only `Semantics.StatePhase` through the public root; `RealPhase` and
+  the Stage 2 leaves are re-exported transitively, while `StatePhaseAudit`
+  remains excluded. Added 16 direct Stage 3A endpoints to the root axiom
+  audit, bringing it to 217 endpoints without a new axiom family.
+- Appended exactly 72 Stage 3A entries to
+  `docs/Goal2SemanticAPIManifest.json`. The manifest now has 133 unique stable
+  declarations, all seven axes, 19 real named consumers, and 31 exact direct
+  audit labels. Independent validation reports
+  `source=133 manifest=133 missing=0 extra=0 axes=7 consumers=19 direct=31`;
+  root-only `#check` of all 133 declarations and diagnostic-import `#check` of
+  all 19 consumers pass with warnings as errors.
+- Finalized representative-level classifications for `EQC-001`, `EQC-002`,
+  `EQC-003`, and `EQC-043`. The immutable Goal 1 checksum remains unchanged;
+  an explicit erratum records the frozen `EQC-001` normalization mistake and
+  the normalized replacement. `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` correctly remain partial until Stage 4 supplies
+  quotient equality and descended operations.
+- Focused builds pass for `State.RealPhase`, `Semantics.StatePhase`, and
+  `Semantics.StatePhaseAudit` (2353 jobs). Public-root and explicit audit
+  builds pass (2557 jobs), as do isolated warning-as-error source checks,
+  adjacent Stage 2 consumers, manifest checks, and the frozen-cohort checksum.
+- An early expanded normalized-circuit proof hit the default heartbeat limit;
+  later independent strict probes compiled all three direct theorem shapes.
+  This is recorded as a failed proof shape, not a current obstruction. Stage
+  3A exports raw circuit lifts; Stage 4 owns the named descended normalized
+  circuit operation. No heartbeat override was introduced.
+- Final hole/axiom/opaque/unsafe/heartbeat and quaternion-left-side scans are
+  clean; diagnostic modules remain outside the public root; the frozen cohort
+  checksum passes; no temporary generator/probe path appears in the
+  repository; whitespace and `git diff --check` pass.

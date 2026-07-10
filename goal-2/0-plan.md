@@ -109,8 +109,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current release has 47 Lean sources. Clean public-root and explicit audit
-  builds pass; 201 audited endpoints use only `propext`, `Classical.choice`,
+- The current release has 50 Lean sources. Clean public-root and explicit audit
+  builds pass; 217 audited endpoints use only `propext`, `Classical.choice`,
   and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
@@ -146,8 +146,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 61 unique
-  Stage 2 declarations, each with seven semantic axes and a named downstream
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 133 unique
+  Stage 2/3A declarations, each with seven semantic axes and a named downstream
   consumer. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
@@ -164,6 +164,12 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   witness normalized. A strict probe recovers the normalized counterexample
   with amplitudes `3/5` and `4/5`; Stage 3A must add that certificate and repair
   the evidence wording while preserving the frozen cohort membership.
+- Stage 3A now supplies real sign, complex right-phase, and quaternionic strict
+  right-phase equivalence on normalized representatives, with exact-to-phase,
+  basis-distribution, raw matrix/circuit, and normalized unitary-evolution
+  theorems. The normalized `3/5,4/5` left-phase rejection certificate repairs
+  `EQC-001`. Quotient equality and descended operations remain owned by Stage
+  4, so the two transferred ray rows are not yet `closedByGoal2`.
 
 ## Inventory and Manifest Policy
 
@@ -469,6 +475,12 @@ reintroducing the paper's quaternionic left-phase error.
   equivalence relations with public examples.
 - Quaternion dimension hypotheses and the rank-one exception are theorem-
   checked and documented, not hidden by a typeclass.
+
+#### Mandatory Milestone Status
+
+- [x] `3A-STATEPHASE`
+- [ ] `3B-COMPLEXREAL`
+- [ ] `3C-QUATERNION`
 
 ### 4-RAYS
 
