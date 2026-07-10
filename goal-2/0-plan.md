@@ -109,17 +109,17 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current tree has 57 Lean sources. Clean public-root, focused diagnostic,
-  combined-target, and explicit audit builds pass; 264 audited root endpoints
+- The current tree has 59 Lean sources. Clean public-root, focused diagnostic,
+  combined-target, and explicit audit builds pass; 272 audited root endpoints
   use only `propext`, `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
   diagnostic consumers.
 - Real sign, complex right phase, and quaternion right phase exist for state
-  columns and are proved equivalence relations. They preserve basis weights
-  and compatible evolution. No normalized ray quotient type yet completes the
-  three-scalar picture.
+  columns and are proved equivalence relations. `RealRay`, `ComplexRay`, and
+  `QuaternionRay` now quotient normalized representatives by exactly those
+  relations. Descended dynamics and outcomes remain Stage 4B work.
 - `FiniteDistribution` packages normalized outcome weights, finite events, and
   deterministic pushforwards. Stage 2 now separates fixed-input
   `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, all-normalized-pure-
@@ -146,10 +146,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 384 unique
-  Stage 2/3A/3B/3C declarations, each with seven semantic axes and a named
-  downstream consumer. All names resolve through the public root, 46 distinct
-  diagnostic consumers resolve, and 78 entries are direct release-audit
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 424 unique
+  Stage 2/3A/3B/3C/4A declarations, each with seven semantic axes and a named
+  downstream consumer. All names resolve through the public root, 50 distinct
+  diagnostic consumers resolve, and 86 entries are direct release-audit
   targets. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
@@ -194,12 +194,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   equivalent, while the explicit `j` witness is not a central sign. The 101
   Stage 3C declarations have 11 complete diagnostic consumers and 13 direct
   root-audit targets; no quaternionic channel claim is made.
-- Stage 4A strict probes validate explicit normalized-state setoids and plain
-  quotient types for real signs, complex unit right phases, and quaternionic
-  unit right phases. Constructor equality, representative induction/lifting,
-  and `Nonempty (Ray I) ↔ Nonempty I` all compile. The tracked implementation
-  remains the active `4A-QUOTIENTS` milestone; no source row is closed by the
-  probe alone.
+- Stage 4A now exports explicit normalized-state setoids and plain quotient
+  types for real signs, complex unit right phases, and quaternionic unit right
+  phases. Its 40 declarations include exact constructor equality,
+  representative induction/lifting/function extensionality, the real
+  equality-or-negation theorem, and `Nonempty (Ray I) ↔ Nonempty I`. Four
+  aggregate consumers cover the surface, eight direct root audits compile,
+  and the low-dependency quotient API supports a strict all-three-scalar 4B
+  descent probe. The two transferred rows remain open until 4B/4C.
 
 ## Inventory and Manifest Policy
 
@@ -549,6 +551,12 @@ two transferred paper rows completely.
 - `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` are moved to **corrected
   and proved** or **proved as stated** with named Lean declarations, consumers,
   correction effects, focused builds, and axiom audit entries.
+
+#### Mandatory Milestone Status
+
+- [x] `4A-QUOTIENTS`
+- [ ] `4B-DESCENT`
+- [ ] `4C-EMBEDORBIT`
 
 ### 5-BASIS
 

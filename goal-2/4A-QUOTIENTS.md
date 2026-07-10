@@ -2,10 +2,11 @@
 
 ## Current Facts
 
-- Goal 2 Stages 1--3 are complete. The public tree has 57 Lean sources, the
-  root axiom audit has 264 endpoints, and the semantic API manifest has 384
-  exact source declarations with 46 resolving consumers and 78 direct audit
-  targets. The frozen 936-declaration Goal 1 cohort checksum is unchanged.
+- Goal 2 Stages 1--3 and milestone 4A are complete. The tree has 59 Lean
+  sources, the root axiom audit has 272 endpoints, and the semantic API
+  manifest has 424 exact source declarations with 50 resolving consumers and
+  86 direct audit targets. The frozen 936-declaration Goal 1 cohort checksum
+  is unchanged.
 - `State.RealState I`, `State.ComplexState I`, and `State.QuaternionState I`
   are subtypes of finite columns carrying an exact total-weight-one proof.
   They are concrete representatives, not quotient values.
@@ -16,9 +17,11 @@
   `QuaternionStatePhaseEq` restrict those same relations to normalized state
   representatives and have complete equivalence, distribution, raw-action,
   and normalized-unitary-evolution APIs.
-- There is currently no public normalized ray quotient. Consequently
-  `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` remain only partially
-  formalized and Goal 3 may not yet mark them `closedByGoal2`.
+- `State/Ray.lean` now supplies all three public normalized ray quotients.
+  `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` nevertheless remain only
+  partially formalized because descended evolution/outcomes and the checked
+  embedding-orbit boundary are still 4B/4C obligations; Goal 3 may not yet mark
+  them `closedByGoal2`.
 - Strict probes at `/tmp/Stage4ARayProbe.lean` and
   `/tmp/Stage4RayScratch.lean` validate plain explicit `Setoid`/`Quotient`
   representations, constructor equality iff the intended phase relation,
@@ -167,5 +170,52 @@ faithful constructors and eliminators and honest empty-index behavior.
 
 ## Stage Results
 
-- Milestone active. Strict probes establish the representation and API route;
-  no tracked Stage 4A implementation has yet been promoted.
+- `State/Ray.lean` is a low-dependency public leaf with exactly 40 stable
+  declarations. It defines three explicit normalized-state setoids, the
+  `RealRay`, `ComplexRay`, and `QuaternionRay` quotient types, and the
+  `RebitRay`, `QubitRay`, and `QuaterbitRay` aliases.
+- Each quotient exposes `mk`, exact `mk_eq_mk_iff`, `exists_rep`,
+  representative `inductionOn`, proof-checked `lift`, the `lift_mk` beta law,
+  and `function_ext`. The real specialization additionally proves
+  `mk_eq_mk_iff_eq_or_eq_neg`, so real-ray equality is exactly literal column
+  equality or equality with the negated column.
+- The state layer imports only `State.RealPhase` and `State.ComplexPhase`; it
+  does not reverse the dependency into `Semantics.StatePhase`. The raw phase
+  relations used by the setoids are exactly those underlying the semantic
+  normalized-state wrappers. `/tmp/Stage4BDescentProbe.lean` strictly compiles
+  all three distribution and unitary-evolution descents through this API.
+- Named `realRayNonempty`, `complexRayNonempty`, and
+  `quaternionRayNonempty` instances construct private normalized basis
+  representatives from `[Nonempty I]`. Named `*RayIsEmpty` instances eliminate
+  alleged rays under `[IsEmpty I]`, and the three `*_nonempty_iff` theorems
+  prove the exact boundary using only `[Fintype I]`.
+- `State/RayAudit.lean` remains non-root. Four aggregate theorems consume all
+  40 stable declarations. Concrete diagnostics identify a rebit with its
+  right `-1` sign, a qubit with its right `I` phase, and a quaterbit with its
+  right `j` phase; they also exercise all `Bool` nonempty and `Empty` is-empty
+  instances. Seven local axiom prints use only `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- The public root imports `State.Ray`, not `State.RayAudit`. The root axiom
+  file adds eight direct quotient/inhabitation endpoints and now has 272
+  commands, all reporting only the same three standard axioms.
+- `docs/Goal2SemanticAPIManifest.json` now contains exactly 424 entries. The
+  first 384 are structurally unchanged; all 40 Stage 4A declarations have
+  seven axes, one of four resolving aggregate consumers, and exact source
+  ordering. Eight are direct audit targets, bringing totals to 50 consumers
+  and 86 direct targets. Generated strict Lean checks resolve all 424 names
+  and all 50 consumers. The frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Focused builds pass for `State.Ray` (2,346 jobs) and `State.RayAudit` (2,347
+  jobs); adjacent `StatePhase`, `Measurement`, and `Circuit.Basic` builds pass
+  at 2,352 jobs; the public root passes at 2,563 jobs; and the combined
+  quotient, diagnostic, root, and axiom targets pass at 2,565 jobs. Strict
+  source checks pass for both new leaves, the public root, root audit, generated
+  manifest checks, and the Stage 4B descent probe.
+- Forbidden-hole/axiom/unsafe/opaque/heartbeat scans, public diagnostic
+  boundary, exact manifest, prefix-preservation, checksum, whitespace,
+  artifact, and `git diff --check` checks pass.
+- Documentation now records quotient equality and the no-canonical-
+  representative/cross-model-map boundaries. `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` deliberately remain **partially formalized**
+  and not `closedByGoal2`: descended evolution/outcomes remain 4B work and the
+  embedding-orbit boundary remains 4C work. No new correction was required.
