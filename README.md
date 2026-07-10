@@ -157,5 +157,6 @@ or BQP containment.
 
 See `docs/Traceability.md`, `docs/Corrections.md`,
 `docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and
-mathematical conventions.  No completed module may contain `sorry`, `admit`,
-or an unexplained project-specific axiom.
+mathematical conventions.  `docs/ReleaseReport.md` is the complete handoff,
+and `docs/AxiomAudit.md` explains the executable audit.  No completed module
+may contain `sorry`, `admit`, or an unexplained project-specific axiom.
