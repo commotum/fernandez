@@ -82,6 +82,16 @@ disposition, and the pinned project builds and passes its axiom audit without
   complex/`j`-component decomposition, multiplication, conjugation, and
   norm-square laws; a norm-preserving two-coordinate counterexample proves
   that the paper's left-phase ray relation is not evolution-stable.
+- Stage 3 completed on 2026-07-09.  Public matrix leaves now provide
+  dimension-safe injective realification and complexification maps with
+  rectangular multiplication and adjoint laws, star-monoid/group embeddings,
+  complex-unitary-to-special-orthogonal preservation, and
+  quaternionic-unitary-to-complex-unitary/symplectic preservation.
+- The paper's missing realification determinant argument is repaired by
+  `realify_det`.  For quaternionic complexification, the determinant is proved
+  real and equal to `1` or `-1`; selecting `1` remains an exact isolated
+  obstruction because the pinned mathlib lacks Pfaffian, connectedness, or
+  Study-determinant infrastructure.  No simulation theorem depends on it.
 
 ## Current Assumptions to Test
 
@@ -96,6 +106,10 @@ disposition, and the pinned project builds and passes its axiom audit without
   introduced only if they add a separately useful theorem.
 - Exact gate-count and arity bounds are likely formalizable.  Depth and
   asymptotic encoding claims may require extra models or corrected scope.
+- The matrix-level `realifyVec`/`realify_mulVec` API can serve as the first
+  complex-state embedding in Stage 4; the second column, quaternionic columns,
+  normalization, phase packaging, and measurement preservation remain to be
+  constructed.
 
 ## Success Metrics and Verification Requirements
 
@@ -425,8 +439,8 @@ without learning the paper's original organization.
 
 - [x] 1-INVENTORY — completed 2026-07-09
 - [x] 2-SCALARS — completed 2026-07-09
-- [ ] 3-MATRICES — in progress
-- [ ] 4-STATES
+- [x] 3-MATRICES — completed 2026-07-09
+- [ ] 4-STATES — in progress
 - [ ] 5-CIRCUITS
 - [ ] 6-SIMULATION
 - [ ] 7-ORDERING

@@ -121,6 +121,136 @@ results needed by the paper's simulations.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 2-SCALARS on
-  2026-07-09.
+- Completed on 2026-07-09.
 
+### Complex-to-real embedding
+
+- Added `QuaternionicComputing/Matrix/Realification.lean` as a low-dependency
+  public algebra leaf.  It exports rectangular `realPart`, `imagPart`, and the
+  paper-sign block map `realify : Matrix m n ℂ → Matrix (m ⊕ m) (n ⊕ n) ℝ`.
+- The four `realify_apply_*` theorems expose the exact block order and signs;
+  `eq_iff_realPart_eq_and_imagPart_eq`, `realify_injective`, and
+  `realify_inj` prove that no complex data is lost.
+- `realPart_mul`, `imagPart_mul`, and `realify_mul` prove paper Lemma 1 for
+  arbitrary compatible rectangular shapes.  Zero, one, addition, negation,
+  subtraction, and real scaling are also preserved.
+- `realPart_conjTranspose`, `imagPart_conjTranspose`, and
+  `realify_conjTranspose` prove paper Lemma 2, again rectangularly.
+- `realifyVec = (re, -im)` and `realify_mulVec` already prove the correctly
+  typed first state-column intertwining identity.  They are classified as
+  low-level vector/sign API; Stage 4 will add the second column, normalization,
+  and measurements.
+- `realify_map_ofReal` proves the paper's real-gate block-diagonal optimization.
+  `realify_I_scalar` is a named exact sign/order check using the public map.
+
+### Quaternion-to-complex embedding
+
+- Added `QuaternionicComputing/Matrix/Complexification.lean`, importing only
+  the scalar quaternion core and block matrices.
+- It exports rectangular `complexPartMatrix`, `jPartMatrix`, and
+  `complexify : Matrix m n ℍ → Matrix (m ⊕ m) (n ⊕ n) ℂ` with blocks
+  `[[Co,W],[-conj W,conj Co]]`.  The lower conjugations are explicitly
+  entrywise `Matrix.map star`, never square-matrix `star`.
+- Four `complexify_apply_*` lemmas, `complexify_eq_iff_parts`,
+  `complexify_injective`, and `complexify_eq_iff` fix the representation and
+  prove injectivity.
+- `complexPartMatrix_mul`, `jPartMatrix_mul`, and `complexify_mul` prove paper
+  Lemma 6 for compatible rectangular quaternion matrices without a
+  commutativity assumption.  `complexify_conjTranspose` and its component
+  lemmas prove paper Lemma 7.
+- `complexifyRingHom` bundles the finite square map.  The structural theorem
+  `complexify_mul_complexificationJ` proves the exact intertwining with the
+  skew block matrix while keeping symplectic imports out of the basic leaf.
+- `complexify_map_coeComplex` records the complex-subfield block form, and
+  `complexify_j_scalar` checks the genuinely quaternionic sign pattern.
+
+### Unitary and group images
+
+- Added `QuaternionicComputing/Matrix/Unitary.lean` as the higher proof/API
+  leaf.  `realifyStarMonoidHom` and `complexifyStarMonoidHom` package the proved
+  one/multiplication/adjoint laws without duplicating them.
+- `realifyUnitary`, `realifyUnitary_injective`, and
+  `realifyUnitaryEquivImage` give the corrected injective group embedding of
+  complex unitaries into their doubled real image;
+  `realify_mem_orthogonal` proves the `O(2N)` result used downstream.
+- `complexifyUnitary`, `complexifyUnitary_injective`, and
+  `complexifyUnitaryEquivImage` give the corresponding quaternionic-to-complex
+  group embedding.  `complexify_mem_unitary` proves the required `U(2N)` image,
+  and `complexify_mem_symplectic` proves preservation of mathlib's canonical
+  symplectic form.
+- An independent read-only review checked every sign, multiplication order,
+  star/entrywise-conjugation distinction, dimension, typeclass assumption, and
+  the symplectic calculation.  It found no mathematical or Lean defect and no
+  determinant-one claim leaking into this leaf.
+
+### Isolated determinant results and obstruction
+
+- Added `QuaternionicComputing/Matrix/Determinant.lean` as the deliberately
+  heavy proof leaf.  Its restricted-scalar proof uses the real basis
+  `[1, -I]`, `LinearMap.det_restrictScalars`, and same-index reindexing to prove
+  `realify_det : det (realify A) = Complex.normSq (det A)` for every finite
+  index type, including the empty type.
+- `realify_det_eq_one_of_mem_unitary` and
+  `realify_mem_specialOrthogonal` repair the paper's missing determinant
+  argument and prove the stronger corrected embedding `U(N) → SO(2N)`.
+- For quaternionic complexification, `complexify_det_star_fixed` and
+  `complexify_det_im_eq_zero` prove that the complex determinant is real.
+  Unitarity gives `complexify_det_sq_eq_one_of_mem_unitary` and the strongest
+  currently justified alternative
+  `complexify_det_eq_one_or_neg_one_of_mem_unitary`.
+- The paper's claimed `SU(2N)` refinement is not inferred.  Selecting the
+  positive sign requires a Pfaffian congruence theorem, connectedness of the
+  finite compact symplectic group, or nonnegativity of the Study determinant.
+  None exists in the pinned mathlib; its own `SymplecticGroup` module lists
+  determinant one as a TODO and proves only determinant invertibility.  This
+  exact obstruction is recorded in C-004 and does not affect simulation.
+
+### Traceability and corrections
+
+- `FER03-L01`, `L02`, `L06`, and `L07` are now **proved as stated**, with
+  rectangular generalizations and exact declarations.
+- Corrected `FER03-T03` is **corrected and proved**, including the dimension,
+  full-`U(N)` domain, determinant identity, and `SO(2N)` conclusion.
+- `FER03-T05` is **partially formalized**: the corrected doubled unitary and
+  symplectic image/group isomorphism is proved, while only its special-unitary
+  sign refinement remains unresolved.
+- C-002, C-003, C-004, C-011, and C-020 now record the proved repairs,
+  declarations, remaining obstruction, and effects on dependent results.
+- `docs/Architecture.md`, `docs/Conventions.md`, and `docs/MathlibAPI.md` now
+  describe the actual four-leaf matrix architecture and determinant boundary.
+
+### BUILD-PLAN verification evidence
+
+- Focused strict checks passed for `Realification.lean`,
+  `Complexification.lean`, `Unitary.lean`, and `Determinant.lean` with
+  `lake env lean -DwarningAsError=true`.
+- Focused/adjacent builds passed: all three embedding/unitary leaves (`2345`
+  jobs), the determinant leaf (`2495` jobs), and the public root (`2498` jobs).
+- Because the high-fanout root changed, final `lake build` passed (`2498`
+  jobs).
+- `/tmp/Stage3ImportSmoke.lean`, importing only `QuaternionicComputing`,
+  passed with warnings as errors and checked both public scalar-matrix sign
+  theorems plus the main group/determinant declarations.
+- The expanded `AxiomAudit.lean` passed with warnings as errors.  All 28
+  audited scalar, phase, embedding, group, symplectic, and determinant results
+  report only `[propext, Classical.choice, Quot.sound]`; no project axiom is
+  used.
+- Lean-only scans found no `sorry`, `admit`, `sorryAx`, declaration-level
+  `axiom`/`opaque`, unsafe declaration, quaternion ordinary determinant,
+  quaternion `Matrix.unitaryGroup`, or `mul_kronecker_mul` shortcut.
+- `git diff --check` passed.  Basic definitions remain in narrow leaves,
+  symplectic/group consequences in `Unitary`, determinant machinery in
+  `Determinant`, the public root remains import-only, and the audit remains an
+  adjacent consumer, satisfying the recorded build structure and boundaries.
+
+### Fold-back for Stage 4
+
+- Reuse `realifyVec`/`realify_mulVec` as the first complex-state column; add
+  the second column without duplicating the matrix proof surface.
+- Define the two quaternionic state columns from `complexPart`/`jPart` and
+  prove their evolution laws from the public block-entry or `mulVec` APIs.
+- Keep state maps explicitly real-linear or action-specific; do not call them
+  complex/quaternion-linear without the documented scalar action.
+- Measurement preservation needs only the proved norm-square decompositions
+  and unitary image results.  It must not depend on the unresolved quaternion
+  determinant sign.
