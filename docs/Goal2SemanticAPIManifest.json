@@ -6809,6 +6809,1014 @@
         "exactness": "exact iff between Nonempty (QuaternionRay I) and Nonempty I",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.FiniteDistribution.pushforward_id",
+      "relation": "deterministic finite-distribution pushforward identity law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.sharedDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.sharedDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite outcome type I; source and target distribution spaces are both FiniteDistribution I",
+        "subject": "deterministic classical pushforward of a normalized finite distribution",
+        "inputScope": "one supplied finite distribution; every outcome fiber of the identity map",
+        "observationScope": "literal equality of the complete packaged finite distribution, not amplitude, ray, effect, or channel equality",
+        "phase": "none; only nonnegative real outcome weights are present",
+        "exactness": "exact equality after pushforward through id",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.FiniteDistribution.pushforward_comp",
+      "relation": "deterministic finite-distribution pushforward composition law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.sharedDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite outcome types I, J, and K connected by deterministic maps f : I → J and g : J → K",
+        "subject": "deterministic classical pushforward of a normalized finite distribution",
+        "inputScope": "one supplied finite distribution and both deterministic maps; every target fiber is compared",
+        "observationScope": "literal equality of the complete K-valued outcome distribution after first f and then g",
+        "phase": "none; only nonnegative real outcome weights are present",
+        "exactness": "exact equality mu.pushforward (g ∘ f) = (mu.pushforward f).pushforward g",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Circuit.OrderedCircuit.IsLocallyUnitary.append",
+      "relation": "local-unitarity certificate preserved by chronological append",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.sharedDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same star-semiring scalar R and finite wire type W for both chronological circuits",
+        "subject": "proof that every stored local gate matrix in an OrderedCircuit is unitary",
+        "inputScope": "every gate in C and every gate in D, each covered by its supplied local-unitarity certificate",
+        "observationScope": "local gate unitarity certification only; no state, ray, outcome, all-effect, or channel comparison",
+        "phase": "none",
+        "exactness": "exact implication from certificates for C and D to a certificate for C ++ D",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.distribution",
+      "relation": "descended normalized real ray basis distribution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "phase-invariant map from normalized real rays to FiniteDistribution I",
+        "inputScope": "one supplied ray; all normalized representatives are identified by the quotient respectfulness proof",
+        "observationScope": "the complete computational-basis outcome distribution on I; no arbitrary effect or channel behavior",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact quotient descent to a packaged normalized finite distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.distribution_mk",
+      "relation": "real ray distribution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "computation rule for the descended basis distribution",
+        "inputScope": "one supplied normalized RealState I representative",
+        "observationScope": "the complete computational-basis outcome distribution of that representative",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.basisWeight",
+      "relation": "descended real ray computational-basis weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "one-outcome projection of the ray's normalized finite distribution",
+        "inputScope": "one supplied ray and one specified basis outcome i : I",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact definition through the descended distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.basisWeight_mk",
+      "relation": "real ray basis-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "computation rule for one descended basis weight",
+        "inputScope": "one normalized representative and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.distribution_weight",
+      "relation": "real ray distribution-weight projection law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "agreement of the distribution weight field with the named ray basis-weight map",
+        "inputScope": "one supplied ray and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.eventWeight",
+      "relation": "descended real ray finite-event weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "finite-event sum of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one specified Finset I event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact definition through FiniteDistribution.eventWeight",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.eventWeight_mk",
+      "relation": "real ray event-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "computation rule for a descended finite-event weight",
+        "inputScope": "one normalized representative and one specified finite event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.pushforward",
+      "relation": "descended real ray deterministic postprocessing",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "deterministic pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact definition through FiniteDistribution.pushforward",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.pushforward_mk",
+      "relation": "real ray pushforward representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "computation rule for deterministic postprocessing of a ray distribution",
+        "inputScope": "one normalized representative and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.pushforward_id",
+      "relation": "real ray deterministic-postprocessing identity law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I",
+        "subject": "identity pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray; every computational-basis outcome",
+        "observationScope": "literal equality with the complete original basis distribution",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact equality after deterministic identity postprocessing",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.pushforward_comp",
+      "relation": "real ray deterministic-postprocessing composition law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real RealRay I; finite classical target types J and K with maps f : I → J and g : J → K",
+        "subject": "composition of deterministic pushforwards of the ray's basis distribution",
+        "inputScope": "one supplied ray and two deterministic outcome maps, applied first f and then g",
+        "observationScope": "literal equality of complete postprocessed distributions on K",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact equality for g ∘ f in chronological postprocessing order",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.distribution",
+      "relation": "descended normalized complex ray basis distribution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "phase-invariant map from normalized complex rays to FiniteDistribution I",
+        "inputScope": "one supplied ray; all normalized representatives are identified by the quotient respectfulness proof",
+        "observationScope": "the complete computational-basis outcome distribution on I; no arbitrary effect or channel behavior",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient descent to a packaged normalized finite distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.distribution_mk",
+      "relation": "complex ray distribution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "computation rule for the descended basis distribution",
+        "inputScope": "one supplied normalized ComplexState I representative",
+        "observationScope": "the complete computational-basis outcome distribution of that representative",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.basisWeight",
+      "relation": "descended complex ray computational-basis weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "one-outcome projection of the ray's normalized finite distribution",
+        "inputScope": "one supplied ray and one specified basis outcome i : I",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact definition through the descended distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.basisWeight_mk",
+      "relation": "complex ray basis-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "computation rule for one descended basis weight",
+        "inputScope": "one normalized representative and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.distribution_weight",
+      "relation": "complex ray distribution-weight projection law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "agreement of the distribution weight field with the named ray basis-weight map",
+        "inputScope": "one supplied ray and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.eventWeight",
+      "relation": "descended complex ray finite-event weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "finite-event sum of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one specified Finset I event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact definition through FiniteDistribution.eventWeight",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.eventWeight_mk",
+      "relation": "complex ray event-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "computation rule for a descended finite-event weight",
+        "inputScope": "one normalized representative and one specified finite event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.pushforward",
+      "relation": "descended complex ray deterministic postprocessing",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "deterministic pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact definition through FiniteDistribution.pushforward",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.pushforward_mk",
+      "relation": "complex ray pushforward representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "computation rule for deterministic postprocessing of a ray distribution",
+        "inputScope": "one normalized representative and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.pushforward_id",
+      "relation": "complex ray deterministic-postprocessing identity law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I",
+        "subject": "identity pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray; every computational-basis outcome",
+        "observationScope": "literal equality with the complete original basis distribution",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact equality after deterministic identity postprocessing",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.pushforward_comp",
+      "relation": "complex ray deterministic-postprocessing composition law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex ComplexRay I; finite classical target types J and K with maps f : I → J and g : J → K",
+        "subject": "composition of deterministic pushforwards of the ray's basis distribution",
+        "inputScope": "one supplied ray and two deterministic outcome maps, applied first f and then g",
+        "observationScope": "literal equality of complete postprocessed distributions on K",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact equality for g ∘ f in chronological postprocessing order",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.distribution",
+      "relation": "descended normalized quaternionic ray basis distribution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "phase-invariant map from normalized quaternionic rays to FiniteDistribution I",
+        "inputScope": "one supplied ray; all normalized representatives are identified by the quotient respectfulness proof",
+        "observationScope": "the complete computational-basis outcome distribution on I; no arbitrary effect or channel behavior",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient descent to a packaged normalized finite distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.distribution_mk",
+      "relation": "quaternionic ray distribution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "computation rule for the descended basis distribution",
+        "inputScope": "one supplied normalized QuaternionState I representative",
+        "observationScope": "the complete computational-basis outcome distribution of that representative",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.basisWeight",
+      "relation": "descended quaternionic ray computational-basis weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "one-outcome projection of the ray's normalized finite distribution",
+        "inputScope": "one supplied ray and one specified basis outcome i : I",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact definition through the descended distribution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.basisWeight_mk",
+      "relation": "quaternionic ray basis-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "computation rule for one descended basis weight",
+        "inputScope": "one normalized representative and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.distribution_weight",
+      "relation": "quaternionic ray distribution-weight projection law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "agreement of the distribution weight field with the named ray basis-weight map",
+        "inputScope": "one supplied ray and one specified basis outcome",
+        "observationScope": "one computational-basis outcome weight only",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.eventWeight",
+      "relation": "descended quaternionic ray finite-event weight",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "finite-event sum of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one specified Finset I event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact definition through FiniteDistribution.eventWeight",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.eventWeight_mk",
+      "relation": "quaternionic ray event-weight representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "computation rule for a descended finite-event weight",
+        "inputScope": "one normalized representative and one specified finite event",
+        "observationScope": "total computational-basis weight of that finite event",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.pushforward",
+      "relation": "descended quaternionic ray deterministic postprocessing",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "deterministic pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact definition through FiniteDistribution.pushforward",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.pushforward_mk",
+      "relation": "quaternionic ray pushforward representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I; finite classical target type J and deterministic map f : I → J",
+        "subject": "computation rule for deterministic postprocessing of a ray distribution",
+        "inputScope": "one normalized representative and one deterministic outcome map f",
+        "observationScope": "the complete classically postprocessed basis distribution on J",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.pushforward_id",
+      "relation": "quaternionic ray deterministic-postprocessing identity law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I",
+        "subject": "identity pushforward of the ray's normalized basis distribution",
+        "inputScope": "one supplied ray; every computational-basis outcome",
+        "observationScope": "literal equality with the complete original basis distribution",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact equality after deterministic identity postprocessing",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.pushforward_comp",
+      "relation": "quaternionic ray deterministic-postprocessing composition law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic QuaternionRay I; finite classical target types J and K with maps f : I → J and g : J → K",
+        "subject": "composition of deterministic pushforwards of the ray's basis distribution",
+        "inputScope": "one supplied ray and two deterministic outcome maps, applied first f and then g",
+        "observationScope": "literal equality of complete postprocessed distributions on K",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact equality for g ∘ f in chronological postprocessing order",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveUnitary",
+      "relation": "descended real unitary action on normalized rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "unitary matrix evolution of a normalized real ray",
+        "inputScope": "one supplied ray and one square matrix U with an explicit U ∈ unitary certificate",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact quotient-descended evolution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveUnitary_mk",
+      "relation": "real ray unitary-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "computation rule for unitary evolution on a quotient constructor",
+        "inputScope": "one normalized representative and one explicitly certified square unitary U",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveUnitary_one",
+      "relation": "identity unitary acts identically on normalized real rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "identity law for descended unitary ray evolution",
+        "inputScope": "every normalized ray on finite decidable I",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveUnitary_comp",
+      "relation": "ordered composition law for real unitary ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "composition of two descended unitary actions",
+        "inputScope": "one ray and explicitly certified unitaries U and V; U acts first and V acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact ray equality with the noncommutative-safe product V * U",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveCircuit",
+      "relation": "descended locally-unitary chronological-circuit action on real rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "OrderedCircuit evolution through its unitary evaluated matrix",
+        "inputScope": "one ray on BitBasis W and one circuit C with an explicit C.IsLocallyUnitary certificate; nonvacuous even when W is empty",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact quotient-descended evolution through OrderedCircuit.eval",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveCircuit_mk",
+      "relation": "real ray circuit-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "computation rule for locally-unitary circuit action on a quotient constructor",
+        "inputScope": "one normalized BitBasis W representative and one locally-unitary chronological circuit",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveCircuit_nil",
+      "relation": "empty chronological circuit acts identically on real rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.realRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "identity law for descended locally-unitary circuit evolution",
+        "inputScope": "every ray on the inhabited BitBasis W, including zero-wire W",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.evolveCircuit_append",
+      "relation": "chronological append law for real ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "ordered composition of locally-unitary circuit actions",
+        "inputScope": "one ray and locally-unitary circuits C and D; C acts first and D acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact ray equality using eval (C ++ D) = eval D * eval C",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveUnitary",
+      "relation": "descended complex unitary action on normalized rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "unitary matrix evolution of a normalized complex ray",
+        "inputScope": "one supplied ray and one square matrix U with an explicit U ∈ unitary certificate",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient-descended evolution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveUnitary_mk",
+      "relation": "complex ray unitary-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "computation rule for unitary evolution on a quotient constructor",
+        "inputScope": "one normalized representative and one explicitly certified square unitary U",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveUnitary_one",
+      "relation": "identity unitary acts identically on normalized complex rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "identity law for descended unitary ray evolution",
+        "inputScope": "every normalized ray on finite decidable I",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveUnitary_comp",
+      "relation": "ordered composition law for complex unitary ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "composition of two descended unitary actions",
+        "inputScope": "one ray and explicitly certified unitaries U and V; U acts first and V acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact ray equality with the noncommutative-safe product V * U",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveCircuit",
+      "relation": "descended locally-unitary chronological-circuit action on complex rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "OrderedCircuit evolution through its unitary evaluated matrix",
+        "inputScope": "one ray on BitBasis W and one circuit C with an explicit C.IsLocallyUnitary certificate; nonvacuous even when W is empty",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient-descended evolution through OrderedCircuit.eval",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveCircuit_mk",
+      "relation": "complex ray circuit-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "computation rule for locally-unitary circuit action on a quotient constructor",
+        "inputScope": "one normalized BitBasis W representative and one locally-unitary chronological circuit",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveCircuit_nil",
+      "relation": "empty chronological circuit acts identically on complex rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "identity law for descended locally-unitary circuit evolution",
+        "inputScope": "every ray on the inhabited BitBasis W, including zero-wire W",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.evolveCircuit_append",
+      "relation": "chronological append law for complex ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "ordered composition of locally-unitary circuit actions",
+        "inputScope": "one ray and locally-unitary circuits C and D; C acts first and D acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact ray equality using eval (C ++ D) = eval D * eval C",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveUnitary",
+      "relation": "descended quaternionic unitary action on normalized rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "unitary matrix evolution of a normalized quaternionic ray",
+        "inputScope": "one supplied ray and one square matrix U with an explicit U ∈ unitary certificate",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient-descended evolution",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveUnitary_mk",
+      "relation": "quaternionic ray unitary-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "computation rule for unitary evolution on a quotient constructor",
+        "inputScope": "one normalized representative and one explicitly certified square unitary U",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveUnitary_one",
+      "relation": "identity unitary acts identically on normalized quaternionic rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "identity law for descended unitary ray evolution",
+        "inputScope": "every normalized ray on finite decidable I",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveUnitary_comp",
+      "relation": "ordered composition law for quaternionic unitary ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite decidable square index type I for the ray and unitary matrix",
+        "subject": "composition of two descended unitary actions",
+        "inputScope": "one ray and explicitly certified unitaries U and V; U acts first and V acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact ray equality with the noncommutative-safe product V * U",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveCircuit",
+      "relation": "descended locally-unitary chronological-circuit action on quaternionic rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "OrderedCircuit evolution through its unitary evaluated matrix",
+        "inputScope": "one ray on BitBasis W and one circuit C with an explicit C.IsLocallyUnitary certificate; nonvacuous even when W is empty",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient-descended evolution through OrderedCircuit.eval",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveCircuit_mk",
+      "relation": "quaternionic ray circuit-evolution representative beta law",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "computation rule for locally-unitary circuit action on a quotient constructor",
+        "inputScope": "one normalized BitBasis W representative and one locally-unitary chronological circuit",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on the quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveCircuit_nil",
+      "relation": "empty chronological circuit acts identically on quaternionic rays",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "identity law for descended locally-unitary circuit evolution",
+        "inputScope": "every ray on the inhabited BitBasis W, including zero-wire W",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact ray equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.evolveCircuit_append",
+      "relation": "chronological append law for quaternionic ray evolution",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite wire type W; rays use the always-inhabited BitBasis W and circuits share W",
+        "subject": "ordered composition of locally-unitary circuit actions",
+        "inputScope": "one ray and locally-unitary circuits C and D; C acts first and D acts second",
+        "observationScope": "the complete normalized output pure-state ray; no claim of unchanged basis distribution, mixed-state behavior, all-effect equality, or channel equality",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact ray equality using eval (C ++ D) = eval D * eval C",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.iff_realRay_mk_eq",
+      "relation": "real normalized state-phase equality iff ray-constructor equality",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.realRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite index type I for two normalized representatives and their ray quotient",
+        "subject": "bridge from representative-level normalized state-phase equivalence to literal quotient equality",
+        "inputScope": "every pair of normalized RealState I representatives",
+        "observationScope": "equality of the complete normalized pure-state ray, not merely equality of basis weights or distributions",
+        "phase": "one square-one real sign s on the right with s*s=1",
+        "exactness": "exact iff between the named StatePhaseEq relation and equality of ray constructors",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.iff_complexRay_mk_eq",
+      "relation": "complex normalized state-phase equality iff ray-constructor equality",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.complexRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite index type I for two normalized representatives and their ray quotient",
+        "subject": "bridge from representative-level normalized state-phase equivalence to literal quotient equality",
+        "inputScope": "every pair of normalized ComplexState I representatives",
+        "observationScope": "equality of the complete normalized pure-state ray, not merely equality of basis weights or distributions",
+        "phase": "one unit complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact iff between the named StatePhaseEq relation and equality of ray constructors",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq",
+      "relation": "quaternionic normalized state-phase equality iff ray-constructor equality",
+      "owner": "goal-2/4B-DESCENT",
+      "consumer": "QuaternionicComputing.State.RayDescentAudit.quaternionRayDescent_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite index type I for two normalized representatives and their ray quotient",
+        "subject": "bridge from representative-level normalized state-phase equivalence to literal quotient equality",
+        "inputScope": "every pair of normalized QuaternionState I representatives",
+        "observationScope": "equality of the complete normalized pure-state ray, not merely equality of basis weights or distributions",
+        "phase": "one unit quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact iff between the named StatePhaseEq relation and equality of ray constructors",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }

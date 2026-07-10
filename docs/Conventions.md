@@ -64,12 +64,29 @@ normalized ray exists exactly when its index type is nonempty. Hence
 contrast to circuit basis types such as `BitBasis W`, which remain inhabited
 even when `W` has no wires.
 
-Stage 4A quotient equality alone does not provide descended evolution,
-measurement distributions, or an embedding into a target ray. In particular,
-complex global phase becomes a rotation of the two real encoding columns, and
-quaternionic right phase mixes the two complex encoding columns; neither
-canonical first-column encoding is silently declared a map into the ordinary
-target ray quotient.
+Stage 4B descends computational-basis weights, normalized finite
+distributions, finite-event weights, deterministic pushforwards, supplied
+unitary evolution, and locally-unitary circuit evolution to all three ray
+types. Matrix evolution requires a finite index with decidable equality and an
+explicit proof of unitarity. Circuit evolution requires an explicit
+`IsLocallyUnitary` certificate; it is defined on `BitBasis W`, which remains
+inhabited even for zero wires. No operation on normalized rays is defined for
+an arbitrary matrix or an uncertified circuit.
+
+Evolution order follows the matrix convention exactly: applying `U` and then
+`V` is the action of `V * U`. For chronological circuits, `C ++ D` acts first
+by `C` and then by `D`. Identity matrices and empty circuits act trivially.
+Deterministic postprocessing is covariant in the classical direction:
+pushforward by `id` is unchanged, and first `f` then `g` is pushforward by
+`g ∘ f`.
+
+These descended operations do not provide a density matrix, arbitrary effect,
+channel, approximation relation, or embedding into a target ray. In
+particular, complex global phase becomes a rotation of the two real encoding
+columns, and quaternionic right phase mixes the two complex encoding columns;
+neither canonical first-column encoding is silently declared a map into the
+ordinary target ray quotient. That orbit boundary remains a separate Stage 4C
+obligation.
 
 ## Operator and circuit phase
 
@@ -237,6 +254,10 @@ nonnegative and summing to one.  `eventWeight` is a finite sum, and
 Equality of the primary bottom distributions therefore implies equality for
 all finite events, marginals encoded as deterministic maps, and deterministic
 finite postprocessing.  It does not include randomized machines or their cost.
+For `RealRay`, `ComplexRay`, and `QuaternionRay`, `distribution`,
+`basisWeight`, `eventWeight`, and `pushforward` are literal quotient descents of
+these representative constructions. Equality of these observables is weaker
+than ray equality in general and is not used as the quotient relation.
 
 ## Circuits and wire placement
 

@@ -28,16 +28,21 @@ QuaternionicComputing/
     ComplexPhase.lean        complex unit-phase equivalence and invariance
     Ray.lean                 normalized phase quotients and index boundary
     RayAudit.lean            non-root quotient consumers and edge examples
+    RayObservables.lean      basis distributions, events, and pushforwards on rays
+    RayEvolution.lean        unitary and locally-unitary circuit actions on rays
+    RayDescentAudit.lean     non-root descent consumers and boundary examples
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
     Distribution.lean        finite events and deterministic pushforwards
+    DistributionLaws.lean    identity and composition laws for pushforwards
   Semantics/
     Core.lean                literal operator and chronological-circuit equality
     Measurement.lean         fixed-input, basis-input, pure-input, and distribution agreement
     CoreAudit.lean           edge-index examples and semantic axiom spot checks
     StatePhase.lean          normalized exact/sign/right-phase relations
     StatePhaseAudit.lean     normalized left-phase rejection and API consumers
+    Ray.lean                 representative phase iff quotient-constructor equality
     OperatorPhase/
       ComplexReal.lean       global, basis-sided, and projective operator phase
       ComplexRealCircuit.lean  sided composition and evaluator-backed circuits
@@ -50,6 +55,7 @@ QuaternionicComputing/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
     Basic.lean               locality-certified gates and ordered semantics
+    LocalUnitary.lean        locally-unitary closure under chronological append
     BasisPreparation.lean    known basis input as a unitary XOR permutation
     OrderSanity.lean         concrete noncommuting evaluator audit
     Cost.lean                generic width/arity bounds and maxima
@@ -160,13 +166,37 @@ equality or pointwise negation. There is deliberately no chosen
 The index boundary is exact: `realRay_nonempty_iff`,
 `complexRay_nonempty_iff`, and `quaternionRay_nonempty_iff` prove that a ray is
 inhabited exactly when its finite index type is inhabited, while explicit
-`IsEmpty` instances rule out normalized rays on `Empty`. Stage 4A contains no
-descended evolution or outcome maps and no cross-model map from a source ray to
-one canonical target ray; those are separate Stage 4B/4C obligations.
+`IsEmpty` instances rule out normalized rays on `Empty`.
 `State/RayAudit.lean` stays outside the public root and exercises the full
 stable quotient surface through scalar-specific aggregate consumers, the
 inhabitation boundary, and concrete rebit `-1`, qubit `I`, and quaterbit
 right-`j` equalities.
+
+`State/RayObservables.lean` descends computational-basis weights, normalized
+`FiniteDistribution`s, finite-event weights, and deterministic pushforwards to
+each ray type. Every definition has a representative computation theorem;
+pushforward by `id` is the original ray distribution and successive maps
+compose as `g ∘ f`. `State/DistributionLaws.lean` owns the two scalar-neutral
+pushforward laws so they can be reused without importing ray semantics.
+
+`State/RayEvolution.lean` descends only normalization-preserving dynamics. A
+supplied unitary matrix acts on each ray when the finite index has decidable
+equality; identity and composition are exact, with first `U` then `V` equal to
+the action of `V * U`. A chronological circuit acts only with an explicit
+`IsLocallyUnitary` certificate. The empty circuit is the identity, and
+`C ++ D` acts first by `C` and then by `D`; `Circuit/LocalUnitary.lean` proves
+that the appended certificate exists. These circuit theorems remain meaningful
+for zero wires because `BitBasis Empty` has one element. No arbitrary matrix
+or uncertified circuit is lifted to normalized rays.
+
+`Semantics/Ray.lean` identifies each normalized representative phase predicate
+with equality of the corresponding quotient constructors. The non-root
+`State/RayDescentAudit.lean` consumes the complete descent surface and checks
+representatives, chronological order, proof irrelevance, and the zero-wire
+boundary. Stage 4B still introduces no density matrix, effect, channel,
+approximation, or cross-model embedding claim. In particular, a map from a
+source ray to one canonical target ray remains the separate Stage 4C
+embedding-orbit obligation.
 
 Outcome preservation is proved coordinatewise:
 
@@ -182,9 +212,10 @@ dependency of the central theorem.
 `State/Distribution.lean` packages any finite nonnegative real weight function
 of total mass one as a `FiniteDistribution`.  Generic normalized states map to
 their basis distributions.  Finite-event sums and deterministic pushforwards
-are normalized, nonnegative, and congruent under pointwise equality.  This is
-a finite semantic API, not a measure-theory, randomized-computation, or
-runtime layer.
+are normalized, nonnegative, and congruent under pointwise equality;
+`State/DistributionLaws.lean` additionally proves identity and compositional
+functoriality for deterministic pushforwards. This is a finite semantic API,
+not a measure-theory, randomized-computation, or runtime layer.
 
 ## Semantic comparison implementation
 

@@ -402,7 +402,7 @@ Three boundaries are mandatory:
 - an empty index type has no trace-one density matrix.  Channel theorems must
   state a nonempty hypothesis where existence of physical inputs is used.
 
-## Goal 2 state phase and normalized ray quotients
+## Goal 2 state phase, normalized ray quotients, and descent
 
 The real sign characterization uses mathlib's `sq_eq_one_iff`; after rewriting
 `pow_two`, it gives `s * s = 1 ↔ s = 1 ∨ s = -1` with no positivity or
@@ -446,11 +446,43 @@ when an index `i` exists. This yields the public `realRay_nonempty_iff`,
 index from a supplied `Nonempty I` instance, not to choose a distinguished ray
 representative.
 
-Basis weights, finite distributions, raw matrix/circuit action, and normalized
-unitary evolution already have the required representative-level
-respectfulness theorems. Their quotient lifts remain Stage 4B work; Stage 4A
-does not claim that an embedding column respects an ordinary target-ray
-quotient.
+Stage 4B uses those representative-level respectfulness theorems to define the
+public quotient operations. `State/RayObservables.lean` lifts
+`FiniteDistribution.ofNormalizedState` through each quotient, proving
+well-definedness with `FiniteDistribution.ext` and the scalar-specific
+basis-weight invariance theorem. The descended `basisWeight`, `eventWeight`,
+and `pushforward` are projections or compositions of that distribution, so
+their representative computation theorems reduce definitionally.
+
+Deterministic pushforward functoriality is isolated in
+`State/DistributionLaws.lean`. The identity proof reduces a filtered universe
+to a singleton. The composition proof uses `Finset.sum_fiberwise` to rearrange
+the finite fiber sums, preserving the explicit order first `f`, then `g`, as
+`g ∘ f`. These are exact equalities of `FiniteDistribution`s and use no measure
+or probability-kernel API.
+
+`State/RayEvolution.lean` lifts the existing normalized `*State.evolveUnitary`
+functions. Well-definedness uses `signEquivalent_real_mulVec`,
+`rightPhaseEquivalent_complex_mulVec`, and
+`rightPhaseEquivalent_mulVec`. Identity and composition reduce via
+`Matrix.one_mulVec` and `Matrix.mulVec_mulVec`; multiplication order is
+deliberately `V * U` for first `U`, then `V`. The unitary certificates come from
+`Subgroup.one_mem` and `Subgroup.mul_mem` for `unitary (Matrix I I R)`.
+
+Circuit evolution specializes this action to `OrderedCircuit.eval` and
+`OrderedCircuit.eval_mem_unitary`. The helper
+`OrderedCircuit.IsLocallyUnitary.append` follows directly from
+`List.mem_append`; the ray append laws rewrite `OrderedCircuit.eval_append`,
+whose evaluator order is `D.eval * C.eval`. `BitBasis Empty` remains inhabited,
+so these laws include the zero-wire circuit boundary even though the bare ray
+types indexed by `Empty` are empty.
+
+`Semantics/Ray.lean` exposes three iff bridges from the normalized
+representative predicates to quotient-constructor equality. No part of this
+implementation chooses a representative or claims that an embedding column
+respects an ordinary target-ray quotient. Arbitrary matrix evolution,
+uncertified circuits, density/effect/channel semantics, and cross-model orbit
+maps remain outside this descent API.
 
 ## Goal 2 quaternionic operator phase
 

@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean`.  It imports only
-the public root and runs 272 `#print axioms` commands covering representative
+the public root and runs 286 `#print axioms` commands covering representative
 endpoints from every public layer:
 
 - quaternion scalar decomposition and phase correction;
@@ -18,6 +18,10 @@ endpoints from every public layer:
 - normalized `RealRay`, `ComplexRay`, and `QuaternionRay` quotient equality,
   representative lifting/elimination, the real equality-or-negation theorem,
   and exact nonempty/empty index boundaries;
+- descended real/complex/quaternionic ray distributions, basis and finite-event
+  weights, deterministic pushforwards, unitary evolution, locally-unitary
+  circuit evolution, exact identity/composition laws, and representative-phase
+  iff quotient-equality bridges;
 - real/complex global operator phase, input-column phase, output-row phase,
   projective action, evaluator-backed circuit relations, and their sided
   composition and measurement implications;
@@ -51,15 +55,23 @@ local axiom prints sample five of those aggregates plus the three side-order
 and central-sign diagnostics; they include the generic raw/normalized bridge,
 the dimension-two kernel, and the rank-one exception. The generic bridge proof
 itself covers the empty-input zero-column case; this diagnostic leaf does not
-contain a separate `Empty` specialization. The 272-command count above is the
+contain a separate `Empty` specialization. The 286-command count above is the
 independent public-root audit count and does not fold these diagnostic-only
 commands into it.
 
 `State/RayAudit.lean` is likewise non-root. Four aggregate consumers cover all
 40 stable Stage 4A declarations, while seven local axiom prints sample those
 aggregates and the concrete rebit `-1`, qubit `I`, and quaterbit right-`j`
-constructor equalities. The 272-command root count includes eight independent
+constructor equalities. The 286-command root count includes eight independent
 public-ray endpoints but excludes these diagnostic-only prints.
+
+`State/RayDescentAudit.lean` is the non-root Stage 4B consumer. Its aggregate
+theorems exercise the scalar-neutral pushforward and local-unitarity helpers,
+all real/complex/quaternionic observable and evolution operations, the three
+semantic bridges, representative computation, matrix and chronological
+composition order, proof-argument irrelevance, and the inhabited zero-wire
+circuit boundary. Its local axiom prints are diagnostic-only. The public-root
+count instead includes 14 independent Stage 4B endpoints.
 
 ## Release result
 

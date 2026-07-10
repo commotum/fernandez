@@ -10,7 +10,7 @@
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library. The current tree contains
-59 Lean source files, including the public root, executable axiom audit, and
+65 Lean source files, including the public root, executable axiom audit, and
 non-root semantic diagnostic leaves.
 
 The paper was treated as a mathematical source rather than a specification.
@@ -50,9 +50,19 @@ or an unsafe shortcut.
   lifting, and function extensionality without selecting a canonical
   representative.
 - Normalized rays exist exactly when their finite index type is nonempty, with
-  explicit empty instances at dimension zero. Descended evolution/outcomes and
-  the cross-model embedding-orbit boundary remain Stage 4B/4C work, so the two
-  transferred paper rows are not yet closed.
+  explicit empty instances at dimension zero.
+- Computational-basis distributions, basis and finite-event weights, and
+  deterministic pushforwards descend to real, complex, and quaternionic rays,
+  with exact representative, identity, and composition laws.
+- Supplied unitary matrices and explicitly locally-unitary chronological
+  circuits act on all three ray types. Identity and empty circuits act
+  trivially; first `U` then `V` is `V * U`, and `C ++ D` acts first by `C`,
+  then by `D`, including at the inhabited zero-wire circuit basis.
+- The descent API does not act by arbitrary matrices or uncertified circuits
+  and asserts no density, effect, channel, approximation, or cross-model
+  embedding result. The embedding-orbit boundary remains Stage 4C work, so the
+  two transferred paper rows remain partially formalized and are not yet
+  `closedByGoal2`.
 - Fixed-input, all-basis-input, and all-normalized-pure-input basis agreement
   are separate predicates, with finite distributions, events, and
   deterministic pushforwards downstream.
@@ -117,6 +127,11 @@ or an unsafe shortcut.
 - The real rank-one reduced matrices for the two canonical encodings are equal.
 - `FiniteDistribution` packages normalized finite outcomes, event weights, and
   deterministic pushforwards.
+- `RealRay`, `ComplexRay`, and `QuaternionRay` expose those finite observables
+  directly, together with deterministic-pushforward identity and composition.
+- Normalized ray evolution is available only from supplied unitaries or
+  locally-unitary circuit certificates, with exact matrix and chronological
+  order laws and no arbitrary-matrix or channel interpretation.
 - A normalized rational complex state has a canonical real encoding that is
   provably not a pure top/bottom product.
 

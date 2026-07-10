@@ -295,6 +295,35 @@ target columns. Consequently `FER03-D01-REBIT` and
 `FER03-FND-COMPLEX-STATE-RAY` remain partially formalized until Stages 4B and
 4C complete their required consumers and boundary theorems.
 
+## Stage 4B proof-bearing realization
+
+Stage 4B discharges the descent half of that historical Stage 4A boundary for
+all three scalar systems. It adds no new family row to the frozen Goal 1
+cohort.
+
+| Descended family | Checked meaning | Exact laws | Deliberately excluded upgrade |
+|---|---|---|---|
+| `RealRay.distribution` / `ComplexRay.distribution` / `QuaternionRay.distribution` | The normalized computational-basis distribution is independent of the chosen normalized representative | `distribution_mk`, pointwise `basisWeight_mk`, and `distribution_weight` for each scalar | Distribution equality is not used as ray equality and does not imply a channel or arbitrary-effect theorem |
+| ray `eventWeight` and `pushforward` | Every finite basis event and every deterministic map to another finite outcome type acts on the descended distribution | Representative computation; pushforward by `id`; first `f`, then `g`, equals pushforward by `g ∘ f` | No randomized postprocessor, encoding, runtime, or approximation claim |
+| ray `evolveUnitary` | A supplied unitary square matrix sends a normalized ray to a normalized ray | Representative computation; identity action; first `U`, then `V`, is exactly `V * U` | No action of arbitrary matrices and no claim about channels or all effects |
+| ray `evolveCircuit` | An explicitly locally-unitary chronological circuit acts through its unitary evaluator | Representative computation; empty circuit identity; `C ++ D` acts first by `C`, then by `D` | No action of an uncertified circuit, no resource conclusion, and no schedule independence |
+| `RealStatePhaseEq.iff_realRay_mk_eq` and complex/quaternion analogues | The normalized representative phase predicates are exactly quotient-constructor equality | One bridge for each scalar, with quaternion phase strictly on the right | Not representative equality, operator global phase, or cross-model equality |
+
+The matrix action requires `[Fintype I]`, `[DecidableEq I]`, and a supplied
+unitarity proof. Circuit action requires `[Fintype W]` and a supplied
+`IsLocallyUnitary` proof. `BitBasis Empty` has one basis assignment, so the
+zero-wire circuit laws are nonvacuous even though `RealRay Empty`,
+`ComplexRay Empty`, and `QuaternionRay Empty` themselves are empty. The
+descent API does not select representatives and proof arguments do not become
+physical data.
+
+Stage 4B does not assert arbitrary-matrix ray evolution, density/effect/channel
+semantics, or that either canonical embedding column descends to an ordinary
+target-ray map. Therefore `FER03-D01-REBIT` and
+`FER03-FND-COMPLEX-STATE-RAY` remain **partially formalized** and are not
+`closedByGoal2`; only the Stage 4C embedding-orbit boundary remains for those
+transferred rows.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

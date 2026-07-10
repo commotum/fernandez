@@ -40,6 +40,9 @@ import QuaternionicComputing.State.Basic
 import QuaternionicComputing.State.RealPhase
 import QuaternionicComputing.State.ComplexPhase
 import QuaternionicComputing.State.Ray
+import QuaternionicComputing.State.DistributionLaws
+import QuaternionicComputing.State.RayObservables
+import QuaternionicComputing.State.RayEvolution
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
@@ -47,6 +50,7 @@ import QuaternionicComputing.State.Distribution
 import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
+import QuaternionicComputing.Semantics.Ray
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -108,9 +112,17 @@ the scalar-correct phase relation, and real-ray equality is exactly equality
 or pointwise negation. Every ray can be eliminated through a normalized
 representative, but no canonical representative is selected. These quotients
 exist exactly when their finite index type is nonempty; in particular there is
-no normalized ray on `Empty`. Descended evolution and outcomes remain the next
-ray-layer milestone, and no canonical complex-to-real or
-quaternion-to-complex target-ray map is claimed. Both
+no normalized ray on `Empty`. Computational-basis weights, normalized finite
+distributions, finite-event weights, and deterministic pushforwards descend to
+all three ray types, with exact representative computation, identity, and
+composition laws. Supplied unitaries act on rays; identity acts trivially and
+applying `U` then `V` is exactly the action of `V * U`. Locally-unitary
+chronological circuits act as well: the empty circuit is the identity and
+`C ++ D` acts first by `C` and then by `D`, including on the inhabited
+zero-wire basis. These operations require explicit finite-index, decidable-
+equality where matrix evolution needs it, unitarity, and local-unitarity
+premises. They do not define arbitrary-matrix evolution, channels, or a
+canonical complex-to-real or quaternion-to-complex target-ray map. Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite
