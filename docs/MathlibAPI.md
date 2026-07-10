@@ -196,20 +196,22 @@ The project supplies the missing corrected boundary in
 `Matrix/KroneckerCommute.lean`:
 
 ```lean
-Matrix.EntrywiseCommute B C
-Matrix.kronecker_mul_kronecker_of_entrywiseCommute A B C D h
-Matrix.kronecker_mul_kronecker_commutative A B C D
-Matrix.disjoint_kronecker_factors_commute_of_entrywiseCommute U V h
+QuaternionicComputing.Matrix.EntrywiseCommute B C
+QuaternionicComputing.Matrix.kronecker_mul_kronecker_of_entrywiseCommute A B C D h
+QuaternionicComputing.Matrix.kronecker_mul_kronecker_commutative A B C D
+QuaternionicComputing.Matrix.disjoint_kronecker_factors_commute_of_entrywiseCommute U V h
 ```
 
 Here `EntrywiseCommute B C` means that every entry of the left product's
 second factor commutes with every entry of the right product's first factor.
 It is a sufficient hypothesis for the rectangular interchange law, not a
 proved necessity characterization.  `IsZeroOneMatrix` supplies useful
-sufficient special cases.  The quaternionic `oneByOne` declarations prove
-both that interchange can hold when the paper's named right-hand factors are
-not zero–one and that it fails when the relevant middle entries are `i` and
-`j`.
+sufficient special cases.  For the canonical disjoint factors `U ⊗ₖ 1` and
+`1 ⊗ₖ V`, the custom commutation theorem takes `EntrywiseCommute V U`,
+because the reverse product moves entries of `V` past entries of `U`.  The
+quaternionic `oneByOne` declarations prove both that interchange can hold when
+the paper's named right-hand factors are not zero–one and that it fails when
+the relevant middle entries are `i` and `j`.
 
 ## Finite scheduling APIs
 
@@ -256,7 +258,7 @@ without placeholders:
   pairwise-commuting schedule independence, and an observable disjoint-gate
   order-dependence witness;
 - whole ordered-circuit embedding, normalized state evolution, bottom
-  probability preservation, and exact abstract count/width/arity results; and
+  probability preservation, and exact abstract count/width/arity results;
 - exact quaternion-to-complex simulation for each supplied legal schedule,
   without schedule selection or schedule-independence assumptions; and
 - the pinned project baseline and axiom smoke audit.

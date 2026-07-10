@@ -49,9 +49,11 @@ QuaternionicComputing/
 QuaternionicComputing.lean   stable public root import
 ```
 
-Later names may change as their APIs are implemented, but the dependency direction must remain
-scalar → matrix → state → minimal circuits → simulation → broader ordering and
-resources.  Generic modules must not import paper-specific wrappers.
+The dependency direction remains acyclic: scalar and matrix infrastructure
+support states and the circuit core; primary fixed-order simulations and the
+finite scheduling layer both build on that core; scheduled simulation joins
+those two branches; resource models and paper-specific wrappers sit above
+them.  Generic modules must not import paper-specific wrappers.
 
 ## Embedding implementation
 

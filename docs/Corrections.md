@@ -149,22 +149,31 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-009 — Incorrect noncommutative Kronecker condition
 
 - **Source:** Equation (46) and following sentence, lines 822–835.
-- **Status:** confirmed overstatement; the noncommutative placement law needed
-  by both simulations is proved, while the general criterion remains Stage 7.
+- **Status:** confirmed overstatement; a corrected sufficient interchange
+  theorem and explicit success/failure boundary examples are proved.
 - **Diagnosis:** over a noncommutative semiring, the interchange calculation
   changes the order of entries from the second left factor and first right
   factor.  A sufficient entrywise condition is that every entry of `B` commute
-  with every entry of `C`.  Requiring both `C` and `D` to be 0–1 matrices is not
-  necessary, and the phrase “only if” is false (many non-0–1 central or mutually
-  commuting entries work).
-- **Repair:** `place` pads only on the right by an identity and reindexes along
-  an explicit support split.  `kronecker_one_mul` proves this restricted
-  multiplication law through block diagonal matrices over an arbitrary
-  semiring, so no coefficient commutativity is assumed.  Stage 7 will add the
-  broader entrywise-commutation theorem and concrete failure witness.
-- **Lean declarations:** `Circuit.kronecker_one_mul`, `place_mul`,
-  `place_mem_unitary`, and `OrderedCircuit.eval_mem_unitary`; the general
-  interchange declarations remain to be assigned in Stage 7.
+  with every entry of `C`.  The source instead names `C` and `D` as 0–1
+  matrices, although `D` is not one of the factors whose order crosses.
+  Zero–one middle factors are sufficient, but the phrase “only if” is false:
+  non-zero–one central or mutually commuting entries also work.
+- **Repair:** define `EntrywiseCommute B C` and prove the rectangular identity
+  under that sufficient hypothesis.  Derive the commutative and zero–one
+  special cases.  A quaternionic `1 × 1` example proves interchange with
+  non-zero–one named right-hand factors, while a second example with middle
+  entries `i` and `j` proves failure.  These results deliberately do not claim
+  that entrywise commutation is necessary.  Independently, `place` continues
+  to use the narrower identity-complement law needed by the simulations.
+- **Lean declarations:** `Matrix.EntrywiseCommute`,
+  `kronecker_mul_kronecker_of_entrywiseCommute`,
+  `kronecker_mul_kronecker_commutative`,
+  `IsZeroOneMatrix.entrywiseCommute_left`,
+  `IsZeroOneMatrix.entrywiseCommute_right`,
+  `disjoint_kronecker_factors_commute_of_entrywiseCommute`,
+  `QuaternionExamples.oneByOne_interchange_without_zeroOne`,
+  `QuaternionExamples.oneByOne_interchange_i_j_failure`, and the placement
+  theorem `Circuit.kronecker_one_mul`.
 - **Dependents:** circuit composition, ordering ambiguity, Figures 6–7, and all
   local-to-global simulation lemmas.
 
@@ -290,14 +299,28 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-018 — Universal order-dependence is too strong
 
 - **Source:** lines 835–839, 1223–1229, and conclusions at line 1239.
-- **Status:** confirmed qualification needed.
+- **Status:** confirmed qualification needed; corrected sufficient
+  independence and existential dependence results are proved.
 - **Diagnosis:** quaternionic circuits *can* depend on evaluation order, but
   circuits with real/central or commuting relevant entries need not.  Distinct
   operators also do not automatically imply distinct statistics for every
   input and measurement.
-- **Repair:** prove an explicit order-sensitive operator/outcome witness and
-  separate it from sufficient order-independence hypotheses.
-- **Lean declaration:** to be assigned in Stage 7.
+- **Repair:** `LegalSchedule.scheduledEval_eq_of_pairwise_commute` proves that
+  all supplied legal schedules agree when every pair of distinct global gate
+  denotations commutes.  In the other direction, two rational locally unitary
+  quaternionic mixers with `i` and `j` off-diagonal directions are placed on
+  disjoint Boolean wires.  The empty precedence relation admits both orders,
+  whose operators are unequal.  On one explicitly normalized input, their
+  `00` outcome weights are respectively `8281/15625` and `1369/15625`.
+  Complexification preserves the operator inequality and both exact weights.
+  This is one existential witness, not a theorem about every disjoint pair or
+  every input/measurement.
+- **Lean declarations:** `Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute`;
+  `Circuit.OrderingWitness.gate_supports_disjoint`, `iGate_locallyUnitary`,
+  `jGate_locallyUnitary`, `scheduled_operators_ne`,
+  `output_basis00_weight_ne`; and
+  `Simulation.OrderingWitness.complexified_scheduled_operators_ne`,
+  `complexOutput_basis00_weight_ne`.
 - **Dependents:** Definitions 4–5, physical interpretations, and bit-commitment
   discussion.
 
@@ -380,14 +403,25 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-023 — “Any Hilbert space” is insufficient for circuit semantics
 
 - **Source:** line 61 and the transition to quaternionic circuits.
-- **Status:** confirmed overgeneralization.
+- **Status:** confirmed overgeneralization; the corrected finite circuit
+  assumptions and their noncommutative boundary are explicit and proved.
 - **Diagnosis:** an inner product and linear structure give single-system state
   evolution and weights, but not automatically a coherent subsystem tensor
   product, local gate embedding, or order-independent parallel composition.
   The paper's own Equation (46) demonstrates the missing structure.
 - **Repair:** formalize only explicitly constructed finite state spaces and
-  local-placement semantics; document which circuit laws require commutative
-  or central coefficients.
+  locality-certified placement semantics.  The corrected Kronecker theorem
+  uses entrywise commutation of the middle factors as a sufficient hypothesis;
+  finite legal schedules retain order when this hypothesis is unavailable,
+  and the disjoint `i`/`j` witness shows that support separation alone does not
+  restore commutation.  No classification theorem for arbitrary Hilbert-space
+  scalar systems is inferred.
+- **Lean declarations:** `Circuit.PlacedGate`, `Circuit.place`,
+  `Matrix.EntrywiseCommute`,
+  `Matrix.kronecker_mul_kronecker_of_entrywiseCommute`,
+  `Circuit.LegalSchedule`,
+  `Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute`, and
+  `Circuit.OrderingWitness.output_basis00_weight_ne`.
 - **Dependents:** model-soundness prose and Definitions 4–5.
 
 ## C-024 — Algebraic exactness conflicts with finite-precision descriptions
