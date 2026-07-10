@@ -1,14 +1,19 @@
 # Goal 3 Continuation Prompt
 
 ```text
-Work autonomously through goal-3/0-plan.md using goal-3/0-loop.md and the
-authoritative Lean workflow in BUILD-PLAN.md.
+After Goal 2 is fully complete, work autonomously through goal-3/0-plan.md using
+goal-3/0-loop.md and the authoritative Lean workflow in BUILD-PLAN.md. Do not
+start Goal 3 before Goal 2's clean build, audit, semantic-classification
+manifest, traceability fold-back, and downstream smoke evidence are recorded.
 
 The objective is to tackle every remaining item from the verified Lean
 formalization of Fernandez and Schneeberger's “Quaternionic Computing.” The
-baseline has exactly 47 non-fully-proved traceability rows: 28 partially
-formalized, 16 intentionally excluded, and 3 unresolved. Close ordinary proof
-and engineering gaps; prove, correct, or refute the determinant, multi-top
+immutable pre-Goal-2 cohort has 47 non-fully-proved rows. Goal 2 owns two ray
+rows, so the forecast Goal 3 worklist is 45 rows: 26 partially formalized, 16
+intentionally excluded, and 3 unresolved. Recompute the actual post-Goal-2
+worklist before implementation and account for every cohort row as either
+closedByGoal2 or assigned exactly once to Goal 3. Close ordinary proof and
+engineering gaps; prove, correct, or refute the determinant, multi-top
 depth, synthesis, universality, uniformity, and BQP claims; and give every
 external, interpretive, information-theoretic, multi-path, and alternative-
 scalar question a precise model plus a substantive constructive, negative,
@@ -39,11 +44,11 @@ run touched-leaf and real-consumer builds, and do not promote experimental
 research APIs prematurely.
 
 Completion means the original tackle-all objective is genuinely achieved: all
-47 rows have evidence-backed closure outcomes; all 31 originally partial or
-unresolved rows leave those statuses through proved or corrected-and-proved
-results; every excluded/open item has new formal evidence or a completed formal
-case study; the pinned project builds without holes or project axioms; all main
-exports pass the executable axiom audit; and genuinely open scientific
-questions are carried forward under new exact theorem IDs rather than hidden or
-overstated.
+47 pre-Goal-2 cohort rows are accounted for by Goal 2 or Goal 3; every row
+partial/unresolved at the Goal 3 baseline leaves those statuses through proved
+or corrected-and-proved results; every excluded/open item has new formal
+evidence or a completed formal case study; the pinned project builds without
+holes or project axioms; all main exports pass the executable axiom audit; and
+genuinely open scientific questions are carried forward under new exact theorem
+IDs rather than hidden or overstated.
 ```

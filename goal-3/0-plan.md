@@ -208,7 +208,7 @@ Forecast checksum: partial `3+2+1+3+1+4+1+2+5+3+1 = 26`; excluded
 ## Dependency Shape
 
 ```text
-1-LEDGER
+1-REBASE
   ├─ 2-SEMANTICS ───────────┐
   ├─ 3-DENSITY ─────────────┼─ 14-STRUCTURE ─┬─ 15-MULTIPATH
   ├─ 4-FOUNDATIONS          │                └─ 16-CHANNELS
@@ -273,7 +273,7 @@ in `0-plan.md` before implementation rather than stretching one stage report.
 
 ## Stages
 
-### 1-LEDGER
+### 1-REBASE
 
 #### Big Picture Objective
 
@@ -296,6 +296,9 @@ mathematics or statuses.
   audit counts, verifies every pre-Goal-2 ID is closed by Goal 2 or assigned
   exactly once to Goal 3, validates canonical-status/closure-outcome mapping,
   and enforces new IDs for residual open work.
+- Recompute the Lean source/module count, public-root closure, executable axiom-
+  audit endpoint count, correction count, and downstream import surface after
+  Goal 2; do not retain Goal 1 release numbers as current evidence.
 - Record clean Goal 1 and Goal 2 build/audit baselines and inspect current diffs
   before any feature work.
 
@@ -308,7 +311,7 @@ mathematics or statuses.
 - The closure-outcome taxonomy is mapped unambiguously to the canonical
   traceability statuses and enforced by the checker.
 - Correction dependencies C-001–C-026 are linked where relevant.
-- Baseline builds, audit, scans, and diff state are recorded in `1-LEDGER.md`.
+- Baseline builds, audit, scans, and diff state are recorded in `1-REBASE.md`.
 
 ### 2-SEMANTICS
 
@@ -350,10 +353,11 @@ prove the paper's arbitrary mixed top-wire statements.
 
 #### Detailed Implementation Plan
 
-- Add `State/Density.lean`, `State/PartialTrace.lean`, and
-  `State/MixedTop.lean` with Hermitian positive-semidefinite trace-one matrices,
-  pure outer products, convex mixtures, unitary conjugation, and diagonal Born
-  distributions over real/complex scalars.
+- Extend Goal 2's finite real/complex density/effect and unitary-channel core;
+  do not redefine its `DensityMatrix`, `Effect`, `ChannelEq`, or
+  `AllMeasurementEq` APIs.  Add narrow `State/PartialTrace.lean` and
+  `State/MixedTop.lean` leaves with convex mixtures, partial trace, and the
+  simulator-specific mixed-top constructions.
 - Define partial trace as an explicit finite diagonal-block sum on product
   indices and prove Hermiticity, positivity, trace preservation, linearity,
   tensor-product, and pure rank-one laws.
@@ -553,13 +557,15 @@ finite descriptions with honest bit and work costs.
 #### Big Picture Objective
 
 Bridge arbitrary mathematical gates to finite descriptions with quantified
-error, without weakening the exact Goal 1 theorems.
+error, extending Goal 2's metric comparison vocabulary without weakening the
+exact Goal 1 theorems.
 
 #### Detailed Implementation Plan
 
-- Add scalar, matrix, circuit, state, and distribution approximation leaves
-  with a chosen vector/operator norm, a proved entrywise-to-norm bridge, and a
-  certified code-to-value error relation.
+- Reuse Goal 2's `operatorDistance`/approximate-comparison relations, norm
+  conventions, and basic observable bounds.  Add encoded scalar, matrix,
+  circuit, state, and distribution approximation leaves with certified
+  code-to-value error and accumulation relations.
 - Prove componentwise-to-matrix bounds, submultiplicative/telescoping circuit
   error, normalized-state error, basis-event error, and total-variation bounds.
 - Distinguish rounded matrices from exact unitary primitive circuits.  Add a
@@ -643,10 +649,11 @@ approximate/dense meaning.
 
 #### Detailed Implementation Plan
 
-- Define exact word generation, topological closure, and epsilon generation in
-  operator norm on the compact symplectic matrix group, plus local placement of
-  one finite bounded-arity gate schema whose labels do not depend on total
-  circuit width.
+- Reuse Goal 2's operator-action kernel, right-phase, and approximation
+  conventions.  Define exact word generation, topological closure, and epsilon
+  generation in its operator norm on the compact symplectic matrix group, plus
+  local placement of one finite bounded-arity gate schema whose labels do not
+  depend on total circuit width.
   Quotient operators only by a rigorously proved kernel of their action on
   right-phase rays (expected at most the central `±I`), never by arbitrary unit
   quaternion right phase.
@@ -764,6 +771,8 @@ and operational statements.
 - Define the real complex structure `J` and characterize the image of
   realification as the real matrices commuting with it.  Give the analogous
   conjugate-symplectic characterization for quaternionic complexification.
+- State all image, intertwining, ray, and outcome results using the Goal 2
+  embedded-operator/state/observable relation names and classification axes.
 - Formalize a subsystem/circuit-scalar interface containing the associative
   star algebra, real-valued weight, local composition, placement coherence,
   and measurement laws actually needed by the circuit model.
@@ -828,9 +837,10 @@ information-theoretic results.
 
 #### Detailed Implementation Plan
 
-- Extend Stage 3 with finite Kraus channels, instruments, trace preservation,
-  complete positivity where meaningful, marginals, product states, and data
-  processing over real and complex scalars.
+- Extend Goal 2's same-space real/complex density, effect, unitary-channel,
+  `ChannelEq`, and `AllMeasurementEq` layer with finite Kraus channels,
+  instruments, trace preservation, complete positivity where meaningful,
+  marginals, product states, and data processing.
 - Define native quaternionic density positivity by a real quadratic form or a
   proved complexification characterization; prove unitary conjugation and the
   chosen partial trace preserve it.  Never synthesize an order on `ℍ`.
@@ -988,7 +998,7 @@ research boundary in a form another Lean project can trust and reuse.
 
 ## Stage Status
 
-- [ ] 1-LEDGER
+- [ ] 1-REBASE
 - [ ] 2-SEMANTICS
 - [ ] 3-DENSITY
 - [ ] 4-FOUNDATIONS

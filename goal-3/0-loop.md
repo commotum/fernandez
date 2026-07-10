@@ -5,9 +5,11 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 
 ## Repeatable Loop
 
-1. Read `BUILD-PLAN.md`, then sync current state with the actual repository,
-   paper source, primary references, build, tests, closure ledger, traceability,
-   corrections, prior stage results, and current diff.
+1. Verify Goal 2 is complete with its clean build/audit, semantic-classification
+   manifest, traceability/correction fold-back, and downstream smoke evidence.
+   If not, stop Goal 3.  Otherwise read `BUILD-PLAN.md` and sync current state
+   with the actual repository, paper source, primary references, builds, tests,
+   closure ledger, traceability, corrections, prior stage results, and diff.
 2. Update `goal-3/0-plan.md` with current facts before starting the next stage.
    If evidence changes a route, dependency, or target, record why.
 3. Select the first dependency-ready incomplete stage or mandatory compiling
@@ -53,8 +55,9 @@ For every assigned traceability row inside a stage:
 
 ## Invariants
 
-- Do not narrow the user's “tackle all 47 rows” objective without saying so
-  and recording the coverage consequence.
+- Do not narrow the user's “tackle the immutable 47-row cohort” objective.
+  Account for each row as `closedByGoal2` or assigned to Goal 3, and record any
+  coverage consequence of a changed post-Goal-2 baseline.
 - Do not mark a stage complete without requirement-by-requirement evidence.
 - A green build is necessary evidence, never evidence that the mathematical or
   research requirement was met.
