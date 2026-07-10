@@ -13,9 +13,9 @@ the paper's prose or notation is ambiguous.
 - Matrices compose in the usual functional order:
   `(A * B) *ᵥ ψ = A *ᵥ (B *ᵥ ψ)`.  If gates `g₁, …, gₛ` occur in chronological
   order, their semantic matrix is `gₛ * ⋯ * g₁`.
-- General algebraic theorems use arbitrary finite index types.  Circuit basis
-  states will be bit assignments such as `Fin n → Fin 2`, not numerals whose
-  binary encoding must be unfolded in every proof.
+- General algebraic theorems use arbitrary finite index types.  A circuit on a
+  finite wire type `W` has computational basis `BitBasis W := W → Bool`, not
+  numerals whose binary encoding must be unfolded in every proof.
 
 ## Quaternionic scalar side
 
@@ -75,9 +75,10 @@ q = z + w j ↦ [[z, w], [-conj w, conj z]].
 ```
 
 Matrix embeddings use `Matrix.fromBlocks`, so an index `ι` is doubled to
-`ι ⊕ ι`.  At the circuit boundary this is reindexed through
-`Equiv.boolProdEquivSum ι` to `Bool × ι`, where the `Bool` is the leading/top
-two-level coordinate.
+`ι ⊕ ι`.  At the circuit boundary `addedBasisEquiv` reindexes the two copies of
+`BitBasis W` to `BitBasis (Unit ⊕ W)`.  The `Unit` summand is one shared,
+distinguished leading/top wire; its `false` and `true` assignments select the
+two matrix blocks.
 
 ## States, phases, and measurements
 
@@ -116,17 +117,24 @@ they are not silently inferred from the pure-state theorems.
 
 - The central semantic object is an ordered list of well-formed placed gates.
   This directly models a fixed evaluation order and supports induction.
+- A placed gate stores a finite local type, a finite complement type, a split
+  `Local ⊕ Complement ≃ W`, and a local matrix.  Its global operator is derived
+  from these fields, so locality is not detachable metadata.
 - A later DAG/topological-sort layer may produce such lists, but it will not be
   required to prove the algebraic embedding theorem.
 - A local gate is lifted to global basis states by restricting bit assignments
   to its support and requiring equality off that support.  Concretely, a split
   equivalence identifies the full basis with `local × rest`, forms
   `U ⊗ₖ 1`, and reindexes back.
-- Quaternionic placement will not rely on the commutative Kronecker interchange
-  identity.  Permutations and contextual padding use only `0`, `1`, and explicit
-  index equivalences, with multiplication order visible in definitions.
+- Quaternionic placement does not rely on the commutative Kronecker interchange
+  identity.  Its multiplication law uses identity block diagonalization;
+  permutations and contextual padding use only `0`, `1`, and explicit index
+  equivalences, with multiplication order visible in definitions.
 - Semantic permutation matrices used to describe placement are not counted as
   physical swap gates unless a separate synthesis theorem constructs them.
+- A chronological list `[g₁, …, gₛ]` evaluates to `Gₛ * ⋯ * G₁`.  The added
+  target wire has type `Unit ⊕ W`, is shared by every translated gate, and is
+  never duplicated per gate.
 
 ## Dimensions and empty types
 

@@ -55,10 +55,9 @@ theorem wireComplexify_one {W : Type*} [Fintype W] :
   rw [wireComplexify, QuaternionicComputing.Quaternion.complexify_one]
   exact map_one (Matrix.reindexRingEquiv ℂ (addedBasisEquiv W))
 
-set_option linter.unusedFintypeInType false in
 /-- Wire-facing complexification preserves multiplication. -/
 @[simp]
-theorem wireComplexify_mul {W : Type*} [Fintype W]
+theorem wireComplexify_mul {W : Type*} [Finite W]
     (A B : Matrix (BitBasis W) (BitBasis W) ℍ[ℝ]) :
     wireComplexify (A * B) = wireComplexify A * wireComplexify B := by
   classical
@@ -83,12 +82,15 @@ ordered-circuit evaluation in the simulation layer.
 -/
 def wireComplexifyStarMonoidHom (W : Type*) [Fintype W] :
     Matrix (BitBasis W) (BitBasis W) ℍ[ℝ] →⋆*
-      Matrix (BitBasis (AddedWire W)) (BitBasis (AddedWire W)) ℂ where
-  toFun := wireComplexify
-  map_one' := wireComplexify_one
-  map_mul' := wireComplexify_mul
-  map_star' A := by
-    simpa only [Matrix.star_eq_conjTranspose] using wireComplexify_conjTranspose A
+      Matrix (BitBasis (AddedWire W)) (BitBasis (AddedWire W)) ℂ :=
+  (addedBasisReindexStarMonoidHom ℂ W).comp {
+    toFun := QuaternionicComputing.Quaternion.complexify
+    map_one' := QuaternionicComputing.Quaternion.complexify_one
+    map_mul' := QuaternionicComputing.Quaternion.complexify_mul
+    map_star' := fun A ↦ by
+      simpa only [Matrix.star_eq_conjTranspose] using
+        QuaternionicComputing.Quaternion.complexify_conjTranspose A
+  }
 
 @[simp]
 theorem wireComplexifyStarMonoidHom_apply (W : Type*) [Fintype W]
@@ -127,6 +129,35 @@ def complexifyPlacedGate {W : Type v} [Fintype W]
   letI := g.localFintype
   letI := g.complementFintype
   exact PlacedGate.ofSplit (addTopSplit g.split) (wireComplexify g.localMatrix)
+
+/-- The added local wire is the distinguished global top wire. -/
+@[simp]
+theorem complexifyPlacedGate_localSupport_top {W : Type v} [Fintype W]
+    (g : PlacedGate ℍ[ℝ] W) (u : Unit) :
+    (complexifyPlacedGate g).localSupport (Sum.inl u) = Sum.inl u := by
+  letI := g.localFintype
+  letI := g.complementFintype
+  rfl
+
+/-- Every original local wire keeps its support position below the new top wire. -/
+@[simp]
+theorem complexifyPlacedGate_localSupport_bottom {W : Type v} [Fintype W]
+    (g : PlacedGate ℍ[ℝ] W) (l : g.Local) :
+    (complexifyPlacedGate g).localSupport (Sum.inr l) =
+      Sum.inr (g.localSupport l) := by
+  letI := g.localFintype
+  letI := g.complementFintype
+  rfl
+
+/-- Every complementary wire keeps its support position below the new top wire. -/
+@[simp]
+theorem complexifyPlacedGate_complementSupport {W : Type v} [Fintype W]
+    (g : PlacedGate ℍ[ℝ] W) (k : g.Complement) :
+    (complexifyPlacedGate g).complementSupport k =
+      Sum.inr (g.complementSupport k) := by
+  letI := g.localFintype
+  letI := g.complementFintype
+  rfl
 
 /-- The translated gate denotes the wire-facing complexification of the source gate. -/
 @[simp]

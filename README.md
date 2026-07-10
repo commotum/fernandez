@@ -33,6 +33,11 @@ import QuaternionicComputing.Matrix.Determinant
 import QuaternionicComputing.State.Basic
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
+import QuaternionicComputing.Circuit.Placement
+import QuaternionicComputing.Circuit.AddedWire
+import QuaternionicComputing.Circuit.Basic
+import QuaternionicComputing.Circuit.Realification
+import QuaternionicComputing.Circuit.Complexification
 ```
 
 The matrix layer currently exports dimension-safe, injective, multiplicative,
@@ -47,6 +52,13 @@ quaternionic states, repairs quaternionic phase to act on the right, proves
 both representation-column evolution identities, and proves pointwise bottom
 computational-basis weight preservation for every normalized pure top
 rebit/qubit.
+
+The circuit layer supplies locality-certified gates on arbitrary finite wire
+types, noncommutative-safe placement on arbitrary injected supports, explicit
+chronological evaluation, unitarity preservation, and a concrete quaternionic
+order check.  One-gate realification and complexification reuse one shared
+distinguished top wire, commute with actual contextual placement, preserve
+local unitarity, and increase local arity by exactly one.
 
 See `docs/Traceability.md`, `docs/Corrections.md`,
 `docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and

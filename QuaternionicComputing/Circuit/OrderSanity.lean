@@ -40,6 +40,10 @@ def iGate : PlacedGate ℍ[ℝ] Empty :=
 def jGate : PlacedGate ℍ[ℝ] Empty :=
   PlacedGate.ofSplit emptySplit jLocal
 
+/-- The unique computational-basis assignment on the empty wire type. -/
+def emptyBasis : BitBasis Empty :=
+  fun x ↦ nomatch x
+
 /-- The two stored local matrices genuinely fail to commute. -/
 theorem jLocal_mul_iLocal_ne_iLocal_mul_jLocal :
     jLocal * iLocal ≠ iLocal * jLocal := by
@@ -63,11 +67,32 @@ theorem jGate_denote_mul_iGate_denote_ne_iGate_denote_mul_jGate_denote :
 /--
 The actual public evaluator distinguishes chronological `[i, j]` from
 chronological `[j, i]`: the former denotes `j * i`, the latter `i * j`.
-This theorem fails if circuit multiplication order is accidentally reversed.
 -/
 theorem eval_i_then_j_ne_eval_j_then_i :
     OrderedCircuit.eval [iGate, jGate] ≠ OrderedCircuit.eval [jGate, iGate] :=
   OrderedCircuit.eval_pair_ne_swap_of_not_commute iGate jGate
     jGate_denote_mul_iGate_denote_ne_iGate_denote_mul_jGate_denote
+
+/--
+The fixed entry of chronological `[i, j]` is `j * i = -k`.  Unlike the
+symmetric inequality above, this orientation theorem fails if the evaluator's
+product order is reversed.
+-/
+theorem eval_i_then_j_entry :
+    OrderedCircuit.eval [iGate, jGate] emptyBasis emptyBasis = -k := by
+  rw [OrderedCircuit.eval_cons, OrderedCircuit.eval_singleton]
+  change
+    (place emptySplit jLocal * place emptySplit iLocal) emptyBasis emptyBasis = -k
+  rw [← place_mul]
+  simp [iLocal, jLocal, Matrix.mul_apply]
+
+/-- The swapped chronological order has fixed entry `i * j = k`. -/
+theorem eval_j_then_i_entry :
+    OrderedCircuit.eval [jGate, iGate] emptyBasis emptyBasis = k := by
+  rw [OrderedCircuit.eval_cons, OrderedCircuit.eval_singleton]
+  change
+    (place emptySplit iLocal * place emptySplit jLocal) emptyBasis emptyBasis = k
+  rw [← place_mul]
+  simp [iLocal, jLocal, Matrix.mul_apply]
 
 end QuaternionicComputing.Circuit.OrderSanity

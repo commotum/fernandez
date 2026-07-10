@@ -23,7 +23,12 @@ QuaternionicComputing/
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
   Circuit/
-    Basic.lean               local gates, supports, placement, ordered semantics
+    Placement.lean           noncommutative-safe contextual gate placement
+    AddedWire.lean           shared distinguished-wire equivalences/reindexing
+    Basic.lean               locality-certified gates and ordered semantics
+    OrderSanity.lean         concrete noncommuting evaluator audit
+    Realification.lean       one-gate complex-to-real translation
+    Complexification.lean    one-gate quaternion-to-complex translation
     Ordering.lean            DAG/topological orders and ambiguity witnesses
   Simulation/
     ComplexToReal.lean       corrected Theorem 2 family
@@ -49,10 +54,11 @@ visible, and lets multiplication and adjoint proofs use
 over noncommutative coefficient rings where applicable.
 
 For square matrices, complexification is bundled as a ring homomorphism and
-both embeddings are bundled as injective star-monoid homomorphisms.  At the circuit boundary,
-`Matrix.reindexRingEquiv` and `Equiv.boolProdEquivSum` convert `ι ⊕ ι` to
-`Bool × ι`, making the added top wire explicit without burdening scalar/matrix
-proofs with wire encodings.
+both embeddings are bundled as injective star-monoid homomorphisms.  At the
+circuit boundary, `addedBasisEquiv` identifies `BitBasis W ⊕ BitBasis W` with
+`BitBasis (Unit ⊕ W)`: the two sum sectors are exactly the false and true
+assignments of one distinguished top wire.  This keeps wire bookkeeping out of
+the scalar/matrix proofs while making the shared added wire explicit.
 
 Scalar component maps still receive direct entry-level theorems and concrete
 sign tests.  Star/adjoint compatibility is a separate proof obligation; it is
@@ -88,26 +94,39 @@ dependency of the central theorem.
 
 ## Circuit implementation
 
-The minimum circuit layer stores:
+The minimum circuit layer uses any finite wire type `W`, with computational
+basis `BitBasis W := W → Bool`.  A `PlacedGate R W` stores finite local and
+complement wire types, an explicit split `Local ⊕ Complement ≃ W`, and only a
+local square matrix.  Its global matrix is derived by padding as `U ⊗ₖ 1` and
+reindexing; no unconstrained global operator can disagree with the locality
+certificate.  `onSupport` constructs the split from an arbitrary injective,
+possibly noncontiguous support.
 
-- a finite source wire count;
-- a local arity and injective support map;
-- a square local matrix plus its validity proof where required;
-- an ordered list of placed gates.
+Placement multiplication does not use the commutative Kronecker interchange
+law.  Tensoring on the right by identity is identified with a block-diagonal
+matrix, whose multiplication theorem is valid over noncommutative semirings.
+This proves placement multiplication, adjoint preservation, and unitarity for
+quaternion coefficients.
 
-Circuit bases are `Fin n → Bool`.  A support equivalence splits full bit
-assignments into local and complementary assignments, a local gate is padded as
-`U ⊗ₖ 1`, and `Matrix.reindex` returns it to the full basis.  This construction
-works over quaternion coefficients; its unitarity follows from
-`Matrix.kronecker_mem_unitary` and unitary preservation under reindexing.  The
-target translation adds one distinguished wire shared by all translated gates.
+An `OrderedCircuit` is a chronological list.  Its evaluator reverses the list
+before multiplying, so `[g₁, …, gₛ]` denotes `Gₛ * ⋯ * G₁`.  A generic
+noncommutation theorem and a concrete quaternionic `i`/`j` witness guard this
+order.  Gate count is list length; semantic reindexing does not add gates.
+
+`AddedWire W := Unit ⊕ W` is shared by every translated gate.  `addTopSplit`
+puts this one distinguished wire into the translated local support while
+leaving the complement unchanged.  The separate realification and
+complexification leaves prove, entrywise from the actual placement definition,
+that translating a placed gate commutes with contextual placement.  Their
+translated gate has local arity exactly one larger and the same complement.
 
 The development must never use `Matrix.mul_kronecker_mul` for quaternionic
 semantics: mathlib correctly requires commutative coefficients for that
 interchange law.  Ordered evaluation remains an explicit list/fold, which is
 precisely where quaternionic order dependence is observable.
 
-The first main theorem is proved by induction over the ordered list.  DAGs and
+The first main theorem will use the exported monoid-hom evaluation lemma to
+lift these one-gate identities over an ordered list.  DAGs and
 topological sorting are an extension layer used to connect the theorem to the
 paper's “temporal chain” language and to exhibit order dependence.
 
