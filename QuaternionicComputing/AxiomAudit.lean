@@ -234,6 +234,22 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.State.complexRay_nonempty_iff
 #print axioms QuaternionicComputing.State.quaternionRay_nonempty_iff
 
+#print axioms QuaternionicComputing.State.FiniteDistribution.pushforward_comp
+#print axioms QuaternionicComputing.Circuit.OrderedCircuit.IsLocallyUnitary.append
+#print axioms QuaternionicComputing.State.RealRay.distribution_mk
+#print axioms QuaternionicComputing.State.ComplexRay.distribution_mk
+#print axioms QuaternionicComputing.State.QuaternionRay.distribution_mk
+#print axioms QuaternionicComputing.State.RealRay.evolveUnitary_comp
+#print axioms QuaternionicComputing.State.ComplexRay.evolveUnitary_comp
+#print axioms QuaternionicComputing.State.QuaternionRay.evolveUnitary_comp
+#print axioms QuaternionicComputing.State.RealRay.evolveCircuit_append
+#print axioms QuaternionicComputing.State.ComplexRay.evolveCircuit_append
+#print axioms QuaternionicComputing.State.QuaternionRay.evolveCircuit_append
+#print axioms QuaternionicComputing.Semantics.RealStatePhaseEq.iff_realRay_mk_eq
+#print axioms QuaternionicComputing.Semantics.ComplexStatePhaseEq.iff_complexRay_mk_eq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq
+
 #print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.equivalence
 #print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.equivalence
 #print axioms QuaternionicComputing.Semantics.RealInputBasisSignEq.equivalence

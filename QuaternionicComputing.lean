@@ -8,8 +8,11 @@ public import QuaternionicComputing.State.ComplexPhase
 public import QuaternionicComputing.State.Realification
 public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.State.Ray
+public import QuaternionicComputing.State.RayObservables
+public import QuaternionicComputing.State.RayEvolution
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
+public import QuaternionicComputing.Semantics.Ray
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
@@ -60,9 +63,13 @@ identified up to a proved `±1` sign relation, complex states up to unit right
 phase, and quaternionic states strictly up to unit right phase.  Each is an
 equivalence relation, follows from exact representative equality, preserves
 the complete computational-basis distribution, and is natural under raw
-matrix/circuit action and normalized unitary evolution.  Quotient state spaces
-are now exported as `RealRay`, `ComplexRay`, and `QuaternionRay`; descended
-ray dynamics and outcome maps remain a separate layer.
+matrix/circuit action and normalized unitary evolution. Quotient state spaces
+are exported as `RealRay`, `ComplexRay`, and `QuaternionRay`. Their
+computational-basis distributions, finite events, deterministic
+postprocessing, unitary evolution, and locally-unitary chronological circuit
+evolution descend to the quotients with representative, identity, and ordered-
+composition laws. These operations do not assert channel equality or identify
+equal basis distributions with equal rays.
 
 Real and complex evaluated operators and chronological circuits additionally
 have distinct global, input-column, output-row, and projective-action phase

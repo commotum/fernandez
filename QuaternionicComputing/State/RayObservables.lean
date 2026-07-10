@@ -142,7 +142,8 @@ def eventWeight (r : ComplexRay I) (event : Finset I) : ℝ :=
 @[simp]
 theorem eventWeight_mk (a : ComplexState I) (event : Finset I) :
     eventWeight (mk a) event =
-      (FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg a).eventWeight event :=
+      (FiniteDistribution.ofNormalizedState
+        complexWeight complexWeight_nonneg a).eventWeight event :=
   rfl
 
 /-- Deterministically postprocess the basis distribution of a complex ray. -/
@@ -216,7 +217,8 @@ def eventWeight (r : QuaternionRay I) (event : Finset I) : ℝ :=
 @[simp]
 theorem eventWeight_mk (a : QuaternionState I) (event : Finset I) :
     eventWeight (mk a) event =
-      (FiniteDistribution.ofNormalizedState quaternionWeight quaternionWeight_nonneg a).eventWeight event :=
+      (FiniteDistribution.ofNormalizedState
+        quaternionWeight quaternionWeight_nonneg a).eventWeight event :=
   rfl
 
 /-- Deterministically postprocess the basis distribution of a quaternionic ray. -/
@@ -229,7 +231,8 @@ def pushforward {J : Type v} [Fintype J]
 theorem pushforward_mk {J : Type v} [Fintype J]
     (a : QuaternionState I) (f : I → J) :
     pushforward (mk a) f =
-      (FiniteDistribution.ofNormalizedState quaternionWeight quaternionWeight_nonneg a).pushforward f :=
+      (FiniteDistribution.ofNormalizedState
+        quaternionWeight quaternionWeight_nonneg a).pushforward f :=
   rfl
 
 /-- Identity postprocessing leaves a quaternionic ray's distribution unchanged. -/
