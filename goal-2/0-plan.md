@@ -202,6 +202,13 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   aggregate consumers cover the surface, eight direct root audits compile,
   and the low-dependency quotient API supports a strict all-three-scalar 4B
   descent probe. The two transferred rows remain open until 4B/4C.
+- Stage 4B strict probes now compile the all-three-scalar descent design:
+  quotient distributions/events/postprocessing, normalized unitary evolution,
+  locally-unitary chronological circuit evolution, phase/equality bridges,
+  and their identity/composition laws. The implementation is split into
+  narrow distribution-law, local-unitarity, ray-observable, ray-evolution,
+  and semantic-bridge leaves; no State-to-Semantics dependency or arbitrary
+  matrix-to-normalized-ray map is permitted.
 
 ## Inventory and Manifest Policy
 
