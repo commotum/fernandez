@@ -284,8 +284,8 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.pureInputBasisMeasurementEq
 #print axioms QuaternionicComputing.Semantics.ExactCircuitEq.quaternionCentralSignEq
-#print axioms
-  QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+set_option linter.style.longLine false in
+#print axioms QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
 #print axioms
   QuaternionicComputing.Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #print axioms

@@ -109,9 +109,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current tree has 53 Lean sources. Clean public-root, full, and explicit
-  audit builds pass; 251 audited endpoints use only `propext`, `Classical.choice`,
-  and `Quot.sound`.
+- The current tree has 57 Lean sources. Clean public-root, focused diagnostic,
+  combined-target, and explicit audit builds pass; 264 audited root endpoints
+  use only `propext`, `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -146,10 +146,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 283 unique
-  Stage 2/3A/3B declarations, each with seven semantic axes and a named
-  downstream consumer. All names resolve through the public root, 35 distinct
-  diagnostic consumers resolve, and 65 entries are direct release-audit
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 384 unique
+  Stage 2/3A/3B/3C declarations, each with seven semantic axes and a named
+  downstream consumer. All names resolve through the public root, 46 distinct
+  diagnostic consumers resolve, and 78 entries are direct release-audit
   targets. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
@@ -184,6 +184,16 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   converses retain explicit positive-cardinality/nonempty hypotheses; circuit
   projective action on the inhabited `BitBasis W` is nonvacuous even at zero
   wires.
+- Stage 3C exports five side-correct quaternionic operator relations and four
+  evaluator-backed circuit wrappers. Raw and normalized all-input projective
+  action are equivalent on every finite input type, including the empty type.
+  For square unitary dimension at least two, either relation is equivalent to
+  one central real sign, with no separate unitarity premise on the second
+  matrix. Rank one is exactly the full unit-quaternion scalar family:
+  projective triviality, scalar-matrix unitarity, and norm square one are
+  equivalent, while the explicit `j` witness is not a central sign. The 101
+  Stage 3C declarations have 11 complete diagnostic consumers and 13 direct
+  root-audit targets; no quaternionic channel claim is made.
 
 ## Inventory and Manifest Policy
 
@@ -494,7 +504,7 @@ reintroducing the paper's quaternionic left-phase error.
 
 - [x] `3A-STATEPHASE`
 - [x] `3B-COMPLEXREAL`
-- [ ] `3C-QUATERNION`
+- [x] `3C-QUATERNION`
 
 ### 4-RAYS
 
@@ -821,7 +831,7 @@ use without learning the retrofit's implementation history.
 
 - [x] 1-INVENTORY
 - [x] 2-CORE
-- [ ] 3-PHASE
+- [x] 3-PHASE
 - [ ] 4-RAYS
 - [ ] 5-BASIS
 - [ ] 6-DENSITY

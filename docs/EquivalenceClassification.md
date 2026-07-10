@@ -263,10 +263,12 @@ projective triviality of `quaternionRankOneScalar q` is equivalent to
 unitary and projectively trivial but not central-sign equivalent.
 
 `QuaternionAudit.lean` is non-root and consumes all three public leaves. Its
-order-sensitive composition checks, empty-input boundary, dimension-two
+order-sensitive composition checks, generic bridge consumer, dimension-two
 kernel consumer, rank-one family, and `j` witness are diagnostics rather than
-additional public semantics. Stage 3C adds no channel or all-measurement
-relation; those remain owned by later Goal 2 stages.
+additional public semantics. The generic public bridge proof, not a separate
+audit specialization, covers the empty-input zero-column boundary. Stage 3C
+adds no channel or all-measurement relation; those remain owned by later Goal
+2 stages.
 
 ## Ambiguous wording backlog
 

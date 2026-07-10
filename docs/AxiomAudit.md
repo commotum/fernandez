@@ -41,6 +41,17 @@ For a fresh warning-as-error source check, use:
 lake env lean -DwarningAsError=true QuaternionicComputing/AxiomAudit.lean
 ```
 
+`Semantics/OperatorPhase/QuaternionAudit.lean` is deliberately not imported by
+the public root. Its 11 aggregate consumer theorems exercise all 101
+declarations in the three public quaternionic operator-phase leaves. Eight
+local axiom prints sample five of those aggregates plus the three side-order
+and central-sign diagnostics; they include the generic raw/normalized bridge,
+the dimension-two kernel, and the rank-one exception. The generic bridge proof
+itself covers the empty-input zero-column case; this diagnostic leaf does not
+contain a separate `Empty` specialization. The 264-command count above is the
+independent public-root audit count and does not fold these diagnostic-only
+commands into it.
+
 ## Release result
 
 The release audit completed successfully under Lean 4.31.0 and mathlib

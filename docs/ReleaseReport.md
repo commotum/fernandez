@@ -280,23 +280,29 @@ lake build QuaternionicComputing.AxiomAudit
 ```
 
 The Stage 3B verification run completed adjacent builds (2,352 jobs), all
-three operator-phase targets including the diagnostic leaf (2,355 jobs), the
-public root (2,559 jobs), the explicit axiom audit (2,559 jobs), and the full
-cached project build (2,559 jobs). Together these commands cover all 53 current
-Lean sources. Existing dependency checkouts remained pinned by the manifest;
-network bootstrap from a brand-new clone was not rerun in this restricted
-environment.
+three real/complex operator-phase targets including the diagnostic leaf (2,355
+jobs), the public root (2,559 jobs), the explicit axiom audit (2,559 jobs), and
+the full cached project build (2,559 jobs), covering the 53-source Stage 3B
+tree. Stage 3C separately completed a focused build of the quaternionic
+kernel (2,354 jobs), the non-root quaternionic diagnostic leaf (2,356 jobs),
+and the public root (2,562 jobs), plus strict warning-as-error checks of the
+three public quaternionic leaves, root, diagnostic leaf, and axiom audit.
+Together the current project has 57 Lean sources, 56 below
+`QuaternionicComputing/` plus the public root. Existing dependency checkouts
+remained pinned by the manifest; network bootstrap from a brand-new clone was
+not rerun in this restricted environment.
 
-Warning-as-error source checks passed for both stable operator-phase leaves,
-the diagnostic leaf, public root, and audit. The executable audit now contains
-251 `#print axioms` commands; every audited endpoint uses only
+Warning-as-error source checks passed for the stable operator-phase leaves,
+their diagnostic leaves, public root, and audit. The executable root audit now
+contains 264 `#print axioms` commands; every audited endpoint uses only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.
 
-The independent Goal 2 semantic manifest contains exactly 283 declarations:
-61 from Stage 2, 72 from Stage 3A, and 150 from Stage 3B. All seven semantic
-axes are present, all names resolve through the public root, 35 real diagnostic
-consumers resolve, and 65 manifest entries are direct root-audit targets. The
+The independent Goal 2 semantic manifest contains exactly 384 declarations:
+61 from Stage 2, 72 from Stage 3A, 150 from Stage 3B, and 101 from Stage 3C
+(44 operator-core, 43 circuit, and 14 kernel declarations). All seven semantic
+axes are present, all names resolve through the public root, 46 real diagnostic
+consumers resolve, and 78 manifest entries are direct root-audit targets. The
 frozen 936-declaration Goal 1 cohort checksum remains unchanged.
 
 The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported

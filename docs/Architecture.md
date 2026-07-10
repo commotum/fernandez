@@ -238,8 +238,11 @@ that scalar matrix is unitary. `Quaternion.j` is a checked unitary,
 projectively trivial, noncentral witness. No theorem in this three-leaf public
 layer promotes projective, basis-measurement, or central-sign equality to
 channel or all-effect equality. `QuaternionAudit.lean` is a non-root diagnostic
-consumer that checks multiplication order, the empty-input boundary, the
-dimension-two kernel, and the rank-one exception.
+consumer that checks multiplication order, consumes the generic
+raw/normalized bridge, and exercises the dimension-two kernel and rank-one
+exception. The bridge theorem itself covers the empty-input boundary through
+the zero-column branch of its proof; the audit does not add a separate `Empty`
+specialization.
 
 ## Circuit implementation
 

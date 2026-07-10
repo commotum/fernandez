@@ -8,9 +8,11 @@
 - Stage 3B exports distinct real/complex global, input-column, output-row, and
   normalized-projective operator relations, together with evaluator-backed
   circuit wrappers and chronology-correct composition laws.
-- The current public tree has 53 Lean sources, 251 root axiom endpoints, and a
-  283-item Goal 2 semantic API manifest. The frozen 936-declaration Goal 1
-  cohort checksum remains unchanged.
+- The completed milestone tree has 57 Lean sources, 264 root axiom endpoints,
+  and a 384-item Goal 2 semantic API manifest. Stage 3C contributes exactly
+  101 declarations (44 core, 43 circuit, and 14 kernel declarations), mapped
+  to 11 diagnostic consumers and 13 direct root-audit targets. The frozen
+  936-declaration Goal 1 cohort checksum remains unchanged.
 - Quaternionic input-column phase must multiply each matrix entry on the right;
   output-row phase must multiply on the left. These formulas are no longer
   interchangeable by commutativity.
@@ -193,8 +195,56 @@ generic global operator phase.
 
 ## Stage Results
 
-- Milestone active. The strict temporary probe establishes a viable proof
-  route but no Stage 3C declaration is yet part of the reusable library.
-- Next action after the independent Stage 3B closure audit is to implement the
-  low-dependency `Quaternion.lean` relation surface and compile its complete
-  laws before beginning the kernel proof leaf.
+- `Semantics/OperatorPhase/Quaternion.lean` exports five transparent
+  same-space relations with complete equivalence laws and exact lifts:
+  `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`,
+  `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, and
+  `QuaternionProjectiveActionEq`. It also exports the raw/normalized iff,
+  central-sign implications and unitarity reflection, and the justified
+  basis/all-pure-input measurement consequences.
+- The normalized-to-raw bridge handles zero separately and normalizes every
+  nonzero column by a nonzero central real inverse square root. It needs only
+  finite input, not unitarity or nonemptiness. Thus both sides hold for an
+  empty input type for different checked reasons: normalized quantification is
+  vacuous and raw quantification sees only the zero column.
+- `Semantics/OperatorPhase/QuaternionCircuit.lean` exports the seven
+  side-correct matrix composition laws and exactly four evaluator-backed
+  circuit relations, with projections, equivalence laws, the exact-circuit
+  central lift, and chronology-correct congruences. There is no raw-projective
+  circuit wrapper and no unjustified reverse-side or two-sided law.
+- `Semantics/OperatorPhase/QuaternionKernel.lean` proves both raw and
+  normalized projective action iff central real sign for finite square
+  matrices with explicit `1 < Fintype.card I`, `[DecidableEq I]`, and only
+  `U` assumed unitary. The proof derives the shared diagonal phase, forces it
+  to commute with `i` and `j`, and then proves it is a real square-one scalar.
+- Rank one is characterized completely: `quaternionRankOneScalar q` is
+  unitary, raw-projectively trivial, and normalized-projectively trivial iff
+  `Quaternion.normSq q = 1`. Projective triviality is therefore equivalent to
+  unitarity in rank one. `quaternionRankOneJ_exception` packages a unitary,
+  projectively trivial `j` scalar that is not central-sign equivalent.
+- `Semantics/OperatorPhase/QuaternionAudit.lean` remains outside the public
+  root. Its 11 aggregate consumers exercise all 101 stable declarations; its
+  Bool kernel specialization, right-input/left-output order checks, central
+  `-1` strictness example, and rank-one family compile. Eight local axiom
+  prints use only `propext`, `Classical.choice`, and `Quot.sound`.
+- The public root imports the three stable leaves, not the diagnostic leaf.
+  `QuaternionicComputing/AxiomAudit.lean` adds 13 representative endpoints,
+  for 264 total root prints, all using only the same three standard axioms.
+- `docs/Goal2SemanticAPIManifest.json` now contains exactly 384 source-matched
+  declarations with all seven axes, 46 resolving consumers, and 78 direct
+  audit targets. Generated Lean checks resolve every public name and every
+  consumer. The first 283 entries are structurally unchanged and the frozen
+  Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Focused builds passed for the kernel (2,354 jobs) and diagnostic leaf (2,356
+  jobs); the public root passed at 2,562 jobs and the combined explicit target
+  build at 2,564 jobs. Warning-as-error checks passed for all three public
+  leaves, the diagnostic leaf, public root, generated manifest checks, and
+  root audit. The initially reported flexible-simp linter warning in the
+  kernel was removed by introducing typed intermediate equalities.
+- Forbidden-hole/axiom/unsafe/opaque/heartbeat scans, diagnostic-boundary,
+  whitespace, artifact, checksum, and `git diff --check` checks pass. The
+  documentation and Goal 3 prerequisite now state the dimension-sensitive
+  kernel and rank-one exception without claiming quaternionic channels,
+  all-effect equality, or arbitrary-quaternion global operator phase. No new
+  correction number was required beyond clarifying the consequences of C-006.

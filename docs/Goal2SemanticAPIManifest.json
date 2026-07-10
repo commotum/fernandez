@@ -5077,7 +5077,7 @@
         "subject": "matrix operators",
         "inputScope": "every raw input vector iff every normalized pure input, on any finite input type; no unitarity or nonemptiness premise",
         "observationScope": "equivalence of raw and normalized complete-output right-ray action; at empty input type the normalized side is vacuous and the raw side holds on the unique zero vector",
-        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw or normalized input under consideration",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -5297,10 +5297,10 @@
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
       "classification": {
-        "space": "compatible rectangular quaternion matrices; the intermediate and external input indices are finite",
+        "space": "compatible rectangular quaternion matrices; the intermediate input index is finite and the external input index is arbitrary",
         "subject": "matrix operators",
         "inputScope": "every related pair and every common compatible earlier operator acting by right matrix multiplication",
-        "observationScope": "the same raw projective relation after common earlier evolution",
+        "observationScope": "the same output-left-phase relation after common earlier evolution",
         "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
@@ -5964,7 +5964,7 @@
     },
     {
       "declaration": "QuaternionicComputing.Semantics.quaternionRawProjectiveActionEq_iff_centralSignEq_of_unitary",
-      "relation": "QuaternionRawProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "relation": "QuaternionRawProjectiveActionEq↔QuaternionCentralSignEq unitary kernel characterization",
       "owner": "goal-2/3C-QUATERNION",
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api; direct release endpoint pending",
@@ -5996,7 +5996,7 @@
     },
     {
       "declaration": "QuaternionicComputing.Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary",
-      "relation": "QuaternionProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "relation": "QuaternionProjectiveActionEq↔QuaternionCentralSignEq unitary kernel characterization",
       "owner": "goal-2/3C-QUATERNION",
       "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
       "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
@@ -6021,7 +6021,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
         "observationScope": "the sole matrix entry equals the supplied quaternion scalar",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact definition",
         "ancillaPolicy": "none"
       }
@@ -6037,7 +6037,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "every quaternion q with normSq q = 1",
         "observationScope": "unitary-group membership of the corresponding one-by-one matrix",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -6053,7 +6053,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
         "observationScope": "unitary-group membership exactly when normSq q = 1",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -6069,7 +6069,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "every quaternion q with normSq q = 1 and every raw Unit-indexed input",
         "observationScope": "the complete output right ray agrees with identity for every raw input",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -6085,7 +6085,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
         "observationScope": "raw all-right-ray action agrees with identity exactly when normSq q = 1",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -6101,7 +6101,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "every quaternion q with normSq q = 1 and every normalized Unit-indexed pure input",
         "observationScope": "the complete output right ray agrees with identity for every normalized pure input",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
@@ -6117,7 +6117,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
         "observationScope": "normalized all-right-ray action agrees with identity exactly when normSq q = 1",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -6133,7 +6133,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
         "observationScope": "normalized projective triviality exactly when the scalar matrix is unitary",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact iff",
         "ancillaPolicy": "none"
       }
@@ -6149,7 +6149,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the explicit unit quaternion j",
         "observationScope": "failure of central-sign equality with identity",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact statement",
         "ancillaPolicy": "none"
       }
@@ -6165,7 +6165,7 @@
         "subject": "rank-one scalar quaternion operator",
         "inputScope": "the explicit unit quaternion j",
         "observationScope": "simultaneous unitarity and normalized projective triviality, with failure of central-sign equality",
-        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "phase": "unit quaternion scalar operators act by left multiplication, while projective witnesses act on the right; the full unit-quaternion family is projectively invisible in rank one, but central-sign equality admits only real ±1",
         "exactness": "exact statement",
         "ancillaPolicy": "none"
       }

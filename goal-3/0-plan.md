@@ -61,8 +61,9 @@ none may remain excluded merely because it is difficult.
 - Never infer exact equality from rounded data or call a rounded matrix
   unitary without a proof or a certified projection/compilation step.
 - Keep quaternionic columns as right modules and quaternionic state/ray phase
-  on the right. Genuine operator projective phase is limited to the proved
-  central kernel, with the rank-one exception explicit. Recheck dimensions,
+  on the right. In square unitary dimension at least two, genuine operator
+  projective phase is limited to the proved central real-sign kernel; rank one
+  instead has the proved full unit-quaternion family. Recheck dimensions,
   sector order, multiplication order, adjoints, and chronological evaluation
   at every abstraction boundary.
 - Do not use commutative tensor identities over quaternions.  Physical routing
