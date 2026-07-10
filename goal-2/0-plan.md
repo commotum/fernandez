@@ -109,8 +109,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current tree has 59 Lean sources. Clean public-root, focused diagnostic,
-  combined-target, and explicit audit builds pass; 272 audited root endpoints
+- The current tree has 65 Lean sources. Clean public-root, focused diagnostic,
+  combined-target, and explicit audit builds pass; 286 audited root endpoints
   use only `propext`, `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
@@ -119,7 +119,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 - Real sign, complex right phase, and quaternion right phase exist for state
   columns and are proved equivalence relations. `RealRay`, `ComplexRay`, and
   `QuaternionRay` now quotient normalized representatives by exactly those
-  relations. Descended dynamics and outcomes remain Stage 4B work.
+  relations. Stage 4B descends basis distributions, finite events,
+  deterministic postprocessing, supplied unitary evolution, and
+  locally-unitary chronological-circuit evolution with exact identity and
+  ordered-composition laws. The cross-model embedding-orbit boundary remains
+  Stage 4C work.
 - `FiniteDistribution` packages normalized outcome weights, finite events, and
   deterministic pushforwards. Stage 2 now separates fixed-input
   `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, all-normalized-pure-
@@ -146,10 +150,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 424 unique
-  Stage 2/3A/3B/3C/4A declarations, each with seven semantic axes and a named
-  downstream consumer. All names resolve through the public root, 50 distinct
-  diagnostic consumers resolve, and 86 entries are direct release-audit
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 487 unique
+  Stage 2/3A/3B/3C/4A/4B declarations, each with seven semantic axes and a named
+  downstream consumer. All names resolve through the public root, 54 distinct
+  diagnostic consumers resolve, and 100 entries are direct release-audit
   targets. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
@@ -201,14 +205,18 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   equality-or-negation theorem, and `Nonempty (Ray I) ↔ Nonempty I`. Four
   aggregate consumers cover the surface, eight direct root audits compile,
   and the low-dependency quotient API supports a strict all-three-scalar 4B
-  descent probe. The two transferred rows remain open until 4B/4C.
-- Stage 4B strict probes now compile the all-three-scalar descent design:
-  quotient distributions/events/postprocessing, normalized unitary evolution,
+  descent probe.
+- Stage 4B now exports the all-three-scalar descent design: quotient
+  distributions/events/postprocessing, normalized unitary evolution,
   locally-unitary chronological circuit evolution, phase/equality bridges,
-  and their identity/composition laws. The implementation is split into
-  narrow distribution-law, local-unitarity, ray-observable, ray-evolution,
-  and semantic-bridge leaves; no State-to-Semantics dependency or arbitrary
-  matrix-to-normalized-ray map is permitted.
+  and their identity/composition laws. The 63 stable declarations are split
+  among narrow distribution-law, local-unitarity, ray-observable,
+  ray-evolution, and semantic-bridge leaves; no State-to-Semantics dependency
+  or arbitrary matrix-to-normalized-ray map appears. Four non-root aggregate
+  consumers exercise the exact surface, 14 direct root-audit targets compile,
+  and the quaternionic diagnostic retains the noncommutative order `V * U`.
+  The two transferred rows remain open only until the Stage 4C
+  embedding-orbit boundary is complete.
 
 ## Inventory and Manifest Policy
 
@@ -562,7 +570,7 @@ two transferred paper rows completely.
 #### Mandatory Milestone Status
 
 - [x] `4A-QUOTIENTS`
-- [ ] `4B-DESCENT`
+- [x] `4B-DESCENT`
 - [ ] `4C-EMBEDORBIT`
 
 ### 5-BASIS

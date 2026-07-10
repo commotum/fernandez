@@ -175,4 +175,81 @@ with representative beta laws and exact identity/composition laws.
 
 ## Stage Results
 
-- In progress.
+- `State/DistributionLaws.lean` adds the two scalar-neutral deterministic
+  postprocessing laws `FiniteDistribution.pushforward_id` and
+  `pushforward_comp`. The latter proves exactly that one pushforward through
+  `g ∘ f` is first `f` and then `g`, by a finite fiber-sum rearrangement.
+- `Circuit/LocalUnitary.lean` adds
+  `OrderedCircuit.IsLocallyUnitary.append`; its proof splits membership in
+  `C ++ D` and reuses the two supplied gatewise certificates. Neither helper
+  leaf depends on rays or semantic comparison modules.
+- `State/RayObservables.lean` contributes 33 stable declarations: for each of
+  `RealRay`, `ComplexRay`, and `QuaternionRay`, `distribution`, `basisWeight`,
+  `eventWeight`, and `pushforward` descend to quotient values, with
+  representative beta laws, the named distribution-weight projection, and
+  deterministic identity/composition laws. The distribution lift is justified
+  by the existing scalar-specific basis-weight invariance theorem and
+  `FiniteDistribution.ext`; it never chooses a representative.
+- `State/RayEvolution.lean` contributes 24 stable declarations. Each scalar
+  ray has `evolveUnitary` with representative, identity, and ordered
+  composition laws, plus `evolveCircuit` with representative, empty-circuit,
+  and chronological-append laws. Only explicitly unitary matrices and
+  locally-unitary circuits act on normalized rays. The exact checked order is
+  first `U`, then `V`, equals `V * U`; `C ++ D` acts first by `C`, then by `D`.
+  The quaternionic proofs use `Matrix.mulVec_mulVec` without commuting either
+  matrix or phase factors.
+- `Semantics/Ray.lean` contributes exactly three stable iff bridges:
+  `RealStatePhaseEq.iff_realRay_mk_eq`,
+  `ComplexStatePhaseEq.iff_complexRay_mk_eq`, and
+  `QuaternionStatePhaseEq.iff_quaternionRay_mk_eq`. They identify the already
+  named normalized representative relations with literal constructor equality
+  in the corresponding quotient, preserving quaternion phase strictly on the
+  right.
+- `State/RayDescentAudit.lean` is non-root and has four complete aggregate
+  consumers. `sharedDescent_api` covers the three helper declarations; the
+  real, complex, and quaternion aggregate consumers cover 20 declarations
+  each, for exact coverage of all 63 stable Stage 4B declarations. Concrete
+  rebit, qubit, and quaterbit checks exercise weights, events,
+  postprocessing, and identity evolution. The existing `i`/`j` ordering
+  witness proves exact distinct descended quaternionic outcome weights and
+  checks singleton append chronology. Empty amplitude indices remain empty,
+  while zero-wire `BitBasis Empty` rays and circuit actions are nonvacuous;
+  proof-argument irrelevance is checked explicitly.
+- The public root imports the five stable leaves transitively and never imports
+  `RayDescentAudit`. The root overview now describes operational rays without
+  promoting them to channel equality or cross-model maps. The explicit root
+  audit adds 14 representative endpoints and now contains 286 commands. All
+  ten audit-local prints and all root prints report only `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- `docs/Goal2SemanticAPIManifest.json` now contains exactly 487 entries: the
+  structurally preserved first 424 plus 63 source-ordered Stage 4B entries.
+  All entries have the seven required axes. Consumer allocation is exactly
+  `3/20/20/20` across the four new aggregates; there are 54 distinct consumers
+  and 100 direct root-audit entries overall. The compact structural hash of
+  the first 424 entries is
+  `69c67f52353597158718bfa30d47a3fbf10216edb3d3344ca293a4a50c671b11`.
+  Generated strict Lean checks resolve all 487 public names and all 54
+  consumers.
+- The independent manifest validator reports
+  `source=487 manifest=487 missing=0 extra=0 axes=7 consumers=54 direct=100`
+  with `stage4B=63/4/14`; it also checks exact source order, duplicates,
+  required fields, consumer textual exercise, direct-target labels,
+  quaternion right phase, no channel/distribution-invariance overclaim,
+  `V * U`/append chronology, prior-stage invariants, preserved prefixes, and
+  the frozen cohort checksum. The Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Focused helper builds pass at 2,348 jobs and the non-root descent audit at
+  2,361 jobs. The public root and standalone explicit audit each pass at 2,568
+  jobs; the combined five-public-leaf, diagnostic, root, and audit build passes
+  at 2,570 jobs. Warning-as-error source checks pass for every new leaf, the
+  diagnostic, and the touched public root. The current tree has 65 Lean
+  sources including the root.
+- Forbidden proof-hole/project-axiom/unsafe/opaque/heartbeat, representative-
+  choice, State-to-Semantics reverse-dependency, public-diagnostic-import,
+  stale-path, generated-artifact, whitespace, and `git diff --check` checks
+  pass. No new correction was required.
+- Documentation now records the descended operations, exact assumptions,
+  empty/zero-wire distinction, and ordered laws. `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` remain **partially formalized**, not
+  `closedByGoal2`: Stage 4C must still prove the realification embedding-orbit
+  boundary before those transferred rows close.

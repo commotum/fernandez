@@ -59,6 +59,7 @@ import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
+import QuaternionicComputing.Circuit.LocalUnitary
 import QuaternionicComputing.Circuit.BasisPreparation
 import QuaternionicComputing.Circuit.OrderSanity
 import QuaternionicComputing.Circuit.Realification

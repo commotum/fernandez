@@ -291,9 +291,11 @@ trace infrastructure, physical swap synthesis and routing cost, uniform
 circuit generators, finite scalar encodings, approximation/error accumulation,
 generic unitary synthesis, randomized postprocessing, preprocessing runtime,
 and BQP containment. The normalized ray quotient core is present, but its
-evolution/outcome descent and the embedding-orbit obstruction remain pending
-Stages 4B/4C; accordingly the rebit and complex-state-ray source rows remain
-partial.
+computational-basis observables, deterministic pushforwards, unitary evolution,
+and locally-unitary circuit evolution now descend with exact identity and
+composition laws. Only the cross-model embedding-orbit boundary remains
+pending in Stage 4C; accordingly the rebit and complex-state-ray source rows
+remain partial and not `closedByGoal2` at this checkpoint.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -322,24 +324,30 @@ three public quaternionic leaves, root, diagnostic leaf, and axiom audit.
 That completed the 57-source Stage 3C tree. Stage 4A adds the public ray core
 and its non-root diagnostic leaf. Focused builds completed 2,346 jobs for
 `State.Ray` and 2,347 for `State.RayAudit`; the public root completed 2,563,
-and the combined ray/audit/root/axiom target completed 2,565. The current
-project therefore has 59 Lean sources, 58 below `QuaternionicComputing/` plus
-the public root. Existing dependency checkouts
+and the combined ray/audit/root/axiom target completed 2,565. Stage 4B adds five
+public leaves plus the non-root `State.RayDescentAudit` diagnostic. The helper
+leaves' combined build completed 2,348 jobs; the focused diagnostic build
+completed 2,361; the public root and standalone axiom audit each completed
+2,568; and the combined five-public-leaf/diagnostic/root/audit target completed
+2,570. The current project therefore has 65 Lean sources, 64 below
+`QuaternionicComputing/` plus the public root. Existing dependency checkouts
 remained pinned by the manifest; network bootstrap from a brand-new clone was
 not rerun in this restricted environment.
 
 Warning-as-error source checks passed for the stable operator-phase and ray
-leaves, their diagnostic leaves, public root, axiom audit, and the Stage 4B
-descent probe. The executable root audit now contains 272 `#print axioms`
-commands; all seven local ray-audit prints and every root endpoint use only
-`propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
-interpretation.
+leaves, their diagnostic leaves, public root, axiom audit, and all seven Stage
+4B touched/new source boundaries (the six new leaves plus the touched root).
+The executable root audit now contains 286 `#print axioms` commands. All ten
+local Stage 4B diagnostic prints and every root endpoint use only `propext`,
+`Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
-The independent Goal 2 semantic manifest contains exactly 424 declarations:
+The independent Goal 2 semantic manifest contains exactly 487 declarations:
 61 from Stage 2, 72 from Stage 3A, 150 from Stage 3B, and 101 from Stage 3C
 (44 operator-core, 43 circuit, and 14 kernel declarations), plus 40 from Stage
-4A. All seven semantic axes are present, all names resolve through the public
-root, 50 real diagnostic consumers resolve, and 86 manifest entries are direct
+4A and 63 from Stage 4B. The Stage 4B contribution is 60 observable,
+distribution-law, circuit-helper, and evolution declarations plus three
+semantic phase-to-quotient bridges. All seven semantic axes remain present,
+all names resolve through the public root, and 100 manifest entries are direct
 root-audit targets. The frozen 936-declaration Goal 1 cohort checksum remains
 unchanged.
 
@@ -366,6 +374,10 @@ open QuaternionicComputing
 #check State.RealRay
 #check State.ComplexRay.mk_eq_mk_iff
 #check State.quaternionRay_nonempty_iff
+#check State.RealRay.distribution
+#check State.ComplexRay.evolveUnitary_comp
+#check State.QuaternionRay.evolveCircuit_append
+#check Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
