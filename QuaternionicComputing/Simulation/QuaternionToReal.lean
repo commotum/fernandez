@@ -9,8 +9,9 @@ public import QuaternionicComputing.Simulation.ComplexToReal
 This module proves the corrected form of the paper's Corollary 1 by visibly
 composing the quaternion-to-complex and complex-to-real simulations.  Every
 definition and proof factors through `complexifyCircuit` and then
-`realifyCircuit`; no direct quaternion-to-real gate or matrix embedding is
-introduced.
+`realifyCircuit`.  The separate matrix-level Equation 63 API is not used here,
+and no direct quaternion-to-real placed-gate or wire-facing translator is
+introduced by this module.
 
 The composite simulation uses two shared distinguished wires.  The inner
 wire carries the complex top qubit from quaternionic complexification, and

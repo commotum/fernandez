@@ -9,7 +9,7 @@ sound corrected versions, expose stable public APIs, and preserve a precise
 record of omissions, obstructions, and material differences from the source.
 
 Completion means the original objective is genuinely resolved: the central
-real-to-complex and quaternion-to-complex simulation results are formalized at
+complex-to-real and quaternion-to-complex simulation results are formalized at
 the strongest justified level, all important paper claims have an explicit
 disposition, and the pinned project builds and passes its axiom audit without
 `sorry`, `admit`, or unexplained project-specific axioms.
@@ -65,7 +65,7 @@ disposition, and the pinned project builds and passes its axiom audit without
 - The only initial untracked repository item is `.DS_Store`; it is user state
   and is not part of this goal.
 - Stage 1 completed on 2026-07-09.  The full inventory is in
-  `docs/Traceability.md`; `docs/Corrections.md` currently records 24 confirmed
+  `docs/Traceability.md`; `docs/Corrections.md` currently records 26 confirmed
   issues or proof obligations.
 - The project now pins Lean 4.31.0 and mathlib v4.31.0 at resolved commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`; the baseline `lake build`
@@ -128,8 +128,9 @@ disposition, and the pinned project builds and passes its axiom audit without
   hypothesis.  Encoding, synthesis, runtime, and depth are still separate.
 - The corrected Corollary 1 is proved by visible composition with two added
   wires and exact per-gate arity `+2`; its four-sector bottom probability is
-  equal to the normalized quaternionic source output.  No direct
-  quaternion-to-real definition is hidden in the result.
+  equal to the normalized quaternionic source output.  No direct placed-gate or
+  wire-facing quaternion-to-real translator is hidden in the result; the later
+  Equation 63 API is a separate algebraic matrix reindexing theorem.
 - Stage 7 completed on 2026-07-09.  The general Kronecker interchange law is
   now proved over noncommutative semirings under the exact entrywise
   commutation hypothesis on the crossing factors, with a non-zero-one success
@@ -145,8 +146,8 @@ disposition, and the pinned project builds and passes its axiom audit without
   both the operator inequality and those normalized bottom probabilities.
 - Definition 4 is therefore corrected and proved at the finite schedule level.
   Definition 5's finite scheduled semantics is present, while uniform
-  generation, encodings, runtime, and postprocessing complexity remain Stage 8
-  obligations rather than consequences of the algebraic simulation.
+  generation, encodings, runtime, and postprocessing complexity are explicitly
+  outside the finite theorem and receive terminal Stage 8 dispositions.
 - Stage 8 completed on 2026-07-09.  A support-layering cost model proves that
   every literal shared-top image circuit has depth exactly its unchanged
   source gate count; this is deliberately construction-specific and does not
@@ -168,20 +169,31 @@ disposition, and the pinned project builds and passes its axiom audit without
   generation, a finite quaternionic universal set, the multi-top construction,
   and BQP containment remain explicitly non-proved with terminal resource
   dispositions.
+- Stage 9 completed on 2026-07-10.  Equation 63 is formalized as a direct
+  four-sector real matrix embedding with all sixteen coordinate formulas,
+  exact `[3,1,0,2]` relation to the composed matrix embedding, injective
+  star/group maps into `SO(4N)`, and an explicit rank-one `SO(4)` nonimage
+  witness correcting the paper's onto-isomorphism wording.
+- Additional Stage 9 leaves prove qualified doubled-image non-surjectivity,
+  complex right-phase invariance, known computational-basis preparation, a
+  normalized non-product realification, and a normalized product-input order
+  witness whose output rays differ although every computational-basis weight
+  agrees.  Every traceability row now has one terminal status, including each
+  explicit open question.
 
-## Current Assumptions to Test
+## Confirmed Representation Decisions and Boundaries
 
 - **Confirmed:** `Quaternion ℝ`, finite matrices, star/adjoint APIs, opposite-
   ring right modules, and generic unitary APIs in mathlib 4.31.0 support the
   algebraic core without a bespoke quaternion implementation.
-- A compact semantics built from finite index types, matrices, explicit gate
-  support, and ordered composition will be sufficient for the central exact
-  simulation theorems.
-- The main observable claim can be stated directly as equality of computational
-  basis outcome probabilities; density matrices and partial trace should be
-  introduced only if they add a separately useful theorem.
-- Exact gate-count and arity bounds are likely formalizable.  Depth and
-  asymptotic encoding claims may require extra models or corrected scope.
+- **Confirmed:** finite index types, matrices, explicit gate support, and
+  ordered composition suffice for the central exact simulation theorems.
+- **Confirmed:** the main observable claim is stated directly as equality of
+  computational-basis outcome probabilities.  The one useful rank-one reduced
+  matrix theorem is included; a general density hierarchy is unnecessary.
+- **Confirmed:** exact gate-count, width, arity, support-depth, and dense-slot
+  results are formalized.  Asymptotic encoding/runtime and generic synthesis
+  require absent models and are deliberately not inferred.
 - **Confirmed:** the sum-indexed matrix embeddings transport to the explicit
   distinguished wire `AddedWire W := Unit ⊕ W`; the wire wrappers are
   multiplicative/star-preserving and natural with actual local placement.
@@ -523,5 +535,5 @@ without learning the paper's original organization.
 - [x] 6-SIMULATION — completed 2026-07-09
 - [x] 7-ORDERING — completed 2026-07-09
 - [x] 8-RESOURCES — completed 2026-07-09
-- [ ] 9-COVERAGE — in progress
+- [x] 9-COVERAGE — completed 2026-07-10
 - [ ] 10-RELEASE

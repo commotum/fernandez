@@ -330,7 +330,8 @@ without placeholders:
   generic unitary matrix action;
 - complex-to-real and quaternion-to-complex block-embedding multiplication and
   adjoint laws for arbitrary compatible finite shapes;
-- injective star-monoid and unitary-group maps for both embeddings;
+- injective star-monoid and unitary-group maps for both primary doubled
+  embeddings;
 - orthogonal, special-orthogonal, unitary, and complex-symplectic image facts
   with the determinant boundary stated above;
 - the direct four-sector Equation 63 map, all sixteen coordinates, exact

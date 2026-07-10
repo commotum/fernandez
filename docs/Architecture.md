@@ -76,7 +76,8 @@ visible, and lets multiplication and adjoint proofs use
 over noncommutative coefficient rings where applicable.
 
 For square matrices, complexification is bundled as a ring homomorphism and
-both embeddings are bundled as injective star-monoid homomorphisms.  At the
+both primary doubled embeddings are bundled as injective star-monoid
+homomorphisms.  At the
 circuit boundary, `addedBasisEquiv` identifies `BitBasis W ⊕ BitBasis W` with
 `BitBasis (Unit ⊕ W)`: the two sum sectors are exactly the false and true
 assignments of one distinguished top wire.  This keeps wire bookkeeping out of

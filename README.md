@@ -1,7 +1,7 @@
 # Quaternionic Computing — Lean 4 formalization
 
-This repository is reconstructing and independently verifying José M.
-Fernandez and William A. Schneeberger's paper *Quaternionic Computing*
+This repository reconstructs and independently verifies José M. Fernandez and
+William A. Schneeberger's paper *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library.
 
 The source extraction is in `Fernandez/fernandez-2003.md`.  The staged goal and
@@ -22,7 +22,7 @@ The public import is:
 import QuaternionicComputing
 ```
 
-Narrow consumers can instead import one of the current leaves:
+Narrow consumers can instead import one of these selected leaves:
 
 ```lean
 import QuaternionicComputing.Scalar.Quaternion

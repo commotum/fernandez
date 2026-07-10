@@ -6,44 +6,43 @@
   circuit, fixed/scheduled simulation, ordering, resource, compiler-bound, and
   deterministic-postprocessing results.  The public root, full build, and
   axiom audit are green.
-- The remaining temporary traceability rows are narrow.  The main mathematical
-  items are the paper's direct `4×4` real quaternion representation, corrected
-  non-surjectivity/proper-image statements, and a concrete non-product encoded
-  state.  Several foundational or interpretive rows need terminal scope
-  decisions rather than large new frameworks.
-- Equation (63) gives a specific signed coordinate matrix using quaternion
-  components `Re`, `Im`, `Jm`, and `Km`.  The library already has a verified
-  composition `Matrix.realify (Quaternion.complexify A)`, but its nested sum
-  basis order is not visibly the paper's displayed coordinate order.  The two
-  maps must be compared by an explicit reindexing, not identified by prose.
+- Stage 9 has closed the former temporary traceability rows.  The direct `4×4`
+  real quaternion representation, corrected proper-image statements, concrete
+  non-product encoding, phase and basis-preparation APIs, and product-input
+  ordering diagnostic are implemented; every remaining interpretive claim has
+  an explicit terminal disposition.
+- Equation (63)'s specific coordinate matrix is proved equal to
+  `Matrix.realify (Quaternion.complexify A)` after the pure simultaneous sector
+  permutation `[3,1,0,2]`; all sixteen signs are checked entrywise.
 - The paper calls the direct map an “isomorphism from `Sp(N)` to `SO(4N)`.”
-  Dimension and image considerations show that the useful corrected statement
-  is an injective star-preserving homomorphism *into* `SO(4N)`, not
-  surjectivity onto the whole special orthogonal group.
+  The checked corrected statement is an injective star-preserving homomorphism
+  *into* `SO(4N)`, and an explicit `SO(4)` nonimage witness disproves
+  surjectivity onto the whole special orthogonal group at rank one.
 - The paper's converse sentence names `Sp(2N)` as the codomain of
   quaternionic complexification, although the target is complex unitary/
-  special-unitary space and the image is the symplectic-preserving subgroup.
+  special-unitary space and the proved image lies in the symplectic-preserving
+  subgroup.
   Properness also needs dimension qualifications: `Sp(1) ≅ SU(2)`, while the
   analogous `U(1) → SO(2)` realification is onto.
-- A simple normalized complex state with amplitudes `3/5` and `(4/5)i`
-  realifies to a two-sector column with two nonzero diagonal coordinates and
-  zero cross coordinates.  It is a rational, square-root-free witness that the
-  added top wire need not factor from the bottom wire.
+- A normalized complex state with amplitudes `3/5` and `(4/5)i` is now the
+  rational, square-root-free witness that the added top wire need not factor
+  from the bottom wire.
 - Mixed-top claims require a density/operator API and are not prerequisites of
-  any pure-state or observable theorem.  Ground-state “without loss of
-  generality” requires an input-preparation gate library and a uniform
-  generator.  Physical causality, entanglement analogy, bit-commitment
+  any pure-state or observable theorem.  A known basis input now has an exact
+  unitary preparation gate, while arbitrary-state synthesis and a uniform
+  generator remain outside scope.  Physical causality, entanglement analogy, bit-commitment
   security, and BQP/open-question prose lack formal models in the source.
 - Repository-root `BUILD-PLAN.md` remains authoritative for ownership,
   focused/adjacent builds, boundary scans, and fold-back.
 
 ## Updated Assumptions
 
-- The direct real representation should be defined in the paper's coordinate
-  order and proved equal to a reindexing of the already verified composition.
-  Multiplication, adjoint, injectivity, unitarity/orthogonality, determinant
-  one, and circuit compatibility should then be inherited rather than
-  reproved by a fragile 16-block calculation.
+- The direct real representation is defined in the paper's coordinate order
+  and proved equal to a reindexing of the verified matrix composition.
+  Multiplication, adjoint, injectivity, unitarity/orthogonality, and determinant
+  one are inherited rather than reproved by a fragile 16-block calculation.
+  The existing two-wire circuit translation remains canonical; no direct
+  placement or wire-facing bridge is inferred from the matrix theorem.
 - Proper-image claims are best repaired with explicit low-dimensional target
   matrices: prove target group membership and non-membership in the embedding
   image by checked block/component constraints.  Do not infer operational
@@ -73,8 +72,9 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   `realify (complexify A)`, and rectangular injectivity/additivity.
 - For square matrices, derive identity, compatible multiplication, adjoint,
   a star-monoid embedding, unitary-to-orthogonal/special-orthogonal
-  preservation, and the exact relationship to the existing two-step circuit
-  operator.  Correct “isomorphism to `SO`” to an injective image statement.
+  preservation, and the exact relationship to the existing two-step matrix
+  embedding.  Correct “isomorphism to `SO`” to an injective image statement;
+  retain the established compositional circuit operator separately.
 - Add a proper-image witness leaf.  Exhibit a concrete special-orthogonal
   real matrix in dimension four outside realification of `2×2` complex
   matrices, and a concrete complex special-unitary/unitary matrix in dimension
@@ -86,9 +86,10 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   coordinate proof in the example leaf.
 - Add a narrow product-input ordering diagnostic reusing the Stage 7 disjoint
   mixers.  On the normalized ground basis input, prove the two legal orders
-  yield different columns (with exact opposite `11` amplitudes).  Do not infer
-  different computational-basis probabilities, signaling, entanglement, or
-  bit-commitment security from that phase-sensitive state inequality.
+  yield right-phase-inequivalent normalized columns with exact opposite `11`
+  amplitudes, while every computational-basis weight agrees.  Do not infer
+  signaling, entanglement, or bit-commitment security from that ray-level
+  state inequality.
 - Add a basis-preparation leaf for the paper's ground-state convention.  A
   classically known computational-basis assignment should induce an XOR
   permutation/unitary placed gate that maps the all-zero basis column to that
@@ -102,8 +103,7 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   to the norm-preserver background fact, ground-state preparation, real-gate
   interpretation, mixed-top extensions, physical/nonlocal-time prose,
   bit-commitment claim, converse implications, and explicit open questions.
-  Add correction C-025 if Equation (63)'s isomorphism wording or coordinate
-  formula requires a material repair.
+  Record Equation (63)'s isomorphism repair as correction C-025.
 - Promote stable leaves to the root/audit only after focused and adjacent
   consumers compile; update README, architecture, conventions, API notes,
   traceability, and corrections.
@@ -133,9 +133,10 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 - `Circuit/BasisPreparation.lean`: finite permutation/preparation proof leaf
   importing the ordered core and permutation-matrix APIs; owns only the known
   computational-basis input correction.
-- A circuit direct-map bridge, if needed, belongs in a thin
-  `Simulation/DirectQuaternionToReal.lean` consumer rather than the matrix
-  leaf; it must visibly agree with the established compositional simulator.
+- No `Simulation/DirectQuaternionToReal.lean` file was created.  The checked
+  matrix reindexing has no current consumer requiring a second placed-gate or
+  wire-facing translation, while the established compositional simulator
+  already proves the full circuit/state/measurement result.
 - `QuaternionicComputing.lean` and `AxiomAudit.lean`: touched only after all
   selected leaves and adjacent consumers compile; root changes require a full
   build.
@@ -187,8 +188,7 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 8-RESOURCES on
-  2026-07-09.
+- Completed 2026-07-10 after verified completion of 8-RESOURCES on 2026-07-09.
 - The selected leaves are implemented and pass strict focused builds:
   `Matrix/QuaternionRealification.lean`,
   `Matrix/QuaternionRealificationUnitary.lean`, `Matrix/ProperImage.lean`,
@@ -212,6 +212,27 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   arbitrary matrix evolution.
 - All paper inventory rows now have an allowed terminal status.  Corrections
   C-025 and C-026 record the direct-map isomorphism overstatement and the
-  ground-state preparation ambiguity.  Public-root and axiom-audit integration
-  compile; final documentation alignment, independent review, and the required
-  root/full/downstream verification remain before marking the stage complete.
+  ground-state preparation ambiguity.  All 101 `FER03-*` rows have exactly one
+  terminal status: 21 proved as stated, 33 corrected and proved, 28 partially
+  formalized, 16 intentionally excluded, and 3 unresolved.
+- Independent statement/edge-case review checked the seven selected leaves,
+  all sixteen Equation 63 signs, empty and rank-one dimensions, the direct
+  `SO(4)` witness, complex phase, empty-wire basis preparation, product-input
+  right-phase inequivalence and all-weight equality, import layering, root
+  exports, and audit coverage.  It found no Lean/code blocker; its one
+  low-rank documentation qualification was applied to the root module.
+- Final warning-as-error checks passed for `QuaternionicComputing.lean` and
+  `Simulation/QuaternionToReal.lean`.  The final `lake build` completed all
+  2,553 jobs successfully after the public-root change.
+- `lake build QuaternionicComputing.AxiomAudit` completed all 2,553 jobs.  Every
+  audited Stage 9 endpoint reports only the standard foundations `propext`,
+  `Classical.choice`, and `Quot.sound`; no project-specific axiom appears.
+- `/tmp/Stage9ImportSmoke.lean` imported only `QuaternionicComputing`, checked
+  each new public family, proved `card (DirectRealIndex Bool) = 8`, and compiled
+  with warnings as errors.
+- Lean-only hole/project-axiom/opaque/unsafe scans and forbidden
+  noncommutative-shortcut scans had no matches.  `git diff --check` passed, and
+  no `.lake`, object, or Lean build artifact is tracked.
+- README, architecture, conventions, mathlib API notes, traceability,
+  corrections, public-root documentation, and this stage file now distinguish
+  the matrix-only direct map from the canonical two-wire circuit composition.

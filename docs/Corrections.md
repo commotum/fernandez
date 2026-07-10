@@ -314,8 +314,10 @@ means the corrected mathematical target is known but not yet formalized;
   dimension `2N`, with image satisfying an additional complex-symplectic
   identity.  It does not have the paper's stated `Sp(2N)` codomain in the
   converse sentence.  If that notation means the compact unitary-symplectic
-  group, it describes the image rather than a larger target; if the intended
-  target is `SU(2N)`, the blanket “does not span” claim has the low-rank
+  group, the standard intended identification would make it the image rather
+  than a larger target; this library proves the necessary unitary and
+  symplectic membership but not the converse image characterization.  If the
+  intended target is `SU(2N)`, the blanket “does not span” claim has the low-rank
   exception `Sp(1) ≅ SU(2)`.  The analogous realification statement is about
   the full `U(N)` source used by the construction, for which `U(1) → SO(2)` is
   likewise the exceptional onto case.  The library's general `SU(2N)` image
@@ -548,6 +550,9 @@ means the corrected mathematical target is known but not yet formalized;
   `diag(-1,-1,1,1)` in the paper-sector order lies in `SO(4)` but cannot be the
   direct realification of any quaternionic `1 × 1` matrix, because all four
   direct-image diagonal coordinates would have to equal the same real part.
+  These are algebraic matrix theorems.  Corollary 1 remains implemented by the
+  two explicit wire-facing circuit translations; no direct placement theorem,
+  direct gate translator, or direct wire-basis bridge is claimed.
 - **Lean declarations:** `Quaternion.card_directRealIndex`,
   `Quaternion.directRealify`, its 16 `directRealify_*_*` coordinate lemmas,
   `directRealify_eq_reindex`, `directRealify_mul`,
@@ -555,8 +560,9 @@ means the corrected mathematical target is known but not yet formalized;
   `directRealify_mem_specialOrthogonal`,
   `directRealifyUnitaryEquivImage`, and
   `Matrix.ProperImage.directWitness_specialOrthogonal_not_directRealify`.
-- **Dependents:** the optional direct proof of Corollary 1, the converse/image
-  discussion, and the interpretation of the two added real sectors.
+- **Dependents:** the supplementary matrix explanation of Corollary 1, the
+  converse/image discussion, and the interpretation of the two added real
+  sectors.  The proved circuit corollary itself remains compositional.
 
 ## C-026 — Ground-state “without loss of generality” hides preparation assumptions
 
