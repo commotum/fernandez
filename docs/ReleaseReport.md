@@ -248,7 +248,7 @@ clean and their HEADs matched the manifest; network bootstrap from a brand-new
 clone was not rerun in this restricted environment.
 
 Warning-as-error source checks passed for the phase owner, public root, and
-audit.  The executable audit contains 186 `#print axioms` commands; every
+audit. The executable audit now contains 217 `#print axioms` commands; every
 audited endpoint uses only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.

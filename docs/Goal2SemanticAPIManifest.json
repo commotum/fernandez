@@ -1001,6 +1001,1158 @@
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.SignEquivalent",
+      "relation": "Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "one pair of arbitrary columns",
+        "observationScope": "existence of one unit real right-sign witness",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.signEquivalent_refl",
+      "relation": "Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "every arbitrary column",
+        "observationScope": "reflexivity of the sign relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.signEquivalent_symm",
+      "relation": "Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "every sign-related pair",
+        "observationScope": "symmetry of the sign relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.signEquivalent_trans",
+      "relation": "Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "every composable pair of sign-related columns",
+        "observationScope": "transitivity of the sign relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.signEquivalent_equivalence",
+      "relation": "Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "all columns of one index type",
+        "observationScope": "equivalence-relation package for real sign",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.sign_sq_eq_one_iff",
+      "relation": "real unit sign↔±1",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "real scalar; no index type or finiteness assumption",
+        "subject": "one real scalar",
+        "inputScope": "every real scalar",
+        "observationScope": "exact characterization of square-one scalars as 1 or -1",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Real.signEquivalent_iff_eq_or_eq_neg",
+      "relation": "Real.SignEquivalent↔equality-or-negation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "raw real state-column representatives",
+        "inputScope": "every pair of arbitrary columns",
+        "observationScope": "literal column equality or equality with pointwise negation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realBasisWeight_right_mul",
+      "relation": "real right-scalar basis-weight scaling",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "one raw real column and one basis coordinate",
+        "inputScope": "every column, real scalar, and coordinate",
+        "observationScope": "one computational-basis weight scaled by s*s",
+        "phase": "arbitrary real scalar on the right; no unit premise",
+        "exactness": "exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realBasisWeight_right_mul_of_sq_eq_one",
+      "relation": "unit real sign→basis-weight preservation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "one raw real column and one basis coordinate",
+        "inputScope": "every column, coordinate, and scalar satisfying s*s=1",
+        "observationScope": "one computational-basis weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact equality under a unit-sign premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realTotalWeight_right_mul",
+      "relation": "real right-scalar total-weight scaling",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite column index type",
+        "subject": "one raw finite real column",
+        "inputScope": "every finite column and real scalar",
+        "observationScope": "total squared weight scaled by s*s",
+        "phase": "arbitrary real scalar on the right; no unit premise",
+        "exactness": "exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realTotalWeight_right_mul_of_sq_eq_one",
+      "relation": "unit real sign→total-weight preservation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite column index type",
+        "subject": "one raw finite real column",
+        "inputScope": "every finite column and scalar satisfying s*s=1",
+        "observationScope": "total squared weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact equality under a unit-sign premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealState.rightSign",
+      "relation": "normalized real right-sign action",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized real state and an explicit unit sign",
+        "observationScope": "normalized representative construction",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact normalized construction",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealState.rightSign_apply",
+      "relation": "normalized real right-sign coordinate formula",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized real state, explicit unit sign, and coordinate",
+        "observationScope": "one output amplitude",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealState.rightSign_basisWeight",
+      "relation": "normalized real right-sign basis-weight preservation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized real state, explicit unit sign, and coordinate",
+        "observationScope": "one computational-basis weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealState.rightSign_totalWeight",
+      "relation": "normalized real right-sign total-weight preservation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized real state and explicit unit sign",
+        "observationScope": "total squared weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealState.signEquivalent_rightSign",
+      "relation": "normalized right-sign action→Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOneState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized real state and explicit unit sign",
+        "observationScope": "real sign relation between normalized representatives",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.signEquivalent_realBasisWeight",
+      "relation": "Real.SignEquivalent→basis-weight equality",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and column index type; no finiteness required",
+        "subject": "one sign-related pair of raw real columns",
+        "inputScope": "every related pair and every coordinate",
+        "observationScope": "one computational-basis weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.signEquivalent_realTotalWeight",
+      "relation": "Real.SignEquivalent→total-weight equality",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite column index type",
+        "subject": "one sign-related pair of raw finite real columns",
+        "inputScope": "every finite sign-related pair",
+        "observationScope": "total squared weight",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.real_mulVec_right_mul",
+      "relation": "real matrix/right-scalar naturality",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar with arbitrary output index and finite input index",
+        "subject": "raw real column under compatible matrix action",
+        "inputScope": "every compatible matrix, finite-input column, and real scalar",
+        "observationScope": "full output-amplitude column scaling identity",
+        "phase": "arbitrary real scalar on the right; no unit premise",
+        "exactness": "exact column equality",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.signEquivalent_real_mulVec",
+      "relation": "Real.SignEquivalent preservation by raw matrix action",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar with arbitrary output index and finite input index",
+        "subject": "sign-related raw real columns under compatible matrix action",
+        "inputScope": "every compatible matrix and every sign-related finite-input pair",
+        "observationScope": "real sign relation between raw output columns",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq",
+      "relation": "ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "one pair of normalized representatives",
+        "observationScope": "literal subtype equality",
+        "phase": "none",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq",
+      "relation": "RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one pair of normalized representatives",
+        "observationScope": "representative-level phase relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq",
+      "relation": "ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "one pair of normalized representatives",
+        "observationScope": "representative-level phase relation",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq",
+      "relation": "QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "one pair of normalized representatives",
+        "observationScope": "representative-level phase relation",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.refl",
+      "relation": "ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every normalized representative",
+        "observationScope": "reflexivity of literal representative equality",
+        "phase": "none",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.symm",
+      "relation": "ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every exactly equal pair",
+        "observationScope": "symmetry of literal representative equality",
+        "phase": "none",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.trans",
+      "relation": "ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every composable pair of exact equalities",
+        "observationScope": "transitivity of literal representative equality",
+        "phase": "none",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.equivalence",
+      "relation": "ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "all normalized representatives of one state type",
+        "observationScope": "equivalence-relation package for literal equality",
+        "phase": "none",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.iff_eq",
+      "relation": "ExactStateEq↔literal equality",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "literal subtype equality",
+        "phase": "none",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.of_eq",
+      "relation": "literal equality→ExactStateEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every literally equal pair",
+        "observationScope": "exact representative relation",
+        "phase": "none",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.eq",
+      "relation": "ExactStateEq→literal equality",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every exactly related pair",
+        "observationScope": "literal subtype equality",
+        "phase": "none",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.basisWeightEq",
+      "relation": "ExactStateEq→BasisWeightEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every exactly related pair",
+        "observationScope": "all computational-basis weights",
+        "phase": "none",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.normalizedDistributionEq",
+      "relation": "ExactStateEq→NormalizedDistributionEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.exactState_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same scalar, finite index type, and weight function",
+        "subject": "normalized state representatives",
+        "inputScope": "every exactly related pair under a nonnegative weight function",
+        "observationScope": "packaged finite basis distribution",
+        "phase": "none",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.iff_signEquivalent",
+      "relation": "RealStatePhaseEq↔Real.SignEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "identification with the underlying raw-column phase relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.refl",
+      "relation": "RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every normalized representative",
+        "observationScope": "reflexivity of normalized state-phase equality",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.symm",
+      "relation": "RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "symmetry of normalized state-phase equality",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.trans",
+      "relation": "RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every composable pair of normalized phase relations",
+        "observationScope": "transitivity of normalized state-phase equality",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.equivalence",
+      "relation": "RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "all normalized representatives of one finite state type",
+        "observationScope": "equivalence-relation package for normalized state phase",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.of_exact",
+      "relation": "ExactStateEq→RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every literally equal pair of normalized representatives",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.of_sign",
+      "relation": "explicit unit real sign→RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "one normalized pair, explicit unit phase, and coordinate equality certificate",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.rightSign",
+      "relation": "normalized right-sign action→RealStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every normalized representative and explicit unit phase",
+        "observationScope": "normalized state-phase relation to the original representative",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.basisWeightEq",
+      "relation": "RealStatePhaseEq→BasisWeightEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "all computational-basis weights",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.normalizedDistributionEq",
+      "relation": "RealStatePhaseEq→NormalizedDistributionEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite normalized-state index type",
+        "subject": "normalized real pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "packaged finite computational-basis distribution",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.raw_mulVec",
+      "relation": "RealStatePhaseEq→Real.SignEquivalent under raw matrix action",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar with arbitrary output index and finite normalized input index",
+        "subject": "normalized real input representatives under compatible raw matrix action",
+        "inputScope": "every compatible matrix and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between output columns; normalization not claimed",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.raw_eval",
+      "relation": "RealStatePhaseEq→Real.SignEquivalent under ordered-circuit evaluation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.circuitRawEval_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite circuit wire/basis type",
+        "subject": "normalized real inputs under ordered-circuit evaluation",
+        "inputScope": "every ordered circuit and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between evaluated outputs; normalization not claimed",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.evolveUnitary",
+      "relation": "RealStatePhaseEq preservation by normalized unitary evolution",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.realNegOne_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite square state index type with DecidableEq",
+        "subject": "normalized real pure states under unitary matrix evolution",
+        "inputScope": "every supplied unitary matrix and every phase-related normalized pair",
+        "observationScope": "normalized state-phase relation between evolved outputs",
+        "phase": "one real sign on the right; central and characterized by ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.iff_rightPhaseEquivalent",
+      "relation": "ComplexStatePhaseEq↔Complex.RightPhaseEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "identification with the underlying raw-column phase relation",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.refl",
+      "relation": "ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every normalized representative",
+        "observationScope": "reflexivity of normalized state-phase equality",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.symm",
+      "relation": "ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "symmetry of normalized state-phase equality",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.trans",
+      "relation": "ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every composable pair of normalized phase relations",
+        "observationScope": "transitivity of normalized state-phase equality",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.equivalence",
+      "relation": "ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "all normalized representatives of one finite state type",
+        "observationScope": "equivalence-relation package for normalized state phase",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.of_exact",
+      "relation": "ExactStateEq→ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every literally equal pair of normalized representatives",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.of_phase",
+      "relation": "explicit unit complex right phase→ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "one normalized pair, explicit unit phase, and coordinate equality certificate",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.rightPhase",
+      "relation": "normalized complex right-phase action→ComplexStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every normalized representative and explicit unit phase",
+        "observationScope": "normalized state-phase relation to the original representative",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.basisWeightEq",
+      "relation": "ComplexStatePhaseEq→BasisWeightEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "all computational-basis weights",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq",
+      "relation": "ComplexStatePhaseEq→NormalizedDistributionEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite normalized-state index type",
+        "subject": "normalized complex pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "packaged finite computational-basis distribution",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.raw_mulVec",
+      "relation": "ComplexStatePhaseEq→Complex.RightPhaseEquivalent under raw matrix action",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar with arbitrary output index and finite normalized input index",
+        "subject": "normalized complex input representatives under compatible raw matrix action",
+        "inputScope": "every compatible matrix and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between output columns; normalization not claimed",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.raw_eval",
+      "relation": "ComplexStatePhaseEq→Complex.RightPhaseEquivalent under ordered-circuit evaluation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.circuitRawEval_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite circuit wire/basis type",
+        "subject": "normalized complex inputs under ordered-circuit evaluation",
+        "inputScope": "every ordered circuit and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between evaluated outputs; normalization not claimed",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.evolveUnitary",
+      "relation": "ComplexStatePhaseEq preservation by normalized unitary evolution",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite square state index type with DecidableEq",
+        "subject": "normalized complex pure states under unitary matrix evolution",
+        "inputScope": "every supplied unitary matrix and every phase-related normalized pair",
+        "observationScope": "normalized state-phase relation between evolved outputs",
+        "phase": "one unit complex scalar on the right; central by commutativity",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.iff_rightPhaseEquivalent",
+      "relation": "QuaternionStatePhaseEq↔Quaternion.RightPhaseEquivalent",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "identification with the underlying raw-column phase relation",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.refl",
+      "relation": "QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every normalized representative",
+        "observationScope": "reflexivity of normalized state-phase equality",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.symm",
+      "relation": "QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "symmetry of normalized state-phase equality",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.trans",
+      "relation": "QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every composable pair of normalized phase relations",
+        "observationScope": "transitivity of normalized state-phase equality",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.equivalence",
+      "relation": "QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "all normalized representatives of one finite state type",
+        "observationScope": "equivalence-relation package for normalized state phase",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact relation law",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.of_exact",
+      "relation": "ExactStateEq→QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every literally equal pair of normalized representatives",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.of_phase",
+      "relation": "explicit unit quaternion right phase→QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "one normalized pair, explicit unit phase, and coordinate equality certificate",
+        "observationScope": "normalized state-phase relation",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.rightPhase",
+      "relation": "normalized quaternion right-phase action→QuaternionStatePhaseEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every normalized representative and explicit unit phase",
+        "observationScope": "normalized state-phase relation to the original representative",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.basisWeightEq",
+      "relation": "QuaternionStatePhaseEq→BasisWeightEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "all computational-basis weights",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq",
+      "relation": "QuaternionStatePhaseEq→NormalizedDistributionEq",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite normalized-state index type",
+        "subject": "normalized quaternionic pure-state representatives",
+        "inputScope": "every phase-related normalized pair",
+        "observationScope": "packaged finite computational-basis distribution",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_mulVec",
+      "relation": "QuaternionStatePhaseEq→Quaternion.RightPhaseEquivalent under raw matrix action",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternionic scalar with arbitrary output index and finite normalized input index",
+        "subject": "normalized quaternionic input representatives under compatible raw matrix action",
+        "inputScope": "every compatible matrix and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between output columns; normalization not claimed",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_eval",
+      "relation": "QuaternionStatePhaseEq→Quaternion.RightPhaseEquivalent under ordered-circuit evaluation",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.circuitRawEval_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite circuit wire/basis type",
+        "subject": "normalized quaternionic inputs under ordered-circuit evaluation",
+        "inputScope": "every ordered circuit and every phase-related normalized input pair",
+        "observationScope": "raw-column phase relation between evaluated outputs; normalization not claimed",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.evolveUnitary",
+      "relation": "QuaternionStatePhaseEq preservation by normalized unitary evolution",
+      "owner": "goal-2/3A-STATEPHASE",
+      "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic scalar and finite square state index type with DecidableEq",
+        "subject": "normalized quaternionic pure states under unitary matrix evolution",
+        "inputScope": "every supplied unitary matrix and every phase-related normalized pair",
+        "observationScope": "normalized state-phase relation between evolved outputs",
+        "phase": "one unit quaternion strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }
