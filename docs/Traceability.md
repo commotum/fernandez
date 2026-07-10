@@ -31,16 +31,16 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-D05-QUATERNIONIC-ALGORITHM` | L851 | Uniform generator emits circuit plus legal ordering; ordered state is measured/postprocessed. | P2 / 8-RESOURCES | planned partial interface |
 | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | L148–156 | External approximate-real-amplitude QTM result. | P3 / 9-COVERAGE | **intentionally excluded**: attributed, unproved, and underspecified in source |
 | `FER03-T02-COMPLEX-CIRCUIT-TO-REAL` | L167–170 | Translate `n`-qubit, `s`-gate, arity-`≤d` ordered circuits to `n+1` rebits with `s` image gates of arity `≤d+1`; separately prove operator and observable preservation. | P0 / 6-SIMULATION | planned correction C-010/C-019 |
-| `FER03-T03-COMPLEX-REALIFICATION-GROUP` | L173–320 | Injective star-preserving realification; `U(N)` image is in `SO(2N)`. Depends on L01/L02 and determinant identity. | P0 / 3-MATRICES | planned correction C-002 |
+| `FER03-T03-COMPLEX-REALIFICATION-GROUP` | L173–320 | Injective star-preserving realification; `U(N)` image is in `SO(2N)`. Depends on L01/L02 and determinant identity. | P0 / `Matrix/Unitary.lean`, `Matrix/Determinant.lean` | **corrected and proved**: `realifyStarMonoidHom`, `realifyUnitaryEquivImage`, `realify_mem_specialOrthogonal`; dimension/domain repair C-002 and missing determinant proof C-020 |
 | `FER03-T04-ORDERED-QUATERNIONIC-TO-COMPLEX` | L853–855 | Translate a fixed ordered `n`-quaterbit circuit to `n+1` qubits with one arity-`d+1` image gate per source gate; prove embedded evolution and bottom measurement equality. | P0 / 6-SIMULATION | planned correction C-006/C-010 |
-| `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | L861–965 | Injective star-preserving homomorphism from quaternionic unitaries to complex unitaries in dimension `2N`; separately audit determinant one. | P0 / 3-MATRICES | planned correction C-003/C-004 |
-| `FER03-L01-REALIFICATION-MUL` | L211–270, Eq. 11–13 | `h(AB)=h(A)h(B)` for compatible complex matrices. Depends on re/im product identities. | P0 / 3-MATRICES | planned |
-| `FER03-L02-REALIFICATION-ADJOINT` | L282–320, Eq. 15–16 | `h(Aᴴ)=h(A)ᵀ`. | P0 / 3-MATRICES | planned |
+| `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | L861–965 | Injective star-preserving homomorphism from quaternionic unitaries to complex unitaries in dimension `2N`; separately audit determinant one. | P0 / `Matrix/Unitary.lean`, `Matrix/Determinant.lean` | **partially formalized**: corrected `U(2N)` and symplectic image proved by `complexifyUnitaryEquivImage`, `complexify_mem_unitary`, `complexify_mem_symplectic`; determinant is formally reduced to `1 ∨ -1`, but the `SU(2N)` sign refinement remains unresolved (C-003/C-004) |
+| `FER03-L01-REALIFICATION-MUL` | L211–270, Eq. 11–13 | `h(AB)=h(A)h(B)` for compatible complex matrices. Depends on re/im product identities. | P0 / `Matrix/Realification.lean` | **proved as stated**, generalized to compatible rectangular shapes by `realPart_mul`, `imagPart_mul`, `realify_mul` |
+| `FER03-L02-REALIFICATION-ADJOINT` | L282–320, Eq. 15–16 | `h(Aᴴ)=h(A)ᵀ`. | P0 / `Matrix/Realification.lean` | **proved as stated**, generalized to rectangular matrices by `realPart_conjTranspose`, `imagPart_conjTranspose`, `realify_conjTranspose` |
 | `FER03-L03-REAL-CIRCUIT-COMPOSITION` | L438–487, Eq. 23 | Evaluation of translated ordered circuit equals realification of source evaluation. Depends on L01 and local placement naturality. | P0 / 6-SIMULATION | planned correction/generalization |
 | `FER03-L04-REALIFICATION-INTERTWINES-STATES` | L489–558, Eq. 24–27 | `h(U) h₀(ψ)=h₀(Uψ)` and corresponding `h₁` identity. | P0 / 4-STATES | planned correction of typed proof |
 | `FER03-L05-REAL-REDUCED-MEASUREMENT` | L561–659, Eq. 28–33 | Equal reduced real matrices for both encodings and pointwise equality of computational-basis diagonals/weights. | P0 / 4-STATES | planned typed bridge |
-| `FER03-L06-QUATERNION-COMPLEXIFICATION-MUL` | L895–927, Eq. 49 | `ĥ(AB)=ĥ(A)ĥ(B)` for compatible quaternion matrices. Depends on Co/Wd multiplication. | P0 / 3-MATRICES | planned |
-| `FER03-L07-QUATERNION-COMPLEXIFICATION-ADJOINT` | L929–965, Eq. 50–51 | `ĥ(Aᴴ)=ĥ(A)ᴴ`. | P0 / 3-MATRICES | planned |
+| `FER03-L06-QUATERNION-COMPLEXIFICATION-MUL` | L895–927, Eq. 49 | `ĥ(AB)=ĥ(A)ĥ(B)` for compatible quaternion matrices. Depends on Co/Wd multiplication. | P0 / `Matrix/Complexification.lean` | **proved as stated**, generalized to compatible rectangular shapes by `complexPartMatrix_mul`, `jPartMatrix_mul`, `complexify_mul` without commutativity |
+| `FER03-L07-QUATERNION-COMPLEXIFICATION-ADJOINT` | L929–965, Eq. 50–51 | `ĥ(Aᴴ)=ĥ(A)ᴴ`. | P0 / `Matrix/Complexification.lean` | **proved as stated**, generalized to rectangular matrices by `complexPartMatrix_conjTranspose`, `jPartMatrix_conjTranspose`, `complexify_conjTranspose` |
 | `FER03-L08-QUATERNIONIC-CIRCUIT-COMPOSITION` | L967–980 | Translated ordered operator equals `ĥ(Qσ)`. Depends on L06 and placement naturality. | P0 / 6-SIMULATION | planned; source proof missing |
 | `FER03-L09-QUATERNION-STATE-INTERTWINING` | L983–1073, Eq. 52–57 | `ĥ(Q) ĥ₀(ψ)=ĥ₀(Qψ)` and corresponding `ĥ₁` identity. | P0 / 4-STATES | planned correction C-012 |
 | `FER03-L10-QUATERNION-COMPUTATIONAL-MEASUREMENT` | L1075–1171, Eq. 58–62 | Each complex encoding preserves bottom computational-basis weights after summing over top qubit. | P0 / 4-STATES | planned typed bridge |
@@ -57,7 +57,7 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-FND-ARBITRARY-WIRE-ROUTING` | L57, FN3 | Route noncontiguous gates with swaps under an explicit cost model. | P2 / 5-CIRCUITS, 8-RESOURCES | planned partial; quadratic claim needs parameters |
 | `FER03-FND-GROUND-STATE-WLOG` | L59, L561 | Absorb known basis input preparation into a circuit; not an unknown-state WLOG. | P1 / 5-CIRCUITS | planned correction |
 | `FER03-FND-ANY-HILBERT-SCALARS` | L61 | Claim that any Hilbert scalar system automatically gives a sound circuit model. | P2 / 7-ORDERING | **partially formalized** target: document countervailing subsystem/tensor requirements |
-| `FER03-FND-REAL-PRESERVERS-ORTHOGONAL` | L67–69 | A complex-linear map preserving the real subspace has a real matrix; norm preservation gives orthogonality. | P1 / 3-MATRICES | planned |
+| `FER03-FND-REAL-PRESERVERS-ORTHOGONAL` | L67–69 | A complex-linear map preserving the real subspace has a real matrix; norm preservation gives orthogonality. | P1 / 3-MATRICES | **partially formalized**: the matrix-level norm-preserving consequence needed here is `realify_mem_orthogonal`; the broader invariant-real-subspace characterization is not used by the simulations |
 | `FER03-FND-REAL-CIRCUIT-SOUNDNESS` | L119–134 | Products and legal placements of orthogonal gates remain orthogonal. | P1 / 5-CIRCUITS | planned |
 | `FER03-FND-OUTCOME-EQUIVALENCE-SUFFICES` | L140–142 | Classical postprocessing only observes the output distribution. | P0 / 4-STATES | planned semantic definition |
 | `FER03-FND-FINITE-PRECISION` | FN6 | Classical descriptions contain finite-precision approximations. | P1 / 8-RESOURCES | planned partial; separate from algebraic exactness |
@@ -66,9 +66,9 @@ Lean declaration names replace the current stage targets as proofs land.
 
 | ID | Source | Target / dependencies | Priority / stage | Status |
 |---|---|---|---|---|
-| `FER03-R-REALIFICATION-DEF` | L175–203, Eq. 8–10 | Define `h(A)=[[re A,im A],[-im A,re A]]`; tensor notation only mnemonic. | P0 / 3-MATRICES | planned |
-| `FER03-R-REIM-PRODUCT` | L213–239, Eq. 11–12 | Scalar and compatible-matrix real/imaginary product formulas. | P0 / 2-SCALARS, 3-MATRICES | in progress: scalar identities are `Complex.mul_re`/`Complex.mul_im`; matrix lift remains Stage 3 |
-| `FER03-R-REIM-ADJOINT` | L310–318, Eq. 16 | Real/imaginary components of complex adjoint. | P0 / 3-MATRICES | planned |
+| `FER03-R-REALIFICATION-DEF` | L175–203, Eq. 8–10 | Define `h(A)=[[re A,im A],[-im A,re A]]`; tensor notation only mnemonic. | P0 / `Matrix/Realification.lean` | **proved as stated**: `realPart`, `imagPart`, `realify` and four block-entry lemmas; the operator-valued tensor mnemonic is intentionally not encoded |
+| `FER03-R-REIM-PRODUCT` | L213–239, Eq. 11–12 | Scalar and compatible-matrix real/imaginary product formulas. | P0 / mathlib, `Matrix/Realification.lean` | **proved as stated**: scalar `Complex.mul_re`/`Complex.mul_im`; matrix `realPart_mul`/`imagPart_mul` |
+| `FER03-R-REIM-ADJOINT` | L310–318, Eq. 16 | Real/imaginary components of complex adjoint. | P0 / `Matrix/Realification.lean` | **proved as stated**: `realPart_conjTranspose`, `imagPart_conjTranspose` |
 | `FER03-R-SERIAL-COMPOSITION` | L322–340, Fig. 1 | A legal order gives a reverse chronological matrix product. | P0 / 5-CIRCUITS | planned |
 | `FER03-R-TOPO-SORT-COMPLEXITY` | L336, FN5 | Topological sorting is efficient; circuit/TM equivalence is external. | P2 / 7-ORDERING, 8-RESOURCES | planned partial |
 | `FER03-R-QUANTUM-GATE-PADDING` | L344–363, Eq. 17, Fig. 2 | Lift arbitrary-arity local gate to noncontiguous wires via explicit support/permutation. | P0 / 5-CIRCUITS | planned correction/generalization |
@@ -83,7 +83,7 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-R-SWAP-REALIFICATION` | L462–478 | Realification commutes with central permutation/padding operations. | P0 / 5-CIRCUITS | planned |
 | `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / 4-STATES | planned if density formulation retained |
 | `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / 4-STATES | planned |
-| `FER03-R-REAL-GATE-OPTIMIZATION` | L667 | A real source gate maps to identity on top coordinate times the gate. | P1 / 3-MATRICES, 6-SIMULATION | planned |
+| `FER03-R-REAL-GATE-OPTIMIZATION` | L667 | A real source gate maps to identity on top coordinate times the gate. | P1 / `Matrix/Realification.lean`, 6-SIMULATION | **partially formalized**: `realify_map_ofReal` proves the exact doubled block-diagonal matrix; its local-wire circuit consequence remains Stage 6 |
 | `FER03-R-SERIAL-DEPTH` | L669 | Shared-top construction has target depth at most gate count and can lose parallelism. | P1 / 8-RESOURCES | planned construction bound |
 | `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | L671 | Several top wires allegedly give `O(log s)` depth increase. | P2 / 8-RESOURCES | unresolved pending construction, C-015 |
 | `FER03-R-PREPROCESSING-COST` | L673 | Translation is linear time under fixed-arity/unit-cost exact gate encoding. | P1 / 8-RESOURCES | planned conditional result |
@@ -101,13 +101,13 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-Q-CO-WD-MUL` | L755–769, Eq. 41 | Order-sensitive multiplication formulas. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `complexPart_mul`, `jPart_mul` |
 | `FER03-Q-CO-WD-NORM` | L771–777, Eq. 42 | Quaternion norm square is sum of component complex norm squares. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `normSq_eq_complexPart_add_jPart` |
 | `FER03-Q-CO-WD-CONJ` | L779–787, Eq. 43 | Components under quaternion conjugation. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `complexPart_star`, `jPart_star` |
-| `FER03-Q-UNITARY-SP` | L816–820 | Generic quaternionic unitary matrices form the compact symplectic group. | P0 / 3-MATRICES | planned with explicit right-module convention |
+| `FER03-Q-UNITARY-SP` | L816–820 | Generic quaternionic unitary matrices form the compact symplectic group. | P0 / `Matrix/Unitary.lean` | **corrected and proved** at the finite matrix/image level: quaternionic unitaries use generic `unitary (Matrix n n ℍ)` and `complexify_mem_symplectic` proves their complex images preserve `Matrix.J`; no quaternion determinant is assumed |
 | `FER03-Q-KRONECKER-INTERCHANGE` | L822–830, Eq. 46 | Prove commutative case and correct entrywise-commutation sufficient condition; disprove “only if C,D are 0–1.” | P0 / 5-CIRCUITS, 7-ORDERING | planned correction C-009 |
 | `FER03-Q-PARALLEL-ORDER-DEPENDENCE` | L831–839, Fig. 6 | Exhibit disjoint local gates/orderings with distinct operators and observable outcomes. | P0 / 7-ORDERING | planned correction C-018 |
 | `FER03-Q-CUT-POSET` | L837 | Relate legal gate linear extensions to evaluation chains; do not identify one sort with a total order on all cuts. | P2 / 7-ORDERING | planned partial/correction |
 | `FER03-Q-NUMBER-OF-PATHS` | L839 | Families can have many linear extensions; state any counting bound precisely. | P2 / 8-RESOURCES | planned partial |
-| `FER03-Q-COMPLEXIFICATION-DEF` | L861–887, Eq. 47–48 | Define the explicit complex block embedding; tensor notation is mnemonic. | P0 / 3-MATRICES | planned correction C-011 |
-| `FER03-Q-ADJOINT-COMPONENTS` | L931–940, Eq. 50 | Co/Wd identities for quaternionic conjugate transpose. | P0 / 3-MATRICES | planned |
+| `FER03-Q-COMPLEXIFICATION-DEF` | L861–887, Eq. 47–48 | Define the explicit complex block embedding; tensor notation is mnemonic. | P0 / `Matrix/Complexification.lean` | **corrected and proved**: `complexify` is the explicit block matrix, with entrywise lower-block conjugation and four block-entry lemmas; malformed/formal tensor display excluded per C-011 |
+| `FER03-Q-ADJOINT-COMPONENTS` | L931–940, Eq. 50 | Co/Wd identities for quaternionic conjugate transpose. | P0 / `Matrix/Complexification.lean` | **proved as stated**: `complexPartMatrix_conjTranspose`, `jPartMatrix_conjTranspose` |
 | `FER03-Q-STATE-ENCODINGS` | L983–1005, Eq. 52–53 | Define `ĥ₀(q)=(Co q,-conj(Wd q))`, `ĥ₁(q)=(Wd q,conj(Co q))`. | P0 / 4-STATES | planned |
 | `FER03-Q-ARBITRARY-TOP-QUBIT` | L1075 | Any normalized pure/mixed product top qubit preserves bottom basis statistics. | P1 / 4-STATES | planned |
 | `FER03-Q-DIRECT-REALIFICATION` | L1208–1221, Eq. 63 | Verify direct `4×4` scalar representation and matrix/unitary consequences. | P1 / 9-COVERAGE | planned; determinant separate |

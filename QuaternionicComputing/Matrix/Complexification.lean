@@ -323,6 +323,15 @@ theorem complexifyRingHom_injective (n : Type*) [Fintype n] [DecidableEq n] :
     Function.Injective (complexifyRingHom n) :=
   complexify_injective
 
+/--
+A complex matrix embedded entrywise into the quaternions complexifies to a
+block diagonal matrix with its entrywise conjugate in the second block.
+-/
+theorem complexify_map_coeComplex {m n : Type*} (A : Matrix m n ℂ) :
+    complexify (A.map Quaternion.coeComplex) =
+      Matrix.fromBlocks A 0 0 (A.map star) := by
+  ext (i | i) (j | j) <;> simp
+
 /-! A one-entry sanity check fixes the signs of the `j` image. -/
 
 theorem complexify_j_scalar :

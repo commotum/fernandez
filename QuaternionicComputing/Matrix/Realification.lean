@@ -277,6 +277,15 @@ theorem realify_mulVec [Fintype n] (A : _root_.Matrix m n ℂ) (v : n → ℂ) :
   · simp [realify, realifyVec, _root_.Matrix.mulVec, dotProduct,
       Complex.mul_im, Finset.sum_add_distrib]
 
+/--
+A real matrix, regarded as complex, realifies to two identical diagonal
+blocks.  Thus an already-real gate does not couple the two added sectors.
+-/
+theorem realify_map_ofReal (A : _root_.Matrix m n ℝ) :
+    realify (A.map (algebraMap ℝ ℂ)) =
+      _root_.Matrix.fromBlocks A 0 0 A := by
+  ext (i | i) (j | j) <;> simp
+
 /-! Exact scalar-matrix checks fixing the signs and sector order. -/
 
 /-- The scalar `I`, viewed as a `1 × 1` matrix, has the advertised real block form. -/
