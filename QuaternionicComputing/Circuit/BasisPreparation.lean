@@ -158,26 +158,31 @@ theorem basisPreparationGate_support (b : BitBasis W) :
   rw [PlacedGate.mem_support_iff]
   exact ⟨w, rfl⟩
 
-/-- Placing a matrix on all wires with empty complement leaves it unchanged. -/
-@[simp]
-theorem place_sumEmpty (U : Matrix (BitBasis W) (BitBasis W) R) :
+private theorem place_sumEmpty (U : Matrix (BitBasis W) (BitBasis W) R) :
     place (Equiv.sumEmpty W (ULift.{v} Empty)) U = U := by
   ext x y
   rw [place_apply, if_pos (Subsingleton.elim _ _)]
-  congr 1 <;> funext w <;> simp
+  congr 1
 
 /-- The global denotation of the full-support preparation gate is its matrix. -/
 @[simp]
 theorem basisPreparationGate_denote (b : BitBasis W) :
     (basisPreparationGate (R := R) b).denote =
       basisPreparationMatrix (R := R) b := by
-  simp [basisPreparationGate]
+  rw [basisPreparationGate, PlacedGate.denote_ofSplit, place_sumEmpty]
 
 /-- The full-support preparation gate is certified locally unitary. -/
 theorem basisPreparationGate_isLocallyUnitary [StarRing R] (b : BitBasis W) :
     (basisPreparationGate (R := R) b).IsLocallyUnitary := by
   rw [basisPreparationGate, PlacedGate.isLocallyUnitary_ofSplit]
   exact basisPreparationMatrix_mem_unitary b
+
+/-- The global denotation of the preparation gate is unitary. -/
+theorem basisPreparationGate_denote_mem_unitary [StarRing R] (b : BitBasis W) :
+    (basisPreparationGate (R := R) b).denote ∈
+      unitary (Matrix (BitBasis W) (BitBasis W) R) :=
+  (basisPreparationGate (R := R) b).denote_mem_unitary
+    (basisPreparationGate_isLocallyUnitary b)
 
 /-- The preparation gate sends the all-zero basis column to the column at `b`. -/
 theorem basisPreparationGate_mulVec_ground (b : BitBasis W) :

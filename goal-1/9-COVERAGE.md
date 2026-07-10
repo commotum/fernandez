@@ -84,6 +84,11 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   normalized rational complex source state whose canonical real encoding is
   proved nonfactorable.  Keep the general definition reusable and the heavy
   coordinate proof in the example leaf.
+- Add a narrow product-input ordering diagnostic reusing the Stage 7 disjoint
+  mixers.  On the normalized ground basis input, prove the two legal orders
+  yield different columns (with exact opposite `11` amplitudes).  Do not infer
+  different computational-basis probabilities, signaling, entanglement, or
+  bit-commitment security from that phase-sensitive state inequality.
 - Add a basis-preparation leaf for the paper's ground-state convention.  A
   classically known computational-basis assignment should induce an XOR
   permutation/unitary placed gate that maps the all-zero basis column to that
@@ -115,6 +120,9 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 - `State/EntanglementWitness.lean`: narrow pure-state example importing the
   real state encoding; owns factorization terminology and rational witness,
   without a density-matrix hierarchy.
+- `Circuit/ProductInputOrderingWitness.lean`: diagnostic leaf importing the
+  existing ordering witness; owns only the ground-product-input state
+  inequality and its exact coordinate checks.
 - `State/ComplexPhase.lean`: low-dependency public phase-equivalence and
   invariance leaf; normalized columns remain the concrete state representation
   and no quotient is introduced.
@@ -161,6 +169,9 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   dimensions, and C-016 records the source codomain error and exceptions.
 - A normalized non-real source state has a proved non-product canonical real
   encoding, without overclaiming physical consequences.
+- The disjoint-gate orders have a proved state-level difference on a normalized
+  product basis input, with explicit documentation that its displayed basis
+  weights need not distinguish the orders.
 - A known computational-basis input can be absorbed by a certified unitary
   preparation gate, and complex unit phase has a reusable ray-level invariance
   API; neither result claims a uniform input compiler or quotient semantics.
