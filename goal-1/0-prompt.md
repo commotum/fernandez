@@ -2,7 +2,7 @@
 
 ```text
 Work autonomously through goal-1/0-plan.md using the execution protocol in
-goal-1/0-loop.md.
+goal-1/0-loop.md and the authoritative Lean workflow in BUILD-PLAN.md.
 
 The objective is to independently reconstruct the important mathematics of
 Fernandez and Schneeberger's “Quaternionic Computing” as a reusable Lean 4 and
@@ -23,9 +23,13 @@ corrections; fold results into the plan; and continue. Convert blockers into
 experiments, smaller obligations, alternate representations, counterexamples,
 or explicit unresolved work.
 
+For every Lean-changing stage, follow BUILD-PLAN.md: keep modules/imports
+narrow, classify declarations, add Build Structure and Boundary Checks to the
+stage report, run touched-leaf and necessary adjacent-consumer builds before any
+required full build, and record exact build/scan/diff evidence.
+
 Completion means the original objective is actually achieved: the pinned
 project builds without placeholders, main exports pass an explained axiom
 audit, documentation supports downstream reuse, and all open issues are carried
 forward explicitly rather than hidden.
 ```
-

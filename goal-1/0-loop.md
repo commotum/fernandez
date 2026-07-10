@@ -1,21 +1,24 @@
 # Goal 1 Execution Loop
 
-Use this protocol for every stage in `goal-1/0-plan.md`.
+Use this protocol for every stage in `goal-1/0-plan.md`, together with the
+authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 
 ## Repeatable Loop
 
-1. Sync current state with the actual repository files, paper source, build,
-   tests, traceability table, correction log, and recent diffs.
+1. Read `BUILD-PLAN.md`, then sync current state with the actual repository
+   files, paper source, build, tests, traceability table, correction log, and
+   recent diffs.
 2. Update `goal-1/0-plan.md` with current facts before starting the next stage.
 3. Select the first incomplete stage; do not skip a blocker merely because a
    later task looks easier.
 4. Create or refresh `goal-1/[INDEX]-[SHORTHAND].md` from the template below.
 5. Implement only that stage, splitting uncertain work into small compiling
    probes and proof obligations.
-6. Add verification and no-cheating checks that exercise the actual
-   mathematical requirement.
-7. Run focused tests, the appropriate full verification, forbidden-token and
-   project-axiom scans, axiom spot-audits, and whitespace/diff checks.
+6. Add `Build Structure` and `Boundary Checks` evidence that exercises the
+   actual mathematical requirement and classifies new declarations.
+7. Run the touched-leaf and necessary adjacent-consumer builds first; run the
+   appropriate full verification under the conditions in `BUILD-PLAN.md`, plus
+   forbidden-token/project-axiom scans, axiom spot-audits, and diff checks.
 8. Record commands, results, failures, corrections, and learned facts in the
    stage file.
 9. Fold the evidence back into `goal-1/0-plan.md`, the traceability table, the
@@ -48,6 +51,10 @@ Use this protocol for every stage in `goal-1/0-plan.md`.
   desired theorem tautological.
 - Preserve unrelated user changes and never treat generated build output as
   source.
+- Prefer narrow leaf modules and imports, keep API/umbrella modules thin, and
+  record why any high-fanout file must change.
+- A proof or diagnostic that no public/goal consumer uses is not evidence that
+  the stage's target has been achieved.
 
 ## Stage File Template
 
@@ -74,15 +81,24 @@ Use this protocol for every stage in `goal-1/0-plan.md`.
 - Files expected to change.
 - New tests or commands required.
 
-## No-Cheating Checks
+## Build Structure
 
-- Explicit checks proving the implementation does not route through forbidden fallback paths.
+- New or touched Lean modules and why each owns its declarations.
+- High-fanout modules intentionally avoided or necessarily changed.
+- Focused build command for every touched leaf.
+- Adjacent consumer builds required to exercise the public surface.
+
+## Boundary Checks
+
+- Runtime/API/proof-side/diagnostic/fallback boundaries relevant to the stage.
+- Explicit checks proving the implementation does not route through forbidden shortcuts.
 
 ## Completion Requirements
 
 - Requirement-by-requirement checks.
 - Required test commands.
 - Documentation updates required.
+- `BUILD-PLAN.md` evidence and fold-back required.
 
 ## Stage Results
 
@@ -91,4 +107,3 @@ Use this protocol for every stage in `goal-1/0-plan.md`.
 - Include what was learned.
 - Include what should change in `0-plan.md` before the next stage.
 ```
-

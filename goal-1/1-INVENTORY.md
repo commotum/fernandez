@@ -132,7 +132,8 @@ baseline that can compile the first real proofs.
 
 ### Plan changes for the next stage
 
-- Stage 2 will define bundled real-linear `complexPart` and `weirdPart` maps,
+- Stage 2 will define bundled real-linear `complexPart` and `jPart` maps (the
+  latter is the paper's “weird part”),
   rather than unbundled projections, so finite-sum matrix proofs can use
   `map_sum`.
 - It will formalize explicit quaternion units and a counterexample to left-phase
@@ -140,4 +141,3 @@ baseline that can compile the first real proofs.
   norm-square identities.
 - Determinant claims remain isolated in Stage 3; they do not block the scalar or
   central simulation spine.
-

@@ -8,7 +8,7 @@ public import Mathlib.Analysis.Quaternion
 This module packages the decomposition of a real quaternion into two complex
 numbers.  With the convention
 
-`q = complexPart q + weirdPart q * j`,
+`q = complexPart q + jPart q * j`,
 
 the first component contains the `1` and `i` coordinates and the second
 contains the `j` and `k` coordinates.  The multiplication theorems below keep
@@ -57,8 +57,12 @@ def complexPart : ℍ[ℝ] →ₗ[ℝ] ℂ where
   map_smul' r q := by
     apply Complex.ext <;> simp
 
-/-- The `j,k` coordinates of a quaternion, bundled as a real-linear map. -/
-def weirdPart : ℍ[ℝ] →ₗ[ℝ] ℂ where
+/--
+The `j,k` coordinates of a quaternion, bundled as a real-linear map.
+
+This is the component called the “weird part” in the paper.
+-/
+def jPart : ℍ[ℝ] →ₗ[ℝ] ℂ where
   toFun q := ⟨q.imJ, q.imK⟩
   map_add' _ _ := rfl
   map_smul' r q := by
@@ -73,37 +77,37 @@ theorem complexPart_im (q : ℍ[ℝ]) : (complexPart q).im = q.imI :=
   by simp [complexPart]
 
 @[simp]
-theorem weirdPart_re (q : ℍ[ℝ]) : (weirdPart q).re = q.imJ :=
-  by simp [weirdPart]
+theorem jPart_re (q : ℍ[ℝ]) : (jPart q).re = q.imJ :=
+  by simp [jPart]
 
 @[simp]
-theorem weirdPart_im (q : ℍ[ℝ]) : (weirdPart q).im = q.imK :=
-  by simp [weirdPart]
+theorem jPart_im (q : ℍ[ℝ]) : (jPart q).im = q.imK :=
+  by simp [jPart]
 
 @[simp]
 theorem complexPart_coeComplex (z : ℂ) : complexPart (z : ℍ[ℝ]) = z := by
   apply Complex.ext <;> simp
 
 @[simp]
-theorem weirdPart_coeComplex (z : ℂ) : weirdPart (z : ℍ[ℝ]) = 0 := by
+theorem jPart_coeComplex (z : ℂ) : jPart (z : ℍ[ℝ]) = 0 := by
   apply Complex.ext <;> simp
 
 @[simp] theorem complexPart_i : complexPart i = Complex.I := by
   apply Complex.ext <;> simp
 
-@[simp] theorem weirdPart_i : weirdPart i = 0 := by
+@[simp] theorem jPart_i : jPart i = 0 := by
   apply Complex.ext <;> simp
 
 @[simp] theorem complexPart_j : complexPart j = 0 := by
   apply Complex.ext <;> simp
 
-@[simp] theorem weirdPart_j : weirdPart j = 1 := by
+@[simp] theorem jPart_j : jPart j = 1 := by
   apply Complex.ext <;> simp
 
 @[simp] theorem complexPart_k : complexPart k = 0 := by
   apply Complex.ext <;> simp
 
-@[simp] theorem weirdPart_k : weirdPart k = Complex.I := by
+@[simp] theorem jPart_k : jPart k = Complex.I := by
   apply Complex.ext <;> simp
 
 /-- Right multiplication by `j` embeds a complex number in the `j,k` plane. -/
@@ -114,24 +118,24 @@ theorem coeComplex_mul_j_complexPart (z : ℂ) :
 
 /-- Right multiplication by `j` preserves the complex coordinates as weird coordinates. -/
 @[simp]
-theorem coeComplex_mul_j_weirdPart (z : ℂ) :
-    weirdPart ((z : ℍ[ℝ]) * j) = z := by
+theorem coeComplex_mul_j_jPart (z : ℂ) :
+    jPart ((z : ℍ[ℝ]) * j) = z := by
   apply Complex.ext <;> simp
 
-/-- A quaternion is reconstructed from its complex and weird components. -/
-theorem reconstruction (q : ℍ[ℝ]) :
-    q = (complexPart q : ℍ[ℝ]) + (weirdPart q : ℍ[ℝ]) * j := by
+/-- A quaternion is reconstructed from its two complex components. -/
+theorem eq_complexPart_add_jPart_mul_j (q : ℍ[ℝ]) :
+    q = (complexPart q : ℍ[ℝ]) + (jPart q : ℍ[ℝ]) * j := by
   apply QuaternionAlgebra.ext <;> simp
 
-/-- Quaternions with equal complex and weird components are equal. -/
+/-- Quaternions with equal complex and `j` components are equal. -/
 theorem ext_parts {p q : ℍ[ℝ]}
     (hcomplex : complexPart p = complexPart q)
-    (hweird : weirdPart p = weirdPart q) : p = q := by
-  rw [reconstruction p, reconstruction q, hcomplex, hweird]
+    (hj : jPart p = jPart q) : p = q := by
+  rw [eq_complexPart_add_jPart_mul_j p, eq_complexPart_add_jPart_mul_j q, hcomplex, hj]
 
 /-- Equality of quaternions is equivalent to equality of both complex components. -/
 theorem eq_iff_parts_eq {p q : ℍ[ℝ]} :
-    p = q ↔ complexPart p = complexPart q ∧ weirdPart p = weirdPart q := by
+    p = q ↔ complexPart p = complexPart q ∧ jPart p = jPart q := by
   constructor
   · rintro rfl
     exact ⟨rfl, rfl⟩
@@ -140,7 +144,7 @@ theorem eq_iff_parts_eq {p q : ℍ[ℝ]} :
 
 /-- The pair of complex component maps loses no quaternionic information. -/
 theorem components_injective :
-    Function.Injective (fun q : ℍ[ℝ] ↦ (complexPart q, weirdPart q)) := by
+    Function.Injective (fun q : ℍ[ℝ] ↦ (complexPart q, jPart q)) := by
   intro p q h
   exact ext_parts (congrArg Prod.fst h) (congrArg Prod.snd h)
 
@@ -153,18 +157,18 @@ theorem j_mul_coeComplex (z : ℂ) :
 @[simp]
 theorem complexPart_mul (p q : ℍ[ℝ]) :
     complexPart (p * q) =
-      complexPart p * complexPart q - weirdPart p * star (weirdPart q) := by
+      complexPart p * complexPart q - jPart p * star (jPart q) := by
   apply Complex.ext
   · simp
     ring
   · simp
     ring
 
-/-- Weird component of a quaternion product (Equation 41, second identity). -/
+/-- The `j`-component of a quaternion product (Equation 41, second identity). -/
 @[simp]
-theorem weirdPart_mul (p q : ℍ[ℝ]) :
-    weirdPart (p * q) =
-      complexPart p * weirdPart q + weirdPart p * star (complexPart q) := by
+theorem jPart_mul (p q : ℍ[ℝ]) :
+    jPart (p * q) =
+      complexPart p * jPart q + jPart p * star (complexPart q) := by
   apply Complex.ext
   · simp
     ring
@@ -177,19 +181,19 @@ theorem complexPart_star (q : ℍ[ℝ]) :
     complexPart (star q) = star (complexPart q) := by
   apply Complex.ext <;> simp
 
-/-- Quaternion conjugation negates, but does not complex-conjugate, the weird component. -/
+/-- Quaternion conjugation negates, but does not complex-conjugate, the `j`-component. -/
 @[simp]
-theorem weirdPart_star (q : ℍ[ℝ]) :
-    weirdPart (star q) = -weirdPart q := by
+theorem jPart_star (q : ℍ[ℝ]) :
+    jPart (star q) = -jPart q := by
   apply Complex.ext <;> simp
 
 /-- Quaternion norm square is the sum of the two complex norm squares. -/
-theorem normSq_eq_complex_normSq_add (q : ℍ[ℝ]) :
+theorem normSq_eq_complexPart_add_jPart (q : ℍ[ℝ]) :
     _root_.Quaternion.normSq q =
-      Complex.normSq (complexPart q) + Complex.normSq (weirdPart q) := by
+      Complex.normSq (complexPart q) + Complex.normSq (jPart q) := by
   rw [_root_.Quaternion.normSq_def']
-  simp only [Complex.normSq_apply, complexPart_re, complexPart_im, weirdPart_re,
-    weirdPart_im]
+  simp only [Complex.normSq_apply, complexPart_re, complexPart_im, jPart_re,
+    jPart_im]
   ring
 
 /-! The following exact identities are executable sanity checks for signs and order. -/

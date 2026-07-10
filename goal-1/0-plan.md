@@ -39,6 +39,10 @@ disposition, and the pinned project builds and passes its axiom audit without
   alternative representations, counterexamples, or documented unresolved
   claims; do not erase them by narrowing the goal.
 - Preserve unrelated user changes in the worktree.
+- Treat repository-root `BUILD-PLAN.md` as an authoritative requirement for
+  every Lean-changing stage.  Its incremental module, import, focused-build,
+  adjacent-consumer, boundary-check, reporting, and fold-back rules are part of
+  this goal even when not repeated in a stage paragraph.
 
 ## Current Facts
 
@@ -71,6 +75,9 @@ disposition, and the pinned project builds and passes its axiom audit without
   `Matrix.fromBlocks` supports the required noncommutative algebra, and that
   quaternionic unitaries must use generic `unitary (Matrix … ℍ)` rather than
   the commutative-only `Matrix.unitaryGroup`.
+- `BUILD-PLAN.md` is now part of the active goal requirements.  Every current
+  and future Lean stage must include `Build Structure` and `Boundary Checks`
+  sections and record the smallest builds that actually cover its changes.
 
 ## Current Assumptions to Test
 
@@ -108,6 +115,37 @@ disposition, and the pinned project builds and passes its axiom audit without
   public root module and documented conventions.
 - Final verification includes focused builds, full build, audit output,
   forbidden-token scan, import smoke test, and `git diff --check`.
+- Every stage that changes Lean code satisfies `BUILD-PLAN.md`: declarations
+  are classified by dependency/API role, narrow leaf ownership and import
+  hygiene are justified, focused module builds and necessary adjacent-consumer
+  builds pass, boundary shortcuts are checked, and exact results are folded
+  back into the stage file and this plan.
+
+## Lean Build-Plan Requirements
+
+The following requirements are incorporated from `BUILD-PLAN.md` and are part
+of **every** stage's completion requirements by reference:
+
+- At initial sync, read `BUILD-PLAN.md`, this plan, the execution loop, the
+  previous completed stage, and the first incomplete stage before editing Lean.
+- Classify each declaration/module as public API, proof-side, diagnostic,
+  fallback, temporary scaffolding, or executable/runtime where applicable.
+- Put cheap definitions in low-dependency modules and expensive proofs,
+  counterexamples, diagnostics, and audits in narrow leaves.  Keep public API
+  and umbrella modules thin and avoid unnecessary high-fanout edits/imports.
+- Each active stage file must contain `Build Structure` and `Boundary Checks`
+  sections identifying touched modules, ownership, avoided high-fanout files,
+  focused build commands, adjacent consumers, and forbidden shortcuts.
+- Build the touched leaf after skeleton/import changes and after implementation;
+  build adjacent consumers that exercise its public surface.  Run a full build
+  when a public root, high-fanout import, build configuration, notation, global
+  instance/simp surface, or explicit stage requirement changes.
+- A diagnostic or unused abstraction is never completion evidence for a target
+  theorem.  Failed structural obligations become checked lemmas, named
+  obstructions, or documented target revisions—not silent scope changes.
+- Record exact build, scan, audit, and `git diff --check` results in the stage
+  file, then fold theorem names, module paths, failed obligations, and next
+  actions back into this plan before marking the stage complete.
 
 ## Stages
 

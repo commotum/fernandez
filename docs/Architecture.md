@@ -11,7 +11,7 @@ scalar, matrix, state, and circuit results.
 ```text
 QuaternionicComputing/
   Scalar/
-    Quaternion.lean          complex/weird decomposition and scalar identities
+    Quaternion.lean          complex/`j`-component decomposition and identities
   Matrix/
     BlockEmbedding.lean      reusable entrywise 2×2 block lift
     Realification.lean       complex matrices → real matrices

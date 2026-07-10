@@ -49,10 +49,11 @@ Quaternion.star_mul_self
 ```
 
 Mathlib provides `Quaternion.coeComplex : ℂ → ℍ` and
-`Quaternion.ofComplex : ℂ →ₐ[ℝ] ℍ`, but no paper-style complex/weird
+`Quaternion.ofComplex : ℂ →ₐ[ℝ] ℍ`, but no paper-style complex/“weird”
 projections and no `Algebra ℂ ℍ` instance—the complex copy is not central.
-Stage 2 will therefore define bundled real-linear maps
-`complexPart, weirdPart : ℍ →ₗ[ℝ] ℂ`.
+The library therefore defines bundled real-linear maps
+`complexPart, jPart : ℍ →ₗ[ℝ] ℂ`; `jPart` is the neutral public name for the
+paper's “weird part.”
 
 ## Right quaternionic modules
 
@@ -152,7 +153,7 @@ preserved rather than bypassed.
 
 The intake probes compiled all of the following without placeholders:
 
-- complex/weird multiplication, conjugation, reconstruction, and norm-square
+- complex/`j`-component multiplication, conjugation, reconstruction, and norm-square
   scalar identities;
 - right-linearity of quaternionic `mulVec`;
 - preservation of `star x ⬝ᵥ y` by a quaternionic unitary matrix;
@@ -163,4 +164,3 @@ The intake probes compiled all of the following without placeholders:
 
 These probes establish feasibility; Stage 2 and later move the proofs into
 public, documented source modules and give them stable declarations.
-

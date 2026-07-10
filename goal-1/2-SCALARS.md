@@ -6,10 +6,11 @@
   baseline and a complete paper claim inventory.
 - Mathlib supplies `ℍ`, coordinate projections, multiplication/star simp
   lemmas, `Quaternion.normSq`, and the complex inclusion, but no paper-style
-  complex/weird projections or `ℍ ≃ ℂ × ℂ` API.
+  complex/second-component projections or `ℍ ≃ ℂ × ℂ` API.
 - Compiling probes show that bundled maps
-  `complexPart, weirdPart : ℍ →ₗ[ℝ] ℂ` make the required finite-sum proofs
-  straightforward.
+  `complexPart, jPart : ℍ →ₗ[ℝ] ℂ` make the required finite-sum proofs
+  straightforward; `jPart` is the neutral public name for the paper's “weird
+  part.”
 - Quaternionic column vectors are right modules.  In one dimension, `j*i ≠ i*j`
   shows that the same left phase does not commute through evolution, but a true
   failure of the existential left-ray relation needs at least two coordinates.
@@ -31,14 +32,14 @@
 
 ## Big Picture Objective
 
-Prove the complex real/imaginary and quaternion complex/weird component
+Prove the complex real/imaginary and quaternion complex/`j`-component
 identities that drive both matrix embeddings, with explicit signs,
 multiplication order, conjugation, norm square, and module-side diagnostics.
 
 ## Detailed Implementation Plan
 
 - Create `QuaternionicComputing/Scalar/Quaternion.lean` with documented typed
-  quaternion units and bundled real-linear `complexPart`/`weirdPart` maps.
+  quaternion units and bundled real-linear `complexPart`/`jPart` maps.
 - Prove coordinate simp lemmas, reconstruction `q = z + w*j`, component
   extensionality/injectivity, add/real-scalar laws inherited from bundling, and
   interaction of `j` with embedded complex scalars.
