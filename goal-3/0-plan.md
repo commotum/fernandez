@@ -1,13 +1,17 @@
-# Goal 2 — Close the Remaining *Quaternionic Computing* Frontier
+# Goal 3 — Close the Remaining *Quaternionic Computing* Frontier
 
 ## Big-Picture Objective
 
-Starting from the completed Goal 1 release, tackle every paper item that is not
-yet fully proved.  The baseline consists of exactly 47 such traceability rows:
-28 partially formalized, 16 intentionally excluded, and 3 unresolved.  Close
-ordinary formalization debt with proofs, corrected theorems, counterexamples,
-or exact reductions; recover the paper's hard claims when they are true; and
-turn its underspecified or genuinely open questions into precise models with
+Starting from the completed Goal 1 release and the required Goal 2 semantic-
+equivalence retrofit, tackle every paper item that remains not fully proved.
+Before Goal 2, the inventory has 47 such rows.  Goal 2 owns the two ray rows
+`FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY`, so the expected Goal 3
+baseline is 45 rows: 26 partially formalized, 16 intentionally excluded, and 3
+unresolved.  Stage 1 must recompute this baseline from the actual post-Goal-2
+traceability state rather than trusting the forecast.  Close ordinary
+formalization debt with proofs, corrected theorems, counterexamples, or exact
+reductions; recover the paper's hard claims when they are true; and turn its
+underspecified or genuinely open questions into precise models with
 substantive constructive, negative, or underdetermination results.
 
 “Tackle everything” does not mean relabeling an open question as a theorem or
@@ -15,10 +19,11 @@ pretending to settle an entire research field.  It means that no row remains
 untouched or hidden: every row receives an explicit model, target, dependency
 path, attempted resolution, checked evidence, and honest residual frontier.
 
-Completion requires all 31 currently partial or unresolved rows to leave those
-statuses through a proved positive result, a proved corrected/negative result,
-or a formal underdetermination theorem that settles what follows from the
-source's assumptions.  The 16 excluded rows must each gain
+Completion requires every post-Goal-2 partial or unresolved row—expected to be
+29—to leave those statuses through a proved positive result, a proved
+corrected/negative result, or a formal underdetermination theorem that settles
+what follows from the source's assumptions.  The 16 expected excluded rows
+must each gain
 either a proved/wrapped external result or a precise formal investigation with
 at least one nontrivial theorem, counterexample, or underdetermination result;
 none may remain excluded merely because it is difficult.
@@ -32,6 +37,11 @@ none may remain excluded merely because it is difficult.
   describe the verified Goal 1 baseline.
 - `goal-1/0-plan.md` and its completed stage reports are prior evidence, not
   work that should be repeated.
+- Completed `goal-2/0-plan.md` and its stage reports are a hard prerequisite.
+  Goal 3 must reuse its equality, phase, measurement, channel, embedded-
+  simulation, and approximation vocabulary rather than defining competitors.
+- `docs/EquivalenceClassification.md` and the Goal 2 public-comparison manifest
+  are authoritative semantic inputs once Goal 2 completes.
 - Repository-root `BUILD-PLAN.md` is authoritative for every Lean-changing
   stage.  Its narrow-module, import-hygiene, focused-build, adjacent-consumer,
   boundary-check, reporting, and fold-back rules are goal requirements.
@@ -72,6 +82,9 @@ none may remain excluded merely because it is difficult.
 - Preserve the stable Goal 1 APIs.  Put experimental or heavy research
   infrastructure in narrow leaves and promote it to the public root only after
   it has a real downstream theorem and an axiom audit.
+- Do not start Goal 3 implementation before Goal 2 is complete and its clean
+  release evidence is recorded.  Do not duplicate or bypass Goal 2 relations
+  with ad hoc local predicates.
 - Record every new source correction and all transitive effects immediately.
   Preserve unrelated user changes and never track generated build artifacts.
 
@@ -85,6 +98,11 @@ none may remain excluded merely because it is difficult.
 - The traceability checksum is exactly 101 rows: 21 proved as stated, 33
   corrected and proved, 28 partially formalized, 16 intentionally excluded,
   and 3 unresolved.
+- Those counts are the pre-Goal-2 baseline.  Goal 2 is expected to close the two
+  ray rows and may legitimately settle additional semantic obligations; Goal 3
+  Stage 1 must derive its actual worklist and counts after that fold-back.
+- Goal 2 is currently scaffolded but not implemented.  Goal 3 therefore has an
+  explicit unmet prerequisite and must not be executed yet.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix
@@ -120,7 +138,7 @@ none may remain excluded merely because it is difficult.
 
 ## Permitted Closure Outcomes
 
-Every row must finish Goal 2 with one of the following evidence-backed
+Every row must finish Goal 3 with one of the following evidence-backed
 outcomes, recorded in traceability and the new closure ledger:
 
 1. **Proved:** a faithful formal statement is proved.
@@ -137,7 +155,8 @@ outcomes, recorded in traceability and the new closure ledger:
 6. **Open after a completed case study:** allowed only for a genuine source
    research question that was already intentionally excluded, after a precise
    model and a nontrivial formal result have been delivered.  This outcome may
-   not be used for any of the 31 originally partial/unresolved rows.  The
+   not be used for any row that is partial/unresolved at the post-Goal-2 Goal 3
+   baseline.  The
    remaining question must receive a new frontier ID and exact theorem target.
 
 The six labels above are closure-ledger outcomes, not silent replacements for
@@ -151,12 +170,20 @@ gets a new ID.  The checker must enforce this policy.
 
 ## Exact Closure Ledger
 
-The table assigns every one of the 47 rows exactly once.  Stage 1 must verify
-this checksum mechanically before implementation begins.
+The table assigns the expected 45 post-Goal-2 rows exactly once.  Stage 1 must
+replace this forecast with the actual post-Goal-2 worklist and verify its
+checksum mechanically before implementation begins.  Any additional row
+settled by Goal 2 is removed with an explicit dependency record; no row may
+simply disappear.
+
+Expected prerequisite dispositions:
+
+| Goal 2 owner | Transferred rows | Required Goal 2 disposition |
+|---|---|---|
+| Phase/ray classification | `FER03-D01-REBIT`; `FER03-FND-COMPLEX-STATE-RAY` | `closedByGoal2`, with quotient/evolution/outcome theorems and updated canonical traceability status |
 
 | Stage | Traceability rows | Baseline | Required direction |
 |---|---|---:|---|
-| 2-RAYS | `FER03-D01-REBIT`; `FER03-FND-COMPLEX-STATE-RAY` | 2 partial | Actual normalized phase quotients with well-defined evolution and outcomes |
 | 3-DENSITY | `FER03-R-PARTIAL-TRACE-BLOCK-SUM`; `FER03-R-ARBITRARY-TOP-REBIT`; `FER03-Q-ARBITRARY-TOP-QUBIT` | 3 partial | Density matrices, partial trace, and arbitrary mixed uncorrelated tops |
 | 4-FOUNDATIONS | `FER03-FND-LINEAR-ISOMETRY-UNITARY`; `FER03-FND-FINITE-DIM-COMPLETE`; `FER03-FND-REAL-PRESERVERS-ORTHOGONAL`; `FER03-INT-NOT-NPLUS1-REBITS` | 2 partial + 2 excluded | Close background facts and prove the exact linear-dimension limitation |
 | 5-DETERMINANT | `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | 1 partial | Prove the missing `det = 1` branch and the corrected special-unitary image theorem |
@@ -175,14 +202,14 @@ this checksum mechanically before implementation begins.
 | 18-PHYSICALITY | `FER03-INT-RULE-OUT-PHYSICALITY` | 1 excluded | A conditional information-theoretic no-go theorem or formal underdetermination, never a claim about Nature by definition |
 | 19-ALGEBRAS | `FER03-OPEN-OTHER-SCALARS`; `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | 2 excluded | Concrete octonion/finite-field interface results and a precise algebraic-model comparison |
 
-Checksum: partial `2+3+2+1+3+1+4+1+2+5+3+1 = 28`; excluded
+Forecast checksum: partial `3+2+1+3+1+4+1+2+5+3+1 = 26`; excluded
 `2+1+5+2+3+1+2 = 16`; unresolved `1+1+1 = 3`.
 
 ## Dependency Shape
 
 ```text
 1-LEDGER
-  ├─ 2-RAYS ────────────────┐
+  ├─ 2-SEMANTICS ───────────┐
   ├─ 3-DENSITY ─────────────┼─ 14-STRUCTURE ─┬─ 15-MULTIPATH
   ├─ 4-FOUNDATIONS          │                └─ 16-CHANNELS
   ├─ 5-DETERMINANT          │                         └─ 17-PROTOCOLS
@@ -220,11 +247,13 @@ in `0-plan.md` before implementation rather than stretching one stage report.
 
 ## Success Metrics and Verification Requirements
 
-- A machine-checked closure ledger contains all 47 IDs exactly once and no
-  fully proved row accidentally enters the scope.
-- Every one of the 31 original partial/unresolved rows leaves those canonical
-  statuses.  Negative, conditional, or underdetermination resolutions require
-  a proved theorem with precise scope; residual questions receive new IDs.
+- A machine-checked ledger accounts for the immutable 47-row pre-Goal-2 cohort:
+  each ID is either `closedByGoal2` with evidence or appears exactly once in
+  the Goal 3 worklist.  The expected Goal 3 worklist has 45 IDs.
+- Every row partial/unresolved at the Goal 3 baseline—expected 29—leaves those
+  canonical statuses.  Negative, conditional, or underdetermination
+  resolutions require a proved theorem with precise scope; residual questions
+  receive new IDs.
 - Every originally excluded row has new formal evidence or a completed formal
   case study; changing documentation alone is insufficient.
 - All public mathematical results compile with no holes or project axioms and
@@ -253,59 +282,64 @@ mathematics or statuses.
 
 #### Detailed Implementation Plan
 
-- Create `docs/RemainingWork.md` with all 47 IDs, source locators, baseline
-  status, dependencies, intended closure outcome, primary route, fallback, and
-  verification witness.
+- Refuse to begin until Goal 2 is marked complete and its build, audit,
+  classification manifest, traceability fold-back, and downstream smoke
+  evidence are present.
+- Create `docs/RemainingWork.md` accounting for the immutable 47-row cohort:
+  mark each row `closedByGoal2` with evidence or assign it to Goal 3 with its
+  post-Goal-2 status, dependencies, intended closure outcome, primary route,
+  fallback, and verification witness.
 - Re-read the source sections and relevant citations for each hard/external
   item; use primary literature and record versions rather than relying on the
   paper's summaries.
-- Add a small checker that parses traceability and verifies the 101-row status
-  totals, 47-row one-to-one closure assignment, canonical-status/closure-
-  outcome mapping, and the rule that residual open work receives new IDs.
-- Record the clean Goal 1 build/audit baseline and inspect current diffs before
-  any feature work.
+- Add a checker that parses traceability, recomputes current status/correction/
+  audit counts, verifies every pre-Goal-2 ID is closed by Goal 2 or assigned
+  exactly once to Goal 3, validates canonical-status/closure-outcome mapping,
+  and enforces new IDs for residual open work.
+- Record clean Goal 1 and Goal 2 build/audit baselines and inspect current diffs
+  before any feature work.
 
 #### Completion Requirements
 
-- All 47 IDs occur exactly once; category totals are 28/16/3.
+- All 47 cohort IDs are accounted for exactly once.  Forecast Goal 3 totals are
+  45 rows with categories 26/16/3, but the checker-derived post-Goal-2 totals
+  replace the forecast.
 - Every row has a stage, concrete success test, and non-tautological fallback.
 - The closure-outcome taxonomy is mapped unambiguously to the canonical
   traceability statuses and enforced by the checker.
 - Correction dependencies C-001–C-026 are linked where relevant.
 - Baseline builds, audit, scans, and diff state are recorded in `1-LEDGER.md`.
 
-### 2-RAYS
+### 2-SEMANTICS
 
 #### Big Picture Objective
 
-Replace representative-only phase APIs with reusable normalized physical-ray
-types while preserving the sided quaternionic convention.
+Integrate Goal 2's rigorous comparison vocabulary into every remaining Goal 3
+workstream before adding new mathematics.
 
 #### Detailed Implementation Plan
 
-- Add a narrow `State/Ray.lean` defining real unit-sign, complex unit-phase,
-  and quaternionic unit-right-phase setoids on normalized states.
-- Export quotient types, constructors, quotient equality characterizations,
-  representative induction, and nonempty/normalization facts.
-- Descend basis distributions and compatible unitary evolution to the
-  quotients; prove identity and composition laws.
-- State embedding compatibility using the actual induced target symmetry.  If
-  realification is descended, define a distinct top-rotation encoding-orbit
-  relation (for example `RealEncodingOrbit`); otherwise omit that quotient map.
-  Do not falsely identify a complex global phase with mere real sign.
-- Add exact two-coordinate examples distinguishing representative equality,
-  ray equality, and equal computational outcomes.
+- Import the narrow Goal 2 leaves for exact, phase, basis, distribution,
+  channel/all-effect, embedded-simulation, and approximate relations.
+- Map every Goal 3 stage target to the strongest applicable relation and input/
+  observation scope before implementation; flag claims needing a genuinely new
+  relation rather than using vague equality prose.
+- Build wrapper smoke theorems showing that the existing central simulations,
+  ordering witnesses, and distribution results inhabit their Goal 2
+  classifications without changing their mathematical statements.
+- Record how Goal 2 closed the two transferred ray rows and remove any duplicate
+  quotient work from Goal 3.
 
 #### Completion Requirements
 
-- `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` have quotient-level Lean
-  counterparts and updated traceability.
-- Quaternion equality is iff the existing right-phase relation; no left-phase
-  or all-nonzero-scalar quotient is substituted.
-- Evolution and basis distributions are well-defined without choosing a
-  canonical representative.
-- Focused build, adjacent state/simulation builds, examples, and axiom audit
-  pass.
+- Every remaining stage names its comparison relation, phase convention, input
+  scope, observation scope, exact/approximate status, and encoding/marginal
+  policy.
+- No Goal 2 definition is duplicated or weakened by a local Goal 3 predicate.
+- Wrapper smoke theorems compile against the public Goal 2 API and all
+  transferred rows have explicit `closedByGoal2` evidence.
+- Focused semantic-wrapper builds, public-root build, classification checker,
+  and axiom spot-audit pass.
 
 ### 3-DENSITY
 
@@ -925,8 +959,9 @@ research boundary in a form another Lean project can trust and reuse.
 
 #### Detailed Implementation Plan
 
-- Re-run the closure checker and independently review every one of the 47 rows,
-  every new correction, and every dependency effect.
+- Re-run the closure checker and independently review every one of the 47
+  pre-Goal-2 cohort rows, including each `closedByGoal2` disposition, every new
+  correction, and every dependency effect.
 - Stabilize module boundaries, namespace names, public imports, docstrings,
   examples, research/diagnostic separation, and downstream usage guidance.
 - Update README, Architecture, Conventions, Traceability, Corrections,
@@ -936,8 +971,9 @@ research boundary in a form another Lean project can trust and reuse.
 
 #### Completion Requirements
 
-- The 47-row ledger has no unexamined item; all closure outcomes satisfy the
-  rules above and totals reconcile with the 101-row source inventory.
+- The immutable 47-row cohort has no unexamined item; Goal 2 dispositions and
+  Goal 3 closure outcomes satisfy the rules above and totals reconcile with the
+  101-row source inventory.
 - No original partial/unresolved row retains either status.  A corrected,
   negative, conditional, or underdetermination theorem moves it to **corrected
   and proved**; any residual research question receives a new frontier ID.
@@ -953,7 +989,7 @@ research boundary in a form another Lean project can trust and reuse.
 ## Stage Status
 
 - [ ] 1-LEDGER
-- [ ] 2-RAYS
+- [ ] 2-SEMANTICS
 - [ ] 3-DENSITY
 - [ ] 4-FOUNDATIONS
 - [ ] 5-DETERMINANT

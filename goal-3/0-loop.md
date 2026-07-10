@@ -1,6 +1,6 @@
-# Goal 2 Execution Loop
+# Goal 3 Execution Loop
 
-Use this protocol for every stage in `goal-2/0-plan.md`, together with the
+Use this protocol for every stage in `goal-3/0-plan.md`, together with the
 authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 
 ## Repeatable Loop
@@ -8,14 +8,14 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 1. Read `BUILD-PLAN.md`, then sync current state with the actual repository,
    paper source, primary references, build, tests, closure ledger, traceability,
    corrections, prior stage results, and current diff.
-2. Update `goal-2/0-plan.md` with current facts before starting the next stage.
+2. Update `goal-3/0-plan.md` with current facts before starting the next stage.
    If evidence changes a route, dependency, or target, record why.
 3. Select the first dependency-ready incomplete stage or mandatory compiling
    milestone.  Prefer source order among ready work.  If a hard branch has an
    exact recorded obstruction and its declared primary/fallback probes are
    exhausted, keep it incomplete but advance an independent branch; never
    launder the blocker or mark the umbrella stage complete.
-4. Create or refresh `goal-2/[INDEX]-[SHORTHAND].md` from the template below.
+4. Create or refresh `goal-3/[INDEX]-[SHORTHAND].md` from the template below.
 5. Implement only that stage.  Split uncertain work into small compiling API
    probes, explicit theorem obligations, counterexamples, and fallback routes.
 6. Add verification and no-cheating checks that exercise the actual source
@@ -26,7 +26,7 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
    `BUILD-PLAN.md`.
 8. Record exact commands, results, failures, corrections, literature sources,
    assumptions, and learned facts in the stage file.
-9. Fold results back into `goal-2/0-plan.md`, `docs/RemainingWork.md`,
+9. Fold results back into `goal-3/0-plan.md`, `docs/RemainingWork.md`,
    `docs/Traceability.md`, `docs/Corrections.md`, architecture/conventions, and
    all dependent stages.
 10. Continue toward the original objective.  If stopping for a session, leave
@@ -159,7 +159,7 @@ changes shared APIs or claims completion:
 
 ## Completion Requirements
 
-- Requirement-by-requirement checks from `goal-2/0-plan.md`.
+- Requirement-by-requirement checks from `goal-3/0-plan.md`.
 - Closure outcome and evidence for every assigned traceability ID.
 - Required build, executable, scan, axiom-audit, and diff commands.
 - Traceability, correction, architecture, and closure-ledger updates.
@@ -180,7 +180,7 @@ changes shared APIs or claims completion:
 Before stopping:
 
 1. Update the active stage report with exact evidence.
-2. Update `goal-2/0-plan.md` facts and stage status only if all requirements are
+2. Update `goal-3/0-plan.md` facts and stage status only if all requirements are
    met.
 3. Update the closure ledger and source traceability for every touched row.
 4. Record new correction IDs, theorem names, module paths, source references,

@@ -1,7 +1,7 @@
-# Goal 2 Continuation Prompt
+# Goal 3 Continuation Prompt
 
 ```text
-Work autonomously through goal-2/0-plan.md using goal-2/0-loop.md and the
+Work autonomously through goal-3/0-plan.md using goal-3/0-loop.md and the
 authoritative Lean workflow in BUILD-PLAN.md.
 
 The objective is to tackle every remaining item from the verified Lean
