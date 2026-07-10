@@ -169,6 +169,52 @@ and implies each scalar-specific phase relation. No Stage 3A result upgrades
 `FER03-D01-REBIT` or `FER03-FND-COMPLEX-STATE-RAY` to a completed quotient
 result.
 
+## Stage 3B proof-bearing realization
+
+Stage 3B adds same-space real and complex operator/circuit phase vocabulary.
+It does not enlarge the frozen Goal 1 cohort. Every new stable declaration is
+instead recorded in the separate Goal 2 semantic API manifest.
+
+| Relation family | Checked meaning | Valid checked consequences | Deliberately excluded upgrade |
+|---|---|---|---|
+| `RealGlobalSignEq` / `ComplexGlobalPhaseEq` | `V = η • U` for one matrix-wide unit sign/phase | Input-column phase, output-row phase, projective action, and simultaneous unitary membership | Not literal equality, channel equality, or cross-model equality |
+| `RealInputBasisSignEq` / `ComplexInputBasisPhaseEq` | One right phase per computational-basis input column | `BasisMeasurementEq`; preservation by a common later operator/circuit | Not all-pure-input agreement or projective action |
+| `RealOutputBasisSignEq` / `ComplexOutputBasisPhaseEq` | One left phase per output row | `BasisMeasurementEq`, `PureInputBasisMeasurementEq`, and preservation by a common earlier operator/circuit | Not projective action or channel equality |
+| `RealProjectiveActionEq` / `ComplexProjectiveActionEq` | Raw output rays agree for every normalized pure input | `PureInputBasisMeasurementEq`; common-later preservation; common-earlier preservation under unitarity | No output-normalization claim and no channel theorem |
+| Eight `*Circuit*Eq` wrappers | The corresponding relation on `OrderedCircuit.eval` | Equivalence laws, exact-to-global lifts, and chronology-correct congruences | No gate-list, resource, schedule, embedding, or compiler equality |
+
+The checked forward shape is therefore not one total chain:
+
+```text
+ExactOperatorEq
+       |
+       v
+real/complex global phase
+   /          |           \
+  v           v            v
+input phase  output phase  projective action
+  |           |                 |
+  v           v                 v
+BasisMeasurementEq     PureInputBasisMeasurementEq
+```
+
+`OperatorPhase.ComplexRealAudit.real_unitary_strictness` and
+`complex_unitary_strictness` use the unitary rotation
+`[[3/5,4/5],[-4/5,3/5]]`. They prove exact equality is strictly stronger than
+global phase; global phase is strictly stronger than either basis-sided phase;
+input and output phase are incomparable; input phase can change a
+superposed-input basis distribution; and output phase can preserve every
+pure-input basis distribution while failing projective action. The zero-wire
+`-1` and `I` circuit witnesses separately prove nontrivial circuit global phase
+without exact circuit equality.
+
+Projective action is meaningful without assuming the operator preserves
+normalization, but it is vacuous on an empty input type because there is no
+normalized input. Later converse and kernel characterizations must state
+positive-cardinality/nonempty and unitarity hypotheses explicitly. Stage 3B
+publishes no quaternionic operator phase; Stage 3C owns the central-sign kernel
+and the rank-one exception.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

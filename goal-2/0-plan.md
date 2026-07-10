@@ -109,17 +109,17 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current release has 50 Lean sources. Clean public-root and explicit audit
-  builds pass; 217 audited endpoints use only `propext`, `Classical.choice`,
+- The current tree has 53 Lean sources. Clean public-root, full, and explicit
+  audit builds pass; 251 audited endpoints use only `propext`, `Classical.choice`,
   and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
   diagnostic consumers.
-- `Complex.RightPhaseEquivalent` and `Quaternion.RightPhaseEquivalent` exist
-  for state columns and are proved equivalence relations.  They preserve basis
-  weights and compatible evolution.  No real sign relation or normalized ray
-  quotient type currently completes the three-scalar picture.
+- Real sign, complex right phase, and quaternion right phase exist for state
+  columns and are proved equivalence relations. They preserve basis weights
+  and compatible evolution. No normalized ray quotient type yet completes the
+  three-scalar picture.
 - `FiniteDistribution` packages normalized outcome weights, finite events, and
   deterministic pushforwards. Stage 2 now separates fixed-input
   `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, all-normalized-pure-
@@ -133,8 +133,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   one specified input while disproving right-ray equality.  It is not an
   all-input circuit-equivalence theorem.
 - The library has no generic density matrix, physical effect, unitary channel,
-  `ChannelEq`, `AllMeasurementEq`, input/output basis-phase, certified basis-
-  behavior, or operator-distance API.
+  `ChannelEq`, `AllMeasurementEq`, certified basis behavior, or
+  operator-distance API.
 - Pinned mathlib provides matrix positive-semidefiniteness, matrix order, trace,
   finite-dimensional linear algebra, and continuous-linear-map norms, but API
   probes are required before choosing representations.
@@ -146,9 +146,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 133 unique
-  Stage 2/3A declarations, each with seven semantic axes and a named downstream
-  consumer. The frozen Goal 1 cohort and checksum remain unchanged.
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 283 unique
+  Stage 2/3A/3B declarations, each with seven semantic axes and a named
+  downstream consumer. All names resolve through the public root, 35 distinct
+  diagnostic consumers resolve, and 65 entries are direct release-audit
+  targets. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
   physical-effect separation route, finite basis columns, and the scoped L2
@@ -161,20 +163,25 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   vocabulary without importing the diagnostic leaf.
 - Stage 3A review found that the old quaternionic `phaseWitnessInput = (1,1)`
   has total weight `2`, so `EQC-001` incorrectly called that existing raw-column
-  witness normalized. A strict probe recovers the normalized counterexample
-  with amplitudes `3/5` and `4/5`; Stage 3A must add that certificate and repair
-  the evidence wording while preserving the frozen cohort membership.
+  witness normalized. The implemented normalized counterexample uses
+  amplitudes `3/5` and `4/5`; the evidence wording is repaired while the frozen
+  cohort membership and checksum remain unchanged.
 - Stage 3A now supplies real sign, complex right-phase, and quaternionic strict
   right-phase equivalence on normalized representatives, with exact-to-phase,
   basis-distribution, raw matrix/circuit, and normalized unitary-evolution
   theorems. The normalized `3/5,4/5` left-phase rejection certificate repairs
   `EQC-001`. Quotient equality and descended operations remain owned by Stage
   4, so the two transferred ray rows are not yet `closedByGoal2`.
-- A strict Stage 3B prototype validates eight distinct real/complex global,
-  input-column, output-row, and projective-action relations; their equivalence
-  laws; exact/global/measurement arrows; global-phase unitarity; and sided
-  matrix/circuit composition. Common-later and common-earlier composition are
-  asymmetric, and projective common-earlier evolution requires unitarity.
+- Stage 3B now exports eight distinct real/complex global, input-column,
+  output-row, and projective-action operator relations plus eight evaluator-
+  backed circuit relations. Their equivalence laws, exact/global/measurement
+  arrows, global-phase unitarity, and sided matrix/circuit composition compile.
+  Common-later and common-earlier composition are asymmetric, and projective
+  common-earlier evolution requires unitarity. Rational unitary witnesses prove
+  exact/global strictness, basis-side incomparability, superposition
+  sensitivity, and output-measurement/projective separation. Projective action
+  is vacuous on an empty input type, so later converses retain explicit
+  positive-cardinality/nonempty hypotheses.
 
 ## Inventory and Manifest Policy
 
@@ -484,7 +491,7 @@ reintroducing the paper's quaternionic left-phase error.
 #### Mandatory Milestone Status
 
 - [x] `3A-STATEPHASE`
-- [ ] `3B-COMPLEXREAL`
+- [x] `3B-COMPLEXREAL`
 - [ ] `3C-QUATERNION`
 
 ### 4-RAYS

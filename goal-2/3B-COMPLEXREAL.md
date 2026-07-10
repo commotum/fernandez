@@ -92,7 +92,7 @@ input-column phase, output-row phase, projective action, or basis measurement.
 ## Build Structure
 
 - `Semantics/OperatorPhase/ComplexReal.lean`: stable real/complex operator,
-  basis, projective, and circuit phase API.
+  basis-sided, and projective phase API.
 - `Semantics/OperatorPhase/ComplexRealCircuit.lean`: sided multiplication and
   chronological-circuit wrappers/congruence laws; no diagnostics.
 - `Semantics/OperatorPhase/ComplexRealAudit.lean`: examples, scope consumers, and

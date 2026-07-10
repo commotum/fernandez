@@ -9,8 +9,9 @@
 
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
-(`quant-ph/0307017v2`) as a reusable Lean library.  The release contains 44
-Lean source files, including the public root and executable axiom audit.
+(`quant-ph/0307017v2`) as a reusable Lean library. The current tree contains
+53 Lean source files, including the public root, executable axiom audit, and
+non-root semantic diagnostic leaves.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -34,6 +35,25 @@ or an unsafe shortcut.
   norm-preserving gate and replaced by unit phase on the right.
 - Complex and quaternionic right-phase relations preserve normalization,
   basis weights, total weight, and compatible matrix evolution.
+
+### Semantic equality and phase
+
+- Literal operator equality and chronological-circuit evaluator equality have
+  separate names from every observational or phase relation.
+- Fixed-input, all-basis-input, and all-normalized-pure-input basis agreement
+  are separate predicates, with finite distributions, events, and
+  deterministic pushforwards downstream.
+- Real and complex operators and evaluated circuits have distinct global,
+  input-column, output-row, and all-pure-input projective-action relations.
+- Global phase implies both sided basis phases and projective action. Input
+  phase implies basis-input agreement; output phase and projective action imply
+  all-pure-input basis agreement.
+- Sided composition laws follow chronological order. A common earlier
+  projective evolution requires unitarity, and no arbitrary two-sided closure
+  or channel conclusion is exported.
+- Rational unitary witnesses certify exact/global strictness, input/output
+  incomparability, superposition sensitivity, and the separation between
+  output-basis probabilities and output rays.
 
 ### Matrix embeddings and groups
 
@@ -131,6 +151,7 @@ Representative exported declarations include:
 |---|---|
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
 | State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, their equivalence/distribution theorems, and their raw-matrix/circuit and normalized-unitary preservation laws |
+| Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations, their `*Circuit*Eq` wrappers, measurement arrows, and sided composition laws |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
 | Quaternion → complex matrices | `Quaternion.complexify`, `complexify_mul`, `complexify_conjTranspose`, `complexify_mem_unitary`, `complexify_mem_symplectic` |
 | Direct quaternion → real | `Quaternion.directRealify`, `directRealify_eq_reindex`, `directRealify_mem_specialOrthogonal`, `directRealifyUnitaryEquivImage` |
@@ -239,19 +260,25 @@ lake build
 lake build QuaternionicComputing.AxiomAudit
 ```
 
-Before the final run, `lake clean quaternionicComputing` removed the root
-package's old build directory.  The fresh public-root build completed 2,553
-jobs and rebuilt all 43 modules in that closure; the explicit audit target then
-compiled the 44th source and also completed 2,553 jobs.  Together these two
-commands cover every current Lean source.  Existing dependency checkouts were
-clean and their HEADs matched the manifest; network bootstrap from a brand-new
-clone was not rerun in this restricted environment.
+The Stage 3B verification run completed adjacent builds (2,352 jobs), all
+three operator-phase targets including the diagnostic leaf (2,355 jobs), the
+public root (2,559 jobs), the explicit axiom audit (2,559 jobs), and the full
+cached project build (2,559 jobs). Together these commands cover all 53 current
+Lean sources. Existing dependency checkouts remained pinned by the manifest;
+network bootstrap from a brand-new clone was not rerun in this restricted
+environment.
 
-Warning-as-error source checks passed for the phase owner, public root, and
-audit. The executable audit now contains 217 `#print axioms` commands; every
-audited endpoint uses only
+Warning-as-error source checks passed for both stable operator-phase leaves,
+the diagnostic leaf, public root, and audit. The executable audit now contains
+251 `#print axioms` commands; every audited endpoint uses only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.
+
+The independent Goal 2 semantic manifest contains exactly 283 declarations:
+61 from Stage 2, 72 from Stage 3A, and 150 from Stage 3B. All seven semantic
+axes are present, all names resolve through the public root, 35 real diagnostic
+consumers resolve, and 65 manifest entries are direct root-audit targets. The
+frozen 936-declaration Goal 1 cohort checksum remains unchanged.
 
 The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported
 only `QuaternionicComputing`, checked representative scalar, matrix, state,

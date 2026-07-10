@@ -267,10 +267,10 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.append_same_later
 #print axioms
   QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.append_same_later
-#print axioms
-  QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
-#print axioms
-  QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+set_option linter.style.longLine false in
+#print axioms QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+set_option linter.style.longLine false in
+#print axioms QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
 
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
