@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Lean/Lake build artifacts
+.lake/
+*.olean
+*.ilean
+
+# macOS metadata
+.DS_Store
