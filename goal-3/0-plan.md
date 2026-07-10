@@ -107,7 +107,12 @@ none may remain excluded merely because it is difficult.
   Stage 1 must derive its actual worklist and counts after that fold-back.
 - Goal 2 implementation is active: its inventory, exact/measurement core,
   normalized representative phase layer, real/complex operator-phase layer,
-  and quaternionic operator-phase classification are complete. The
+  quaternionic operator-phase classification, and normalized ray-quotient core
+  are complete. `RealRay`, `ComplexRay`, and `QuaternionRay` have exact
+  scalar-correct quotient equality and exact nonempty/empty index boundaries,
+  but descended evolution/outcomes and the embedding-orbit boundary remain
+  Goal 2 Stage 4B/4C obligations. Therefore `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` are not yet `closedByGoal2`. The
   quaternionic layer proves the side-correct five-relation vocabulary,
   raw/normalized bridge, dimension-at-least-two central-sign kernel, and full
   unit-quaternion rank-one exception. Later Goal 2 stages remain an explicit

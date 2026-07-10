@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean`.  It imports only
-the public root and runs 264 `#print axioms` commands covering representative
+the public root and runs 272 `#print axioms` commands covering representative
 endpoints from every public layer:
 
 - quaternion scalar decomposition and phase correction;
@@ -51,9 +51,15 @@ local axiom prints sample five of those aggregates plus the three side-order
 and central-sign diagnostics; they include the generic raw/normalized bridge,
 the dimension-two kernel, and the rank-one exception. The generic bridge proof
 itself covers the empty-input zero-column case; this diagnostic leaf does not
-contain a separate `Empty` specialization. The 264-command count above is the
+contain a separate `Empty` specialization. The 272-command count above is the
 independent public-root audit count and does not fold these diagnostic-only
 commands into it.
+
+`State/RayAudit.lean` is likewise non-root. Four aggregate consumers cover all
+40 stable Stage 4A declarations, while seven local axiom prints sample those
+aggregates and the concrete rebit `-1`, qubit `I`, and quaterbit right-`j`
+constructor equalities. The 272-command root count includes eight independent
+public-ray endpoints but excludes these diagnostic-only prints.
 
 ## Release result
 

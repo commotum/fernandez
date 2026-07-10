@@ -27,6 +27,7 @@ QuaternionicComputing/
     RealPhase.lean           real `±1` ray relation and invariance
     ComplexPhase.lean        complex unit-phase equivalence and invariance
     Ray.lean                 normalized phase quotients and index boundary
+    RayAudit.lean            non-root quotient consumers and edge examples
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
@@ -162,6 +163,10 @@ inhabited exactly when its finite index type is inhabited, while explicit
 `IsEmpty` instances rule out normalized rays on `Empty`. Stage 4A contains no
 descended evolution or outcome maps and no cross-model map from a source ray to
 one canonical target ray; those are separate Stage 4B/4C obligations.
+`State/RayAudit.lean` stays outside the public root and exercises the full
+stable quotient surface through scalar-specific aggregate consumers, the
+inhabitation boundary, and concrete rebit `-1`, qubit `I`, and quaterbit
+right-`j` equalities.
 
 Outcome preservation is proved coordinatewise:
 

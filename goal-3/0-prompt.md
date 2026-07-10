@@ -33,6 +33,11 @@ noncommutativity and chronology, count physical routing and synthesis, and do
 not infer entanglement, signaling, security, causality, or physicality without
 explicit definitions and proofs.
 
+Do not count Goal 2's ray quotient constructors alone as closure of the two
+transferred ray rows. Require the recorded descended evolution and outcome
+operations plus the checked cross-model embedding boundary before marking
+either row `closedByGoal2`.
+
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;
 choose the first dependency-ready incomplete stage or mandatory compiling

@@ -402,7 +402,7 @@ Three boundaries are mandatory:
 - an empty index type has no trace-one density matrix.  Channel theorems must
   state a nonempty hypothesis where existence of physical inputs is used.
 
-## Goal 2 state-phase and quotient preparation
+## Goal 2 state phase and normalized ray quotients
 
 The real sign characterization uses mathlib's `sq_eq_one_iff`; after rewriting
 `pow_two`, it gives `s * s = 1 ↔ s = 1 ∨ s = -1` with no positivity or

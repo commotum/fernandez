@@ -10,7 +10,7 @@
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library. The current tree contains
-57 Lean source files, including the public root, executable axiom audit, and
+59 Lean source files, including the public root, executable axiom audit, and
 non-root semantic diagnostic leaves.
 
 The paper was treated as a mathematical source rather than a specification.
@@ -275,7 +275,10 @@ Important partial boundaries include mixed top states, generic density/partial
 trace infrastructure, physical swap synthesis and routing cost, uniform
 circuit generators, finite scalar encodings, approximation/error accumulation,
 generic unitary synthesis, randomized postprocessing, preprocessing runtime,
-and BQP containment.
+and BQP containment. The normalized ray quotient core is present, but its
+evolution/outcome descent and the embedding-orbit obstruction remain pending
+Stages 4B/4C; accordingly the rebit and complex-state-ray source rows remain
+partial.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -301,23 +304,29 @@ tree. Stage 3C separately completed a focused build of the quaternionic
 kernel (2,354 jobs), the non-root quaternionic diagnostic leaf (2,356 jobs),
 and the public root (2,562 jobs), plus strict warning-as-error checks of the
 three public quaternionic leaves, root, diagnostic leaf, and axiom audit.
-Together the current project has 57 Lean sources, 56 below
-`QuaternionicComputing/` plus the public root. Existing dependency checkouts
+That completed the 57-source Stage 3C tree. Stage 4A adds the public ray core
+and its non-root diagnostic leaf. Focused builds completed 2,346 jobs for
+`State.Ray` and 2,347 for `State.RayAudit`; the public root completed 2,563,
+and the combined ray/audit/root/axiom target completed 2,565. The current
+project therefore has 59 Lean sources, 58 below `QuaternionicComputing/` plus
+the public root. Existing dependency checkouts
 remained pinned by the manifest; network bootstrap from a brand-new clone was
 not rerun in this restricted environment.
 
-Warning-as-error source checks passed for the stable operator-phase leaves,
-their diagnostic leaves, public root, and audit. The executable root audit now
-contains 264 `#print axioms` commands; every audited endpoint uses only
+Warning-as-error source checks passed for the stable operator-phase and ray
+leaves, their diagnostic leaves, public root, axiom audit, and the Stage 4B
+descent probe. The executable root audit now contains 272 `#print axioms`
+commands; all seven local ray-audit prints and every root endpoint use only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.
 
-The independent Goal 2 semantic manifest contains exactly 384 declarations:
+The independent Goal 2 semantic manifest contains exactly 424 declarations:
 61 from Stage 2, 72 from Stage 3A, 150 from Stage 3B, and 101 from Stage 3C
-(44 operator-core, 43 circuit, and 14 kernel declarations). All seven semantic
-axes are present, all names resolve through the public root, 46 real diagnostic
-consumers resolve, and 78 manifest entries are direct root-audit targets. The
-frozen 936-declaration Goal 1 cohort checksum remains unchanged.
+(44 operator-core, 43 circuit, and 14 kernel declarations), plus 40 from Stage
+4A. All seven semantic axes are present, all names resolve through the public
+root, 50 real diagnostic consumers resolve, and 86 manifest entries are direct
+root-audit targets. The frozen 936-declaration Goal 1 cohort checksum remains
+unchanged.
 
 The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported
 only `QuaternionicComputing`, checked representative scalar, matrix, state,
@@ -339,6 +348,9 @@ open QuaternionicComputing
 #check Matrix.realify
 #check Quaternion.complexify
 #check Quaternion.directRealify
+#check State.RealRay
+#check State.ComplexRay.mk_eq_mk_iff
+#check State.quaternionRay_nonempty_iff
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation

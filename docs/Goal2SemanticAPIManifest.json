@@ -6169,6 +6169,646 @@
         "exactness": "exact statement",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realRaySetoid",
+      "relation": "normalized real state phase setoid",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "setoid on normalized real state representatives",
+        "inputScope": "every pair of normalized real representatives over I; no operator or dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact setoid relation given by Real.SignEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.complexRaySetoid",
+      "relation": "normalized complex state phase setoid",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "setoid on normalized complex state representatives",
+        "inputScope": "every pair of normalized complex representatives over I; no operator or dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact setoid relation given by Complex.RightPhaseEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.quaternionRaySetoid",
+      "relation": "normalized quaternionic state phase setoid",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "setoid on normalized quaternionic state representatives",
+        "inputScope": "every pair of normalized quaternionic representatives over I; no operator or dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact setoid relation given by Quaternion.RightPhaseEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay",
+      "relation": "normalized real ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "quotient type of normalized real state representatives",
+        "inputScope": "all normalized representatives over finite I; the quotient has no values exactly when I is empty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact Lean Quotient by realRaySetoid",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay",
+      "relation": "normalized complex ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "quotient type of normalized complex state representatives",
+        "inputScope": "all normalized representatives over finite I; the quotient has no values exactly when I is empty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact Lean Quotient by complexRaySetoid",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay",
+      "relation": "normalized quaternionic ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "quotient type of normalized quaternionic state representatives",
+        "inputScope": "all normalized representatives over finite I; the quotient has no values exactly when I is empty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact Lean Quotient by quaternionRaySetoid",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RebitRay",
+      "relation": "two-level normalized real ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "Bool-indexed two-level normalized real state space",
+        "subject": "paper-facing alias for RealRay Bool",
+        "inputScope": "all normalized two-coordinate real representatives; Bool is inhabited",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact type abbreviation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QubitRay",
+      "relation": "two-level normalized complex ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "Bool-indexed two-level normalized complex state space",
+        "subject": "paper-facing alias for ComplexRay Bool",
+        "inputScope": "all normalized two-coordinate complex representatives; Bool is inhabited",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact type abbreviation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaterbitRay",
+      "relation": "two-level normalized quaternionic ray quotient",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "Bool-indexed two-level normalized quaternionic state space",
+        "subject": "paper-facing alias for QuaternionRay Bool",
+        "inputScope": "all normalized two-coordinate quaternionic representatives; Bool is inhabited",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact type abbreviation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.mk",
+      "relation": "normalized real representative to ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "quotient constructor for normalized real state rays",
+        "inputScope": "one supplied normalized representative",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.mk_eq_mk_iff",
+      "relation": "real ray equality iff phase equivalence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "equality of normalized real ray constructors",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact iff between quotient equality and Real.SignEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.mk_eq_mk_iff_eq_or_eq_neg",
+      "relation": "real ray equality iff equal or negated representatives",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "equality of normalized real ray constructors",
+        "inputScope": "every pair of normalized real representatives",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "the only square-one real phases are +1 and -1",
+        "exactness": "exact iff with literal column equality or pointwise negation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.exists_rep",
+      "relation": "normalized real ray representative existence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "representative theorem for normalized real ray quotients",
+        "inputScope": "every quotient value",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact existence of an already-normalized representative whose constructor equals the ray",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.inductionOn",
+      "relation": "normalized real ray representative induction",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I",
+        "subject": "propositional eliminator for normalized real ray quotients",
+        "inputScope": "every quotient value and every proposition proved on all normalized constructors",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact quotient induction principle",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.lift",
+      "relation": "phase-invariant descent from normalized real states",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I; arbitrary target sort B",
+        "subject": "data eliminator for normalized real ray quotients",
+        "inputScope": "every function on normalized representatives equipped with an explicit phase-respectfulness proof",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact quotient lift; no particular observable or evolution is selected",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.lift_mk",
+      "relation": "normalized real ray lift beta law",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I; arbitrary target sort B",
+        "subject": "computation rule for phase-invariant quotient lifts",
+        "inputScope": "every normalized representative and every phase-respecting lifted function",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "definitional exact equality on quotient constructors",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.RealRay.function_ext",
+      "relation": "normalized real ray function extensionality",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.realRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.realRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized real representatives in State.RealState I; arbitrary target sort B",
+        "subject": "extensional equality of functions out of normalized real rays",
+        "inputScope": "every pair of functions agreeing on every normalized constructor",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact function equality derived by quotient induction",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.mk",
+      "relation": "normalized complex representative to ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "quotient constructor for normalized complex state rays",
+        "inputScope": "one supplied normalized representative",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.mk_eq_mk_iff",
+      "relation": "complex ray equality iff phase equivalence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "equality of normalized complex ray constructors",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact iff between quotient equality and Complex.RightPhaseEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.exists_rep",
+      "relation": "normalized complex ray representative existence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "representative theorem for normalized complex ray quotients",
+        "inputScope": "every quotient value",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact existence of an already-normalized representative whose constructor equals the ray",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.inductionOn",
+      "relation": "normalized complex ray representative induction",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I",
+        "subject": "propositional eliminator for normalized complex ray quotients",
+        "inputScope": "every quotient value and every proposition proved on all normalized constructors",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient induction principle",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.lift",
+      "relation": "phase-invariant descent from normalized complex states",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I; arbitrary target sort B",
+        "subject": "data eliminator for normalized complex ray quotients",
+        "inputScope": "every function on normalized representatives equipped with an explicit phase-respectfulness proof",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact quotient lift; no particular observable or evolution is selected",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.lift_mk",
+      "relation": "normalized complex ray lift beta law",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I; arbitrary target sort B",
+        "subject": "computation rule for phase-invariant quotient lifts",
+        "inputScope": "every normalized representative and every phase-respecting lifted function",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "definitional exact equality on quotient constructors",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.ComplexRay.function_ext",
+      "relation": "normalized complex ray function extensionality",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.complexRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.complexRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized complex representatives in State.ComplexState I; arbitrary target sort B",
+        "subject": "extensional equality of functions out of normalized complex rays",
+        "inputScope": "every pair of functions agreeing on every normalized constructor",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact function equality derived by quotient induction",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.mk",
+      "relation": "normalized quaternionic representative to ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "quotient constructor for normalized quaternionic state rays",
+        "inputScope": "one supplied normalized representative",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient constructor",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.mk_eq_mk_iff",
+      "relation": "quaternionic ray equality iff phase equivalence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "equality of normalized quaternionic ray constructors",
+        "inputScope": "every pair of normalized representatives",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact iff between quotient equality and Quaternion.RightPhaseEquivalent",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.exists_rep",
+      "relation": "normalized quaternionic ray representative existence",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "representative theorem for normalized quaternionic ray quotients",
+        "inputScope": "every quotient value",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact existence of an already-normalized representative whose constructor equals the ray",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.inductionOn",
+      "relation": "normalized quaternionic ray representative induction",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I",
+        "subject": "propositional eliminator for normalized quaternionic ray quotients",
+        "inputScope": "every quotient value and every proposition proved on all normalized constructors",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient induction principle",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.lift",
+      "relation": "phase-invariant descent from normalized quaternionic states",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I; arbitrary target sort B",
+        "subject": "data eliminator for normalized quaternionic ray quotients",
+        "inputScope": "every function on normalized representatives equipped with an explicit phase-respectfulness proof",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact quotient lift; no particular observable or evolution is selected",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.lift_mk",
+      "relation": "normalized quaternionic ray lift beta law",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.quaternionRay_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I; arbitrary target sort B",
+        "subject": "computation rule for phase-invariant quotient lifts",
+        "inputScope": "every normalized representative and every phase-respecting lifted function",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "definitional exact equality on quotient constructors",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.QuaternionRay.function_ext",
+      "relation": "normalized quaternionic ray function extensionality",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.quaternionRay_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite index type I and normalized quaternionic representatives in State.QuaternionState I; arbitrary target sort B",
+        "subject": "extensional equality of functions out of normalized quaternionic rays",
+        "inputScope": "every pair of functions agreeing on every normalized constructor",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact function equality derived by quotient induction",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realRayNonempty",
+      "relation": "nonempty finite index gives a normalized real ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit Nonempty I instance",
+        "subject": "Nonempty instance for RealRay I",
+        "inputScope": "one classically chosen index used only to build a private normalized basis representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact existence of a quotient value from a classically chosen index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.complexRayNonempty",
+      "relation": "nonempty finite index gives a normalized complex ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit Nonempty I instance",
+        "subject": "Nonempty instance for ComplexRay I",
+        "inputScope": "one classically chosen index used only to build a private normalized basis representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact existence of a quotient value from a classically chosen index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.quaternionRayNonempty",
+      "relation": "nonempty finite index gives a normalized quaternionic ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit Nonempty I instance",
+        "subject": "Nonempty instance for QuaternionRay I",
+        "inputScope": "one classically chosen index used only to build a private normalized basis representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact existence of a quotient value from a classically chosen index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realRayIsEmpty",
+      "relation": "empty finite index has no normalized real ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit IsEmpty I instance",
+        "subject": "IsEmpty instance for RealRay I",
+        "inputScope": "every alleged ray value is eliminated through a normalized representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact emptiness from the contradiction that the empty total-weight sum would equal one",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.complexRayIsEmpty",
+      "relation": "empty finite index has no normalized complex ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit IsEmpty I instance",
+        "subject": "IsEmpty instance for ComplexRay I",
+        "inputScope": "every alleged ray value is eliminated through a normalized representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact emptiness from the contradiction that the empty total-weight sum would equal one",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.quaternionRayIsEmpty",
+      "relation": "empty finite index has no normalized quaternionic ray",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RayAudit.rayInhabitation_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite index type I with an explicit IsEmpty I instance",
+        "subject": "IsEmpty instance for QuaternionRay I",
+        "inputScope": "every alleged ray value is eliminated through a normalized representative; no dynamic input",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact emptiness from the contradiction that the empty total-weight sum would equal one",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.realRay_nonempty_iff",
+      "relation": "normalized real ray nonemptiness iff index nonemptiness",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "every finite index type I, including Empty",
+        "subject": "exact existence boundary for RealRay I",
+        "inputScope": "all finite index types; no ray exists at Empty and a normalized basis ray exists when I is nonempty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one square-one real sign s with s*s=1; the central scalar is written on the right",
+        "exactness": "exact iff between Nonempty (RealRay I) and Nonempty I",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.complexRay_nonempty_iff",
+      "relation": "normalized complex ray nonemptiness iff index nonemptiness",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "every finite index type I, including Empty",
+        "subject": "exact existence boundary for ComplexRay I",
+        "inputScope": "all finite index types; no ray exists at Empty and a normalized basis ray exists when I is nonempty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one complex scalar eta on the right with Complex.normSq eta = 1",
+        "exactness": "exact iff between Nonempty (ComplexRay I) and Nonempty I",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.quaternionRay_nonempty_iff",
+      "relation": "normalized quaternionic ray nonemptiness iff index nonemptiness",
+      "owner": "goal-2/4A-QUOTIENTS",
+      "consumer": "QuaternionicComputing.State.RayAudit.rayInhabitation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "every finite index type I, including Empty",
+        "subject": "exact existence boundary for QuaternionRay I",
+        "inputScope": "all finite index types; no ray exists at Empty and a normalized basis ray exists when I is nonempty",
+        "observationScope": "none; Stage 4A defines normalized ray identity and elimination only, not basis weights, distributions, effects, channels, or dynamics",
+        "phase": "one quaternion eta strictly on the right with Quaternion.normSq eta = 1; left quaternion phase is excluded",
+        "exactness": "exact iff between Nonempty (QuaternionRay I) and Nonempty I",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }
