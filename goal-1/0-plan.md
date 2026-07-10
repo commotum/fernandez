@@ -100,6 +100,20 @@ disposition, and the pinned project builds and passes its axiom audit without
 - The real state leaf also proves the canonical reduced rank-one matrices are
   equal.  A generic mixed-density/partial-trace API remains optional and is not
   needed by the central ordered pure-state simulations.
+- Stage 5 completed on 2026-07-09.  The library now has locality-certified
+  placed gates on arbitrary finite supports, noncommutative-safe contextual
+  placement, chronological reverse-product evaluation, circuit unitarity, and
+  one-added-wire placed-gate translations for both embeddings.
+- `wireRealify_place` and `wireComplexify_place` discharge the paper's missing
+  local padding/naturality obligations against the actual placement
+  definition.  Both translated gates preserve the old bottom support and
+  complement, increase local arity by exactly one, and preserve local
+  unitarity.
+- The public order audit was independently strengthened from a symmetric
+  noncommutation inequality to fixed values: the unique entry after
+  chronological quaternion gates `[i,j]` is `-k`, while `[j,i]` gives `k`.
+  Thus it detects a global evaluator-order reversal rather than merely
+  distinguishing the two lists.
 
 ## Current Assumptions to Test
 
@@ -114,9 +128,9 @@ disposition, and the pinned project builds and passes its axiom audit without
   introduced only if they add a separately useful theorem.
 - Exact gate-count and arity bounds are likely formalizable.  Depth and
   asymptotic encoding claims may require extra models or corrected scope.
-- The sum-indexed matrix and state embeddings can be transported to a
-  distinguished `Bool` circuit wire by reindexing; Stage 5 must prove that this
-  wrapper is natural with local gate placement rather than assuming it.
+- **Confirmed:** the sum-indexed matrix embeddings transport to the explicit
+  distinguished wire `AddedWire W := Unit ⊕ W`; the wire wrappers are
+  multiplicative/star-preserving and natural with actual local placement.
 
 ## Success Metrics and Verification Requirements
 
@@ -448,8 +462,8 @@ without learning the paper's original organization.
 - [x] 2-SCALARS — completed 2026-07-09
 - [x] 3-MATRICES — completed 2026-07-09
 - [x] 4-STATES — completed 2026-07-09
-- [ ] 5-CIRCUITS — in progress
-- [ ] 6-SIMULATION
+- [x] 5-CIRCUITS — completed 2026-07-09
+- [ ] 6-SIMULATION — in progress
 - [ ] 7-ORDERING
 - [ ] 8-RESOURCES
 - [ ] 9-COVERAGE

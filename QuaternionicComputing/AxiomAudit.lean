@@ -65,3 +65,24 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.State.complexColumn0_bottomWeight
 #print axioms QuaternionicComputing.State.complexColumn1_bottomWeight
 #print axioms QuaternionicComputing.State.complexTopCombination_bottomWeight_of_qubit
+
+#print axioms QuaternionicComputing.Circuit.kronecker_one_mul
+#print axioms QuaternionicComputing.Circuit.place_mul
+#print axioms QuaternionicComputing.Circuit.place_mem_unitary
+#print axioms QuaternionicComputing.Circuit.supportSplit
+#print axioms QuaternionicComputing.Circuit.PlacedGate.denote_mem_unitary
+#print axioms QuaternionicComputing.Circuit.OrderedCircuit.eval_append
+#print axioms QuaternionicComputing.Circuit.OrderedCircuit.eval_map_of_denote_eq
+#print axioms QuaternionicComputing.Circuit.OrderedCircuit.eval_mem_unitary
+#print axioms QuaternionicComputing.Circuit.OrderSanity.eval_i_then_j_entry
+#print axioms QuaternionicComputing.Circuit.OrderSanity.eval_j_then_i_entry
+
+#print axioms QuaternionicComputing.Circuit.wireRealify_place
+#print axioms QuaternionicComputing.Circuit.realifyPlacedGate_denote
+#print axioms QuaternionicComputing.Circuit.localArity_realifyPlacedGate
+#print axioms QuaternionicComputing.Circuit.isLocallyUnitary_realifyPlacedGate
+
+#print axioms QuaternionicComputing.Circuit.wireComplexify_place
+#print axioms QuaternionicComputing.Circuit.complexifyPlacedGate_denote
+#print axioms QuaternionicComputing.Circuit.localArity_complexifyPlacedGate
+#print axioms QuaternionicComputing.Circuit.isLocallyUnitary_complexifyPlacedGate

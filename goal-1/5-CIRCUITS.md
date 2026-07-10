@@ -49,7 +49,8 @@ after adding one distinguished wire.
   same-index reindexing of `U ⊗ₖ 1`.
 - Prove the exact entry formula: the local matrix entry is used when complement
   assignments agree, otherwise the entry is zero.  Prove identity,
-  multiplication, adjoint/star, injectivity for inhabited complement, and
+  multiplication, adjoint/star, injectivity without a complement-inhabited
+  hypothesis, and
   unitarity preservation without coefficient commutativity.
 - Provide a finite-support constructor from `L ↪ W` (or a comparably clear
   support abstraction) and prove that it realizes arbitrary noncontiguous
@@ -76,12 +77,19 @@ after adding one distinguished wire.
 
 - `Circuit/Placement.lean`: lowest public circuit algebra leaf; imports only
   matrix Kronecker/reindex/unitary and finite equivalence APIs.
+- `Circuit/AddedWire.lean`: shared scalar-independent public bookkeeping leaf
+  above `Placement`; owns `AddedWire`, the block/basis equivalence, the generic
+  star-preserving reindex homomorphism, and the extended support split.
 - `Circuit/Basic.lean`: public data/ordered-evaluation leaf importing
   `Placement`, not state or embedding modules.
+- `Circuit/OrderSanity.lean`: narrow diagnostic/public-example leaf importing
+  `Basic` and quaternion scalars; the generic evaluator remains scalar-neutral.
 - `Circuit/Realification.lean`: proof/API leaf importing `Circuit/Basic` and
-  `Matrix/Realification`/unitary APIs as needed.
+  `Circuit/AddedWire` plus `Matrix/Realification`; it imports no unitary or
+  determinant theorem leaf.
 - `Circuit/Complexification.lean`: proof/API leaf importing `Circuit/Basic`
-  and `Matrix/Complexification`; it may not import determinant machinery.
+  and `Circuit/AddedWire` plus `Matrix/Complexification`; it imports no
+  determinant machinery.
 - `QuaternionicComputing.lean`: thin high-fanout root changed only after all
   circuit leaves compile.  `AxiomAudit.lean` is the adjacent audit consumer.
 - Focused builds target each circuit leaf.  Adjacent builds cover both
@@ -134,5 +142,68 @@ after adding one distinguished wire.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 4-STATES on
-  2026-07-09.
+- Completed on 2026-07-09.
+- `Circuit/Placement.lean` exports `BitBasis`, exact `basisSplit` restrictions,
+  `place`/`place_apply`, its zero/add/one/multiplication/adjoint/star laws,
+  injective ring/star homomorphisms, and `place_mem_unitary`.  The key
+  `kronecker_one_mul` proof rewrites right-identity Kronecker padding as block
+  diagonal multiplication, which is valid over an arbitrary semiring.
+- `SupportComplement`, `supportSplit`, and `placeOnSupport` construct the
+  contextual semantics of every injective support, including arbitrary
+  noncontiguous and reordered local wires.  Reindexing is semantic; no swap
+  gate is inserted or counted.
+- `Circuit/Basic.lean` exports locality-certified `PlacedGate`: its global
+  denotation is derived from its stored local matrix and split, rather than
+  being an independent field.  It also exports chronological `OrderedCircuit`,
+  reverse-product `eval`, nil/singleton/cons/append laws, `gateCount`, the
+  monoid-hom map induction helper, and local-to-global/circuit unitarity.
+- `Circuit/OrderSanity.lean` gives a quaternionic `i`/`j` test.  Independent
+  review found that the initial symmetric inequality detected
+  noncommutativity but would not detect a globally reversed evaluator.  The
+  repaired fixed-value checks prove that the unique entry of
+  `eval [iGate,jGate]` is `-k` and the swapped entry is `k`; reversing
+  evaluation now breaks the stated theorem.
+- `Circuit/AddedWire.lean` makes the shared target wire literal:
+  `AddedWire W = Unit ⊕ W`.  `addedBasisEquiv` identifies the two block sectors
+  with false/true top-bit assignments.  `addTopSplit` puts the same top wire
+  into each translated local support and leaves the complement unchanged.
+- `Circuit/Realification.lean` and `Circuit/Complexification.lean` export
+  `wireRealify`/`wireComplexify`, injectivity, identity, multiplication,
+  adjoint, star-monoid, and unitary laws.  `wireRealify_place` and
+  `wireComplexify_place` are entrywise proofs against the actual public
+  `place`; neither translation is defined to make naturality tautological.
+- `realifyPlacedGate` and `complexifyPlacedGate` preserve denotation through
+  their respective embeddings.  Their support-map simp theorems prove that
+  top maps to top, each old local/complement wire maps to the corresponding
+  bottom wire, local arity is exactly source arity plus one, complement arity
+  is unchanged, and local unitarity is preserved.
+- Declaration classification: placement, added-wire algebra, placed gates,
+  evaluation, and one-gate translations are public reusable API;
+  `OrderSanity` is the narrow diagnostic/public example; naturality and
+  unitary results are proof/API leaves.  No simulation result or future
+  reference operator occurs in the circuit core.
+- Documentation was updated in `README.md`, `docs/Architecture.md`,
+  `docs/Conventions.md`, `docs/Traceability.md`, and `docs/Corrections.md`.
+  Padding, semantic swaps, circuit soundness, the fixed-order part of
+  Definition 4, and the local prerequisites of Lemmas 3/8 now have explicit
+  dispositions.  C-009 records the proved identity-complement law and the
+  still-pending general criterion; C-022 records the repaired quaternionic
+  placement proof and its Stage 6 consumer.
+- Focused evidence passed: `Placement` (1,674 jobs), `AddedWire` (1,675 jobs),
+  `Basic` plus `OrderSanity` (2,344 jobs), `Realification` (1,702 jobs), and
+  `Complexification` (2,346 jobs).  A combined adjacent root/audit build passed
+  2,508 jobs.  A subsequent full `lake build` passed 2,507 jobs.
+- Direct `lake env lean ... -DwarningAsError=true` checks passed for all six
+  circuit leaves.  `/tmp/Stage5ImportSmoke.lean`, importing only the public
+  root and checking placement/evaluation/order/translation APIs, passed under
+  warning-as-error.
+- The expanded `AxiomAudit.lean` reports only `propext`, `Classical.choice`,
+  and `Quot.sound` for the new main circuit results.  Lean-source scans found
+  no `sorry`, `admit`, `sorryAx`, project `axiom`, `opaque`, or `unsafe`; the
+  circuit cone contains no `Matrix.mul_kronecker_mul`; core files contain no
+  translation references; embedding leaves contain no forbidden determinant,
+  unitary-leaf, or state imports.  `git diff --check` passed.
+- Independent Stage 5 review found no remaining mathematical or API flaw after
+  the order-orientation repair.  Stage 6 can now translate lists with
+  `OrderedCircuit.eval_map_of_denote_eq` and combine those operator identities
+  with the already proved state/measurement lemmas.

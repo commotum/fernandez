@@ -149,16 +149,22 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-009 — Incorrect noncommutative Kronecker condition
 
 - **Source:** Equation (46) and following sentence, lines 822–835.
-- **Status:** confirmed overstatement; exact formal theorem open.
+- **Status:** confirmed overstatement; the noncommutative placement law needed
+  by both simulations is proved, while the general criterion remains Stage 7.
 - **Diagnosis:** over a noncommutative semiring, the interchange calculation
   changes the order of entries from the second left factor and first right
   factor.  A sufficient entrywise condition is that every entry of `B` commute
   with every entry of `C`.  Requiring both `C` and `D` to be 0–1 matrices is not
   necessary, and the phrase “only if” is false (many non-0–1 central or mutually
   commuting entries work).
-- **Repair:** prove the entrywise commutation theorem and concrete failure
-  witness.  Define quaternionic gate placement without assuming interchange.
-- **Lean declaration:** to be assigned in Stages 5 and 7.
+- **Repair:** `place` pads only on the right by an identity and reindexes along
+  an explicit support split.  `kronecker_one_mul` proves this restricted
+  multiplication law through block diagonal matrices over an arbitrary
+  semiring, so no coefficient commutativity is assumed.  Stage 7 will add the
+  broader entrywise-commutation theorem and concrete failure witness.
+- **Lean declarations:** `Circuit.kronecker_one_mul`, `place_mul`,
+  `place_mem_unitary`, and `OrderedCircuit.eval_mem_unitary`; the general
+  interchange declarations remain to be assigned in Stage 7.
 - **Dependents:** circuit composition, ordering ambiguity, Figures 6–7, and all
   local-to-global simulation lemmas.
 
@@ -328,16 +334,21 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-022 — Lemma 8 is asserted by analogy without its critical proof
 
 - **Source:** lines 967–980.
-- **Status:** confirmed proof omission.
+- **Status:** confirmed proof omission; critical local naturality repaired and
+  proved, with whole-list composition isolated to Stage 6.
 - **Diagnosis:** multiplicativity of `ĥ` handles ordered composition only after
   each local quaternionic gate's contextual placement is shown to map to the
   claimed target placement.  The paper calls the construction “purely formal”
   and supplies no quaternionic padding/naturality proof, even though
   noncommutative tensor behavior is the central hazard.
-- **Repair:** define local placement by support equivalences, Kronecker with an
-  identity, and reindexing; prove embedding compatibility under the exact
-  central-entry hypotheses before list induction.
-- **Lean declaration:** to be assigned in Stages 5–6.
+- **Repair:** local placement is defined by a support equivalence, Kronecker
+  with an identity, and reindexing.  `wireComplexify_place` proves directly
+  from entries that complexification commutes with this actual placement after
+  adjoining one shared top wire; `complexifyPlacedGate_denote` packages the
+  result for locality-certified gates.  No general Kronecker interchange is
+  used.  Stage 6 applies the already exported ordered-list induction helper.
+- **Lean declarations:** `Circuit.wireComplexify_place`,
+  `complexifyPlacedGate_denote`, and `OrderedCircuit.eval_map_of_denote_eq`.
 - **Dependents:** Lemma 8 and Theorem 4.
 
 ## C-023 — “Any Hilbert space” is insufficient for circuit semantics

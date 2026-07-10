@@ -132,7 +132,7 @@ def complexifyPlacedGate {W : Type v} [Fintype W]
 
 /-- The added local wire is the distinguished global top wire. -/
 @[simp]
-theorem complexifyPlacedGate_localSupport_top {W : Type v} [Fintype W]
+theorem localSupport_complexifyPlacedGate_top {W : Type v} [Fintype W]
     (g : PlacedGate ℍ[ℝ] W) (u : Unit) :
     (complexifyPlacedGate g).localSupport (Sum.inl u) = Sum.inl u := by
   letI := g.localFintype
@@ -141,7 +141,7 @@ theorem complexifyPlacedGate_localSupport_top {W : Type v} [Fintype W]
 
 /-- Every original local wire keeps its support position below the new top wire. -/
 @[simp]
-theorem complexifyPlacedGate_localSupport_bottom {W : Type v} [Fintype W]
+theorem localSupport_complexifyPlacedGate_bottom {W : Type v} [Fintype W]
     (g : PlacedGate ℍ[ℝ] W) (l : g.Local) :
     (complexifyPlacedGate g).localSupport (Sum.inr l) =
       Sum.inr (g.localSupport l) := by
@@ -151,7 +151,7 @@ theorem complexifyPlacedGate_localSupport_bottom {W : Type v} [Fintype W]
 
 /-- Every complementary wire keeps its support position below the new top wire. -/
 @[simp]
-theorem complexifyPlacedGate_complementSupport {W : Type v} [Fintype W]
+theorem complementSupport_complexifyPlacedGate {W : Type v} [Fintype W]
     (g : PlacedGate ℍ[ℝ] W) (k : g.Complement) :
     (complexifyPlacedGate g).complementSupport k =
       Sum.inr (g.complementSupport k) := by
