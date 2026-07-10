@@ -250,6 +250,39 @@ axioms used by each main exported result.
 #print axioms
   QuaternionicComputing.Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq
 
+#print axioms QuaternionicComputing.State.realSectorAction_comp_right
+#print axioms
+  QuaternionicComputing.State.realSectorAction_realTotalWeight_of_normSq_eq_one
+#print axioms QuaternionicComputing.State.RealState.sectorRotation_comp_right
+#print axioms
+  QuaternionicComputing.State.realColumn0State_rightPhase_eq_realTopState
+#print axioms
+  QuaternionicComputing.State.realSectorPhaseEquivalent_equivalence
+#print axioms
+  QuaternionicComputing.State.realSectorPhaseEquivalent_iff_decode_rightPhaseEquivalent
+#print axioms QuaternionicComputing.State.RealSectorOrbit.mk_eq_mk_iff
+#print axioms QuaternionicComputing.State.RealSectorOrbit.function_ext
+#print axioms QuaternionicComputing.State.realColumn0StateEquiv
+#print axioms
+  QuaternionicComputing.State.ComplexRay.realificationOrbit_mk_eq_realColumn1State
+#print axioms QuaternionicComputing.State.complexRayEquivRealSectorOrbit
+#print axioms
+  QuaternionicComputing.State.ComplexRay.realificationOrbit_bijective
+#print axioms
+  QuaternionicComputing.State.ComplexRay.realificationOrbit_mk_eq_realTopState
+#print axioms
+  QuaternionicComputing.State.RealSectorOrbit.bottomDistribution_mk
+#print axioms
+  QuaternionicComputing.State.ComplexRay.realificationOrbit_distribution
+#print axioms
+  QuaternionicComputing.State.realColumn0State_rightPhase_realRay_eq_iff
+#print axioms
+  QuaternionicComputing.State.realColumn1State_rightPhase_realRay_eq_iff
+#print axioms
+  QuaternionicComputing.State.complexRay_realColumn0_lift_exists_iff_isEmpty
+#print axioms
+  QuaternionicComputing.State.complexRay_realColumn1_lift_exists_iff_isEmpty
+
 #print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.equivalence
 #print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.equivalence
 #print axioms QuaternionicComputing.Semantics.RealInputBasisSignEq.equivalence

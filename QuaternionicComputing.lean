@@ -10,6 +10,9 @@ public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.State.Ray
 public import QuaternionicComputing.State.RayObservables
 public import QuaternionicComputing.State.RayEvolution
+public import QuaternionicComputing.State.RealificationOrbit
+public import QuaternionicComputing.State.RealificationOrbitObservables
+public import QuaternionicComputing.State.RealificationOrbitBoundary
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Semantics.Ray
@@ -70,6 +73,16 @@ postprocessing, unitary evolution, and locally-unitary chronological circuit
 evolution descend to the quotients with representative, identity, and ordered-
 composition laws. These operations do not assert channel equality or identify
 equal basis distributions with equal rays.
+
+Complex-to-real state realification has a separate, phase-correct quotient:
+complex right phase becomes a rotation of the two doubled-real sectors, giving
+`RealSectorOrbit` and a canonical equivalence `ComplexRay ≃ RealSectorOrbit`.
+The bottom marginal distribution descends through that equivalence, whereas
+the full doubled-real basis distribution and the ordinary sign quotient
+`RealRay` generally do not.  In fact, either canonical realification column
+defines a constructor-compatible map to `RealRay` exactly in the empty-index
+case; for a normalized state, a unit complex phase preserves its column's
+ordinary real ray exactly when the phase is `1` or `-1`.
 
 Real and complex evaluated operators and chronological circuits additionally
 have distinct global, input-column, output-row, and projective-action phase
