@@ -78,6 +78,19 @@ def IsZeroOneMatrix {R m n : Type*} [Zero R] [One R]
     (A : _root_.Matrix m n R) : Prop :=
   ∀ i j, A i j = 0 ∨ A i j = 1
 
+/-- Every identity matrix is a zero–one matrix. -/
+@[simp]
+theorem isZeroOneMatrix_one
+    {R n : Type*} [Zero R] [One R] [DecidableEq n] :
+    IsZeroOneMatrix (1 : _root_.Matrix n n R) := by
+  intro i j
+  by_cases hij : i = j
+  · right
+    subst j
+    exact if_pos rfl
+  · left
+    exact if_neg hij
+
 /-- A zero–one left middle factor commutes entrywise with every matrix. -/
 theorem IsZeroOneMatrix.entrywiseCommute_left
     {R m n p q : Type*} [Semiring R]
@@ -101,6 +114,54 @@ theorem IsZeroOneMatrix.entrywiseCommute_right
     exact Commute.zero_right _
   · rw [hkl]
     exact Commute.one_right _
+
+/-! ## Canonical disjoint tensor factors -/
+
+/--
+The canonical factors `U ⊗ₖ 1` and `1 ⊗ₖ V` commute when every entry
+of `V` commutes with every entry of `U`.
+
+The hypothesis is deliberately oriented as `EntrywiseCommute V U`: in the
+reverse product `(1 ⊗ₖ V) * (U ⊗ₖ 1)`, entries of `V` are the left middle
+factor and cross entries of `U`.  The forward product needs no extra
+hypothesis because its middle factors are identity matrices.
+-/
+theorem disjoint_kronecker_factors_commute_of_entrywiseCommute
+    {R m n : Type*} [Semiring R] [Fintype m] [Fintype n]
+    [DecidableEq m] [DecidableEq n]
+    (U : _root_.Matrix m m R) (V : _root_.Matrix n n R)
+    (h : EntrywiseCommute V U) :
+    Commute (U ⊗ₖ (1 : _root_.Matrix n n R))
+      ((1 : _root_.Matrix m m R) ⊗ₖ V) := by
+  change
+    (U ⊗ₖ (1 : _root_.Matrix n n R)) *
+        ((1 : _root_.Matrix m m R) ⊗ₖ V) =
+      ((1 : _root_.Matrix m m R) ⊗ₖ V) *
+        (U ⊗ₖ (1 : _root_.Matrix n n R))
+  calc
+    (U ⊗ₖ (1 : _root_.Matrix n n R)) *
+        ((1 : _root_.Matrix m m R) ⊗ₖ V) =
+        (U * 1) ⊗ₖ ((1 : _root_.Matrix n n R) * V) :=
+      kronecker_mul_kronecker_of_entrywiseCommute U 1 1 V
+        (isZeroOneMatrix_one.entrywiseCommute_left
+          (1 : _root_.Matrix m m R))
+    _ = U ⊗ₖ V := by simp
+    _ = ((1 : _root_.Matrix m m R) * U) ⊗ₖ
+        (V * (1 : _root_.Matrix n n R)) := by simp
+    _ = ((1 : _root_.Matrix m m R) ⊗ₖ V) *
+        (U ⊗ₖ (1 : _root_.Matrix n n R)) :=
+      (kronecker_mul_kronecker_of_entrywiseCommute 1 V U 1 h).symm
+
+/-- Canonical disjoint tensor factors commute over a commutative semiring. -/
+theorem disjoint_kronecker_factors_commute_commutative
+    {R m n : Type*} [CommSemiring R] [Fintype m] [Fintype n]
+    [DecidableEq m] [DecidableEq n]
+    (U : _root_.Matrix m m R) (V : _root_.Matrix n n R) :
+    Commute (U ⊗ₖ (1 : _root_.Matrix n n R))
+      ((1 : _root_.Matrix m m R) ⊗ₖ V) := by
+  apply disjoint_kronecker_factors_commute_of_entrywiseCommute U V
+  intro _ _ _ _
+  exact Commute.all _ _
 
 /-! ## Quaternionic one-by-one checks -/
 
