@@ -17,7 +17,8 @@ path, attempted resolution, checked evidence, and honest residual frontier.
 
 Completion requires all 31 currently partial or unresolved rows to leave those
 statuses through a proved positive result, a proved corrected/negative result,
-or a formally established obstruction.  The 16 excluded rows must each gain
+or a formal underdetermination theorem that settles what follows from the
+source's assumptions.  The 16 excluded rows must each gain
 either a proved/wrapped external result or a precise formal investigation with
 at least one nontrivial theorem, counterexample, or underdetermination result;
 none may remain excluded merely because it is difficult.
@@ -133,9 +134,19 @@ outcomes, recorded in traceability and the new closure ledger:
    source-supplied constraints, proving that the prose does not determine a
    unique mathematical claim.
 6. **Open after a completed case study:** allowed only for a genuine source
-   research question after a precise model and a nontrivial formal result have
-   been delivered.  The remaining question must be stated as an exact next
-   theorem rather than described vaguely.
+   research question that was already intentionally excluded, after a precise
+   model and a nontrivial formal result have been delivered.  This outcome may
+   not be used for any of the 31 originally partial/unresolved rows.  The
+   remaining question must receive a new frontier ID and exact theorem target.
+
+The six labels above are closure-ledger outcomes, not silent replacements for
+the existing five canonical traceability statuses.  Stage 1 must encode this
+mapping: an originally partial/unresolved row may finish only as **proved as
+stated** or **corrected and proved**, with refutation, conditional repair, or
+underdetermination recorded inside the status narrative and backed by a Lean
+theorem.  An originally excluded research question may remain **intentionally
+excluded** only after its required formal case study; any residual open theorem
+gets a new ID.  The checker must enforce this policy.
 
 ## Exact Closure Ledger
 
@@ -156,14 +167,14 @@ this checksum mechanically before implementation begins.
 | 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Separate exact impossibility from approximate density and settle a concrete finite candidate |
 | 12-UNIFORMITY | `FER03-D02-REAL-ALGORITHM`; `FER03-D05-QUATERNIONIC-ALGORITHM`; `FER03-R-COMPUTATIONAL-UNIVERSALITY`; `FER03-RES-ABSTRACT-LITTLE-OVERHEAD`; `FER03-INT-PREFERRED-PATH-BQP` | 5 partial | Encoded uniform families, runtime, randomized outcomes, and corrected class containment |
 | 13-REALQTM | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | 1 excluded | Independently state and prove the external approximate-real QTM result or its strongest verified correction |
-| 14-STRUCTURE | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT`; `FER03-INT-FREE-NONLOCAL-CORRELATION` | 4 partial | Exact complex-structure/subsystem characterizations and operational correlation distinctions |
+| 14-STRUCTURE | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT` | 3 partial | Exact complex-structure and subsystem characterizations |
 | 15-MULTIPATH | `FER03-INT-DESTRUCTIVE-INTERFERENCE-CAUSE`; `FER03-OPEN-ALL-EVALUATION-PATHS`; `FER03-OPEN-PATH-WEIGHTS`; `FER03-OPEN-PATH-INTERFERENCE`; `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | 5 excluded | Classical-mixture and coherent-path models, counterexamples, and underdetermination/complexity results |
-| 16-CHANNELS | `FER03-OPEN-CHANNEL-CAPACITY`; `FER03-OPEN-REBIT-INFORMATION-THEORY` | 2 excluded | Explicit channel model and at least one proved real/quaternionic comparison or obstruction |
+| 16-CHANNELS | `FER03-INT-FREE-NONLOCAL-CORRELATION`; `FER03-OPEN-CHANNEL-CAPACITY`; `FER03-OPEN-REBIT-INFORMATION-THEORY` | 1 partial + 2 excluded | Native quaternionic mixed/channel semantics, witness classification, and proved comparisons or obstructions |
 | 17-PROTOCOLS | `FER03-INT-BIT-COMMITMENT`; `FER03-OPEN-QUATERBIT-TELEPORTATION`; `FER03-OPEN-COMMUNICATION-COMPLEXITY` | 3 excluded | Formal protocols, security/correctness/cost notions, and a proof or attack for each scoped question |
 | 18-PHYSICALITY | `FER03-INT-RULE-OUT-PHYSICALITY` | 1 excluded | A conditional information-theoretic no-go theorem or formal underdetermination, never a claim about Nature by definition |
 | 19-ALGEBRAS | `FER03-OPEN-OTHER-SCALARS`; `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | 2 excluded | Concrete octonion/finite-field interface results and a precise algebraic-model comparison |
 
-Checksum: partial `2+3+2+1+3+1+4+1+2+5+4 = 28`; excluded
+Checksum: partial `2+3+2+1+3+1+4+1+2+5+3+1 = 28`; excluded
 `2+1+5+2+3+1+2 = 16`; unresolved `1+1+1 = 3`.
 
 ## Dependency Shape
@@ -175,8 +186,9 @@ Checksum: partial `2+3+2+1+3+1+4+1+2+5+4 = 28`; excluded
   ├─ 4-FOUNDATIONS          │                ├─ 16-CHANNELS
   ├─ 5-DETERMINANT          │                ├─ 17-PROTOCOLS
   ├─ 6-ROUTING ── 7-PHASEFANOUT              └─ 18-PHYSICALITY
-  └─ 8-ENCODING ── 9-APPROX ── 10-SYNTHESIS ── 11-UNIVERSALITY
-                                      └───────── 12-UNIFORMITY ── 13-REALQTM
+  └─ 8-ENCODING ── 9-APPROX ── 10-SYNTHESIS ───── 12-UNIFORMITY
+                                      └──────────── 11-UNIVERSALITY
+       8-ENCODING + 9-APPROX ───────────────────── 13-REALQTM
   4-FOUNDATIONS + 14-STRUCTURE ───────────────────────── 19-ALGEBRAS
   all stages ───────────────────────────────────────────── 20-RELEASE
 ```
@@ -222,7 +234,8 @@ mathematics or statuses.
   item; use primary literature and record versions rather than relying on the
   paper's summaries.
 - Add a small checker that parses traceability and verifies the 101-row status
-  totals and 47-row one-to-one closure assignment.
+  totals, 47-row one-to-one closure assignment, canonical-status/closure-
+  outcome mapping, and the rule that residual open work receives new IDs.
 - Record the clean Goal 1 build/audit baseline and inspect current diffs before
   any feature work.
 
@@ -230,6 +243,8 @@ mathematics or statuses.
 
 - All 47 IDs occur exactly once; category totals are 28/16/3.
 - Every row has a stage, concrete success test, and non-tautological fallback.
+- The closure-outcome taxonomy is mapped unambiguously to the canonical
+  traceability statuses and enforced by the checker.
 - Correction dependencies C-001–C-026 are linked where relevant.
 - Baseline builds, audit, scans, and diff state are recorded in `1-LEDGER.md`.
 
@@ -280,6 +295,9 @@ prove the paper's arbitrary mixed top-wire statements.
 - Define partial trace as an explicit finite diagonal-block sum on product
   indices and prove Hermiticity, positivity, trace preservation, linearity,
   tensor-product, and pure rank-one laws.
+- Prove the explicit equivalence between the simulator's `AddedWire`/sum basis
+  and the product index used by partial trace, so the generic API consumes the
+  existing embedded states rather than a parallel toy representation.
 - Express the realification and complexification top encodings as frames and
   prove bottom distributions for every uncorrelated mixed top rebit/qubit,
   including maximally mixed and off-diagonal examples.
@@ -376,8 +394,9 @@ and finite-DAG algorithms, while correcting the paper's temporal-cut claim.
   canonical slots, apply the local gate, and unroute.
 - Lift routing gatewise to circuits with exact count/arity/depth statements and
   a quaternionic noncontiguous example.
-- Define encoded finite precedence DAGs, executable topological sorting that
-  returns a `LegalSchedule` or cycle witness, and an explicit work counter.
+- Define in-memory finite decidable precedence DAGs, executable topological
+  sorting that returns a `LegalSchedule` or cycle witness, and an explicit work
+  counter.  Their byte/string serialization belongs to Stage 8.
 - Define temporal cuts as order ideals.  Prove that prefixes of a legal schedule
   form a maximal chain and characterize the converse; disprove or correct any
   claim that one sort totally orders every cut.
@@ -418,14 +437,16 @@ complex-to-real simulation and implement the real-gate optimization.
   bottom wires and prove its evaluator and improved resource facts.
 - If the candidate fails, isolate the first false intertwining/composition
   obligation, prove a no-go for that architecture, and continue to the next
-  explicit encoding; do not fall back to the one-shared-wire theorem and call
-  the row resolved.
+  explicit encoding.  A candidate-specific failure does not refute the paper's
+  existential claim, and falling back to the one-shared-wire theorem does not
+  resolve it.
 
 #### Completion Requirements
 
 - An exact operator/state/distribution theorem and explicit ancilla tradeoff
-  prove the corrected logarithmic-depth claim, or an equally precise checked
-  no-go settles the intended architecture.
+  prove the corrected logarithmic-depth claim.  A negative completion requires
+  a theorem ruling out the claim under a faithful explicit resource model, not
+  merely failure of the proposed splitter.
 - The construction is described as phase-reference encoding, never cloning.
 - Empty circuits, one gate, non-power-of-two gate counts, and mixed real/complex
   gate lists are tested.
@@ -475,12 +496,17 @@ error, without weakening the exact Goal 1 theorems.
 #### Detailed Implementation Plan
 
 - Add scalar, matrix, circuit, state, and distribution approximation leaves
-  with an explicit norm and certified code-to-value error relation.
+  with a chosen vector/operator norm, a proved entrywise-to-norm bridge, and a
+  certified code-to-value error relation.
 - Prove componentwise-to-matrix bounds, submultiplicative/telescoping circuit
   error, normalized-state error, basis-event error, and total-variation bounds.
 - Distinguish rounded matrices from exact unitary primitive circuits.  Add a
   certified unitary approximation/compiler interface and prove the guarantees
   only from its certificate.
+- Provide two deliberately separate APIs: an executable quantizer for encoded
+  Cauchy/approximation oracles (and rational/dyadic inputs), and a semantic
+  existential approximation certificate for arbitrary Lean `ℝ` values.  There
+  is no executable function from arbitrary `ℝ` to finite code.
 - Implement precision budgeting across gates and show how requested output
   tolerance determines per-gate tolerances and code size.
 - Reconcile the paper's finite-precision footnote with the exact simulation
@@ -488,8 +514,9 @@ error, without weakening the exact Goal 1 theorems.
 
 #### Completion Requirements
 
-- At least one executable approximation family supplies codes with a proved
-  convergence/error theorem.
+- At least one executable encoded-oracle approximation family supplies codes
+  with a proved convergence/error theorem; arbitrary mathematical reals use
+  only the separate semantic existence interface.
 - No theorem concludes exact equality or exact unitarity from rounding.
 - Accumulated error includes every gate and produces an observable-distribution
   guarantee suitable for Stage 12.
@@ -507,18 +534,29 @@ results in explicit primitive-gate models.
 - Define finite discrete, continuously parameterized local, exact, and
   approximate gate-library models before counting elementary gates.
 - Prove that a finite discrete library has only finitely many words of length
-  at most `K`; inject an infinite family of diagonal phase unitaries to refute
-  bounded exact generic generation.
+  at most `K`; use the paired symplectic family
+  `diag(exp(i*θ), exp(-i*θ))` (and identity blocks), explicitly exhibited as
+  complexifications of diagonal unit quaternions, to refute bounded exact
+  generic generation inside the actual target image.
 - Construct a reusable exact two-level/QR-style decomposition with a checked
-  `O(m^2)`-scale count for `m × m` unitaries, then give the strongest justified
-  localization to one-/two-qubit primitives with explicit arity and parameter
-  assumptions.
-- Pursue a formal parameter-dimension lower bound for continuously parameterized
-  bounded-local gates; if that infrastructure is disproportionate, keep it as
-  an exact named obligation while the finite-library refutation and corrected
-  constructive upper bound settle the source's claimed unconditional reading.
-- Instantiate `ExactGateCompiler` or a new approximate compiler with the proved
-  construction and propagate the corrected count/depth bounds to Table 1.
+  `O(m^2)`-scale count for `m × m` unitaries.  Classify this mathematical
+  continuous-parameter factorization as noncomputable unless its parameters
+  are encoded, then give the strongest justified localization to one-/two-
+  qubit primitives with explicit arity and parameter assumptions.
+- Prove a formal parameter-dimension lower bound for continuously parameterized
+  bounded-local gates.  If the first manifold route is disproportionate, seek
+  a smaller algebraic/smooth-dimension lemma or split out its prerequisite; do
+  not mark the stage complete while this remains a faithful unresolved reading
+  of the source claim.
+- Also prove a two-model underdetermination theorem if needed: unrestricted
+  full-arity primitives trivialize the count, while a finite exact library
+  cannot cover the target.  This diagnoses the missing primitive semantics but
+  does not replace the bounded-local lower bound when that is the intended
+  reading.
+- Instantiate `ExactGateCompiler` where the encoded exact model permits it and
+  build an epsilon-dependent compiler into one declared standard finite
+  complex gate library, with semantic and runtime/precision certificates for
+  Stage 12.  Propagate corrected count/depth bounds to Table 1.
 
 #### Completion Requirements
 
@@ -526,6 +564,9 @@ results in explicit primitive-gate models.
   gate model or formally refuted; ambiguity is not retained as “unresolved.”
 - A constructive replacement compiler is implemented and semantically proved,
   not merely postulated as structure data.
+- The standard finite-complex-library approximation compiler needed by Stage
+  12 is either constructed here or assigned to an explicit new prerequisite
+  stage; standard-gate BQP cannot rely on the QR theorem alone.
 - Constant-`d` and arbitrary-`d` consequences state exact dependence on matrix
   size, precision, primitive model, and serialization.
 - The three assigned rows and C-013/C-014/C-019 close with focused builds,
@@ -540,9 +581,11 @@ approximate/dense meaning.
 
 #### Detailed Implementation Plan
 
-- Define exact word generation, topological closure, epsilon generation in
-  operator norm/modulo physical phase, local placement, and schedule-aware
-  uniform families.
+- Define exact word generation, topological closure, and epsilon generation in
+  operator norm on the compact symplectic matrix group, plus local placement.
+  Quotient operators only by a rigorously proved kernel of their action on
+  right-phase rays (expected at most the central `±I`), never by arbitrary unit
+  quaternion right phase.
 - Prove exact finite universality impossible for nontrivial continuous target
   groups by countability or the stronger bounded-word result from Stage 10.
 - Investigate a concrete approximate candidate: a finite complex universal
@@ -554,15 +597,19 @@ approximate/dense meaning.
   the needed special case to prove density.
 - Export a dense-generator certificate and only then connect it to approximate
   synthesis.  Efficiency is a separate Stage 12 obligation.
+- If a candidate fails, record its counterexample and test another candidate.
+  Failure of one finite set does not refute existence of some finite dense set.
 
 #### Completion Requirements
 
 - Exact and approximate universality have separate theorem names and outcomes.
-- A concrete finite candidate is proved dense, or a decisive theorem refutes
-  the intended candidate/class and identifies the strongest viable corrected
-  model.  A conditional interface alone does not complete the stage.
-- Fixed arity, allowed phases, topology, schedule semantics, and all-`n`
-  uniformity assumptions are explicit.
+- A concrete finite candidate is proved dense, or a decisive theorem rules out
+  the entire approximate-universality class under the source's intended model.
+  A candidate-specific no-go or conditional interface alone does not complete
+  the stage.
+- Fixed arity, allowed central operator phases, topology, and fixed-`n` local
+  schema assumptions are explicit.  Encoded all-`n` uniformity belongs to
+  Stage 12.
 - The unresolved row receives a proved resolution and axiom-audited public or
   research-leaf theorem.
 
@@ -583,8 +630,14 @@ bounded-error complexity results.
   Turing-machine bridge before using standard polynomial-time terminology.
 - Define library-relative bounded-error language classes and prove closure
   under the translated generators and postprocessors.
-- Instantiate the target with a standard fixed approximately universal complex
-  library and Stage 9–11 compilers before claiming BQP containment.
+- First prove exact library-relative containment by taking the finite target
+  library to be the realified/complexified image of a finite encoded source
+  library.  This does not require solving Stage 11.
+- For standard fixed-gate BQP, use the encoded epsilon-dependent complex
+  compiler produced by Stage 10 (or an explicit prerequisite split), with
+  Stage 9 error accumulation.  Alternatively prove gate-library invariance
+  from an explicitly admissible finite complex library.  Do not infer this
+  bridge from quaternionic source density.
 - State separately what is proved for each supplied legal quaternionic
   schedule and what would be needed to choose or sample schedules uniformly.
 
@@ -647,9 +700,11 @@ and operational statements.
   and measurement laws actually needed by the circuit model.
 - Provide real, complex, and quaternionic instances and prove that Hilbert
   structure alone does not supply this interface.
-- Use Stage 3 density/separability and local-channel notions to classify the
-  product-input ordering witness: prove exactly its ray, factorization,
-  correlation, and signaling properties under declared measurements.
+- Use Stage 3 density/separability plus a minimal measurement/local-operation
+  notion introduced in this stage to classify the product-input ordering
+  witness: prove exactly its ray, factorization, correlation, and observable
+  no-signaling properties.  Defer the general channel API to Stage 16 so the
+  dependency remains acyclic.
 - Translate “top wire stores phase” into invariant-subspace/intertwining
   theorems, not a degree-of-freedom slogan.
 
@@ -842,9 +897,10 @@ research boundary in a form another Lean project can trust and reuse.
 
 - The 47-row ledger has no unexamined item; all closure outcomes satisfy the
   rules above and totals reconcile with the 101-row source inventory.
-- No current partial/unresolved label remains without a proved formal
-  obstruction and explicit next theorem; no excluded item remains supported by
-  prose alone.
+- No original partial/unresolved row retains either status.  A corrected,
+  negative, conditional, or underdetermination theorem moves it to **corrected
+  and proved**; any residual research question receives a new frontier ID.
+  No excluded item remains supported by prose alone.
 - All completed modules contain no holes or project axioms, and every main new
   result appears in the executable axiom audit.
 - Clean public-root/audit builds, warning-as-error checks, all executable tests,
@@ -875,4 +931,3 @@ research boundary in a form another Lean project can trust and reuse.
 - [ ] 18-PHYSICALITY
 - [ ] 19-ALGEBRAS
 - [ ] 20-RELEASE
-
