@@ -114,6 +114,25 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | `EQC-050-TOP-WIRE-PHASE-TRACKING` | Paper `fernandez-2003.md:683-687,1202,1293`; `Traceability.md:92,134` | source only cross | encoded invariant sectors and added top wire | arbitrary source states; pure versus maximally mixed top distinguished | structural phase/orbit evolution, not merely final basis probabilities | complex/quaternion state phase convention-sensitive | heuristic claim; exact replacement not yet selected | one added top wire; mixed-top phase-kickback exception | Source interpretive family requiring invariant-subspace/orbit formulation | G3 `14-STRUCTURE` |
 | `EQC-051-OPERATIONAL-CONVERSE-SIMULATION` | Paper `fernandez-2003.md:1251`; algebraic witnesses in `Traceability.md:141` | source only | target circuit/model versus smaller source model | all target circuits only after a simulation relation and allowed encoders are fixed | ray, basis measurement, channel, or computational behavior must be chosen explicitly | model-specific | source inference unsupported; only algebraic nonimage is implemented | allowed ancillas/decoders unspecified in source | Source operational converse family; matrix non-surjectivity alone is insufficient | G3 `14-STRUCTURE`, `16-CHANNELS` |
 
+## Stage 2 proof-bearing realization
+
+The frozen rows above remain unchanged as inventory data. The following Goal 2
+Stage 2 results are now checked classifications rather than provisional names.
+
+| Frozen row | Strongest checked classification | Proof-bearing API | Excluded upgrade |
+|---|---|---|---|
+| `EQC-004-NORMALIZED-BASIS-DIST` | Pointwise computational-basis weights of two normalized states are equivalent to equality of their packaged finite distributions. | `BasisWeightEq`, `NormalizedDistributionEq`, `basisWeightEq_iff_normalizedDistributionEq` | No vector, ray, all-pure-input, or channel equality follows. |
+| `EQC-005-EVENT-PUSHFORWARD-CONGRUENCE` | Pointwise normalized-state weight equality implies equality of every finite event and every deterministic finite pushforward, including each pushed-forward weight. | `BasisWeightEq.eventWeight_eq`, `BasisWeightEq.pushforward_eq`, `BasisWeightEq.pushforward_weight_eq` | This is finite classical outcome closure, not a quantum partial trace, randomized postprocessor, or channel theorem. |
+| `EQC-006-UNITARY-EVOLUTION-NORM` | The existing unitary evolution family is normalization-preserving support: it preserves total weight and constructs normalized output states. It is not an equivalence between the input and output basis distributions, which a unitary may change. | `star_dotProduct_mulVec_of_mem_unitary`, `complexTotalWeight_mulVec_of_mem_unitary`, `quaternionTotalWeight_mulVec_of_mem_unitary`, and the three `evolveUnitary` constructors | No `BasisWeightEq`, `BasisMeasurementEq`, or outcome-distribution equality between a state and its evolved state is claimed. |
+| `EQC-026-ORDERED-EVAL` | Two ordered circuits are exactly equal precisely when their chronological evaluators are literally equal. Gatewise denotation equality and append preserve this relation. | `ExactCircuitEq`, `ExactCircuitEq.iff_eval_eq`, `ExactCircuitEq.of_gatewise`, `ExactCircuitEq.append` | Gate-list equality is sufficient but unnecessary; resources, phase, schedule certificates, and cross-model embeddings are outside the relation. |
+
+Stage 2 also exports `OutputWeightEqAt`, `BasisMeasurementEq`, and
+`PureInputBasisMeasurementEq` with distinct one-input, all-basis-input, and
+all-normalized-pure-input quantifiers. The implication from the last to the
+second requires explicit normalization of every basis ket for the supplied
+weight function. Exact operator and circuit equality imply all three, but no
+converse is published at this stage.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

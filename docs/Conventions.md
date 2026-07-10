@@ -97,12 +97,27 @@ two explicit added wires of the compositional translators.
 
 ## States, phases, and measurements
 
-The library keeps four relations distinct:
+The library keeps the following levels distinct:
 
 1. literal vector equality;
-2. equality up to a unit scalar on the documented side;
-3. equality of embedded operators or embedded state evolution;
-4. equality of observable computational-basis outcome weights/distributions.
+2. literal same-type matrix equality (`ExactOperatorEq`);
+3. literal equality of chronological circuit evaluations (`ExactCircuitEq`);
+4. equality up to a unit scalar on the documented side;
+5. equality of embedded operators or embedded state evolution;
+6. one-input computational-basis output-weight agreement
+   (`OutputWeightEqAt`);
+7. all-basis-input agreement (`BasisMeasurementEq`);
+8. all-normalized-pure-input basis agreement
+   (`PureInputBasisMeasurementEq`); and
+9. equality of packaged computational-basis distributions
+   (`NormalizedDistributionEq`).
+
+The three input scopes in items 6–8 are not interchangeable. The generic
+weight function need not normalize basis kets, so the theorem from
+all-normalized-pure-input agreement to all-basis-input agreement requires that
+normalization as an explicit hypothesis. Channel and all-physical-effect
+equality are stronger notions introduced separately; no basis-only relation
+is treated as either one.
 
 For a coordinate `ψ i`, its computational-basis weight is its scalar norm
 square.  In a doubled target space, forgetting the top wire means summing the

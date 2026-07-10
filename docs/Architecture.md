@@ -29,6 +29,10 @@ QuaternionicComputing/
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
     Distribution.lean        finite events and deterministic pushforwards
+  Semantics/
+    Core.lean                literal operator and chronological-circuit equality
+    Measurement.lean         fixed-input, basis-input, pure-input, and distribution agreement
+    CoreAudit.lean           edge-index examples and semantic axiom spot checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -135,6 +139,29 @@ their basis distributions.  Finite-event sums and deterministic pushforwards
 are normalized, nonnegative, and congruent under pointwise equality.  This is
 a finite semantic API, not a measure-theory, randomized-computation, or
 runtime layer.
+
+## Semantic comparison implementation
+
+`Semantics/Core.lean` names literal equality separately from every weaker or
+cross-model comparison. `ExactOperatorEq` compares matrices with the same row,
+column, and scalar types. `ExactCircuitEq` compares only the chronological
+evaluations of two ordered circuits; it does not require equal gate lists and
+does not record resource, schedule, phase, or embedding information.
+
+`Semantics/Measurement.lean` keeps observation quantifiers explicit.
+`OutputWeightEqAt` concerns one supplied input column,
+`BasisMeasurementEq` concerns every computational-basis input, and
+`PureInputBasisMeasurementEq` concerns every normalized pure input.
+`BasisWeightEq` compares one pair of output columns coordinatewise, while
+`NormalizedDistributionEq` compares the finite distributions packaged from
+normalized states. Pointwise basis-weight agreement is equivalent to that
+packaged distribution equality and therefore preserves all finite events and
+deterministic finite pushforwards.
+
+These relations do not assert ray equality, channel equality, equality under
+all physical effects, or cross-model simulation. In particular, deriving
+basis-input agreement from the all-normalized-pure-input relation requires an
+explicit proof that the chosen scalar weight normalizes every basis ket.
 
 ## Circuit implementation
 

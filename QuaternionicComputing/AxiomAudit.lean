@@ -188,6 +188,23 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.State.FiniteDistribution.sum_pushforward_weight
 #print axioms QuaternionicComputing.State.FiniteDistribution.pushforward_eq_of_weight_eq
 
+#print axioms QuaternionicComputing.Semantics.ExactOperatorEq.mul
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.of_gatewise
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.append
+#print axioms QuaternionicComputing.Semantics.OutputWeightEqAt.of_exact
+#print axioms QuaternionicComputing.Semantics.BasisMeasurementEq.of_exact
+#print axioms QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.of_exact
+#print axioms
+  QuaternionicComputing.Semantics.basisMeasurementEq_iff_outputWeightEqAt_basis
+#print axioms QuaternionicComputing.Semantics.outputWeightEqAt_basis_iff_column_weight
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.basisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.basisWeightEq_iff_normalizedDistributionEq
+#print axioms QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq
+#print axioms QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.pureInputBasisMeasurementEq
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

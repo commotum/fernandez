@@ -7,6 +7,7 @@ public import QuaternionicComputing.Matrix.ProperImage
 public import QuaternionicComputing.State.ComplexPhase
 public import QuaternionicComputing.State.Realification
 public import QuaternionicComputing.State.Complexification
+public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
@@ -40,6 +41,14 @@ and quaternionic unitaries embed into `SO(4N)`.  At rank one an explicit
 library also exports the embedding determinant results,
 normalized finite states, both state-column measurement-preservation APIs,
 and a checked non-product realification example.
+
+The semantic layer names literal same-type operator equality, exact
+chronological-circuit equality, fixed-input output-weight agreement,
+all-basis-input agreement, all-normalized-pure-input basis agreement, and
+packaged finite-distribution equality as separate relations.  Exact equality
+has the expected congruence lifts, while distribution equality supplies finite
+event and deterministic-pushforward consequences without being mislabeled as
+ray or channel equality.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

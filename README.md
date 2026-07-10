@@ -41,6 +41,8 @@ import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
 import QuaternionicComputing.State.Distribution
+import QuaternionicComputing.Semantics.Core
+import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
@@ -92,6 +94,16 @@ representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite
 events and deterministic pushforwards of normalized outcome weights.
+
+The semantic layer gives these comparisons explicit, noninterchangeable
+names. `ExactOperatorEq` is literal same-type matrix equality and
+`ExactCircuitEq` is literal equality of chronological circuit evaluations.
+`OutputWeightEqAt`, `BasisMeasurementEq`, and
+`PureInputBasisMeasurementEq` respectively quantify over one supplied input,
+all computational-basis inputs, and all normalized pure inputs.
+`NormalizedDistributionEq` is equality of packaged finite outcome
+distributions. None of these basis-observation relations is silently promoted
+to ray or channel equality.
 
 The circuit layer supplies locality-certified gates on arbitrary finite wire
 types, noncommutative-safe placement on arbitrary injected supports, explicit

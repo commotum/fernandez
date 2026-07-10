@@ -34,7 +34,7 @@
       }
     }
   },
-+  "items": [
+  "items": [
     {
       "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq",
       "relation": "ExactOperatorEq",
