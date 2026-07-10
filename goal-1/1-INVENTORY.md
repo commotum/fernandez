@@ -88,6 +88,56 @@ baseline that can compile the first real proofs.
 
 ## Stage Results
 
-- In progress.  Scaffold created on 2026-07-09.
-- Next action: finish source inventory and pin/bootstrap the Lean project.
+- Completed on 2026-07-09.
+- Created the required scaffold and the first complete source inventory.  The
+  traceability table covers every numbered definition, theorem, lemma, and
+  corollary, plus the material algebraic, circuit, resource, interpretive,
+  figure, table, footnote, and open-question claims.
+- Created `docs/Conventions.md`, `docs/Architecture.md`,
+  `docs/MathlibAPI.md`, `docs/Traceability.md`, and `docs/Corrections.md`.
+- Confirmed 24 source errors, ambiguities, or missing proof obligations.  The
+  most consequential are the invalid left quaternionic phase convention, the
+  incorrect dimensions in Theorems 3 and 5, omitted determinant-one proofs,
+  ill-typed state-intertwining derivations, the false “only if” condition after
+  Equation (46), the unproved quaternionic padding step, and unsupported
+  elementary-gate/resource bounds.
+- Selected right-module column states.  With `open scoped RightActions`, Lean's
+  `v <• q` is right multiplication and `Matrix.mulVecBilin ℍ ℍᵐᵒᵖ` proves
+  that matrix evolution respects it.  This gives an API-backed repair of
+  Equation (45), not merely a prose convention.
+- Selected `Matrix.fromBlocks` on `ι ⊕ ι` for algebraic embeddings, reindexed to
+  `Bool × ι` only at the wire boundary.  Compiling probes established the Co/Wd
+  scalar identities, quaternion block multiplication and adjoint laws,
+  Hermitian-form preservation, and unitary reindexing without placeholders.
+- Bootstrapped a normal portable Lake project pinned to Lean 4.31.0 and mathlib
+  v4.31.0 (resolved commit
+  `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`).  For this offline workspace,
+  only the ignored `.lake/packages` path is symlinked to the exact local cache;
+  the committed manifest remains a normal Git dependency.
+
+### Verification evidence
+
+- `lake build` — passed: `Build completed successfully (2343 jobs).`
+- `lake env lean QuaternionicComputing/AxiomAudit.lean` — passed; the smoke
+  theorem reports only `[propext, Classical.choice, Quot.sound]` and no project
+  axiom.
+- `rg -n '\b(sorry|admit)\b|sorryAx' --glob '*.lean' .` — no matches.
+- `rg -n '^\s*(axiom|opaque)\b' --glob '*.lean' .` — no matches.
+- `git diff --check` — passed.
+- Manifest/toolchain checks confirmed Lean 4.31.0, Lake 5.0.0, mathlib input
+  tag `v4.31.0`, and the resolved commit above.
+- Scaffold validation confirmed the three required files, correct continuation-
+  prompt paths, all ten named stages, and a concrete completion-requirements
+  section for every stage.
+
+### Plan changes for the next stage
+
+- Stage 2 will define bundled real-linear `complexPart` and `weirdPart` maps,
+  rather than unbundled projections, so finite-sum matrix proofs can use
+  `map_sum`.
+- It will formalize explicit quaternion units and a counterexample to left-phase
+  compatibility, along with reconstruction, multiplication, conjugation, and
+  norm-square identities.
+- Determinant claims remain isolated in Stage 3; they do not block the scalar or
+  central simulation spine.
 

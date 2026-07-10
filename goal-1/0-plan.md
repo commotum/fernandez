@@ -60,12 +60,23 @@ disposition, and the pinned project builds and passes its axiom audit without
   and simulation-overhead claims.
 - The only initial untracked repository item is `.DS_Store`; it is user state
   and is not part of this goal.
+- Stage 1 completed on 2026-07-09.  The full inventory is in
+  `docs/Traceability.md`; `docs/Corrections.md` currently records 24 confirmed
+  issues or proof obligations.
+- The project now pins Lean 4.31.0 and mathlib v4.31.0 at resolved commit
+  `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`; the baseline `lake build`
+  succeeds.
+- Compiling API probes confirmed that quaternionic column evolution is a right
+  module action exposed by `Matrix.mulVecBilin ℍ ℍᵐᵒᵖ`, that
+  `Matrix.fromBlocks` supports the required noncommutative algebra, and that
+  quaternionic unitaries must use generic `unitary (Matrix … ℍ)` rather than
+  the commutative-only `Matrix.unitaryGroup`.
 
 ## Current Assumptions to Test
 
-- `Quaternion ℝ`, finite matrices, star/adjoint APIs, and finite-dimensional
-  inner-product APIs in mathlib 4.31.0 can support the algebraic core without a
-  bespoke quaternion implementation.
+- **Confirmed:** `Quaternion ℝ`, finite matrices, star/adjoint APIs, opposite-
+  ring right modules, and generic unitary APIs in mathlib 4.31.0 support the
+  algebraic core without a bespoke quaternion implementation.
 - A compact semantics built from finite index types, matrices, explicit gate
   support, and ordered composition will be sufficient for the central exact
   simulation theorems.
@@ -370,8 +381,8 @@ without learning the paper's original organization.
 
 ## Stage Status
 
-- [ ] 1-INVENTORY — in progress
-- [ ] 2-SCALARS
+- [x] 1-INVENTORY — completed 2026-07-09
+- [ ] 2-SCALARS — in progress
 - [ ] 3-MATRICES
 - [ ] 4-STATES
 - [ ] 5-CIRCUITS
@@ -380,4 +391,3 @@ without learning the paper's original organization.
 - [ ] 8-RESOURCES
 - [ ] 9-COVERAGE
 - [ ] 10-RELEASE
-
