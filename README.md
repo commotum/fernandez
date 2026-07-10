@@ -86,7 +86,8 @@ non-surjectivity results without inferring operational lower bounds.
 The state layer supplies explicitly normalized finite real, complex, and
 quaternionic states.  Complex unit right phase is an explicit equivalence
 relation preserving weights and matrix evolution; quaternionic phase is
-corrected to act on the right and has the analogous operational laws.  Both
+corrected to act on the right and is likewise proved to be an equivalence with
+the analogous operational laws.  Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite

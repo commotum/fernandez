@@ -112,8 +112,9 @@ quaternion-linear without the exact scalar action needed for that claim.
 scalar weight instead of introducing a global norm-square typeclass.  Its real,
 complex, and quaternion specializations expose nonnegative basis weights and
 normalization equations.  Quaternionic right phase is proved to preserve each
-weight and commute with arbitrary matrix action.  `State/ComplexPhase.lean`
-provides the commutative complex analogue as an explicit equivalence relation,
+weight and commute with arbitrary matrix action, and
+`Quaternion.rightPhaseEquivalent_equivalence` packages it as an equivalence
+relation.  `State/ComplexPhase.lean` provides the commutative complex analogue,
 including basis-weight, total-weight, and arbitrary-matrix invariance.  Neither
 relation is silently identified with equality of representative columns.
 

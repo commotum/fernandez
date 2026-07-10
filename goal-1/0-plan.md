@@ -180,6 +180,17 @@ disposition, and the pinned project builds and passes its axiom audit without
   witness whose output rays differ although every computational-basis weight
   agrees.  Every traceability row now has one terminal status, including each
   explicit open question.
+- Stage 10 completed on 2026-07-10.  The release audit added the missing
+  equivalence-relation laws for quaternionic right phase, with focused and
+  adjacent builds and expanded axiom coverage.  Persistent
+  `docs/AxiomAudit.md` and `docs/ReleaseReport.md` now provide the executable
+  audit interpretation and complete user handoff.
+- A clean root-package rebuild covered the 43-module public closure, the
+  explicit audit build covered the 44th source, and strict root/audit plus the
+  root-only downstream release smoke all passed.  The 186 audited endpoints
+  use only `propext`, `Classical.choice`, and `Quot.sound`; scans found no proof
+  holes, project axioms, unsafe shortcuts, stale objects, or tracked build
+  artifacts.
 
 ## Confirmed Representation Decisions and Boundaries
 
@@ -536,4 +547,4 @@ without learning the paper's original organization.
 - [x] 7-ORDERING — completed 2026-07-09
 - [x] 8-RESOURCES — completed 2026-07-09
 - [x] 9-COVERAGE — completed 2026-07-10
-- [ ] 10-RELEASE
+- [x] 10-RELEASE — completed 2026-07-10

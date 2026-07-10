@@ -1,17 +1,16 @@
 # Quaternionic Computing Lean Library — Release Report
 
-Release date: 2026-07-10  
-Project version: 0.1.0  
-Lean: 4.31.0  
-Mathlib: v4.31.0 (`fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`)
+- Release date: 2026-07-10
+- Project version: 0.1.0
+- Lean: 4.31.0
+- Mathlib: v4.31.0 (`fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`)
 
 ## Outcome
 
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library.  The release contains 44
-Lean source files totaling 10,141 lines, including the public root and
-executable axiom audit.
+Lean source files, including the public root and executable axiom audit.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -131,7 +130,7 @@ Representative exported declarations include:
 | Area | Main declarations |
 |---|---|
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
-| Phase | `Quaternion.RightPhaseEquivalent`, `Complex.RightPhaseEquivalent`, `State.rightPhaseEquivalent_mulVec`, `rightPhaseEquivalent_complex_mulVec` |
+| Phase | `Quaternion.RightPhaseEquivalent`, `Quaternion.rightPhaseEquivalent_equivalence`, `Complex.RightPhaseEquivalent`, `Complex.rightPhaseEquivalent_equivalence`, `State.rightPhaseEquivalent_mulVec`, `rightPhaseEquivalent_complex_mulVec` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
 | Quaternion → complex matrices | `Quaternion.complexify`, `complexify_mul`, `complexify_conjTranspose`, `complexify_mem_unitary`, `complexify_mem_symplectic` |
 | Direct quaternion → real | `Quaternion.directRealify`, `directRealify_eq_reindex`, `directRealify_mem_specialOrthogonal`, `directRealifyUnitaryEquivImage` |
@@ -240,14 +239,24 @@ lake build
 lake build QuaternionicComputing.AxiomAudit
 ```
 
-The final full build completed 2,553 jobs successfully.  The executable audit
-contains 186 `#print axioms` commands; every audited endpoint uses only
+Before the final run, `lake clean quaternionicComputing` removed the root
+package's old build directory.  The fresh public-root build completed 2,553
+jobs and rebuilt all 43 modules in that closure; the explicit audit target then
+compiled the 44th source and also completed 2,553 jobs.  Together these two
+commands cover every current Lean source.  Existing dependency checkouts were
+clean and their HEADs matched the manifest; network bootstrap from a brand-new
+clone was not rerun in this restricted environment.
+
+Warning-as-error source checks passed for the phase owner, public root, and
+audit.  The executable audit contains 186 `#print axioms` commands; every
+audited endpoint uses only
 `propext`, `Classical.choice`, and `Quot.sound`.  See `AxiomAudit.md` for the
 interpretation.
 
-A warning-as-error downstream smoke imported only `QuaternionicComputing`,
-checked representative APIs from every new release family, and proved the
-concrete dimension check `card (DirectRealIndex Bool) = 8`.  Lean-source hole,
+The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported
+only `QuaternionicComputing`, checked representative scalar, matrix, state,
+circuit, simulation, resource, outcome, phase, correction-witness, and example
+APIs, and proved `card (DirectRealIndex Bool) = 8`.  Lean-source hole,
 project-axiom, opaque, unsafe, and forbidden noncommutative-shortcut scans were
 empty.  `git diff --check` passed, and no Lake/Lean build artifact is tracked.
 

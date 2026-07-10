@@ -113,5 +113,52 @@ build alone as completion evidence.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 9-COVERAGE on
-  2026-07-10.
+- Completed 2026-07-10 after verified completion of 9-COVERAGE.
+- The public API audit found one reusable gap rather than changing the model:
+  quaternionic `RightPhaseEquivalent` lacked relation packaging.
+  `Scalar/Phase.lean` now exports reflexivity, symmetry, transitivity, and
+  `rightPhaseEquivalent_equivalence`.  Direct warning-as-error compilation and
+  focused `lake build QuaternionicComputing.Scalar.Phase` passed (2,342 jobs).
+  The audit now also checks quaternionic total-weight phase invariance.
+- The root/API audit verified that all 42 README narrow imports exist and cover
+  all 42 non-audit leaves; the Architecture tree covers all 43 modules below
+  `QuaternionicComputing/`; the public root exposes every stable family; and no
+  stale path, namespace collision, or unqualified low-rank properness claim
+  remains.
+- `docs/AxiomAudit.md` records the executable audit policy and
+  `docs/ReleaseReport.md` supplies the requested durable handoff: formalized
+  content, main exports, project structure, all 26 correction summaries,
+  unresolved/partial/excluded scope, build/audit evidence, and future-project
+  guidance.  README links both reports and includes the selected narrow import
+  surface.
+- Reproducibility inspection confirmed Lean 4.31.0, mathlib v4.31.0, resolved
+  mathlib commit `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`, and all eight
+  transitive checkout HEADs match the manifest.  The dependency checkouts were
+  clean; network bootstrap from a fresh clone was not rerun.
+- `lake clean quaternionicComputing` removed stale root-package objects.  The
+  subsequent `lake build` freshly rebuilt the 43-module public-root closure and
+  completed 2,553 jobs.  `lake build QuaternionicComputing.AxiomAudit` compiled
+  the remaining diagnostic source and completed 2,553 jobs.  Together the two
+  commands cover all 44 current/tracked Lean sources; no stale Smoke or old
+  EntanglementWitness object remains.
+- Warning-as-error compilation passed for `Scalar/Phase.lean`,
+  `QuaternionicComputing.lean`, and `AxiomAudit.lean`.  Parsing all 186
+  `#print axioms` results found zero dependency outside `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- `/tmp/ReleaseImportSmoke.lean` imported only `QuaternionicComputing`, checked
+  representative scalar, phase, matrix, state, placement, schedule, simulation,
+  resource, distribution, correction-witness, and example declarations, and
+  proved `card (DirectRealIndex Bool) = 8`; it compiled with warnings as errors.
+- Terminal-status validation found exactly 101 rows with one allowed status:
+  21 proved as stated, 33 corrected and proved, 28 partially formalized, 16
+  intentionally excluded, and 3 unresolved.  All 26 correction entries have
+  source/status/diagnosis, a repair or documentary resolution, and dependent
+  effects; 25 mathematical entries cite Lean declarations.
+- Final Lean-only hole/project-axiom/opaque/unsafe scans, forbidden
+  noncommutative-shortcut scans, stale-path scans, tracked-artifact checks, and
+  trailing-whitespace scans were empty.  All 44 Lean sources are tracked,
+  `git diff --check` passed, and no generated Lake/Lean artifact is tracked.
+- An independent requirement-to-evidence audit checked every original user
+  deliverable and every BUILD-PLAN/Stage 10 completion criterion.  After this
+  fold-back it found no remaining mathematical, API, documentation, build,
+  audit, coverage, or release blocker.
