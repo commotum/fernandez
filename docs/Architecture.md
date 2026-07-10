@@ -22,18 +22,22 @@ QuaternionicComputing/
     Basic.lean               normalized columns, weights, right phases
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
+    Unitary.lean             normalized state evolution under unitary matrices
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
     Basic.lean               locality-certified gates and ordered semantics
     OrderSanity.lean         concrete noncommuting evaluator audit
+    Cost.lean                generic width/arity bounds and maxima
     Realification.lean       one-gate complex-to-real translation
     Complexification.lean    one-gate quaternion-to-complex translation
     Ordering.lean            DAG/topological orders and ambiguity witnesses
   Simulation/
+    Basic.lean               generic sum-index → added-wire state transport
     ComplexToReal.lean       corrected Theorem 2 family
     QuaternionToComplex.lean corrected Theorem 4 family
     QuaternionToReal.lean    corrected Corollary 1 family
+    Examples.lean            exact non-real and quaternionic end-to-end checks
   Paper/
     Results.lean             source-numbered wrappers where useful
   Examples.lean
@@ -125,10 +129,39 @@ semantics: mathlib correctly requires commutative coefficients for that
 interchange law.  Ordered evaluation remains an explicit list/fold, which is
 precisely where quaternionic order dependence is observable.
 
-The first main theorem will use the exported monoid-hom evaluation lemma to
+The main simulation leaves use the exported monoid-hom evaluation lemma to
 lift these one-gate identities over an ordered list.  DAGs and
 topological sorting are an extension layer used to connect the theorem to the
 paper's “temporal chain” language and to exhibit order dependence.
+
+## Simulation implementation
+
+`Simulation/Basic.lean` transports sum-index state columns through the same
+`addedBasisEquiv` used by circuit matrices.  Its generic matrix-action theorem
+proves that reindexing commutes with `mulVec`; its bottom-weight operation sums
+the actual false/true assignments of the distinguished wire.  This keeps both
+primary simulation proofs parallel without duplicating index algebra.
+
+`State/Unitary.lean` proves, over a possibly noncommutative star ring, that a
+unitary matrix preserves `star ψ ⬝ᵥ ψ`.  Real, complex, and quaternionic total
+weights are exact specializations, yielding normalized-state evolution
+constructors.  Thus the main observable conclusions compare genuine
+normalized probability distributions, not merely unnormalized weights.
+
+`realifyCircuit` and `complexifyCircuit` are literal `List.map`s of the public
+placed-gate translations.  Their evaluator theorems use the public
+chronological semantics; state evolution applies the resulting matrix to a
+separately defined transported column.  Corrected Theorems 2 and 4 expose
+operator embedding, state intertwining, bottom probability equality, unchanged
+gate count, width `+1`, and exact per-gate arity `+1`.  Empty circuits have
+maximum local arity zero; maximum-arity equality therefore carries the
+necessary nonempty hypothesis.
+
+The corrected Corollary 1 is the visible composition
+`realifyCircuit (complexifyCircuit c)`.  It uses two shared distinguished
+wires, proves operator embedding `wireRealify (wireComplexify (eval c))`, exact
+gate count, width and arity `+2`, nested state intertwining, and the four-sector
+bottom probability sum.  It introduces no direct quaternion-to-real map.
 
 ## Group and determinant scope
 

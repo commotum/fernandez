@@ -81,6 +81,28 @@ theorem width_quaternionToRealCircuit (W : Type v) [Fintype W] :
     Fintype.card (AddedWire (AddedWire W)) = Fintype.card W + 2 := by
   rw [card_addedWire, card_addedWire]
 
+/--
+Every twice-translated gate has exact source provenance and exactly two more
+local wires; the bound below is therefore not merely a loose estimate.
+-/
+theorem mem_quaternionToRealCircuit_arity
+    {W : Type v} [Fintype W] (c : OrderedCircuit ℍ[ℝ] W)
+    (k : PlacedGate ℝ (AddedWire (AddedWire W))) :
+    k ∈ quaternionToRealCircuit c ↔
+      ∃ g, g ∈ c ∧ realifyPlacedGate (complexifyPlacedGate g) = k ∧
+        k.localArity = g.localArity + 2 := by
+  constructor
+  · intro hk
+    simp only [quaternionToRealCircuit, realifyCircuit, complexifyCircuit,
+      List.mem_map] at hk
+    rcases hk with ⟨complexGate, ⟨g, hg, rfl⟩, rfl⟩
+    refine ⟨g, hg, rfl, ?_⟩
+    simp [Nat.add_assoc]
+  · rintro ⟨g, hg, rfl, _⟩
+    simp only [quaternionToRealCircuit, realifyCircuit, complexifyCircuit,
+      List.mem_map]
+    exact ⟨complexifyPlacedGate g, ⟨g, hg, rfl⟩, rfl⟩
+
 /-- A source local-arity bound `d` becomes the composed bound `d + 2`. -/
 theorem arityBound_quaternionToRealCircuit
     {W : Type v} [Fintype W] {c : OrderedCircuit ℍ[ℝ] W} {d : ℕ}

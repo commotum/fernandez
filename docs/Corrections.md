@@ -171,14 +171,23 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-010 — “Exactly simulates the operator” is underspecified
 
 - **Source:** Theorem 4, line 855; similarly Theorem 2, line 169.
-- **Status:** confirmed type/semantic ambiguity.
+- **Status:** confirmed type/semantic ambiguity; repaired and proved at each
+  distinct semantic level.
 - **Diagnosis:** source and target operators have different scalar fields and
   dimensions, so they cannot literally be equal.  Operator embedding,
   compatibility on embedded states, and equality of bottom-wire measurement
   distributions are distinct claims.
-- **Repair:** export these as separate theorems and use observable equality as
-  the computational simulation conclusion.
-- **Lean declaration:** to be assigned in Stage 6.
+- **Repair:** the two primary leaves separately export typed operator
+  embedding, state-column evolution, normalized source/target output, and
+  bottom probability equality.  The packaged exact-simulation theorems include
+  these observable conclusions without identifying differently typed states
+  or operators.
+- **Lean declarations:** `eval_realifyCircuit`,
+  `eval_complexifyCircuit`, all `eval_*_mulVec_wire*` theorems,
+  `realifyCircuitOutput_bottomProbability`,
+  `complexifyCircuitOutput_bottomProbability`,
+  `complexToReal_exactSimulation`, and
+  `quaternionToComplex_exactSimulation`.
 - **Dependents:** all “exact simulation” and computational-power prose.
 
 ## C-011 — Malformed tensor display for `\widehat h`
@@ -261,13 +270,21 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-017 — Method limitation presented as impossibility
 
 - **Source:** line 1204 before Corollary 1.
-- **Status:** confirmed logical overreach.
+- **Status:** confirmed logical overreach; constructive upper bound repaired
+  and proved.
 - **Diagnosis:** failure of the displayed method to use only `n+1` rebits does
   not prove that no other exact simulation with that width exists.  The next
   sentence also calls an `(n+2)`-rebit construction “just one extra rebit,”
   which is ambiguous about the baseline.
 - **Repair:** record only that composing the two embeddings yields `n+2`
-  rebits; make no lower-bound claim without a proof.
+  rebits; make no lower-bound claim without a proof.  The composition is
+  formalized literally, including nested state evolution and four-sector
+  bottom probability equality.
+- **Lean declarations:** `quaternionToRealCircuit`,
+  `eval_quaternionToRealCircuit`,
+  `quaternionToRealCircuitOutput_nestedEncoding_apply`,
+  `quaternionToRealCircuitOutput_bottomProbability`, and
+  `quaternionToReal_exactSimulation`.
 - **Dependents:** Corollary 1 interpretation, not its constructive upper bound.
 
 ## C-018 — Universal order-dependence is too strong
@@ -287,14 +304,21 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-019 — Resource conclusions require an encoding model
 
 - **Source:** lines 432, 673, 1176–1198, and 1239–1241.
-- **Status:** confirmed missing assumptions.
+- **Status:** confirmed missing assumptions; exact abstract structural costs
+  proved, encoding/synthesis conclusions remain Stage 8.
 - **Diagnosis:** constant-time gate conversion, linear description conversion,
   and BQP-level efficiency depend on how arbitrary real/complex/quaternionic
   entries and gates are encoded and synthesized.  Matrix dimensions alone do
   not provide those conclusions.
 - **Repair:** distinguish exact finite algebraic translation from uniform
-  computable circuit families and state every cost theorem relative to an
-  explicit encoding and primitive-gate model.
+  computable circuit families.  The abstract model now proves unchanged list
+  gate count, exact width `+1`/`+2`, exact per-gate local arity `+1`/`+2`,
+  transformed arity bounds, and maximum-arity results with the necessary
+  nonempty hypothesis.  Runtime, synthesis, depth, and uniformity still require
+  an explicit encoding/primitive-gate model.
+- **Lean declarations:** `Circuit.card_addedWire`, `ArityBound`,
+  `maxLocalArity`, the primary `gateCount_*`, `mem_*_arity`,
+  `arityBound_*`, `maxLocalArity_*` families, and their composed analogues.
 - **Dependents:** Theorems 2/4 as complexity claims, Section 5, and conclusions.
 
 ## C-020 — Theorem 3 also omits determinant one
@@ -334,8 +358,8 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-022 — Lemma 8 is asserted by analogy without its critical proof
 
 - **Source:** lines 967–980.
-- **Status:** confirmed proof omission; critical local naturality repaired and
-  proved, with whole-list composition isolated to Stage 6.
+- **Status:** confirmed proof omission; repaired and proved locally and for
+  arbitrary ordered circuits.
 - **Diagnosis:** multiplicativity of `ĥ` handles ordered composition only after
   each local quaternionic gate's contextual placement is shown to map to the
   claimed target placement.  The paper calls the construction “purely formal”
@@ -346,9 +370,11 @@ means the corrected mathematical target is known but not yet formalized;
   from entries that complexification commutes with this actual placement after
   adjoining one shared top wire; `complexifyPlacedGate_denote` packages the
   result for locality-certified gates.  No general Kronecker interchange is
-  used.  Stage 6 applies the already exported ordered-list induction helper.
+  used.  `eval_complexifyCircuit` then applies the public ordered-list
+  induction helper to prove the full corrected Lemma 8.
 - **Lean declarations:** `Circuit.wireComplexify_place`,
-  `complexifyPlacedGate_denote`, and `OrderedCircuit.eval_map_of_denote_eq`.
+  `complexifyPlacedGate_denote`, `OrderedCircuit.eval_map_of_denote_eq`, and
+  `Simulation.eval_complexifyCircuit`.
 - **Dependents:** Lemma 8 and Theorem 4.
 
 ## C-023 — “Any Hilbert space” is insufficient for circuit semantics
@@ -367,12 +393,16 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-024 — Algebraic exactness conflicts with finite-precision descriptions
 
 - **Source:** Theorems 2/4 and footnote 6 at line 1292.
-- **Status:** confirmed scope ambiguity.
+- **Status:** confirmed scope ambiguity; exact abstract side proved and
+  finite-precision side isolated.
 - **Diagnosis:** the main theorems repeatedly say “exact,” while the footnote
   says gate matrices supplied to the simulator are finite-precision
   approximations.  Exact equality of abstract matrices and approximate,
   effectively encoded circuit compilation are different results.
-- **Repair:** prove exact algebraic translations for exact input matrices.
-  Treat approximation error, computable encodings, and uniform compilation as
-  separate resource-stage obligations.
+- **Repair:** `complexToReal_exactSimulation`,
+  `quaternionToComplex_exactSimulation`, and
+  `quaternionToReal_exactSimulation` prove exact algebraic translations for
+  exact input matrices.  Approximation error, computable encodings, and uniform
+  compilation remain separate Stage 8 obligations and are not consequences of
+  these theorems.
 - **Dependents:** Theorems 2/4, preprocessing bounds, and BQP conclusions.

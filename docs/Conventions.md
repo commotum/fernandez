@@ -136,6 +136,30 @@ they are not silently inferred from the pure-state theorems.
   target wire has type `Unit ⊕ W`, is shared by every translated gate, and is
   never duplicated per gate.
 
+## Simulation and abstract resources
+
+- `realifyCircuit` and `complexifyCircuit` are literal gatewise list maps.  A
+  simulation operator theorem has the typed form `eval target = wireEmbed
+  (eval source)`; source and target operators are never asserted literally
+  equal across scalar fields or dimensions.
+- Circuit-facing state columns are defined independently by transporting the
+  sum-index columns through `addedBasisEquiv`.  Evolution theorems apply the
+  actual translated evaluator to these columns and prove the resulting
+  equality.
+- A bottom probability is the sum of scalar basis weights over the actual
+  false and true assignments of the distinguished top wire.  Generic theorems
+  prove these marginalized weights are nonnegative and sum to the full total
+  weight.  Named probability theorems use normalized source and target state
+  subtypes, whose preservation follows from matrix unitarity.
+- Gate count means chronological list length in the abstract-matrix gate
+  model.  Width is `Fintype.card` of the wire type.  Local arity is the card of
+  a placed gate's stored local wire type; `maxLocalArity [] = 0`, so exact
+  maximum `+1`/`+2` theorems require a nonempty circuit.
+- These exact count/width/arity results do not include physical swaps,
+  primitive-gate synthesis, finite-precision encoding, runtime, scheduling
+  depth, or uniform circuit generation.  Those require explicit later cost
+  models.
+
 ## Dimensions and empty types
 
 An `N × N` source matrix embeds into a `2N × 2N` target matrix, represented by a

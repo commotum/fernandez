@@ -133,6 +133,51 @@ theorem addedWireBottomWeight_apply (weight : R → ℝ)
         weight (v (addedBasisEquiv W (Sum.inr x))) :=
   rfl
 
+/-- Pointwise nonnegative scalar weights give nonnegative bottom weights. -/
+theorem addedWireBottomWeight_nonneg (weight : R → ℝ)
+    (hweight : ∀ r, 0 ≤ weight r)
+    (v : BitBasis (AddedWire W) → R) (x : BitBasis W) :
+    0 ≤ addedWireBottomWeight weight v x := by
+  exact add_nonneg
+    (hweight (v (addedBasisEquiv W (Sum.inl x))))
+    (hweight (v (addedBasisEquiv W (Sum.inr x))))
+
+/-- Summing bottom weights recovers the full added-wire total weight. -/
+theorem sum_addedWireBottomWeight [Finite W] (weight : R → ℝ)
+    (v : BitBasis (AddedWire W) → R) :
+    (∑ x : BitBasis W, addedWireBottomWeight weight v x) =
+      QuaternionicComputing.State.totalWeight weight v := by
+  calc
+    (∑ x : BitBasis W, addedWireBottomWeight weight v x) =
+        ∑ s : BitBasis W ⊕ BitBasis W,
+          QuaternionicComputing.State.basisWeight weight v
+            (addedBasisEquiv W s) := by
+      simp [addedWireBottomWeight, Fintype.sum_sum_type,
+        Finset.sum_add_distrib]
+    _ = ∑ y : BitBasis (AddedWire W),
+          QuaternionicComputing.State.basisWeight weight v y :=
+      (addedBasisEquiv W).sum_comp _
+    _ = QuaternionicComputing.State.totalWeight weight v :=
+      rfl
+
+/-- Bottom weights of a normalized added-wire state have total mass one. -/
+@[simp]
+theorem sum_addedWireBottomWeight_normalized [Finite W]
+    {weight : R → ℝ}
+    (v : QuaternionicComputing.State.NormalizedState
+      (BitBasis (AddedWire W)) R weight) :
+    (∑ x : BitBasis W, addedWireBottomWeight weight v x) = 1 := by
+  rw [sum_addedWireBottomWeight]
+  exact v.property
+
+/-- Nonnegative scalar weights make every normalized bottom weight nonnegative. -/
+theorem addedWireBottomWeight_normalized_nonneg [Finite W]
+    {weight : R → ℝ} (hweight : ∀ r, 0 ≤ weight r)
+    (v : QuaternionicComputing.State.NormalizedState
+      (BitBasis (AddedWire W)) R weight) (x : BitBasis W) :
+    0 ≤ addedWireBottomWeight weight v x :=
+  addedWireBottomWeight_nonneg weight hweight v x
+
 /-- Bottom weight of a transported column is the sum of its two source-sector weights. -/
 @[simp]
 theorem addedWireBottomWeight_transportAddedColumn (weight : R → ℝ)

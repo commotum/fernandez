@@ -33,11 +33,16 @@ import QuaternionicComputing.Matrix.Determinant
 import QuaternionicComputing.State.Basic
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
+import QuaternionicComputing.State.Unitary
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
 import QuaternionicComputing.Circuit.Realification
 import QuaternionicComputing.Circuit.Complexification
+import QuaternionicComputing.Circuit.Cost
+import QuaternionicComputing.Simulation.ComplexToReal
+import QuaternionicComputing.Simulation.QuaternionToComplex
+import QuaternionicComputing.Simulation.QuaternionToReal
 ```
 
 The matrix layer currently exports dimension-safe, injective, multiplicative,
@@ -59,6 +64,15 @@ chronological evaluation, unitarity preservation, and a concrete quaternionic
 order check.  One-gate realification and complexification reuse one shared
 distinguished top wire, commute with actual contextual placement, preserve
 local unitarity, and increase local arity by exactly one.
+
+The simulation layer proves corrected constructive forms of the paper's
+Theorems 2 and 4 for arbitrary ordered finite circuits.  It separately exports
+whole-operator embedding, all canonical and arbitrary-pure-top state evolution
+laws, and equality of normalized bottom computational-basis probabilities.
+Abstract gate count is unchanged, width grows by exactly one, and every local
+gate grows by exactly one wire; maximum-arity theorems handle the empty circuit
+explicitly.  Composing the two translations proves the corrected
+quaternion-to-real corollary with two added wires and exact `+2` arity.
 
 See `docs/Traceability.md`, `docs/Corrections.md`,
 `docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and
