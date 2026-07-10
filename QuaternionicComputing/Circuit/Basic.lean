@@ -1,7 +1,6 @@
 module
 
 public import QuaternionicComputing.Circuit.Placement
-public import QuaternionicComputing.Scalar.Quaternion
 
 /-!
 # Placed gates and ordered finite circuits
@@ -18,7 +17,7 @@ product `Gₛ * ⋯ * G₁`.
 
 @[expose] public noncomputable section
 
-open scoped Matrix Quaternion
+open scoped Matrix
 
 namespace QuaternionicComputing.Circuit
 
@@ -100,9 +99,8 @@ def complementArity (g : PlacedGate R W) : ℕ :=
   @Fintype.card g.Complement g.complementFintype
 
 /-- The number of local computational-basis labels. -/
-def localBasisCard (g : PlacedGate R W) : ℕ := by
-  letI := g.localFintype
-  exact Fintype.card (BitBasis g.Local)
+def localBasisCard (g : PlacedGate R W) : ℕ :=
+  Nat.card (BitBasis g.Local)
 
 /-- The placed global matrix, derived from all of the stored locality data. -/
 def denote (g : PlacedGate R W) : Matrix (BitBasis W) (BitBasis W) R := by
@@ -163,10 +161,16 @@ theorem support_onSupport {L : Type v} [Fintype L]
     (chosen : L ↪ W) (U : Matrix (BitBasis L) (BitBasis L) R) :
     (onSupport chosen U).support = Finset.univ.map chosen := by
   letI : Fintype (SupportComplement chosen) := Fintype.ofFinite _
+  letI := (onSupport chosen U).localFintype
   ext w
   rw [mem_support_iff]
   simp only [localSupport_onSupport]
-  rfl
+  constructor
+  · rintro ⟨l, rfl⟩
+    exact Finset.mem_map.mpr ⟨l, Finset.mem_univ l, rfl⟩
+  · intro hw
+    rcases Finset.mem_map.mp hw with ⟨l, -, hl⟩
+    exact ⟨l, hl⟩
 
 /-- Local and complementary arities add up to the global wire count. -/
 theorem localArity_add_complementArity (g : PlacedGate R W) :
@@ -179,12 +183,10 @@ theorem localArity_add_complementArity (g : PlacedGate R W) :
 /-- There are `2 ^ localArity` local computational-basis labels. -/
 theorem localBasisCard_eq_two_pow (g : PlacedGate R W) :
     g.localBasisCard = 2 ^ g.localArity := by
-  classical
   letI := g.localFintype
-  change Fintype.card (g.Local → Bool) = 2 ^ Fintype.card g.Local
-  rw [← Nat.card_eq_fintype_card, Nat.card_fun,
-    Nat.card_eq_fintype_card, Nat.card_eq_fintype_card]
-  simp
+  change Nat.card (g.Local → Bool) = 2 ^ Fintype.card g.Local
+  rw [Nat.card_fun]
+  simp [Nat.card_eq_fintype_card]
 
 section Star
 
@@ -194,6 +196,13 @@ variable [StarRing R]
 def IsLocallyUnitary (g : PlacedGate R W) : Prop := by
   letI := g.localFintype
   exact g.localMatrix ∈ unitary (Matrix (BitBasis g.Local) (BitBasis g.Local) R)
+
+@[simp]
+theorem isLocallyUnitary_ofSplit {L K : Type v} [Fintype L] [Fintype K]
+    (split : L ⊕ K ≃ W) (U : Matrix (BitBasis L) (BitBasis L) R) :
+    (ofSplit split U).IsLocallyUnitary ↔
+      U ∈ unitary (Matrix (BitBasis L) (BitBasis L) R) :=
+  Iff.rfl
 
 /-- Local unitarity implies unitarity of the derived global matrix. -/
 theorem denote_mem_unitary (g : PlacedGate R W) (hg : g.IsLocallyUnitary) :
@@ -297,6 +306,16 @@ theorem eval_map_of_denote_eq
   | nil => simp
   | cons g c ih => simp [ih, htranslate, map_mul]
 
+/--
+Two chronological gates evaluate differently from their swapped list whenever
+their derived global matrices fail to commute.  Concrete public witnesses live
+in the narrow `Circuit.OrderSanity` leaf.
+-/
+theorem eval_pair_ne_swap_of_not_commute (g k : PlacedGate R W)
+    (h : k.denote * g.denote ≠ g.denote * k.denote) :
+    eval [g, k] ≠ eval [k, g] := by
+  simpa using h
+
 section Star
 
 variable [StarRing R]
@@ -332,62 +351,5 @@ theorem eval_mem_unitary {c : OrderedCircuit R W} (hc : c.IsLocallyUnitary) :
 end Star
 
 end OrderedCircuit
-
-/-! ## Public order-sensitivity sanity check -/
-
-namespace OrderSanity
-
-open QuaternionicComputing.Quaternion
-
-/-- The unique split of a zero-wire local system and zero-wire complement. -/
-def emptySplit : Empty ⊕ Empty ≃ Empty :=
-  Equiv.sumEmpty Empty Empty
-
-/-- A zero-wire local matrix whose unique entry is the quaternionic unit `i`. -/
-def iLocal : Matrix (BitBasis Empty) (BitBasis Empty) ℍ[ℝ] :=
-  fun _ _ ↦ i
-
-/-- A zero-wire local matrix whose unique entry is the quaternionic unit `j`. -/
-def jLocal : Matrix (BitBasis Empty) (BitBasis Empty) ℍ[ℝ] :=
-  fun _ _ ↦ j
-
-/-- The placed `i` gate used by the order sanity check. -/
-def iGate : PlacedGate ℍ[ℝ] Empty :=
-  PlacedGate.ofSplit emptySplit iLocal
-
-/-- The placed `j` gate used by the order sanity check. -/
-def jGate : PlacedGate ℍ[ℝ] Empty :=
-  PlacedGate.ofSplit emptySplit jLocal
-
-/-- The two stored local matrices genuinely fail to commute. -/
-theorem jLocal_mul_iLocal_ne_iLocal_mul_jLocal :
-    jLocal * iLocal ≠ iLocal * jLocal := by
-  intro h
-  let z : BitBasis Empty := fun x ↦ nomatch x
-  have hz := congrFun (congrFun h z) z
-  have hk : (-k : ℍ[ℝ]) = k := by
-    simpa [iLocal, jLocal, Matrix.mul_apply] using hz
-  have hkCoord := congrArg QuaternionAlgebra.imK hk
-  norm_num at hkCoord
-
-/-- The corresponding placed global matrices genuinely fail to commute. -/
-theorem jGate_denote_mul_iGate_denote_ne_iGate_denote_mul_jGate_denote :
-    jGate.denote * iGate.denote ≠ iGate.denote * jGate.denote := by
-  change
-    place emptySplit jLocal * place emptySplit iLocal ≠
-      place emptySplit iLocal * place emptySplit jLocal
-  rw [← place_mul, ← place_mul]
-  exact (place_injective emptySplit).ne jLocal_mul_iLocal_ne_iLocal_mul_jLocal
-
-/--
-The actual public evaluator distinguishes chronological `[i, j]` from
-chronological `[j, i]`: the former denotes `j * i`, the latter `i * j`.
-This theorem fails if circuit multiplication order is accidentally reversed.
--/
-theorem eval_i_then_j_ne_eval_j_then_i :
-    OrderedCircuit.eval [iGate, jGate] ≠ OrderedCircuit.eval [jGate, iGate] := by
-  simpa using jGate_denote_mul_iGate_denote_ne_iGate_denote_mul_jGate_denote
-
-end OrderSanity
 
 end QuaternionicComputing.Circuit

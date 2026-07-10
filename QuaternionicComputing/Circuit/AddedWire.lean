@@ -24,6 +24,9 @@ complexification use this shared wire algebra from separate proof leaves.
 
 namespace QuaternionicComputing.Circuit
 
+/-- A wire type extended by one distinguished top wire. -/
+abbrev AddedWire (W : Type*) := Unit ⊕ W
+
 /--
 The two-block basis equivalence for one added top wire.
 
@@ -31,7 +34,7 @@ The left summand encodes top bit `false`; the right summand encodes top bit
 `true`.  Both retain the supplied assignment on the original tail wires.
 -/
 def addedBasisEquiv (W : Type*) :
-    BitBasis W ⊕ BitBasis W ≃ BitBasis (Unit ⊕ W) where
+    BitBasis W ⊕ BitBasis W ≃ BitBasis (AddedWire W) where
   toFun
     | Sum.inl x => Sum.elim (fun _ ↦ false) x
     | Sum.inr x => Sum.elim (fun _ ↦ true) x
@@ -67,11 +70,41 @@ theorem addedBasisEquiv_inr_bottom (W : Type*) (x : BitBasis W) (w : W) :
   rfl
 
 /--
+Reindex square matrices from the two-block sum basis to the computational
+basis of `AddedWire W`.
+
+This is a generic star-monoid homomorphism over possibly noncommutative
+coefficients.  Embedding-specific circuit leaves can compose their algebraic
+matrix embedding with this common wire-facing reindexing.
+-/
+def addedBasisReindexStarMonoidHom (R W : Type*) [Semiring R] [StarRing R]
+    [Fintype W] :
+    Matrix (BitBasis W ⊕ BitBasis W) (BitBasis W ⊕ BitBasis W) R →⋆*
+      Matrix (BitBasis (AddedWire W)) (BitBasis (AddedWire W)) R where
+  toFun := Matrix.reindex (addedBasisEquiv W) (addedBasisEquiv W)
+  map_one' := by
+    exact map_one (Matrix.reindexRingEquiv R (addedBasisEquiv W))
+  map_mul' A B := by
+    exact map_mul (Matrix.reindexRingEquiv R (addedBasisEquiv W)) A B
+  map_star' A := by
+    simpa only [Matrix.star_eq_conjTranspose] using
+      (Matrix.conjTranspose_reindex
+        (addedBasisEquiv W) (addedBasisEquiv W) A).symm
+
+@[simp]
+theorem addedBasisReindexStarMonoidHom_apply
+    (R W : Type*) [Semiring R] [StarRing R] [Fintype W]
+    (A : Matrix (BitBasis W ⊕ BitBasis W) (BitBasis W ⊕ BitBasis W) R) :
+    addedBasisReindexStarMonoidHom R W A =
+      Matrix.reindex (addedBasisEquiv W) (addedBasisEquiv W) A :=
+  rfl
+
+/--
 Extend a local/complement split by adjoining one distinguished top wire to
 the local side.  The complement type `K` is unchanged.
 -/
 def addTopSplit {L K W : Type*} (split : L ⊕ K ≃ W) :
-    (Unit ⊕ L) ⊕ K ≃ Unit ⊕ W where
+    AddedWire L ⊕ K ≃ AddedWire W where
   toFun
     | Sum.inl (Sum.inl u) => Sum.inl u
     | Sum.inl (Sum.inr l) => Sum.inr (split (Sum.inl l))
@@ -114,18 +147,18 @@ theorem addTopSplit_rest {L K W : Type*} (split : L ⊕ K ≃ W) (k : K) :
   rfl
 
 /-- Forget the distinguished top bit and retain the original tail assignment. -/
-def tailBits {W : Type*} (x : BitBasis (Unit ⊕ W)) : BitBasis W :=
+def tailBits {W : Type*} (x : BitBasis (AddedWire W)) : BitBasis W :=
   fun w ↦ x (Sum.inr w)
 
 @[simp]
-theorem tailBits_apply {W : Type*} (x : BitBasis (Unit ⊕ W)) (w : W) :
+theorem tailBits_apply {W : Type*} (x : BitBasis (AddedWire W)) (w : W) :
     tailBits x w = x (Sum.inr w) :=
   rfl
 
 /-- Adding the top local wire does not change the complementary assignment. -/
 @[simp]
 theorem complementBits_addTopSplit {L K W : Type*}
-    (split : L ⊕ K ≃ W) (x : BitBasis (Unit ⊕ W)) :
+    (split : L ⊕ K ≃ W) (x : BitBasis (AddedWire W)) :
     complementBits (addTopSplit split) x =
       complementBits split (tailBits x) := by
   funext k
@@ -134,14 +167,14 @@ theorem complementBits_addTopSplit {L K W : Type*}
 /-- The new local assignment's top bit is the global top bit. -/
 @[simp]
 theorem localBits_addTopSplit_top {L K W : Type*}
-    (split : L ⊕ K ≃ W) (x : BitBasis (Unit ⊕ W)) (u : Unit) :
+    (split : L ⊕ K ≃ W) (x : BitBasis (AddedWire W)) (u : Unit) :
     localBits (addTopSplit split) x (Sum.inl u) = x (Sum.inl u) := by
   simp
 
 /-- The old local bits are the local restriction of the global tail. -/
 @[simp]
 theorem localBits_addTopSplit_bottom {L K W : Type*}
-    (split : L ⊕ K ≃ W) (x : BitBasis (Unit ⊕ W)) (l : L) :
+    (split : L ⊕ K ≃ W) (x : BitBasis (AddedWire W)) (l : L) :
     localBits (addTopSplit split) x (Sum.inr l) =
       localBits split (tailBits x) l := by
   simp [tailBits]
@@ -149,7 +182,7 @@ theorem localBits_addTopSplit_bottom {L K W : Type*}
 /-- Decode an added-wire assignment whose distinguished top bit is `false`. -/
 @[simp]
 theorem addedBasisEquiv_symm_false {W : Type*}
-    (x : BitBasis (Unit ⊕ W)) (h : x (Sum.inl ()) = false) :
+    (x : BitBasis (AddedWire W)) (h : x (Sum.inl ()) = false) :
     (addedBasisEquiv W).symm x = Sum.inl (tailBits x) := by
   simp [addedBasisEquiv, h]
   rfl
@@ -157,7 +190,7 @@ theorem addedBasisEquiv_symm_false {W : Type*}
 /-- Decode an added-wire assignment whose distinguished top bit is `true`. -/
 @[simp]
 theorem addedBasisEquiv_symm_true {W : Type*}
-    (x : BitBasis (Unit ⊕ W)) (h : x (Sum.inl ()) = true) :
+    (x : BitBasis (AddedWire W)) (h : x (Sum.inl ()) = true) :
     (addedBasisEquiv W).symm x = Sum.inr (tailBits x) := by
   simp [addedBasisEquiv, h]
   rfl
@@ -168,7 +201,7 @@ the original local restriction of the global tail.
 -/
 @[simp]
 theorem tailBits_localBits_addTopSplit {L K W : Type*}
-    (split : L ⊕ K ≃ W) (x : BitBasis (Unit ⊕ W)) :
+    (split : L ⊕ K ≃ W) (x : BitBasis (AddedWire W)) :
     tailBits (localBits (addTopSplit split) x) =
       localBits split (tailBits x) := by
   funext l
