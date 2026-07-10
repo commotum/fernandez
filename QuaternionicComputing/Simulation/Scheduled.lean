@@ -60,6 +60,16 @@ theorem eval_complexify_scheduledCircuit
       wireComplexify (schedule.scheduledEval gates) := by
   exact eval_complexifyCircuit (schedule.scheduledCircuit gates)
 
+/-- Complexification is injective, so translating two schedules cannot erase an operator gap. -/
+theorem eval_complexify_scheduledCircuit_ne_of_scheduledEval_ne
+    (s t : LegalSchedule ι precedes)
+    (gates : ι → PlacedGate ℍ[ℝ] W)
+    (h : s.scheduledEval gates ≠ t.scheduledEval gates) :
+    OrderedCircuit.eval (complexifyCircuit (s.scheduledCircuit gates)) ≠
+      OrderedCircuit.eval (complexifyCircuit (t.scheduledCircuit gates)) := by
+  rw [eval_complexify_scheduledCircuit, eval_complexify_scheduledCircuit]
+  exact wireComplexify_injective.ne h
+
 /-- The translated scheduled circuit still has exactly one gate per identifier. -/
 theorem gateCount_complexify_scheduledCircuit
     (schedule : LegalSchedule ι precedes)
