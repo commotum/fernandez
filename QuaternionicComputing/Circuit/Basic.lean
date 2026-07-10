@@ -117,6 +117,23 @@ theorem denote_ofSplit {L K : Type v} [Fintype L] [Fintype K]
   rfl
 
 @[simp]
+theorem localSupport_onSupport {L : Type v} [Fintype L]
+    (chosen : L ↪ W) (U : Matrix (BitBasis L) (BitBasis L) R) (l : L) :
+    (onSupport chosen U).localSupport l = chosen l := by
+  letI : Fintype (SupportComplement chosen) := Fintype.ofFinite _
+  change supportSplit chosen (Sum.inl l) = chosen l
+  exact supportSplit_apply_inl chosen l
+
+/-- `onSupport` has exactly the contextual semantics built from the supplied injection. -/
+@[simp]
+theorem denote_onSupport {L : Type v} [Fintype L]
+    (chosen : L ↪ W) (U : Matrix (BitBasis L) (BitBasis L) R) :
+    (onSupport chosen U).denote = placeOnSupport chosen U := by
+  letI : Fintype (SupportComplement chosen) := Fintype.ofFinite _
+  change (ofSplit (supportSplit chosen) U).denote = place (supportSplit chosen) U
+  exact denote_ofSplit (supportSplit chosen) U
+
+@[simp]
 theorem localArity_ofSplit {L K : Type v} [Fintype L] [Fintype K]
     (split : L ⊕ K ≃ W) (U : Matrix (BitBasis L) (BitBasis L) R) :
     (ofSplit split U).localArity = Fintype.card L :=
@@ -141,6 +158,16 @@ theorem card_support (g : PlacedGate R W) :
   letI := g.localFintype
   simp [support, localArity]
 
+@[simp]
+theorem support_onSupport {L : Type v} [Fintype L]
+    (chosen : L ↪ W) (U : Matrix (BitBasis L) (BitBasis L) R) :
+    (onSupport chosen U).support = Finset.univ.map chosen := by
+  letI : Fintype (SupportComplement chosen) := Fintype.ofFinite _
+  ext w
+  rw [mem_support_iff]
+  simp only [localSupport_onSupport]
+  rfl
+
 /-- Local and complementary arities add up to the global wire count. -/
 theorem localArity_add_complementArity (g : PlacedGate R W) :
     g.localArity + g.complementArity = Fintype.card W := by
@@ -154,7 +181,10 @@ theorem localBasisCard_eq_two_pow (g : PlacedGate R W) :
     g.localBasisCard = 2 ^ g.localArity := by
   classical
   letI := g.localFintype
-  simp [localBasisCard, localArity]
+  change Fintype.card (g.Local → Bool) = 2 ^ Fintype.card g.Local
+  rw [← Nat.card_eq_fintype_card, Nat.card_fun,
+    Nat.card_eq_fintype_card, Nat.card_eq_fintype_card]
+  simp
 
 section Star
 
@@ -289,11 +319,15 @@ theorem isLocallyUnitary_cons {g : PlacedGate R W} {c : OrderedCircuit R W} :
 theorem eval_mem_unitary {c : OrderedCircuit R W} (hc : c.IsLocallyUnitary) :
     eval c ∈ unitary (Matrix (BitBasis W) (BitBasis W) R) := by
   induction c with
-  | nil => simpa using (unitary (Matrix (BitBasis W) (BitBasis W) R)).one_mem
+  | nil => exact (unitary (Matrix (BitBasis W) (BitBasis W) R)).one_mem
   | cons g c ih =>
-      exact (unitary (Matrix (BitBasis W) (BitBasis W) R)).mul_mem
-        (ih (fun k hk ↦ hc k (List.mem_cons_of_mem g hk)))
-        (g.denote_mem_unitary (hc g (by simp)))
+      have hcTail : IsLocallyUnitary c :=
+        fun k hk ↦ hc k (List.mem_cons_of_mem g hk)
+      have hg : PlacedGate.IsLocallyUnitary g := hc g (by simp)
+      have hTail := ih hcTail
+      have hHead := g.denote_mem_unitary hg
+      rw [eval_cons]
+      exact (unitary (Matrix (BitBasis W) (BitBasis W) R)).mul_mem hTail hHead
 
 end Star
 
@@ -331,11 +365,17 @@ theorem jLocal_mul_iLocal_ne_iLocal_mul_jLocal :
   intro h
   let z : BitBasis Empty := fun x ↦ nomatch x
   have hz := congrFun (congrFun h z) z
-  simpa [iLocal, jLocal, Matrix.mul_apply] using hz
+  have hk : (-k : ℍ[ℝ]) = k := by
+    simpa [iLocal, jLocal, Matrix.mul_apply] using hz
+  have hkCoord := congrArg QuaternionAlgebra.imK hk
+  norm_num at hkCoord
 
 /-- The corresponding placed global matrices genuinely fail to commute. -/
 theorem jGate_denote_mul_iGate_denote_ne_iGate_denote_mul_jGate_denote :
     jGate.denote * iGate.denote ≠ iGate.denote * jGate.denote := by
+  change
+    place emptySplit jLocal * place emptySplit iLocal ≠
+      place emptySplit iLocal * place emptySplit jLocal
   rw [← place_mul, ← place_mul]
   exact (place_injective emptySplit).ne jLocal_mul_iLocal_ne_iLocal_mul_jLocal
 
