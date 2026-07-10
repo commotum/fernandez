@@ -84,9 +84,15 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   normalized rational complex source state whose canonical real encoding is
   proved nonfactorable.  Keep the general definition reusable and the heavy
   coordinate proof in the example leaf.
-- Decide the complex-ray row with the minimum sound API: prove unit-complex
-  phase preserves finite basis distributions if not already available, but do
-  not introduce a quotient that no theorem consumes.
+- Add a basis-preparation leaf for the paper's ground-state convention.  A
+  classically known computational-basis assignment should induce an XOR
+  permutation/unitary placed gate that maps the all-zero basis column to that
+  assignment; prepending it absorbs that known basis input.  Do not generalize
+  this to an unknown arbitrary quantum state or uniform runtime claim.
+- Close the complex-ray row with a light unit-phase API: unit right phase is an
+  equivalence relation, preserves basis/total weights, and commutes with
+  arbitrary compatible matrices.  Do not introduce a projective quotient that
+  no theorem consumes.
 - Revisit every remaining temporary traceability row.  Assign terminal statuses
   to the norm-preserver background fact, ground-state preparation, real-gate
   interpretation, mixed-top extensions, physical/nonlocal-time prose,
@@ -109,8 +115,12 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
 - `State/EntanglementWitness.lean`: narrow pure-state example importing the
   real state encoding; owns factorization terminology and rational witness,
   without a density-matrix hierarchy.
-- Optional `State/ComplexPhase.lean`: low-dependency public phase-invariance
-  leaf only if the source ray row benefits from a reusable consumed theorem.
+- `State/ComplexPhase.lean`: low-dependency public phase-equivalence and
+  invariance leaf; normalized columns remain the concrete state representation
+  and no quotient is introduced.
+- `Circuit/BasisPreparation.lean`: finite permutation/preparation proof leaf
+  importing the ordered core and permutation-matrix APIs; owns only the known
+  computational-basis input correction.
 - A circuit direct-map bridge, if needed, belongs in a thin
   `Simulation/DirectQuaternionToReal.lean` consumer rather than the matrix
   leaf; it must visibly agree with the established compositional simulator.
@@ -151,6 +161,9 @@ cryptographic, mixed-state, uniformity, and complexity interpretations.
   dimensions, and C-016 records the source codomain error and exceptions.
 - A normalized non-real source state has a proved non-product canonical real
   encoding, without overclaiming physical consequences.
+- A known computational-basis input can be absorbed by a certified unitary
+  preparation gate, and complex unit phase has a reusable ray-level invariance
+  API; neither result claims a uniform input compiler or quotient semantics.
 - Every traceability row has an allowed terminal status; every new material
   issue and dependent effect appears in the correction log.
 - Focused leaves, adjacent consumers, strict warnings, root, full build,
