@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean`.  It imports only
-the public root and runs 199 `#print axioms` commands covering representative
+the public root and runs 201 `#print axioms` commands covering representative
 endpoints from every public layer:
 
 - quaternion scalar decomposition and phase correction;

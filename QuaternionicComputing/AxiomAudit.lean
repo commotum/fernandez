@@ -203,6 +203,8 @@ axioms used by each main exported result.
   QuaternionicComputing.Semantics.basisWeightEq_iff_normalizedDistributionEq
 #print axioms QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq
 #print axioms QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.outputWeightEqAt
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.basisMeasurementEq
 #print axioms QuaternionicComputing.Semantics.ExactCircuitEq.pureInputBasisMeasurementEq
 
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
