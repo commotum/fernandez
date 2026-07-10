@@ -25,21 +25,23 @@ right, output-row phase on the left, and operator phase limited to the proved
 central/projective kernel with the rank-one exception explicit. Require a
 certified basis permutation for SameBasisBehavior.
 
-At each iteration inspect the actual public API, AxiomAudit, comparison
-manifest, docs, traceability, corrections, Goal 1 evidence, Goal 3 scaffold,
-builds, tests, and diff; update current facts; choose the first dependency-ready
-stage or mandatory milestone; create or refresh only its stage file; implement
-the smallest relation/proof/counterexample with a real consumer; run focused and
-adjacent builds plus required law, strictness, registry, audit, scan, smoke, and
-diff checks; record exact evidence; fold results into the plan and docs; and
-continue.
+At each iteration inspect the actual public API, AxiomAudit, frozen Goal 1
+comparison cohort, separate Goal 2 semantic API manifest, docs, traceability,
+corrections, Goal 1 evidence, Goal 3 scaffold, builds, tests, and diff; update
+current facts; choose the first dependency-ready stage or mandatory milestone;
+create or refresh only its stage file; implement the smallest relation/proof/
+counterexample with a real consumer; run focused and adjacent builds plus
+required law, strictness, registry, audit, scan, smoke, and diff checks; record
+exact evidence; fold results into the plan and docs; and continue.
 
 For every Lean-changing stage follow BUILD-PLAN.md: keep modules/imports narrow,
 classify declarations, include Build Structure and Boundary Checks, verify
 touched leaves through actual consumers, and avoid premature public promotion.
 
-Completion means every discovered semantic comparison has exactly one strongest
-proof-bearing classification; every published arrow and non-arrow is checked;
+Completion means every pre-retrofit comparison in the frozen cohort has exactly
+one strongest proof-bearing classification, every new public Goal 2 semantic
+export has exactly one separately checked API-manifest entry, and every
+published arrow and non-arrow is checked;
 real/complex/quaternion normalized ray quotients and descended operations close
 FER03-D01-REBIT and FER03-FND-COMPLEX-STATE-RAY; ChannelEq is equivalent to
 AllMeasurementEq through genuine physical effects; complex unitary channel

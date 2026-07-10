@@ -136,8 +136,24 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 - Pinned mathlib provides matrix positive-semidefiniteness, matrix order, trace,
   finite-dimensional linear algebra, and continuous-linear-map norms, but API
   probes are required before choosing representations.
-- Goal 3 has been reindexed and now treats Goal 2's clean release, comparison
-  manifest, and traceability fold-back as a hard prerequisite.
+- Goal 3 has been reindexed and now treats Goal 2's clean release, immutable
+  pre-retrofit comparison cohort, semantic API manifest, and traceability
+  fold-back as hard prerequisites.
+
+## Inventory and Manifest Policy
+
+- Stage 1 freezes an immutable `Goal1ComparisonCohort`: every semantic
+  comparison claim discovered in the completed Goal 1 public surface before
+  this retrofit begins. Later Goal 2 declarations never enlarge that cohort.
+- New public definitions, hierarchy theorems, wrappers, counterexamples, and
+  metric declarations introduced by Goal 2 are tracked separately in a
+  `Goal2SemanticAPIManifest`.
+- The cohort registry classifies every pre-retrofit item exactly once at its
+  strongest proved level. The API manifest checks coverage and audit evidence
+  for new Goal 2 exports without feeding them back into the cohort checksum.
+- Stage 11 checks both finite manifests independently, and Stage 12 requires
+  both checks to pass. This separation prevents self-referential inventory
+  growth while still requiring complete coverage of the retrofit itself.
 
 ## Semantic Axes
 
@@ -261,6 +277,18 @@ Required strictness or boundary witnesses include:
 - fixed-budget `OperatorClose ε` is not transitive, while the additive triangle
   budget theorem is valid.
 
+## Dependency Shape
+
+```text
+1-INVENTORY -> 2-CORE
+2-CORE -> 3-PHASE, 6-DENSITY, 9-CROSSMODEL, 10-APPROX
+3-PHASE -> 4-RAYS, 5-BASIS
+6-DENSITY -> 7-CHANNELS
+3-PHASE + 4-RAYS + 5-BASIS + 7-CHANNELS -> 8-HIERARCHY
+2-CORE + 3-PHASE + 4-RAYS -> 9-CROSSMODEL
+all feature stages 2-10 -> 11-REGISTRY -> 12-RELEASE
+```
+
 ## Mandatory Compiling Milestones
 
 Broad stages must be split into these independently verified reports before
@@ -275,14 +303,18 @@ and consumer passes.
 | 7-CHANNELS | `7A-FORWARD`: channel implies all measurements; `7B-CONVERSE`: effect separation converse; `7C-PHASE`: global phase implies channel; `7D-CHARACTERIZE`: complex and real unitary converses |
 | 8-HIERARCHY | `8A-ARROWS`: all valid implications; `8B-WITNESSES`: failed converses/incomparability; `8C-CLASSICAL`: restricted certified-basis equivalences |
 | 9-CROSSMODEL | `9A-RELATIONS`: cross-space predicates; `9B-WRAPPERS`: primary/composed/scheduled/compiler simulations; `9C-OUTCOMES`: distributions/events/postprocessing and negative channel classification |
-| 11-REGISTRY | `11A-MANIFEST`: discovered comparison inventory; `11B-CERTIFICATES`: proof-bearing wrappers; `11C-CHECKER`: exact coverage validation and documentation generation/fold-back |
+| 11-REGISTRY | `11A-MANIFEST`: immutable Goal 1 cohort plus Goal 2 semantic API manifest; `11B-CERTIFICATES`: proof-bearing wrappers; `11C-CHECKER`: independent exact-coverage validation and documentation generation/fold-back |
 
 ## Success Metrics and Verification Requirements
 
-- Stage 1 discovers and freezes the comparison inventory; the scaffold does not
-  invent its final count.  Every public semantic comparison in scope appears
-  exactly once in the checked registry.
-- Every registry row names its strongest proved relation and all semantic axes.
+- Stage 1 discovers and freezes the immutable `Goal1ComparisonCohort`; the
+  scaffold does not invent its final count. Every pre-retrofit semantic
+  comparison appears exactly once in its checked cohort registry.
+- Every new public Goal 2 semantic declaration appears exactly once in the
+  separately checked `Goal2SemanticAPIManifest` and does not alter the frozen
+  cohort checksum.
+- Every cohort-registry row names its strongest proved relation and all semantic
+  axes.
   Algebraic image equivalences, resource equalities, internal identities, and
   non-comparison support theorems are classified separately.
 - Every implication in the published graph is a Lean theorem; every asserted
@@ -332,13 +364,16 @@ introducing irreversible relation names.
 - Probe pinned mathlib APIs for positive-semidefinite matrices, matrix order,
   effects, trace separation, finite bases, continuous linear maps, and the
   Euclidean induced operator norm with compiling files.
-- Seed `docs/EquivalenceClassification.md` and a machine-readable comparison
-  manifest without marking unproved classifications complete.
+- Seed `docs/EquivalenceClassification.md`, the machine-readable immutable
+  `Goal1ComparisonCohort`, and a separate `Goal2SemanticAPIManifest` without
+  marking unproved classifications or exports complete.
 
 #### Completion Requirements
 
-- The discovered manifest has a checksum and every candidate has exactly one
-  provisional owner stage/disposition.
+- The frozen `Goal1ComparisonCohort` has a checksum and every candidate has
+  exactly one provisional owner stage/disposition.
+- The initially seeded `Goal2SemanticAPIManifest` is structurally separate and
+  records every new public semantic declaration as Goal 2 introduces it.
 - Every existing main comparison family and every source claim involving
   behavioral equivalence is represented; no final count is assumed in advance.
 - API probes establish viable density/effect/operator-norm representations or
@@ -562,8 +597,8 @@ failed converse or incomparability with exact witnesses.
 - Prove output-row phase is equivalent to all-pure-input basis measurement under
   the exact finite assumptions justified by row-functional separation.
 - Add narrow witnesses for exact versus global phase, input versus output phase,
-  superposition sensitivity, basis measurement versus phase consistency,
-  output measurement versus channel equality, and phase-sensitive distance.
+  superposition sensitivity, basis measurement versus phase consistency, and
+  output measurement versus channel equality.
 - Repackage the existing product-input ordering witness at precisely one-input
   state strength and retain the left-quaternion-phase counterexample.
 - Put counterexamples and exhaustive finite diagnostics in a heavy audit leaf,
@@ -662,13 +697,17 @@ classification and remove ambiguous equivalence prose across the project.
 
 - Add a proof-bearing wrapper leaf such as
   `Semantics/ExistingResults.lean` and keep any metadata/attribute registry thin.
-- Complete `docs/EquivalenceClassification.md` with one row per Stage 1 item:
-  declaration, same/cross space, scalar, subject, input scope, observation
-  scope, phase side, exactness, ancilla/marginal policy, strongest wrapper,
-  weaker consequences, and strictness witness where applicable.
-- Implement a checker ensuring every inventory item appears exactly once and
-  every behavioral label points to a theorem, while nonbehavioral/resource/
+- Complete `docs/EquivalenceClassification.md` with one row per frozen Stage 1
+  cohort item: declaration, same/cross space, scalar, subject, input scope,
+  observation scope, phase side, exactness, ancilla/marginal policy, strongest
+  wrapper, weaker consequences, and strictness witness where applicable.
+- Implement a checker ensuring every frozen cohort item appears exactly once
+  and every behavioral label points to a theorem, while nonbehavioral/resource/
   algebraic-image entries have explicit dispositions.
+- Check the separate `Goal2SemanticAPIManifest` for exact coverage of every new
+  public semantic definition, hierarchy theorem, wrapper, counterexample, and
+  metric declaration, including its consumer and axiom-audit evidence. Never
+  add those declarations to the frozen cohort.
 - Update README, Architecture, Conventions, Traceability, Corrections, release
   documentation, and public docstrings to remove unqualified “equivalent” or
   “same behavior.”
@@ -678,8 +717,10 @@ classification and remove ambiguous equivalence prose across the project.
 
 #### Completion Requirements
 
-- Registry checksum equals the discovered Stage 1 inventory with no duplicate,
-  missing, or label-only row.
+- Cohort-registry checksum equals the frozen `Goal1ComparisonCohort` with no
+  duplicate, missing, or label-only row.
+- The independent Goal 2 API-manifest check has no missing, duplicate, or
+  unaudited public semantic export and leaves the cohort checksum unchanged.
 - Every comparison wrapper compiles and every noncomparison disposition is
   justified; algebraic `EquivImage` declarations are visibly nonbehavioral.
 - Documentation and Lean names agree on input/observation/phase/exactness scope.
@@ -714,8 +755,9 @@ use without learning the retrofit's implementation history.
   checker, downstream import smoke, scans, and diff checks all pass.
 - No completed module contains a proof hole, project-specific axiom, unsafe or
   opaque shortcut, false equivalence instance, or classification without proof.
-- Every public comparison claim in scope has exactly one strongest checked
-  classification and the complete published hierarchy has no unsupported arrow.
+- Every pre-retrofit public comparison claim has exactly one strongest checked
+  classification, every new Goal 2 semantic export has exactly one API-manifest
+  entry, and the complete published hierarchy has no unsupported arrow.
 - `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` have terminal proved
   statuses and Goal 3 records them `closedByGoal2` with exact evidence.
 - Goal 3's plan, prompt, expected residual ledger, semantic prerequisites, and

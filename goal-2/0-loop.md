@@ -6,9 +6,10 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 ## Repeatable Loop
 
 1. Read `BUILD-PLAN.md`, then sync current state with the actual public root,
-   relevant Lean leaves, AxiomAudit, comparison manifest, paper traceability,
-   corrections, documentation, completed Goal 1 evidence, reindexed Goal 3
-   scaffold, builds, tests, and current diff.
+   relevant Lean leaves, AxiomAudit, frozen Goal 1 comparison cohort, Goal 2
+   semantic API manifest, paper traceability, corrections, documentation,
+   completed Goal 1 evidence, reindexed Goal 3 scaffold, builds, tests, and
+   current diff.
 2. Update `goal-2/0-plan.md` with current facts before starting the next stage.
    If a compiled probe changes a relation, implication, dimension hypothesis,
    or Goal 3 boundary, record the change and its transitive effects.
@@ -28,9 +29,10 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 8. Record commands, outcomes, failed approaches, assumptions, theorem names,
    classification changes, correction effects, and learned facts in the stage
    file.
-9. Fold results back into `goal-2/0-plan.md`, the comparison manifest,
-   `docs/EquivalenceClassification.md`, traceability, corrections, conventions,
-   architecture, release docs, AxiomAudit, and the Goal 3 rebaseline forecast.
+9. Fold results back into `goal-2/0-plan.md`, the frozen cohort registry, the
+   Goal 2 semantic API manifest, `docs/EquivalenceClassification.md`,
+   traceability, corrections, conventions, architecture, release docs,
+   AxiomAudit, and the Goal 3 rebaseline forecast.
 10. Continue toward the original objective.  If stopping for the session,
     leave a resumable state with current evidence, the next exact theorem or
     counterexample, unblock actions, and assumptions still to challenge.
@@ -99,8 +101,9 @@ For every comparison claim or proposed hierarchy arrow:
    observation, phase, top-state, and marginal hypotheses.
 6. **Strictness checks:** compile exact witnesses for every published missing
    implication or incomparable pair.
-7. **Registry checks:** every inventory row appears once and links to a proof-
-   bearing wrapper or justified nonbehavioral disposition.
+7. **Registry checks:** every frozen cohort row appears once and links to a
+   proof-bearing wrapper or justified nonbehavioral disposition; every new
+   public Goal 2 semantic export appears once in the separate API manifest.
 8. **Broader release checks:** public root, explicit audit, warning-as-error,
    downstream import, source/shortcut/stale-path/artifact scans, whitespace,
    and `git diff --check` when required.
@@ -112,8 +115,9 @@ For every comparison claim or proposed hierarchy arrow:
 
 ## Current Facts
 
-- Facts from current code, public APIs, builds, comparison manifest,
-  documentation, previous stage results, and exact examples.
+- Facts from current code, public APIs, builds, frozen cohort registry, Goal 2
+  semantic API manifest, documentation, previous stage results, and exact
+  examples.
 - Assigned inventory rows, relations, and current proof status.
 
 ## Updated Assumptions
@@ -178,8 +182,9 @@ Before stopping:
 1. Update the active stage report with exact evidence.
 2. Update `goal-2/0-plan.md` facts and stage status only when every completion
    requirement is covered.
-3. Update the comparison manifest, proof registry, docs, traceability,
-   corrections, AxiomAudit, and Goal 3 forecast for every affected result.
+3. Update the frozen cohort registry, Goal 2 semantic API manifest, docs,
+   traceability, corrections, AxiomAudit, and Goal 3 forecast for every
+   affected result.
 4. Record exact theorem names, module paths, failed implications, dimension/
    scalar exceptions, and next actions.
 5. Leave the next ready milestone or blocked theorem resumable from a concrete

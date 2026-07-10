@@ -5,8 +5,9 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
 
 ## Repeatable Loop
 
-1. Verify Goal 2 is complete with its clean build/audit, semantic-classification
-   manifest, traceability/correction fold-back, and downstream smoke evidence.
+1. Verify Goal 2 is complete with its clean build/audit, frozen cohort-registry
+   check, semantic API-manifest check, traceability/correction fold-back, and
+   downstream smoke evidence.
    If not, stop Goal 3.  Otherwise read `BUILD-PLAN.md` and sync current state
    with the actual repository, paper source, primary references, builds, tests,
    closure ledger, traceability, corrections, prior stage results, and diff.
@@ -79,9 +80,10 @@ For every assigned traceability row inside a stage:
 - No runtime theorem may hide parsing, scalar bit length, arithmetic,
   precision, routing, schedule construction, output size, or primitive
   synthesis that its named cost model is meant to charge.
-- Recheck right quaternionic phase, multiplication order, adjoints, tensor
-  hypotheses, normalization, dimensions, basis permutations, and chronology at
-  every boundary.
+- Recheck right quaternionic state/ray phase, the proved central operator
+  projective kernel and rank-one exception, multiplication order, adjoints,
+  tensor hypotheses, normalization, dimensions, basis permutations, and
+  chronology at every boundary.
 - Do not infer signaling, entanglement, cryptographic security, causality, or
   physical impossibility from operator/ray inequality alone.
 - For an explicit paper question, definitions alone are not completion.  The

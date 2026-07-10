@@ -3,8 +3,9 @@
 ```text
 After Goal 2 is fully complete, work autonomously through goal-3/0-plan.md using
 goal-3/0-loop.md and the authoritative Lean workflow in BUILD-PLAN.md. Do not
-start Goal 3 before Goal 2's clean build, audit, semantic-classification
-manifest, traceability fold-back, and downstream smoke evidence are recorded.
+start Goal 3 before Goal 2's clean build, audit, frozen cohort-registry check,
+semantic API-manifest check, traceability fold-back, and downstream smoke
+evidence are recorded.
 
 The objective is to tackle every remaining item from the verified Lean
 formalization of Fernandez and Schneeberger's “Quaternionic Computing.” The
@@ -25,9 +26,11 @@ sorry, admit, sorryAx, unjustified axioms, vacuous hypotheses, noncomputable
 stand-ins for executable algorithms, or definitions engineered to make a
 claim tautological. Keep exact versus approximate, finite semantics versus
 encoding/runtime, and operator/ray/outcome/operational claims separate. Keep
-quaternionic phase on the right, respect noncommutativity and chronology, count
-physical routing and synthesis, and do not infer entanglement, signaling,
-security, causality, or physicality without explicit definitions and proofs.
+quaternionic state/ray phase on the right, limit operator projective phase to
+the proved central kernel with the rank-one exception explicit, respect
+noncommutativity and chronology, count physical routing and synthesis, and do
+not infer entanglement, signaling, security, causality, or physicality without
+explicit definitions and proofs.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

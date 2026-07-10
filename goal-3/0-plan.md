@@ -40,8 +40,9 @@ none may remain excluded merely because it is difficult.
 - Completed `goal-2/0-plan.md` and its stage reports are a hard prerequisite.
   Goal 3 must reuse its equality, phase, measurement, channel, embedded-
   simulation, and approximation vocabulary rather than defining competitors.
-- `docs/EquivalenceClassification.md` and the Goal 2 public-comparison manifest
-  are authoritative semantic inputs once Goal 2 completes.
+- `docs/EquivalenceClassification.md`, the frozen Goal 1 comparison-cohort
+  registry, and the Goal 2 semantic API manifest are authoritative semantic
+  inputs once Goal 2 completes.
 - Repository-root `BUILD-PLAN.md` is authoritative for every Lean-changing
   stage.  Its narrow-module, import-hygiene, focused-build, adjacent-consumer,
   boundary-check, reporting, and fold-back rules are goal requirements.
@@ -59,9 +60,11 @@ none may remain excluded merely because it is difficult.
   uniformity, runtime, and complexity-class claims as separate layers.
 - Never infer exact equality from rounded data or call a rounded matrix
   unitary without a proof or a certified projection/compilation step.
-- Keep quaternionic columns as right modules and global quaternionic phase on
-  the right.  Recheck dimensions, sector order, multiplication order,
-  adjoints, and chronological evaluation at every abstraction boundary.
+- Keep quaternionic columns as right modules and quaternionic state/ray phase
+  on the right. Genuine operator projective phase is limited to the proved
+  central kernel, with the rank-one exception explicit. Recheck dimensions,
+  sector order, multiplication order, adjoints, and chronological evaluation
+  at every abstraction boundary.
 - Do not use commutative tensor identities over quaternions.  Physical routing
   gates must be emitted and counted; semantic reindexing is not a zero-cost
   routing implementation.
@@ -208,18 +211,23 @@ Forecast checksum: partial `3+2+1+3+1+4+1+2+5+3+1 = 26`; excluded
 ## Dependency Shape
 
 ```text
-1-REBASE
-  ├─ 2-SEMANTICS ───────────┐
-  ├─ 3-DENSITY ─────────────┼─ 14-STRUCTURE ─┬─ 15-MULTIPATH
-  ├─ 4-FOUNDATIONS          │                └─ 16-CHANNELS
-  ├─ 5-DETERMINANT          │                         └─ 17-PROTOCOLS
-  ├─ 6-ROUTING ── 7-PHASEFANOUT                         └─ 18-PHYSICALITY
-  └─ 8-ENCODING ── 9-APPROX ── 10-SYNTHESIS ───── 12-UNIFORMITY
-                                      └──────────── 11-UNIVERSALITY
-       8-ENCODING + 9-APPROX ───────────────────── 13-REALQTM
-  4-FOUNDATIONS + 14-STRUCTURE ───────────────────────── 19-ALGEBRAS
-  all stages ───────────────────────────────────────────── 20-RELEASE
+1-REBASE -> 2-SEMANTICS
+2-SEMANTICS
+  ├─ 3-DENSITY -> 14-STRUCTURE -> 15-MULTIPATH
+  │                    └────────> 16-CHANNELS -> 17-PROTOCOLS -> 18-PHYSICALITY
+  ├─ 4-FOUNDATIONS -> 5-DETERMINANT
+  ├─ 6-ROUTING -> 7-PHASEFANOUT
+  └─ 8-ENCODING -> 9-APPROX -> 10-SYNTHESIS -> 12-UNIFORMITY
+                                      └──────> 11-UNIVERSALITY
+8-ENCODING + 9-APPROX -> 13-REALQTM
+3-DENSITY + 14-STRUCTURE -> 16-CHANNELS
+4-FOUNDATIONS + 14-STRUCTURE -> 19-ALGEBRAS
+all stages -> 20-RELEASE
 ```
+
+Every mathematical Goal 3 workstream therefore has `2-SEMANTICS` as a
+transitive prerequisite; the additional arrows record its domain-specific
+dependencies.
 
 ## Mandatory Compiling Milestones
 
@@ -282,9 +290,9 @@ mathematics or statuses.
 
 #### Detailed Implementation Plan
 
-- Refuse to begin until Goal 2 is marked complete and its build, audit,
-  classification manifest, traceability fold-back, and downstream smoke
-  evidence are present.
+- Refuse to begin until Goal 2 is marked complete and its build, audit, frozen
+  cohort-registry check, semantic API-manifest check, traceability fold-back,
+  and downstream smoke evidence are present.
 - Create `docs/RemainingWork.md` accounting for the immutable 47-row cohort:
   mark each row `closedByGoal2` with evidence or assign it to Goal 3 with its
   post-Goal-2 status, dependencies, intended closure outcome, primary route,
@@ -310,7 +318,8 @@ mathematics or statuses.
 - Every row has a stage, concrete success test, and non-tautological fallback.
 - The closure-outcome taxonomy is mapped unambiguously to the canonical
   traceability statuses and enforced by the checker.
-- Correction dependencies C-001–C-026 are linked where relevant.
+- All correction dependencies present after Goal 2 are linked where relevant,
+  including C-001–C-026 and every correction added during Goal 2.
 - Baseline builds, audit, scans, and diff state are recorded in `1-REBASE.md`.
 
 ### 2-SEMANTICS
@@ -327,9 +336,11 @@ workstream before adding new mathematics.
 - Map every Goal 3 stage target to the strongest applicable relation and input/
   observation scope before implementation; flag claims needing a genuinely new
   relation rather than using vague equality prose.
-- Build wrapper smoke theorems showing that the existing central simulations,
-  ordering witnesses, and distribution results inhabit their Goal 2
-  classifications without changing their mathematical statements.
+- Add downstream `example`/`#check` smoke consumers showing that the existing
+  central simulations, ordering witnesses, and distribution results inhabit
+  their public Goal 2 classifications. Do not create duplicate wrapper
+  theorems; add a new wrapper only when a later Goal 3 result introduces
+  genuinely new semantics.
 - Record how Goal 2 closed the two transferred ray rows and remove any duplicate
   quotient work from Goal 3.
 
@@ -339,7 +350,7 @@ workstream before adding new mathematics.
   scope, observation scope, exact/approximate status, and encoding/marginal
   policy.
 - No Goal 2 definition is duplicated or weakened by a local Goal 3 predicate.
-- Wrapper smoke theorems compile against the public Goal 2 API and all
+- Downstream smoke consumers compile against the public Goal 2 API and all
   transferred rows have explicit `closedByGoal2` evidence.
 - Focused semantic-wrapper builds, public-root build, classification checker,
   and axiom spot-audit pass.
