@@ -109,6 +109,11 @@ namespace RealStatePhaseEq
 variable {I : Type u} [Fintype I]
 variable {a b c : State.RealState I}
 
+@[simp]
+theorem iff_signEquivalent :
+    RealStatePhaseEq a b ↔ Real.SignEquivalent (a : I → ℝ) b :=
+  Iff.rfl
+
 @[refl]
 theorem refl (a : State.RealState I) : RealStatePhaseEq a a :=
   Real.signEquivalent_refl a
@@ -176,6 +181,12 @@ namespace ComplexStatePhaseEq
 
 variable {I : Type u} [Fintype I]
 variable {a b c : State.ComplexState I}
+
+@[simp]
+theorem iff_rightPhaseEquivalent :
+    ComplexStatePhaseEq a b ↔
+      Complex.RightPhaseEquivalent (a : I → ℂ) b :=
+  Iff.rfl
 
 @[refl]
 theorem refl (a : State.ComplexState I) : ComplexStatePhaseEq a a :=
@@ -246,6 +257,12 @@ namespace QuaternionStatePhaseEq
 
 variable {I : Type u} [Fintype I]
 variable {a b c : State.QuaternionState I}
+
+@[simp]
+theorem iff_rightPhaseEquivalent :
+    QuaternionStatePhaseEq a b ↔
+      Quaternion.RightPhaseEquivalent (a : I → ℍ[ℝ]) b :=
+  Iff.rfl
 
 @[refl]
 theorem refl (a : State.QuaternionState I) : QuaternionStatePhaseEq a a :=
