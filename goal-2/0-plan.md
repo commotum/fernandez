@@ -159,6 +159,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
   vocabulary without importing the diagnostic leaf.
+- Stage 3A review found that the old quaternionic `phaseWitnessInput = (1,1)`
+  has total weight `2`, so `EQC-001` incorrectly called that existing raw-column
+  witness normalized. A strict probe recovers the normalized counterexample
+  with amplitudes `3/5` and `4/5`; Stage 3A must add that certificate and repair
+  the evidence wording while preserving the frozen cohort membership.
 
 ## Inventory and Manifest Policy
 

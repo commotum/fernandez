@@ -178,6 +178,9 @@ the precise implications already justified by Goal 1 APIs.
 - Hole/axiom/opaque/unsafe scans of the completed semantic leaves are clean;
   temporary generators and validators are absent from the repository;
   whitespace checks and `git diff --check` pass.
+- Two independent closure re-reviews reproduced the 19+42 declaration split,
+  all 12 named consumers, the 15 direct audit entries, strict builds, semantic
+  axes, and root boundary, and reported no remaining blocker.
 - Failed approaches were retained as evidence: the first Boolean basis-ket
   normalization proof needed explicit `cases x`; the first generated manifest
   had a literal patch marker and then incorrectly included eight diagnostics
