@@ -60,15 +60,15 @@ theorem complexColumn1_inr (psi : n → ℍ[ℝ]) (i : n) :
   rfl
 
 /-- The first state column bundled with its exact real scalar convention. -/
-def complexColumn0Linear (n : Type*) : (n → ℍ[ℝ]) →ₗ[ℝ] (n ⊕ n → ℂ) where
+def complexColumn0Linear : (n → ℍ[ℝ]) →ₗ[ℝ] (n ⊕ n → ℂ) where
   toFun := complexColumn0
   map_add' psi phi := by
-    ext (i | i) <;> simp
+    ext (i | i) <;> simp [add_comm]
   map_smul' r psi := by
     ext (i | i) <;> simp
 
 /-- The second state column bundled with its exact real scalar convention. -/
-def complexColumn1Linear (n : Type*) : (n → ℍ[ℝ]) →ₗ[ℝ] (n ⊕ n → ℂ) where
+def complexColumn1Linear : (n → ℍ[ℝ]) →ₗ[ℝ] (n ⊕ n → ℂ) where
   toFun := complexColumn1
   map_add' psi phi := by
     ext (i | i) <;> simp
@@ -77,33 +77,33 @@ def complexColumn1Linear (n : Type*) : (n → ℍ[ℝ]) →ₗ[ℝ] (n ⊕ n →
 
 @[simp]
 theorem complexColumn0Linear_apply (psi : n → ℍ[ℝ]) :
-    complexColumn0Linear n psi = complexColumn0 psi :=
+    complexColumn0Linear psi = complexColumn0 psi :=
   rfl
 
 @[simp]
 theorem complexColumn1Linear_apply (psi : n → ℍ[ℝ]) :
-    complexColumn1Linear n psi = complexColumn1 psi :=
+    complexColumn1Linear psi = complexColumn1 psi :=
   rfl
 
 @[simp]
 theorem complexColumn0_add (psi phi : n → ℍ[ℝ]) :
     complexColumn0 (psi + phi) = complexColumn0 psi + complexColumn0 phi :=
-  (complexColumn0Linear n).map_add psi phi
+  complexColumn0Linear.map_add psi phi
 
 @[simp]
 theorem complexColumn1_add (psi phi : n → ℍ[ℝ]) :
     complexColumn1 (psi + phi) = complexColumn1 psi + complexColumn1 phi :=
-  (complexColumn1Linear n).map_add psi phi
+  complexColumn1Linear.map_add psi phi
 
 @[simp]
 theorem complexColumn0_real_smul (r : ℝ) (psi : n → ℍ[ℝ]) :
     complexColumn0 (r • psi) = r • complexColumn0 psi :=
-  (complexColumn0Linear n).map_smul r psi
+  complexColumn0Linear.map_smul r psi
 
 @[simp]
 theorem complexColumn1_real_smul (r : ℝ) (psi : n → ℍ[ℝ]) :
     complexColumn1 (r • psi) = r • complexColumn1 psi :=
-  (complexColumn1Linear n).map_smul r psi
+  complexColumn1Linear.map_smul r psi
 
 /-! ## Reconstruction and injectivity -/
 
@@ -145,41 +145,25 @@ theorem complexify_mulVec_complexColumn0 [Fintype n]
     (A : Matrix m n ℍ[ℝ]) (psi : n → ℍ[ℝ]) :
     complexify A *ᵥ complexColumn0 psi = complexColumn0 (A *ᵥ psi) := by
   ext (i | i)
-  · change
-      (∑ k, complexPart (A i k) * complexPart (psi k)) +
-          ∑ k, jPart (A i k) * -star (jPart (psi k)) =
-        complexPart (∑ k, A i k * psi k)
-    rw [map_sum]
-    simp_rw [complexPart_mul]
-    simp [Finset.sum_sub_distrib]
-  · change
-      (∑ k, -star (jPart (A i k)) * complexPart (psi k)) +
-          ∑ k, star (complexPart (A i k)) * -star (jPart (psi k)) =
-        -star (jPart (∑ k, A i k * psi k))
-    rw [map_sum]
-    simp_rw [jPart_mul]
-    simp [Finset.sum_add_distrib]
-    ring
+  · simp [complexify, complexColumn0, Matrix.mulVec, dotProduct,
+      complexPartMatrix, jPartMatrix, map_sum, complexPart_mul,
+      Finset.sum_sub_distrib]
+    abel
+  · simp [complexify, complexColumn0, Matrix.mulVec, dotProduct,
+      complexPartMatrix, jPartMatrix, map_sum, jPart_mul,
+      Finset.sum_add_distrib]
 
 /-- The second state column intertwines quaternionic action with complexification. -/
 theorem complexify_mulVec_complexColumn1 [Fintype n]
     (A : Matrix m n ℍ[ℝ]) (psi : n → ℍ[ℝ]) :
     complexify A *ᵥ complexColumn1 psi = complexColumn1 (A *ᵥ psi) := by
   ext (i | i)
-  · change
-      (∑ k, complexPart (A i k) * jPart (psi k)) +
-          ∑ k, jPart (A i k) * star (complexPart (psi k)) =
-        jPart (∑ k, A i k * psi k)
-    rw [map_sum]
-    simp_rw [jPart_mul]
-    simp [Finset.sum_add_distrib]
-  · change
-      (∑ k, -star (jPart (A i k)) * jPart (psi k)) +
-          ∑ k, star (complexPart (A i k)) * star (complexPart (psi k)) =
-        star (complexPart (∑ k, A i k * psi k))
-    rw [map_sum]
-    simp_rw [complexPart_mul]
-    simp [Finset.sum_sub_distrib]
+  · simp [complexify, complexColumn1, Matrix.mulVec, dotProduct,
+      complexPartMatrix, jPartMatrix, map_sum, jPart_mul,
+      Finset.sum_add_distrib]
+  · simp [complexify, complexColumn1, Matrix.mulVec, dotProduct,
+      complexPartMatrix, jPartMatrix, map_sum, complexPart_mul,
+      Finset.sum_sub_distrib]
     ring
 
 /-! ## Basis weights and total weights -/
@@ -210,17 +194,19 @@ theorem complexTotalWeight_eq_sum_bottomComplexWeight [Fintype n]
 
 /-- The first column preserves total state weight. -/
 @[simp]
-theorem complexColumn0_totalWeight [Fintype n] (psi : n → ℍ[ℝ]) :
+theorem complexTotalWeight_complexColumn0 [Fintype n] (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexColumn0 psi) = quaternionTotalWeight psi := by
   rw [complexTotalWeight_eq_sum_bottomComplexWeight]
-  simp [quaternionTotalWeight, totalWeight]
+  simp [quaternionTotalWeight, totalWeight, quaternionBasisWeight, basisWeight,
+    quaternionWeight]
 
 /-- The second column preserves total state weight. -/
 @[simp]
-theorem complexColumn1_totalWeight [Fintype n] (psi : n → ℍ[ℝ]) :
+theorem complexTotalWeight_complexColumn1 [Fintype n] (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexColumn1 psi) = quaternionTotalWeight psi := by
   rw [complexTotalWeight_eq_sum_bottomComplexWeight]
-  simp [quaternionTotalWeight, totalWeight]
+  simp [quaternionTotalWeight, totalWeight, quaternionBasisWeight, basisWeight,
+    quaternionWeight]
 
 /-! ## Orthogonality of the two columns -/
 
@@ -230,7 +216,7 @@ theorem complexColumns_orthogonal [Fintype n] (psi : n → ℍ[ℝ]) :
   simp only [dotProduct, Fintype.sum_sum_type, complexColumn0_inl,
     complexColumn0_inr, complexColumn1_inl, complexColumn1_inr, Pi.star_apply,
     star_neg, star_star]
-  rw [Finset.sum_add_distrib]
+  rw [← Finset.sum_add_distrib]
   apply Finset.sum_eq_zero
   intro i _
   ring
@@ -259,6 +245,14 @@ theorem complexTopCombination_inr (a b : ℂ) (psi : n → ℍ[ℝ]) (i : n) :
       a * -star (jPart (psi i)) + b * star (complexPart (psi i)) := by
   simp [complexTopCombination]
 
+/-- Arbitrary top-qubit combinations also intertwine every compatible matrix action. -/
+theorem complexify_mulVec_complexTopCombination [Fintype n]
+    (A : Matrix m n ℍ[ℝ]) (a b : ℂ) (psi : n → ℍ[ℝ]) :
+    complexify A *ᵥ complexTopCombination a b psi =
+      complexTopCombination a b (A *ᵥ psi) := by
+  simp [complexTopCombination, Matrix.mulVec_add, Matrix.mulVec_smul,
+    complexify_mulVec_complexColumn0, complexify_mulVec_complexColumn1]
+
 /-- Before top-state normalization, bottom weight scales by the top squared norm. -/
 theorem complexTopCombination_bottomWeight (a b : ℂ) (psi : n → ℍ[ℝ]) (i : n) :
     bottomComplexWeight (complexTopCombination a b psi) i =
@@ -276,44 +270,61 @@ theorem complexTopCombination_bottomWeight_of_normalized
       quaternionBasisWeight psi i := by
   rw [complexTopCombination_bottomWeight, hab, one_mul]
 
-theorem complexTopCombination_totalWeight [Fintype n]
+theorem complexTotalWeight_complexTopCombination [Fintype n]
     (a b : ℂ) (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexTopCombination a b psi) =
       (Complex.normSq a + Complex.normSq b) * quaternionTotalWeight psi := by
   rw [complexTotalWeight_eq_sum_bottomComplexWeight]
   simp_rw [complexTopCombination_bottomWeight]
-  simp [quaternionTotalWeight, totalWeight, Finset.mul_sum]
+  simp [quaternionTotalWeight, totalWeight, quaternionBasisWeight, basisWeight,
+    quaternionWeight, Finset.mul_sum]
 
 /-! ## Normalized-state constructors -/
 
 /-- The first state column sends normalized quaternionic states to normalized complex states. -/
 def complexColumn0State [Fintype n] (psi : QuaternionState n) : ComplexState (n ⊕ n) :=
-  ⟨complexColumn0 psi, by simpa using psi.totalWeight_eq_one⟩
+  ⟨complexColumn0 psi.1, by
+    change complexTotalWeight (complexColumn0 psi.1) = 1
+    rw [complexTotalWeight_complexColumn0]
+    exact psi.property⟩
 
 /-- The second state column sends normalized quaternionic states to normalized complex states. -/
 def complexColumn1State [Fintype n] (psi : QuaternionState n) : ComplexState (n ⊕ n) :=
-  ⟨complexColumn1 psi, by simpa using psi.totalWeight_eq_one⟩
+  ⟨complexColumn1 psi.1, by
+    change complexTotalWeight (complexColumn1 psi.1) = 1
+    rw [complexTotalWeight_complexColumn1]
+    exact psi.property⟩
 
 /-- A normalized top qubit and normalized quaternionic state give a normalized target state. -/
 def complexTopCombinationState [Fintype n]
     (a b : ℂ) (hab : Complex.normSq a + Complex.normSq b = 1)
     (psi : QuaternionState n) : ComplexState (n ⊕ n) :=
-  ⟨complexTopCombination a b psi, by
-    rw [complexTopCombination_totalWeight, hab, psi.totalWeight_eq_one, one_mul]⟩
+  ⟨complexTopCombination a b psi.1, by
+    change complexTotalWeight (complexTopCombination a b psi.1) = 1
+    rw [complexTotalWeight_complexTopCombination, hab, one_mul]
+    exact psi.property⟩
 
 /-! ## Canonical basis and quaternionic sign checks -/
 
+private theorem complexPart_one : complexPart (1 : ℍ[ℝ]) = 1 := by
+  simpa using complexPart_coeComplex (1 : ℂ)
+
+private theorem jPart_one : jPart (1 : ℍ[ℝ]) = 0 := by
+  simpa using jPart_coeComplex (1 : ℂ)
+
 /-- The first column sends a quaternionic basis vector to the first complex sector. -/
-theorem complexColumn0_basis [DecidableEq n] (i : n) :
+theorem complexColumn0_single [DecidableEq n] (i : n) :
     complexColumn0 (Pi.single i (1 : ℍ[ℝ])) =
       Pi.single (Sum.inl i) (1 : ℂ) := by
-  ext (k | k) <;> simp [Pi.single_apply, eq_comm]
+  ext (k | k) <;> by_cases h : k = i <;>
+    simp [complexColumn0, h, complexPart_one, jPart_one]
 
 /-- The second column sends a quaternionic basis vector to the second complex sector. -/
-theorem complexColumn1_basis [DecidableEq n] (i : n) :
+theorem complexColumn1_single [DecidableEq n] (i : n) :
     complexColumn1 (Pi.single i (1 : ℍ[ℝ])) =
       Pi.single (Sum.inr i) (1 : ℂ) := by
-  ext (k | k) <;> simp [Pi.single_apply, eq_comm]
+  ext (k | k) <;> by_cases h : k = i <;>
+    simp [complexColumn1, h, complexPart_one, jPart_one]
 
 /-- A one-coordinate state with amplitude `j`, used to guard genuinely quaternionic signs. -/
 def quaternionicJExample : Unit → ℍ[ℝ] :=
@@ -341,7 +352,7 @@ theorem complexColumn1_quaternionicJExample_inr :
 
 theorem quaternionicJExample_bottomWeight :
     bottomComplexWeight (complexColumn0 quaternionicJExample) () = 1 := by
-  simp [quaternionicBasisWeight, basisWeight, quaternionWeight,
+  simp [quaternionBasisWeight, basisWeight, quaternionWeight,
     quaternionicJExample, _root_.Quaternion.normSq_def']
 
 end QuaternionicComputing.State

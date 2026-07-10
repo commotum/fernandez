@@ -65,7 +65,9 @@ theorem realColumn1_inr (v : n → ℂ) (i : n) :
 def realColumn0Linear : (n → ℂ) →ₗ[ℝ] (n ⊕ n → ℝ) where
   toFun := realColumn0
   map_add' v w := by
-    ext (i | i) <;> simp [realColumn0]
+    ext (i | i)
+    · simp [realColumn0]
+    · simp [realColumn0, add_comm]
   map_smul' r v := by
     ext (i | i) <;> simp [realColumn0]
 
@@ -98,12 +100,18 @@ def complexOfRealColumn1 (w : n ⊕ n → ℝ) : n → ℂ :=
 @[simp]
 theorem complexOfRealColumn0_realColumn0 (v : n → ℂ) :
     complexOfRealColumn0 (realColumn0 v) = v := by
-  ext i <;> simp [complexOfRealColumn0]
+  funext i
+  apply Complex.ext
+  · simp [complexOfRealColumn0]
+  · simp [complexOfRealColumn0]
 
 @[simp]
 theorem complexOfRealColumn1_realColumn1 (v : n → ℂ) :
     complexOfRealColumn1 (realColumn1 v) = v := by
-  ext i <;> simp [complexOfRealColumn1]
+  funext i
+  apply Complex.ext
+  · simp [complexOfRealColumn1]
+  · simp [complexOfRealColumn1]
 
 /-- The first state-column encoding loses no complex amplitudes. -/
 theorem realColumn0_injective :
@@ -152,6 +160,7 @@ theorem realify_mulVec_realColumn1 [Fintype n]
   · simp [QuaternionicComputing.Matrix.realify, realColumn1,
       _root_.Matrix.mulVec, dotProduct, Complex.mul_re,
       Finset.sum_sub_distrib]
+    abel
 
 /-! ## Norms and orthogonality -/
 
@@ -170,8 +179,7 @@ theorem realColumn1_dot_self [Fintype n] (v : n → ℂ) :
 /-- The two canonical real columns are orthogonal. -/
 theorem realColumns_orthogonal [Fintype n] (v : n → ℂ) :
     realColumn0 v ⬝ᵥ realColumn1 v = 0 := by
-  simp [dotProduct, realColumn0, realColumn1, Finset.sum_neg_distrib,
-    ← Finset.sum_add_distrib, mul_comm]
+  simp [dotProduct, realColumn0, realColumn1, Finset.sum_neg_distrib, mul_comm]
 
 /-- The two canonical real columns have equal squared norm. -/
 theorem realColumns_equal_norm [Fintype n] (v : n → ℂ) :
@@ -222,7 +230,17 @@ theorem realTopCombination_inr (a b : ℝ) (v : n → ℂ) (i : n) :
     realTopCombination a b v (Sum.inr i) =
       -a * (v i).im + b * (v i).re := by
   simp [realTopCombination]
-  ring
+
+/-- Matrix realification also intertwines every real top-sector combination
+of the two columns. -/
+theorem realify_mulVec_realTopCombination [Fintype n]
+    (A : _root_.Matrix m n ℂ) (a b : ℝ) (v : n → ℂ) :
+    QuaternionicComputing.Matrix.realify A *ᵥ realTopCombination a b v =
+      realTopCombination a b (A *ᵥ v) := by
+  rw [realTopCombination, _root_.Matrix.mulVec_add,
+    _root_.Matrix.mulVec_smul, _root_.Matrix.mulVec_smul,
+    realify_mulVec_realColumn0, realify_mulVec_realColumn1,
+    realTopCombination]
 
 /-- Before normalizing the top amplitudes, every bottom weight is scaled by
 their total real weight. -/
@@ -246,49 +264,71 @@ theorem realTopCombination_bottomWeight_of_normalized
 @[simp]
 theorem realTotalWeight_realColumn0 [Fintype n] (v : n → ℂ) :
     realTotalWeight (realColumn0 v) = complexTotalWeight v := by
-  simp [realTotalWeight, complexTotalWeight, totalWeight, realBasisWeight,
-    complexBasisWeight, basisWeight, realWeight, complexWeight,
+  simp [realTotalWeight, complexTotalWeight, totalWeight, basisWeight,
+    realWeight, complexWeight,
     Complex.normSq_apply, Finset.sum_add_distrib]
 
 @[simp]
 theorem realTotalWeight_realColumn1 [Fintype n] (v : n → ℂ) :
     realTotalWeight (realColumn1 v) = complexTotalWeight v := by
-  simp [realTotalWeight, complexTotalWeight, totalWeight, realBasisWeight,
-    complexBasisWeight, basisWeight, realWeight, complexWeight,
+  simp [realTotalWeight, complexTotalWeight, totalWeight, basisWeight,
+    realWeight, complexWeight,
     Complex.normSq_apply, Finset.sum_add_distrib, add_comm]
 
 theorem realTotalWeight_realTopCombination [Fintype n]
     (a b : ℝ) (v : n → ℂ) :
     realTotalWeight (realTopCombination a b v) =
       (realWeight a + realWeight b) * complexTotalWeight v := by
-  rw [show realTotalWeight (realTopCombination a b v) =
-      ∑ i, bottomRealWeight (realTopCombination a b v) i by
-    simp [realTotalWeight, totalWeight, bottomRealWeight, realBasisWeight,
-      basisWeight, Fintype.sum_sum_type]]
+  change (∑ x : n ⊕ n, realWeight (realTopCombination a b v x)) =
+    (realWeight a + realWeight b) * ∑ i : n, complexWeight (v i)
+  rw [Fintype.sum_sum_type, ← Finset.sum_add_distrib]
+  change (∑ i, bottomRealWeight (realTopCombination a b v) i) = _
   simp_rw [realTopCombination_bottomWeight]
-  simp [complexTotalWeight, totalWeight, complexBasisWeight, basisWeight,
-    Finset.mul_sum]
+  rw [Finset.mul_sum]
+  simp [complexBasisWeight, basisWeight]
 
 /-- The first column maps normalized complex states to normalized real states. -/
 def realColumn0State [Fintype n] (v : ComplexState n) : RealState (n ⊕ n) :=
-  ⟨realColumn0 v, by
+  ⟨realColumn0 v.1, by
+    change realTotalWeight (realColumn0 v.1) = 1
     rw [realTotalWeight_realColumn0]
     exact v.property⟩
 
+@[simp]
+theorem realColumn0State_apply [Fintype n]
+    (v : ComplexState n) (x : n ⊕ n) :
+    realColumn0State v x = realColumn0 v.1 x :=
+  rfl
+
 /-- The second column maps normalized complex states to normalized real states. -/
 def realColumn1State [Fintype n] (v : ComplexState n) : RealState (n ⊕ n) :=
-  ⟨realColumn1 v, by
+  ⟨realColumn1 v.1, by
+    change realTotalWeight (realColumn1 v.1) = 1
     rw [realTotalWeight_realColumn1]
     exact v.property⟩
+
+@[simp]
+theorem realColumn1State_apply [Fintype n]
+    (v : ComplexState n) (x : n ⊕ n) :
+    realColumn1State v x = realColumn1 v.1 x :=
+  rfl
 
 /-- Every normalized real top combination maps a normalized complex state to
 a normalized real state. -/
 def realTopCombinationState [Fintype n]
     (a b : ℝ) (h : realWeight a + realWeight b = 1)
     (v : ComplexState n) : RealState (n ⊕ n) :=
-  ⟨realTopCombination a b v, by
+  ⟨realTopCombination a b v.1, by
+    change realTotalWeight (realTopCombination a b v.1) = 1
     rw [realTotalWeight_realTopCombination, h, one_mul]
     exact v.property⟩
+
+@[simp]
+theorem realTopCombinationState_apply [Fintype n]
+    (a b : ℝ) (h : realWeight a + realWeight b = 1)
+    (v : ComplexState n) (x : n ⊕ n) :
+    realTopCombinationState a b h v x = realTopCombination a b v.1 x :=
+  rfl
 
 /-! ## Explicit reduced outer product -/
 
@@ -321,7 +361,6 @@ theorem reducedRealOuter_realColumn0 (v : n → ℂ) (i j : n) :
     reducedRealOuter (realColumn0 v) i j =
       (v i * star (v j)).re := by
   simp [reducedRealOuter, Complex.mul_re]
-  ring
 
 /-- The diagonal of the reduced outer product is exactly the bottom outcome
 weight. -/
