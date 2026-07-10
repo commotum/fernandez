@@ -259,6 +259,13 @@ theorem realTopCombination_bottomWeight_of_normalized
     bottomRealWeight (realTopCombination a b v) i = complexBasisWeight v i := by
   rw [realTopCombination_bottomWeight, h, one_mul]
 
+/-- Every normalized top rebit preserves every bottom outcome weight. -/
+theorem realTopCombination_bottomWeight_of_rebit
+    (top : Rebit) (v : n → ℂ) (i : n) :
+    bottomRealWeight (realTopCombination (top false) (top true) v) i =
+      complexBasisWeight v i :=
+  realTopCombination_bottomWeight_of_normalized (Rebit.normalization top) v i
+
 /-! ## Total weights and normalized states -/
 
 @[simp]
@@ -322,6 +329,18 @@ def realTopCombinationState [Fintype n]
     change realTotalWeight (realTopCombination a b v.1) = 1
     rw [realTotalWeight_realTopCombination, h, one_mul]
     exact v.property⟩
+
+/-- Package the arbitrary-top construction directly from a normalized top rebit. -/
+def realTopState [Fintype n]
+    (top : Rebit) (v : ComplexState n) : RealState (n ⊕ n) :=
+  realTopCombinationState (top false) (top true) (Rebit.normalization top) v
+
+@[simp]
+theorem realTopState_apply [Fintype n]
+    (top : Rebit) (v : ComplexState n) (x : n ⊕ n) :
+    realTopState top v x =
+      realTopCombination (top false) (top true) v.1 x :=
+  rfl
 
 @[simp]
 theorem realTopCombinationState_apply [Fintype n]

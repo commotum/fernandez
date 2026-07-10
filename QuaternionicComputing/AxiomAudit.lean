@@ -39,3 +39,29 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Quaternion.complexify_mem_symplectic
 #print axioms QuaternionicComputing.Quaternion.complexify_det_star_fixed
 #print axioms QuaternionicComputing.Quaternion.complexify_det_eq_one_or_neg_one_of_mem_unitary
+
+#print axioms QuaternionicComputing.State.Quaterbit.normalization
+#print axioms QuaternionicComputing.State.quaternionBasisWeight_right_smul_of_normSq_eq_one
+#print axioms QuaternionicComputing.State.QuaternionState.rightPhaseEquivalent_rightPhase
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_quaternionBasisWeight
+#print axioms QuaternionicComputing.State.quaternion_mulVec_right_smul
+#print axioms QuaternionicComputing.State.rightPhaseEquivalent_mulVec
+
+#print axioms QuaternionicComputing.State.realColumn0_injective
+#print axioms QuaternionicComputing.State.realColumn1_injective
+#print axioms QuaternionicComputing.State.realify_mulVec_realColumn0
+#print axioms QuaternionicComputing.State.realify_mulVec_realColumn1
+#print axioms QuaternionicComputing.State.realColumns_orthogonal
+#print axioms QuaternionicComputing.State.realColumn0_bottomWeight
+#print axioms QuaternionicComputing.State.realTopCombination_bottomWeight_of_rebit
+#print axioms QuaternionicComputing.State.reducedRealOuter_realColumns
+#print axioms QuaternionicComputing.State.reducedRealOuter_diagonal
+
+#print axioms QuaternionicComputing.State.complexColumn0_injective
+#print axioms QuaternionicComputing.State.complexColumn1_injective
+#print axioms QuaternionicComputing.State.complexify_mulVec_complexColumn0
+#print axioms QuaternionicComputing.State.complexify_mulVec_complexColumn1
+#print axioms QuaternionicComputing.State.complexColumns_orthogonal
+#print axioms QuaternionicComputing.State.complexColumn0_bottomWeight
+#print axioms QuaternionicComputing.State.complexColumn1_bottomWeight
+#print axioms QuaternionicComputing.State.complexTopCombination_bottomWeight_of_qubit

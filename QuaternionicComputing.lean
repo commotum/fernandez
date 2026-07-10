@@ -2,6 +2,8 @@ module
 
 public import QuaternionicComputing.Scalar.Phase
 public import QuaternionicComputing.Matrix.Determinant
+public import QuaternionicComputing.State.Realification
+public import QuaternionicComputing.State.Complexification
 
 /-!
 # Quaternionic Computing
@@ -12,5 +14,7 @@ Schneeberger's *Quaternionic Computing*.
 The current public surface includes the quaternion component algebra, the
 explicit correction of the paper's left-phase convention, both finite-matrix
 embeddings, their injective unitary/group consequences, the realification
-determinant identity, and the precisely bounded quaternion determinant result.
+determinant identity, the precisely bounded quaternion determinant result,
+normalized finite states, corrected right phase, and both state-column
+measurement-preservation APIs.
 -/

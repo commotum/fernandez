@@ -172,6 +172,12 @@ theorem complexify_mulVec_complexColumn1 [Fintype n]
 def bottomComplexWeight (phi : n ⊕ n → ℂ) (i : n) : ℝ :=
   complexBasisWeight phi (Sum.inl i) + complexBasisWeight phi (Sum.inr i)
 
+@[simp]
+theorem bottomComplexWeight_apply (phi : n ⊕ n → ℂ) (i : n) :
+    bottomComplexWeight phi i =
+      complexWeight (phi (Sum.inl i)) + complexWeight (phi (Sum.inr i)) :=
+  rfl
+
 /-- The first canonical column preserves each quaternionic basis weight. -/
 @[simp]
 theorem complexColumn0_bottomWeight (psi : n → ℍ[ℝ]) (i : n) :
@@ -197,16 +203,16 @@ theorem complexTotalWeight_eq_sum_bottomComplexWeight [Fintype n]
 theorem complexTotalWeight_complexColumn0 [Fintype n] (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexColumn0 psi) = quaternionTotalWeight psi := by
   rw [complexTotalWeight_eq_sum_bottomComplexWeight]
-  simp [quaternionTotalWeight, totalWeight, quaternionBasisWeight, basisWeight,
-    quaternionWeight]
+  simp_rw [complexColumn0_bottomWeight]
+  rfl
 
 /-- The second column preserves total state weight. -/
 @[simp]
 theorem complexTotalWeight_complexColumn1 [Fintype n] (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexColumn1 psi) = quaternionTotalWeight psi := by
   rw [complexTotalWeight_eq_sum_bottomComplexWeight]
-  simp [quaternionTotalWeight, totalWeight, quaternionBasisWeight, basisWeight,
-    quaternionWeight]
+  simp_rw [complexColumn1_bottomWeight]
+  rfl
 
 /-! ## Orthogonality of the two columns -/
 
@@ -270,6 +276,14 @@ theorem complexTopCombination_bottomWeight_of_normalized
       quaternionBasisWeight psi i := by
   rw [complexTopCombination_bottomWeight, hab, one_mul]
 
+/-- Every normalized top qubit preserves every bottom outcome weight. -/
+theorem complexTopCombination_bottomWeight_of_qubit
+    (top : Qubit) (psi : n → ℍ[ℝ]) (i : n) :
+    bottomComplexWeight
+        (complexTopCombination (top false) (top true) psi) i =
+      quaternionBasisWeight psi i :=
+  complexTopCombination_bottomWeight_of_normalized (Qubit.normalization top) psi i
+
 theorem complexTotalWeight_complexTopCombination [Fintype n]
     (a b : ℂ) (psi : n → ℍ[ℝ]) :
     complexTotalWeight (complexTopCombination a b psi) =
@@ -288,12 +302,24 @@ def complexColumn0State [Fintype n] (psi : QuaternionState n) : ComplexState (n 
     rw [complexTotalWeight_complexColumn0]
     exact psi.property⟩
 
+@[simp]
+theorem complexColumn0State_apply [Fintype n]
+    (psi : QuaternionState n) (x : n ⊕ n) :
+    complexColumn0State psi x = complexColumn0 psi.1 x :=
+  rfl
+
 /-- The second state column sends normalized quaternionic states to normalized complex states. -/
 def complexColumn1State [Fintype n] (psi : QuaternionState n) : ComplexState (n ⊕ n) :=
   ⟨complexColumn1 psi.1, by
     change complexTotalWeight (complexColumn1 psi.1) = 1
     rw [complexTotalWeight_complexColumn1]
     exact psi.property⟩
+
+@[simp]
+theorem complexColumn1State_apply [Fintype n]
+    (psi : QuaternionState n) (x : n ⊕ n) :
+    complexColumn1State psi x = complexColumn1 psi.1 x :=
+  rfl
 
 /-- A normalized top qubit and normalized quaternionic state give a normalized target state. -/
 def complexTopCombinationState [Fintype n]
@@ -303,6 +329,26 @@ def complexTopCombinationState [Fintype n]
     change complexTotalWeight (complexTopCombination a b psi.1) = 1
     rw [complexTotalWeight_complexTopCombination, hab, one_mul]
     exact psi.property⟩
+
+/-- Package the arbitrary-top construction directly from a normalized top qubit. -/
+def complexTopState [Fintype n]
+    (top : Qubit) (psi : QuaternionState n) : ComplexState (n ⊕ n) :=
+  complexTopCombinationState
+    (top false) (top true) (Qubit.normalization top) psi
+
+@[simp]
+theorem complexTopState_apply [Fintype n]
+    (top : Qubit) (psi : QuaternionState n) (x : n ⊕ n) :
+    complexTopState top psi x =
+      complexTopCombination (top false) (top true) psi.1 x :=
+  rfl
+
+@[simp]
+theorem complexTopCombinationState_apply [Fintype n]
+    (a b : ℂ) (hab : Complex.normSq a + Complex.normSq b = 1)
+    (psi : QuaternionState n) (x : n ⊕ n) :
+    complexTopCombinationState a b hab psi x = complexTopCombination a b psi.1 x :=
+  rfl
 
 /-! ## Canonical basis and quaternionic sign checks -/
 
@@ -330,6 +376,12 @@ theorem complexColumn1_single [DecidableEq n] (i : n) :
 def quaternionicJExample : Unit → ℍ[ℝ] :=
   fun _ ↦ j
 
+/-- The genuinely quaternionic sign-checking example is normalized. -/
+def quaternionicJExampleState : QuaternionState Unit :=
+  ⟨quaternionicJExample, by
+    simp [totalWeight, basisWeight, quaternionWeight, quaternionicJExample,
+      _root_.Quaternion.normSq_def']⟩
+
 @[simp]
 theorem complexColumn0_quaternionicJExample_inl :
     complexColumn0 quaternionicJExample (Sum.inl ()) = 0 := by
@@ -352,7 +404,6 @@ theorem complexColumn1_quaternionicJExample_inr :
 
 theorem quaternionicJExample_bottomWeight :
     bottomComplexWeight (complexColumn0 quaternionicJExample) () = 1 := by
-  simp [quaternionBasisWeight, basisWeight, quaternionWeight,
-    quaternionicJExample, _root_.Quaternion.normSq_def']
+  simp [quaternionicJExample]
 
 end QuaternionicComputing.State
