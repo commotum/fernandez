@@ -308,13 +308,31 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-016 — Improper-image target typo and low-dimensional exception
 
 - **Source:** converse discussion, line 1251.
-- **Status:** confirmed target error; properness theorem open.
-- **Diagnosis:** `\widehat h` maps into `SU(2N)`, not `Sp(2N)`.  Moreover,
-  `Sp(1) ≅ SU(2)`, so a blanket “does not span” claim needs a dimension/nontrivial
-  system qualification.  The analogous realification statement also depends
-  on whether the domain is `SU(N)` or the stronger `U(N)`.
-- **Repair:** state separate proper-image results with exact domain, codomain,
-  and size hypotheses; do not use an informal counting argument as a proof.
+- **Status:** confirmed target error; corrected dimension-four non-surjectivity
+  witnesses proved.
+- **Diagnosis:** the displayed complexification has complex unitary target in
+  dimension `2N`, with image satisfying an additional complex-symplectic
+  identity.  It does not have the paper's stated `Sp(2N)` codomain in the
+  converse sentence.  If that notation means the compact unitary-symplectic
+  group, it describes the image rather than a larger target; if the intended
+  target is `SU(2N)`, the blanket “does not span” claim has the low-rank
+  exception `Sp(1) ≅ SU(2)`.  The analogous realification statement is about
+  the full `U(N)` source used by the construction, for which `U(1) → SO(2)` is
+  likewise the exceptional onto case.  The library's general `SU(2N)` image
+  refinement remains subject to the determinant-sign gap in C-004.
+- **Repair:** replace the counting argument by exact witnesses in the first
+  dimension needed uniformly by both displayed embeddings.  The real matrix
+  `diag(-1,-1,1,1)` lies in `SO(4)` but is not the realification of any complex
+  `2 × 2` matrix because the two realification diagonal blocks must agree.
+  The same diagonal matrix over `ℂ` lies in `SU(4)` but is not the
+  complexification of any quaternionic `2 × 2` matrix because the two diagonal
+  blocks would have to be complex conjugates.  These are set-theoretic
+  nonimage theorems even before restricting the sources to unitaries.  No
+  result is asserted at `N = 1`, and no circuit-width, communication,
+  signaling, or information-processing lower bound is inferred.
+- **Lean declarations:**
+  `Matrix.ProperImage.realWitness_specialOrthogonal_not_realify` and
+  `Matrix.ProperImage.complexWitness_specialUnitary_not_complexify`.
 - **Dependents:** claimed non-converses and information-processing discussion.
 
 ## C-017 — Method limitation presented as impossibility
