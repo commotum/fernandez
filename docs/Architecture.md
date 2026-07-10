@@ -26,6 +26,7 @@ QuaternionicComputing/
     Basic.lean               normalized columns, weights, right phases
     RealPhase.lean           real `±1` ray relation and invariance
     ComplexPhase.lean        complex unit-phase equivalence and invariance
+    Ray.lean                 normalized phase quotients and index boundary
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
@@ -140,8 +141,27 @@ then restricts exact equality and the three phase relations to normalized
 representatives. It proves their equivalence laws, exact-to-phase implications,
 computational-basis distribution consequences, raw rectangular matrix and
 ordered-circuit naturality, and normalized unitary-evolution preservation.
-These are representative relations; quotient state spaces and descended
-operations are owned by the separate ray layer.
+These remain useful representative relations.
+
+`State/Ray.lean` installs those same scalar-correct relations as three explicit
+setoids and defines `RealRay`, `ComplexRay`, and `QuaternionRay` as quotients of
+normalized states. It stays below the semantic layer: the real quotient is
+built from `Real.SignEquivalent`, the complex quotient from
+`Complex.RightPhaseEquivalent`, and the quaternionic quotient from
+`Quaternion.RightPhaseEquivalent` with the phase strictly on the right.
+`RebitRay`, `QubitRay`, and `QuaterbitRay` are the `Bool`-indexed aliases.
+Each namespace supplies `mk`, exact constructor equality, representative
+existence, induction, invariant-function lifting, and function extensionality;
+the real API additionally identifies constructor equality with literal
+equality or pointwise negation. There is deliberately no chosen
+`Ray → NormalizedState` representative.
+
+The index boundary is exact: `realRay_nonempty_iff`,
+`complexRay_nonempty_iff`, and `quaternionRay_nonempty_iff` prove that a ray is
+inhabited exactly when its finite index type is inhabited, while explicit
+`IsEmpty` instances rule out normalized rays on `Empty`. Stage 4A contains no
+descended evolution or outcome maps and no cross-model map from a source ray to
+one canonical target ray; those are separate Stage 4B/4C obligations.
 
 Outcome preservation is proved coordinatewise:
 

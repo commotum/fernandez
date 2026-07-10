@@ -39,6 +39,7 @@ import QuaternionicComputing.Matrix.KroneckerCommute
 import QuaternionicComputing.State.Basic
 import QuaternionicComputing.State.RealPhase
 import QuaternionicComputing.State.ComplexPhase
+import QuaternionicComputing.State.Ray
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
@@ -99,7 +100,17 @@ right phase are explicit equivalence relations on normalized representatives.
 They preserve computational-basis weights and finite distributions, commute
 with compatible raw matrix/circuit action, and are preserved by normalized
 unitary evolution; no channel or all-effect conclusion is inferred.
-Quaternionic phase is corrected to act strictly on the right. Both
+Quaternionic phase is corrected to act strictly on the right.
+`RealRay`, `ComplexRay`, and `QuaternionRay` now quotient the normalized
+representatives by exactly those relations; `RebitRay`, `QubitRay`, and
+`QuaterbitRay` are their two-level aliases. Constructor equality is exactly
+the scalar-correct phase relation, and real-ray equality is exactly equality
+or pointwise negation. Every ray can be eliminated through a normalized
+representative, but no canonical representative is selected. These quotients
+exist exactly when their finite index type is nonempty; in particular there is
+no normalized ray on `Empty`. Descended evolution and outcomes remain the next
+ray-layer milestone, and no canonical complex-to-real or
+quaternion-to-complex target-ray map is claimed. Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite

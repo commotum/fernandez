@@ -85,12 +85,23 @@ variable {I : Type u} [Fintype I]
 def mk (a : RealState I) : RealRay I :=
   Quotient.mk (realRaySetoid I) a
 
-/-- Two normalized real representatives define the same ray exactly when they differ by a unit sign. -/
+/--
+Two normalized real representatives define the same ray exactly when they
+differ by a unit sign.
+-/
 @[simp]
 theorem mk_eq_mk_iff {a b : RealState I} :
     mk a = mk b ↔
       QuaternionicComputing.Real.SignEquivalent (a : I → ℝ) b :=
   Quotient.eq
+
+/-- Real-ray constructor equality is literal column equality or equality with the negated column. -/
+theorem mk_eq_mk_iff_eq_or_eq_neg {a b : RealState I} :
+    mk a = mk b ↔
+      (a : I → ℝ) = (b : I → ℝ) ∨
+        (a : I → ℝ) = -(b : I → ℝ) :=
+  mk_eq_mk_iff.trans
+    (QuaternionicComputing.Real.signEquivalent_iff_eq_or_eq_neg a b)
 
 /-- Every real ray has a normalized representative. -/
 theorem exists_rep (r : RealRay I) : ∃ a : RealState I, mk a = r := by
@@ -121,6 +132,12 @@ theorem lift_mk {B : Sort v} (f : RealState I → B)
     lift f h (mk a) = f a :=
   rfl
 
+/-- Two functions out of real rays are equal when they agree on every normalized constructor. -/
+theorem function_ext {B : Sort v} {f g : RealRay I → B}
+    (h : ∀ a : RealState I, f (mk a) = g (mk a)) : f = g := by
+  funext r
+  exact inductionOn r h
+
 end RealRay
 
 /-! ## Complex-ray interface -/
@@ -133,7 +150,10 @@ variable {I : Type u} [Fintype I]
 def mk (a : ComplexState I) : ComplexRay I :=
   Quotient.mk (complexRaySetoid I) a
 
-/-- Two normalized complex representatives define the same ray exactly when they differ by a unit right phase. -/
+/--
+Two normalized complex representatives define the same ray exactly when they
+differ by a unit right phase.
+-/
 @[simp]
 theorem mk_eq_mk_iff {a b : ComplexState I} :
     mk a = mk b ↔
@@ -169,6 +189,12 @@ theorem lift_mk {B : Sort v} (f : ComplexState I → B)
     lift f h (mk a) = f a :=
   rfl
 
+/-- Two functions out of complex rays are equal when they agree on every normalized constructor. -/
+theorem function_ext {B : Sort v} {f g : ComplexRay I → B}
+    (h : ∀ a : ComplexState I, f (mk a) = g (mk a)) : f = g := by
+  funext r
+  exact inductionOn r h
+
 end ComplexRay
 
 /-! ## Quaternionic-ray interface -/
@@ -181,7 +207,10 @@ variable {I : Type u} [Fintype I]
 def mk (a : QuaternionState I) : QuaternionRay I :=
   Quotient.mk (quaternionRaySetoid I) a
 
-/-- Two normalized quaternionic representatives define the same ray exactly when they differ by a unit quaternion on the right. -/
+/--
+Two normalized quaternionic representatives define the same ray exactly when
+they differ by a unit quaternion on the right.
+-/
 @[simp]
 theorem mk_eq_mk_iff {a b : QuaternionState I} :
     mk a = mk b ↔
@@ -218,6 +247,15 @@ theorem lift_mk {B : Sort v} (f : QuaternionState I → B)
     (a : QuaternionState I) :
     lift f h (mk a) = f a :=
   rfl
+
+/--
+Two functions out of quaternionic rays are equal when they agree on every
+normalized constructor.
+-/
+theorem function_ext {B : Sort v} {f g : QuaternionRay I → B}
+    (h : ∀ a : QuaternionState I, f (mk a) = g (mk a)) : f = g := by
+  funext r
+  exact inductionOn r h
 
 end QuaternionRay
 

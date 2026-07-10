@@ -43,14 +43,33 @@ shape.  Because `ℂ` is commutative, this is equivalent to the usual left-phase
 convention.  `Complex.RightPhaseEquivalent` and
 `Quaternion.RightPhaseEquivalent` are explicit relations on representative
 columns; `ComplexState` and `QuaternionState` remain normalized-column
-subtypes, not quotient types.
+subtypes. Their quotient types are separately named `ComplexRay` and
+`QuaternionRay`.
 
 Real phase is written on the right as well. `Real.SignEquivalent x y` carries
 a scalar witness `s` with `s*s=1` and `x i = y i*s`; the library proves this is
 exactly `s=1` or `s=-1`, hence exactly equality or pointwise negation. The
 normalized wrappers `RealStatePhaseEq`, `ComplexStatePhaseEq`, and
 `QuaternionStatePhaseEq` remain relations on concrete representatives. They
-are not quotient equality, operator global phase, or channel equality.
+are not themselves quotient types, operator global phase, or channel equality.
+The quotients `RealRay`, `ComplexRay`, and `QuaternionRay` identify precisely
+these relations. Their `RebitRay`, `QubitRay`, and `QuaterbitRay` aliases use
+`Bool` as the two-level index.
+
+A ray carries no canonical normalized representative. Public elimination uses
+`exists_rep`, `inductionOn`, or a phase-invariant `lift`; choosing a quotient
+representative must not be treated as additional mathematical data. A finite
+normalized ray exists exactly when its index type is nonempty. Hence
+`RealRay Empty`, `ComplexRay Empty`, and `QuaternionRay Empty` are empty, in
+contrast to circuit basis types such as `BitBasis W`, which remain inhabited
+even when `W` has no wires.
+
+Stage 4A quotient equality alone does not provide descended evolution,
+measurement distributions, or an embedding into a target ray. In particular,
+complex global phase becomes a rotation of the two real encoding columns, and
+quaternionic right phase mixes the two complex encoding columns; neither
+canonical first-column encoding is silently declared a map into the ordinary
+target ray quotient.
 
 ## Operator and circuit phase
 
@@ -169,17 +188,19 @@ The library keeps the following levels distinct:
 1. literal vector equality;
 2. literal same-type matrix equality (`ExactOperatorEq`);
 3. literal equality of chronological circuit evaluations (`ExactCircuitEq`);
-4. equality up to a unit scalar on the documented side;
-5. equality of embedded operators or embedded state evolution;
-6. one-input computational-basis output-weight agreement
+4. representative equality up to a unit scalar on the documented side;
+5. literal equality in `RealRay`, `ComplexRay`, or `QuaternionRay`, which is
+   exactly the corresponding representative relation;
+6. equality of embedded operators or embedded state evolution;
+7. one-input computational-basis output-weight agreement
    (`OutputWeightEqAt`);
-7. all-basis-input agreement (`BasisMeasurementEq`);
-8. all-normalized-pure-input basis agreement
+8. all-basis-input agreement (`BasisMeasurementEq`);
+9. all-normalized-pure-input basis agreement
    (`PureInputBasisMeasurementEq`); and
-9. equality of packaged computational-basis distributions
+10. equality of packaged computational-basis distributions
    (`NormalizedDistributionEq`).
 
-The three input scopes in items 6–8 are not interchangeable. The generic
+The three input scopes in items 7–9 are not interchangeable. The generic
 weight function need not normalize basis kets, so the theorem from
 all-normalized-pure-input agreement to all-basis-input agreement requires that
 normalization as an explicit hypothesis. Channel and all-physical-effect

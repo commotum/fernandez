@@ -40,6 +40,19 @@ or an unsafe shortcut.
 
 - Literal operator equality and chronological-circuit evaluator equality have
   separate names from every observational or phase relation.
+- `RealRay`, `ComplexRay`, and `QuaternionRay` are literal quotients of
+  normalized representatives by exactly real sign, complex unit right phase,
+  and quaternionic unit right phase. `RebitRay`, `QubitRay`, and
+  `QuaterbitRay` are their two-level aliases.
+- Ray constructor equality is exactly the corresponding representative
+  relation; for real rays it is exactly equality or pointwise negation. The
+  quotient interface supplies representative existence, induction, invariant
+  lifting, and function extensionality without selecting a canonical
+  representative.
+- Normalized rays exist exactly when their finite index type is nonempty, with
+  explicit empty instances at dimension zero. Descended evolution/outcomes and
+  the cross-model embedding-orbit boundary remain Stage 4B/4C work, so the two
+  transferred paper rows are not yet closed.
 - Fixed-input, all-basis-input, and all-normalized-pure-input basis agreement
   are separate predicates, with finite distributions, events, and
   deterministic pushforwards downstream.
@@ -164,7 +177,8 @@ Representative exported declarations include:
 | Area | Main declarations |
 |---|---|
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
-| State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, their equivalence/distribution theorems, and their raw-matrix/circuit and normalized-unitary preservation laws |
+| State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, and the quotient types `RealRay`, `ComplexRay`, `QuaternionRay` with `RebitRay`/`QubitRay`/`QuaterbitRay` aliases |
+| Ray quotient core | the three `*Ray.mk_eq_mk_iff` theorems, `RealRay.mk_eq_mk_iff_eq_or_eq_neg`, representative `exists_rep`/`inductionOn`/`lift` APIs, and `realRay_nonempty_iff`/`complexRay_nonempty_iff`/`quaternionRay_nonempty_iff` |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -185,7 +199,7 @@ The full paper-to-declaration mapping is in `Traceability.md`.
 QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
-  State/        normalized columns, phase, encodings, finite distributions
+  State/        normalized columns, phase quotients, encodings, finite distributions
   Semantics/    exact, measurement, state-phase, and operator-phase relations
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing

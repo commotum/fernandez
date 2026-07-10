@@ -225,6 +225,15 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_eval
 #print axioms QuaternionicComputing.Semantics.QuaternionStatePhaseEq.evolveUnitary
 
+#print axioms QuaternionicComputing.State.RealRay.mk_eq_mk_iff
+#print axioms QuaternionicComputing.State.RealRay.mk_eq_mk_iff_eq_or_eq_neg
+#print axioms QuaternionicComputing.State.ComplexRay.mk_eq_mk_iff
+#print axioms QuaternionicComputing.State.QuaternionRay.mk_eq_mk_iff
+#print axioms QuaternionicComputing.State.QuaternionRay.function_ext
+#print axioms QuaternionicComputing.State.realRay_nonempty_iff
+#print axioms QuaternionicComputing.State.complexRay_nonempty_iff
+#print axioms QuaternionicComputing.State.quaternionRay_nonempty_iff
+
 #print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.equivalence
 #print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.equivalence
 #print axioms QuaternionicComputing.Semantics.RealInputBasisSignEq.equivalence

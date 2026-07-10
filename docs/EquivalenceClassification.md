@@ -154,8 +154,8 @@ semantic authority.
 
 ## Stage 3A proof-bearing realization
 
-These are relations on normalized representatives. They do not yet identify
-quotient values; quotient equality and descended operations remain Stage 4.
+At Stage 3A these were relations only on normalized representatives; quotient
+values and descended operations were still deferred to Stage 4.
 
 | Frozen row | Strongest checked Stage 3A classification | Proof-bearing API | Excluded upgrade |
 |---|---|---|---|
@@ -269,6 +269,31 @@ additional public semantics. The generic public bridge proof, not a separate
 audit specialization, covers the empty-input zero-column boundary. Stage 3C
 adds no channel or all-measurement relation; those remain owned by later Goal
 2 stages.
+
+## Stage 4A proof-bearing realization
+
+Stage 4A turns the three normalized representative relations into literal
+quotient equality without changing the frozen Goal 1 cohort.
+
+| Quotient family | Checked equality | Available interface | Still excluded |
+|---|---|---|---|
+| `RealRay I` | `RealRay.mk a = RealRay.mk b` iff `Real.SignEquivalent a b`, equivalently literal column equality or pointwise negation | `mk`, `exists_rep`, `inductionOn`, invariant `lift`, `lift_mk`, and `function_ext` | No canonical representative, descended evolution/outcomes, or complex-to-real target-ray map |
+| `ComplexRay I` | Constructor equality iff `Complex.RightPhaseEquivalent` with one unit complex phase on the right | The same representative-existence, induction, lift, and extensionality interface | Not equality of representatives, basis distributions, channels, or canonical real encodings |
+| `QuaternionRay I` | Constructor equality iff `Quaternion.RightPhaseEquivalent` with one unit quaternion strictly on the right | The same representative-existence, induction, lift, and extensionality interface | No left-phase quotient, arbitrary operator phase, channel conclusion, or canonical complex encoding |
+
+`RebitRay`, `QubitRay`, and `QuaterbitRay` are the `Bool`-indexed aliases. The
+boundary at dimension zero is exact rather than hidden by an instance:
+`realRay_nonempty_iff`, `complexRay_nonempty_iff`, and
+`quaternionRay_nonempty_iff` identify ray inhabitation with index inhabitation,
+and the three explicit `IsEmpty` instances rule out normalized rays on
+`Empty`.
+
+This milestone implements quotient equality only. It does not yet descend
+unitary/circuit evolution, basis distributions, finite events, or deterministic
+pushforwards, and it does not settle how embedding phases act on the doubled
+target columns. Consequently `FER03-D01-REBIT` and
+`FER03-FND-COMPLEX-STATE-RAY` remain partially formalized until Stages 4B and
+4C complete their required consumers and boundary theorems.
 
 ## Ambiguous wording backlog
 

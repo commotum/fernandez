@@ -415,12 +415,42 @@ robust way to cancel a nonzero real coordinate without assuming quaternionic
 commutativity. This is the route used by the normalized left-phase rejection
 witness.
 
-A strict Stage 4 readiness probe confirms that the three representative phase
-relations can be installed as `Setoid`s and consumed through `Quotient.sound`.
+Stage 4A now installs the three representative relations as the explicit
+`realRaySetoid`, `complexRaySetoid`, and `quaternionRaySetoid`. The public
+`RealRay`, `ComplexRay`, and `QuaternionRay` types are ordinary Lean
+`Quotient`s, not mathlib `Projectivization`: they quotient normalized states by
+unit phase only, rather than quotienting arbitrary nonzero vectors by every
+nonzero scalar.
+
+The core quotient API is sufficient and keeps the implementation transparent:
+
+```lean
+Quotient.eq
+Quotient.exists_rep
+Quotient.inductionOn
+Quotient.lift
+```
+
+Each ray namespace wraps these as `mk`, `mk_eq_mk_iff`, `exists_rep`,
+`inductionOn`, `lift`, `lift_mk`, and `function_ext`. The real quotient also
+uses `Real.signEquivalent_iff_eq_or_eq_neg` to expose the exact paper-facing
+`±1` characterization. No wrapper exposes `Quotient.out` as a canonical
+representative.
+
+The finite-index boundary is proved in both directions. A normalized state on
+an empty type would make its empty total-weight sum equal to one, which is
+impossible; conversely `Pi.single i 1` supplies a normalized representative
+when an index `i` exists. This yields the public `realRay_nonempty_iff`,
+`complexRay_nonempty_iff`, and `quaternionRay_nonempty_iff` theorems plus
+`Nonempty`/`IsEmpty` instances. `Classical.choice` is used only to select an
+index from a supplied `Nonempty I` instance, not to choose a distinguished ray
+representative.
+
 Basis weights, finite distributions, raw matrix/circuit action, and normalized
-unitary evolution all have the required respectfulness theorems. The public
-quotient types and descended operations remain Stage 4 deliverables; the probe
-does not itself count as an export.
+unitary evolution already have the required representative-level
+respectfulness theorems. Their quotient lifts remain Stage 4B work; Stage 4A
+does not claim that an embedding column respects an ordinary target-ray
+quotient.
 
 ## Goal 2 quaternionic operator phase
 

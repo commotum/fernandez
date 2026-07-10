@@ -77,7 +77,12 @@ faithful constructors and eliminators and honest empty-index behavior.
     representative;
   - `inductionOn` for representative-independent propositions;
   - `lift` for representative-independent data;
-  - the definitional `lift_mk` beta theorem.
+  - the definitional `lift_mk` beta theorem;
+  - `function_ext`, proving equality of functions out of the quotient from
+    agreement on every normalized constructor.
+- Add `RealRay.mk_eq_mk_iff_eq_or_eq_neg` as the paper-facing specialization
+  showing that real-ray equality is exactly literal column equality or
+  equality with the negated column.
 - Use private normalized basis representatives to provide named
   `realRayNonempty`, `complexRayNonempty`, and `quaternionRayNonempty`
   instances under `[Nonempty I]`, and named `realRayIsEmpty`,

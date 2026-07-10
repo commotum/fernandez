@@ -15,6 +15,9 @@ endpoints from every public layer:
 - normalized exact-state equality plus real-sign, complex-unit-phase, and
   quaternionic right-phase equivalence, distribution, circuit, and unitary
   evolution endpoints;
+- normalized `RealRay`, `ComplexRay`, and `QuaternionRay` quotient equality,
+  representative lifting/elimination, the real equality-or-negation theorem,
+  and exact nonempty/empty index boundaries;
 - real/complex global operator phase, input-column phase, output-row phase,
   projective action, evaluator-backed circuit relations, and their sided
   composition and measurement implications;
