@@ -139,8 +139,8 @@ build alone as completion evidence.
   subsequent `lake build` freshly rebuilt the 43-module public-root closure and
   completed 2,553 jobs.  `lake build QuaternionicComputing.AxiomAudit` compiled
   the remaining diagnostic source and completed 2,553 jobs.  Together the two
-  commands cover all 44 current/tracked Lean sources; no stale Smoke or old
-  EntanglementWitness object remains.
+  commands cover all 44 current/tracked Lean sources; no stale object from a
+  removed or renamed module remains.
 - Warning-as-error compilation passed for `Scalar/Phase.lean`,
   `QuaternionicComputing.lean`, and `AxiomAudit.lean`.  Parsing all 186
   `#print axioms` results found zero dependency outside `propext`,
