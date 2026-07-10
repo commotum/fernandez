@@ -128,6 +128,10 @@ to a complexity-class theorem.
 - `Simulation/Resources.lean`: thin adjacent consumer importing both primary
   translations plus depth/description cost; owns shared-top serialization and
   exact translation slot factors.
+- `Simulation/CompiledResources.lean`: thin conditional consumer importing
+  `Circuit/Compilation` and simulation resources; composes any supplied exact
+  primitive compiler with each primary embedding and records operator/count
+  consequences without asserting compiler existence.
 - `Simulation/Postprocessing.lean`: thin observable consumer importing the
   primary output theorems plus `State/Distribution`; owns event and
   deterministic-postprocessing preservation.

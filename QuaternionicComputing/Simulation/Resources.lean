@@ -77,7 +77,10 @@ theorem depth_realifyCircuit_eq_gateCount {W : Type v} [Fintype W]
         (fun k hk => top_mem_support_of_mem_realifyCircuit hk)
     _ = c.gateCount := gateCount_realifyCircuit c
 
-/-- Every support layering of the literal complexified circuit has depth equal to source gate count. -/
+/--
+Every support layering of the literal complexified circuit has depth equal to
+source gate count.
+-/
 theorem depth_complexifyCircuit_eq_gateCount {W : Type v} [Fintype W]
     (c : OrderedCircuit ℍ[ℝ] W)
     (schedule : SupportLayering (complexifyCircuit c)) :
@@ -112,7 +115,10 @@ theorem depth_complexifyCircuitSerialLayering {W : Type v} [Fintype W]
   rw [complexifyCircuitSerialLayering, SupportLayering.depth_serial,
     gateCount_complexifyCircuit]
 
-/-- The visible quaternion-to-real composition is also forced serial by its newest shared top wire. -/
+/--
+The visible quaternion-to-real composition is also forced serial by its newest
+shared top wire.
+-/
 theorem depth_quaternionToRealCircuit_eq_gateCount
     {W : Type v} [Fintype W] (c : OrderedCircuit ℍ[ℝ] W)
     (schedule : SupportLayering (quaternionToRealCircuit c)) :

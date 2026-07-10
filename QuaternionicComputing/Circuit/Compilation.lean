@@ -69,6 +69,16 @@ theorem primitive_of_mem_compileCircuit (compiler : ExactGateCompiler R W)
   rcases hk with ⟨g, -, hkg⟩
   exact compiler.compileGate_primitive g k hkg
 
+/-- A pointwise arity bound on every supplied expansion lifts to the compiled circuit. -/
+theorem arityBound_compileCircuit (compiler : ExactGateCompiler R W)
+    {c : OrderedCircuit R W} {d : ℕ}
+    (hArity : ∀ g ∈ c, (compiler.compileGate g).ArityBound d) :
+    (compiler.compileCircuit c).ArityBound d := by
+  intro k hk
+  rw [compileCircuit, List.mem_flatMap] at hk
+  rcases hk with ⟨g, hg, hkg⟩
+  exact hArity g hg k hkg
+
 /-- Exact gatewise compilation preserves the public chronological evaluator. -/
 @[simp]
 theorem eval_compileCircuit (compiler : ExactGateCompiler R W)
