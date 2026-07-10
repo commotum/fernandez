@@ -43,6 +43,13 @@ namespace QuaternionicComputing.Quaternion
 /-- The four-sector real index used by direct quaternionic realification. -/
 abbrev DirectRealIndex (n : Type*) := (n ⊕ n) ⊕ (n ⊕ n)
 
+/-- Direct realification has four real coordinate sectors per source index. -/
+@[simp]
+theorem card_directRealIndex (n : Type*) [Fintype n] :
+    Fintype.card (DirectRealIndex n) = 4 * Fintype.card n := by
+  simp [DirectRealIndex]
+  omega
+
 /-- The real-coordinate sector in the Equation 63 order. -/
 def directRealRe {n : Type*} (i : n) : DirectRealIndex n :=
   Sum.inl (Sum.inl i)

@@ -62,7 +62,7 @@ theorem directRealifyUnitary_apply
     (U : unitary (Matrix n n ℍ[ℝ])) :
     (directRealifyUnitary n U :
       Matrix (DirectRealIndex n) (DirectRealIndex n) ℝ) =
-        directRealify U :=
+        directRealify U.1 :=
   rfl
 
 /-- Direct realification remains injective on quaternionic unitaries. -/
@@ -120,13 +120,16 @@ def directRealifySpecialOrthogonal
     (n : Type*) [Fintype n] [DecidableEq n] :
     unitary (Matrix n n ℍ[ℝ]) →*
       Matrix.specialOrthogonalGroup (DirectRealIndex n) ℝ where
-  toFun U := ⟨directRealify U, directRealify_mem_specialOrthogonal U.property⟩
+  toFun U :=
+    ⟨directRealify U.1,
+      directRealify_mem_specialOrthogonal U.property⟩
   map_one' := by
     apply Subtype.ext
     exact directRealify_one
   map_mul' U V := by
     apply Subtype.ext
-    exact directRealify_mul U V
+    exact directRealify_mul
+      U.1 V.1
 
 @[simp]
 theorem directRealifySpecialOrthogonal_apply
@@ -134,7 +137,7 @@ theorem directRealifySpecialOrthogonal_apply
     (U : unitary (Matrix n n ℍ[ℝ])) :
     (directRealifySpecialOrthogonal n U :
       Matrix (DirectRealIndex n) (DirectRealIndex n) ℝ) =
-        directRealify U :=
+        directRealify U.1 :=
   rfl
 
 /-- The special-orthogonal-valued direct realification is injective. -/
@@ -144,7 +147,9 @@ theorem directRealifySpecialOrthogonal_injective
   intro U V h
   apply Subtype.ext
   apply directRealify_injective
-  exact congrArg Subtype.val h
+  exact congrArg
+    (fun X : Matrix.specialOrthogonalGroup (DirectRealIndex n) ℝ ↦
+      (X : Matrix (DirectRealIndex n) (DirectRealIndex n) ℝ)) h
 
 /-- The subgroup of `SO(4N)` obtained by direct quaternionic realification. -/
 def directRealifySpecialOrthogonalImage

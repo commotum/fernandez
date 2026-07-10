@@ -141,6 +141,13 @@ theorem rightPhaseEquivalent_complexBasisWeight {x y : ι → ℂ}
   rcases hxy with ⟨η, hη, rfl⟩
   exact complexBasisWeight_right_mul_of_normSq_eq_one y η hη i
 
+/-- Complex right-phase-equivalent finite columns have identical total weight. -/
+theorem rightPhaseEquivalent_complexTotalWeight [Fintype ι] {x y : ι → ℂ}
+    (hxy : QuaternionicComputing.Complex.RightPhaseEquivalent x y) :
+    complexTotalWeight x = complexTotalWeight y := by
+  rcases hxy with ⟨η, hη, rfl⟩
+  exact complexTotalWeight_right_mul_of_normSq_eq_one y η hη
+
 /-- Arbitrary compatible complex matrix evolution commutes with right scaling. -/
 theorem complex_mulVec_right_mul {m n : Type*} [Fintype n]
     (A : Matrix m n ℂ) (ψ : n → ℂ) (η : ℂ) :

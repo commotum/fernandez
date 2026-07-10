@@ -1,14 +1,16 @@
 module
 
 public import QuaternionicComputing.Matrix.Determinant
+public import QuaternionicComputing.Matrix.QuaternionRealificationUnitary
 
 /-!
 # Explicit proper-image witnesses in doubled dimension four
 
-This file gives checked `N = 2` non-surjectivity witnesses for the two matrix
-embeddings.  The source index is `Bool`, and the target index `Bool ⊕ Bool`
-has four elements.  In both target scalar fields the witness is diagonal, with
-`-1` on the first sum sector and `1` on the second.
+This file gives checked low-dimensional non-surjectivity witnesses for all
+three matrix embeddings used by the library.  For the two doubled embeddings,
+the source index is `Bool`, and the target index `Bool ⊕ Bool` has four
+elements.  In both target scalar fields the witness is diagonal, with `-1` on
+the first sum sector and `1` on the second.
 
 The real witness belongs to `SO(4)` but violates realification's equality of
 the two diagonal blocks.  The complex witness belongs to `SU(4)` but violates
@@ -22,6 +24,13 @@ complexification from `Sp(1)` versus `SU(2)`—are noted only to exclude them:
 no equality or surjectivity theorem about those cases is asserted here.
 Matrix non-surjectivity here implies no circuit-width, communication,
 signaling, or other operational lower bound.
+
+For Equation 63's direct quaternion-to-real embedding, an analogous diagonal
+matrix already gives an `SO(4)` witness at quaternionic rank one.  Its four
+diagonal entries are not all equal, whereas every direct realification of a
+`1 × 1` quaternion matrix has the same real component in all four diagonal
+sectors.  This formally rules out the paper's claimed surjectivity onto the
+whole `SO(4N)` target.
 -/
 
 @[expose] public noncomputable section
@@ -166,5 +175,79 @@ theorem complexWitness_specialUnitary_not_complexify :
     complexWitness ∈ _root_.Matrix.specialUnitaryGroup (Bool ⊕ Bool) ℂ ∧
       ¬ ∃ A : _root_.Matrix Bool Bool ℍ[ℝ], complexify A = complexWitness :=
   ⟨complexWitness_mem_specialUnitary, complexWitness_not_exists_complexify⟩
+
+/-! ## The direct quaternion-to-real special-orthogonal witness -/
+
+/-- Sector signs for the rank-one direct-realification witness. -/
+def directSectorSign : DirectRealIndex Unit → ℝ
+  | Sum.inl (Sum.inl _) => -1
+  | Sum.inl (Sum.inr _) => -1
+  | Sum.inr (Sum.inl _) => 1
+  | Sum.inr (Sum.inr _) => 1
+
+/-- The direct real diagonal witness `diag(-1,-1,1,1)` in paper-sector order. -/
+def directWitness :
+    _root_.Matrix (DirectRealIndex Unit) (DirectRealIndex Unit) ℝ :=
+  _root_.Matrix.diagonal directSectorSign
+
+@[simp]
+theorem directWitness_re_diag :
+    directWitness (directRealRe ()) (directRealRe ()) = -1 := by
+  simp [directWitness, directSectorSign, directRealRe]
+
+@[simp]
+theorem directWitness_imK_diag :
+    directWitness (directRealImK ()) (directRealImK ()) = 1 := by
+  simp [directWitness, directSectorSign, directRealImK]
+
+/-- The rank-one direct-realification witness is orthogonal. -/
+theorem directWitness_mem_orthogonal :
+    directWitness ∈
+      _root_.Matrix.orthogonalGroup (DirectRealIndex Unit) ℝ := by
+  rw [_root_.Matrix.mem_orthogonalGroup_iff]
+  rw [directWitness, _root_.Matrix.diagonal_transpose,
+    _root_.Matrix.diagonal_mul_diagonal]
+  ext ((i | i) | (i | i)) ((j | j) | (j | j)) <;>
+    by_cases h : i = j <;> simp [directSectorSign, h]
+
+/-- The rank-one direct-realification witness has determinant one. -/
+@[simp]
+theorem directWitness_det : directWitness.det = 1 := by
+  rw [directWitness, _root_.Matrix.det_diagonal, Fintype.prod_sum_type]
+  simp [directSectorSign]
+
+/-- The rank-one direct-realification witness lies in `SO(4)`. -/
+theorem directWitness_mem_specialOrthogonal :
+    directWitness ∈
+      _root_.Matrix.specialOrthogonalGroup (DirectRealIndex Unit) ℝ := by
+  rw [_root_.Matrix.mem_specialOrthogonalGroup_iff]
+  exact ⟨directWitness_mem_orthogonal, directWitness_det⟩
+
+/-- No quaternionic `1 × 1` matrix directly realifies to the witness. -/
+theorem directWitness_ne_directRealify
+    (A : _root_.Matrix Unit Unit ℍ[ℝ]) :
+    directWitness ≠ directRealify A := by
+  intro h
+  have hre := congrFun (congrFun h (directRealRe ())) (directRealRe ())
+  have himK := congrFun (congrFun h (directRealImK ())) (directRealImK ())
+  simp only [directWitness_re_diag, directWitness_imK_diag,
+    directRealify_re_re, directRealify_imK_imK] at hre himK
+  linarith
+
+/-- The `SO(4)` witness is outside every rank-one direct realification. -/
+theorem directWitness_not_exists_directRealify :
+    ¬ ∃ A : _root_.Matrix Unit Unit ℍ[ℝ],
+      directRealify A = directWitness := by
+  rintro ⟨A, hA⟩
+  exact directWitness_ne_directRealify A hA.symm
+
+/-- A bundled `SO(4)`-but-not-direct-realification witness. -/
+theorem directWitness_specialOrthogonal_not_directRealify :
+    directWitness ∈
+        _root_.Matrix.specialOrthogonalGroup (DirectRealIndex Unit) ℝ ∧
+      ¬ ∃ A : _root_.Matrix Unit Unit ℍ[ℝ],
+        directRealify A = directWitness :=
+  ⟨directWitness_mem_specialOrthogonal,
+    directWitness_not_exists_directRealify⟩
 
 end QuaternionicComputing.Matrix.ProperImage

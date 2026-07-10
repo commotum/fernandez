@@ -12,9 +12,10 @@ amplitudes.
 
 The two legal chronological orders produce opposite amplitudes at `|11⟩`:
 `i` then `j` gives `-(16/25)k`, while `j` then `i` gives `(16/25)k`.
-Consequently their output columns are unequal.  The two `|11⟩` basis weights
-are nevertheless equal, so column inequality alone is not an observable
-probability distinction.
+The remaining three amplitudes agree, with common nonzero `|00⟩` amplitude
+`9/25`.  Consequently the columns are unequal even modulo a unit quaternionic
+right phase, while every computational-basis weight is nevertheless equal.
+Thus column inequality alone is not an observable probability distinction.
 
 This bounded diagnostic proves no signaling, entanglement, cryptographic
 security, or mixed-state claim.
@@ -92,6 +93,102 @@ def iThenJGroundOutputColumn : BitBasis Bool → ℍ[ℝ] :=
 /-- Output column for the legal chronological order `j` then `i`. -/
 def jThenIGroundOutputColumn : BitBasis Bool → ℍ[ℝ] :=
   jThenISchedule.scheduledEval gateFamily *ᵥ groundColumn
+
+/-- Chronological `i` then `j` gives the real amplitude `9/25` at `|00⟩`. -/
+@[simp]
+theorem iThenJGroundOutputColumn_basis00 :
+    iThenJGroundOutputColumn basis00 =
+      (⟨9 / 25, 0, 0, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval iThenJ *ᵥ groundColumn) basis00 = _
+  rw [show OrderedCircuit.eval iThenJ = jGate.denote * iGate.denote by
+    simp [iThenJ]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
+
+/-- Chronological `j` then `i` gives the same real amplitude `9/25` at `|00⟩`. -/
+@[simp]
+theorem jThenIGroundOutputColumn_basis00 :
+    jThenIGroundOutputColumn basis00 =
+      (⟨9 / 25, 0, 0, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval jThenI *ᵥ groundColumn) basis00 = _
+  rw [show OrderedCircuit.eval jThenI = iGate.denote * jGate.denote by
+    simp [jThenI]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
+
+/-- Chronological `i` then `j` gives `(12/25)j` at `|01⟩`. -/
+@[simp]
+theorem iThenJGroundOutputColumn_basis01 :
+    iThenJGroundOutputColumn basis01 =
+      (⟨0, 0, 12 / 25, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval iThenJ *ᵥ groundColumn) basis01 = _
+  rw [show OrderedCircuit.eval iThenJ = jGate.denote * iGate.denote by
+    simp [iThenJ]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
+
+/-- Chronological `j` then `i` gives the same `(12/25)j` amplitude at `|01⟩`. -/
+@[simp]
+theorem jThenIGroundOutputColumn_basis01 :
+    jThenIGroundOutputColumn basis01 =
+      (⟨0, 0, 12 / 25, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval jThenI *ᵥ groundColumn) basis01 = _
+  rw [show OrderedCircuit.eval jThenI = iGate.denote * jGate.denote by
+    simp [jThenI]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
+
+/-- Chronological `i` then `j` gives `(12/25)i` at `|10⟩`. -/
+@[simp]
+theorem iThenJGroundOutputColumn_basis10 :
+    iThenJGroundOutputColumn basis10 =
+      (⟨0, 12 / 25, 0, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval iThenJ *ᵥ groundColumn) basis10 = _
+  rw [show OrderedCircuit.eval iThenJ = jGate.denote * iGate.denote by
+    simp [iThenJ]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
+
+/-- Chronological `j` then `i` gives the same `(12/25)i` amplitude at `|10⟩`. -/
+@[simp]
+theorem jThenIGroundOutputColumn_basis10 :
+    jThenIGroundOutputColumn basis10 =
+      (⟨0, 12 / 25, 0, 0⟩ : ℍ[ℝ]) := by
+  change (OrderedCircuit.eval jThenI *ᵥ groundColumn) basis10 = _
+  rw [show OrderedCircuit.eval jThenI = iGate.denote * jGate.denote by
+    simp [jThenI]]
+  rw [← Matrix.mulVec_mulVec]
+  simp only [Matrix.mulVec, dotProduct]
+  simp_rw [sum_bitBasisBool]
+  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
+    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
+    mixerOffDiagonal]
+  ext <;> norm_num
 
 private theorem iThenJ_ground_scalar_calculation :
     mixerOffDiagonal * j * (mixerOffDiagonal * i) =
