@@ -92,6 +92,14 @@ disposition, and the pinned project builds and passes its axiom audit without
   real and equal to `1` or `-1`; selecting `1` remains an exact isolated
   obstruction because the pinned mathlib lacks Pfaffian, connectedness, or
   Study-determinant infrastructure.  No simulation theorem depends on it.
+- Stage 4 completed on 2026-07-09.  The library now has explicit-weight
+  normalized real, complex, and quaternionic finite states; corrected generic
+  quaternionic right phase; both realification and complexification state
+  columns; four typed evolution identities; and pointwise bottom-basis weight
+  preservation for canonical and arbitrary normalized pure top states.
+- The real state leaf also proves the canonical reduced rank-one matrices are
+  equal.  A generic mixed-density/partial-trace API remains optional and is not
+  needed by the central ordered pure-state simulations.
 
 ## Current Assumptions to Test
 
@@ -106,10 +114,9 @@ disposition, and the pinned project builds and passes its axiom audit without
   introduced only if they add a separately useful theorem.
 - Exact gate-count and arity bounds are likely formalizable.  Depth and
   asymptotic encoding claims may require extra models or corrected scope.
-- The matrix-level `realifyVec`/`realify_mulVec` API can serve as the first
-  complex-state embedding in Stage 4; the second column, quaternionic columns,
-  normalization, phase packaging, and measurement preservation remain to be
-  constructed.
+- The sum-indexed matrix and state embeddings can be transported to a
+  distinguished `Bool` circuit wire by reindexing; Stage 5 must prove that this
+  wrapper is natural with local gate placement rather than assuming it.
 
 ## Success Metrics and Verification Requirements
 
@@ -440,8 +447,8 @@ without learning the paper's original organization.
 - [x] 1-INVENTORY — completed 2026-07-09
 - [x] 2-SCALARS — completed 2026-07-09
 - [x] 3-MATRICES — completed 2026-07-09
-- [ ] 4-STATES — in progress
-- [ ] 5-CIRCUITS
+- [x] 4-STATES — completed 2026-07-09
+- [ ] 5-CIRCUITS — in progress
 - [ ] 6-SIMULATION
 - [ ] 7-ORDERING
 - [ ] 8-RESOURCES

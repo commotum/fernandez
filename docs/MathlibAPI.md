@@ -76,6 +76,11 @@ right multiplication.  Compiling probes established
 M *ᵥ (v <• q) = (M *ᵥ v) <• q.
 ```
 
+This is now the public theorem `State.quaternion_mulVec_right_smul`, proved
+directly from the inner linear map in `Matrix.mulVecBilin`.  Together with
+`Quaternion.normSq.map_mul`, it yields the public right-phase basis, total,
+normalization, and evolution theorems in `State/Basic.lean`.
+
 `Matrix.mulVecLin` and `Matrix.toLin'` require commutative coefficients and are
 not quaternion APIs.
 
@@ -83,6 +88,10 @@ For a finite right-module state, define the quaternion-valued Hermitian form
 explicitly as `star x ⬝ᵥ y` and the real state norm square as
 `∑ i, Quaternion.normSq (x i)`.  The default norm on a plain function type is
 not the desired finite `ℓ²` norm.
+
+The library packages this convention through an explicit-weight
+`State.NormalizedState`; it does not install a global norm-square instance or
+identify the function-space default norm with the finite squared norm.
 
 ## Blocks, reindexing, and wires
 

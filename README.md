@@ -30,6 +30,9 @@ import QuaternionicComputing.Matrix.Realification
 import QuaternionicComputing.Matrix.Complexification
 import QuaternionicComputing.Matrix.Unitary
 import QuaternionicComputing.Matrix.Determinant
+import QuaternionicComputing.State.Basic
+import QuaternionicComputing.State.Realification
+import QuaternionicComputing.State.Complexification
 ```
 
 The matrix layer currently exports dimension-safe, injective, multiplicative,
@@ -38,6 +41,12 @@ special orthogonal matrices.  Quaternionic unitaries complexify injectively to
 complex unitary and symplectic matrices; the available formal proof narrows
 their determinant to `1` or `-1`, while selecting the positive sign remains a
 documented paper-proof obligation that is not needed by the simulation.
+
+The state layer supplies explicitly normalized finite real, complex, and
+quaternionic states, repairs quaternionic phase to act on the right, proves
+both representation-column evolution identities, and proves pointwise bottom
+computational-basis weight preservation for every normalized pure top
+rebit/qubit.
 
 See `docs/Traceability.md`, `docs/Corrections.md`,
 `docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and

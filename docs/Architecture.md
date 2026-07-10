@@ -19,8 +19,9 @@ QuaternionicComputing/
     Unitary.lean             star homomorphisms and unitary/symplectic images
     Determinant.lean         isolated determinant and SO/sign results
   State/
-    Basic.lean               finite vectors, norm-square weights, right phases
-    Embeddings.lean          state maps and measurement preservation
+    Basic.lean               normalized columns, weights, right phases
+    Realification.lean       complex → real state columns and outcomes
+    Complexification.lean    quaternion → complex state columns and outcomes
   Circuit/
     Basic.lean               local gates, supports, placement, ordered semantics
     Ordering.lean            DAG/topological orders and ambiguity witnesses
@@ -62,19 +63,28 @@ not assumed merely from multiplicativity.
 State maps use the two columns suggested by each scalar representation, stated
 as explicit functions on finite vectors.  The low-level `realifyVec` map and
 its matrix-action theorem live beside `realify` because they directly guard
-the embedding's sign convention; the State layer will supply the second
-column, normalized wrappers, and measurement API.  These maps are not declared
-complex- or quaternion-linear without the exact scalar action needed for that
-claim.
+the embedding's sign convention; `State/Realification.lean` reuses that map
+and supplies the second column, real-linear bundles, normalized wrappers, and
+measurement API.  `State/Complexification.lean` supplies the analogous two
+real-linear quaternion-to-complex columns.  None is declared complex- or
+quaternion-linear without the exact scalar action needed for that claim.
 
-Outcome preservation is first proved coordinatewise:
+`State/Basic.lean` parameterizes `NormalizedState` by an explicit real-valued
+scalar weight instead of introducing a global norm-square typeclass.  Its real,
+complex, and quaternion specializations expose nonnegative basis weights and
+normalization equations.  Quaternionic right phase is proved to preserve each
+weight and commute with arbitrary matrix action.
+
+Outcome preservation is proved coordinatewise:
 
 ```text
 weight(source i) = weight(target (top=0, i)) + weight(target (top=1, i)).
 ```
 
-Finite distribution and partial-trace corollaries then follow.  This avoids
-building a density-operator hierarchy before the central theorem is stable.
+Total-weight and normalized-state corollaries then follow.  For the real case,
+`reducedRealOuter` also proves the paper's rank-one reduced-matrix equality
+directly.  A general density-operator hierarchy remains optional and is not a
+dependency of the central theorem.
 
 ## Circuit implementation
 

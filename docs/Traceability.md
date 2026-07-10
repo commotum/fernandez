@@ -51,7 +51,7 @@ Lean declaration names replace the current stage targets as proofs land.
 | ID | Source | Target / dependencies | Priority / stage | Status |
 |---|---|---|---|---|
 | `FER03-FND-COMPLEX-STATE-RAY` | L38, L73–90 | Normalized complex vectors modulo unit right/commutative phase. | P2 / 4-STATES | planned, quotient secondary |
-| `FER03-FND-COMPUTATIONAL-MEASUREMENT` | L40–48, Eq. 1 | Basis outcome weight is squared scalar norm; normalized weights sum to one. | P0 / 4-STATES | planned |
+| `FER03-FND-COMPUTATIONAL-MEASUREMENT` | L40–48, Eq. 1 | Basis outcome weight is squared scalar norm; normalized weights sum to one. | P0 / `State/Basic.lean` | **proved as stated** for finite real, complex, and quaternion columns by `*BasisWeight`, `*TotalWeight`, their nonnegativity theorems, and `NormalizedState.sum_basisWeight` |
 | `FER03-FND-LINEAR-ISOMETRY-UNITARY` | L50, FN2 | Complex-linear finite norm preservers are unitary; antiunitaries excluded by linearity. | P2 / 9-COVERAGE | planned or reuse mathlib |
 | `FER03-FND-FINITE-DIM-COMPLETE` | FN1 | Finite-dimensional inner-product spaces are complete. | P3 / 9-COVERAGE | **intentionally excluded**: existing background fact not used by finite matrix core |
 | `FER03-FND-ARBITRARY-WIRE-ROUTING` | L57, FN3 | Route noncontiguous gates with swaps under an explicit cost model. | P2 / 5-CIRCUITS, 8-RESOURCES | planned partial; quadratic claim needs parameters |
@@ -72,17 +72,17 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-R-SERIAL-COMPOSITION` | L322–340, Fig. 1 | A legal order gives a reverse chronological matrix product. | P0 / 5-CIRCUITS | planned |
 | `FER03-R-TOPO-SORT-COMPLEXITY` | L336, FN5 | Topological sorting is efficient; circuit/TM equivalence is external. | P2 / 7-ORDERING, 8-RESOURCES | planned partial |
 | `FER03-R-QUANTUM-GATE-PADDING` | L344–363, Eq. 17, Fig. 2 | Lift arbitrary-arity local gate to noncontiguous wires via explicit support/permutation. | P0 / 5-CIRCUITS | planned correction/generalization |
-| `FER03-R-STATE-ENCODINGS` | L365–390, Eq. 18–19 | `h₀(z)=(re z,-im z)`, `h₁(z)=(im z,re z)` coordinatewise. | P0 / `Matrix/Realification.lean`, 4-STATES | **partially formalized**: `realifyVec` is the exact `h₀` column with sector simp lemmas; `h₁` and the reusable state API remain Stage 4 |
-| `FER03-R-ENCODINGS-ORTHOGONAL` | L393 | Both state encodings preserve norm and are mutually real-orthogonal. | P1 / 4-STATES | planned |
-| `FER03-R-ENCODINGS-LINEAR` | L393 | Encodings are additive and `ℝ`-linear, not `ℂ`-linear. | P0 / 4-STATES | planned correction C-007 |
-| `FER03-R-BASIS-ENCODING` | L395–405, Eq. 20–21 | Real basis vectors acquire top coordinate 0 or 1. | P0 / 4-STATES | planned |
+| `FER03-R-STATE-ENCODINGS` | L365–390, Eq. 18–19 | `h₀(z)=(re z,-im z)`, `h₁(z)=(im z,re z)` coordinatewise. | P0 / `State/Realification.lean` | **proved as stated**: `realColumn0`, `realColumn1`, their sector lemmas, reconstructions, and injectivity |
+| `FER03-R-ENCODINGS-ORTHOGONAL` | L393 | Both state encodings preserve norm and are mutually real-orthogonal. | P1 / `State/Realification.lean` | **proved as stated**: `realColumn0_dot_self`, `realColumn1_dot_self`, `realColumns_orthogonal`, `realColumns_equal_norm` |
+| `FER03-R-ENCODINGS-LINEAR` | L393 | Encodings are additive and `ℝ`-linear, not `ℂ`-linear. | P0 / `State/Realification.lean` | **corrected and proved** by bundled `realColumn0Linear` and `realColumn1Linear` (C-007) |
+| `FER03-R-BASIS-ENCODING` | L395–405, Eq. 20–21 | Real basis vectors acquire top coordinate 0 or 1. | P0 / `State/Realification.lean` | **proved as stated**: `realColumn0_single`, `realColumn1_single` |
 | `FER03-R-LOCAL-GATE-COST` | L407 | Constant-arity exact entry conversion is constant cost under a fixed encoding. | P2 / 8-RESOURCES | planned conditional result |
 | `FER03-R-NONFACTORING-OUTPUT` | Fig. 3, L409–411, L561 | Non-real examples yield non-product encoded states. | P1 / 4-STATES, 10-RELEASE | planned example |
 | `FER03-R-REAL-GATE-PADDING` | L413–430, Eq. 22, Fig. 4 | Place each image gate on the source support plus shared top wire. | P0 / 5-CIRCUITS | planned generalization |
 | `FER03-R-ANCILLA-REUSE` | L432–436, Fig. 5 | All translated gates reuse one top wire; abstract gate count remains `s`. | P0 / 6-SIMULATION | planned |
 | `FER03-R-SWAP-REALIFICATION` | L462–478 | Realification commutes with central permutation/padding operations. | P0 / 5-CIRCUITS | planned |
-| `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / 4-STATES | planned if density formulation retained |
-| `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / 4-STATES | planned |
+| `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / `State/Realification.lean` | **partially formalized** by the explicit rank-one `reducedRealOuter`; a generic density/partial-trace operator is intentionally deferred because it is not needed for the observable theorem |
+| `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / `State/Realification.lean` | **partially formalized**: every normalized pure `Rebit` is covered by `realTopCombination_bottomWeight_of_rebit` and `realTopState`; the mixed-state extension awaits a density-state API |
 | `FER03-R-REAL-GATE-OPTIMIZATION` | L667 | A real source gate maps to identity on top coordinate times the gate. | P1 / `Matrix/Realification.lean`, 6-SIMULATION | **partially formalized**: `realify_map_ofReal` proves the exact doubled block-diagonal matrix; its local-wire circuit consequence remains Stage 6 |
 | `FER03-R-SERIAL-DEPTH` | L669 | Shared-top construction has target depth at most gate count and can lose parallelism. | P1 / 8-RESOURCES | planned construction bound |
 | `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | L671 | Several top wires allegedly give `O(log s)` depth increase. | P2 / 8-RESOURCES | unresolved pending construction, C-015 |
@@ -108,8 +108,8 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-Q-NUMBER-OF-PATHS` | L839 | Families can have many linear extensions; state any counting bound precisely. | P2 / 8-RESOURCES | planned partial |
 | `FER03-Q-COMPLEXIFICATION-DEF` | L861–887, Eq. 47–48 | Define the explicit complex block embedding; tensor notation is mnemonic. | P0 / `Matrix/Complexification.lean` | **corrected and proved**: `complexify` is the explicit block matrix, with entrywise lower-block conjugation and four block-entry lemmas; malformed/formal tensor display excluded per C-011 |
 | `FER03-Q-ADJOINT-COMPONENTS` | L931–940, Eq. 50 | Co/Wd identities for quaternionic conjugate transpose. | P0 / `Matrix/Complexification.lean` | **proved as stated**: `complexPartMatrix_conjTranspose`, `jPartMatrix_conjTranspose` |
-| `FER03-Q-STATE-ENCODINGS` | L983–1005, Eq. 52–53 | Define `ĥ₀(q)=(Co q,-conj(Wd q))`, `ĥ₁(q)=(Wd q,conj(Co q))`. | P0 / 4-STATES | planned |
-| `FER03-Q-ARBITRARY-TOP-QUBIT` | L1075 | Any normalized pure/mixed product top qubit preserves bottom basis statistics. | P1 / 4-STATES | planned |
+| `FER03-Q-STATE-ENCODINGS` | L983–1005, Eq. 52–53 | Define `ĥ₀(q)=(Co q,-conj(Wd q))`, `ĥ₁(q)=(Wd q,conj(Co q))`. | P0 / `State/Complexification.lean` | **proved as stated**: `complexColumn0`, `complexColumn1`, sector lemmas, real-linear maps, reconstruction/injectivity, basis maps, norm preservation, and `complexColumns_orthogonal` |
+| `FER03-Q-ARBITRARY-TOP-QUBIT` | L1075 | Any normalized pure/mixed product top qubit preserves bottom basis statistics. | P1 / `State/Complexification.lean` | **partially formalized**: every normalized pure `Qubit` is covered by `complexTopCombination_bottomWeight_of_qubit` and `complexTopState`; mixed states await a density-state API |
 | `FER03-Q-DIRECT-REALIFICATION` | L1208–1221, Eq. 63 | Verify direct `4×4` scalar representation and matrix/unitary consequences. | P1 / 9-COVERAGE | planned; determinant separate |
 
 ## Resource and universality claims

@@ -34,7 +34,9 @@ Consequently, equality up to global quaternionic phase is represented using a
 unit quaternion on the **right**, `ψ = ψ' <• q`.  The paper places the phase on
 the left in Equation (45); that relation is not preserved by arbitrary left
 matrix evolution and is corrected here.  Lean's ordinary `SMul` notation is not
-silently confused with ordinary left scalar action.
+silently confused with ordinary left scalar action.  The state API proves that
+this right phase preserves every basis weight, total weight, normalization,
+and arbitrary compatible matrix action.
 
 ## Conjugation and adjoints
 
@@ -97,6 +99,18 @@ embedding and evolution lemmas should apply to arbitrary vectors whenever the
 proof does not need normalization.  Density matrices and partial traces are
 secondary formulations; direct outcome-weight theorems are the minimum needed
 for the paper's computational claim.
+
+Concretely, `NormalizedState ι α weight` is a finite amplitude column paired
+with the equation `totalWeight weight ψ = 1`.  The scalar weight is an explicit
+parameter, avoiding any global squared-norm instance.  `RealState`,
+`ComplexState`, and `QuaternionState` specialize it, and `Rebit`, `Qubit`, and
+`Quaterbit` use `Bool` as the two-level basis.  This makes the missing `= 1` in
+the paper's quaterbit definition impossible to omit.
+
+The arbitrary-top-wire results currently cover every normalized pure top
+rebit/qubit and prove pointwise bottom-weight equality.  Claims about arbitrary
+mixed top states require a density-state API and remain explicitly partial;
+they are not silently inferred from the pure-state theorems.
 
 ## Circuits and wire placement
 

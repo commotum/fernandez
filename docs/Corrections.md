@@ -76,19 +76,21 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-005 — Missing normalization equation for quaterbits
 
 - **Source:** Definition 3, Equation (44), lines 793–800.
-- **Status:** confirmed typographical omission.
+- **Status:** confirmed typographical omission; corrected and proved.
 - **Diagnosis:** the prose says “unit vector,” but the displayed condition only
   defines the norm expression and never states that it equals `1`.
-- **Repair:** define a valid pure quaterbit/state by norm square `1` (equivalently
-  norm `1`), while keeping algebraic vector lemmas normalization-free.
-- **Lean declaration:** to be assigned in Stage 4.
+- **Repair:** `Quaterbit` is a `Bool`-indexed quaternionic state whose total
+  norm square is definitionally required to equal `1`; algebraic vector lemmas
+  remain normalization-free.
+- **Lean declarations:** `State.Quaterbit` and
+  `State.Quaterbit.normalization`.
 - **Dependents:** measurement probabilities and all state-level simulation
   statements.
 
 ## C-006 — Quaternionic global phase is on the wrong side
 
 - **Source:** Definition 3, Equation (45), lines 802–810.
-- **Status:** confirmed convention error; obstruction proved, generic repair in progress.
+- **Status:** confirmed convention error; obstruction and generic repair proved.
 - **Diagnosis:** column vectors acted on by quaternionic matrices from the left
   form a right quaternionic module.  Right phase is respected by evolution,
   `A(ψq) = (Aψ)q`.  The paper's left phase generally is not:
@@ -99,22 +101,25 @@ means the corrected mathematical target is known but not yet formalized;
   output left phase exists.  The separate theorem
   `fixed_left_phase_not_natural` records the one-dimensional noncommutation
   diagnostic without overclaiming ray failure.
-- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`.  Public
-  `RightPhaseEquivalent` and `rightPhaseEquivalent_gate` prove the repaired
-  relation for the diagnostic evolution; Stage 4 will package generic matrix
-  right-linearity and normalized states.
+- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`.  Unit right
+  phase is now proved to preserve every basis weight, total weight,
+  normalization, and arbitrary compatible quaternionic matrix evolution.
 - **Lean declarations:**
   `QuaternionicComputing.Quaternion.LeftPhaseEquivalent`,
   `RightPhaseEquivalent`, `phaseWitnessGate_normSq`,
   `not_leftPhaseEquivalent_gate_i_input`, and
-  `rightPhaseEquivalent_gate`.
+  `rightPhaseEquivalent_gate`; plus
+  `State.QuaternionState.rightPhase`,
+  `State.rightPhaseEquivalent_quaternionBasisWeight`,
+  `State.quaternion_mulVec_right_smul`, and
+  `State.rightPhaseEquivalent_mulVec`.
 - **Dependents:** Definition 3, physical-state equivalence, initialization, and
   any statement phrased as state rather than measurement equality.
 
 ## C-007 — Overstated linearity of state realification
 
 - **Source:** discussion following Equations (18)–(19), lines 378–397.
-- **Status:** confirmed imprecision.
+- **Status:** confirmed imprecision; corrected and proved for all four state columns.
 - **Diagnosis:** splitting a complex vector into real and imaginary parts is
   real-linear, not complex-linear.  Calling both maps simply “proper linear
   homomorphisms” hides the scalar field.  Quaternionic analogues likewise need
@@ -122,18 +127,23 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** export additive/real-linear properties and only stronger scalar
   laws that are proved with an explicit action.
 - **Lean declarations:** `QuaternionicComputing.Quaternion.complexPart` and
-  `jPart` are explicitly `ℝ`-linear.  The complex-state realification maps
-  remain a Stage 4 obligation.
+  `jPart` are explicitly `ℝ`-linear; `State.realColumn0Linear`,
+  `realColumn1Linear`, `complexColumn0Linear`, and `complexColumn1Linear`
+  bundle the state maps with the same exact scalar convention.
 - **Dependents:** state embeddings, phase behavior, and Lemmas 4/9.
 
 ## C-008 — Wrong codomain named for `h₀` and `h₁`
 
 - **Source:** initialization discussion, line 493.
-- **Status:** confirmed typographical error.
+- **Status:** confirmed typographical error; corrected and proved.
 - **Diagnosis:** the text calls `h₀,h₁` maps from `H_C^N` to `H_C^N`, although
   Equations (18)–(19) map an `N`-dimensional complex vector to a
   `2N`-dimensional real vector.
-- **Repair:** state the codomain as the doubled real space.
+- **Repair:** `realColumn0` and `realColumn1` have codomain `n ⊕ n → ℝ`,
+  so the doubled dimension is enforced by their Lean types; their
+  reconstruction and injectivity theorems prove no coordinates are lost.
+- **Lean declarations:** `State.realColumn0`, `State.realColumn1`,
+  `realColumn0_injective`, and `realColumn1_injective`.
 - **Dependents:** Lemmas 4 and 5.
 
 ## C-009 — Incorrect noncommutative Kronecker condition
@@ -181,13 +191,15 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-012 — Undefined final state in Lemma 9
 
 - **Source:** Lemma 9, lines 1007–1015 and continuation.
-- **Status:** confirmed missing hypothesis/definition.
+- **Status:** confirmed missing hypothesis/definition; repaired and proved.
 - **Diagnosis:** the lemma quantifies `|Ψ⟩` but uses `|Φ⟩` without stating
   `|Φ⟩ = Q|Ψ⟩`; nearby formulas also mix subscripts on source and embedded
   vectors.
-- **Repair:** state the evolution equation explicitly and type every source and
-  target vector.
-- **Lean declaration:** to be assigned in Stage 4 or 6.
+- **Repair:** eliminate the undefined name by stating the two general typed
+  identities directly for arbitrary `A` and `ψ`; specializing the right side
+  to a named final state is then ordinary rewriting.
+- **Lean declarations:** `State.complexify_mulVec_complexColumn0` and
+  `State.complexify_mulVec_complexColumn1`.
 - **Dependents:** Lemma 10 and Theorem 4.
 
 ## C-013 — Generic gate-decomposition bound is unsupported and likely false
@@ -299,7 +311,7 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-021 — State-intertwining proofs are dimensionally ill-typed
 
 - **Source:** proofs of Lemmas 4 and 9, lines 507–558 and 1021–1073.
-- **Status:** confirmed derivation error; corrected statements remain viable.
+- **Status:** confirmed derivation error; corrected statements proved.
 - **Diagnosis:** the derivations apply encoding columns `T₀/T₁` to already
   encoded vectors such as `Ψ₀`, and let an `N × N` source matrix act where a
   `2N`-vector is shown.  Several hats, subscripts, and signs also change.  These
@@ -307,7 +319,10 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** prove the correctly typed componentwise statements
   `h(U) (h₀ ψ) = h₀ (Uψ)` and
   `ĥ(Q) (ĥ₀ ψ) = ĥ₀ (Qψ)`, plus their second-column analogues.
-- **Lean declaration:** to be assigned in Stage 4.
+- **Lean declarations:** `State.realify_mulVec_realColumn0`,
+  `realify_mulVec_realColumn1`, `complexify_mulVec_complexColumn0`, and
+  `complexify_mulVec_complexColumn1`, all generalized to compatible
+  rectangular matrices.
 - **Dependents:** Lemmas 4/9, Lemmas 5/10, and both central simulations.
 
 ## C-022 — Lemma 8 is asserted by analogy without its critical proof
