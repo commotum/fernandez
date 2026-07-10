@@ -155,10 +155,15 @@ changes shared APIs or claims completion:
 
 ## Boundary Checks
 
-- Claim-specific forbidden shortcuts and how they will be detected.
 - Exact/approximate, semantic/executable, supplied/constructed, and
   mathematical/operational boundaries relevant to the stage.
-- Checks proving no fallback path is being counted as the target result.
+
+## No-Cheating Checks
+
+- Claim-specific forbidden shortcuts and how they will be detected.
+- Checks proving no fallback path, duplicate Goal 2 predicate,
+  supplied-but-unconstructed datum, or weaker comparison/cost model is counted
+  as the target result.
 
 ## Completion Requirements
 

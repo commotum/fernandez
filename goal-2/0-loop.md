@@ -146,8 +146,12 @@ For every comparison claim or proposed hierarchy arrow:
 
 - Same-space/cross-model, state/operator/channel, exact/approximate, phase-side,
   input-scope, observation-scope, and physical-effect boundaries.
-- Forbidden shortcuts and scans proving no weaker relation or metadata label is
-  counted as the target theorem.
+
+## No-Cheating Checks
+
+- Forbidden shortcuts, signature inspections, consumers, and scans proving no
+  weaker relation, metadata label, arbitrary test matrix, or false phase action
+  is counted as the target theorem.
 
 ## Completion Requirements
 
@@ -184,4 +188,3 @@ Before stopping:
 Never mark a classification stage complete because relation definitions or a
 documentation table exist.  Completion requires the promised hierarchy theorem,
 strictness witness, quotient descent, channel result, or proof-bearing wrapper.
-
