@@ -18,8 +18,8 @@ complexification's conjugate-diagonal-block constraint.  Thus the second
 codomain is a complex special-unitary/unitary group, not `Sp(2N)` as named in
 the paper's converse sentence.
 
-Only the displayed `N = 2` failures are proved.  The intended `N = 1`
-exceptions—realification from `U(1)` versus `SO(2)`, and quaternionic
+Only the two doubled-map failures displayed above use `N = 2`.  The intended
+`N = 1` exceptions—realification from `U(1)` versus `SO(2)`, and quaternionic
 complexification from `Sp(1)` versus `SU(2)`—are noted only to exclude them:
 no equality or surjectivity theorem about those cases is asserted here.
 Matrix non-surjectivity here implies no circuit-width, communication,

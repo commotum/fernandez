@@ -34,9 +34,10 @@ explicit correction of the paper's left-phase convention, complex and
 quaternionic right-phase APIs, the two doubled finite-matrix embeddings, and
 the direct four-sector quaternion-to-real embedding of Equation 63.  The
 direct map is proved to be the composed embedding in a checked sector order,
-and quaternionic unitaries embed into `SO(4N)` only through its proper image.
-Explicit `SO(4)`/`SU(4)` matrices certify the corrected non-surjectivity
-claims.  The library also exports the embedding determinant results,
+and quaternionic unitaries embed into `SO(4N)`.  At rank one an explicit
+`SO(4)` witness proves that this direct image is proper; separate `SO(4)` and
+`SU(4)` matrices certify the other qualified non-surjectivity claims.  The
+library also exports the embedding determinant results,
 normalized finite states, both state-column measurement-preservation APIs,
 and a checked non-product realification example.
 

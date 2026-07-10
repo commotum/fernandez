@@ -44,7 +44,7 @@ Lean declaration names replace the current stage targets as proofs land.
 | `FER03-L08-QUATERNIONIC-CIRCUIT-COMPOSITION` | L967–980 | Translated ordered operator equals `ĥ(Qσ)`. Depends on L06 and placement naturality. | P0 / `Simulation/QuaternionToComplex.lean` | **corrected and proved** by `eval_complexifyCircuit`; it fills the source's missing noncommutative local proof before applying ordered-list induction |
 | `FER03-L09-QUATERNION-STATE-INTERTWINING` | L983–1073, Eq. 52–57 | `ĥ(Q) ĥ₀(ψ)=ĥ₀(Qψ)` and corresponding `ĥ₁` identity. | P0 / `State/Complexification.lean` | **corrected and proved** for compatible rectangular matrices by `complexify_mulVec_complexColumn0` and `complexify_mulVec_complexColumn1`, with the missing source output relation eliminated (C-012/C-021) |
 | `FER03-L10-QUATERNION-COMPUTATIONAL-MEASUREMENT` | L1075–1171, Eq. 58–62 | Each complex encoding preserves bottom computational-basis weights after summing over top qubit. | P0 / `State/Complexification.lean` | **proved as stated** at the observable level by `complexColumn0_bottomWeight` and `complexColumn1_bottomWeight`; the proof uses the scalar norm decomposition rather than the paper's imprecise density algebra |
-| `FER03-C01-ORDERED-QUATERNIONIC-TO-REAL` | L1202–1221, Eq. 63 | Compose T04 and T02 to simulate with `n+2` rebits; also verify the direct `4N` real representation. | P1 / `Simulation/QuaternionToReal.lean`, `Matrix/QuaternionRealification.lean`, `Simulation/Resources.lean` | **corrected and proved** compositionally by `quaternionToReal_exactSimulation`, `eval_quaternionToRealCircuit`, nested state intertwining, and four-sector probability preservation; the literal composite also has support depth exactly source gate count and dense-slot factor `16`. Independently, `directRealify_eq_reindex` proves that Equation 63 is exactly the same operator embedding in the paper's `[Re,ImI,ImK,ImJ]` sector order |
+| `FER03-C01-ORDERED-QUATERNIONIC-TO-REAL` | L1202–1221, Eq. 63 | Compose T04 and T02 to simulate with `n+2` rebits; also verify the direct `4N` real representation. | P1 / `Simulation/QuaternionToReal.lean`, `Matrix/QuaternionRealification.lean`, `Simulation/Resources.lean` | **corrected and proved** compositionally by `quaternionToReal_exactSimulation`, `eval_quaternionToRealCircuit`, nested state intertwining, and four-sector probability preservation; the literal composite also has support depth exactly source gate count and dense-slot factor `16`. Independently, `directRealify_eq_reindex` proves at the algebraic matrix level that Equation 63 is the same embedding in the paper's `[Re,ImI,ImK,ImJ]` sector order. The public circuit theorem remains the two-wire composition; no direct placement or wire-facing translator is claimed |
 
 ## Foundational and model claims
 
@@ -147,18 +147,18 @@ The paper asks, rather than proves, each item below.  They are retained for
 source completeness and are **intentionally excluded** from the completion
 requirements of this library unless a later stage proves a nearby finite result.
 
-| ID | Source | Question |
-|---|---|---|
-| `FER03-OPEN-ALL-EVALUATION-PATHS` | L1243 | Can a model coherently follow all gate-evaluation paths? |
-| `FER03-OPEN-PATH-WEIGHTS` | L1243 | Could paths carry probabilities or amplitudes? |
-| `FER03-OPEN-PATH-INTERFERENCE` | L1243 | Could paths interfere constructively or destructively? |
-| `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | L1243 | Could path parallelism exceed quantum computational power? |
-| `FER03-OPEN-QUATERBIT-TELEPORTATION` | L1251 | How many classical bits are needed to teleport a quaterbit? |
-| `FER03-OPEN-CHANNEL-CAPACITY` | L1251 | How do quaternionic amplitudes affect channel capacities? |
-| `FER03-OPEN-COMMUNICATION-COMPLEXITY` | L1251 | How does communication complexity change? |
-| `FER03-OPEN-REBIT-INFORMATION-THEORY` | L1251 | What analogous distinctions occur for rebits? |
-| `FER03-OPEN-OTHER-SCALARS` | L1253–1257 | What coherent models arise from octonions or finite fields? |
-| `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | L1257 | How much does amplitude structure affect complexity classes? |
+| ID | Source | Question | Status |
+|---|---|---|---|
+| `FER03-OPEN-ALL-EVALUATION-PATHS` | L1243 | Can a model coherently follow all gate-evaluation paths? | **intentionally excluded**: explicit source question, not a claimed result |
+| `FER03-OPEN-PATH-WEIGHTS` | L1243 | Could paths carry probabilities or amplitudes? | **intentionally excluded**: no multi-path semantics or weighting rule is supplied |
+| `FER03-OPEN-PATH-INTERFERENCE` | L1243 | Could paths interfere constructively or destructively? | **intentionally excluded**: no path superposition or interference model is supplied |
+| `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | L1243 | Could path parallelism exceed quantum computational power? | **intentionally excluded**: speculative complexity question with no formal model |
+| `FER03-OPEN-QUATERBIT-TELEPORTATION` | L1251 | How many classical bits are needed to teleport a quaterbit? | **intentionally excluded**: no channel or teleportation protocol is defined |
+| `FER03-OPEN-CHANNEL-CAPACITY` | L1251 | How do quaternionic amplitudes affect channel capacities? | **intentionally excluded**: no channel/capacity framework is defined |
+| `FER03-OPEN-COMMUNICATION-COMPLEXITY` | L1251 | How does communication complexity change? | **intentionally excluded**: no communication model or cost measure is defined |
+| `FER03-OPEN-REBIT-INFORMATION-THEORY` | L1251 | What analogous distinctions occur for rebits? | **intentionally excluded**: broad research question, not a source theorem |
+| `FER03-OPEN-OTHER-SCALARS` | L1253–1257 | What coherent models arise from octonions or finite fields? | **intentionally excluded**: outside the associative real/complex/quaternion scope |
+| `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | L1257 | How much does amplitude structure affect complexity classes? | **intentionally excluded**: speculative complexity-class program without encoded models |
 
 ## Figure, table, and footnote coverage
 

@@ -26,6 +26,7 @@ Narrow consumers can instead import one of the current leaves:
 
 ```lean
 import QuaternionicComputing.Scalar.Quaternion
+import QuaternionicComputing.Scalar.Phase
 import QuaternionicComputing.Matrix.Realification
 import QuaternionicComputing.Matrix.Complexification
 import QuaternionicComputing.Matrix.Unitary
@@ -44,6 +45,7 @@ import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
 import QuaternionicComputing.Circuit.BasisPreparation
+import QuaternionicComputing.Circuit.OrderSanity
 import QuaternionicComputing.Circuit.Realification
 import QuaternionicComputing.Circuit.Complexification
 import QuaternionicComputing.Circuit.Cost
@@ -54,10 +56,12 @@ import QuaternionicComputing.Circuit.Depth
 import QuaternionicComputing.Circuit.DescriptionCost
 import QuaternionicComputing.Circuit.Compilation
 import QuaternionicComputing.Circuit.ScheduleCount
+import QuaternionicComputing.Simulation.Basic
 import QuaternionicComputing.Simulation.ComplexToReal
 import QuaternionicComputing.Simulation.QuaternionToComplex
 import QuaternionicComputing.Simulation.QuaternionToReal
 import QuaternionicComputing.Simulation.NonProductWitness
+import QuaternionicComputing.Simulation.Examples
 import QuaternionicComputing.Simulation.Scheduled
 import QuaternionicComputing.Simulation.OrderingWitness
 import QuaternionicComputing.Simulation.Resources
