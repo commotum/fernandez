@@ -316,6 +316,78 @@ and its normalization is exactly `Finset.sum_fiberwise`.  This keeps
 measure theory.  Pointwise distribution equality then gives finite-event and
 deterministic-pushforward equality in `Simulation/Postprocessing.lean`.
 
+## Goal 2 semantic representations
+
+Stage 1 of the semantic-classification retrofit rechecked the following narrow
+imports with focused Lean files against the pinned toolchain:
+
+```lean
+import Mathlib.Analysis.Matrix.Order
+import Mathlib.Analysis.InnerProductSpace.Positive
+import Mathlib.Analysis.CStarAlgebra.Matrix
+
+open scoped ComplexOrder MatrixOrder Matrix.Norms.L2Operator
+```
+
+Finite real and complex density matrices can be represented by a matrix with
+the two invariants
+
+```lean
+rho.PosSemidef
+rho.trace = 1
+```
+
+because `Matrix.PosSemidef.isHermitian` makes a separate Hermitian field
+redundant.  Physical effects can use the Loewner interval
+`0 ≤ E ∧ E ≤ 1`; `Matrix.nonneg_iff_posSemidef` and `Matrix.le_iff` expose the
+corresponding positive-semidefinite facts.  Useful preservation and trace APIs
+include:
+
+```lean
+Matrix.PosSemidef.conjTranspose_mul_mul_same
+Matrix.PosSemidef.mul_mul_conjTranspose_same
+Matrix.PosSemidef.trace_nonneg
+Matrix.trace_mul_comm
+Matrix.trace_mul_cycle
+Matrix.ext_iff_trace_mul_left
+Matrix.ext_iff_trace_mul_right
+```
+
+The last two lemmas separate matrices using arbitrary algebraic trace tests;
+they are not themselves physical-effect separation.  A separate compiling
+probe constructed every normalized rank-one projector as a genuine effect via
+
+```lean
+InnerProductSpace.isSymmetricProjection_rankOne_self
+LinearMap.IsSymmetricProjection.isPositive
+Matrix.isPositive_toEuclideanLin_iff
+InnerProductSpace.symm_toEuclideanLin_rankOne
+ext_inner_map
+```
+
+and established the trace/projector quadratic-form identity.  This supplies a
+viable route to physical-effect separation without relabeling arbitrary test
+matrices as effects.  The real converse will use symmetric polarization rather
+than the complex inner-product extensionality theorem.
+
+The Euclidean induced operator norm is the scoped L2 operator norm from
+`Mathlib.Analysis.CStarAlgebra.Matrix`.  For square matrices the preferred
+bundled map is `Matrix.toEuclideanCLM`; useful laws are
+`Matrix.l2_opNorm_def`, `Matrix.l2_opNorm_mul`,
+`Matrix.l2_opNorm_mulVec`, and `Matrix.l2_opNorm_conjTranspose`.  Rectangular
+work can use `Matrix.toLpLin 2 2` followed by
+`LinearMap.toContinuousLinearMap`.  `Matrix.toEuclideanLin` remains in some
+bridge theorem names but is deprecated as a construction API.
+
+Three boundaries are mandatory:
+
+- complex positive-semidefinite matrices require the `ComplexOrder` scope;
+- Loewner order and the matrix operator norm require `MatrixOrder` and
+  `Matrix.Norms.L2Operator`, respectively, so no unscoped matrix norm may be
+  assumed to be spectral; and
+- an empty index type has no trace-one density matrix.  Channel theorems must
+  state a nonempty hypothesis where existence of physical inputs is used.
+
 ## Promoted compiled APIs
 
 The following formerly probed results now compile as public declarations
