@@ -7,6 +7,8 @@ public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.Realification
 public import QuaternionicComputing.Circuit.Complexification
+public import QuaternionicComputing.Simulation.QuaternionToReal
+public import QuaternionicComputing.Simulation.Examples
 
 /-!
 # Quaternionic Computing
@@ -22,5 +24,8 @@ normalized finite states, corrected right phase, and both state-column
 measurement-preservation APIs.  It also exports noncommutative-safe gate
 placement, locality-certified chronological circuits, a fixed-value
 quaternionic order audit, and the one-added-wire gate translations for both
-matrix embeddings.
+matrix embeddings.  The whole-circuit layer proves corrected exact
+complex-to-real and quaternion-to-complex simulations, their normalized
+bottom-probability semantics and exact structural overhead, and the composed
+quaternion-to-real corollary.
 -/

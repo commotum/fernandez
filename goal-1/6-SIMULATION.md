@@ -160,5 +160,83 @@ two-added-rebit corollary where practical.
 
 ## Stage Results
 
-- In progress.  Stage opened after verified completion of 5-CIRCUITS on
-  2026-07-09.
+- Completed on 2026-07-09.
+- `Simulation/Basic.lean` exports scalar-generic
+  `transportAddedColumn`/`transportAddedState`, exact false/true evaluation,
+  injectivity, and `reindex_mulVec_transportAddedColumn`.  Its
+  `addedWireBottomWeight` uses the literal top assignments; generic theorems
+  prove nonnegativity, total bottom mass equals full total weight, and mass one
+  for normalized states.
+- `State/Unitary.lean` proves
+  `star_dotProduct_mulVec_of_mem_unitary` over a possibly noncommutative star
+  ring, using the ordered identity `Uᴴ * U = 1`.  Exact real, complex, and
+  quaternionic total-weight preservation follows.  `RealState`,
+  `ComplexState`, and `QuaternionState` now have normalized `evolveUnitary`
+  constructors and apply/normalization theorems.
+- `Circuit/Cost.lean` exports exact added-wire cardinality, `ArityBound`,
+  `maxLocalArity`, membership/bound characterizations, generic mapped-gate
+  provenance, `d → d+1` preservation/reflection, universal maximum bounds,
+  and exact maximum `+1` under the necessary nonempty hypothesis.  The empty
+  circuit has maximum zero and was not silently forced into a false equality.
+- `Simulation/ComplexToReal.lean` defines `realifyCircuit` as the literal map
+  of `realifyPlacedGate`.  `eval_realifyCircuit` is the corrected typed Lemma 3
+  and is proved through the public evaluator/monoid homomorphism.  The leaf
+  exports exact count/width/per-gate arity/bounds/maxima, local/circuit
+  unitarity, two canonical and arbitrary-top wire state columns, whole-circuit
+  state evolution, and pointwise bottom weights.
+- Normalized `complexCircuitOutput` and `realifyCircuitOutput` make the
+  probability boundary explicit.  `realifyCircuitOutput_bottomProbability`
+  covers every normalized pure top rebit, and
+  `complexToReal_exactSimulation` packages the corrected constructive Theorem
+  2 without identifying differently typed operators or states.
+- `Simulation/QuaternionToComplex.lean` provides the parallel quaternionic
+  surface.  `eval_complexifyCircuit` fills the paper's omitted Lemma 8 proof;
+  `complexifyCircuitOutput_bottomProbability` covers every normalized pure top
+  qubit; and `quaternionToComplex_exactSimulation` packages the corrected
+  Theorem 4 with exact abstract resources.
+- `Simulation/QuaternionToReal.lean` proves the corrected Corollary 1 by the
+  visible composition `realifyCircuit (complexifyCircuit c)`.  Its operator is
+  `wireRealify (wireComplexify (eval c))`; gate count is unchanged; width,
+  every gate's exact local arity, arity bounds, and nonempty maximum grow by
+  two.  The nested normalized state uses one shared Qubit top and one shared
+  Rebit top.  `wireQuaternionToRealBottomWeight` sums all four assignments and
+  its normalized output probability equals the source quaternionic output.
+- `Simulation/Examples.lean` checks a zero-wire scalar `I` circuit and a
+  genuinely quaternionic scalar `j` circuit through the public placed-gate,
+  translation, evaluator, state-column, and measurement APIs.  Both target
+  embeddings have exact off-diagonal entry `1`, evolved true-top amplitude
+  `-1`, and bottom weight `1`.
+- Independent Stage 6 review found two substantive completeness gaps and they
+  were repaired before closure.  The initial composed output theorem only
+  unfolded its definition; `quaternionToRealCircuitOutput_nestedEncoding_apply`
+  now proves the actual nested encoding of `eval c *ᵥ psi`.  The composed
+  resource surface initially lacked exact gate provenance;
+  `mem_quaternionToRealCircuit_arity` now proves every target is
+  `realifyPlacedGate (complexifyPlacedGate g)` with local arity exactly
+  `g.localArity + 2`.  Re-review found no remaining mathematical/API defect.
+- Declaration classification: transport, cost, normalized evolution, circuit
+  translations, and separated operator/state/observable/resource theorems are
+  reusable public API.  `Simulation/Examples.lean` is a narrow diagnostic
+  public example.  No simulation theorem is encoded into circuit semantics;
+  no runtime, approximation, synthesis, or depth claim is present.
+- Documentation was updated in `README.md`, `docs/Architecture.md`,
+  `docs/Conventions.md`, `docs/MathlibAPI.md`, `docs/Traceability.md`, and
+  `docs/Corrections.md`.  Theorems 2/4, Lemmas 3/8, Corollary 1, abstract gate
+  count/width/arity, and C-010/C-017/C-019/C-022/C-024 now have exact
+  dispositions and dependent effects.
+- Focused builds passed: `Circuit.Cost` (1,677 jobs), both primary simulation
+  leaves together through 2,357 jobs, `QuaternionToReal` and `Examples`
+  through 2,359 jobs, and the public root/audit through 2,515 jobs.  The final
+  full `lake build` passed 2,514 jobs.
+- Direct `lake env lean ... -DwarningAsError=true` passed for all seven new
+  Stage 6 leaves plus the expanded audit.  `/tmp/Stage6ImportSmoke.lean`,
+  importing only `QuaternionicComputing`, checked the three packaged
+  simulations, normalized probability theorems, composed state intertwining,
+  maximum arity, and quaternionic unitary weight preservation under strict
+  warnings.
+- The expanded axiom audit reports only `propext`, `Classical.choice`, and
+  `Quot.sound` for every main new result.  Lean scans found no proof holes,
+  project axioms, `opaque`, or `unsafe`; the Stage 6 cone contains no forbidden
+  Kronecker theorem, left phase, determinant shortcut, replacement evaluator,
+  reference outcome/operator, or direct quaternion-to-real block
+  implementation.  `git diff --check` passed.

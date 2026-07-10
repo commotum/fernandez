@@ -114,6 +114,22 @@ disposition, and the pinned project builds and passes its axiom audit without
   chronological quaternion gates `[i,j]` is `-k`, while `[j,i]` gives `k`.
   Thus it detects a global evaluator-order reversal rather than merely
   distinguishing the two lists.
+- Stage 6 completed on 2026-07-09.  Literal gatewise list translations now
+  prove corrected forms of Lemmas 3/8 and Theorems 2/4 with separate operator,
+  state-evolution, normalized probability, and exact abstract resource
+  conclusions over arbitrary finite wire types and supports.
+- A generic noncommutative unitary-action theorem proves exact real, complex,
+  and quaternionic total-weight preservation, so the main output theorems use
+  normalized state subtypes rather than calling arbitrary weights
+  probabilities.
+- Exact abstract resources are machine checked: gate count is unchanged,
+  width is `+1`, each translated gate has exact local arity `+1`, arity bounds
+  transform accordingly, and maximum equality carries the necessary nonempty
+  hypothesis.  Encoding, synthesis, runtime, and depth are still separate.
+- The corrected Corollary 1 is proved by visible composition with two added
+  wires and exact per-gate arity `+2`; its four-sector bottom probability is
+  equal to the normalized quaternionic source output.  No direct
+  quaternion-to-real definition is hidden in the result.
 
 ## Current Assumptions to Test
 
@@ -131,6 +147,9 @@ disposition, and the pinned project builds and passes its axiom audit without
 - **Confirmed:** the sum-indexed matrix embeddings transport to the explicit
   distinguished wire `AddedWire W := Unit ⊕ W`; the wire wrappers are
   multiplicative/star-preserving and natural with actual local placement.
+- **Confirmed:** ordered-list translation plus the two state-column APIs is
+  sufficient for the central exact finite simulations.  Density matrices are
+  unnecessary for their computational-basis probability conclusions.
 
 ## Success Metrics and Verification Requirements
 
@@ -463,8 +482,8 @@ without learning the paper's original organization.
 - [x] 3-MATRICES — completed 2026-07-09
 - [x] 4-STATES — completed 2026-07-09
 - [x] 5-CIRCUITS — completed 2026-07-09
-- [ ] 6-SIMULATION — in progress
-- [ ] 7-ORDERING
+- [x] 6-SIMULATION — completed 2026-07-09
+- [ ] 7-ORDERING — in progress
 - [ ] 8-RESOURCES
 - [ ] 9-COVERAGE
 - [ ] 10-RELEASE

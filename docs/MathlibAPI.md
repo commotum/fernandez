@@ -117,17 +117,20 @@ Reindexing uses:
 Matrix.reindex
 Matrix.reindexRingEquiv
 Matrix.conjTranspose_reindex
-Equiv.boolProdEquivSum
-Fin.consEquiv
+Matrix.submatrix_mulVec_equiv
+Equiv.sumArrowEquivProdArrow
+Equiv.sumCompl
 ```
 
 `Matrix.reindexRingEquiv` works with noncommutative multiplication.  The
-algebraic embeddings stay on `ι ⊕ ι`; a wrapper reindexes to `Bool × ι`, and
-`Fin.consEquiv` identifies `Bool × (Fin n → Bool)` with an `(n+1)`-wire basis.
+algebraic embeddings stay on `ι ⊕ ι`; the public `addedBasisEquiv` wrapper
+reindexes `BitBasis W ⊕ BitBasis W` to `BitBasis (Unit ⊕ W)`, where the new
+`Unit` wire's false/true assignments select the two blocks.
 
 For arbitrary supports, `Equiv.sumCompl` plus
 `Equiv.sumArrowEquivProdArrow` supplies a full-basis split into local and
-complement assignments.
+complement assignments.  `Matrix.submatrix_mulVec_equiv` proves that the same
+reindexing commutes with column action without expanding a brittle double sum.
 
 ## Unitary matrices and determinants
 
@@ -197,15 +200,20 @@ without placeholders:
 - complex/`j`-component multiplication, conjugation, reconstruction, and norm-square
   scalar identities;
 - right-linearity of quaternionic `mulVec`;
-- preservation of `star x ⬝ᵥ y` by a quaternionic unitary matrix;
+- preservation of `star x ⬝ᵥ x` and real/complex/quaternionic total weights by
+  generic unitary matrix action;
 - complex-to-real and quaternion-to-complex block-embedding multiplication and
   adjoint laws for arbitrary compatible finite shapes;
 - injective star-monoid and unitary-group maps for both embeddings;
 - orthogonal, special-orthogonal, unitary, and complex-symplectic image facts
   with the determinant boundary stated above;
-- unitary preservation under reindexing; and
+- noncommutative-safe contextual placement, added-wire reindexing, and unitary
+  preservation;
+- whole ordered-circuit embedding, normalized state evolution, bottom
+  probability preservation, and exact abstract count/width/arity results; and
 - the pinned project baseline and axiom smoke audit.
 
-Their stable declarations live in `Scalar/Quaternion.lean` and the four
-`Matrix/*.lean` leaves.  Remaining probes are temporary only and are not
-accepted as completion evidence under `BUILD-PLAN.md`.
+Their stable declarations live in the narrow scalar, matrix, state, circuit,
+and simulation leaves documented by `docs/Architecture.md`.  Remaining probes
+are temporary only and are not accepted as completion evidence under
+`BUILD-PLAN.md`.
