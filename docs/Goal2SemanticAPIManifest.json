@@ -2259,7 +2259,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact relation",
@@ -2275,7 +2275,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact relation",
@@ -2675,7 +2675,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2691,7 +2691,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2707,7 +2707,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2723,7 +2723,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2739,7 +2739,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2755,7 +2755,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2771,7 +2771,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -2787,7 +2787,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on a finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -3187,7 +3187,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every literally equal pair of same-typed operators",
+        "inputScope": "every literally equal pair of same-typed operators; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3203,7 +3203,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on the finite input index type",
+        "inputScope": "every normalized pure input on the finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "all computational-basis output weights",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3219,7 +3219,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every literally equal pair of same-typed operators",
+        "inputScope": "every literally equal pair of same-typed operators; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3235,7 +3235,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every normalized pure input on the finite input index type",
+        "inputScope": "every normalized pure input on the finite input index type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "all computational-basis output weights",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3347,7 +3347,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator",
+        "inputScope": "every related pair and every common compatible later operator; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same relation after left matrix multiplication",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3363,7 +3363,7 @@
       "classification": {
         "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common unitary earlier operator",
+        "inputScope": "every related pair and every common unitary earlier operator; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after right matrix multiplication",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication under a unitary premise",
@@ -3379,7 +3379,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common compatible later operator",
+        "inputScope": "every related pair and every common compatible later operator; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same relation after left matrix multiplication",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -3395,7 +3395,7 @@
       "classification": {
         "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
         "subject": "matrix operators",
-        "inputScope": "every related pair and every common unitary earlier operator",
+        "inputScope": "every related pair and every common unitary earlier operator; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after right matrix multiplication",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication under a unitary premise",
@@ -3411,7 +3411,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact relation",
@@ -3427,7 +3427,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact relation",
@@ -3443,7 +3443,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact relation",
@@ -3459,7 +3459,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact relation",
@@ -3475,7 +3475,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact relation",
@@ -3491,7 +3491,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact relation",
@@ -3507,7 +3507,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact relation",
@@ -3523,7 +3523,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact relation",
@@ -3539,7 +3539,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact iff",
@@ -3555,7 +3555,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact implication",
@@ -3571,7 +3571,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3587,7 +3587,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3603,7 +3603,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3619,7 +3619,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one real unit sign shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3635,7 +3635,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact iff",
@@ -3651,7 +3651,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact implication",
@@ -3667,7 +3667,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3683,7 +3683,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3699,7 +3699,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3715,7 +3715,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
         "observationScope": "all amplitudes up to one shared global phase",
         "phase": "one unit complex phase shared by every entry",
         "exactness": "exact equivalence-law theorem",
@@ -3731,7 +3731,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact iff",
@@ -3747,7 +3747,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact implication",
@@ -3763,7 +3763,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3779,7 +3779,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3795,7 +3795,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3811,7 +3811,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one real unit sign per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3827,7 +3827,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact iff",
@@ -3843,7 +3843,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact implication",
@@ -3859,7 +3859,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3875,7 +3875,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3891,7 +3891,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3907,7 +3907,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every computational-basis input column and every output coordinate",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each basis-input column up to its own phase",
         "phase": "one unit complex phase per input column, multiplied on the right",
         "exactness": "exact equivalence-law theorem",
@@ -3923,7 +3923,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact iff",
@@ -3939,7 +3939,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact implication",
@@ -3955,7 +3955,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -3971,7 +3971,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -3987,7 +3987,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4003,7 +4003,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one real unit sign per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4019,7 +4019,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact iff",
@@ -4035,7 +4035,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact implication",
@@ -4051,7 +4051,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4067,7 +4067,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4083,7 +4083,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4099,7 +4099,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every output row and every input coordinate",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
         "observationScope": "all amplitudes of each output row up to its own phase",
         "phase": "one unit complex phase per output row, multiplied on the left",
         "exactness": "exact equivalence-law theorem",
@@ -4115,7 +4115,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact iff",
@@ -4131,7 +4131,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4147,7 +4147,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4163,7 +4163,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4179,7 +4179,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4195,7 +4195,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4211,7 +4211,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact iff",
@@ -4227,7 +4227,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the corresponding relation on OrderedCircuit.eval",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4243,7 +4243,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4259,7 +4259,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4275,7 +4275,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4291,7 +4291,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every normalized pure input on a finite input index type",
+        "inputScope": "every normalized pure input on the finite circuit basis type; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the complete raw output-state ray for every normalized pure input",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact equivalence-law theorem",
@@ -4499,7 +4499,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common later circuit",
+        "inputScope": "every related circuit pair and common later circuit; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same evaluated-operator relation after chronological append",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4515,7 +4515,7 @@
       "classification": {
         "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after chronological prepend",
         "phase": "one output-state real sign may depend on the normalized pure input",
         "exactness": "exact implication under a local-unitarity certificate",
@@ -4531,7 +4531,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common later circuit",
+        "inputScope": "every related circuit pair and common later circuit; the relation is vacuous if that type admits no normalized state",
         "observationScope": "the same evaluated-operator relation after chronological append",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication",
@@ -4547,7 +4547,7 @@
       "classification": {
         "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
         "subject": "chronological ordered circuits through their evaluated operators",
-        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit; the relation is vacuous if that type admits no normalized state",
         "observationScope": "projective action after chronological prepend",
         "phase": "one output-state unit complex right phase may depend on the normalized pure input",
         "exactness": "exact implication under a local-unitarity certificate",

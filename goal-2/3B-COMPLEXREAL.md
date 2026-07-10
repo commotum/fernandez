@@ -26,9 +26,9 @@
   normalization or unitarity premise.
 - Stage 3A closed with 133 manifest declarations and 217 root audit endpoints.
   The two Stage 3B stable leaves contain exactly 150 new declarations
-  (68 operator and 82 circuit declarations), so the semantic manifest must
-  contain 283 items after promotion. The root axiom audit samples main
-  endpoints rather than duplicating every manifest entry.
+  (68 operator and 82 circuit declarations). The promoted semantic manifest
+  now contains 283 items, while the root audit samples 251 main endpoints
+  rather than duplicating every manifest entry.
 
 ## Updated Assumptions
 
@@ -175,6 +175,29 @@ input-column phase, output-row phase, projective action, or basis measurement.
   where its normalized-input quantifier is vacuous. No converse or kernel
   characterization may use that relation without the explicit nonempty or
   positive-cardinality hypotheses proved by its owning later stage.
-- The non-root audit, rational-unitary strictness witnesses, 283-item manifest,
-  root promotion, release axiom endpoints, documentation fold-back, and broad
-  verification remain in progress.
+- `ComplexRealAudit.lean` supplies 16 named consumers whose checked allocation
+  exercises all 150 stable declarations. Its packaged
+  `real_unitary_strictness` and `complex_unitary_strictness` theorems certify
+  exact/global strictness, input/output incomparability, superposition
+  sensitivity, and output-measurement/projective separation using only unitary
+  matrices. Zero-wire `-1` and `I` circuits prove nontrivial circuit phase.
+- The public root imports `ComplexRealCircuit` but not the diagnostic leaf. The
+  semantic manifest contains exactly 283 declarations (61 Stage 2, 72 Stage
+  3A, 150 Stage 3B), all seven axes, 35 resolving named consumers, and 65
+  declarations that coincide with direct root-audit targets. The immutable
+  936-declaration Goal 1 cohort checksum still passes.
+- Focused builds passed for the stable core/circuit leaves (2,353/2,354 jobs)
+  and diagnostic leaf (2,355 jobs). Adjacent consumers passed at 2,352 jobs;
+  the public root, explicit audit, and full cached build passed at 2,559 jobs.
+  Warning-as-error checks passed for both stable leaves, the diagnostic, root,
+  audit, all 283 public names, and all 35 diagnostic consumers.
+- The 251 root audit commands and 12 diagnostic commands expose only
+  `propext`, `Classical.choice`, and `Quot.sound`. Lean-source hole, project-
+  axiom, unsafe, opaque, heartbeat-override, diagnostic-root-import, trailing-
+  whitespace, and tracked-build-artifact scans are empty; `git diff --check`
+  passes.
+- Documentation now records the four relation families, directional
+  composition, empty-input caveat, strictness evidence, module boundary, and
+  API/audit counts. No new paper correction or traceability terminal-status
+  change is justified by this infrastructure milestone.
+- Milestone complete. Stage 3 remains open only for `3C-QUATERNION`.
