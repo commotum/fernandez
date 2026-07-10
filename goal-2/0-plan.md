@@ -170,6 +170,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   theorems. The normalized `3/5,4/5` left-phase rejection certificate repairs
   `EQC-001`. Quotient equality and descended operations remain owned by Stage
   4, so the two transferred ray rows are not yet `closedByGoal2`.
+- A strict Stage 3B prototype validates eight distinct real/complex global,
+  input-column, output-row, and projective-action relations; their equivalence
+  laws; exact/global/measurement arrows; global-phase unitarity; and sided
+  matrix/circuit composition. Common-later and common-earlier composition are
+  asymmetric, and projective common-earlier evolution requires unitarity.
 
 ## Inventory and Manifest Policy
 
