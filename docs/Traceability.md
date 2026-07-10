@@ -33,6 +33,15 @@ and deterministic-pushforward consequences. These wrappers make the existing
 evidence more precise; they do not promote any basis-only theorem to ray,
 channel, all-effect, mixed-state, or cross-model equality.
 
+Stage 3A adds representative-level real sign, complex right phase, and
+quaternionic right phase with distribution and evolution laws. Stage 3B adds
+the distinct real/complex global, input-column, output-row, and projective
+operator/circuit relations, together with only their justified measurement
+and sided-composition implications. These semantic layers sharpen how existing
+evidence is described but do not change a paper row's terminal status. Ray
+quotients remain Stage 4, channels remain Stage 7, and quaternionic operator
+phase remains Stage 3C.
+
 ## Numbered definitions, theorems, lemmas, and corollary
 
 | ID | Source | Concise target and dependencies | Priority / stage | Status |

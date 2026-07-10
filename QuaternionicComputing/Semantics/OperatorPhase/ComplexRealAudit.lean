@@ -499,13 +499,13 @@ def complexThreeFour : State.ComplexState Bool :=
 /-- A normalized real basis input exposing output-row phase inconsistency. -/
 def realBasisFalse : State.RealState Bool :=
   ⟨fun x ↦ if x then 0 else 1, by
-    simp [State.realTotalWeight, State.totalWeight, State.basisWeight,
+    simp [State.totalWeight, State.basisWeight,
       State.realWeight, Fintype.univ_bool]⟩
 
 /-- The corresponding normalized complex basis input. -/
 def complexBasisFalse : State.ComplexState Bool :=
   ⟨fun x ↦ if x then 0 else 1, by
-    simp [State.complexTotalWeight, State.totalWeight, State.basisWeight,
+    simp [State.totalWeight, State.basisWeight,
       State.complexWeight, Fintype.univ_bool]⟩
 
 /-! ### Real strictness and incomparability -/
@@ -619,8 +619,7 @@ theorem complexInputTwist_not_global :
   have h0im := congrArg Complex.im h0
   have h1re := congrArg Complex.re h1
   have h1im := congrArg Complex.im h1
-  norm_num [complexRotation, realRotation, complexInputTwist] at
-    h0re h0im h1re h1im
+  norm_num [complexRotation, realRotation, complexInputTwist] at h0re h0im h1re h1im
   linarith
 
 theorem complexInputTwist_not_output :
@@ -632,8 +631,7 @@ theorem complexInputTwist_not_output :
   have h0im := congrArg Complex.im h0
   have h1re := congrArg Complex.re h1
   have h1im := congrArg Complex.im h1
-  norm_num [complexRotation, realRotation, complexInputTwist] at
-    h0re h0im h1re h1im
+  norm_num [complexRotation, realRotation, complexInputTwist] at h0re h0im h1re h1im
   linarith
 
 theorem complexInputTwist_not_pureInputBasisMeasurementEq :
@@ -663,8 +661,7 @@ theorem complexOutputTwist_not_global :
   have h0im := congrArg Complex.im h0
   have h1re := congrArg Complex.re h1
   have h1im := congrArg Complex.im h1
-  norm_num [complexRotation, realRotation, complexOutputTwist] at
-    h0re h0im h1re h1im
+  norm_num [complexRotation, realRotation, complexOutputTwist] at h0re h0im h1re h1im
   linarith
 
 theorem complexOutputTwist_not_input :
@@ -676,8 +673,7 @@ theorem complexOutputTwist_not_input :
   have h0im := congrArg Complex.im h0
   have h1re := congrArg Complex.re h1
   have h1im := congrArg Complex.im h1
-  norm_num [complexRotation, realRotation, complexOutputTwist] at
-    h0re h0im h1re h1im
+  norm_num [complexRotation, realRotation, complexOutputTwist] at h0re h0im h1re h1im
   linarith
 
 theorem complexOutputTwist_pureInputBasisMeasurementEq :
@@ -696,8 +692,7 @@ theorem complexOutputTwist_not_projectiveActionEq :
   have h1re := congrArg Complex.re h1
   have h1im := congrArg Complex.im h1
   norm_num [Matrix.mulVec, dotProduct, Fintype.univ_bool, complexRotation,
-    realRotation, complexOutputTwist, complexBasisFalse] at
-    h0re h0im h1re h1im
+    realRotation, complexOutputTwist, complexBasisFalse] at h0re h0im h1re h1im
   linarith
 
 /-- A nontrivial complex global phase of the rational rotation. -/
@@ -718,6 +713,82 @@ theorem complexRotation_I_not_exact :
 theorem complexIRotation_mem_unitary :
     complexIRotation ∈ unitary (Matrix Bool Bool ℂ) :=
   complexRotation_I_global.mem_unitary complexRotation_mem_unitary
+
+/--
+The real rational family packages every Stage 3B strictness boundary together
+with the unitary certificates that make the witness physically relevant.
+-/
+theorem real_unitary_strictness :
+    realRotation ∈ unitary (Matrix Bool Bool ℝ) ∧
+      realNegRotation ∈ unitary (Matrix Bool Bool ℝ) ∧
+      realInputTwist ∈ unitary (Matrix Bool Bool ℝ) ∧
+      realOutputTwist ∈ unitary (Matrix Bool Bool ℝ) ∧
+      RealGlobalSignEq realRotation realNegRotation ∧
+      ¬ ExactOperatorEq realRotation realNegRotation ∧
+      RealInputBasisSignEq realRotation realInputTwist ∧
+      ¬ RealGlobalSignEq realRotation realInputTwist ∧
+      ¬ RealOutputBasisSignEq realRotation realInputTwist ∧
+      ¬ PureInputBasisMeasurementEq State.realWeight
+        realRotation realInputTwist ∧
+      RealOutputBasisSignEq realRotation realOutputTwist ∧
+      ¬ RealGlobalSignEq realRotation realOutputTwist ∧
+      ¬ RealInputBasisSignEq realRotation realOutputTwist ∧
+      PureInputBasisMeasurementEq State.realWeight
+        realRotation realOutputTwist ∧
+      ¬ RealProjectiveActionEq realRotation realOutputTwist :=
+  ⟨realRotation_mem_unitary,
+    realNegRotation_mem_unitary,
+    realInputTwist_mem_unitary,
+    realOutputTwist_mem_unitary,
+    realRotation_neg_global,
+    realRotation_neg_not_exact,
+    realRotation_inputTwist,
+    realInputTwist_not_global,
+    realInputTwist_not_output,
+    realInputTwist_not_pureInputBasisMeasurementEq,
+    realRotation_outputTwist,
+    realOutputTwist_not_global,
+    realOutputTwist_not_input,
+    realOutputTwist_pureInputBasisMeasurementEq,
+    realOutputTwist_not_projectiveActionEq⟩
+
+/--
+The complex rational family packages the analogous unitary strictness and
+incomparability certificates, using `I` for every non-real phase.
+-/
+theorem complex_unitary_strictness :
+    complexRotation ∈ unitary (Matrix Bool Bool ℂ) ∧
+      complexIRotation ∈ unitary (Matrix Bool Bool ℂ) ∧
+      complexInputTwist ∈ unitary (Matrix Bool Bool ℂ) ∧
+      complexOutputTwist ∈ unitary (Matrix Bool Bool ℂ) ∧
+      ComplexGlobalPhaseEq complexRotation complexIRotation ∧
+      ¬ ExactOperatorEq complexRotation complexIRotation ∧
+      ComplexInputBasisPhaseEq complexRotation complexInputTwist ∧
+      ¬ ComplexGlobalPhaseEq complexRotation complexInputTwist ∧
+      ¬ ComplexOutputBasisPhaseEq complexRotation complexInputTwist ∧
+      ¬ PureInputBasisMeasurementEq State.complexWeight
+        complexRotation complexInputTwist ∧
+      ComplexOutputBasisPhaseEq complexRotation complexOutputTwist ∧
+      ¬ ComplexGlobalPhaseEq complexRotation complexOutputTwist ∧
+      ¬ ComplexInputBasisPhaseEq complexRotation complexOutputTwist ∧
+      PureInputBasisMeasurementEq State.complexWeight
+        complexRotation complexOutputTwist ∧
+      ¬ ComplexProjectiveActionEq complexRotation complexOutputTwist :=
+  ⟨complexRotation_mem_unitary,
+    complexIRotation_mem_unitary,
+    complexInputTwist_mem_unitary,
+    complexOutputTwist_mem_unitary,
+    complexRotation_I_global,
+    complexRotation_I_not_exact,
+    complexRotation_inputTwist,
+    complexInputTwist_not_global,
+    complexInputTwist_not_output,
+    complexInputTwist_not_pureInputBasisMeasurementEq,
+    complexRotation_outputTwist,
+    complexOutputTwist_not_global,
+    complexOutputTwist_not_input,
+    complexOutputTwist_pureInputBasisMeasurementEq,
+    complexOutputTwist_not_projectiveActionEq⟩
 
 /-! ## Nontrivial chronological-circuit phase examples -/
 
@@ -757,8 +828,17 @@ theorem nil_realNegCircuit_global :
     RealCircuitGlobalSignEq ([] : OrderedCircuit ℝ Empty)
       realNegCircuit := by
   refine ⟨-1, by norm_num, ?_⟩
-  ext x y
-  simp [realNegCircuit, realNegGate, realNegLocal, emptySplit]
+  simp only [realNegCircuit, OrderedCircuit.eval_singleton,
+    OrderedCircuit.eval_nil]
+  funext x y
+  have hx : x = emptyBasis := Subsingleton.elim _ _
+  have hy : y = emptyBasis := Subsingleton.elim _ _
+  subst x
+  subst y
+  change realNegGate.denote emptyBasis emptyBasis =
+    (-1 : ℝ) * (1 : Matrix (BitBasis Empty) (BitBasis Empty) ℝ)
+      emptyBasis emptyBasis
+  simp [realNegGate, realNegLocal, emptySplit]
 
 theorem nil_realNegCircuit_not_exact :
     ¬ ExactCircuitEq ([] : OrderedCircuit ℝ Empty)
@@ -772,8 +852,17 @@ theorem nil_complexICircuit_global :
     ComplexCircuitGlobalPhaseEq ([] : OrderedCircuit ℂ Empty)
       complexICircuit := by
   refine ⟨Complex.I, Complex.normSq_I, ?_⟩
-  ext x y
-  simp [complexICircuit, complexIGate, complexILocal, emptySplit]
+  simp only [complexICircuit, OrderedCircuit.eval_singleton,
+    OrderedCircuit.eval_nil]
+  funext x y
+  have hx : x = emptyBasis := Subsingleton.elim _ _
+  have hy : y = emptyBasis := Subsingleton.elim _ _
+  subst x
+  subst y
+  change complexIGate.denote emptyBasis emptyBasis =
+    Complex.I * (1 : Matrix (BitBasis Empty) (BitBasis Empty) ℂ)
+      emptyBasis emptyBasis
+  simp [complexIGate, complexILocal, emptySplit]
 
 theorem nil_complexICircuit_not_exact :
     ¬ ExactCircuitEq ([] : OrderedCircuit ℂ Empty)
@@ -786,13 +875,19 @@ theorem nil_complexICircuit_not_exact :
 
 end QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit
 
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputTwist_not_pureInputBasisMeasurementEq
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputTwist_not_projectiveActionEq
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputTwist_not_pureInputBasisMeasurementEq
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputTwist_not_projectiveActionEq
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.nil_realNegCircuit_not_exact
-#print axioms QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.nil_complexICircuit_not_exact
+namespace QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit
+
+#print axioms realGlobalSign_api
+#print axioms complexGlobalPhase_api
+#print axioms realCircuitGlobalSign_api
+#print axioms complexCircuitGlobalPhase_api
+#print axioms realInputTwist_not_pureInputBasisMeasurementEq
+#print axioms realOutputTwist_not_projectiveActionEq
+#print axioms complexInputTwist_not_pureInputBasisMeasurementEq
+#print axioms complexOutputTwist_not_projectiveActionEq
+#print axioms real_unitary_strictness
+#print axioms complex_unitary_strictness
+#print axioms nil_realNegCircuit_not_exact
+#print axioms nil_complexICircuit_not_exact
+
+end QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit

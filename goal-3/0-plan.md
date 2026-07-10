@@ -104,8 +104,10 @@ none may remain excluded merely because it is difficult.
 - Those counts are the pre-Goal-2 baseline.  Goal 2 is expected to close the two
   ray rows and may legitimately settle additional semantic obligations; Goal 3
   Stage 1 must derive its actual worklist and counts after that fold-back.
-- Goal 2 is currently scaffolded but not implemented.  Goal 3 therefore has an
-  explicit unmet prerequisite and must not be executed yet.
+- Goal 2 implementation is active: its inventory, exact/measurement core,
+  normalized representative phase layer, and real/complex operator-phase
+  milestone are complete. Later Goal 2 stages remain an explicit unmet
+  prerequisite, so Goal 3 must not be executed yet.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

@@ -85,6 +85,14 @@ normalization, and evolution theorems in `State/Basic.lean`.
 `Matrix.mulVecLin` and `Matrix.toLin'` require commutative coefficients and are
 not quaternion APIs.
 
+For the real/complex operator-phase layer, the checked arithmetic route uses
+`Complex.normSq_mul`, `Complex.mul_conj`, scalar matrix multiplication,
+`Matrix.smul_mul`, `Matrix.mul_smul`, and `Matrix.smul_mulVec`. Row and column
+phases factor through finite sums with `Finset.mul_sum` and `Finset.sum_mul`.
+Chronological composition uses `Circuit.OrderedCircuit.eval_append`, while
+global phase preserves square-matrix unitarity through `Unitary.mem_iff`.
+These commutative-scalar proofs are not reused to commute quaternionic phases.
+
 For a finite right-module state, define the quaternion-valued Hermitian form
 explicitly as `star x ⬝ᵥ y` and the real state norm square as
 `∑ i, Quaternion.normSq (x i)`.  The default norm on a plain function type is

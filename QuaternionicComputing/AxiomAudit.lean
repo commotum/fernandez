@@ -264,6 +264,9 @@ axioms used by each main exported result.
 #print axioms QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.prepend_same_earlier
 #print axioms
   QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.prepend_same_earlier
+#print axioms QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.append_same_later
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.append_same_later
 #print axioms
   QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
 #print axioms

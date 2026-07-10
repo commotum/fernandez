@@ -2153,6 +2153,2406 @@
         "exactness": "exact implication",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq",
+      "relation": "RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq",
+      "relation": "ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq",
+      "relation": "RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq",
+      "relation": "ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq",
+      "relation": "RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq",
+      "relation": "ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq",
+      "relation": "RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq",
+      "relation": "ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.refl",
+      "relation": "RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.symm",
+      "relation": "RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.trans",
+      "relation": "RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.equivalence",
+      "relation": "RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.refl",
+      "relation": "ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.symm",
+      "relation": "ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.trans",
+      "relation": "ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.equivalence",
+      "relation": "ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.refl",
+      "relation": "RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.symm",
+      "relation": "RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.trans",
+      "relation": "RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.equivalence",
+      "relation": "RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.refl",
+      "relation": "ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.symm",
+      "relation": "ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.trans",
+      "relation": "ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.equivalence",
+      "relation": "ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.refl",
+      "relation": "RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.symm",
+      "relation": "RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.trans",
+      "relation": "RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.equivalence",
+      "relation": "RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.refl",
+      "relation": "ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.symm",
+      "relation": "ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.trans",
+      "relation": "ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.equivalence",
+      "relation": "ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.refl",
+      "relation": "RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.symm",
+      "relation": "RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.trans",
+      "relation": "RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.equivalence",
+      "relation": "RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.refl",
+      "relation": "ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.symm",
+      "relation": "ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.trans",
+      "relation": "ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.equivalence",
+      "relation": "ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.of_exact",
+      "relation": "ExactOperatorEq→RealGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.inputBasisSignEq",
+      "relation": "RealGlobalSignEq→RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.outputBasisSignEq",
+      "relation": "RealGlobalSignEq→RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.projectiveActionEq",
+      "relation": "RealGlobalSignEq→RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.mem_unitary",
+      "relation": "RealGlobalSignEq preserves unitarity",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite square index type with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every globally phase-related square pair when the first operator is unitary",
+        "observationScope": "unitary-group membership of the second operator",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.mem_unitary_iff",
+      "relation": "RealGlobalSignEq preserves and reflects unitarity",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite square index type with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every globally phase-related square pair",
+        "observationScope": "unitary-group membership",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.of_exact",
+      "relation": "ExactOperatorEq→ComplexGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.inputBasisPhaseEq",
+      "relation": "ComplexGlobalPhaseEq→ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.outputBasisPhaseEq",
+      "relation": "ComplexGlobalPhaseEq→ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.projectiveActionEq",
+      "relation": "ComplexGlobalPhaseEq→ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.mem_unitary",
+      "relation": "ComplexGlobalPhaseEq preserves unitarity",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite square index type with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every globally phase-related square pair when the first operator is unitary",
+        "observationScope": "unitary-group membership of the second operator",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.mem_unitary_iff",
+      "relation": "ComplexGlobalPhaseEq preserves and reflects unitarity",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite square index type with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every globally phase-related square pair",
+        "observationScope": "unitary-group membership",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.of_exact",
+      "relation": "ExactOperatorEq→RealInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.basisMeasurementEq",
+      "relation": "RealInputBasisSignEq→BasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all computational-basis output weights for every basis preparation",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.of_exact",
+      "relation": "ExactOperatorEq→ComplexInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.basisMeasurementEq",
+      "relation": "ComplexInputBasisPhaseEq→BasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all computational-basis output weights for every basis preparation",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.of_exact",
+      "relation": "ExactOperatorEq→RealOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.basisMeasurementEq",
+      "relation": "RealOutputBasisSignEq→BasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all computational-basis output weights for every basis preparation",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.mulVec_eq",
+      "relation": "RealOutputBasisSignEq output-action factorization",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input column on a finite input index type",
+        "observationScope": "pointwise phase factorization of the full matrix-vector output",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equality with an explicit phase family",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.pureInputBasisMeasurementEq",
+      "relation": "RealOutputBasisSignEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on the finite input index type",
+        "observationScope": "all computational-basis output weights",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.of_exact",
+      "relation": "ExactOperatorEq→ComplexOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.basisMeasurementEq",
+      "relation": "ComplexOutputBasisPhaseEq→BasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all computational-basis output weights for every basis preparation",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.mulVec_eq",
+      "relation": "ComplexOutputBasisPhaseEq output-action factorization",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input column on a finite input index type",
+        "observationScope": "pointwise phase factorization of the full matrix-vector output",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equality with an explicit phase family",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.pureInputBasisMeasurementEq",
+      "relation": "ComplexOutputBasisPhaseEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on the finite input index type",
+        "observationScope": "all computational-basis output weights",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.of_exact",
+      "relation": "ExactOperatorEq→RealProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.pureInputBasisMeasurementEq",
+      "relation": "RealProjectiveActionEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on the finite input index type",
+        "observationScope": "all computational-basis output weights",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.of_exact",
+      "relation": "ExactOperatorEq→ComplexProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed operators",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.pureInputBasisMeasurementEq",
+      "relation": "ComplexProjectiveActionEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on the finite input index type",
+        "observationScope": "all computational-basis output weights",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.mul",
+      "relation": "RealGlobalSignEq two-pair multiplication congruence",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "two composable related operator pairs over a finite intermediate index",
+        "observationScope": "the same phase relation on the two matrix products",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.mul",
+      "relation": "ComplexGlobalPhaseEq two-pair multiplication congruence",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "two composable related operator pairs over a finite intermediate index",
+        "observationScope": "the same phase relation on the two matrix products",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.mul_left",
+      "relation": "RealInputBasisSignEq common-later composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator",
+        "observationScope": "the same relation after left matrix multiplication",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.mul_left",
+      "relation": "ComplexInputBasisPhaseEq common-later composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator",
+        "observationScope": "the same relation after left matrix multiplication",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.mul_right",
+      "relation": "RealOutputBasisSignEq common-earlier composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible earlier operator",
+        "observationScope": "the same relation after right matrix multiplication",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.mul_right",
+      "relation": "ComplexOutputBasisPhaseEq common-earlier composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible earlier operator",
+        "observationScope": "the same relation after right matrix multiplication",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.mul_left",
+      "relation": "RealProjectiveActionEq common-later composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator",
+        "observationScope": "the same relation after left matrix multiplication",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.mul_right_unitary",
+      "relation": "RealProjectiveActionEq common-unitary-earlier composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common unitary earlier operator",
+        "observationScope": "projective action after right matrix multiplication",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication under a unitary premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.mul_left",
+      "relation": "ComplexProjectiveActionEq common-later composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator",
+        "observationScope": "the same relation after left matrix multiplication",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.mul_right_unitary",
+      "relation": "ComplexProjectiveActionEq common-unitary-earlier composition preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common unitary earlier operator",
+        "observationScope": "projective action after right matrix multiplication",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication under a unitary premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq",
+      "relation": "RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq",
+      "relation": "ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq",
+      "relation": "RealCircuitInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq",
+      "relation": "ComplexCircuitInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq",
+      "relation": "RealCircuitOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq",
+      "relation": "ComplexCircuitOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq",
+      "relation": "RealCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq",
+      "relation": "ComplexCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.iff_eval",
+      "relation": "RealCircuitGlobalSignEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.eval",
+      "relation": "RealCircuitGlobalSignEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.refl",
+      "relation": "RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.symm",
+      "relation": "RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.trans",
+      "relation": "RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.equivalence",
+      "relation": "RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.iff_eval",
+      "relation": "ComplexCircuitGlobalPhaseEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.eval",
+      "relation": "ComplexCircuitGlobalPhaseEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.refl",
+      "relation": "ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.symm",
+      "relation": "ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.trans",
+      "relation": "ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.equivalence",
+      "relation": "ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.iff_eval",
+      "relation": "RealCircuitInputBasisSignEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.eval",
+      "relation": "RealCircuitInputBasisSignEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.refl",
+      "relation": "RealCircuitInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.symm",
+      "relation": "RealCircuitInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.trans",
+      "relation": "RealCircuitInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.equivalence",
+      "relation": "RealCircuitInputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.iff_eval",
+      "relation": "ComplexCircuitInputBasisPhaseEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.eval",
+      "relation": "ComplexCircuitInputBasisPhaseEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.refl",
+      "relation": "ComplexCircuitInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.symm",
+      "relation": "ComplexCircuitInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.trans",
+      "relation": "ComplexCircuitInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.equivalence",
+      "relation": "ComplexCircuitInputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own phase",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.iff_eval",
+      "relation": "RealCircuitOutputBasisSignEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.eval",
+      "relation": "RealCircuitOutputBasisSignEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.refl",
+      "relation": "RealCircuitOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.symm",
+      "relation": "RealCircuitOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.trans",
+      "relation": "RealCircuitOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.equivalence",
+      "relation": "RealCircuitOutputBasisSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.iff_eval",
+      "relation": "ComplexCircuitOutputBasisPhaseEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.eval",
+      "relation": "ComplexCircuitOutputBasisPhaseEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.refl",
+      "relation": "ComplexCircuitOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.symm",
+      "relation": "ComplexCircuitOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.trans",
+      "relation": "ComplexCircuitOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.equivalence",
+      "relation": "ComplexCircuitOutputBasisPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own phase",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.iff_eval",
+      "relation": "RealCircuitProjectiveActionEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.eval",
+      "relation": "RealCircuitProjectiveActionEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.refl",
+      "relation": "RealCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.symm",
+      "relation": "RealCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.trans",
+      "relation": "RealCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.equivalence",
+      "relation": "RealCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.iff_eval",
+      "relation": "ComplexCircuitProjectiveActionEq↔evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "definitional identification with the corresponding relation on OrderedCircuit.eval",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.eval",
+      "relation": "ComplexCircuitProjectiveActionEq→evaluated operator relation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the corresponding relation on OrderedCircuit.eval",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.refl",
+      "relation": "ComplexCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.symm",
+      "relation": "ComplexCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.trans",
+      "relation": "ComplexCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.equivalence",
+      "relation": "ComplexCircuitProjectiveActionEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on a finite input index type",
+        "observationScope": "the complete raw output-state ray for every normalized pure input",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.realGlobalSignEq",
+      "relation": "ExactCircuitEq→RealCircuitGlobalSignEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every pair of chronological circuits with literally equal evaluations",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.complexGlobalPhaseEq",
+      "relation": "ExactCircuitEq→ComplexCircuitGlobalPhaseEq",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every pair of chronological circuits with literally equal evaluations",
+        "observationScope": "all amplitudes up to one shared global phase",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.append",
+      "relation": "RealCircuitGlobalSignEq append congruence",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "two related early/later circuit pairs",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.append_same_later",
+      "relation": "RealCircuitGlobalSignEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.prepend_same_earlier",
+      "relation": "RealCircuitGlobalSignEq common-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one real unit sign shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.append",
+      "relation": "ComplexCircuitGlobalPhaseEq append congruence",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "two related early/later circuit pairs",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.append_same_later",
+      "relation": "ComplexCircuitGlobalPhaseEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.prepend_same_earlier",
+      "relation": "ComplexCircuitGlobalPhaseEq common-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one unit complex phase shared by every entry",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitInputBasisSignEq.append_same_later",
+      "relation": "RealCircuitInputBasisSignEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitInputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one real unit sign per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitInputBasisPhaseEq.append_same_later",
+      "relation": "ComplexCircuitInputBasisPhaseEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitInputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one unit complex phase per input column, multiplied on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitOutputBasisSignEq.prepend_same_earlier",
+      "relation": "RealCircuitOutputBasisSignEq common-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitOutputBasisSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one real unit sign per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitOutputBasisPhaseEq.prepend_same_earlier",
+      "relation": "ComplexCircuitOutputBasisPhaseEq common-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitOutputBasisPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one unit complex phase per output row, multiplied on the left",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.append_same_later",
+      "relation": "RealCircuitProjectiveActionEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary",
+      "relation": "RealCircuitProjectiveActionEq common-locally-unitary-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.realCircuitProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
+        "observationScope": "projective action after chronological prepend",
+        "phase": "one output-state real sign may depend on the normalized pure input",
+        "exactness": "exact implication under a local-unitarity certificate",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.append_same_later",
+      "relation": "ComplexCircuitProjectiveActionEq common-later circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary",
+      "relation": "ComplexCircuitProjectiveActionEq common-locally-unitary-earlier circuit preservation",
+      "owner": "goal-2/3B-COMPLEXREAL",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.ComplexRealAudit.complexCircuitProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex scalar and finite wire/basis type; compared through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and common locally unitary earlier circuit",
+        "observationScope": "projective action after chronological prepend",
+        "phase": "one output-state unit complex right phase may depend on the normalized pure input",
+        "exactness": "exact implication under a local-unitarity certificate",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }

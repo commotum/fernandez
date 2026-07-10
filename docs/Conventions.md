@@ -52,6 +52,36 @@ normalized wrappers `RealStatePhaseEq`, `ComplexStatePhaseEq`, and
 `QuaternionStatePhaseEq` remain relations on concrete representatives. They
 are not quotient equality, operator global phase, or channel equality.
 
+## Operator and circuit phase
+
+State phase and operator phase are distinct. For same-typed real and complex
+matrices the operator conventions are:
+
+```text
+global:       V = η • U
+input column: V y x = U y x * φ x
+output row:   V y x = θ y * U y x
+projective:   Uψ and Vψ lie on the same state ray for every normalized ψ.
+```
+
+For real matrices every phase witness squares to one; for complex matrices it
+has `Complex.normSq = 1`. Input phases stay visibly on the right and output
+phases on the left even though real and complex multiplication commutes. This
+keeps the API compatible with the quaternionic sided conventions proved in a
+separate layer.
+
+Circuit phase relations compare `OrderedCircuit.eval`, never gate lists,
+schedules, resources, or embeddings. Because `eval (C ++ L) = eval L * eval C`,
+input-column phase is preserved by a common later circuit and output-row phase
+by a common earlier circuit. A common earlier projective evolution needs a
+unitary certificate; arbitrary two-sided congruence is not assumed.
+
+Projective action compares raw output rays and does not claim output
+normalization. Its quantifier is vacuous when the finite input type has no
+normalized state, so converse and kernel theorems must carry explicit
+nonempty/cardinality and unitarity hypotheses. None of these phase relations
+is channel equality or all-effect equality.
+
 ## Conjugation and adjoints
 
 - Complex and quaternionic conjugation use `star`.

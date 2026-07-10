@@ -46,6 +46,8 @@ import QuaternionicComputing.State.Distribution
 import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
+import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
+import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
@@ -109,6 +111,17 @@ all computational-basis inputs, and all normalized pure inputs.
 `NormalizedDistributionEq` is equality of packaged finite outcome
 distributions. None of these basis-observation relations is silently promoted
 to ray or channel equality.
+
+Real and complex matrices also have four separate phase comparisons:
+`RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
+phase, and `RealProjectiveActionEq`/`ComplexProjectiveActionEq`. Matching
+circuit predicates compare only `OrderedCircuit.eval`. Global phase implies
+both basis-phase relations and projective action. Input-column phase preserves
+all basis-input weights; output-row phase and projective action preserve
+all-normalized-pure-input basis weights. Input phase is stable under a common
+later evolution, output phase under a common earlier evolution, and a common
+earlier projective evolution requires unitarity. These relations do not assert
+channel equality, cross-model simulation, or quaternionic operator phase.
 
 The circuit layer supplies locality-certified gates on arbitrary finite wire
 types, noncommutative-safe placement on arbitrary injected supports, explicit

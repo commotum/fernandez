@@ -36,6 +36,10 @@ QuaternionicComputing/
     CoreAudit.lean           edge-index examples and semantic axiom spot checks
     StatePhase.lean          normalized exact/sign/right-phase relations
     StatePhaseAudit.lean     normalized left-phase rejection and API consumers
+    OperatorPhase/
+      ComplexReal.lean       global, basis-sided, and projective operator phase
+      ComplexRealCircuit.lean  sided composition and evaluator-backed circuits
+      ComplexRealAudit.lean  unitary strictness witnesses and API consumers
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -175,6 +179,26 @@ These relations do not assert ray equality, channel equality, equality under
 all physical effects, or cross-model simulation. In particular, deriving
 basis-input agreement from the all-normalized-pure-input relation requires an
 explicit proof that the chosen scalar weight normalizes every basis ket.
+
+`Semantics/OperatorPhase/ComplexReal.lean` separates four same-space operator
+relations for each commutative scalar. `RealGlobalSignEq` and
+`ComplexGlobalPhaseEq` use one scalar for the complete matrix. Input-basis
+phase attaches a right phase to each input column; output-basis phase attaches
+a left phase to each output row. Projective action quantifies over every
+normalized pure input but compares the resulting raw output rays, so it does
+not assert that an arbitrary rectangular matrix preserves normalization. All
+eight definitions are intentionally transparent and have complete equivalence
+laws. The input relations imply `BasisMeasurementEq`; the output and
+projective relations imply `PureInputBasisMeasurementEq`.
+
+`ComplexRealCircuit.lean` wraps those relations through
+`OrderedCircuit.eval`. Chronology determines the valid congruences: a common
+later circuit preserves input-column phase, a common earlier circuit preserves
+output-row phase, and projective action permits a common earlier circuit only
+when local unitarity certifies normalized-input surjectivity. There is no
+generic two-sided congruence. `ComplexRealAudit.lean` remains outside the root;
+its rational `3/5,4/5` unitary family proves the advertised strictness and
+incomparability results are not singular-matrix artifacts.
 
 ## Circuit implementation
 
