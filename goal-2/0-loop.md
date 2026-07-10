@@ -10,8 +10,11 @@ authoritative Lean workflow in repository-root `BUILD-PLAN.md`.
    corrections, prior stage results, and current diff.
 2. Update `goal-2/0-plan.md` with current facts before starting the next stage.
    If evidence changes a route, dependency, or target, record why.
-3. Select the first incomplete stage.  Do not skip a hard mathematical or
-   research gate merely because later engineering work is easier.
+3. Select the first dependency-ready incomplete stage or mandatory compiling
+   milestone.  Prefer source order among ready work.  If a hard branch has an
+   exact recorded obstruction and its declared primary/fallback probes are
+   exhausted, keep it incomplete but advance an independent branch; never
+   launder the blocker or mark the umbrella stage complete.
 4. Create or refresh `goal-2/[INDEX]-[SHORTHAND].md` from the template below.
 5. Implement only that stage.  Split uncertain work into small compiling API
    probes, explicit theorem obligations, counterexamples, and fallback routes.
@@ -56,6 +59,9 @@ For every assigned traceability row inside a stage:
 - A green build is necessary evidence, never evidence that the mathematical or
   research requirement was met.
 - Prefer small, low-dependency modules and experiments that narrow uncertainty.
+- Treat the mandatory A/B/C milestones in `0-plan.md` as separate stages with
+  separate reports and verification.  Split any newly discovered multi-layer
+  stage before implementation.
 - Convert blockers into work items: decompose them, try a second representation,
   prove a no-go, or expose an exact external theorem obligation.
 - Preserve the distinction between public implementation, proof-side helper,
@@ -185,4 +191,3 @@ Before stopping:
 Never mark a stage complete because its framework exists.  Completion requires
 the source-facing theorem, counterexample, algorithm, or research result named
 by that stage.
-

@@ -106,9 +106,10 @@ none may remain excluded merely because it is difficult.
   encoding, not cloning.
 - The advertised bounded generic synthesis is false or underspecified under
   standard readings.  A finite discrete library has only finitely many words
-  under a fixed length bound, while even diagonal phase unitaries give
-  infinitely many targets.  A corrected constructive synthesis is expected to
-  scale like the dense matrix size, not `O(2^d)` without further structure.
+  under a fixed length bound, while a paired diagonal symplectic phase family
+  already gives infinitely many targets inside the complexification image.  A
+  corrected constructive synthesis is expected to scale like the dense matrix
+  size, not `O(2^d)` without further structure.
 - Exact finite universality is impossible for a continuous unitary group;
   approximate/dense universality is the meaningful interpretation.  A finite
   quaternionic dense generator remains a substantial mathematical target, not
@@ -160,17 +161,17 @@ this checksum mechanically before implementation begins.
 | 4-FOUNDATIONS | `FER03-FND-LINEAR-ISOMETRY-UNITARY`; `FER03-FND-FINITE-DIM-COMPLETE`; `FER03-FND-REAL-PRESERVERS-ORTHOGONAL`; `FER03-INT-NOT-NPLUS1-REBITS` | 2 partial + 2 excluded | Close background facts and prove the exact linear-dimension limitation |
 | 5-DETERMINANT | `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | 1 partial | Prove the missing `det = 1` branch and the corrected special-unitary image theorem |
 | 6-ROUTING | `FER03-FND-ARBITRARY-WIRE-ROUTING`; `FER03-R-TOPO-SORT-COMPLEXITY`; `FER03-Q-CUT-POSET` | 3 partial | Counted swap routing, verified topological sort, and corrected temporal cuts |
-| 7-PHASEFANOUT | `FER03-R-REAL-GATE-OPTIMIZATION`; `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | 1 partial + 1 unresolved | Optimized real gates and an exact logarithmic-depth phase-rail construction or checked no-go |
+| 7-PHASEFANOUT | `FER03-R-REAL-GATE-OPTIMIZATION`; `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | 1 partial + 1 unresolved | Optimized real gates and an exact logarithmic-depth construction or faithful-model class-wide no-go |
 | 8-ENCODING | `FER03-R-LOCAL-GATE-COST`; `FER03-R-PREPROCESSING-COST`; `FER03-RES-UNIFORM-CIRCUIT-WITHOUT-UNIVERSAL-SET`; `FER03-RES-EXPLICIT-MATRIX-ARITY` | 4 partial | Executable codes, translators, validators, and bit/work bounds |
 | 9-APPROX | `FER03-FND-FINITE-PRECISION` | 1 partial | Certified rounding and accumulated state/outcome error bounds |
 | 10-SYNTHESIS | `FER03-RES-GENERIC-DECOMPOSITION`; `FER03-RES-CONSTANT-D`; `FER03-RES-ARBITRARY-D-OVERHEAD` | 2 partial + 1 unresolved | Refute unsupported bounds and instantiate a corrected explicit synthesis theorem |
-| 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Separate exact impossibility from approximate density and settle a concrete finite candidate |
+| 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Separate exact impossibility from approximate density; prove a finite dense set or a model-wide no-go |
 | 12-UNIFORMITY | `FER03-D02-REAL-ALGORITHM`; `FER03-D05-QUATERNIONIC-ALGORITHM`; `FER03-R-COMPUTATIONAL-UNIVERSALITY`; `FER03-RES-ABSTRACT-LITTLE-OVERHEAD`; `FER03-INT-PREFERRED-PATH-BQP` | 5 partial | Encoded uniform families, runtime, randomized outcomes, and corrected class containment |
 | 13-REALQTM | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | 1 excluded | Independently state and prove the external approximate-real QTM result or its strongest verified correction |
 | 14-STRUCTURE | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT` | 3 partial | Exact complex-structure and subsystem characterizations |
 | 15-MULTIPATH | `FER03-INT-DESTRUCTIVE-INTERFERENCE-CAUSE`; `FER03-OPEN-ALL-EVALUATION-PATHS`; `FER03-OPEN-PATH-WEIGHTS`; `FER03-OPEN-PATH-INTERFERENCE`; `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | 5 excluded | Classical-mixture and coherent-path models, counterexamples, and underdetermination/complexity results |
 | 16-CHANNELS | `FER03-INT-FREE-NONLOCAL-CORRELATION`; `FER03-OPEN-CHANNEL-CAPACITY`; `FER03-OPEN-REBIT-INFORMATION-THEORY` | 1 partial + 2 excluded | Native quaternionic mixed/channel semantics, witness classification, and proved comparisons or obstructions |
-| 17-PROTOCOLS | `FER03-INT-BIT-COMMITMENT`; `FER03-OPEN-QUATERBIT-TELEPORTATION`; `FER03-OPEN-COMMUNICATION-COMPLEXITY` | 3 excluded | Formal protocols, security/correctness/cost notions, and a proof or attack for each scoped question |
+| 17-PROTOCOLS | `FER03-INT-BIT-COMMITMENT`; `FER03-OPEN-QUATERBIT-TELEPORTATION`; `FER03-OPEN-COMMUNICATION-COMPLEXITY` | 3 excluded | Formal protocols and a proof, attack, comparison, or underdetermination result for each scoped question |
 | 18-PHYSICALITY | `FER03-INT-RULE-OUT-PHYSICALITY` | 1 excluded | A conditional information-theoretic no-go theorem or formal underdetermination, never a claim about Nature by definition |
 | 19-ALGEBRAS | `FER03-OPEN-OTHER-SCALARS`; `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | 2 excluded | Concrete octonion/finite-field interface results and a precise algebraic-model comparison |
 
@@ -183,9 +184,9 @@ Checksum: partial `2+3+2+1+3+1+4+1+2+5+3+1 = 28`; excluded
 1-LEDGER
   ├─ 2-RAYS ────────────────┐
   ├─ 3-DENSITY ─────────────┼─ 14-STRUCTURE ─┬─ 15-MULTIPATH
-  ├─ 4-FOUNDATIONS          │                ├─ 16-CHANNELS
-  ├─ 5-DETERMINANT          │                ├─ 17-PROTOCOLS
-  ├─ 6-ROUTING ── 7-PHASEFANOUT              └─ 18-PHYSICALITY
+  ├─ 4-FOUNDATIONS          │                └─ 16-CHANNELS
+  ├─ 5-DETERMINANT          │                         └─ 17-PROTOCOLS
+  ├─ 6-ROUTING ── 7-PHASEFANOUT                         └─ 18-PHYSICALITY
   └─ 8-ENCODING ── 9-APPROX ── 10-SYNTHESIS ───── 12-UNIFORMITY
                                       └──────────── 11-UNIVERSALITY
        8-ENCODING + 9-APPROX ───────────────────── 13-REALQTM
@@ -193,12 +194,35 @@ Checksum: partial `2+3+2+1+3+1+4+1+2+5+3+1 = 28`; excluded
   all stages ───────────────────────────────────────────── 20-RELEASE
 ```
 
+## Mandatory Compiling Milestones
+
+The numbered stages are closure workstreams, not permission to batch several
+library-sized changes into one unverified edit.  Before implementing any broad
+workstream below, create the listed sub-stage reports (for example
+`6A-SWAPS.md`) and complete them independently.  The umbrella checkbox remains
+open until every milestone and its source-facing consumer is verified.
+
+| Workstream | Required milestones and independent exits |
+|---|---|
+| 6-ROUTING | `6A-SWAPS`: emitted adjacent-swap network and semantics; `6B-TOPOSORT`: in-memory executable sorter/cycle certificate and work count; `6C-CUTS`: order-ideal/maximal-chain theorems consuming schedules |
+| 8-ENCODING | `8A-SCALARCODE`: exact component codecs/round trips; `8B-CIRCUITCODE`: gate/DAG/schedule codecs and validators; `8C-CODECOST`: executable translations plus bit/output/work bounds |
+| 10-SYNTHESIS | `10A-GATEMODELS`: exact/approximate primitive semantics and image-internal no-go; `10B-FACTOR`: mathematical two-level factorization; `10C-LOCALIZE`: bounded-local decomposition/lower bound; `10D-COMPILER`: encoded standard-library compiler and simulation consumer |
+| 12-UNIFORMITY | `12A-FAMILIES`: encoded generators/postprocessors; `12B-RAMCOST`: executable translation and explicit work proofs; `12C-TMBRIDGE`: machine-level polynomial bridge; `12D-BQP`: library-relative then standard-library bounded-error containment |
+| 13-REALQTM | `13A-SOURCE`: primary statement audit; `13B-QTMMODEL`: finite-time semantics; `13C-STABILITY`: approximation/error theorem; `13D-SIMULATOR`: real-amplitude construction and overhead |
+| 16-CHANNELS | `16A-QDENSITY`: native quaternionic positivity/closure; `16B-CHANNELS`: channels/instruments/marginals; `16C-WITNESS`: exact operational classification; `16D-CAPACITY`: scoped capacity/rebit case study |
+| 17-PROTOCOLS | `17A-TELEPORT`: protocol/cost theorem; `17B-COMMUNICATION`: communication model/comparison; `17C-COMMITMENT`: faithful sketch completion and security/attack/underdetermination result |
+| 19-ALGEBRAS | `19A-OCTONIONS`: nonassociative model/counterexample; `19B-FINITEFIELD`: probability obstruction/repair data; `19C-ALGCOMPLEXITY`: shared-interface comparison theorem |
+
+If current facts reveal another workstream crossing dependency layers, split it
+in `0-plan.md` before implementation rather than stretching one stage report.
+
 ## Success Metrics and Verification Requirements
 
 - A machine-checked closure ledger contains all 47 IDs exactly once and no
   fully proved row accidentally enters the scope.
-- No original partial or unresolved row remains so merely because the proof is
-  hard.  Negative or conditional resolutions state their precise scope.
+- Every one of the 31 original partial/unresolved rows leaves those canonical
+  statuses.  Negative, conditional, or underdetermination resolutions require
+  a proved theorem with precise scope; residual questions receive new IDs.
 - Every originally excluded row has new formal evidence or a completed formal
   case study; changing documentation alone is insufficient.
 - All public mathematical results compile with no holes or project axioms and
@@ -700,11 +724,9 @@ and operational statements.
   and measurement laws actually needed by the circuit model.
 - Provide real, complex, and quaternionic instances and prove that Hilbert
   structure alone does not supply this interface.
-- Use Stage 3 density/separability plus a minimal measurement/local-operation
-  notion introduced in this stage to classify the product-input ordering
-  witness: prove exactly its ray, factorization, correlation, and observable
-  no-signaling properties.  Defer the general channel API to Stage 16 so the
-  dependency remains acyclic.
+- State the exact pure-state, ray, and basis-outcome facts already available for
+  the product-input ordering witness, but defer mixed-state correlation and
+  signaling classification to Stage 16's native quaternionic operational API.
 - Translate “top wire stores phase” into invariant-subspace/intertwining
   theorems, not a degree-of-freedom slogan.
 
@@ -714,9 +736,9 @@ and operational statements.
   dimensions and signs.
 - The scalar interface has real consumers and does not encode desired
   simulation theorems as fields.
-- The witness is not called entangled, signaling, or nonlocal unless the new
-  definitions prove that exact property.
-- All four rows close with corrected formal statements, examples, and audits.
+- The witness is not called entangled, signaling, or nonlocal at this layer.
+- All three assigned rows close with corrected formal statements, examples,
+  and audits.
 
 ### 15-MULTIPATH
 
@@ -767,6 +789,10 @@ information-theoretic results.
 - Define native quaternionic density positivity by a real quadratic form or a
   proved complexification characterization; prove unitary conjugation and the
   chosen partial trace preserve it.  Never synthesize an order on `ℍ`.
+- Define product/separable states, marginals, local operations, and signaling
+  tests, then classify the existing product-input ordering witness exactly.
+  Distinguish ray change, computational-distribution equality, correlation,
+  entanglement, and signaling.
 - State channel-capacity quantities only after fixing tensor composition,
   allowed encodings/decodings, asymptotic regularization, and entropy or
   operational alternatives.
@@ -779,8 +805,9 @@ information-theoretic results.
   positivity/normalization closure laws and small exact examples.
 - Capacity claims name the channel class, resource, regularization, and scalar
   model; no informal “capacity changes” theorem is accepted.
-- Each of the two source questions has a precise result or a formal proof that
-  the current axioms underdetermine it, plus a named residual target.
+- The correlation row and both source questions have precise results or formal
+  proofs that the declared axioms underdetermine them, plus named residual
+  targets where applicable.
 - New heavy APIs remain narrow until downstream results and audits justify
   promotion.
 
@@ -811,8 +838,11 @@ questions in explicit adversarial and costed protocol models.
   signaling evidence without an operational theorem.
 - Teleportation and communication results include all classical/quantum or
   quaternionic resources and exact/approximate conventions.
-- The bit-commitment row closes only with a full scoped proof or attack; prose
-  about Alice and Bob is insufficient.
+- The bit-commitment row closes with a full scoped security proof, a scoped
+  attack on a faithful minimal completion, or a formal underdetermination
+  theorem exhibiting two completions that satisfy every stated sketch
+  constraint but differ in hiding/binding.  Prose about Alice and Bob is
+  insufficient.
 - All three rows have executable finite examples where possible and axiom-
   audited theorems.
 

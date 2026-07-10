@@ -26,7 +26,8 @@ security, causality, or physicality without explicit definitions and proofs.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;
-choose the first incomplete stage; create or refresh only its stage file;
+choose the first dependency-ready incomplete stage or mandatory compiling
+milestone; create or refresh only its stage file;
 implement the smallest proof/API/algorithm/counterexample that advances that
 stage; run focused and adjacent builds plus the required executable, audit,
 scan, checksum, and diff checks; record exact evidence; fold results back into
@@ -38,10 +39,11 @@ run touched-leaf and real-consumer builds, and do not promote experimental
 research APIs prematurely.
 
 Completion means the original tackle-all objective is genuinely achieved: all
-47 rows have evidence-backed closure outcomes, no partial/unresolved item was
-discarded because it was hard, every excluded/open item has new formal evidence
-or a completed formal case study, the pinned project builds without holes or
-project axioms, all main exports pass the executable axiom audit, and genuinely
-open scientific questions are carried forward as exact named theorem targets
-rather than hidden or overstated.
+47 rows have evidence-backed closure outcomes; all 31 originally partial or
+unresolved rows leave those statuses through proved or corrected-and-proved
+results; every excluded/open item has new formal evidence or a completed formal
+case study; the pinned project builds without holes or project axioms; all main
+exports pass the executable axiom audit; and genuinely open scientific
+questions are carried forward under new exact theorem IDs rather than hidden or
+overstated.
 ```
