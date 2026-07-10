@@ -38,10 +38,11 @@ Goal 1 inventory grow recursively.
 - Fixed-input, basis-input, all-pure-input, mixed-input, all-effect, and
   algorithm-family quantifiers are never interchangeable.
 - Quaternionic state phase and input-column phase act on the right.
-  Quaternionic output-row phase acts on the left.  A genuine quaternionic
-  projective operator phase is limited to the proved central kernel, with the
-  one-dimensional exception stated separately; no arbitrary unit quaternion
-  is provisionally treated as an operator global phase.
+  Quaternionic output-row phase acts on the left. Goal 2 Stage 3C must
+  characterize the genuine quaternionic projective operator kernel and state
+  the one-dimensional exception explicitly; until that proof exists, no
+  arbitrary unit quaternion or presumed central kernel is provisionally
+  treated as operator global phase.
 - An `Eq`, `Equiv`, `MulEquiv`, group-image theorem, resource equality, or green
   build is not behavioral evidence unless a theorem explicitly inhabits the
   relevant behavioral relation.
@@ -54,8 +55,12 @@ Goal 1 inventory grow recursively.
 Abbreviations in the owner column are Goal 2 (`G2`) and Goal 3 (`G3`) stages.
 “Existing” in a disposition means only that representative Goal 1 declarations
 exist; the proposed Goal 2 classification wrapper is still unimplemented.
+Each owner cell has exactly one primary owner: the leftmost stage. Any later
+comma- or semicolon-separated stages are consumers or downstream extensions,
+not co-owners. The JSON records these separately as `primaryOwner` and
+`consumerStages` so uniqueness does not depend on prose interpretation.
 
-| ID | Evidence / representative declarations | Space | Subject | Input scope | Observation scope | Phase side | Exactness | Ancilla / marginal policy | Provisional disposition | Owner stage |
+| ID | Evidence / representative declarations | Space | Subject | Input scope | Observation scope | Phase side | Exactness | Ancilla / marginal policy | Provisional disposition | Primary owner; consumer stages |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `EQC-001-Q-LEFT-PHASE-FAILURE` | `LeftPhaseEquivalent`, `not_leftPhaseEquivalent_gate_i_input`, `fixed_left_phase_not_natural`; `Corrections.md:90-116` | same | state columns and one evolution | one explicit normalized two-coordinate input pair | ray preservation failure | quaternion left, deliberately rejected | exact counterexample | none | Existing diagnostic; classify as a failed convention, never physical ray equality | G2 `3A-STATEPHASE`, `8B-WITNESSES` |
 | `EQC-002-Q-RIGHT-RAY` | `Quaternion.RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`, `rightPhaseEquivalent_mulVec`; `Architecture.md:111-119` | same | quaternionic state columns | arbitrary compatible columns; normalized wrappers where probabilities are claimed | ray, basis weight, total weight, evolution | quaternion right | exact | none | Existing state-ray API; relation-valued wrappers and normalized quotient remain future work | G2 `3A-STATEPHASE`, `4-RAYS` |

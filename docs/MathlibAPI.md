@@ -379,6 +379,12 @@ work can use `Matrix.toLpLin 2 2` followed by
 `LinearMap.toContinuousLinearMap`.  `Matrix.toEuclideanLin` remains in some
 bridge theorem names but is deprecated as a construction API.
 
+Finite computational and Euclidean bases reuse the existing APIs
+`Pi.basisFun`, `EuclideanSpace.basisFun`, `Fintype.equivFin`, and
+`Matrix.mulVec_single_one`. The project keeps its computational index as
+`Circuit.BitBasis W = W → Bool`; no second basis representation or cardinality
+encoding is needed for the semantic core.
+
 Three boundaries are mandatory:
 
 - complex positive-semidefinite matrices require the `ComplexOrder` scope;
