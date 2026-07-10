@@ -272,6 +272,26 @@ set_option linter.style.longLine false in
 set_option linter.style.longLine false in
 #print axioms QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
 
+#print axioms QuaternionicComputing.Semantics.QuaternionCentralSignEq.equivalence
+#print axioms QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.equivalence
+#print axioms QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.quaternionRawProjectiveActionEq_iff_projectiveActionEq
+#print axioms QuaternionicComputing.Semantics.QuaternionCentralSignEq.mem_unitary_iff
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.basisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.pureInputBasisMeasurementEq
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.quaternionCentralSignEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary
+#print axioms
+  QuaternionicComputing.Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
+#print axioms
+  QuaternionicComputing.Semantics.quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one
+#print axioms QuaternionicComputing.Semantics.quaternionRankOneJ_exception
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

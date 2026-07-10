@@ -105,9 +105,12 @@ none may remain excluded merely because it is difficult.
   ray rows and may legitimately settle additional semantic obligations; Goal 3
   Stage 1 must derive its actual worklist and counts after that fold-back.
 - Goal 2 implementation is active: its inventory, exact/measurement core,
-  normalized representative phase layer, and real/complex operator-phase
-  milestone are complete. Later Goal 2 stages remain an explicit unmet
-  prerequisite, so Goal 3 must not be executed yet.
+  normalized representative phase layer, real/complex operator-phase layer,
+  and quaternionic operator-phase classification are complete. The
+  quaternionic layer proves the side-correct five-relation vocabulary,
+  raw/normalized bridge, dimension-at-least-two central-sign kernel, and full
+  unit-quaternion rank-one exception. Later Goal 2 stages remain an explicit
+  unmet prerequisite, so Goal 3 must not be executed yet.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

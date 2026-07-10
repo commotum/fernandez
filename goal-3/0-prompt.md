@@ -27,7 +27,8 @@ stand-ins for executable algorithms, or definitions engineered to make a
 claim tautological. Keep exact versus approximate, finite semantics versus
 encoding/runtime, and operator/ray/outcome/operational claims separate. Keep
 quaternionic state/ray phase on the right, limit operator projective phase to
-the proved central kernel with the rank-one exception explicit, respect
+the proved central-sign kernel in dimensions at least two with the full
+unit-quaternion rank-one exception explicit, respect
 noncommutativity and chronology, count physical routing and synthesis, and do
 not infer entanglement, signaling, security, causality, or physicality without
 explicit definitions and proofs.

@@ -48,6 +48,9 @@ import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
+import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
+import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
+import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
@@ -112,7 +115,7 @@ all computational-basis inputs, and all normalized pure inputs.
 distributions. None of these basis-observation relations is silently promoted
 to ray or channel equality.
 
-Real and complex matrices also have four separate phase comparisons:
+Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
 phase, and `RealProjectiveActionEq`/`ComplexProjectiveActionEq`. Matching
 circuit predicates compare only `OrderedCircuit.eval`. Global phase implies
@@ -121,7 +124,22 @@ all basis-input weights; output-row phase and projective action preserve
 all-normalized-pure-input basis weights. Input phase is stable under a common
 later evolution, output phase under a common earlier evolution, and a common
 earlier projective evolution requires unitarity. These relations do not assert
-channel equality, cross-model simulation, or quaternionic operator phase.
+channel equality or cross-model simulation.
+
+Quaternionic matrices have a side-sensitive five-relation layer. One global
+operator phase is restricted to `QuaternionCentralSignEq`, a real central
+`±1`; input-column phases multiply on the right, output-row phases on the
+left, and raw versus normalized all-input right-ray action are stated
+separately. The raw and normalized projective relations are equivalent on
+every finite input type, including the empty case where both are trivial.
+Four circuit wrappers compare evaluator semantics (there is deliberately no
+raw-projective wrapper); because `BitBasis W` is always inhabited, their
+normalized-input quantifier is nonvacuous even for zero wires. In square
+dimension at least two, with decidable finite indices and only the first
+operator assumed unitary, projective action is equivalent to one central real
+sign. Rank one is the sharp exception: every unit quaternion gives a
+projectively trivial scalar operator, and `j` is an explicit noncentral
+witness. None of these results is upgraded to channel or all-effect equality.
 
 The circuit layer supplies locality-certified gates on arbitrary finite wire
 types, noncommutative-safe placement on arbitrary injected supports, explicit

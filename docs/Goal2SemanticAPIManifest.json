@@ -4553,6 +4553,1622 @@
         "exactness": "exact implication under a local-unitarity certificate",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq",
+      "relation": "QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq",
+      "relation": "QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq",
+      "relation": "QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq",
+      "relation": "QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type; when the input type is empty the unique vector is zero and the relation holds automatically",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq",
+      "relation": "QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type; the relation is vacuous when that type admits no normalized state, in particular when it is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.refl",
+      "relation": "QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.symm",
+      "relation": "QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.trans",
+      "relation": "QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.equivalence",
+      "relation": "QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "one pair of same-typed operators; every matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.refl",
+      "relation": "QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.symm",
+      "relation": "QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.trans",
+      "relation": "QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.equivalence",
+      "relation": "QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.refl",
+      "relation": "QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.symm",
+      "relation": "QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.trans",
+      "relation": "QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.equivalence",
+      "relation": "QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.refl",
+      "relation": "QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type; when the input type is empty the unique vector is zero and the relation holds automatically",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.symm",
+      "relation": "QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type; when the input type is empty the unique vector is zero and the relation holds automatically",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.trans",
+      "relation": "QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type; when the input type is empty the unique vector is zero and the relation holds automatically",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.equivalence",
+      "relation": "QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type; when the input type is empty the unique vector is zero and the relation holds automatically",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.refl",
+      "relation": "QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type; the relation is vacuous when that type admits no normalized state, in particular when it is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.symm",
+      "relation": "QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type; the relation is vacuous when that type admits no normalized state, in particular when it is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.trans",
+      "relation": "QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type; the relation is vacuous when that type admits no normalized state, in particular when it is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.equivalence",
+      "relation": "QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type; the relation is vacuous when that type admits no normalized state, in particular when it is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.of_exact",
+      "relation": "ExactOperatorEq→QuaternionCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed quaternionic operators",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.of_exact",
+      "relation": "ExactOperatorEq→QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed quaternionic operators",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.of_exact",
+      "relation": "ExactOperatorEq→QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed quaternionic operators",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.of_exact",
+      "relation": "ExactOperatorEq→QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed quaternionic operators on a finite input type",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.of_exact",
+      "relation": "ExactOperatorEq→QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every literally equal pair of same-typed quaternionic operators on a finite input type",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.projectiveActionEq",
+      "relation": "QuaternionRawProjectiveActionEq→QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "restriction from every raw input to every normalized pure input on an arbitrary finite type; no unitarity or nonemptiness premise",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.rawProjectiveActionEq",
+      "relation": "QuaternionProjectiveActionEq→QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "extension from normalized inputs to every raw input on an arbitrary finite type, including its zero vector; no unitarity or nonemptiness premise",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRawProjectiveActionEq_iff_projectiveActionEq",
+      "relation": "QuaternionRawProjectiveActionEq↔QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and finite input-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector iff every normalized pure input, on any finite input type; no unitarity or nonemptiness premise",
+        "observationScope": "equivalence of raw and normalized complete-output right-ray action; at empty input type the normalized side is vacuous and the raw side holds on the unique zero vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.inputRightPhaseEq",
+      "relation": "QuaternionCentralSignEq→QuaternionInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related operator pair; the shared real sign becomes a constant right phase family",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.outputLeftPhaseEq",
+      "relation": "QuaternionCentralSignEq→QuaternionOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related operator pair; the shared real sign becomes a constant left phase family",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.rawProjectiveActionEq",
+      "relation": "QuaternionCentralSignEq→QuaternionRawProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related pair on a finite input type, then every raw input vector",
+        "observationScope": "the complete output-state right ray for every raw input vector",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.projectiveActionEq",
+      "relation": "QuaternionCentralSignEq→QuaternionProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related pair on a finite input type, then every normalized pure input; vacuous if no normalized state exists",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.mem_unitary",
+      "relation": "QuaternionCentralSignEq preserves unitarity",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related square pair when U is unitary",
+        "observationScope": "unitary-group membership of V",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.mem_unitary_iff",
+      "relation": "QuaternionCentralSignEq preserves and reflects unitarity",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq",
+        "subject": "matrix operators",
+        "inputScope": "every central-sign-related square pair",
+        "observationScope": "unitary-group membership of U and V",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.basisMeasurementEq",
+      "relation": "QuaternionInputRightPhaseEq→BasisMeasurementEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every input column and every output coordinate",
+        "observationScope": "all quaternion norm-square output weights for every computational-basis preparation",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.basisMeasurementEq",
+      "relation": "QuaternionOutputLeftPhaseEq→BasisMeasurementEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every output row and every input coordinate",
+        "observationScope": "all quaternion norm-square output weights for every computational-basis preparation",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.mulVec_eq",
+      "relation": "QuaternionOutputLeftPhaseEq output-action factorization",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every raw input vector on a finite input type",
+        "observationScope": "pointwise left-phase factorization of the full matrix-vector output",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equality with an explicit unit-quaternion row family",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.pureInputBasisMeasurementEq",
+      "relation": "QuaternionOutputLeftPhaseEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type",
+        "observationScope": "all quaternion norm-square computational-basis output weights",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.pureInputBasisMeasurementEq",
+      "relation": "QuaternionProjectiveActionEq→PureInputBasisMeasurementEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar, row-index, and column-index types; rectangular matrices allowed",
+        "subject": "matrix operators",
+        "inputScope": "every normalized pure input on a finite input type",
+        "observationScope": "all quaternion norm-square computational-basis output weights",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.mul",
+      "relation": "QuaternionCentralSignEq two-pair multiplication congruence",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices with a finite intermediate index",
+        "subject": "matrix operators",
+        "inputScope": "two composable central-sign-related operator pairs",
+        "observationScope": "central-sign equality of the two matrix products",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.mul_left",
+      "relation": "QuaternionInputRightPhaseEq common-later composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices; the intermediate index is finite",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator acting by left matrix multiplication",
+        "observationScope": "the same relation after common later evolution",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.mul_right",
+      "relation": "QuaternionOutputLeftPhaseEq common-earlier composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices; the intermediate and external input indices are finite",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible earlier operator acting by right matrix multiplication",
+        "observationScope": "the same raw projective relation after common earlier evolution",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.mul_left",
+      "relation": "QuaternionRawProjectiveActionEq common-later composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices; the intermediate index is finite and the input index is finite",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator acting by left matrix multiplication",
+        "observationScope": "the same raw relation after common later evolution",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.mul_right",
+      "relation": "QuaternionRawProjectiveActionEq common-earlier composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRawProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices; the intermediate and external input indices are finite",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible earlier operator acting by right matrix multiplication",
+        "observationScope": "the same raw projective relation after common earlier evolution",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the raw input vector",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.mul_left",
+      "relation": "QuaternionProjectiveActionEq common-later composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "compatible rectangular quaternion matrices; the intermediate index is finite and the input index is finite",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common compatible later operator acting by left matrix multiplication",
+        "observationScope": "the same normalized relation after common later evolution",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.mul_right_unitary",
+      "relation": "QuaternionProjectiveActionEq common-unitary-earlier composition preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "quaternion matrices with arbitrary output type and a finite decidable square input type",
+        "subject": "matrix operators",
+        "inputScope": "every related pair and every common square unitary earlier operator",
+        "observationScope": "normalized projective action after common right matrix multiplication",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication under the explicit unitarity premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq",
+      "relation": "QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq",
+      "relation": "QuaternionCircuitInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq",
+      "relation": "QuaternionCircuitProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.iff_eval",
+      "relation": "QuaternionCircuitCentralSignEq↔evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "definitional identification with the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.eval",
+      "relation": "QuaternionCircuitCentralSignEq→evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.refl",
+      "relation": "QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.symm",
+      "relation": "QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.trans",
+      "relation": "QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.equivalence",
+      "relation": "QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "one pair of chronological circuits on the same finite wire type; every evaluated matrix entry",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.iff_eval",
+      "relation": "QuaternionCircuitInputRightPhaseEq↔evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "definitional identification with the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.eval",
+      "relation": "QuaternionCircuitInputRightPhaseEq→evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.refl",
+      "relation": "QuaternionCircuitInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.symm",
+      "relation": "QuaternionCircuitInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.trans",
+      "relation": "QuaternionCircuitInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.equivalence",
+      "relation": "QuaternionCircuitInputRightPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every computational-basis input column and output coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each basis-input column up to its own right phase",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.iff_eval",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq↔evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "definitional identification with the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.eval",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq→evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.refl",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.symm",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.trans",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.equivalence",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every output row and input coordinate of both circuit evaluations",
+        "observationScope": "all amplitudes of each output row up to its own left phase",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.iff_eval",
+      "relation": "QuaternionCircuitProjectiveActionEq↔evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "definitional identification with the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.eval",
+      "relation": "QuaternionCircuitProjectiveActionEq→evaluated operator relation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the corresponding quaternion operator relation on OrderedCircuit.eval",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.refl",
+      "relation": "QuaternionCircuitProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.symm",
+      "relation": "QuaternionCircuitProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.trans",
+      "relation": "QuaternionCircuitProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.equivalence",
+      "relation": "QuaternionCircuitProjectiveActionEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every normalized pure input on BitBasis W; this basis is inhabited and admits normalized states even when W is empty",
+        "observationScope": "the complete output-state right ray for every normalized pure input",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact equivalence-law theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.quaternionCentralSignEq",
+      "relation": "ExactCircuitEq→QuaternionCircuitCentralSignEq",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every pair of chronological quaternionic circuits with literally equal evaluations",
+        "observationScope": "all amplitudes up to one shared central real sign",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.append",
+      "relation": "QuaternionCircuitCentralSignEq append congruence",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "two central-sign-related early/later chronological circuit pairs",
+        "observationScope": "central-sign equality of the appended circuit evaluations, respecting chronological multiplication order",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.append_same_later",
+      "relation": "QuaternionCircuitCentralSignEq common-later circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.prepend_same_earlier",
+      "relation": "QuaternionCircuitCentralSignEq common-earlier circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitCentralSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one real central scalar s with s*s=1 (hence s=±1), shared by every entry; V=s•U",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitInputRightPhaseEq.append_same_later",
+      "relation": "QuaternionCircuitInputRightPhaseEq common-later circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitInputRightPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one unit quaternion per input column, multiplied on the right: V[y,x]=U[y,x]*phi[x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitOutputLeftPhaseEq.prepend_same_earlier",
+      "relation": "QuaternionCircuitOutputLeftPhaseEq common-earlier circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitOutputLeftPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common earlier circuit",
+        "observationScope": "the same evaluated-operator relation after chronological prepend",
+        "phase": "one unit quaternion per output row, multiplied on the left: V[y,x]=theta[y]*U[y,x]",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.append_same_later",
+      "relation": "QuaternionCircuitProjectiveActionEq common-later circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api; direct release endpoint pending",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common later circuit",
+        "observationScope": "the same evaluated-operator relation after chronological append",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.prepend_same_earlier_of_isLocallyUnitary",
+      "relation": "QuaternionCircuitProjectiveActionEq common-locally-unitary-earlier circuit preservation",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionCircuitProjectiveAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar and finite wire/basis type; compared only through OrderedCircuit.eval",
+        "subject": "chronological ordered circuits through their evaluated operators",
+        "inputScope": "every related circuit pair and every common earlier circuit with an explicit IsLocallyUnitary certificate",
+        "observationScope": "normalized projective action after chronological prepend",
+        "phase": "one unit quaternion on the right of the complete output state; it may depend on the normalized pure input",
+        "exactness": "exact implication under the local-unitarity premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.centralSignEq_of_unitary",
+      "relation": "QuaternionRawProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq and explicit dimension hypothesis 1 < Fintype.card I",
+        "subject": "dimension-at-least-two projective kernel of a square quaternionic operator",
+        "inputScope": "all raw inputs; U is explicitly unitary, while V has no separate unitarity premise",
+        "observationScope": "raw all-right-ray action, characterized exactly by one central real sign",
+        "phase": "projective witnesses are unit quaternions on the right; the forced operator phase is one central real sign s with s*s=1",
+        "exactness": "exact implication under the stated dimension and unitarity hypotheses",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRawProjectiveActionEq_iff_centralSignEq_of_unitary",
+      "relation": "QuaternionRawProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq and explicit dimension hypothesis 1 < Fintype.card I",
+        "subject": "dimension-at-least-two projective kernel of a square quaternionic operator",
+        "inputScope": "all raw inputs; U is explicitly unitary, while V has no separate unitarity premise",
+        "observationScope": "raw all-right-ray action, characterized exactly by one central real sign",
+        "phase": "projective witnesses are unit quaternions on the right; the forced operator phase is one central real sign s with s*s=1",
+        "exactness": "exact iff under the stated dimension and unitarity hypotheses",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.centralSignEq_of_unitary",
+      "relation": "QuaternionProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq and explicit dimension hypothesis 1 < Fintype.card I",
+        "subject": "dimension-at-least-two projective kernel of a square quaternionic operator",
+        "inputScope": "all normalized pure inputs; U is explicitly unitary, while V has no separate unitarity premise",
+        "observationScope": "normalized all-right-ray action, characterized exactly by one central real sign",
+        "phase": "projective witnesses are unit quaternions on the right; the forced operator phase is one central real sign s with s*s=1",
+        "exactness": "exact implication under the stated dimension and unitarity hypotheses",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary",
+      "relation": "QuaternionProjectiveActionEq→QuaternionCentralSignEq kernel theorem",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.bool_projectiveKernel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite square quaternion matrices with DecidableEq and explicit dimension hypothesis 1 < Fintype.card I",
+        "subject": "dimension-at-least-two projective kernel of a square quaternionic operator",
+        "inputScope": "all normalized pure inputs; U is explicitly unitary, while V has no separate unitarity premise",
+        "observationScope": "normalized all-right-ray action, characterized exactly by one central real sign",
+        "phase": "projective witnesses are unit quaternions on the right; the forced operator phase is one central real sign s with s*s=1",
+        "exactness": "exact iff under the stated dimension and unitarity hypotheses",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar",
+      "relation": "rank-one quaternion scalar operator",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
+        "observationScope": "the sole matrix entry equals the supplied quaternion scalar",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact definition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_mem_unitary",
+      "relation": "unit quaternion→rank-one scalar unitarity",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "every quaternion q with normSq q = 1",
+        "observationScope": "unitary-group membership of the corresponding one-by-one matrix",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_mem_unitary_iff",
+      "relation": "rank-one scalar unitarity↔unit norm",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
+        "observationScope": "unitary-group membership exactly when normSq q = 1",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_rawProjectiveActionEq",
+      "relation": "unit quaternion→rank-one raw projective triviality",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "every quaternion q with normSq q = 1 and every raw Unit-indexed input",
+        "observationScope": "the complete output right ray agrees with identity for every raw input",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_rawProjectiveActionEq_iff_normSq_eq_one",
+      "relation": "rank-one raw projective triviality↔unit norm",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
+        "observationScope": "raw all-right-ray action agrees with identity exactly when normSq q = 1",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_projectiveActionEq",
+      "relation": "unit quaternion→rank-one normalized projective triviality",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "every quaternion q with normSq q = 1 and every normalized Unit-indexed pure input",
+        "observationScope": "the complete output right ray agrees with identity for every normalized pure input",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one",
+      "relation": "rank-one normalized projective triviality↔unit norm",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
+        "observationScope": "normalized all-right-ray action agrees with identity exactly when normSq q = 1",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneScalar_projectiveActionEq_iff_mem_unitary",
+      "relation": "rank-one normalized projective triviality↔unitarity",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the unique one-dimensional input coordinate; rank-one is the explicit exception to the dimension-at-least-two kernel theorem",
+        "observationScope": "normalized projective triviality exactly when the scalar matrix is unitary",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact iff",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneJ_not_centralSignEq",
+      "relation": "rank-one j is not a central sign",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api; direct release endpoint pending",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the explicit unit quaternion j",
+        "observationScope": "failure of central-sign equality with identity",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact statement",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionRankOneJ_exception",
+      "relation": "rank-one j projective-kernel exception",
+      "owner": "goal-2/3C-QUATERNION",
+      "consumer": "QuaternionicComputing.Semantics.OperatorPhase.QuaternionAudit.quaternionRankOne_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one-by-one quaternion matrices indexed by Unit",
+        "subject": "rank-one scalar quaternion operator",
+        "inputScope": "the explicit unit quaternion j",
+        "observationScope": "simultaneous unitarity and normalized projective triviality, with failure of central-sign equality",
+        "phase": "the full unit-quaternion family is projectively invisible on the right, while central-sign equality admits only real ±1",
+        "exactness": "exact statement",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }

@@ -422,6 +422,55 @@ unitary evolution all have the required respectfulness theorems. The public
 quotient types and descended operations remain Stage 4 deliverables; the probe
 does not itself count as an export.
 
+## Goal 2 quaternionic operator phase
+
+The quaternionic operator layer uses ordinary matrix entries plus the existing
+opposite-ring right action; it does not assume a nonexistent commutative scalar
+interface. The main scalar identities used to keep sides explicit are:
+
+```lean
+Quaternion.normSq.map_mul
+Quaternion.normSq_inv
+Quaternion.normSq_coe
+Quaternion.normSq_ne_zero
+Quaternion.coe_commutes
+Quaternion.coe_mul_eq_smul
+Quaternion.star_mul_self
+Quaternion.self_mul_star
+```
+
+`Quaternion.coe_commutes` is crucial in the raw-to-normalized projective bridge:
+normalization uses a positive real scalar embedded centrally in the
+quaternions, so that scalar can be cancelled without commuting an arbitrary
+quaternionic phase. `Matrix.mulVec_mulVec` and the existing right-phase
+`State.rightPhaseEquivalent_mulVec` theorem then provide the side-correct
+composition laws.
+
+The dimension-sensitive kernel proof uses
+`Fintype.exists_pair_of_one_lt_card`, `Pi.single`, and entrywise
+`QuaternionAlgebra.ext`. The explicit `1 < Fintype.card I` supplies two
+different coordinates; evaluating basis columns and their sums first makes all
+diagonal ray phases equal, then inputs involving `Quaternion.i` and
+`Quaternion.j` force that common quaternion to be real. The unitary cancellation
+step uses:
+
+```lean
+Unitary.star_mul_self_of_mem
+Unitary.mul_star_self_of_mem
+Matrix.mulVec_mulVec
+```
+
+Only the first square matrix is assumed unitary. `[DecidableEq I]` is explicit
+because identity matrices, `Pi.single`, and finite entry calculations need
+decidable coordinate equality. No mathlib channel, projectivization, or
+quaternionic Hilbert-space API is used to hide the kernel argument.
+
+At rank one, `Quaternion.normSq` and the two self/star product identities prove
+that the scalar matrix for `q` is unitary and projectively trivial exactly when
+`normSq q = 1`. Component extensionality then proves the concrete `j` scalar is
+not a central real sign. This is a theorem-level exception, not an artifact of
+an omitted `Nonempty` hypothesis.
+
 ## Promoted compiled APIs
 
 The following formerly probed results now compile as public declarations

@@ -75,10 +75,14 @@ private theorem fixesEveryQuaternionRightRay_centralSign
     rcases hA v with ⟨theta, htheta, hv⟩
     have hv0 := congrFun hv i0
     have hv1 := congrFun hv i1
-    simp [v, Matrix.mulVec, dotProduct, hentry, Pi.single_apply,
-      hi01, Ne.symm hi01, heta_common] at hv0 hv1
-    rw [← hv1] at hv0
-    exact hv0
+    have hv0' : eta i0 * q = q * theta := by
+      simpa [v, Matrix.mulVec, dotProduct, hentry, Pi.single_apply,
+        hi01, Ne.symm hi01, heta_common] using hv0
+    have hv1' : eta i0 = theta := by
+      simpa [v, Matrix.mulVec, dotProduct, hentry, Pi.single_apply,
+        hi01, Ne.symm hi01, heta_common] using hv1
+    rw [← hv1'] at hv0'
+    exact hv0'
   have heta_real := quaternion_central_of_commutes_i_j (eta i0)
     (hcomm Quaternion.i) (hcomm Quaternion.j)
   refine ⟨(eta i0).re, ?_, ?_⟩

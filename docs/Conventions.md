@@ -66,24 +66,51 @@ projective:   Uψ and Vψ lie on the same state ray for every normalized ψ.
 
 For real matrices every phase witness squares to one; for complex matrices it
 has `Complex.normSq = 1`. Input phases stay visibly on the right and output
-phases on the left even though real and complex multiplication commutes. This
-keeps the API compatible with the quaternionic sided conventions proved in a
-separate layer.
+phases on the left even though real and complex multiplication commutes.
+
+Quaternionic operator phase uses five distinct predicates:
+
+```text
+central sign:        V = s • U, where s : ℝ and s*s = 1
+input column:        V y x = U y x * φ x
+output row:          V y x = θ y * U y x
+raw projective:      Uψ and Vψ lie on the same right ray for every raw ψ
+normalized projective: the same comparison for every normalized pure ψ.
+```
+
+Thus `QuaternionCentralSignEq` means only a central real `±1`, never an
+arbitrary unit quaternion. The input family in
+`QuaternionInputRightPhaseEq` acts on the right; the output family in
+`QuaternionOutputLeftPhaseEq` acts on the left. This multiplication order is
+part of the definitions and their composition theorems, not a cosmetic choice.
+The raw and normalized projective relations are equivalent for every finite
+rectangular input type without a unitarity or nonempty hypothesis.
 
 Circuit phase relations compare `OrderedCircuit.eval`, never gate lists,
 schedules, resources, or embeddings. Because `eval (C ++ L) = eval L * eval C`,
 input-column phase is preserved by a common later circuit and output-row phase
-by a common earlier circuit. A common earlier projective evolution needs a
-unitary certificate; arbitrary two-sided congruence is not assumed.
+by a common earlier circuit. A common earlier normalized-projective evolution
+needs a unitary certificate; arbitrary two-sided congruence is not assumed.
+The quaternionic layer exports exactly four circuit relations—central sign,
+input-right phase, output-left phase, and normalized projective action—and no
+raw-projective circuit wrapper.
 
-Projective action compares raw output rays and does not claim output
-normalization. The rectangular operator relation is vacuous when its arbitrary
-finite input index type has no normalized state, so converse and kernel
-theorems must carry explicit nonempty/cardinality and unitarity hypotheses. A
-circuit wrapper instead acts on `BitBasis W = W → Bool`, which is inhabited and
-admits normalized basis states even when `W` has zero wires; that quantifier is
-not vacuous. None of these phase relations is channel equality or all-effect
-equality.
+Normalized projective action compares raw output rays and does not claim output
+normalization. When a rectangular operator's finite input index is empty, its
+normalized-state quantifier is vacuous. For quaternionic raw projective action,
+the only raw input is the zero column and the relation is trivially true, so
+the raw/normalized equivalence remains valid at the empty type. A circuit
+wrapper instead acts on `BitBasis W = W → Bool`, which is inhabited and admits
+normalized basis states even when `W` has zero wires; that quantifier is not
+vacuous.
+
+The quaternionic converse is dimension-sensitive. For finite square matrices,
+`[DecidableEq I]`, explicit `1 < Fintype.card I`, and only `U` assumed unitary,
+raw or normalized projective action between `U` and `V` is equivalent to one
+central real sign. Rank one is excluded for a mathematical reason: every unit
+quaternion defines a unitary, projectively trivial scalar matrix, and
+`Quaternion.j` is not a central sign. None of these phase relations is channel
+equality or all-effect equality.
 
 ## Conjugation and adjoints
 

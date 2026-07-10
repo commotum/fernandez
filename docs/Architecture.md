@@ -40,6 +40,10 @@ QuaternionicComputing/
       ComplexReal.lean       global, basis-sided, and projective operator phase
       ComplexRealCircuit.lean  sided composition and evaluator-backed circuits
       ComplexRealAudit.lean  unitary strictness witnesses and API consumers
+      Quaternion.lean        side-correct five-relation quaternionic operator phase
+      QuaternionCircuit.lean sided composition and four evaluator-backed circuits
+      QuaternionKernel.lean  dimension-sensitive kernel and rank-one exception
+      QuaternionAudit.lean   non-root order, vacuity, kernel, and API diagnostics
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -199,6 +203,43 @@ when local unitarity certifies normalized-input surjectivity. There is no
 generic two-sided congruence. `ComplexRealAudit.lean` remains outside the root;
 its rational `3/5,4/5` unitary family proves the advertised strictness and
 incomparability results are not singular-matrix artifacts.
+
+`OperatorPhase/Quaternion.lean` keeps five noncommutative comparisons
+separate. `QuaternionCentralSignEq` permits only one central real scalar
+`s` with `s*s=1`; it is not arbitrary unit-quaternion phase.
+`QuaternionInputRightPhaseEq` attaches a unit quaternion on the right of each
+input column, while `QuaternionOutputLeftPhaseEq` attaches one on the left of
+each output row. `QuaternionRawProjectiveActionEq` quantifies over every raw
+input column and `QuaternionProjectiveActionEq` over every normalized pure
+input. Normalizing by a positive central real scalar, with the zero column
+handled separately, proves these last two relations equivalent for every
+finite rectangular input type without unitarity or nonemptiness assumptions.
+For an empty operator input type the normalized quantifier is vacuous and the
+raw relation tests only the unique zero column, so both sides are trivially
+true.
+
+`QuaternionCircuit.lean` owns the side-correct matrix composition laws and
+exactly four evaluator-backed wrappers: central sign, input-right phase,
+output-left phase, and normalized projective action. There is deliberately no
+raw-projective circuit predicate. A common later evolution preserves input
+phase, a common earlier evolution preserves output phase, raw projective
+action admits arbitrary compatible evolution on either side, and normalized
+projective action needs unitarity only for a common earlier evolution. Circuit
+projective action is nonvacuous even on zero wires because `BitBasis W` is
+always inhabited and has normalized basis columns.
+
+`QuaternionKernel.lean` isolates the heavier converse. For finite square
+matrices with `[DecidableEq I]`, explicit `1 < Fintype.card I`, and only `U`
+assumed unitary, either raw or normalized all-right-ray action is equivalent
+to `QuaternionCentralSignEq U V`; no unitarity premise on `V` is needed. The
+dimension hypothesis is sharp. At rank one, the scalar matrix for `q` is
+projectively trivial exactly when `Quaternion.normSq q = 1`, equivalently when
+that scalar matrix is unitary. `Quaternion.j` is a checked unitary,
+projectively trivial, noncentral witness. No theorem in this three-leaf public
+layer promotes projective, basis-measurement, or central-sign equality to
+channel or all-effect equality. `QuaternionAudit.lean` is a non-root diagnostic
+consumer that checks multiplication order, the empty-input boundary, the
+dimension-two kernel, and the rank-one exception.
 
 ## Circuit implementation
 
@@ -404,6 +445,9 @@ determinant boundary is therefore explicit:
 - Every substantive module must compile without placeholders.
 - `QuaternionicComputing/AxiomAudit.lean` lists `#print axioms` commands for the
   main public theorems.
+- Heavy semantic diagnostics stay outside the public root; in particular,
+  `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
+  operator-phase leaves without becoming a transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage

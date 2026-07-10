@@ -38,11 +38,11 @@ Goal 1 inventory grow recursively.
 - Fixed-input, basis-input, all-pure-input, mixed-input, all-effect, and
   algorithm-family quantifiers are never interchangeable.
 - Quaternionic state phase and input-column phase act on the right.
-  Quaternionic output-row phase acts on the left. Goal 2 Stage 3C must
-  characterize the genuine quaternionic projective operator kernel and state
-  the one-dimensional exception explicitly; until that proof exists, no
-  arbitrary unit quaternion or presumed central kernel is provisionally
-  treated as operator global phase.
+  Quaternionic output-row phase acts on the left. Goal 2 Stage 3C proves that
+  the genuine projective operator kernel in square unitary dimension at least
+  two is exactly a central real sign, and proves the one-dimensional full-unit-
+  quaternion exception. An arbitrary unit quaternion is therefore never
+  treated as matrix-wide operator global phase.
 - An `Eq`, `Equiv`, `MulEquiv`, group-image theorem, resource equality, or green
   build is not behavioral evidence unless a theorem explicitly inhabits the
   relevant behavioral relation.
@@ -213,9 +213,60 @@ normalization, but the rectangular operator relation is vacuous on an empty
 input index because there is no normalized input. Later converse and kernel
 characterizations must state positive-cardinality/nonempty and unitarity
 hypotheses explicitly. Circuit projective action is not vacuous: `BitBasis W`
-is inhabited and admits normalized basis states even for zero wires. Stage 3B
-publishes no quaternionic operator phase; Stage 3C owns the central-sign kernel
-and the rank-one exception.
+is inhabited and admits normalized basis states even for zero wires. Stage 3C
+supplies the separate noncommutative classification below.
+
+## Stage 3C proof-bearing realization
+
+Stage 3C adds a same-space quaternionic operator/circuit layer without
+changing the frozen Goal 1 cohort. It keeps multiplication side, input scope,
+and the dimension-sensitive kernel explicit.
+
+| Relation family | Checked meaning | Valid checked consequences | Deliberately excluded upgrade |
+|---|---|---|---|
+| `QuaternionCentralSignEq` | `V = s • U` for one real scalar with `s*s=1`; this is central `±1`, not arbitrary unit-quaternion phase | Input-right phase, output-left phase, raw and normalized projective action, and simultaneous unitary membership | Not literal equality, arbitrary quaternionic global phase, channel equality, or cross-model equality |
+| `QuaternionInputRightPhaseEq` | One unit quaternion multiplies each input column on the right | `BasisMeasurementEq`; preservation by a common later operator/circuit | Not output-left phase, all-pure-input agreement, projective action, or channel equality |
+| `QuaternionOutputLeftPhaseEq` | One unit quaternion multiplies each output row on the left | `BasisMeasurementEq`, `PureInputBasisMeasurementEq`, and preservation by a common earlier operator/circuit | Not input-right phase, projective action, or channel equality |
+| `QuaternionRawProjectiveActionEq` | Raw output columns lie on the same right ray for every raw input column | Equivalent to normalized projective action for every finite input type; arbitrary compatible common evolution on either side | No output-normalization or channel claim |
+| `QuaternionProjectiveActionEq` | Raw output columns lie on the same right ray for every normalized pure input | `PureInputBasisMeasurementEq`; common-later preservation; common-earlier preservation under unitarity | No output-normalization, channel, or all-effect theorem |
+| Four `QuaternionCircuit*Eq` wrappers | Central sign, input-right phase, output-left phase, or normalized projective action on `OrderedCircuit.eval` | Equivalence laws, exact-to-central-sign lift, and chronology-correct congruences | No raw-projective wrapper and no gate-list, resource, schedule, embedding, or compiler equality |
+
+The checked forward shape is:
+
+```text
+ExactOperatorEq
+       |
+       v
+QuaternionCentralSignEq
+   /          |              \
+  v           v               v
+input-right  output-left   raw projective ⇔ normalized projective
+  |           |                                      |
+  v           v                                      v
+BasisMeasurementEq                    PureInputBasisMeasurementEq
+```
+
+The raw/normalized bridge needs only a finite input type. If that type is
+empty, the normalized quantifier is vacuous while the raw relation sees only
+the unique zero column and is trivially true. In contrast,
+`QuaternionCircuitProjectiveActionEq` quantifies over `BitBasis W`, which is
+always inhabited and admits normalized basis states even when `W` is empty.
+
+The kernel converse is deliberately isolated in
+`OperatorPhase/QuaternionKernel.lean`. For square matrices, explicit
+`1 < Fintype.card I`, `[DecidableEq I]`, and only
+`U ∈ unitary (Matrix I I ℍ[ℝ])`, both raw and normalized projective
+action are equivalent to `QuaternionCentralSignEq U V`; `V` need not be
+assumed unitary. The dimension premise is sharp. For `Matrix Unit Unit ℍ[ℝ]`,
+projective triviality of `quaternionRankOneScalar q` is equivalent to
+`Quaternion.normSq q = 1` and to its unitarity. The checked `q = j` instance is
+unitary and projectively trivial but not central-sign equivalent.
+
+`QuaternionAudit.lean` is non-root and consumes all three public leaves. Its
+order-sensitive composition checks, empty-input boundary, dimension-two
+kernel consumer, rank-one family, and `j` witness are diagnostics rather than
+additional public semantics. Stage 3C adds no channel or all-measurement
+relation; those remain owned by later Goal 2 stages.
 
 ## Ambiguous wording backlog
 
@@ -227,8 +278,10 @@ must not silently choose one reading.
 2. **Resolved in Stage 3A:** correction C-006 is now titled “Quaternionic
    state/ray phase is on the wrong side” and distinguishes raw from normalized
    evidence.
-3. **Resolved in Stage 3A:** `docs/Conventions.md` explicitly tags the relation
-   as state/ray representative phase and excludes arbitrary operator phase.
+3. **Resolved in Stages 3A and 3C:** `docs/Conventions.md` explicitly tags
+   right phase as state/ray representative phase, while the operator layer
+   separately restricts matrix-wide global phase to a central real sign and
+   records the rank-one projective exception.
 4. `goal-1/6-SIMULATION.md:203` says a real probability equals a quaternionic
    output.  The intended comparison is with the source output basis
    probability/weight.  `goal-1/0-plan.md:129-132` has the same type-confused

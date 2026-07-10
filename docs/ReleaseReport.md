@@ -10,7 +10,7 @@
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library. The current tree contains
-53 Lean source files, including the public root, executable axiom audit, and
+57 Lean source files, including the public root, executable axiom audit, and
 non-root semantic diagnostic leaves.
 
 The paper was treated as a mathematical source rather than a specification.
@@ -54,6 +54,20 @@ or an unsafe shortcut.
 - Rational unitary witnesses certify exact/global strictness, input/output
   incomparability, superposition sensitivity, and the separation between
   output-basis probabilities and output rays.
+- Quaternionic operators have five side-sensitive comparisons: one central
+  real sign, input-column unit phases on the right, output-row unit phases on
+  the left, and raw versus normalized all-input right-ray action. The raw and
+  normalized projective relations are equivalent for every finite input type;
+  on an empty input type both are trivial for distinct but checked reasons.
+- Four quaternionic circuit wrappers compare evaluator semantics. Their
+  normalized-input quantifier is nonvacuous even on zero wires because
+  `BitBasis W` is inhabited; no raw-projective circuit wrapper is exported.
+- In finite square dimension at least two, with decidable indices and only the
+  first operator assumed unitary, raw or normalized projective action is
+  equivalent to one central real sign. Rank one is sharp: the projectively
+  trivial scalar operators are exactly the full unit-quaternion family, and
+  `j` is an explicit unitary noncentral witness.
+- No operator-phase result is promoted to channel or all-effect equality.
 
 ### Matrix embeddings and groups
 
@@ -151,7 +165,8 @@ Representative exported declarations include:
 |---|---|
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
 | State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, their equivalence/distribution theorems, and their raw-matrix/circuit and normalized-unitary preservation laws |
-| Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations, their `*Circuit*Eq` wrappers, measurement arrows, and sided composition laws |
+| Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
+| Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
 | Quaternion → complex matrices | `Quaternion.complexify`, `complexify_mul`, `complexify_conjTranspose`, `complexify_mem_unitary`, `complexify_mem_symplectic` |
 | Direct quaternion → real | `Quaternion.directRealify`, `directRealify_eq_reindex`, `directRealify_mem_specialOrthogonal`, `directRealifyUnitaryEquivImage` |
@@ -171,6 +186,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase, encodings, finite distributions
+  Semantics/    exact, measurement, state-phase, and operator-phase relations
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -194,7 +210,10 @@ The detailed source locations, diagnoses, proofs, and dependent effects are in
 4. The paper omits the determinant-one proof for quaternionic
    complexification; only the justified `±1` result is exported.
 5. Quaterbit normalization omits the displayed `= 1`.
-6. Quaternionic state/ray phase must act on the right.
+6. Quaternionic state/ray phase must act on the right. The separate operator
+   classification permits only a central real sign as matrix-wide global
+   phase, with the full unit-quaternion family proved only as the sharp
+   rank-one projective exception.
 7. State embeddings are real-linear, not silently complex/quaternion-linear.
 8. The source gives the wrong codomain for `h₀` and `h₁`.
 9. The stated noncommutative Kronecker condition names the wrong crossing
@@ -300,6 +319,8 @@ open QuaternionicComputing
 #check Matrix.realify
 #check Quaternion.complexify
 #check Quaternion.directRealify
+#check Semantics.QuaternionCentralSignEq
+#check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
 #check Simulation.quaternionToReal_exactSimulation
 ```
@@ -311,6 +332,9 @@ declarations; the selected list in the repository README and the module tree in
 When extending the library:
 
 - keep quaternionic columns as right modules and put state/ray phase on the right;
+- distinguish quaternionic input-right phase, output-left phase, central sign,
+  and raw/normalized projective action; never use arbitrary unit-quaternion
+  phase as matrix-wide global phase;
 - preserve the chronological convention `[g₁,…,gₛ] ↦ Gₛ⋯G₁`;
 - use generic `unitary (Matrix … ℍ)` rather than the commutative-only
   `Matrix.unitaryGroup` for quaternionic matrices;

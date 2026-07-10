@@ -10,6 +10,8 @@ public import QuaternionicComputing.State.Complexification
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
+public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
+public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
@@ -68,8 +70,12 @@ agreement, while output-row phase and projective action guarantee
 all-normalized-pure-input basis agreement. Chronological congruences preserve
 the multiplication side, and common-earlier projective evolution carries an
 explicit local-unitarity premise. These relations are neither channel equality
-nor cross-model simulation, and the quaternionic operator kernel remains in a
-separate phase layer.
+nor cross-model simulation. Quaternionic operators have a side-correct
+parallel layer: input phases act on the right, output phases act on the left,
+and global operator phase means only a central real sign. Raw and normalized
+all-input projective action coincide; for unitary square spaces of dimension
+at least two their kernel is exactly the central signs, while rank one has the
+full unit-quaternion scalar family as an explicit exception.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

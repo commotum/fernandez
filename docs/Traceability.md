@@ -37,10 +37,20 @@ Stage 3A adds representative-level real sign, complex right phase, and
 quaternionic right phase with distribution and evolution laws. Stage 3B adds
 the distinct real/complex global, input-column, output-row, and projective
 operator/circuit relations, together with only their justified measurement
-and sided-composition implications. These semantic layers sharpen how existing
-evidence is described but do not change a paper row's terminal status. Ray
-quotients remain Stage 4, channels remain Stage 7, and quaternionic operator
-phase remains Stage 3C.
+and sided-composition implications. Stage 3C adds five side-sensitive
+quaternionic operator relations, four evaluator-backed circuit wrappers, the
+raw/normalized projective bridge, and the sharp projective-kernel theorem:
+with explicit square dimension at least two and only the first matrix assumed
+unitary, all-input right-ray action is exactly one central real sign; rank one
+instead admits every unit quaternion, with `j` a noncentral witness. This
+clarifies C-006 rather than introducing a new paper correction: right unit
+phase remains the state/ray convention, while arbitrary unit-quaternion phase
+is not matrix-wide operator global phase. None of these same-space relations
+is channel or all-effect equality.
+
+These semantic layers sharpen how existing evidence is described but do not
+change a paper row's terminal status. Ray quotients remain Stage 4 and channels
+remain Stage 7.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 
@@ -48,7 +58,7 @@ phase remains Stage 3C.
 |---|---|---|---|---|
 | `FER03-D01-REBIT` | L92–115, Eq. 4–6 | Normalized vectors in `ℝ²`, with optional pure-state quotient by `±1`. Depends on finite real state conventions. | P2 / `State/Basic.lean`, `State/RealPhase.lean`, `Semantics/StatePhase.lean` | **partially formalized**: `Rebit` is explicitly normalized; `Real.SignEquivalent` is proved to be exactly equality or pointwise negation; and `RealStatePhaseEq` supplies representative-level equivalence, basis-distribution, matrix/circuit, and unitary-evolution laws. Quotient equality and descended operations remain Stage 4 obligations |
 | `FER03-D02-REAL-ALGORITHM` | L140–142 | Classical uniform generator, real circuit measurement, and postprocessing. Depends on circuit/output semantics and an encoding model. | P2 / `State/Distribution.lean`, `Simulation/Postprocessing.lean`, 8-RESOURCES | **partially formalized**: fixed finite real-circuit output distributions, all finite events, and every deterministic finite postprocessing map are covered; no discrete circuit encoding, uniform classical generator, randomized machine, or runtime theorem is supplied |
-| `FER03-D03-QUATERBIT` | L791–812, Eq. 44–45 | Normalized vectors in `ℍ²`, right unit phase, and basis weights. Depends on quaternion norm and right-module conventions. | P0 / `Scalar/Phase.lean`, `State/Basic.lean`, `Semantics/StatePhase.lean` | **corrected and proved**: `Quaterbit`, its normalization, the raw and normalized right-phase equivalence relations, complete basis-distribution preservation, and matrix/circuit/unitary evolution repair C-005/C-006. The normalized left-phase diagnostic confirms that the paper's side cannot be retained |
+| `FER03-D03-QUATERBIT` | L791–812, Eq. 44–45 | Normalized vectors in `ℍ²`, right unit phase, and basis weights. Depends on quaternion norm and right-module conventions. | P0 / `Scalar/Phase.lean`, `State/Basic.lean`, `Semantics/StatePhase.lean`, `Semantics/OperatorPhase/Quaternion.lean`, `QuaternionCircuit.lean`, `QuaternionKernel.lean` | **corrected and proved**: `Quaterbit`, its normalization, the raw and normalized right-phase equivalence relations, complete basis-distribution preservation, and matrix/circuit/unitary evolution repair C-005/C-006. The normalized left-phase diagnostic confirms that the paper's side cannot be retained. The separate operator classification proves that this state phase does not license arbitrary unit-quaternion matrix-wide phase: dimensions at least two have only the central real-sign projective kernel, while rank one has the explicitly proved full unit-quaternion exception |
 | `FER03-D04-ORDERED-CIRCUIT-OUTPUT` | L841–849 | Product of explicitly placed gates along one legal order. Depends on noncommutative-safe placement and evaluation order. | P0 / `Circuit/Basic.lean`, `Circuit/Ordering.lean` | **corrected and proved**: `LegalSchedule` lists every finite gate occurrence exactly once and certifies the supplied precedence constraints; `scheduledCircuit`, `scheduledEval`, and `OrderedCircuit.eval` give the reverse-chronological product for that exact schedule. Existence of a schedule is the consistency certificate; no transitive DAG structure is assumed |
 | `FER03-D05-QUATERNIONIC-ALGORITHM` | L851 | Uniform generator emits circuit plus legal ordering; ordered state is measured/postprocessed. | P2 / `Circuit/Ordering.lean`, `Simulation/Scheduled.lean`, `Simulation/Postprocessing.lean`, 8-RESOURCES | **partially formalized**: the finite gate family, supplied legal schedule, ordered normalized output, exact per-schedule simulation, finite events, and deterministic finite postprocessing core is present; no discrete encoding, uniform classical generator, randomized postprocessor, or runtime model is claimed |
 | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | L148–156 | External approximate-real-amplitude QTM result. | P3 / 9-COVERAGE | **intentionally excluded**: attributed, unproved, and underspecified in source |
