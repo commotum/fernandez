@@ -20,6 +20,19 @@ Priorities are `P0` (central dependency cone), `P1` (important reusable result),
 `P2` (model/context), and `P3` (external, historical, physical, or speculative).
 Lean declaration names replace the current stage targets as proofs land.
 
+## Goal 2 semantic-classification overlay
+
+Goal 2 Stage 2 adds proof-bearing vocabulary without changing any paper row's
+terminal status. `ExactOperatorEq` and `ExactCircuitEq` classify literal
+same-space matrix and chronological-evaluator equality. `OutputWeightEqAt`,
+`BasisMeasurementEq`, and `PureInputBasisMeasurementEq` separate one supplied
+input, every computational-basis input, and every normalized pure input.
+`BasisWeightEq ↔ NormalizedDistributionEq` identifies pointwise normalized
+basis weights with the packaged finite distribution and yields finite-event
+and deterministic-pushforward consequences. These wrappers make the existing
+evidence more precise; they do not promote any basis-only theorem to ray,
+channel, all-effect, mixed-state, or cross-model equality.
+
 ## Numbered definitions, theorems, lemmas, and corollary
 
 | ID | Source | Concise target and dependencies | Priority / stage | Status |

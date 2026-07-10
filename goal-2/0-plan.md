@@ -109,20 +109,22 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current release has 44 Lean sources.  Clean public-root and explicit audit
-  builds pass; 186 audited endpoints use only `propext`, `Classical.choice`,
+- The current release has 47 Lean sources. Clean public-root and explicit audit
+  builds pass; 201 audited endpoints use only `propext`, `Classical.choice`,
   and `Quot.sound`.
-- `OrderedCircuit.eval` supplies exact matrix semantics.  Exact comparisons are
-  currently ordinary equalities proved by `eval_congr`, schedule-independence,
-  compiler, and embedding theorems; there is no named `ExactCircuitEq`.
+- `ExactOperatorEq` now names literal same-type matrix equality and
+  `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
+  Multiplication, gatewise, and append congruence theorems compile through real
+  diagnostic consumers.
 - `Complex.RightPhaseEquivalent` and `Quaternion.RightPhaseEquivalent` exist
   for state columns and are proved equivalence relations.  They preserve basis
   weights and compatible evolution.  No real sign relation or normalized ray
   quotient type currently completes the three-scalar picture.
 - `FiniteDistribution` packages normalized outcome weights, finite events, and
-  deterministic pushforwards.  Existing simulations prove exact bottom-
-  distribution results, but there is no general same-space
-  `BasisMeasurementEq` API.
+  deterministic pushforwards. Stage 2 now separates fixed-input
+  `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, all-normalized-pure-
+  input `PureInputBasisMeasurementEq`, and packaged
+  `NormalizedDistributionEq`, with checked finite classical consequences.
 - The exact simulations already separate operator embedding, state
   intertwining, bottom measurement, event, and postprocessing results.  Their
   statements compare different scalars/dimensions and therefore cannot be
@@ -144,15 +146,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` contains zero entries at
-  the Stage 1 boundary. New public Goal 2 semantic declarations must be added
-  there without changing the frozen Goal 1 cohort.
+- The separate `docs/Goal2SemanticAPIManifest.json` now contains 61 unique
+  Stage 2 declarations, each with seven semantic axes and a named downstream
+  consumer. The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
   physical-effect separation route, finite basis columns, and the scoped L2
   induced operator norm. Complex PSD needs `ComplexOrder`; Loewner matrices
   need `MatrixOrder`; trace-one densities require a nonempty index when
   existence is used.
+- Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
+  checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
+  proof-bearing realizations; Stage 3 can build on the exact and measurement
+  vocabulary without importing the diagnostic leaf.
 
 ## Inventory and Manifest Policy
 
@@ -783,7 +789,7 @@ use without learning the retrofit's implementation history.
 ## Stage Status
 
 - [x] 1-INVENTORY
-- [ ] 2-CORE
+- [x] 2-CORE
 - [ ] 3-PHASE
 - [ ] 4-RAYS
 - [ ] 5-BASIS

@@ -19,9 +19,10 @@
 - For a generic scalar weight, a basis ket need not be normalized. Any theorem
   deriving all-basis behavior from all-normalized-pure-input behavior therefore
   needs an explicit basis-normalization premise.
-- A complete combined draft compiles with warnings as errors in
-  `/tmp/SemanticsCoreMeasurementDraft.lean`; it has not yet been accepted as
-  repository evidence.
+- The accepted repository implementation now lives in `Semantics/Core.lean`
+  and `Semantics/Measurement.lean`, with `CoreAudit.lean` as its non-root
+  diagnostic consumer. The original combined `/tmp` draft is no longer
+  evidence or a dependency.
 
 ## Updated Assumptions
 
@@ -138,5 +139,50 @@ the precise implications already justified by Goal 1 APIs.
 
 ## Stage Results
 
-- Stage active. Repository implementation, consumer verification, API-manifest
-  entries, and final evidence remain to be completed.
+- Added `QuaternionicComputing/Semantics/Core.lean`. It exports rectangular
+  `ExactOperatorEq`, chronological `ExactCircuitEq`, all equivalence laws,
+  matrix-multiplication congruence, gatewise lift, and append congruence.
+  `ExactCircuitEq` unfolds only to equality of `OrderedCircuit.eval`.
+- Added `QuaternionicComputing/Semantics/Measurement.lean`. It exports the
+  distinct `BasisWeightEq`, `OutputWeightEqAt`, `BasisMeasurementEq`,
+  `PureInputBasisMeasurementEq`, and `NormalizedDistributionEq` predicates;
+  their genuine equivalence laws; exact-to-observational lifts; the basis-ket/
+  column characterizations; the explicit-normalization pure-to-basis arrow;
+  and finite distribution, event, and deterministic-pushforward consequences.
+- Added and independently reviewed `Semantics/CoreAudit.lean` as a non-root
+  diagnostic leaf. Its 18 named consumers exercise every API family, empty
+  rectangular matrices, Boolean basis indices, real/complex/quaternion basis
+  normalization, and separate exact-circuit fixed-input, basis-input, and
+  pure-input conclusions. Eight `#print axioms` endpoints use only `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- Promoted only `Semantics.Measurement` through `QuaternionicComputing.lean`;
+  `Semantics.Core` is re-exported transitively and the diagnostic leaf remains
+  outside the public root. Added 15 direct semantic endpoints to the root
+  audit, bringing that audit to 201 endpoints with no new axiom family.
+- Rebuilt `docs/Goal2SemanticAPIManifest.json` as 61 unique stable declarations
+  from `Core.lean` (19) and `Measurement.lean` (42). Diagnostic declarations
+  are excluded. Every item has all seven semantic axes and the fully qualified
+  name of a real downstream consumer; 15 entries have direct root audit
+  endpoints and 46 record their transitive consumer audit pending release.
+  Independent source-set validation reports
+  `source=61 manifest=61 missing=0 extra=0 axes=7`; root-only `#check` of all 61
+  names and diagnostic-import `#check` of all 12 unique consumers both pass.
+- Finalized the Stage 2 classifications of `EQC-004`, `EQC-005`, `EQC-006`,
+  and `EQC-026`. The unitary-evolution family is correctly classified as
+  normalization preservation, not equality of pre/post basis distributions.
+- Focused builds passed for `Semantics.Core`, `Semantics.Measurement`, and
+  `Semantics.CoreAudit`. Adjacent builds passed for `Circuit.Basic`,
+  `State.Distribution`, and `Simulation.Postprocessing`. Public-root and
+  explicit `AxiomAudit` builds passed (2555 jobs), as did warning-as-error
+  source checks for both public files and every touched semantic leaf.
+- Hole/axiom/opaque/unsafe scans of the completed semantic leaves are clean;
+  temporary generators and validators are absent from the repository;
+  whitespace checks and `git diff --check` pass.
+- Failed approaches were retained as evidence: the first Boolean basis-ket
+  normalization proof needed explicit `cases x`; the first generated manifest
+  had a literal patch marker and then incorrectly included eight diagnostics
+  with copied finite-space axes. Both defects were caught before completion,
+  and the manifest was regenerated from the reviewed 61-declaration boundary.
+  `OutputWeightEqAt.refl` intentionally has a named law but no `@[refl]`
+  attribute because Lean's relation attribute expects the varying relation to
+  be binary, whereas the fixed input is a third explicit predicate argument.

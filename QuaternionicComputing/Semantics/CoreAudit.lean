@@ -163,10 +163,10 @@ theorem normalizedDistribution_api (a b c : ComplexState Bool)
           event ∧
       (FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg a).pushforward f =
         (FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg b).pushforward f ∧
-      ((FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg a).pushforward f).weight
-          true =
-        ((FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg b).pushforward f).weight
-          true := by
+      ((FiniteDistribution.ofNormalizedState complexWeight
+          complexWeight_nonneg a).pushforward f).weight true =
+        ((FiniteDistribution.ofNormalizedState complexWeight
+          complexWeight_nonneg b).pushforward f).weight true := by
   have hweight : BasisWeightEq complexWeight a b :=
     (basisWeightEq_iff_normalizedDistributionEq complexWeight
       complexWeight_nonneg a b).mpr hab
