@@ -67,7 +67,7 @@ Lean declaration names replace the current stage targets as proofs land.
 | ID | Source | Target / dependencies | Priority / stage | Status |
 |---|---|---|---|---|
 | `FER03-R-REALIFICATION-DEF` | L175–203, Eq. 8–10 | Define `h(A)=[[re A,im A],[-im A,re A]]`; tensor notation only mnemonic. | P0 / 3-MATRICES | planned |
-| `FER03-R-REIM-PRODUCT` | L213–239, Eq. 11–12 | Scalar and compatible-matrix real/imaginary product formulas. | P0 / 2-SCALARS, 3-MATRICES | planned |
+| `FER03-R-REIM-PRODUCT` | L213–239, Eq. 11–12 | Scalar and compatible-matrix real/imaginary product formulas. | P0 / 2-SCALARS, 3-MATRICES | in progress: scalar identities are `Complex.mul_re`/`Complex.mul_im`; matrix lift remains Stage 3 |
 | `FER03-R-REIM-ADJOINT` | L310–318, Eq. 16 | Real/imaginary components of complex adjoint. | P0 / 3-MATRICES | planned |
 | `FER03-R-SERIAL-COMPOSITION` | L322–340, Fig. 1 | A legal order gives a reverse chronological matrix product. | P0 / 5-CIRCUITS | planned |
 | `FER03-R-TOPO-SORT-COMPLEXITY` | L336, FN5 | Topological sorting is efficient; circuit/TM equivalence is external. | P2 / 7-ORDERING, 8-RESOURCES | planned partial |
@@ -95,12 +95,12 @@ Lean declaration names replace the current stage targets as proofs land.
 
 | ID | Source | Target / dependencies | Priority / stage | Status |
 |---|---|---|---|---|
-| `FER03-Q-ALGEBRA` | L697–711, Eq. 34–35, FN8 | Reuse associative noncommutative division algebra and basis multiplication. | P0 / 2-SCALARS | planned reuse/sanity checks |
-| `FER03-Q-CONJUGATE-NORM` | L713–729, Eq. 36–37 | Conjugation and norm-square coordinate formula. | P0 / 2-SCALARS | planned reuse/proof |
-| `FER03-Q-CO-WD-DECOMP` | L731–753, Eq. 38–40 | Define complex and weird components and reconstruct `q=z+w j`. | P0 / 2-SCALARS | planned |
-| `FER03-Q-CO-WD-MUL` | L755–769, Eq. 41 | Order-sensitive multiplication formulas. | P0 / 2-SCALARS | planned |
-| `FER03-Q-CO-WD-NORM` | L771–777, Eq. 42 | Quaternion norm square is sum of component complex norm squares. | P0 / 2-SCALARS | planned |
-| `FER03-Q-CO-WD-CONJ` | L779–787, Eq. 43 | Components under quaternion conjugation. | P0 / 2-SCALARS | planned |
+| `FER03-Q-ALGEBRA` | L697–711, Eq. 34–35, FN8 | Reuse associative noncommutative division algebra and basis multiplication. | P0 / `Scalar/Quaternion.lean` | **proved as stated** via mathlib `Quaternion` plus public `i`, `j`, `k`, `i_mul_i`…`i_mul_j_mul_k` |
+| `FER03-Q-CONJUGATE-NORM` | L713–729, Eq. 36–37 | Conjugation and norm-square coordinate formula. | P0 / mathlib + `Scalar/Quaternion.lean` | **proved as stated** via `Quaternion.normSq_def'`, `self_mul_star`, `star_mul_self`, and component norm theorem |
+| `FER03-Q-CO-WD-DECOMP` | L731–753, Eq. 38–40 | Define `complexPart` and neutral-name `jPart` (paper “weird part”); reconstruct `q=z+w j`. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `components_injective` |
+| `FER03-Q-CO-WD-MUL` | L755–769, Eq. 41 | Order-sensitive multiplication formulas. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `complexPart_mul`, `jPart_mul` |
+| `FER03-Q-CO-WD-NORM` | L771–777, Eq. 42 | Quaternion norm square is sum of component complex norm squares. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `normSq_eq_complexPart_add_jPart` |
+| `FER03-Q-CO-WD-CONJ` | L779–787, Eq. 43 | Components under quaternion conjugation. | P0 / `Scalar/Quaternion.lean` | **proved as stated**: `complexPart_star`, `jPart_star` |
 | `FER03-Q-UNITARY-SP` | L816–820 | Generic quaternionic unitary matrices form the compact symplectic group. | P0 / 3-MATRICES | planned with explicit right-module convention |
 | `FER03-Q-KRONECKER-INTERCHANGE` | L822–830, Eq. 46 | Prove commutative case and correct entrywise-commutation sufficient condition; disprove “only if C,D are 0–1.” | P0 / 5-CIRCUITS, 7-ORDERING | planned correction C-009 |
 | `FER03-Q-PARALLEL-ORDER-DEPENDENCE` | L831–839, Fig. 6 | Exhibit disjoint local gates/orderings with distinct operators and observable outcomes. | P0 / 7-ORDERING | planned correction C-018 |
@@ -189,4 +189,3 @@ Co/Wd and re/im scalar identities
             → corrected Theorems 2 and 4
               → Corollary 1, ordering witnesses, and defensible resource bounds
 ```
-

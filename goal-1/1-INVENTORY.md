@@ -57,7 +57,19 @@ baseline that can compile the first real proofs.
 - Update `.gitignore` and README only for Lean artifacts and project usage,
   preserving the placeholder Python files unless removal becomes necessary.
 
-## No-Cheating Checks
+## Build Structure
+
+- Touched high-fanout project files were limited to the new Lake configuration,
+  public root, and initial audit because this stage had to bootstrap the build.
+- `QuaternionicComputing/Smoke.lean` was a narrow temporary diagnostic leaf;
+  it was explicitly classified as baseline scaffolding and later replaced by
+  substantive scalar modules.
+- Focused checks compiled the smoke/audit leaves; the changed build
+  configuration and public root required the recorded full `lake build`.
+- No external cached package source was edited; only the ignored local package
+  path was linked for the offline build.
+
+## Boundary Checks
 
 - The inventory must include every numbered result and important negative or
   resource claim, not merely the results likely to be easy in Lean.
@@ -69,6 +81,8 @@ baseline that can compile the first real proofs.
   image of the embedding or otherwise assume the desired preservation theorem.
 - Check that no impossible dimension/normalization hypotheses make a smoke
   theorem vacuous.
+- The green smoke build was treated only as baseline evidence, not as evidence
+  that any paper theorem had been formalized.
 
 ## Completion Requirements
 
@@ -129,6 +143,9 @@ baseline that can compile the first real proofs.
 - Scaffold validation confirmed the three required files, correct continuation-
   prompt paths, all ten named stages, and a concrete completion-requirements
   section for every stage.
+- After Stage 1, repository-root `BUILD-PLAN.md` was incorporated into the goal
+  requirements and this stage report was retrofitted with its build/boundary
+  classification.
 
 ### Plan changes for the next stage
 

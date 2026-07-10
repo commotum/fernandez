@@ -6,6 +6,8 @@ Fernandez and William A. Schneeberger's paper *Quaternionic Computing*
 
 The source extraction is in `Fernandez/fernandez-2003.md`.  The staged goal and
 execution protocol are in `goal-1/0-plan.md` and `goal-1/0-loop.md`.
+Lean-changing stages also follow the authoritative incremental workflow in
+`BUILD-PLAN.md`.
 
 The project is pinned to Lean 4.31.0 and mathlib v4.31.0.  Once dependencies are
 available, build it with:

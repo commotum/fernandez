@@ -78,6 +78,10 @@ disposition, and the pinned project builds and passes its axiom audit without
 - `BUILD-PLAN.md` is now part of the active goal requirements.  Every current
   and future Lean stage must include `Build Structure` and `Boundary Checks`
   sections and record the smallest builds that actually cover its changes.
+- Stage 2 completed on 2026-07-09.  Public scalar modules now prove the
+  complex/`j`-component decomposition, multiplication, conjugation, and
+  norm-square laws; a norm-preserving two-coordinate counterexample proves
+  that the paper's left-phase ray relation is not evolution-stable.
 
 ## Current Assumptions to Test
 
@@ -420,8 +424,8 @@ without learning the paper's original organization.
 ## Stage Status
 
 - [x] 1-INVENTORY — completed 2026-07-09
-- [ ] 2-SCALARS — in progress
-- [ ] 3-MATRICES
+- [x] 2-SCALARS — completed 2026-07-09
+- [ ] 3-MATRICES — in progress
 - [ ] 4-STATES
 - [ ] 5-CIRCUITS
 - [ ] 6-SIMULATION

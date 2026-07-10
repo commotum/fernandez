@@ -73,14 +73,26 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-006 — Quaternionic global phase is on the wrong side
 
 - **Source:** Definition 3, Equation (45), lines 802–810.
-- **Status:** confirmed convention error.
+- **Status:** confirmed convention error; obstruction proved, generic repair in progress.
 - **Diagnosis:** column vectors acted on by quaternionic matrices from the left
   form a right quaternionic module.  Right phase is respected by evolution,
   `A(ψq) = (Aψ)q`.  The paper's left phase generally is not:
   `A(qψ)` cannot move `q` past arbitrary entries of `A`.
-- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`.  Keep the side
-  explicit in every ray/evolution theorem.
-- **Lean declaration:** to be assigned in Stage 4.
+- **Evidence:** `phaseWitnessGate` is the norm-preserving two-coordinate
+  evolution `diag(1,j)`.  Its input and `i`-left-multiple begin on the same
+  left-phase ray, but `not_leftPhaseEquivalent_gate_i_input` proves that no
+  output left phase exists.  The separate theorem
+  `fixed_left_phase_not_natural` records the one-dimensional noncommutation
+  diagnostic without overclaiming ray failure.
+- **Repair:** use unit right phase, `ψ = ψ' q` with `|q| = 1`.  Public
+  `RightPhaseEquivalent` and `rightPhaseEquivalent_gate` prove the repaired
+  relation for the diagnostic evolution; Stage 4 will package generic matrix
+  right-linearity and normalized states.
+- **Lean declarations:**
+  `QuaternionicComputing.Quaternion.LeftPhaseEquivalent`,
+  `RightPhaseEquivalent`, `phaseWitnessGate_normSq`,
+  `not_leftPhaseEquivalent_gate_i_input`, and
+  `rightPhaseEquivalent_gate`.
 - **Dependents:** Definition 3, physical-state equivalence, initialization, and
   any statement phrased as state rather than measurement equality.
 
@@ -94,7 +106,9 @@ means the corrected mathematical target is known but not yet formalized;
   a precisely stated restricted or semilinear action.
 - **Repair:** export additive/real-linear properties and only stronger scalar
   laws that are proved with an explicit action.
-- **Lean declaration:** to be assigned in Stages 2 and 4.
+- **Lean declarations:** `QuaternionicComputing.Quaternion.complexPart` and
+  `jPart` are explicitly `ℝ`-linear.  The complex-state realification maps
+  remain a Stage 4 obligation.
 - **Dependents:** state embeddings, phase behavior, and Lemmas 4/9.
 
 ## C-008 — Wrong codomain named for `h₀` and `h₁`

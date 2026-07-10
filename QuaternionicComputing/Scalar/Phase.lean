@@ -49,9 +49,10 @@ theorem normSq_k : _root_.Quaternion.normSq k = 1 := by
 /-- The same left phase does not commute through arbitrary left multiplication. -/
 theorem fixed_left_phase_not_natural :
     j * (i * (1 : ℍ[ℝ])) ≠ i * (j * (1 : ℍ[ℝ])) := by
-  simp
   intro h
-  have himK := congrArg (fun q : ℍ[ℝ] ↦ q.imK) h
+  have hki : -k = k := by
+    simpa only [mul_one, j_mul_i, i_mul_j] using h
+  have himK := congrArg (fun q : ℍ[ℝ] ↦ q.imK) hki
   norm_num at himK
 
 /-- The two-coordinate input used to witness failure of left-phase rays. -/
@@ -85,9 +86,12 @@ theorem not_leftPhaseEquivalent_gate_i_input :
   rintro ⟨η, _, hη⟩
   have hfalse := congrFun hη false
   have htrue := congrFun hη true
-  simp [phaseWitnessGate, phaseWitnessInput] at hfalse htrue
+  simp only [phaseWitnessGate, phaseWitnessInput, Pi.smul_apply, smul_eq_mul,
+    mul_one] at hfalse htrue
   subst η
-  have himK := congrArg (fun q : ℍ[ℝ] ↦ q.imK) htrue
+  have hki : -k = k := by
+    simpa only [j_mul_i, i_mul_j] using htrue
+  have himK := congrArg (fun q : ℍ[ℝ] ↦ q.imK) hki
   norm_num at himK
 
 /-- The witness gate commutes with every right scalar action. -/
