@@ -155,4 +155,80 @@ theorem mem_allChronologicalOrders_iff_exists_emptyLegalSchedule
   · rintro ⟨s, rfl⟩
     exact s.order_mem_allChronologicalOrders
 
+/-! ## A constrained two-identifier counterexample -/
+
+namespace ScheduleCount.BoolChain
+
+universe v w
+
+/-- The strict Boolean chain with `false` required before `true`. -/
+def precedes (i j : Bool) : Prop :=
+  i = false ∧ j = true
+
+/-- The nontrivial constraint in the strict Boolean chain. -/
+theorem false_precedes_true : precedes false true :=
+  ⟨rfl, rfl⟩
+
+/-- The canonical legal schedule for the strict Boolean chain. -/
+def schedule : LegalSchedule Bool precedes where
+  order := [false, true]
+  nodup := by simp
+  complete := by
+    intro i
+    cases i <;> simp
+  respects := by
+    rintro i j ⟨rfl, rfl⟩
+    simp
+
+/-- The canonical Boolean-chain schedule has the expected chronological list. -/
+@[simp]
+theorem schedule_order : schedule.order = [false, true] :=
+  rfl
+
+/-- Every legal schedule for the strict Boolean chain has the canonical order. -/
+theorem order_eq_schedule (s : LegalSchedule Bool precedes) :
+    s.order = schedule.order := by
+  have hperm : s.order.Perm [false, true] := by
+    simpa using s.order_perm schedule
+  rcases List.perm_pair.mp hperm with hforward | hreverse
+  · simpa using hforward
+  · have hlt := s.index_lt_index_of_precedes false_precedes_true
+    rw [hreverse] at hlt
+    simp at hlt
+
+/-- Instantiating the unique Boolean-chain order gives the canonical circuit list. -/
+theorem scheduledCircuit_eq_schedule
+    {R : Type v} {W : Type w} [Semiring R] [Fintype W]
+    (s : LegalSchedule Bool precedes) (gates : Bool → PlacedGate R W) :
+    s.scheduledCircuit gates = schedule.scheduledCircuit gates := by
+  unfold LegalSchedule.scheduledCircuit
+  rw [order_eq_schedule s]
+
+/-- Instantiating the unique Boolean-chain order gives the canonical evaluation. -/
+theorem scheduledEval_eq_schedule
+    {R : Type v} {W : Type w} [Semiring R] [Fintype W]
+    (s : LegalSchedule Bool precedes) (gates : Bool → PlacedGate R W) :
+    s.scheduledEval gates = schedule.scheduledEval gates := by
+  unfold LegalSchedule.scheduledEval
+  rw [scheduledCircuit_eq_schedule s gates]
+
+/-- The reverse Boolean order is one of the two unconstrained chronological orders. -/
+theorem reverseOrder_mem_allChronologicalOrders :
+    [true, false] ∈ allChronologicalOrders Bool := by
+  apply mem_allChronologicalOrders_iff.mpr
+  constructor
+  · simp
+  · intro i
+    cases i <;> simp
+
+/-- The reverse Boolean order cannot satisfy the strict-chain precedence constraint. -/
+theorem reverseOrder_not_legal :
+    ¬ ∃ s : LegalSchedule Bool precedes, s.order = [true, false] := by
+  rintro ⟨s, hreverse⟩
+  have hcanonical := order_eq_schedule s
+  rw [hreverse] at hcanonical
+  simp at hcanonical
+
+end ScheduleCount.BoolChain
+
 end QuaternionicComputing.Circuit

@@ -12,7 +12,7 @@ the replacement circuit, its primitive-gate certificate, and exact semantic
 correctness for every source gate.
 
 From that supplied data, whole-circuit evaluation is preserved, compiled gate
-count is the exact sum of per-gate counts, and a uniform per-gate bound `K`
+count is the exact sum of per-gate counts, and a common per-gate bound `K`
 gives the finite bound `sourceGateCount * K`.  No instance asserting that such
 a compiler exists for arbitrary unitaries is introduced here.
 -/

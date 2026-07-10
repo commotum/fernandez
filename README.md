@@ -35,6 +35,7 @@ import QuaternionicComputing.State.Basic
 import QuaternionicComputing.State.Realification
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
+import QuaternionicComputing.State.Distribution
 import QuaternionicComputing.Circuit.Placement
 import QuaternionicComputing.Circuit.AddedWire
 import QuaternionicComputing.Circuit.Basic
@@ -43,11 +44,18 @@ import QuaternionicComputing.Circuit.Complexification
 import QuaternionicComputing.Circuit.Cost
 import QuaternionicComputing.Circuit.Ordering
 import QuaternionicComputing.Circuit.OrderingWitness
+import QuaternionicComputing.Circuit.Depth
+import QuaternionicComputing.Circuit.DescriptionCost
+import QuaternionicComputing.Circuit.Compilation
+import QuaternionicComputing.Circuit.ScheduleCount
 import QuaternionicComputing.Simulation.ComplexToReal
 import QuaternionicComputing.Simulation.QuaternionToComplex
 import QuaternionicComputing.Simulation.QuaternionToReal
 import QuaternionicComputing.Simulation.Scheduled
 import QuaternionicComputing.Simulation.OrderingWitness
+import QuaternionicComputing.Simulation.Resources
+import QuaternionicComputing.Simulation.CompiledResources
+import QuaternionicComputing.Simulation.Postprocessing
 ```
 
 The matrix layer currently exports dimension-safe, injective, multiplicative,
@@ -61,7 +69,8 @@ The state layer supplies explicitly normalized finite real, complex, and
 quaternionic states, repairs quaternionic phase to act on the right, proves
 both representation-column evolution identities, and proves pointwise bottom
 computational-basis weight preservation for every normalized pure top
-rebit/qubit.
+rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite
+events and deterministic pushforwards of normalized outcome weights.
 
 The circuit layer supplies locality-certified gates on arbitrary finite wire
 types, noncommutative-safe placement on arbitrary injected supports, explicit
@@ -77,6 +86,17 @@ order-sensitive.  One-gate realification and complexification reuse one shared
 distinguished top wire, commute with actual contextual placement, preserve
 local unitarity, and increase local arity by exactly one.
 
+The resource layer measures only explicitly stated finite structures.  A
+`SupportLayering` is a nonempty, support-disjoint layering whose flattening
+retains the chronological circuit.  Every layering of either literal
+one-added-wire image has depth exactly the source gate count because every
+image gate uses the shared top wire.  Empty-precedence occurrence families
+have exactly `(Fintype.card ι)!` chronological orders; no factorial or
+exponential count is asserted for general precedence relations.  Dense local
+matrices have exactly `4^d` scalar-entry slots at arity `d`, with total factors
+`4` for either primary translation and `16` for their composition.  These are
+slot counts, not bit complexity or runtime.
+
 The simulation layer proves corrected constructive forms of the paper's
 Theorems 2 and 4 for arbitrary ordered finite circuits.  It separately exports
 whole-operator embedding, all canonical and arbitrary-pure-top state evolution
@@ -89,11 +109,22 @@ For a supplied finite legal schedule, the scheduled bridge applies the same
 exact quaternion-to-complex theorem to that schedule's chronological circuit
 without selecting a schedule or asserting schedule independence.  The
 order-sensitive witness remains observably distinct after this translation.
+The normalized output equality also extends to every finite event and every
+deterministic finite classical postprocessing map.
+
+Primitive compilation is deliberately conditional.  A supplied
+`ExactGateCompiler` must provide a primitive predicate, exact chronological
+expansions, primitive membership, and evaluator equality.  Only then does the
+library prove exact compiled count and a bound `s * K` from an explicit
+per-image-gate bound `K`; the corresponding canonical serial depth has the
+same conditional bound.  No generic synthesis algorithm or compiler instance
+is postulated.
 
 The finite scheduling API formalizes the mathematical core of the paper's
 Definition 5, but not its classical uniform circuit generator, runtime,
-encoding, or postprocessing model; those remain separate resource-level
-obligations.
+discrete encoding, randomized postprocessing, or finite-precision model.
+Accordingly, the finite results do not establish polynomial-time compilation
+or BQP containment.
 
 See `docs/Traceability.md`, `docs/Corrections.md`,
 `docs/Conventions.md`, and `docs/Architecture.md` for exact source mappings and

@@ -91,8 +91,8 @@ The library keeps four relations distinct:
 
 For a coordinate `ψ i`, its computational-basis weight is its scalar norm
 square.  In a doubled target space, forgetting the top wire means summing the
-two target weights above each bottom basis index.  The main simulation theorem
-will state this equality explicitly.  It will not define “simulation” to be
+two target weights above each bottom basis index.  The main simulation theorems
+state this equality explicitly.  They do not define “simulation” to be
 whatever relation the embedding happens to satisfy.
 
 Normalized states are introduced only at the semantic boundary.  Algebraic
@@ -112,6 +112,13 @@ The arbitrary-top-wire results currently cover every normalized pure top
 rebit/qubit and prove pointwise bottom-weight equality.  Claims about arbitrary
 mixed top states require a density-state API and remain explicitly partial;
 they are not silently inferred from the pure-state theorems.
+
+`FiniteDistribution α` means a real weight on a finite type, pointwise
+nonnegative and summing to one.  `eventWeight` is a finite sum, and
+`pushforward f` sums weights over the fibers of a deterministic map `f`.
+Equality of the primary bottom distributions therefore implies equality for
+all finite events, marginals encoded as deterministic maps, and deterministic
+finite postprocessing.  It does not include randomized machines or their cost.
 
 ## Circuits and wire placement
 
@@ -154,6 +161,12 @@ they are not silently inferred from the pure-state theorems.
 - The paper's temporal-cut poset is not represented as the gate-occurrence
   precedence relation.  In particular, the library does not identify one gate
   topological sort with a total order on every cut.
+- `allChronologicalOrders ι` enumerates exactly the permutations of the
+  canonical finite identifier list, without duplicates, and has length
+  `(Fintype.card ι)!`.  Every such order is legal only for the empty
+  precedence relation.  For a general relation this is an upper enumeration,
+  not an assertion that all orders are legal or that the number of legal
+  schedules is factorial or exponential.
 
 ## Simulation and abstract resources
 
@@ -174,14 +187,54 @@ they are not silently inferred from the pure-state theorems.
   model.  Width is `Fintype.card` of the wire type.  Local arity is the card of
   a placed gate's stored local wire type; `maxLocalArity [] = 0`, so exact
   maximum `+1`/`+2` theorems require a nonempty circuit.
-- These exact count/width/arity results do not include physical swaps,
-  primitive-gate synthesis, finite-precision encoding, runtime, scheduling
-  depth, or uniform circuit generation.  Those require explicit later cost
-  models.
+- A `SupportLayering` is a resource certificate whose nonempty layers flatten
+  to the exact chronological circuit and have pairwise support-disjoint gates.
+  Its depth is the number of layers.  This syntactic condition does not change
+  evaluation or imply quaternionic commutation.  Every literal primary image
+  gate uses the same added top wire, so every valid support layering of that
+  image has depth exactly the source gate count.  This says nothing about an
+  alternative translation or the paper's unconstructed multi-top proposal.
+- A dense local description counts scalar-entry slots: arity `d` gives exactly
+  `4^d` slots.  The primary translations multiply total slots by `4`, and the
+  visible composition multiplies them by `16`.  Slots are not scalar bits,
+  encoded bytes, arithmetic operations, allocation work, or runtime.
+- `translationWork` is an externally supplied additive natural-valued cost.
+  The theorem `translationWork_le_gateCount_mul` is conditional on a proof
+  that each occurrence costs at most `K`; it does not construct such a cost
+  model or prove translation time.
+- An `ExactGateCompiler` is supplied certified data, not a global instance: it
+  includes a primitive predicate, an expansion circuit, primitive membership,
+  and exact evaluator equality.  Compiled count is the exact sum of expansion
+  counts and is at most `s*K` only under an explicit per-gate `K` premise.
+  The compiler interface supplies no generic synthesis algorithm, finite
+  universal set, discrete scalar encoding, or finite-precision approximation.
 - For a supplied `LegalSchedule`, scheduled simulation applies the fixed-order
   theorem to exactly that chronological circuit.  It does not select a
   schedule, establish schedule independence, or implement Definition 5's
   uniform classical generator, runtime, encoding, or postprocessing.
+
+### Corrected Table 1 boundary
+
+For either primary one-added-wire translation, the formal resource comparison
+is the following.  Here `s` is source gate count, `D` is total source dense
+scalar-entry slots, and `K` is an explicit premise about a separately supplied
+compiler.
+
+| Quantity | Source circuit | Literal abstract image | After a supplied `ExactGateCompiler` |
+|---|---|---|---|
+| Width | `n` | exactly `n + 1` | `n + 1` (the compiler uses the same target wires) |
+| Gate count | `s` | exactly `s` | exact sum of expansion counts; at most `s*K` only with the per-image-gate bound `K` |
+| Support depth | any chosen certificate has depth at most `s` | every valid layering has depth exactly `s` because all image gates use the top wire | the canonical serial certificate has depth equal to compiled count, hence at most `s*K` under the same premise; no optimal-depth claim |
+| Local arity | bounded by `d`, when assumed | bounded by `d + 1` | bounded only if every supplied expansion carries a separate arity bound |
+| Dense scalar slots | `D` | exactly `4*D` | no bound follows from `ExactGateCompiler` alone |
+| Operator semantics | `eval c` | the typed embedded operator | exactly the same embedded operator by the compiler certificate |
+
+For the visible quaternion-to-real composition, width and local arity increase
+by `2`, dense slots by exactly `16`, and the newest shared top wire again forces
+literal-image support depth equal to `s`.  None of these rows is a bit-cost,
+preprocessing-time, elementary-synthesis, or BQP theorem.  In particular, the
+paper's unconditional `2^(d+1)` primitive count and `t*2^(d+1)` depth entries
+are not retained.
 
 ## Dimensions and empty types
 

@@ -234,6 +234,65 @@ evaluation equality under pairwise commutation of distinct global gate
 denotations.  The proof explicitly transports the reversed factor list used by
 the chronological evaluator.
 
+## Finite resource and distribution APIs
+
+The support-depth and conditional-compilation leaves reuse ordinary list
+structure rather than introducing a second evaluator.  The relevant mathlib
+surface includes:
+
+```lean
+List.length_flatten
+List.sum_le_sum
+List.mem_flatMap
+List.length_append
+Finset.sum_nonneg
+Nat.le_log_of_pow_le
+```
+
+`Circuit.SupportLayering` stores chronological layers with
+`layers.flatten = c`, nonempty layers, and within-layer `List.Pairwise`
+support disjointness.  `sum_layerLengths`, `depth_le_gateCount`, and
+`depth_eq_gateCount_of_commonWire` are purely finite resource theorems; none
+invokes the evaluator or derives commutation from `Disjoint`.
+
+`PlacedGate.denseEntrySlots_eq_four_pow` combines the already proved
+`localBasisCard_eq_two_pow` with `Nat.mul_pow`.  The exact `4` and `16` total
+translation factors are list-sum identities.  `Nat.le_log_of_pow_le` gives the
+finite base-four logarithmic arity bound from a supplied slot bound; no
+asymptotic or bit-encoding layer is inferred.
+
+`ExactGateCompiler.compileCircuit` uses `List.flatMap`.  Its semantic theorem
+reduces to `OrderedCircuit.eval_append` plus the compiler's supplied
+per-gate evaluator equality.  `gateCount_compileCircuit` is an exact list sum,
+and `gateCount_compileCircuit_le` calls the generic conditional additive-work
+bound with an explicit `K` hypothesis.  There is intentionally no typeclass
+instance producing an `ExactGateCompiler`.
+
+Unconstrained schedule counting uses:
+
+```lean
+Finset.univ.toList
+List.permutations
+List.nodup_permutations
+List.length_permutations
+```
+
+Thus `allChronologicalOrders ι` is duplicate-free and has exact length
+`(Fintype.card ι)!`.  Only the empty precedence relation turns every
+enumerated order into a `LegalSchedule`; general legal schedules merely map
+into this enumeration.
+
+The scalar-independent finite-distribution pushforward is the fiber sum
+
+```lean
+fun y ↦ ∑ x with f x = y, μ.weight x
+```
+
+and its normalization is exactly `Finset.sum_fiberwise`.  This keeps
+`State/Distribution.lean` on finite sums and `State.Basic`, without importing
+measure theory.  Pointwise distribution equality then gives finite-event and
+deterministic-pushforward equality in `Simulation/Postprocessing.lean`.
+
 ## Promoted compiled APIs
 
 The following formerly probed results now compile as public declarations
@@ -260,7 +319,17 @@ without placeholders:
 - whole ordered-circuit embedding, normalized state evolution, bottom
   probability preservation, and exact abstract count/width/arity results;
 - exact quaternion-to-complex simulation for each supplied legal schedule,
-  without schedule selection or schedule-independence assumptions; and
+  without schedule selection or schedule-independence assumptions;
+- duplicate-free factorial enumeration of empty-precedence chronological
+  orders, without a general factorial legal-schedule claim;
+- support-layer depth bounds and exact shared-top serialization for the
+  literal primary and composed translations;
+- exact dense scalar-slot counts `4^d` and translation factors `4`/`16`, kept
+  separate from bit complexity and runtime;
+- conditional exact primitive compilation, exact summed compiled count, and
+  `s*K` count/serial-depth bounds from a supplied compiler and per-gate premise;
+- normalized finite distributions plus event and deterministic-pushforward
+  preservation for both primary simulations; and
 - the pinned project baseline and axiom smoke audit.
 
 Their stable declarations live in the narrow scalar, matrix, state, circuit,

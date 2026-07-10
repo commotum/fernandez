@@ -24,6 +24,7 @@ QuaternionicComputing/
     Realification.lean       complex → real state columns and outcomes
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
+    Distribution.lean        finite events and deterministic pushforwards
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -34,6 +35,10 @@ QuaternionicComputing/
     Complexification.lean    one-gate quaternion-to-complex translation
     Ordering.lean            finite legal schedules and independence criterion
     OrderingWitness.lean     disjoint unitary order-dependence witness
+    Depth.lean               support-disjoint layering certificates
+    DescriptionCost.lean     dense scalar-slot and conditional work measures
+    Compilation.lean         supplied exact primitive-compiler interface
+    ScheduleCount.lean       factorial unconstrained-order enumeration
   Simulation/
     Basic.lean               generic sum-index → added-wire state transport
     ComplexToReal.lean       corrected Theorem 2 family
@@ -41,6 +46,9 @@ QuaternionicComputing/
     QuaternionToReal.lean    corrected Corollary 1 family
     Scheduled.lean           fixed legal-schedule simulation bridge
     OrderingWitness.lean     translated observable ordering witness
+    Resources.lean           shared-top depth and dense-slot consequences
+    CompiledResources.lean   conditional compiled count/depth consequences
+    Postprocessing.lean      finite event and deterministic-output closure
     Examples.lean            exact non-real and quaternionic end-to-end checks
   Paper/
     Results.lean             source-numbered wrappers where useful
@@ -101,6 +109,13 @@ Total-weight and normalized-state corollaries then follow.  For the real case,
 `reducedRealOuter` also proves the paper's rank-one reduced-matrix equality
 directly.  A general density-operator hierarchy remains optional and is not a
 dependency of the central theorem.
+
+`State/Distribution.lean` packages any finite nonnegative real weight function
+of total mass one as a `FiniteDistribution`.  Generic normalized states map to
+their basis distributions.  Finite-event sums and deterministic pushforwards
+are normalized, nonnegative, and congruent under pointwise equality.  This is
+a finite semantic API, not a measure-theory, randomized-computation, or
+runtime layer.
 
 ## Circuit implementation
 
@@ -169,6 +184,13 @@ orders all cuts, topological-sorting algorithm, or uniform circuit-family
 generator is supplied.  Those graph, runtime, and Definition 5 uniformity
 claims remain outside the finite core.
 
+`Circuit/ScheduleCount.lean` enumerates the permutations of the canonical
+finite identifier list without duplicates.  Its length is exactly
+`(Fintype.card ι)!`, and every enumerated order is legal for the empty
+precedence relation.  Every legal schedule for any relation lies in this
+all-orders enumeration, but the factorial is exact only for empty precedence;
+it is not a count of the legal schedules of a general relation.
+
 ## Simulation implementation
 
 `Simulation/Basic.lean` transports sum-index state columns through the same
@@ -205,6 +227,44 @@ The corrected Corollary 1 is the visible composition
 wires, proves operator embedding `wireRealify (wireComplexify (eval c))`, exact
 gate count, width and arity `+2`, nested state intertwining, and the four-sector
 bottom probability sum.  It introduces no direct quaternion-to-real map.
+
+`Simulation/Postprocessing.lean` upgrades the pointwise normalized outcome
+equalities to equality of the complete finite bottom distributions.  It then
+proves equal weight for every finite event and equal pushforward distribution
+for every deterministic map to another finite type, for both primary
+simulations.  It does not implement classical-machine uniformity or charge for
+postprocessing.
+
+## Resource implementation
+
+`Circuit/Depth.lean` defines `SupportLayering c` as nonempty chronological
+layers whose flattening is exactly `c` and whose distinct gates have pairwise
+disjoint certified supports within a layer.  It is a cost certificate, not an
+alternative evaluator: disjoint support is never used to infer quaternionic
+commutation.  Any layering has depth at most gate count.  If every gate uses a
+common wire, every layer is a singleton and every valid layering has depth
+exactly gate count.  `Simulation/Resources.lean` applies this to the literal
+realified, complexified, and composed circuits; their shared added top wire
+forces support depth exactly equal to the source occurrence count.  This is
+not a lower bound for other encodings or multi-top constructions.
+
+`Circuit/DescriptionCost.lean` counts scalar-entry slots in explicit dense
+local matrices.  A `d`-wire gate has exactly `4^d` slots, and a finite slot
+bound yields the exact base-four logarithmic arity bound.  Gatewise `+1` and
+`+2` arity translations multiply total slots by exactly `4` and `16`;
+`Simulation/Resources.lean` instantiates these results.  Slot count omits
+scalar bit length, compression, arithmetic, allocation, and primitive-gate
+synthesis, so it is not a time or bit-complexity measure.
+
+`Circuit/Compilation.lean` defines an `ExactGateCompiler` only as supplied
+data: a primitive predicate, a chronological expansion of each gate, a
+primitive-membership certificate, and exact evaluator equality.  It proves
+whole-circuit semantic preservation, exact compiled count as the sum of the
+per-gate counts, and `compiledCount ≤ sourceGateCount * K` from an explicit
+per-source-gate bound `K`.  `Simulation/CompiledResources.lean` transports
+these conditional theorems to both primary image circuits and gives a
+canonical serial-depth bound under the same premise.  No instance asserts a
+compiler or universal primitive library for arbitrary unitaries.
 
 ## Group and determinant scope
 

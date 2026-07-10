@@ -9,10 +9,13 @@ public import QuaternionicComputing.Circuit.Realification
 public import QuaternionicComputing.Circuit.Complexification
 public import QuaternionicComputing.Matrix.KroneckerCommute
 public import QuaternionicComputing.Circuit.Ordering
+public import QuaternionicComputing.Circuit.ScheduleCount
 public import QuaternionicComputing.Simulation.QuaternionToReal
 public import QuaternionicComputing.Simulation.Examples
 public import QuaternionicComputing.Simulation.Scheduled
 public import QuaternionicComputing.Simulation.OrderingWitness
+public import QuaternionicComputing.Simulation.CompiledResources
+public import QuaternionicComputing.Simulation.Postprocessing
 
 /-!
 # Quaternionic Computing
@@ -35,4 +38,9 @@ quaternion-to-real corollary.  The ordering layer adds corrected Kronecker
 interchange hypotheses, certified legal schedules, an explicit commuting-gate
 independence theorem, scheduled exact simulation, and a disjoint locally
 unitary witness whose two legal orders have different observable outcomes.
+The resource layer gives support-certified depth, dense-description slot
+counts, factorial unconstrained schedules, conditional exact primitive
+compilation, and preservation under arbitrary finite events and deterministic
+postprocessing, while keeping encoding, runtime, synthesis existence, and
+complexity-class claims outside the unconditional API.
 -/
