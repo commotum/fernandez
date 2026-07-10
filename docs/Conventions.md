@@ -19,21 +19,22 @@ the paper's prose or notation is ambiguous.
 
 ## Quaternionic scalar side
 
-Quaternionic column vectors are treated as **right modules**.  For a vector
-`ψ : ι → ℍ[ℝ]` and scalar `q`, right scaling means the pointwise vector
+Quaternionic column vectors are treated as **right modules**.  Lean represents
+this as a left module over the opposite ring `ℍᵐᵒᵖ`; with
+`open scoped RightActions`, `ψ <• q` is the pointwise vector
 `i ↦ ψ i * q`.  A quaternionic matrix acts from the left and therefore respects
-right scaling by associativity:
+right scaling by associativity.  This is exposed by
+`Matrix.mulVecBilin ℍ ℍᵐᵒᵖ`:
 
 ```text
 A *ᵥ (ψ · q) = (A *ᵥ ψ) · q.
 ```
 
 Consequently, equality up to global quaternionic phase is represented using a
-unit quaternion on the **right**, `ψ = ψ' · q`.  The paper places the phase on
+unit quaternion on the **right**, `ψ = ψ' <• q`.  The paper places the phase on
 the left in Equation (45); that relation is not preserved by arbitrary left
 matrix evolution and is corrected here.  Lean's ordinary `SMul` notation is not
-silently reused for this right action; the library will give it a named
-operation or an explicit opposite-ring formulation.
+silently confused with ordinary left scalar action.
 
 ## Conjugation and adjoints
 
@@ -68,11 +69,10 @@ and the quaternion-to-complex representation is
 q = z + w j ↦ [[z, w], [-conj w, conj z]].
 ```
 
-Matrix embeddings will first map each source entry to its `2 × 2` scalar
-matrix, flatten the matrix of blocks, and then reindex so the added two-level
-coordinate is the leading/top coordinate.  The exact Lean index type selected
-by the Stage 1 API probes must have a documented equivalence to this semantic
-ordering.
+Matrix embeddings use `Matrix.fromBlocks`, so an index `ι` is doubled to
+`ι ⊕ ι`.  At the circuit boundary this is reindexed through
+`Equiv.boolProdEquivSum ι` to `Bool × ι`, where the `Bool` is the leading/top
+two-level coordinate.
 
 ## States, phases, and measurements
 
@@ -102,7 +102,9 @@ for the paper's computational claim.
 - A later DAG/topological-sort layer may produce such lists, but it will not be
   required to prove the algebraic embedding theorem.
 - A local gate is lifted to global basis states by restricting bit assignments
-  to its support and requiring equality off that support.
+  to its support and requiring equality off that support.  Concretely, a split
+  equivalence identifies the full basis with `local × rest`, forms
+  `U ⊗ₖ 1`, and reindexes back.
 - Quaternionic placement will not rely on the commutative Kronecker interchange
   identity.  Permutations and contextual padding use only `0`, `1`, and explicit
   index equivalences, with multiplication order visible in definitions.
@@ -112,8 +114,7 @@ for the paper's computational claim.
 ## Dimensions and empty types
 
 An `N × N` source matrix embeds into a `2N × 2N` target matrix, represented by a
-product or sum index rather than informal arithmetic on dimensions.  Circuit
+sum index rather than informal arithmetic on dimensions.  Circuit
 basis types are nonempty even for zero wires.  General matrix lemmas may retain
 empty index types when true; determinant/group claims will state any required
 `Nonempty` assumptions explicitly.
-

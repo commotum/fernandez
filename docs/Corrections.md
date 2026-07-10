@@ -248,3 +248,71 @@ means the corrected mathematical target is known but not yet formalized;
   explicit encoding and primitive-gate model.
 - **Dependents:** Theorems 2/4 as complexity claims, Section 5, and conclusions.
 
+## C-020 — Theorem 3 also omits determinant one
+
+- **Source:** proof of Theorem 3, lines 273–320.
+- **Status:** confirmed proof gap; open proof obligation.
+- **Diagnosis:** the proof concludes after showing `h(U)ᵀ = h(U)⁻¹`.  This is
+  orthogonality, not membership in the special orthogonal group; `det = 1` is
+  never established.  The intended stronger result is true via
+  `detℝ h(A) = |detℂ A|²`, but that identity still requires proof.
+- **Repair:** first prove the orthogonal image used by simulation, then prove
+  the determinant identity and special-orthogonal refinement independently.
+- **Lean declaration:** to be assigned in Stage 3.
+- **Dependents:** Theorem 3's final codomain only; Theorem 2 needs orthogonality,
+  not determinant one.
+
+## C-021 — State-intertwining proofs are dimensionally ill-typed
+
+- **Source:** proofs of Lemmas 4 and 9, lines 507–558 and 1021–1073.
+- **Status:** confirmed derivation error; corrected statements remain viable.
+- **Diagnosis:** the derivations apply encoding columns `T₀/T₁` to already
+  encoded vectors such as `Ψ₀`, and let an `N × N` source matrix act where a
+  `2N`-vector is shown.  Several hats, subscripts, and signs also change.  These
+  products cannot all be typed as written.
+- **Repair:** prove the correctly typed componentwise statements
+  `h(U) (h₀ ψ) = h₀ (Uψ)` and
+  `ĥ(Q) (ĥ₀ ψ) = ĥ₀ (Qψ)`, plus their second-column analogues.
+- **Lean declaration:** to be assigned in Stage 4.
+- **Dependents:** Lemmas 4/9, Lemmas 5/10, and both central simulations.
+
+## C-022 — Lemma 8 is asserted by analogy without its critical proof
+
+- **Source:** lines 967–980.
+- **Status:** confirmed proof omission.
+- **Diagnosis:** multiplicativity of `ĥ` handles ordered composition only after
+  each local quaternionic gate's contextual placement is shown to map to the
+  claimed target placement.  The paper calls the construction “purely formal”
+  and supplies no quaternionic padding/naturality proof, even though
+  noncommutative tensor behavior is the central hazard.
+- **Repair:** define local placement by support equivalences, Kronecker with an
+  identity, and reindexing; prove embedding compatibility under the exact
+  central-entry hypotheses before list induction.
+- **Lean declaration:** to be assigned in Stages 5–6.
+- **Dependents:** Lemma 8 and Theorem 4.
+
+## C-023 — “Any Hilbert space” is insufficient for circuit semantics
+
+- **Source:** line 61 and the transition to quaternionic circuits.
+- **Status:** confirmed overgeneralization.
+- **Diagnosis:** an inner product and linear structure give single-system state
+  evolution and weights, but not automatically a coherent subsystem tensor
+  product, local gate embedding, or order-independent parallel composition.
+  The paper's own Equation (46) demonstrates the missing structure.
+- **Repair:** formalize only explicitly constructed finite state spaces and
+  local-placement semantics; document which circuit laws require commutative
+  or central coefficients.
+- **Dependents:** model-soundness prose and Definitions 4–5.
+
+## C-024 — Algebraic exactness conflicts with finite-precision descriptions
+
+- **Source:** Theorems 2/4 and footnote 6 at line 1292.
+- **Status:** confirmed scope ambiguity.
+- **Diagnosis:** the main theorems repeatedly say “exact,” while the footnote
+  says gate matrices supplied to the simulator are finite-precision
+  approximations.  Exact equality of abstract matrices and approximate,
+  effectively encoded circuit compilation are different results.
+- **Repair:** prove exact algebraic translations for exact input matrices.
+  Treat approximation error, computable encodings, and uniform compilation as
+  separate resource-stage obligations.
+- **Dependents:** Theorems 2/4, preprocessing bounds, and BQP conclusions.

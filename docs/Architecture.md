@@ -39,19 +39,21 @@ resources.  Generic modules must not import paper-specific wrappers.
 
 ## Embedding implementation
 
-The preferred implementation is a scalar ring homomorphism into `2 × 2`
-matrices, followed by mathlib's entrywise matrix map and `Matrix.compRingEquiv`
-to flatten a matrix of blocks.  A final `Matrix.reindexRingEquiv` puts the added
-two-level coordinate first.  This architecture gives multiplication and
-identity preservation compositionally rather than by repeating block sums.
+The canonical embedding definitions use `Matrix.fromBlocks` on sum indices.
+This matches the paper's displayed matrices exactly, keeps the added sectors
+visible, and lets multiplication and adjoint proofs use
+`Matrix.fromBlocks_multiply` and `Matrix.fromBlocks_conjTranspose`, both valid
+over noncommutative coefficient rings where applicable.
 
-The scalar maps still receive direct entry-level theorems and concrete sign
-tests.  Star/adjoint compatibility is a separate proof obligation; it is not
-assumed merely because the map is a ring homomorphism.
+For square matrices, the proved maps can then be bundled as ring or
+`ℝ`-algebra homomorphisms.  At the circuit boundary,
+`Matrix.reindexRingEquiv` and `Equiv.boolProdEquivSum` convert `ι ⊕ ι` to
+`Bool × ι`, making the added top wire explicit without burdening scalar/matrix
+proofs with wire encodings.
 
-`Matrix.fromBlocks` remains useful for readable source-facing characterizations
-of the same maps.  Equivalence between block and flattened forms should be
-proved once.
+Scalar component maps still receive direct entry-level theorems and concrete
+sign tests.  Star/adjoint compatibility is a separate proof obligation; it is
+not assumed merely from multiplicativity.
 
 ## State implementation
 
@@ -77,10 +79,17 @@ The minimum circuit layer stores:
 - a square local matrix plus its validity proof where required;
 - an ordered list of placed gates.
 
-Placement is defined directly on bit-assignment basis indices.  This works over
-noncommutative coefficients and isolates the exact central-entry facts needed
-for permutation/padding lemmas.  The target translation adds one distinguished
-wire shared by all translated gates.
+Circuit bases are `Fin n → Bool`.  A support equivalence splits full bit
+assignments into local and complementary assignments, a local gate is padded as
+`U ⊗ₖ 1`, and `Matrix.reindex` returns it to the full basis.  This construction
+works over quaternion coefficients; its unitarity follows from
+`Matrix.kronecker_mem_unitary` and unitary preservation under reindexing.  The
+target translation adds one distinguished wire shared by all translated gates.
+
+The development must never use `Matrix.mul_kronecker_mul` for quaternionic
+semantics: mathlib correctly requires commutative coefficients for that
+interchange law.  Ordered evaluation remains an explicit list/fold, which is
+precisely where quaternionic order dependence is observable.
 
 The first main theorem is proved by induction over the ordered list.  DAGs and
 topological sorting are an extension layer used to connect the theorem to the
@@ -108,4 +117,3 @@ and unitarity preservation.  They do not require determinant one.  Therefore:
   as corresponding declarations.
 - Release verification includes a downstream import module that imports only
   `QuaternionicComputing`.
-
