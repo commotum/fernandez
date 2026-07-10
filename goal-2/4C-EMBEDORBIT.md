@@ -29,8 +29,21 @@
 - Existing simulations consume `realTopCombination`, `realTopState`, both
   canonical columns, bottom-sector marginal weights, and their matrix-action
   intertwiners. They do not currently consume a named rotation-orbit quotient.
-  Stage 4C must decide from compiling evidence whether a separate relation/type
-  improves those real consumers or would be unused infrastructure.
+  Strict probes now show that a separate relation/type improves those real
+  consumers: both canonical columns and every normalized pure top-rebit
+  encoding occupy one sector orbit, and only the bottom marginal distribution
+  descends through that orbit.
+- `/tmp/Stage4CRotationProbe.lean` and `/tmp/Stage4CScratch.lean` strictly
+  compile the direct sector action, identity/right-composition laws, norm and
+  bottom-weight scaling, normalized rotation, independently proved orbit
+  equivalence, quotient API, normalized decoder, and a canonical
+  `ComplexRay I ≃ RealSectorOrbit I` with no nonempty-index assumption.
+- `/tmp/Stage4CNoDescentProbe.lean` strictly compiles a stronger ordinary-ray
+  boundary than the initial Unit witness: for every normalized complex state,
+  phase `I` gives the same source `ComplexRay` but a different target
+  `RealRay` under either canonical column. For unit `eta`, the target real ray
+  is unchanged exactly when `eta = 1 ∨ eta = -1`; a constructor-compatible
+  canonical-column lift exists exactly when `IsEmpty I`.
 - `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` remain partially
   formalized and not `closedByGoal2` solely because this embedding-orbit
   boundary has not yet been proved and audited.
@@ -43,18 +56,20 @@
 - First prove the phase-to-top-rotation formulas on raw columns and normalized
   state wrappers. These formulas determine every sign and multiplication
   order before an orbit relation is designed.
-- A separate real-sector rotation relation or quotient is permitted only when
-  it has a concrete public consumer: for example, a well-defined map from
-  `ComplexRay`, a bottom-distribution theorem, or a later cross-model
-  simulation wrapper that cannot be stated as clearly without it.
-- If a full orbit quotient is introduced, its relation must be independently
+- Define the real-sector rotation relation directly and quotient it. It has
+  concrete public consumers: a well-defined representation equivalence from
+  `ComplexRay`, equality of the two canonical-column orbit values, arbitrary
+  `realTopState` orbit equality, and a descended bottom distribution. Call the
+  quotient `RealSectorOrbit`, never `RealRay` or `RealificationRay`.
+- The orbit quotient's relation must be independently
   proved reflexive, symmetric, and transitive; it cannot be defined by the
   desired quotient equality. Rotation composition must preserve order and the
   normalization proof must be mathematical rather than proof-irrelevance
   alone.
-- If no separate orbit type is justified, export the general phase-rotation
-  theorem plus a strong no-descent theorem and document why the existing
-  representative-level embeddings and marginal outcomes are the correct API.
+- Export the general phase-rotation theorem and strong no-descent theorem
+  alongside the orbit type. The orbit equivalence is a chosen-sector
+  representation equivalence, not channel equality or computational-model
+  equivalence.
 - Do not treat bottom-distribution equality as target real-ray equality. The
   doubled real sectors are marginalized observations, not erased state data.
 - This stage concerns complex-to-real state realification. It does not yet
@@ -79,12 +94,17 @@ ordinary map from complex rays to real sign rays.
   express those formulas uniformly. Prove its coordinate equations,
   identity/composition behavior, total-weight preservation under unit
   coefficients, and compatibility with the two canonical columns.
-- Decision gate:
-  - if an encoding-orbit relation/type has an immediate proof-bearing
-    consumer, define it in a narrow public leaf, prove equivalence/quotient
-    laws, map `ComplexRay` into it, and prove its bottom-distribution semantics;
-  - otherwise keep the rotation operation/theorems without an unused quotient
-    and explicitly record the omitted construction.
+- Define `RealSectorPhaseEquivalent` from the direct unit action, prove its
+  equivalence laws and decoder characterization, and form `RealSectorOrbit`.
+  Expose the standard constructor/induction/lift interface, normalized decoder,
+  `ComplexRay.realificationOrbit`, its inverse, and the canonical equivalence.
+- Prove both canonical columns and every normalized `realTopState` give the
+  same orbit value. This is the immediate real consumer justifying the
+  quotient rather than speculative infrastructure.
+- Descend only the bottom marginal finite distribution to `RealSectorOrbit`
+  and identify it with `ComplexRay.distribution` under the representation
+  equivalence. Explicitly exclude the full doubled-real basis distribution,
+  which sector rotations generally change.
 - Construct normalized `Unit`-indexed complex states with amplitudes `1` and
   `I`. Prove they are equal after `ComplexRay.mk`, but both canonical
   real-column images are unequal after `RealRay.mk`.
@@ -105,13 +125,18 @@ ordinary map from complex rays to real sign rays.
 
 ## Build Structure
 
-- Expected public leaf: `State/RealificationOrbit.lean` or a more precise
-  name chosen after the decision gate. It imports `State.Realification`, the
-  ray layer required by its statements, and no diagnostic/public umbrella.
-- Optional lower leaf: a sector-rotation core if its algebra is reusable
-  without rays. Avoid editing the high-fanout existing realification file
-  unless the formulas belong there and the dependency cost is justified.
-- Expected non-root leaf: `State/RealificationOrbitAudit.lean`, containing
+- `State/RealificationOrbit.lean`: direct sector action, normalized rotation,
+  independently proved relation, quotient interface, decoders, representation
+  equivalence, and canonical-column/arbitrary-top orbit consumers. It imports
+  the existing representative realification and ray leaves, not diagnostics or
+  the public umbrella.
+- `State/RealificationOrbitObservables.lean`: bottom marginal distribution and
+  its orbit/source-ray bridge. It does not export full target-basis
+  distribution descent.
+- `State/RealificationOrbitBoundary.lean`: exact `±1` ordinary-real-ray
+  survival classification and constructor-compatible lift-existence iff
+  `IsEmpty I` for both canonical columns.
+- `State/RealificationOrbitAudit.lean`: non-root complete consumers, containing
   complete aggregate consumers, concrete `1`/`I` diagnostics, and local axiom
   prints.
 - Focused builds target each new leaf. Adjacent builds include
@@ -161,7 +186,8 @@ ordinary map from complex rays to real sign rays.
   map.
 - Any exported orbit relation/type has equivalence laws, a real consumer,
   correct bottom-observation semantics, and explicit same-/cross-space axes.
-  If omitted, the omission and its mathematical replacement are documented.
+  The canonical equivalence is documented as a representation equivalence,
+  not a model/channel equivalence.
 - A non-root audit consumes every stable declaration and the public root
   imports no diagnostic leaf.
 - Both transferred ray rows have proof-bearing quotient, operation-descent,

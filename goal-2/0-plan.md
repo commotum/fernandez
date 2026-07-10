@@ -217,6 +217,15 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   and the quaternionic diagnostic retains the noncommutative order `V * U`.
   The two transferred rows remain open only until the Stage 4C
   embedding-orbit boundary is complete.
+- Stage 4C strict probes determine that complex right phase becomes the direct
+  doubled-real sector action
+  `(x,y) ↦ (re(eta)*x + im(eta)*y, -im(eta)*x + re(eta)*y)`.
+  Its independently defined unit orbit is an equivalence relation whose
+  quotient is canonically equivalent to `ComplexRay`, with both canonical
+  columns, arbitrary pure top rebits, and bottom marginal distributions as
+  real consumers. Ordinary `RealRay` is strictly finer: either canonical
+  column assignment descends from `ComplexRay I` exactly in the vacuous
+  `IsEmpty I` case, while unit phases survive as real signs exactly at `±1`.
 
 ## Inventory and Manifest Policy
 
