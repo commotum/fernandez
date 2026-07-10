@@ -194,6 +194,12 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   equivalent, while the explicit `j` witness is not a central sign. The 101
   Stage 3C declarations have 11 complete diagnostic consumers and 13 direct
   root-audit targets; no quaternionic channel claim is made.
+- Stage 4A strict probes validate explicit normalized-state setoids and plain
+  quotient types for real signs, complex unit right phases, and quaternionic
+  unit right phases. Constructor equality, representative induction/lifting,
+  and `Nonempty (Ray I) ↔ Nonempty I` all compile. The tracked implementation
+  remains the active `4A-QUOTIENTS` milestone; no source row is closed by the
+  probe alone.
 
 ## Inventory and Manifest Policy
 
