@@ -105,9 +105,10 @@ theorem iThenJGroundOutputColumn_basis00 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [jGate_denote_apply, iGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 /-- Chronological `j` then `i` gives the same real amplitude `9/25` at `|00⟩`. -/
@@ -121,9 +122,10 @@ theorem jThenIGroundOutputColumn_basis00 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 /-- Chronological `i` then `j` gives `(12/25)j` at `|01⟩`. -/
@@ -137,9 +139,10 @@ theorem iThenJGroundOutputColumn_basis01 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [jGate_denote_apply, iGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 /-- Chronological `j` then `i` gives the same `(12/25)j` amplitude at `|01⟩`. -/
@@ -153,9 +156,10 @@ theorem jThenIGroundOutputColumn_basis01 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 /-- Chronological `i` then `j` gives `(12/25)i` at `|10⟩`. -/
@@ -169,9 +173,10 @@ theorem iThenJGroundOutputColumn_basis10 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [jGate_denote_apply, iGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 /-- Chronological `j` then `i` gives the same `(12/25)i` amplitude at `|10⟩`. -/
@@ -185,9 +190,10 @@ theorem jThenIGroundOutputColumn_basis10 :
   rw [← Matrix.mulVec_mulVec]
   simp only [Matrix.mulVec, dotProduct]
   simp_rw [sum_bitBasisBool]
-  simp [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer, jMixer,
-    boolMixer, basis00, basis01, basis10, basis11, mixerDiagonal,
-    mixerOffDiagonal]
+  simp only [iGate_denote_apply, jGate_denote_apply, groundColumn, iMixer,
+    jMixer, boolMixer, basis00, basis01, basis10, basis11, basis,
+    mixerDiagonal, mixerOffDiagonal, mul_one, mul_zero, mul_ite, ite_mul,
+    zero_mul, ↓reduceIte]
   ext <;> norm_num
 
 private theorem iThenJ_ground_scalar_calculation :
@@ -263,6 +269,59 @@ theorem ground_output_basis11_weights_eq :
   rw [iThenJGroundOutputColumn_basis11_weight,
     jThenIGroundOutputColumn_basis11_weight]
 
+/-- Every computational-basis weight agrees between the two raw output columns. -/
+theorem ground_output_basis_weights_eq (x : BitBasis Bool) :
+    quaternionBasisWeight iThenJGroundOutputColumn x =
+      quaternionBasisWeight jThenIGroundOutputColumn x := by
+  obtain ⟨⟨x0, x1⟩, rfl⟩ := pairToBasis.surjective x
+  change _root_.Quaternion.normSq
+      (iThenJGroundOutputColumn (basis x0 x1)) =
+    _root_.Quaternion.normSq
+      (jThenIGroundOutputColumn (basis x0 x1))
+  cases x0 <;> cases x1
+  · rw [show basis false false = basis00 by rfl,
+      iThenJGroundOutputColumn_basis00, jThenIGroundOutputColumn_basis00]
+  · rw [show basis false true = basis01 by rfl,
+      iThenJGroundOutputColumn_basis01, jThenIGroundOutputColumn_basis01]
+  · rw [show basis true false = basis10 by rfl,
+      iThenJGroundOutputColumn_basis10, jThenIGroundOutputColumn_basis10]
+  · rw [show basis true true = basis11 by rfl,
+      iThenJGroundOutputColumn_basis11, jThenIGroundOutputColumn_basis11]
+    norm_num [_root_.Quaternion.normSq_def']
+
+/--
+The raw output columns are inequivalent even under the physically coherent
+unit quaternionic right-phase relation.
+
+The common nonzero `|00⟩` amplitude forces a putative right phase to be `1`;
+the opposite `|11⟩` amplitudes then contradict equality.
+-/
+theorem ground_output_columns_not_rightPhaseEquivalent :
+    ¬RightPhaseEquivalent
+      iThenJGroundOutputColumn jThenIGroundOutputColumn := by
+  rintro ⟨η, _, hη⟩
+  have h00 := congrFun hη basis00
+  have h11 := congrFun hη basis11
+  change iThenJGroundOutputColumn basis00 =
+    jThenIGroundOutputColumn basis00 * η at h00
+  change iThenJGroundOutputColumn basis11 =
+    jThenIGroundOutputColumn basis11 * η at h11
+  rw [iThenJGroundOutputColumn_basis00,
+    jThenIGroundOutputColumn_basis00] at h00
+  rw [iThenJGroundOutputColumn_basis11,
+    jThenIGroundOutputColumn_basis11] at h11
+  have hre := congrArg (fun q : ℍ[ℝ] ↦ q.re) h00
+  have himI := congrArg (fun q : ℍ[ℝ] ↦ q.imI) h00
+  have himJ := congrArg (fun q : ℍ[ℝ] ↦ q.imJ) h00
+  have himK := congrArg (fun q : ℍ[ℝ] ↦ q.imK) h00
+  have hη_one : η = 1 := by
+    norm_num at hre himI himJ himK
+    ext <;> assumption
+  subst η
+  simp only [mul_one] at h11
+  have hcontradiction := congrArg (fun q : ℍ[ℝ] ↦ q.imK) h11
+  norm_num at hcontradiction
+
 /-! ## Bundled normalized output states -/
 
 /--
@@ -287,6 +346,48 @@ def jThenIGroundOutput : QuaternionState (BitBasis Bool) :=
       simpa [LegalSchedule.scheduledEval] using
         OrderedCircuit.eval_mem_unitary jThenI_locallyUnitary)
 
+/-- The bundled `i`-then-`j` output has amplitude `9/25` at `|00⟩`. -/
+@[simp]
+theorem iThenJGroundOutput_basis00 :
+    iThenJGroundOutput basis00 =
+      (⟨9 / 25, 0, 0, 0⟩ : ℍ[ℝ]) :=
+  iThenJGroundOutputColumn_basis00
+
+/-- The bundled `j`-then-`i` output has the same amplitude `9/25` at `|00⟩`. -/
+@[simp]
+theorem jThenIGroundOutput_basis00 :
+    jThenIGroundOutput basis00 =
+      (⟨9 / 25, 0, 0, 0⟩ : ℍ[ℝ]) :=
+  jThenIGroundOutputColumn_basis00
+
+/-- The bundled `i`-then-`j` output has amplitude `(12/25)j` at `|01⟩`. -/
+@[simp]
+theorem iThenJGroundOutput_basis01 :
+    iThenJGroundOutput basis01 =
+      (⟨0, 0, 12 / 25, 0⟩ : ℍ[ℝ]) :=
+  iThenJGroundOutputColumn_basis01
+
+/-- The bundled `j`-then-`i` output has the same amplitude `(12/25)j` at `|01⟩`. -/
+@[simp]
+theorem jThenIGroundOutput_basis01 :
+    jThenIGroundOutput basis01 =
+      (⟨0, 0, 12 / 25, 0⟩ : ℍ[ℝ]) :=
+  jThenIGroundOutputColumn_basis01
+
+/-- The bundled `i`-then-`j` output has amplitude `(12/25)i` at `|10⟩`. -/
+@[simp]
+theorem iThenJGroundOutput_basis10 :
+    iThenJGroundOutput basis10 =
+      (⟨0, 12 / 25, 0, 0⟩ : ℍ[ℝ]) :=
+  iThenJGroundOutputColumn_basis10
+
+/-- The bundled `j`-then-`i` output has the same amplitude `(12/25)i` at `|10⟩`. -/
+@[simp]
+theorem jThenIGroundOutput_basis10 :
+    jThenIGroundOutput basis10 =
+      (⟨0, 12 / 25, 0, 0⟩ : ℍ[ℝ]) :=
+  jThenIGroundOutputColumn_basis10
+
 /-- The bundled `i`-then-`j` output has amplitude `-(16/25)k` at `|11⟩`. -/
 @[simp]
 theorem iThenJGroundOutput_basis11 :
@@ -308,6 +409,13 @@ theorem ground_outputs_ne :
   apply ground_output_columns_ne
   exact congrArg Subtype.val h
 
+/-- The bundled normalized outputs are not equivalent up to unit right phase. -/
+theorem ground_outputs_not_rightPhaseEquivalent :
+    ¬RightPhaseEquivalent
+      (iThenJGroundOutput : BitBasis Bool → ℍ[ℝ])
+      (jThenIGroundOutput : BitBasis Bool → ℍ[ℝ]) :=
+  ground_output_columns_not_rightPhaseEquivalent
+
 /--
 The unequal bundled output states nevertheless have equal computational-basis
 weight at the separating coordinate `|11⟩`.
@@ -316,5 +424,11 @@ theorem ground_outputs_basis11_weights_eq :
     quaternionBasisWeight iThenJGroundOutput basis11 =
       quaternionBasisWeight jThenIGroundOutput basis11 :=
   ground_output_basis11_weights_eq
+
+/-- Every computational-basis weight agrees between the bundled output states. -/
+theorem ground_outputs_basis_weights_eq (x : BitBasis Bool) :
+    quaternionBasisWeight iThenJGroundOutput x =
+      quaternionBasisWeight jThenIGroundOutput x :=
+  ground_output_basis_weights_eq x
 
 end QuaternionicComputing.Circuit.ProductInputOrderingWitness

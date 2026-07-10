@@ -22,10 +22,10 @@ entanglement-generation, or cryptographic-security theorem.
 
 @[expose] public noncomputable section
 
-namespace QuaternionicComputing.State
+namespace QuaternionicComputing.Simulation
 
 open QuaternionicComputing.Circuit
-open QuaternionicComputing.Simulation
+open QuaternionicComputing.State
 
 universe u v
 
@@ -75,7 +75,7 @@ def IsPureTopBottomProduct {R : Type v} {W : Type u} [Mul R]
       column (topBottomAssignment top bottom) =
         topFactor top * bottomFactor bottom
 
-namespace EntanglementWitness
+namespace NonProductWitness
 
 /-! ## One bottom wire and the normalized complex source state -/
 
@@ -221,6 +221,6 @@ theorem encodedState_not_pureTopBottomProduct :
     ¬ IsPureTopBottomProduct (fun x ↦ encodedState x) := by
   simpa only [encodedState_apply] using encodedColumn_not_pureTopBottomProduct
 
-end EntanglementWitness
+end NonProductWitness
 
-end QuaternionicComputing.State
+end QuaternionicComputing.Simulation

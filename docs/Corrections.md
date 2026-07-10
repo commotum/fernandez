@@ -517,3 +517,65 @@ means the corrected mathematical target is known but not yet formalized;
   `ExactGateCompiler.eval_compileCircuit` mark the exact side of the boundary;
   no approximation declaration is introduced.
 - **Dependents:** Theorems 2/4, preprocessing bounds, and BQP conclusions.
+
+## C-025 — Equation 63 is an embedding, not an isomorphism onto `SO(4N)`
+
+- **Source:** Equation 63 and the sentence following it, lines 1208–1221.
+- **Status:** coordinate formula verified; group statement corrected and
+  proved, including explicit properness at quaternionic rank one.
+- **Diagnosis:** the displayed `4 × 4` scalar formula is mathematically sound,
+  but its coordinate order is not the nested sum order produced literally by
+  first complexifying and then realifying.  More importantly, the paper says
+  that the formula induces a group isomorphism from `Sp(N)` “to `SO(4N)`.”
+  Read as surjectivity onto the whole special orthogonal group, this is false;
+  the map is an injective homomorphism and hence an isomorphism only onto its
+  image.
+- **Repair:** use the transparent sector order `[Re, ImI, ImK, ImJ]` and prove
+  all 16 displayed entries.  The resulting `directRealify` is exactly
+  `realify (complexify A)` after applying the same pure sector permutation
+  `[3,1,0,2]` to rows and columns; no additional basis signs occur.  The map is
+  injective, multiplicative, adjoint-preserving, and sends quaternionic
+  unitaries to `SO(4N)` with determinant one.  The induced unitary-group map is
+  explicitly equivalent to its image.  Finally,
+  `diag(-1,-1,1,1)` in the paper-sector order lies in `SO(4)` but cannot be the
+  direct realification of any quaternionic `1 × 1` matrix, because all four
+  direct-image diagonal coordinates would have to equal the same real part.
+- **Lean declarations:** `Quaternion.card_directRealIndex`,
+  `Quaternion.directRealify`, its 16 `directRealify_*_*` coordinate lemmas,
+  `directRealify_eq_reindex`, `directRealify_mul`,
+  `directRealify_conjTranspose`, `directRealify_injective`,
+  `directRealify_mem_specialOrthogonal`,
+  `directRealifyUnitaryEquivImage`, and
+  `Matrix.ProperImage.directWitness_specialOrthogonal_not_directRealify`.
+- **Dependents:** the optional direct proof of Corollary 1, the converse/image
+  discussion, and the interpretation of the two added real sectors.
+
+## C-026 — Ground-state “without loss of generality” hides preparation assumptions
+
+- **Source:** algorithm convention at line 59 and the basis-input
+  specialization at line 561.
+- **Status:** ambiguity confirmed; the known computational-basis case is
+  corrected and proved, while no uniform arbitrary-state preparation claim is
+  used.
+- **Diagnosis:** replacing an arbitrary pure input by the all-zero input can
+  mean several different things: existence of a unitary carrying the ground
+  vector to a fixed known state, an exact gate decomposition for that unitary,
+  or a uniform efficient procedure from a finite state description.  The
+  source does not distinguish these levels.  Its later simulation argument
+  only needs a classically known computational-basis input, and the library's
+  central state-evolution theorems already quantify over arbitrary source
+  columns directly.
+- **Repair:** for any known finite basis assignment `b`, XOR by `b` is packaged
+  as a full-support permutation gate.  It is locally and globally unitary,
+  sends the all-zero basis column exactly to `b`, and may be prepended to an
+  ordered circuit with the expected chronological semantics.  This proves the
+  finite basis-input reduction actually used by the paper, but does not claim
+  preparation of an unknown state, primitive synthesis, a discrete input
+  language, or uniform runtime.
+- **Lean declarations:** `Circuit.groundBasis`, `xorBasisEquiv`,
+  `basisPreparationMatrix_mem_unitary`,
+  `basisPreparationGate_mulVec_ground`, and
+  `eval_prepend_basisPreparation_mulVec_ground`.
+- **Dependents:** the input convention in Definitions 2 and 5 and all resource
+  or uniformity interpretations of state preparation; the central exact
+  simulation theorems themselves do not require this reduction.
