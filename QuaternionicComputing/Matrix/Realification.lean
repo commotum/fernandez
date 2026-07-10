@@ -19,6 +19,8 @@ identity matrix require the usual finite/square hypotheses.
 
 @[expose] public noncomputable section
 
+open scoped Matrix
+
 namespace QuaternionicComputing.Matrix
 
 variable {m n p : Type*}
@@ -131,7 +133,9 @@ theorem realify_zero :
 @[simp]
 theorem realify_add (A B : _root_.Matrix m n ℂ) :
     realify (A + B) = realify A + realify B := by
-  ext (i | i) (j | j) <;> simp <;> ring
+  ext (i | i) (j | j)
+  all_goals simp
+  all_goals ring
 
 @[simp]
 theorem realify_neg (A : _root_.Matrix m n ℂ) :
@@ -141,7 +145,9 @@ theorem realify_neg (A : _root_.Matrix m n ℂ) :
 @[simp]
 theorem realify_sub (A B : _root_.Matrix m n ℂ) :
     realify (A - B) = realify A - realify B := by
-  ext (i | i) (j | j) <;> simp <;> ring
+  ext (i | i) (j | j)
+  all_goals simp
+  all_goals ring
 
 @[simp]
 theorem realify_real_smul (r : ℝ) (A : _root_.Matrix m n ℂ) :
@@ -149,7 +155,7 @@ theorem realify_real_smul (r : ℝ) (A : _root_.Matrix m n ℂ) :
   ext (i | i) (j | j) <;> simp
 
 /-- Equality of complex matrices is detected by their real and imaginary parts. -/
-theorem eq_iff_parts_eq {A B : _root_.Matrix m n ℂ} :
+theorem eq_iff_realPart_eq_and_imagPart_eq {A B : _root_.Matrix m n ℂ} :
     A = B ↔ realPart A = realPart B ∧ imagPart A = imagPart B := by
   constructor
   · rintro rfl
@@ -165,7 +171,7 @@ theorem realify_injective :
     Function.Injective (realify : _root_.Matrix m n ℂ →
       _root_.Matrix (m ⊕ m) (n ⊕ n) ℝ) := by
   intro A B h
-  apply eq_iff_parts_eq.mpr
+  apply eq_iff_realPart_eq_and_imagPart_eq.mpr
   constructor
   · exact congrArg _root_.Matrix.toBlocks₁₁ h
   · exact congrArg _root_.Matrix.toBlocks₁₂ h
@@ -198,19 +204,21 @@ theorem realify_mul [Fintype n] (A : _root_.Matrix m n ℂ)
     realify (A * B) = realify A * realify B := by
   rw [realify, realify, realify, _root_.Matrix.fromBlocks_multiply]
   simp only [realPart_mul, imagPart_mul]
-  congr <;> simp [_root_.Matrix.neg_mul, _root_.Matrix.mul_neg, sub_eq_add_neg] <;> abel
+  congr
+  all_goals simp [_root_.Matrix.neg_mul, _root_.Matrix.mul_neg, sub_eq_add_neg]
+  all_goals abel
 
 @[simp]
 theorem realPart_one [DecidableEq n] :
     realPart (1 : _root_.Matrix n n ℂ) = 1 := by
   ext i j
-  simp [realPart, _root_.Matrix.one_apply]
+  by_cases h : i = j <;> simp [realPart, _root_.Matrix.one_apply, h]
 
 @[simp]
 theorem imagPart_one [DecidableEq n] :
     imagPart (1 : _root_.Matrix n n ℂ) = 0 := by
   ext i j
-  simp [imagPart, _root_.Matrix.one_apply]
+  by_cases h : i = j <;> simp [imagPart, h]
 
 /-- Realification sends the complex identity matrix to the doubled real identity. -/
 @[simp]
@@ -239,7 +247,8 @@ theorem realify_conjTranspose (A : _root_.Matrix m n ℂ) :
   rw [realify, realify, _root_.Matrix.fromBlocks_transpose]
   simp only [realPart_conjTranspose, imagPart_conjTranspose,
     _root_.Matrix.transpose_neg]
-  congr <;> abel
+  congr
+  all_goals abel
 
 /--
 The vector convention compatible with the paper's matrix signs: a complex
@@ -264,10 +273,21 @@ theorem realify_mulVec [Fintype n] (A : _root_.Matrix m n ℂ) (v : n → ℂ) :
   ext (i | i)
   · simp [realify, realifyVec, _root_.Matrix.mulVec, dotProduct,
       Complex.mul_re, Finset.sum_sub_distrib]
+    abel
   · simp [realify, realifyVec, _root_.Matrix.mulVec, dotProduct,
       Complex.mul_im, Finset.sum_add_distrib]
 
 /-! Exact scalar-matrix checks fixing the signs and sector order. -/
+
+/-- The scalar `I`, viewed as a `1 × 1` matrix, has the advertised real block form. -/
+theorem realify_I_scalar :
+    realify (fun _ _ : Fin 1 ↦ Complex.I) =
+      _root_.Matrix.fromBlocks
+        (0 : _root_.Matrix (Fin 1) (Fin 1) ℝ)
+        (1 : _root_.Matrix (Fin 1) (Fin 1) ℝ)
+        (-1 : _root_.Matrix (Fin 1) (Fin 1) ℝ)
+        (0 : _root_.Matrix (Fin 1) (Fin 1) ℝ) := by
+  ext (i | i) (j | j) <;> simp [Fin.eq_zero]
 
 example :
     realify (fun _ _ : Fin 1 ↦ Complex.I) (Sum.inl 0) (Sum.inr 0) = 1 := by

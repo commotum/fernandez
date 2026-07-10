@@ -276,6 +276,33 @@ theorem complexify_mulVec {m n : Type*} [Fintype n]
           (complexPartMatrix A).map star *ᵥ (x ∘ Sum.inr)) := by
   exact Matrix.fromBlocks_mulVec _ _ _ _ x
 
+/--
+The skew block matrix used to characterize the image of complexification.
+
+This is the same block convention as mathlib's `Matrix.J`; it is defined here
+to keep the basic embedding leaf independent of the heavier symplectic-group
+module.
+-/
+def complexificationJ (n : Type*) [DecidableEq n] :
+    Matrix (n ⊕ n) (n ⊕ n) ℂ :=
+  Matrix.fromBlocks 0 (-1) 1 0
+
+/--
+Every complexified quaternionic matrix intertwines entrywise conjugation with
+the canonical skew block matrix.
+-/
+theorem complexify_mul_complexificationJ {m n : Type*}
+    [Fintype m] [Fintype n] [DecidableEq m] [DecidableEq n]
+    (A : Matrix m n ℍ[ℝ]) :
+    complexify A * complexificationJ n =
+      complexificationJ m * (complexify A).map star := by
+  rw [complexificationJ, complexificationJ, complexify, Matrix.fromBlocks_map,
+    Matrix.fromBlocks_multiply, Matrix.fromBlocks_multiply, Matrix.fromBlocks_inj]
+  simp only [Matrix.mul_zero, Matrix.mul_one, zero_add, RCLike.star_def,
+    Matrix.zero_mul, Matrix.neg_mul, Matrix.one_mul, Matrix.mul_neg, add_zero,
+    Matrix.map_map, neg_inj, neg_neg, and_self, and_true]
+  constructor <;> ext i j <;> simp
+
 /-- Complexification as an injective ring homomorphism on square finite matrices. -/
 def complexifyRingHom (n : Type*) [Fintype n] [DecidableEq n] :
     Matrix n n ℍ[ℝ] →+* Matrix (n ⊕ n) (n ⊕ n) ℂ where
