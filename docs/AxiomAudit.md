@@ -22,6 +22,10 @@ endpoints from every public layer:
   weights, deterministic pushforwards, unitary evolution, locally-unitary
   circuit evolution, exact identity/composition laws, and representative-phase
   iff quotient-equality bridges;
+- complex-to-real sector action and normalized orbit equivalence, descended
+  bottom marginal distribution, canonical-column and arbitrary-pure-top orbit
+  consumers, the exact `±1` ordinary-real-ray boundary, and empty/nonempty
+  no-lift classification;
 - real/complex global operator phase, input-column phase, output-row phase,
   projective action, evaluator-backed circuit relations, and their sided
   composition and measurement implications;
@@ -72,6 +76,16 @@ semantic bridges, representative computation, matrix and chronological
 composition order, proof-argument irrelevance, and the inhabited zero-wire
 circuit boundary. Its local axiom prints are diagnostic-only. The public-root
 count instead includes 14 independent Stage 4B endpoints.
+
+Stage 4C adds 84 stable declarations split `66 + 10 + 8` across
+`State/RealificationOrbit.lean`, `RealificationOrbitObservables.lean`, and
+`RealificationOrbitBoundary.lean`. The core relation is proved independently,
+the observable leaf descends only the bottom marginal, and the boundary leaf
+proves the exact ordinary-`RealRay` obstruction. **Root closure must replace
+this sentence with the final non-root aggregate/local-print counts, the number
+of independent public-root Stage 4C endpoints, the new total root-command
+count, and the reproduced axiom set after the diagnostic and command list are
+finalized.**
 
 ## Release result
 

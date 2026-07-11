@@ -33,20 +33,31 @@
   consumers: both canonical columns and every normalized pure top-rebit
   encoding occupy one sector orbit, and only the bottom marginal distribution
   descends through that orbit.
-- `/tmp/Stage4CRotationProbe.lean` and `/tmp/Stage4CScratch.lean` strictly
-  compile the direct sector action, identity/right-composition laws, norm and
-  bottom-weight scaling, normalized rotation, independently proved orbit
-  equivalence, quotient API, normalized decoder, and a canonical
-  `ComplexRay I ≃ RealSectorOrbit I` with no nonempty-index assumption.
-- `/tmp/Stage4CNoDescentProbe.lean` strictly compiles a stronger ordinary-ray
-  boundary than the initial Unit witness: for every normalized complex state,
-  phase `I` gives the same source `ComplexRay` but a different target
-  `RealRay` under either canonical column. For unit `eta`, the target real ray
-  is unchanged exactly when `eta = 1 ∨ eta = -1`; a constructor-compatible
-  canonical-column lift exists exactly when `IsEmpty I`.
-- `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` remain partially
-  formalized and not `closedByGoal2` solely because this embedding-orbit
-  boundary has not yet been proved and audited.
+- `State/RealificationOrbit.lean` now exports the 66-declaration core tested by
+  the strict probes: the direct action and its ordered laws, normalized
+  rotations, the independently proved `RealSectorPhaseEquivalent`, its
+  quotient, normalized encoder/decoder equivalence, and
+  `ComplexRay I ≃ RealSectorOrbit I`. Both canonical columns and every
+  normalized pure top-rebit encoding are named consumers.
+- `State/RealificationOrbitObservables.lean` exports ten declarations. It
+  descends exactly the two-sector bottom marginal distribution and proves
+  `ComplexRay.realificationOrbit_distribution`; it does not attach the
+  generally phase-sensitive full doubled-real distribution to the orbit.
+- `State/RealificationOrbitBoundary.lean` exports eight declarations. For
+  either canonical column, a unit phase preserves the ordinary target
+  `RealRay` exactly at `eta = 1 ∨ eta = -1`; phase `I` gives explicit
+  inequality, and a representative-compatible lift from `ComplexRay I` exists
+  exactly when `IsEmpty I`.
+- The combined 84-declaration surface theorem-checks correction C-027: source
+  rays must be formed before asking whether a representative embedding
+  descends. Complex phase becomes a sector rotation, not ordinary real-sign
+  equality. The representative matrix-intertwining and bottom-outcome
+  theorems remain valid and are not weakened by this correction.
+- `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` now have their complete
+  quotient, descended-operation, and embedding-boundary evidence. Their
+  canonical traceability rows are **proved as stated** and recorded
+  `closedByGoal2`; the Stage 4C release gate remains open only for final
+  audit/manifest/root/build evidence.
 
 ## Updated Assumptions
 
@@ -201,4 +212,50 @@ ordinary map from complex rays to real sign rays.
 
 ## Stage Results
 
-- In progress.
+- `State/RealificationOrbit.lean` contributes exactly 66 stable declarations.
+  `realSectorAction` implements
+  `(x,y) ↦ (re(eta)*x + im(eta)*y, -im(eta)*x + re(eta)*y)` and has
+  coordinate, identity, multiplication, source-right-order composition, and
+  `I` quarter-turn laws. The two canonical-column formulas fix the exact top
+  coefficients `(eta.re,-eta.im)` and `(eta.im,eta.re)`, and total squared
+  weight is scaled by `Complex.normSq eta`.
+- Unit actions package as `RealState.sectorRotation`.
+  `RealSectorPhaseEquivalent` is defined directly by existence of a unit
+  action and is proved reflexive, symmetric, and transitive. Decoding with
+  `complexOfRealColumn0` identifies it exactly with complex right phase; it is
+  not defined from quotient equality or from outcomes.
+- `RealSectorOrbit` supplies `mk`, exact constructor equality,
+  representative existence, induction, invariant lifting, and function
+  extensionality. `realColumn0StateEquiv` gives the normalized representative
+  equivalence, while `ComplexRay.realificationOrbit`,
+  `RealSectorOrbit.toComplexRay`, and `complexRayEquivRealSectorOrbit` prove the
+  exact ray/orbit equivalence without a nonempty-index premise.
+- The canonical second column and every `realTopState top psi` give the same
+  orbit as the first column. These are concrete consumers of the orbit rather
+  than speculative quotient infrastructure.
+- `State/RealificationOrbitObservables.lean` contributes exactly ten stable
+  declarations: scalar and unit bottom-weight laws, the normalized
+  representative bottom distribution and phase invariance, quotient descent,
+  both canonical-column bridges, and equality with
+  `ComplexRay.distribution`. Finite events and deterministic postprocessing
+  follow through the existing `FiniteDistribution` API; no full doubled-real
+  distribution descent is claimed.
+- `State/RealificationOrbitBoundary.lean` contributes exactly eight stable
+  declarations. For either canonical column, ordinary real-ray survival is
+  iff the phase is `±1`; `I` is an explicit counterexample. The two no-lift
+  theorems cover every nonempty finite index, and the two iff theorems sharpen
+  the boundary to existence exactly on `IsEmpty I`.
+- Correction C-027 records the source-order issue: physical source values are
+  rays before `h₀` or `h₁` is applied. Neither representative map descends
+  to `RealRay` on a nonempty space; the correct codomain is
+  `RealSectorOrbit`, and only the bottom marginal is invariant. Existing raw
+  state intertwining and bottom-outcome results remain correct.
+- `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` are now **proved as
+  stated** and `closedByGoal2`. This closes only normalized pure-state ray
+  semantics. Mixed top states, generic density/channel claims, and the
+  phase-kickback interpretation remain assigned to Goal 3.
+- **Root closure evidence pending:** record the final non-root audit aggregate
+  allocation and local axiom prints; public-root imports; semantic-manifest
+  total, consumer count, and direct-audit count; focused/adjacent/root/audit
+  build job counts; generated name/consumer validation; exact axiom set; and
+  forbidden-token, boundary, artifact, whitespace, checksum, and diff checks.

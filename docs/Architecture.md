@@ -32,6 +32,9 @@ QuaternionicComputing/
     RayEvolution.lean        unitary and locally-unitary circuit actions on rays
     RayDescentAudit.lean     non-root descent consumers and boundary examples
     Realification.lean       complex → real state columns and outcomes
+    RealificationOrbit.lean  complex phase as doubled-real sector rotation/orbit
+    RealificationOrbitObservables.lean  descended bottom marginal distribution
+    RealificationOrbitBoundary.lean  exact obstruction to ordinary RealRay descent
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
     Distribution.lean        finite events and deterministic pushforwards
@@ -193,10 +196,23 @@ or uncertified circuit is lifted to normalized rays.
 with equality of the corresponding quotient constructors. The non-root
 `State/RayDescentAudit.lean` consumes the complete descent surface and checks
 representatives, chronological order, proof irrelevance, and the zero-wire
-boundary. Stage 4B still introduces no density matrix, effect, channel,
-approximation, or cross-model embedding claim. In particular, a map from a
-source ray to one canonical target ray remains the separate Stage 4C
-embedding-orbit obligation.
+boundary. Stage 4B introduces no density matrix, effect, channel,
+approximation, or cross-model embedding claim.
+
+Stage 4C resolves the separate complex-to-real ray boundary in three narrow
+leaves. `State/RealificationOrbit.lean` defines the direct two-sector action of
+a complex scalar, independently proves the unit-action relation is an
+equivalence, and forms `RealSectorOrbit`. Its encoder and decoder give
+`ComplexRay I ≃ RealSectorOrbit I`; this is a representation equivalence,
+not ordinary real-ray, operator, circuit, or channel equality. The second
+canonical column and every normalized pure `realTopState` are in the same
+orbit as the first. `State/RealificationOrbitObservables.lean` descends only
+the bottom marginal distribution and identifies it with the source complex
+ray distribution. `State/RealificationOrbitBoundary.lean` proves that either
+canonical column survives in `RealRay` exactly for phases `±1`, and that a
+constructor-compatible source-ray-to-ordinary-real-ray lift exists exactly on
+an empty index type. The raw representative intertwining theorems remain the
+correct layer for arbitrary matrices.
 
 Outcome preservation is proved coordinatewise:
 

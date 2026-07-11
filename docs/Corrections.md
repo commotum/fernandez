@@ -605,3 +605,43 @@ means the corrected mathematical target is known but not yet formalized;
 - **Dependents:** the input convention in Definitions 2 and 5 and all resource
   or uniformity interpretations of state preparation; the central exact
   simulation theorems themselves do not require this reduction.
+
+## C-027 — Rays precede representative state embeddings
+
+- **Source:** the state/ray convention at lines 38 and 73–90, followed by the
+  representative maps `h₀,h₁` in Equations (18)–(19), lines 365–393.
+- **Status:** confirmed semantic gap; corrected orbit and exact obstruction
+  proved.
+- **Diagnosis:** the paper first declares physical complex states to be
+  one-dimensional rays, but later applies `h₀` and `h₁` directly to a chosen
+  unit-vector representative and calls the images real states. A map on
+  representatives defines a map on rays only if it is independent of the
+  chosen phase. It is not independent modulo the target's ordinary real sign:
+  multiplying the source by a unit complex phase rotates the two real sectors.
+  For either canonical column, its ordinary `RealRay` is unchanged exactly for
+  the two phases `±1`; phase `I` is an explicit counterexample. On a nonempty
+  finite index type no function `ComplexRay I → RealRay (I ⊕ I)` can satisfy
+  either canonical representative equation for every source representative.
+- **Repair:** define the direct sector action
+  `(x,y) ↦ (re(η)x+im(η)y,-im(η)x+re(η)y)`, prove its unit-orbit
+  relation independently, and quotient normalized doubled-real states as
+  `RealSectorOrbit`. The resulting `complexRayEquivRealSectorOrbit` is the
+  correct phase-invariant representation equivalence. Both canonical columns
+  and every normalized pure top-rebit encoding give the same orbit. Only the
+  bottom marginal distribution descends, and it equals the source complex-ray
+  distribution; the full doubled-real basis distribution generally changes
+  under sector rotation.
+- **Lean declarations:** `State.RealSectorPhaseEquivalent`,
+  `realSectorPhaseEquivalent_iff_decode_rightPhaseEquivalent`,
+  `RealSectorOrbit`, `complexRayEquivRealSectorOrbit`,
+  `ComplexRay.realificationOrbit_distribution`,
+  `realColumn0State_rightPhase_realRay_eq_iff`,
+  `realColumn1State_rightPhase_realRay_eq_iff`, and the two
+  `complexRay_realColumn*_lift_exists_iff_isEmpty` boundary theorems.
+- **Dependents:** `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` now close as proved-as-stated ray definitions
+  with this corrected cross-model boundary. The representative-level
+  `realify_mulVec_realColumn0/1` identities, normalized state wrappers, and
+  decoded bottom-outcome results remain valid. Arbitrary mixed top states,
+  density/channel semantics, and the paper's phase-kickback interpretation are
+  unaffected and remain open in their existing Goal 3 rows.

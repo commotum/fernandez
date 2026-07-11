@@ -122,8 +122,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   relations. Stage 4B descends basis distributions, finite events,
   deterministic postprocessing, supplied unitary evolution, and
   locally-unitary chronological-circuit evolution with exact identity and
-  ordered-composition laws. The cross-model embedding-orbit boundary remains
-  Stage 4C work.
+  ordered-composition laws. Stage 4C now proves that complex phase becomes a
+  doubled-real sector rotation, constructs the correct orbit quotient, and
+  proves the exact obstruction to an ordinary target-`RealRay` map.
 - `FiniteDistribution` packages normalized outcome weights, finite events, and
   deterministic pushforwards. Stage 2 now separates fixed-input
   `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, all-normalized-pure-
@@ -174,8 +175,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   right-phase equivalence on normalized representatives, with exact-to-phase,
   basis-distribution, raw matrix/circuit, and normalized unitary-evolution
   theorems. The normalized `3/5,4/5` left-phase rejection certificate repairs
-  `EQC-001`. Quotient equality and descended operations remain owned by Stage
-  4, so the two transferred ray rows are not yet `closedByGoal2`.
+  `EQC-001`. Stages 4A--4C now supply quotient equality, descended operations,
+  and the corrected embedding-orbit boundary, so the two transferred ray rows
+  are recorded `closedByGoal2` with proof-bearing evidence.
 - Stage 3B now exports eight distinct real/complex global, input-column,
   output-row, and projective-action operator relations plus eight evaluator-
   backed circuit relations. Their equivalence laws, exact/global/measurement
@@ -215,9 +217,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   or arbitrary matrix-to-normalized-ray map appears. Four non-root aggregate
   consumers exercise the exact surface, 14 direct root-audit targets compile,
   and the quaternionic diagnostic retains the noncommutative order `V * U`.
-  The two transferred rows remain open only until the Stage 4C
-  embedding-orbit boundary is complete.
-- Stage 4C strict probes determine that complex right phase becomes the direct
+- Stage 4C exports 84 stable declarations across three narrow leaves: 66 for
+  the rotation/orbit core, ten for bottom marginal observables, and eight for
+  the ordinary-real-ray boundary. Complex right phase becomes the direct
   doubled-real sector action
   `(x,y) ↦ (re(eta)*x + im(eta)*y, -im(eta)*x + re(eta)*y)`.
   Its independently defined unit orbit is an equivalence relation whose
@@ -226,6 +228,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   real consumers. Ordinary `RealRay` is strictly finer: either canonical
   column assignment descends from `ComplexRay I` exactly in the vacuous
   `IsEmpty I` case, while unit phases survive as real signs exactly at `±1`.
+  This proves correction C-027 without disturbing representative-level matrix
+  intertwining or decoded bottom outcomes. `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` are now proved as stated and
+  `closedByGoal2`; phase-kickback, mixed-state, and channel claims remain open.
 
 ## Inventory and Manifest Policy
 

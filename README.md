@@ -44,6 +44,9 @@ import QuaternionicComputing.State.DistributionLaws
 import QuaternionicComputing.State.RayObservables
 import QuaternionicComputing.State.RayEvolution
 import QuaternionicComputing.State.Realification
+import QuaternionicComputing.State.RealificationOrbit
+import QuaternionicComputing.State.RealificationOrbitObservables
+import QuaternionicComputing.State.RealificationOrbitBoundary
 import QuaternionicComputing.State.Complexification
 import QuaternionicComputing.State.Unitary
 import QuaternionicComputing.State.Distribution
@@ -123,7 +126,19 @@ chronological circuits act as well: the empty circuit is the identity and
 zero-wire basis. These operations require explicit finite-index, decidable-
 equality where matrix evolution needs it, unitarity, and local-unitarity
 premises. They do not define arbitrary-matrix evolution, channels, or a
-canonical complex-to-real or quaternion-to-complex target-ray map. Both
+canonical quaternion-to-complex target-ray map. Complex-to-real realification
+has a separate checked boundary: unit complex phase acts on the two real
+sectors by
+`(x,y) ↦ (re(η)x + im(η)y, -im(η)x + re(η)y)`.
+`RealSectorOrbit` quotients normalized doubled-real states by exactly this
+action, and `complexRayEquivRealSectorOrbit` proves it equivalent to
+`ComplexRay`. Both canonical columns and every normalized pure top-rebit
+encoding give the same orbit, whose bottom marginal distribution is exactly
+the source ray distribution. This is not ordinary `RealRay` equality: either
+canonical column preserves the target real ray only for phases `±1`, and a
+representative-compatible `ComplexRay I → RealRay (I ⊕ I)` lift exists only
+in the vacuous `IsEmpty I` case. Thus rays precede representative embeddings;
+the raw column intertwining and decoded bottom outcomes remain valid. Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
 rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite

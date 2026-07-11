@@ -484,6 +484,52 @@ respects an ordinary target-ray quotient. Arbitrary matrix evolution,
 uncertified circuits, density/effect/channel semantics, and cross-model orbit
 maps remain outside this descent API.
 
+## Goal 2 realification sector orbits
+
+Stage 4C uses an explicit coordinate action rather than importing a generic
+projectivization or representation-theory hierarchy. For `eta : ℂ`, the
+doubled real action is
+
+```text
+(x,y) ↦ (eta.re*x + eta.im*y, -eta.im*x + eta.re*y).
+```
+
+The proofs reduce by `Sum`-case extensionality, `Complex.mul_re`,
+`Complex.mul_im`, `Complex.normSq_apply`, and `ring`. Identity and composition
+are literal coordinate identities. Symmetry of the unit orbit uses complex
+conjugation together with `Complex.mul_conj`; transitivity uses
+`Complex.normSq_mul`. The source-right-order theorem records first `theta`,
+then `eta`, as `theta * eta` even though complex multiplication is commutative.
+
+`realSectorAction_realTotalWeight` proves arbitrary-scalar scaling before the
+unit specialization. `RealState.sectorRotation` therefore packages a
+normalized target without proof-irrelevance or a chosen representative.
+Decoding by `complexOfRealColumn0` is a two-sided inverse of first-column
+encoding and intertwines the sector action with complex right multiplication.
+This gives the exact characterization
+
+```text
+RealSectorPhaseEquivalent x y ↔
+  Complex.RightPhaseEquivalent
+    (complexOfRealColumn0 x) (complexOfRealColumn0 y).
+```
+
+`RealSectorOrbit` is then an ordinary `Quotient`, with the same
+`Quotient.eq`, `exists_rep`, `inductionOn`, and `lift` pattern as the scalar
+ray types. The explicit normalized encoder and decoder prove
+`ComplexRay I ≃ RealSectorOrbit I`; no `Quotient.out` or
+`Classical.choose` representative is used for the equivalence.
+
+The observable leaf uses `FiniteDistribution.ext` to descend only
+`bottomRealWeight`, the sum of the two sector weights. Unit rotation preserves
+that sum, while individual doubled-real basis weights generally change. The
+ordinary-`RealRay` boundary instead uses
+`RealRay.mk_eq_mk_iff_eq_or_eq_neg`, injectivity of each canonical column, and
+existence of a nonzero coordinate in a normalized state. It proves phase
+survival iff `±1` and the exact empty-index boundary for a
+representative-compatible lift. These results add no density, effect, channel,
+or arbitrary-matrix ray-action API.
+
 ## Goal 2 quaternionic operator phase
 
 The quaternionic operator layer uses ordinary matrix entries plus the existing

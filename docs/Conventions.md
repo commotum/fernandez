@@ -81,12 +81,25 @@ pushforward by `id` is unchanged, and first `f` then `g` is pushforward by
 `g ∘ f`.
 
 These descended operations do not provide a density matrix, arbitrary effect,
-channel, approximation relation, or embedding into a target ray. In
-particular, complex global phase becomes a rotation of the two real encoding
-columns, and quaternionic right phase mixes the two complex encoding columns;
-neither canonical first-column encoding is silently declared a map into the
-ordinary target ray quotient. That orbit boundary remains a separate Stage 4C
-obligation.
+channel, or approximation relation. Cross-model phase is handled separately.
+For realification, right multiplication by `eta : ℂ` acts on each doubled
+real coordinate pair by
+
+```text
+(x,y) ↦ (eta.re*x + eta.im*y, -eta.im*x + eta.re*y).
+```
+
+For unit `eta` this is the relation defining `RealSectorOrbit`; it is not the
+global-sign relation defining `RealRay`. The canonical equivalence
+`ComplexRay I ≃ RealSectorOrbit I` is a representation equivalence onto the
+correct phase-orbit space. Either individual column survives as the same
+ordinary real ray exactly when `eta = ±1`, and a constructor-compatible map
+from complex rays to ordinary real rays exists only when the index type is
+empty. The bottom marginal distribution, obtained by summing the two sector
+weights over each source coordinate, does descend and equals the source
+complex-ray distribution. The full doubled-real basis distribution generally
+does not. Quaternionic right phase analogously mixes the two complex encoding
+columns, but its cross-model orbit classification remains outside Stage 4C.
 
 ## Operator and circuit phase
 

@@ -324,6 +324,31 @@ target-ray map. Therefore `FER03-D01-REBIT` and
 `closedByGoal2`; only the Stage 4C embedding-orbit boundary remains for those
 transferred rows.
 
+## Stage 4C proof-bearing realization
+
+Stage 4C closes that historical boundary without collapsing cross-space
+representation, ordinary real-ray equality, and decoded observation equality.
+Its 84 stable declarations are split `66 + 10 + 8` across the orbit core,
+bottom-observable descent, and exact ordinary-real-ray boundary.
+
+| Family | Checked meaning | Valid checked consequences | Deliberately excluded upgrade |
+|---|---|---|---|
+| `RealSectorPhaseEquivalent` / `RealSectorOrbit` | Two normalized doubled-real representatives differ by one common unit-complex sector action `(x,y) ↦ (re(η)x+im(η)y,-im(η)x+re(η)y)` | Independently proved equivalence laws; exact decoder characterization by `Complex.RightPhaseEquivalent`; standard quotient interface | Not `Real.SignEquivalent`, ordinary `RealRay`, operator/circuit equality, or channel equality |
+| `complexRayEquivRealSectorOrbit` | `ComplexRay I` is canonically equivalent to the correctly quotiented doubled-real representation space | Both canonical columns and every normalized pure `realTopState` give the same orbit; encoder is injective and bijective | A representation equivalence, not a claim that representative columns are equal or that complex and real computational models are identical |
+| `RealSectorOrbit.bottomDistribution` | Sum the two target-sector weights over each source basis index | Equals `ComplexRay.distribution` under `ComplexRay.realificationOrbit`, hence existing finite-event and deterministic-pushforward consequences apply | The full doubled-real basis distribution does not descend and no density/all-effect/channel conclusion follows |
+| canonical-column `RealRay` boundary | For either column, applying unit phase `eta` preserves its ordinary target real ray iff `eta = 1 ∨ eta = -1` | Phase `I` gives an explicit source-ray equality/target-real-ray inequality; a representative-compatible column lift exists iff `IsEmpty I` | Not a claim that no arbitrary function exists between the quotient types; the obstruction concerns the canonical representative equation |
+
+This realizes correction C-027. The paper defines physical values as rays
+before later applying `h₀` and `h₁` to representative vectors. Those maps
+remain injective and continue to intertwine matrices exactly, but neither is a
+well-defined map into ordinary `RealRay` on a nonempty source space. The
+correct phase-invariant codomain is `RealSectorOrbit`, while decoded bottom
+outcomes remain invariant. With Stage 4A quotient equality and Stage 4B
+operation descent already present, `FER03-D01-REBIT` and
+`FER03-FND-COMPLEX-STATE-RAY` are now **proved as stated** and recorded
+`closedByGoal2`. This does not close mixed-top, phase-kickback, density,
+channel, or all-effect claims.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label
@@ -410,6 +435,11 @@ must not silently choose one reading.
 25. Paper `Fernandez/fernandez-2003.md:1251` infers operational converse failure
     from matrix non-surjectivity.  That inference requires a chosen simulation
     relation, encoders, decoders, ancilla policy, and observation scope.
+26. **Resolved in Stage 4C / C-027:** the paper defines source states as rays
+    before applying `h₀` or `h₁` to representatives. Neither column map
+    descends to ordinary `RealRay` on a nonempty space. Complex phase descends
+    as `RealSectorOrbit` rotation, while representative intertwining and the
+    decoded bottom distribution remain exact.
 
 ## Verification obligations before any row becomes final
 
