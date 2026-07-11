@@ -141,7 +141,7 @@ in the vacuous `IsEmpty I` case. Thus rays precede representative embeddings;
 the raw column intertwining and decoded bottom outcomes remain valid. Both
 representation-column evolution identities and pointwise bottom
 computational-basis weight preservation hold for every normalized pure top
-rebit/qubit.  Its scalar-independent `FiniteDistribution` API packages finite
+rebit/qubit. The scalar-independent `FiniteDistribution` API packages finite
 events and deterministic pushforwards of normalized outcome weights.
 
 The semantic layer gives these comparisons explicit, noninterchangeable

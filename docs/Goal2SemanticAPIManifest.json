@@ -7903,7 +7903,7 @@
       "relation": "source-right-phase composition law for real sector action",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "doubled real column space I ⊕ I parameterized by a complex scalar; no same-space circuit or operator comparison",
         "subject": "chronological composition translated from complex right multiplication",
@@ -8015,7 +8015,7 @@
       "relation": "unit sector action preserves total real weight",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "doubled real column space I ⊕ I parameterized by a complex scalar; no same-space circuit or operator comparison",
         "subject": "normalization preservation at raw-column level",
@@ -8095,7 +8095,7 @@
       "relation": "source-right-phase order law for normalized sector rotations",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
         "subject": "chronological normalized rotations translated from source right multiplication",
@@ -8113,13 +8113,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the normalized real top state with coefficients (eta.re, -eta.im)",
         "inputScope": "every unit complex scalar eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "exact normalized Rebit construction",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8129,13 +8129,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the false coordinate of realPhaseTop0",
         "inputScope": "every unit complex eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "definitional equality to eta.re",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8145,13 +8145,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the true coordinate of realPhaseTop0",
         "inputScope": "every unit complex eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "definitional equality to -eta.im",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8161,13 +8161,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the normalized real top state with coefficients (eta.im, eta.re)",
         "inputScope": "every unit complex scalar eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "exact normalized Rebit construction",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8177,13 +8177,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the false coordinate of realPhaseTop1",
         "inputScope": "every unit complex eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "definitional equality to eta.im",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8193,13 +8193,13 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
       "classification": {
-        "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
+        "space": "normalized two-level real top-state space Rebit encoding one unit complex scalar",
         "subject": "the true coordinate of realPhaseTop1",
         "inputScope": "every unit complex eta",
         "observationScope": "the complete normalized doubled-real representative, not merely its bottom marginal distribution or ordinary real ray",
         "phase": "one unit complex scalar eta with Complex.normSq eta = 1; source right phase becomes a common target-sector rotation",
         "exactness": "definitional equality to eta.re",
-        "ancillaPolicy": "one explicit two-sector realification coordinate is retained with its normalization proof"
+        "ancillaPolicy": "the Rebit is precisely the explicit two-sector coefficient state; no bottom index is present"
       }
     },
     {
@@ -8239,7 +8239,7 @@
       "relation": "phased first column equals packaged top-rebit encoding",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorAction_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real state space RealState (I ⊕ I), related to normalized complex states on finite I",
         "subject": "the first normalized realification column expressed as realTopState",
@@ -8357,7 +8357,7 @@
         "subject": "losslessness of complexOfRealColumn0 on arbitrary doubled columns",
         "inputScope": "every doubled-real column w",
         "observationScope": "membership in the complete doubled-column unit-sector orbit, not equality of bottom weights or ordinary real-ray equality",
-        "phase": "one unit complex scalar eta acts simultaneously on both real sectors; this is strictly broader than a real sign except at eta = ±1",
+        "phase": "none in this decoder identity; phase enters only in the subsequent action and orbit characterizations",
         "exactness": "exact function equality",
         "ancillaPolicy": "the explicit two-sector coordinate is retained and rotated; no marginalization is performed"
       }
@@ -8383,7 +8383,7 @@
       "relation": "sector orbit iff decoded complex right phase",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorRelation_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorRelation_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "doubled real columns I ⊕ I compared in one common real-sector rotation space",
         "subject": "faithful characterization of the raw doubled-real orbit relation",
@@ -8527,7 +8527,7 @@
       "relation": "real sector orbit constructor equality iff phase relation",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "the exact equality criterion for orbit constructors",
@@ -8607,7 +8607,7 @@
       "relation": "function extensionality on real sector orbits",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "equality of functions determined on normalized constructors",
@@ -8629,7 +8629,7 @@
         "subject": "decoding a normalized doubled-real representative",
         "inputScope": "every finite I and RealState (I ⊕ I)",
         "observationScope": "literal equality or structure of the complete RealSectorOrbit quotient; no channel or measurement-only identification",
-        "phase": "unit complex source right phase is forgotten exactly as target sector rotation; ordinary real-sign quotienting is not substituted",
+        "phase": "none at representative level; unit phase is quotiented only by the later orbit maps",
         "exactness": "exact normalized-state construction",
         "ancillaPolicy": "the doubled real sector is retained inside the orbit quotient; no sector trace-out or bottom marginalization"
       }
@@ -8645,7 +8645,7 @@
         "subject": "decode after realColumn0State",
         "inputScope": "every finite I and ComplexState I",
         "observationScope": "literal equality or structure of the complete RealSectorOrbit quotient; no channel or measurement-only identification",
-        "phase": "unit complex source right phase is forgotten exactly as target sector rotation; ordinary real-sign quotienting is not substituted",
+        "phase": "none at representative level; this is an exact decoder identity",
         "exactness": "exact normalized-state equality",
         "ancillaPolicy": "the doubled real sector is retained inside the orbit quotient; no sector trace-out or bottom marginalization"
       }
@@ -8661,7 +8661,7 @@
         "subject": "realColumn0State after decoding arbitrary doubled state",
         "inputScope": "every finite I and RealState (I ⊕ I)",
         "observationScope": "literal equality or structure of the complete RealSectorOrbit quotient; no channel or measurement-only identification",
-        "phase": "unit complex source right phase is forgotten exactly as target sector rotation; ordinary real-sign quotienting is not substituted",
+        "phase": "none at representative level; this is an exact re-encoding identity",
         "exactness": "exact normalized-state equality",
         "ancillaPolicy": "the doubled real sector is retained inside the orbit quotient; no sector trace-out or bottom marginalization"
       }
@@ -8671,13 +8671,13 @@
       "relation": "equivalence of normalized complex and doubled-real representatives",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "the first-column representation equivalence before phase quotienting",
         "inputScope": "every finite index type I",
         "observationScope": "literal equality or structure of the complete RealSectorOrbit quotient; no channel or measurement-only identification",
-        "phase": "unit complex source right phase is forgotten exactly as target sector rotation; ordinary real-sign quotienting is not substituted",
+        "phase": "none at representative level; the equivalence preserves full normalized representatives before quotienting",
         "exactness": "exact Equiv construction",
         "ancillaPolicy": "the doubled real sector is retained inside the orbit quotient; no sector trace-out or bottom marginalization"
       }
@@ -8799,7 +8799,7 @@
       "relation": "injectivity of complex-ray realification into sector orbits",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "faithfulness of the cross-representation orbit map",
@@ -8815,7 +8815,7 @@
       "relation": "bijectivity of complex-ray realification onto sector orbits",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "completeness and faithfulness of the orbit representation",
@@ -8831,7 +8831,7 @@
       "relation": "second canonical column represents the source ray orbit",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorOrbit_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "normalized doubled-real states on I ⊕ I modulo common unit-complex sector rotation, with cross-representation bridges to ComplexRay I",
         "subject": "agreement of first- and second-column encodings after sector quotienting",
@@ -8881,7 +8881,7 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api; direct release endpoint pending",
       "classification": {
-        "space": "doubled-real representatives or RealSectorOrbit I compared with source ComplexRay I on finite index type I",
+        "space": "raw doubled-real column space I ⊕ I for arbitrary I, observed at one source index i",
         "subject": "the sum of the two real-sector basis weights at one source index",
         "inputScope": "every eta, doubled-real column w, and source index i",
         "observationScope": "the bottom computational-basis marginal obtained by summing the two sector weights; individual doubled-basis weights are deliberately excluded",
@@ -8897,7 +8897,7 @@
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api",
       "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api; direct release endpoint pending",
       "classification": {
-        "space": "doubled-real representatives or RealSectorOrbit I compared with source ComplexRay I on finite index type I",
+        "space": "raw doubled-real column space I ⊕ I for arbitrary I, observed at one source index i",
         "subject": "phase invariance of one marginalized source outcome",
         "inputScope": "every unit eta, doubled-real column w, and source index i",
         "observationScope": "the bottom computational-basis marginal obtained by summing the two sector weights; individual doubled-basis weights are deliberately excluded",
@@ -8975,7 +8975,7 @@
       "relation": "sector-orbit bottom-distribution beta law",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorObservables_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "doubled-real representatives or RealSectorOrbit I compared with source ComplexRay I on finite index type I",
         "subject": "computation of the descended observable on a representative constructor",
@@ -9055,7 +9055,7 @@
       "relation": "second-column ordinary real-ray equality survives phase iff phase is ±1",
       "owner": "goal-2/4C-EMBEDORBIT",
       "consumer": "QuaternionicComputing.State.RealificationOrbitAudit.sectorBoundary_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.State.RealificationOrbitAudit.sectorBoundary_api; direct release endpoint pending",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "cross-representation map shape from ComplexRay I to ordinary RealRay (I ⊕ I) through a canonical realification column",
         "subject": "the exact boundary between complex right phase and ordinary real sign",

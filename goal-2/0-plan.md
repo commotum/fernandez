@@ -109,7 +109,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current tree has 65 Lean sources. Clean public-root, focused diagnostic,
+- At the Stage 4B checkpoint the tree had 65 Lean sources. Clean public-root,
+  focused diagnostic,
   combined-target, and explicit audit builds pass; 286 audited root endpoints
   use only `propext`, `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
@@ -151,7 +152,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- The separate `docs/Goal2SemanticAPIManifest.json` now contains 487 unique
+- At the Stage 4B checkpoint the separate
+  `docs/Goal2SemanticAPIManifest.json` contained 487 unique
   Stage 2/3A/3B/3C/4A/4B declarations, each with seven semantic axes and a named
   downstream consumer. All names resolve through the public root, 54 distinct
   diagnostic consumers resolve, and 100 entries are direct release-audit

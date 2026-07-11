@@ -35,6 +35,7 @@ QuaternionicComputing/
     RealificationOrbit.lean  complex phase as doubled-real sector rotation/orbit
     RealificationOrbitObservables.lean  descended bottom marginal distribution
     RealificationOrbitBoundary.lean  exact obstruction to ordinary RealRay descent
+    RealificationOrbitAudit.lean  non-root complete consumers and strictness checks
     Complexification.lean    quaternion → complex state columns and outcomes
     Unitary.lean             normalized state evolution under unitary matrices
     Distribution.lean        finite events and deterministic pushforwards
@@ -212,7 +213,10 @@ ray distribution. `State/RealificationOrbitBoundary.lean` proves that either
 canonical column survives in `RealRay` exactly for phases `±1`, and that a
 constructor-compatible source-ray-to-ordinary-real-ray lift exists exactly on
 an empty index type. The raw representative intertwining theorems remain the
-correct layer for arbitrary matrices.
+correct layer for arbitrary matrices. `State/RealificationOrbitAudit.lean`
+stays outside the public root and consumes the three stable leaves through
+aggregate APIs plus `1`/`I`, full-versus-bottom-distribution, arbitrary-top,
+and empty-index diagnostics.
 
 Outcome preservation is proved coordinatewise:
 

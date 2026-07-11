@@ -32,7 +32,7 @@ none may remain excluded merely because it is difficult.
 
 - `Fernandez/fernandez-2003.md` and `Fernandez/images/` are the paper source.
 - `docs/Traceability.md` is the 101-row source-to-Lean inventory.
-- `docs/Corrections.md` records the 26 current corrections and their effects.
+- `docs/Corrections.md` records the 27 current corrections and their effects.
 - `docs/ReleaseReport.md`, `docs/Architecture.md`, and `docs/Conventions.md`
   describe the verified Goal 1 baseline.
 - `goal-1/0-plan.md` and its completed stage reports are prior evidence, not
@@ -105,6 +105,11 @@ none may remain excluded merely because it is difficult.
 - Those counts are the pre-Goal-2 baseline.  Goal 2 is expected to close the two
   ray rows and may legitimately settle additional semantic obligations; Goal 3
   Stage 1 must derive its actual worklist and counts after that fold-back.
+- Goal 2 Stage 4C has now closed exactly those two transferred rows as proved
+  as stated. The current traceability disposition is therefore 23 proved as
+  stated, 33 corrected and proved, 26 partially formalized, 16 intentionally
+  excluded, and 3 unresolved. The expected 45-row Goal 3 worklist is unchanged,
+  but Stage 1 must still recompute it after all later Goal 2 stages finish.
 - Goal 2 implementation is active: its inventory, exact/measurement core,
   normalized representative phase layer, real/complex operator-phase layer,
   quaternionic operator-phase classification, and normalized ray-quotient core
@@ -113,14 +118,19 @@ none may remain excluded merely because it is difficult.
   Goal 2 Stage 4B has also descended basis distributions, finite events,
   deterministic pushforwards, supplied unitary evolution, and locally-unitary
   chronological-circuit evolution for all three scalar systems, with exact
-  identity and composition order laws. It adds no arbitrary-matrix, channel,
-  or cross-model embedding theorem. The embedding-orbit boundary remains the
-  Goal 2 Stage 4C obligation. Therefore `FER03-D01-REBIT` and
-  `FER03-FND-COMPLEX-STATE-RAY` are still not `closedByGoal2`. The
+  identity and composition order laws. Stage 4C now adds the exact
+  complex-to-real embedding-orbit boundary: `ComplexRay` is equivalent to
+  `RealSectorOrbit`, the bottom marginal distribution is preserved, and
+  canonical-column descent to ordinary `RealRay` exists only on an empty
+  index. Correction C-027 records that rays precede representative embeddings.
+  Therefore `FER03-D01-REBIT` and
+  `FER03-FND-COMPLEX-STATE-RAY` are proved as stated and `closedByGoal2`. The
   quaternionic layer proves the side-correct five-relation vocabulary,
   raw/normalized bridge, dimension-at-least-two central-sign kernel, and full
   unit-quaternion rank-one exception. Later Goal 2 stages remain an explicit
-  unmet prerequisite, so Goal 3 must not be executed yet.
+  unmet prerequisite, so Goal 3 must not be executed yet. Stage 4C does not
+  settle the mixed-top, phase-kickback, density, or channel rows assigned
+  below.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

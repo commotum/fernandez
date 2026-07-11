@@ -9,14 +9,14 @@
 
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
-(`quant-ph/0307017v2`) as a reusable Lean library. The current tree contains
-65 Lean source files, including the public root, executable axiom audit, and
-non-root semantic diagnostic leaves.
+(`quant-ph/0307017v2`) as a reusable Lean library. Stage 4C has added three
+stable public leaves to the previous 65-source tree. **Root closure must record
+the final source count after adding its non-root diagnostic leaf.**
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
-21 are proved as stated, 33 corrected and proved, 28 partially formalized, 16
-intentionally excluded, and 3 unresolved.  The correction log contains 26
+23 are proved as stated, 33 corrected and proved, 26 partially formalized, 16
+intentionally excluded, and 3 unresolved.  The correction log contains 27
 independently checked issues or scope repairs.
 
 No completed module contains `sorry`, `admit`, an unexplained project axiom,
@@ -59,10 +59,13 @@ or an unsafe shortcut.
   trivially; first `U` then `V` is `V * U`, and `C ++ D` acts first by `C`,
   then by `D`, including at the inhabited zero-wire circuit basis.
 - The descent API does not act by arbitrary matrices or uncertified circuits
-  and asserts no density, effect, channel, approximation, or cross-model
-  embedding result. The embedding-orbit boundary remains Stage 4C work, so the
-  two transferred paper rows remain partially formalized and are not yet
-  `closedByGoal2`.
+  and asserts no density, effect, channel, or approximation result.
+- Complex-to-real ray encoding uses the separate unit-rotation quotient
+  `RealSectorOrbit`, with `ComplexRay I ≃ RealSectorOrbit I` and exact bottom
+  marginal distribution preservation. Neither canonical representative
+  column defines an ordinary target-`RealRay` map on a nonempty index type;
+  phases survive that sign quotient exactly at `±1`. This closes the two
+  transferred ray rows as proved as stated and records correction C-027.
 - Fixed-input, all-basis-input, and all-normalized-pure-input basis agreement
   are separate predicates, with finite distributions, events, and
   deterministic pushforwards downstream.
@@ -273,6 +276,10 @@ The detailed source locations, diagnoses, proofs, and dependent effects are in
 26. Ground-state “without loss of generality” hides state-preparation and
     uniformity assumptions; only the known basis-input reduction used here is
     packaged as a gate.
+27. Physical source values are rays before representative embeddings are
+    applied. Complex phase becomes a doubled-real sector rotation, not
+    ordinary target-`RealRay` equality; representative intertwining and
+    decoded bottom outcomes remain exact.
 
 ## Unresolved, partial, and excluded scope
 
@@ -290,12 +297,13 @@ Important partial boundaries include mixed top states, generic density/partial
 trace infrastructure, physical swap synthesis and routing cost, uniform
 circuit generators, finite scalar encodings, approximation/error accumulation,
 generic unitary synthesis, randomized postprocessing, preprocessing runtime,
-and BQP containment. The normalized ray quotient core is present, but its
-computational-basis observables, deterministic pushforwards, unitary evolution,
-and locally-unitary circuit evolution now descend with exact identity and
-composition laws. Only the cross-model embedding-orbit boundary remains
-pending in Stage 4C; accordingly the rebit and complex-state-ray source rows
-remain partial and not `closedByGoal2` at this checkpoint.
+and BQP containment. Normalized ray computational-basis observables,
+deterministic pushforwards, unitary evolution, and locally-unitary circuit
+evolution descend with exact identity and composition laws. The complex-to-real
+embedding-orbit boundary is also complete: the rebit and complex-state-ray
+source rows are now proved as stated and `closedByGoal2`. This does not settle
+arbitrary mixed top states, the paper's phase-kickback interpretation, generic
+density/partial trace, or channel/all-effect semantics.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -329,10 +337,18 @@ public leaves plus the non-root `State.RayDescentAudit` diagnostic. The helper
 leaves' combined build completed 2,348 jobs; the focused diagnostic build
 completed 2,361; the public root and standalone axiom audit each completed
 2,568; and the combined five-public-leaf/diagnostic/root/audit target completed
-2,570. The current project therefore has 65 Lean sources, 64 below
+2,570. That Stage 4B checkpoint had 65 Lean sources, 64 below
 `QuaternionicComputing/` plus the public root. Existing dependency checkouts
 remained pinned by the manifest; network bootstrap from a brand-new clone was
 not rerun in this restricted environment.
+
+Stage 4C contributes 84 stable declarations: 66 in the direct rotation/orbit
+core, ten in the bottom-observable descent leaf, and eight in the exact
+ordinary-real-ray boundary leaf. The three public leaves pass strict focused
+compilation. **Root closure must add the non-root audit, then record the final
+focused/adjacent/public-root/axiom/full-build job counts, source count, root and
+local axiom-print counts, manifest totals, generated-name/consumer checks, and
+the final forbidden-token/boundary/artifact/whitespace/diff evidence here.**
 
 Warning-as-error source checks passed for the stable operator-phase and ray
 leaves, their diagnostic leaves, public root, axiom audit, and all seven Stage
@@ -341,7 +357,8 @@ The executable root audit now contains 286 `#print axioms` commands. All ten
 local Stage 4B diagnostic prints and every root endpoint use only `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
-The independent Goal 2 semantic manifest contains exactly 487 declarations:
+At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
+exactly 487 declarations:
 61 from Stage 2, 72 from Stage 3A, 150 from Stage 3B, and 101 from Stage 3C
 (44 operator-core, 43 circuit, and 14 kernel declarations), plus 40 from Stage
 4A and 63 from Stage 4B. The Stage 4B contribution is 60 observable,
@@ -349,7 +366,9 @@ distribution-law, circuit-helper, and evolution declarations plus three
 semantic phase-to-quotient bridges. All seven semantic axes remain present,
 all names resolve through the public root, and 100 manifest entries are direct
 root-audit targets. The frozen 936-declaration Goal 1 cohort checksum remains
-unchanged.
+unchanged. Stage 4C's 84 declarations must be appended exactly once during the
+root closure pass; the final manifest, consumer, and direct-audit totals remain
+to be recorded after validation.
 
 The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported
 only `QuaternionicComputing`, checked representative scalar, matrix, state,
@@ -377,6 +396,10 @@ open QuaternionicComputing
 #check State.RealRay.distribution
 #check State.ComplexRay.evolveUnitary_comp
 #check State.QuaternionRay.evolveCircuit_append
+#check State.RealSectorOrbit
+#check State.complexRayEquivRealSectorOrbit
+#check State.ComplexRay.realificationOrbit_distribution
+#check State.complexRay_realColumn0_lift_exists_iff_isEmpty
 #check Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary

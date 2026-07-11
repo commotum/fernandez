@@ -2,9 +2,10 @@
 
 ## Executable audit
 
-The audit source is `QuaternionicComputing/AxiomAudit.lean`.  It imports only
-the public root and runs 286 `#print axioms` commands covering representative
-endpoints from every public layer:
+The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
+the public root. At the Stage 4B checkpoint it ran 286 `#print axioms`
+commands. The final Stage 4C audit scope is required to cover representative
+endpoints from every public layer, including:
 
 - quaternion scalar decomposition and phase correction;
 - both primary matrix embeddings, Equation 63 direct realification, group
@@ -89,8 +90,8 @@ finalized.**
 
 ## Release result
 
-The release audit completed successfully under Lean 4.31.0 and mathlib
-v4.31.0.  Every audited endpoint depends on a subset of only:
+The Stage 4B release audit completed successfully under Lean 4.31.0 and
+mathlib v4.31.0. Every audited endpoint depended on a subset of only:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -99,6 +100,10 @@ v4.31.0.  Every audited endpoint depends on a subset of only:
 No project-specific axiom appears.  Lean-source scans also find no `sorry`,
 `admit`, `sorryAx`, declaration-level `axiom` or `opaque`, or `unsafe`
 declaration in `QuaternionicComputing/`.
+
+The final Stage 4C closure must rerun this audit after its endpoints are added
+and explicitly confirm whether the same three-item set remains exact; no new
+axiom is inferred merely from the focused compilation of the 84 declarations.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

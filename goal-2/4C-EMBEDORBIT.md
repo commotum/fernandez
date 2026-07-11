@@ -2,10 +2,10 @@
 
 ## Current Facts
 
-- Goal 2 Stages 1--3 and milestones 4A/4B are independently complete. The
-  current tree has 65 Lean sources, 487 exact manifest entries, 54 resolving
-  aggregate consumers, 100 direct root-audit entries, and 286 root audit
-  commands using only `propext`, `Classical.choice`, and `Quot.sound`.
+- Goal 2 Stages 1--3 and milestones 4A/4B are independently complete. Their
+  Stage 4B baseline has 65 Lean sources, 487 exact manifest entries, 54
+  resolving aggregate consumers, 100 direct root-audit entries, and 286 root
+  audit commands using only `propext`, `Classical.choice`, and `Quot.sound`.
 - `ComplexRay I` identifies normalized complex representatives under one unit
   complex phase on the right. `RealRay (I ⊕ I)` identifies normalized real
   representatives only under a real sign. These are different orbit
