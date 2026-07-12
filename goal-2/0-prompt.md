@@ -25,15 +25,18 @@ right, output-row phase on the left, and operator phase limited to the proved
 central/projective kernel with the rank-one exception explicit. Require a
 certified basis permutation for SameBasisBehavior.
 
-Stages 1--10 are independently closed. The current checkpoint has 97 Lean
-sources including the public root, 1,269 Goal 2 semantic-manifest declarations,
-164 resolving consumers, 348 direct manifest audit labels, 536 root axiom
-commands, and exact root/local axiom union `propext`, `Classical.choice`, and
-`Quot.sound`. Stage 10 supplies the honest exact-object metric boundary while
+Stages 1--10 are independently closed, and Stage 11A/B now supply six stable
+existing-result wrappers plus the checked 51-family/936-declaration registry.
+The current checkpoint has 99 Lean sources including the public root, 1,275
+Goal 2 semantic-manifest declarations, 167 resolving consumers, 356 direct
+manifest audit labels, 542 root axiom commands, and exact root/local axiom
+union `propext`, `Classical.choice`, and `Quot.sound`. Stage 10 supplies the
+honest exact-object metric boundary while
 finite encodings, rounding, accumulated circuit error, approximate compilation/
 synthesis, runtime, and uniformity remain Goal 3 work. Stage 11 registry closure
-is the first incomplete stage; use `goal-2/11-REGISTRY.md` and do not begin the
-final Stage 12 release before its three milestones close.
+is still the first incomplete stage because documentation, Goal 3 fold-back,
+and independent closure reviews remain; use `goal-2/11-REGISTRY.md` and do not
+begin the final Stage 12 release before its three milestones close.
 
 At each iteration inspect the actual public API, AxiomAudit, frozen Goal 1
 comparison cohort, separate Goal 2 semantic API manifest, docs, traceability,

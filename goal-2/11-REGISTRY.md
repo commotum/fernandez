@@ -8,13 +8,13 @@
 
 ## Current Facts
 
-- Stage 10 is independently closed. The current tree has 97 Lean sources
-  including the public root, 1,269 Goal 2 semantic-manifest declarations, 164
-  resolving consumers, 348 direct manifest audit labels, 536 root axiom
-  commands, and 16 local approximation-audit commands. The combined build
-  passes at `2775/2775`, the cached default build passes at `2773`, and the root
-  and approximation audit unions are exactly `propext`, `Classical.choice`, and
-  `Quot.sound`.
+- Stage 10 remains independently closed. Stage 11 now brings the current tree
+  to 99 Lean sources including the public root, 1,275 Goal 2 semantic-manifest
+  declarations, 167 resolving consumers, 356 direct manifest audit labels,
+  542 root axiom commands, and 15 local existing-result audit commands. The
+  combined stable/audit/root/release-audit build passes at `2776/2776`; the
+  root, existing-result, and retained approximation audit unions are exactly
+  `propext`, `Classical.choice`, and `Quot.sound`.
 - `docs/Goal1ComparisonCohort.json` is the immutable pre-retrofit discovery
   boundary: 51 families and 936 uniquely assigned public declarations. Its
   checksum remains
@@ -51,7 +51,7 @@
   resolve the ambiguity backlog, and distinguish frozen historical text from
   final classifications.
 - `docs/Goal2SemanticAPIManifest.json` is independent of the frozen cohort. It
-  already covers all 1,269 Goal 2 semantic exports exactly once and must remain
+  now covers all 1,275 Goal 2 semantic exports exactly once and must remain
   an independently validated suffix-growing manifest rather than being merged
   into the 936-declaration final classification registry.
 
@@ -124,8 +124,8 @@ unimplemented models explicit.
   vocabulary, resolving Lean declarations/consumers, exact audit-label
   intersection, no audit/public-root boundary violation, and unchanged frozen
   checksum.
-- Independently revalidate all 1,269 Goal 2 semantic-manifest declarations,
-  164 consumers, 348 direct labels, seven axes, source order, prefix/full hashes,
+- Independently revalidate all 1,275 Goal 2 semantic-manifest declarations,
+  167 consumers, 356 direct labels, seven axes, source order, prefix/full hashes,
   and public-root/audit boundaries. Never add final-registry entries to the
   semantic manifest merely because they are metadata.
 
@@ -199,7 +199,7 @@ unimplemented models explicit.
   algebraic, diagnostic, structural, or resource fact is mislabeled as
   behavioral equivalence.
 - The final registry checker, generated 936-name/consumer checks, independent
-  1,269-entry semantic-manifest validator, frozen checksum, and exact audit
+  1,275-entry semantic-manifest validator, frozen checksum, and exact audit
   intersections pass.
 - Stable imports remain narrow; no stable/public leaf imports either audit.
   Focused, adjacent, combined, default, warning-as-error, downstream smoke,
@@ -237,14 +237,17 @@ unimplemented models explicit.
   public promotion and six root audit additions.
 - The tree now has 99 Lean sources including the public root. The root audit
   has 542 commands and the new local audit has 15. The semantic manifest
-  preserves its first 1,269 items with structural hash
-  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
-  and appends the six stable declarations in exact source order. It now has
-  1,275 unique declarations, 167 resolving consumers, 354 direct root-audit
+  appends the six stable declarations in exact source order. It now has
+  1,275 unique declarations, 167 resolving consumers, 356 direct root-audit
   labels, and full structural hash
-  `6e562417a749b67102c072f67aa1270715ac0bb2eeed0af0efd559e995663d7b`.
+  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+  Stage 11 corrected two Stage 10 strictness entries that were directly printed
+  in the root audit through an opened namespace but mislabeled transitive in
+  the manifest. Consequently the corrected first-1,269 structural hash is
+  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
+  the prior `298a...` hash remains only historical Stage 10 checkpoint evidence.
   The maintained input validator and all generated frozen/manifest name and
-  consumer checks pass at `51/936/10`, `1275/167/354`, and seven axes.
+  consumer checks pass at `51/936/10`, `1275/167/356`, and seven axes.
 - Added the closed JSON schema and standard-library Python tooling for the
   final registry. They validate frozen order/checksum, semantic-prefix and
   source order, evidence vocabularies, audit/import boundaries, and temporary

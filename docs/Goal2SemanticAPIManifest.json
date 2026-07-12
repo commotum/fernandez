@@ -20207,7 +20207,7 @@
       "relation": "operatorClose_sqrtTwo_not_transitive_on_complex_unitaries — Stage 10 operatorStrictness",
       "owner": "goal-2/10-APPROX",
       "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "one-dimensional real or complex matrix spaces",
         "subject": "exact counterexamples for fixed-budget operator closeness",
@@ -20239,7 +20239,7 @@
       "relation": "rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero — Stage 10 operatorStrictness",
       "owner": "goal-2/10-APPROX",
       "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
-      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "one-dimensional real or complex matrix spaces",
         "subject": "exact counterexamples for fixed-budget operator closeness",

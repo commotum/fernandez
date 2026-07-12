@@ -42,7 +42,7 @@ STAGE9C_STRUCTURAL_SHA256 = (
     "d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870"
 )
 STAGE10_STRUCTURAL_SHA256 = (
-    "298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc"
+    "c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229"
 )
 DIRECT_LABEL = "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean"
 
@@ -433,7 +433,7 @@ def validate_manifest(
     baseline_consumers = {item["consumer"] for item in baseline}
     baseline_direct = [item for item in baseline if item["axiomAudit"] == DIRECT_LABEL]
     require(len(baseline_consumers) == 164, "Stage 10 consumer baseline changed")
-    require(len(baseline_direct) == 348, "Stage 10 direct-audit baseline changed")
+    require(len(baseline_direct) == 350, "corrected Stage 10 direct-audit baseline changed")
     return manifest, set(names), set(consumers)
 
 
@@ -665,6 +665,22 @@ def validate_registry(
             "ExistingResultsAudit.compiledResourceBounds_family"
         ),
         "translationWork_le_gateCount_mul must retain its generic work-bound classification",
+    )
+    translation_definition_name = (
+        "QuaternionicComputing.Circuit.OrderedCircuit.translationWork"
+    )
+    translation_definition = next(
+        record
+        for record in declarations
+        if record["declaration"] == translation_definition_name
+    )
+    require(
+        translation_definition["proofDeclarations"] == [translation_work_name]
+        and "sum of a supplied natural-number work function"
+        in translation_definition["classification"]["subject"]
+        and translation_definition["audit"]
+        == {"mode": "directRoot", "endpoint": translation_work_name},
+        "translationWork must retain its exact per-occurrence sum classification",
     )
 
     inverse_arity_name = (

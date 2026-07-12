@@ -294,7 +294,7 @@ The final semantic classification is recorded in
 `docs/Goal2ClassificationRegistry.json` and rendered in
 `docs/EquivalenceClassification.md`. It assigns all 936 immutable Goal 1
 declarations exactly once across 51 families. The independent Goal 2 semantic
-manifest contains 1,275 unique public declarations, 167 consumers, and 354
+manifest contains 1,275 unique public declarations, 167 consumers, and 356
 direct root-audit labels. `Semantics.ExistingResults` exports six final thin
 classifications for earlier raw equalities and counterexamples; its 15-endpoint
 allocation audit remains outside the public root. The registry does not turn

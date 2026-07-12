@@ -11,7 +11,7 @@
     "semanticAPI": {
       "path": "docs/Goal2SemanticAPIManifest.json",
       "baselineCount": 1269,
-      "baselineStructuralSha256": "298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc"
+      "baselineStructuralSha256": "c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229"
     }
   },
   "classificationAxes": [
@@ -28313,13 +28313,13 @@
       "declaration": "QuaternionicComputing.Circuit.OrderedCircuit.translationWork",
       "familyId": "EQC-041-STRUCTURAL-RESOURCE-EQUALITIES",
       "classification": {
-        "space": "same or cross structural carrier exactly as typed by the declaration",
-        "subject": "translation-work resource accounting",
-        "inputScope": "every finite circuit under the supplied per-gate work bound",
-        "observationScope": "stated natural-number work bound only",
+        "space": "one finite chronological circuit over a fixed scalar and wire type",
+        "subject": "sum of a supplied natural-number work function over gate occurrences",
+        "inputScope": "every supplied per-gate work function and finite chronological circuit",
+        "observationScope": "the exact natural-number sum; a common per-occurrence bound is a separate theorem",
         "phase": "none",
-        "exactness": "exact equality/certificate or the explicitly stated inequality; never an approximation relation",
-        "ancillaPolicy": "added-wire and shared-wire policies are explicit in the declaration; no decoder or hidden ancilla"
+        "exactness": "exact finite structural definition",
+        "ancillaPolicy": "none; the definition does not itself translate or compile a circuit"
       },
       "semanticClass": "resourceClaim",
       "evidenceMode": "resourceDisposition",
@@ -28329,12 +28329,12 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.translationWork_le_gateCount_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "translation-work accounting bound; this declaration is nonbehavioral and does not assert circuit, state, measurement, or channel equivalence.",
+      "finalDisposition": "This definition sums a supplied natural-number cost over chronological gate occurrences, with a separate checked gateCount-times-K bound; it is nonbehavioral accounting, not a compiler, runtime, or bit-cost model.",
       "goal3Boundary": "Uniform synthesis, physical routing cost, runtime, and bit complexity remain Goal 3 work."
     },
     {

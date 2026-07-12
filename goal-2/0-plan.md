@@ -181,12 +181,13 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 1,269 unique declarations:
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,275 unique declarations:
   the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, 16
   Stage 9B wrappers, 36 Stage 9C decoder/postprocessing/outcome declarations,
-  and 169 Stage 10 metric declarations in exact source order. Every item has
-  seven semantic axes and a named downstream consumer; all 1,269 public names,
-  164 distinct consumers, and 348 direct release-audit labels resolve exactly.
+  169 Stage 10 metric declarations, and six Stage 11 existing-result wrappers
+  in exact source order. Every item has seven semantic axes and a named
+  downstream consumer; all 1,275 public names, 167 distinct consumers, and 356
+  direct release-audit labels resolve exactly.
   The first-990 structural hash is
   `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
   and the preserved first-1,048 hash is
@@ -195,8 +196,12 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
   the preserved first-1,100 hash is
   `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
-  the full manifest hash is
-  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`;
+  Stage 11 corrected two Stage 10 strictness entries that were directly printed
+  in the root audit but mislabeled transitive. The corrected first-1,269 hash is
+  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
+  and the current full hash is
+  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`;
+  the old `298a...` hash is historical Stage 10-at-closure evidence only;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
@@ -259,13 +264,22 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   complex-unitary, raw-phase-sensitive, and Boolean-distribution witnesses
   refute fixed-budget transitivity. The non-root audit allocates all 169
   declarations through 24 aggregates and 16 local axiom endpoints. The public
-  checkpoint is 97 Lean sources including the root, 1,269 semantic-manifest
+  Stage 10 checkpoint was 97 Lean sources including the root and 1,269
+  semantic-manifest
   declarations, 164 consumers, 348 direct manifest labels, and 536 root axiom
   commands; both root and local approximation audit unions are exactly
   `propext`, `Classical.choice`, and `Quot.sound`. Finite encoding, rounding,
   accumulated circuit error, approximate compilation/synthesis, and runtime
   remain Goal 3 work. Complex PSD still needs `ComplexOrder`, and Loewner
   matrices need `MatrixOrder`.
+- Stage 11A adds six stable strongest-scope wrappers and a non-root 15-endpoint
+  existing-result audit covering every Stage 11-owned algebraic, diagnostic,
+  structural, and resource family. Stage 11B publishes a final overlay with 51
+  family records and all 936 frozen declarations exactly once, including all
+  ten empty families; the maintained validator and generated Lean checks pass.
+  The current tree has 99 Lean sources including the root, 1,275 semantic-
+  manifest declarations, 167 consumers, 356 direct labels, and 542 root axiom
+  commands. Stage 11C documentation and Goal 3 fold-back remain in progress.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

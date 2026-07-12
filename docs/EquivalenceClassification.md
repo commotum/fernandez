@@ -606,10 +606,10 @@ uniformity remain Goal 3 work under C-024.
 classifies the immutable cohort's 936 declarations exactly once across the same
 51 families. Its family totals are 33 `proved`, nine `correctedAndProved`, two
 `partiallyFormalized`, and seven `unresolved` source-only claims. Every one of
-the 42 implementation/release families names proof-bearing evidence or an
-explicit nonbehavioral/resource/support disposition; the seven unresolved rows
+the 44 non-unresolved families names proof-bearing evidence or an explicit
+nonbehavioral/resource/support disposition; the seven unresolved rows
 have no invented Lean proof. The overlay also records all seven classification
-axes on every declaration, 41 direct-root audit assignments, and 895 non-root
+axes on every declaration, 43 direct-root audit assignments, and 893 non-root
 local-endpoint assignments.
 
 The table below is a mechanically rendered family summary. Within each row,
@@ -781,11 +781,15 @@ comments is checked against the JSON rather than maintained independently.
 
 Stage 11 adds six stable `Semantics/ExistingResults.lean` wrappers and 15
 non-root `ExistingResultsAudit` endpoints. The independent Goal 2 semantic API
-manifest preserves its first-1,269 structural hash
-`298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
-and contains 1,275 unique declarations, 167 distinct consumers, and 354 direct
+manifest preserves its corrected first-1,269 structural hash
+`c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
+and contains 1,275 unique declarations, 167 distinct consumers, and 356 direct
 root-audit labels; its full structural hash is
-`6e5624c17e652dadac6c436c2d2c5d265bd88416b1cb124d5d0f00c83f46b414`.
+`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+The two-label difference from the Stage 10 closure snapshot is an audit-metadata
+repair: two strictness declarations already had genuine root `#print axioms`
+commands and are now labeled direct instead of transitive. It changes neither
+Lean code nor the 542-command root audit.
 The combined Stage 11 build completes 2,776 jobs.
 
 The executable public-root audit contains 542 commands: 539 report nonempty

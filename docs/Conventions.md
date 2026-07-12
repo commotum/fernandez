@@ -698,7 +698,7 @@ than ray equality in general and is not used as the quotient relation.
   declaration occurs exactly once and carries the seven axes `space`, `subject`,
   `inputScope`, `observationScope`, `phase`, `exactness`, and `ancillaPolicy`.
 - `Goal2SemanticAPIManifest.json` is independent of that overlay. It covers the
-  1,275 declarations introduced by Goal 2, with 167 consumers and 354 direct
+  1,275 declarations introduced by Goal 2, with 167 consumers and 356 direct
   root-audit labels; it never expands the frozen Goal 1 cohort.
 - A `proofBearingRelation`, `proofBearingCertificate`, or
   `proofBearingEquality` names the exact theorem inhabiting the stated scope.

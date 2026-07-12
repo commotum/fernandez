@@ -817,11 +817,34 @@ the full 1,269-entry hash is
 `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`.
 The frozen Goal 1 cohort and checksum remain unchanged.
 
+Stage 11 appends the six stable existing-result wrappers exactly once. The
+semantic manifest now contains 1,275 unique declarations, 167 distinct
+consumers, and 356 direct-root audit labels. The corrected first-1,269
+structural hash is
+`c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
+the full 1,275-entry hash is
+`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+Two strictness declarations already printed directly in the root audit were
+misclassified as transitive in the Stage 10 closure snapshot. Stage 11 corrects
+those two manifest labels to direct; the historical 1,269-entry count and
+`348`-label closure record above remain checkpoint evidence, while the current
+prefix has 350 direct labels. No Lean theorem or root audit command changed.
+
+Independently, `Goal2ClassificationRegistry.json` preserves the 51 frozen
+family IDs and assigns every one of the 936 frozen declarations exactly once.
+All seven axes are populated, all proof/consumer/audit targets resolve, and the
+ten registry rule groups pass. Family statuses are 33 proved, nine corrected
+and proved, two partially formalized, and seven unresolved source-only claims.
+The immutable cohort checksum remains
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 10. The public root imports
-no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
+and heartbeat-override scans are empty through Stage 11. The public root imports
+no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass
+for the Stage 11 checkpoint. Stage 12 clean-release verification remains
+pending.
 
 ## Using the library in a future project
 
