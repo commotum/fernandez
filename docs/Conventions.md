@@ -417,6 +417,47 @@ basis-permutation behavior are weaker or incomparable branches. The final
 branch is equivalent to input/output/basis agreement only when both operators
 carry explicit `BasisPermutationImplementation` certificates.
 
+## Directional cross-model certificates
+
+Cross-model comparisons are oriented source-to-target relations, not another
+same-space equality tier. The encoder, decoder, embedding, or observation map
+is always an argument:
+
+```text
+ExactStateEncoding encode decode
+LosslessStateEncoding encode decode sourceTotalWeight targetTotalWeight
+ExactOperatorEmbedding embed source target
+StateIntertwining encodeInput encodeOutput source target
+DecodedBasisWeightAgreement decode sourceWeight targetWeight
+DecodedDistributionAgreement decode sourceDistribution targetDistribution.
+```
+
+`ExactStateEncoding` means only `decode (encode source) = source` for every
+source. It gives encoder injectivity, not target surjectivity. A separate
+right-inverse theorem is required before a concrete encoder can be called
+bijective. `ExactOperatorEmbedding` is oriented as `target = embed source`, and
+`StateIntertwining` compares actions after the displayed input/output encoders.
+Decoded agreements compare exactly the observation obtained through the
+displayed decoder. Their composition theorems preserve that direction and
+reverse decoder order where required.
+
+`AllTopStateIntertwining`, `AllTopDecodedBasisWeightAgreement`, and
+`AllTopDecodedDistributionAgreement` quantify an explicit parameter type named
+`Top` (and, for outcomes, an explicit `Input`). The generic quantifier says
+nothing by itself about normalization, purity, a product subsystem, mixedness,
+entanglement, or partial trace. A concrete theorem earns an “all normalized
+top-sector coefficients” description only by instantiating `Top` with `Rebit`
+or `Qubit`.
+
+For each canonical complex-to-real and quaternion-to-complex column, separate
+right-inverse proofs strengthen the raw coordinate map to an `ℝ`-linear
+`LinearEquiv`; normalization preservation strengthens its restriction to an
+`Equiv` of normalized representatives. Neither conclusion identifies the
+associated ordinary ray quotients or asserts circuit, measurement, channel, or
+all-effect equality. In particular, complex realification uses
+`RealSectorOrbit` at the ray level, and the non-product witness rules out
+reading a top-sector coefficient as a pure top/bottom factorization.
+
 ## Scalar decompositions and embeddings
 
 For `q = a₀ + a₁ i + a₂ j + a₃ k`, the paper's decomposition is retained:
@@ -463,7 +504,8 @@ The library keeps the following levels distinct:
 5. representative equality up to a unit scalar on the documented side;
 6. literal equality in `RealRay`, `ComplexRay`, or `QuaternionRay`, which is
    exactly the corresponding representative relation;
-7. equality of embedded operators or embedded state evolution;
+7. directional mapped-operator equality, state intertwining, or decoded
+   observation agreement with explicit encoders/decoders;
 8. one-input computational-basis output-weight agreement
    (`OutputWeightEqAt`);
 9. all-basis-input agreement (`BasisMeasurementEq`);
@@ -507,12 +549,17 @@ parameter, avoiding any global squared-norm instance.  `RealState`,
 `Quaterbit` use `Bool` as the two-level basis.  This makes the missing `= 1` in
 the paper's quaterbit definition impossible to omit.
 
-The arbitrary-top-wire results currently cover every normalized pure top
-rebit/qubit and prove pointwise bottom-weight equality. Although finite
+The current arbitrary-top formulas quantify every normalized `Rebit` or
+`Qubit` top-sector coefficient and prove pointwise bottom-weight equality.
+Such a value parameterizes a linear combination of the two canonical encoding
+columns; it is not a certificate that the encoded target column factors as an
+independent pure top state times a bottom state. The explicit
+`NonProductWitness` refutes that factorization reading. Although finite
 same-space real/complex density matrices now exist, claims about arbitrary
-mixed top states still require a cross-model joint-density encoding, partial
-trace or decoded-effect semantics, and preservation theorems. They remain
-explicitly partial and are not silently inferred from the pure-state results.
+mixed product top states still require a cross-model joint-density encoder, a
+tensor-product/no-correlation hypothesis, partial trace or decoded-effect
+semantics, and preservation theorems. They remain explicitly partial and are
+not inferred from the coefficient-parameter results.
 
 `FiniteDistribution α` means a real weight on a finite type, pointwise
 nonnegative and summing to one.  `eventWeight` is a finite sum, and

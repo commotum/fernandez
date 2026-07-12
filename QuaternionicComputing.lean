@@ -153,6 +153,18 @@ identifying output-row phase, basis statistics, finite distributions, rays,
 or channels. Counterexamples and exhaustive allocation checks remain in the
 non-root hierarchy audit.
 
+Cross-model results use a separate source-to-target vocabulary with every map
+visible. `ExactStateEncoding` is a left-inverse certificate on the encoder
+image, `LosslessStateEncoding` additionally preserves an explicit total
+weight, and the operator-embedding, state-intertwining, decoded-weight, and
+decoded-distribution predicates retain their encoders, decoders, and
+top-sector policies. They are deliberately not same-space equivalence
+relations. For the four canonical state columns the library proves the
+stronger concrete fact that the raw coordinate maps are real-linear
+equivalences and their normalized representative maps are equivalences. Those
+are representative-coordinate bijections, not ordinary ray, circuit, channel,
+mixed-state, product-state, partial-trace, or all-effect equivalences.
+
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input
 from the ground column, a fixed-value quaternionic order audit, and the

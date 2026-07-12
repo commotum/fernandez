@@ -65,6 +65,8 @@ import QuaternionicComputing.Semantics.Channel
 import QuaternionicComputing.Semantics.ChannelPhase
 import QuaternionicComputing.Semantics.ChannelCircuit
 import QuaternionicComputing.Semantics.Hierarchy.Operator
+import QuaternionicComputing.Semantics.Simulation
+import QuaternionicComputing.Semantics.SimulationEncoding
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -143,9 +145,13 @@ sectors by
 `(x,y) ↦ (re(η)x + im(η)y, -im(η)x + re(η)y)`.
 `RealSectorOrbit` quotients normalized doubled-real states by exactly this
 action, and `complexRayEquivRealSectorOrbit` proves it equivalent to
-`ComplexRay`. Both canonical columns and every normalized pure top-rebit
-encoding give the same orbit, whose bottom marginal distribution is exactly
-the source ray distribution. This is not ordinary `RealRay` equality: either
+`ComplexRay`. Both canonical columns and every normalized `Rebit` top-sector
+coefficient encoding give the same orbit, whose bottom marginal distribution
+is exactly the source ray distribution. Each canonical complex-to-real or
+quaternion-to-complex raw column is also an explicit real-linear coordinate
+equivalence, and its restriction is an equivalence of normalized
+representatives. These representative bijections are not ray equivalences.
+In particular, the realification result is not ordinary `RealRay` equality: either
 canonical column preserves the target real ray only for phases `±1`, and a
 representative-compatible `ComplexRay I → RealRay (I ⊕ I)` lift exists only
 in the vacuous `IsEmpty I` case. Thus rays precede representative embeddings;
@@ -236,6 +242,18 @@ complex and quaternionic examples prove that equal basis distributions need
 not determine a ray. The certified `SameBasisBehavior` equivalences remain
 restricted to supplied basis-permutation certificates.
 
+Cross-model comparisons use a separate directional API.
+`ExactStateEncoding` exposes an encoder and decoder and means only that the
+decoder is a left inverse on encoded source values. `LosslessStateEncoding`
+also preserves an explicit total-weight functional;
+`ExactOperatorEmbedding`, `StateIntertwining`, and the decoded weight and
+distribution relations keep source, target, encoder, decoder, and observation
+scope visible. Their `AllTop...` forms quantify an explicitly supplied
+top-sector parameter type. They are not reflexive/symmetric/transitive
+same-space equivalence relations, and they assert no ray, channel, product,
+partial-trace, or all-effect semantics. Circuit wrappers and final
+outcome-family classifications remain in Goal 2 Stages 9B and 9C.
+
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
 phase, and `RealProjectiveActionEq`/`ComplexProjectiveActionEq`. Matching
@@ -299,8 +317,9 @@ slot counts, not bit complexity or runtime.
 
 The simulation layer proves corrected constructive forms of the paper's
 Theorems 2 and 4 for arbitrary ordered finite circuits.  It separately exports
-whole-operator embedding, all canonical and arbitrary-pure-top state evolution
-laws, and equality of normalized bottom computational-basis probabilities.
+whole-operator embedding, all canonical and normalized top-sector-coefficient
+state evolution laws, and equality of normalized bottom computational-basis
+probabilities.
 Abstract gate count is unchanged, width grows by exactly one, and every local
 gate grows by exactly one wire; maximum-arity theorems handle the empty circuit
 explicitly.  Composing the two translations proves the corrected
@@ -310,7 +329,9 @@ this canonical compositional circuit construction; it does not introduce a
 second wire-facing translator.  A high-level `NonProductWitness` gives a
 normalized realified state whose added top wire cannot be factored from the
 bottom system, without upgrading that fact to a mixed-state or signaling
-claim.
+claim. Consequently the normalized `Rebit`/`Qubit` top-sector parameters used
+by the pure-state formulas must not be read as certificates that the encoded
+target state factors into an independent top subsystem and bottom subsystem.
 For a supplied finite legal schedule, the scheduled bridge applies the same
 exact quaternion-to-complex theorem to that schedule's chronological circuit
 without selecting a schedule or asserting schedule independence.  The

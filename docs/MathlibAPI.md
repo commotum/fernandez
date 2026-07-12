@@ -549,6 +549,44 @@ arguments.
 phase, channel, circuit, and output-row APIs. It introduces no new analytic or
 quantum-channel dependency.
 
+## Goal 2 directional simulation certificates
+
+`Semantics/Simulation.lean` is intentionally built from small core interfaces
+rather than an external simulation framework. The exact state-encoding layer
+uses `Function.LeftInverse`, derives injectivity through
+`Function.LeftInverse.injective`, and composes encoders and decoders with
+`Function.comp`. This is image reconstruction only: it does not use
+`Function.RightInverse` or `Equiv` generically. The operator and intertwining
+relations are transparent matrix equalities, and decoded finite-distribution
+agreement uses the existing `FiniteDistribution.ext`, event, and pushforward
+APIs.
+
+The generic `AllTop...` predicates are ordinary universal quantifiers over
+explicit `Top` and `Input` types. Lean therefore cannot silently manufacture a
+normalization, purity, tensor-product, marginal, channel, or all-effect
+interpretation. Concrete audit consumers instantiate `Top` with the normalized
+`Rebit` and `Qubit` coefficient types only to verify that the generic API has
+the intended usable scope.
+
+`Semantics/SimulationEncoding.lean` separately uses
+`Function.RightInverse`, `LinearEquiv`, and `Equiv` where the mathematics is
+stronger. Direct sum-case calculations prove each displayed decoder is also a
+right inverse to its canonical column. Together with the existing left
+inverse, addition, and real-scalar laws, this yields
+`realColumn0LinearEquiv`, `realColumn1LinearEquiv`,
+`complexColumn0LinearEquiv`, and `complexColumn1LinearEquiv`. Total-weight
+preservation then restricts these to the four `*StateEquiv` values on normalized
+representatives. The stable allocation is `38 + 20 = 58` declarations.
+
+These `LinearEquiv` and `Equiv` values are coordinate-carrier bijections. They
+do not use quotient lifting and do not imply an ordinary target-ray map:
+complex phase still requires `RealSectorOrbit`, while either canonical column
+fails to respect `RealRay` on every nonempty source index. Nor does a normalized
+`Rebit`/`Qubit` coefficient parameter create a product-state theorem;
+`NonProductWitness.encodedState_not_pureTopBottomProduct` supplies the explicit
+boundary. No partial-trace, mixed joint-density, circuit, channel, or
+all-measurement API is imported by these two leaves.
+
 ## Goal 2 state phase, normalized ray quotients, and descent
 
 The real sign characterization uses mathlib's `sq_eq_one_iff`; after rewriting

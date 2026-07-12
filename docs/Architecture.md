@@ -71,6 +71,9 @@ QuaternionicComputing/
       State.lean             ray/distribution/event/postprocessing arrows
       Operator.lean          unitary channel and circuit covering arrows
     HierarchyAudit.lean      non-root hierarchy strictness and exact coverage
+    Simulation.lean          directional cross-model relation vocabulary
+    SimulationEncoding.lean  representative coordinate equivalences
+    SimulationAudit.lean     non-root allocation and concrete scope checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -150,6 +153,11 @@ and supplies the second column, real-linear bundles, normalized wrappers, and
 measurement API.  `State/Complexification.lean` supplies the analogous two
 real-linear quaternion-to-complex columns.  None is declared complex- or
 quaternion-linear without the exact scalar action needed for that claim.
+`Semantics/SimulationEncoding.lean` packages the strongest checked coordinate
+facts: each of the four raw canonical columns is an `ℝ`-linear equivalence with
+an explicit decoder, and each restriction to normalized representatives is an
+ordinary `Equiv`. These are bijections of representative coordinate carriers,
+not equivalences of ordinary ray spaces or behaviors.
 
 `State/Basic.lean` parameterizes `NormalizedState` by an explicit real-valued
 scalar weight instead of introducing a global norm-square typeclass.  Its real,
@@ -524,6 +532,45 @@ normalized-state types are uninhabited instead of testing theorems through
 impossible values. No hierarchy leaf adds a quaternionic channel, cross-model
 certificate, metric, or resource claim.
 
+## Directional cross-model semantics
+
+`Semantics/Simulation.lean` supplies the generic vocabulary for comparisons
+whose scalar, index, or carrier type changes. The definitions are oriented from
+source to target and keep every policy argument explicit:
+
+- `ExactStateEncoding encode decode` is exactly
+  `Function.LeftInverse decode encode`; it constrains no target value outside
+  the encoder image.
+- `LosslessStateEncoding` adds equality of supplied source and target
+  total-weight functionals.
+- `ExactOperatorEmbedding` states `target = embed source`, while
+  `StateIntertwining` states exact matrix action after supplied input and output
+  encoders.
+- `DecodedBasisWeightAgreement` and `DecodedDistributionAgreement` state exact
+  equality after an explicit decoder. Their `AllTop...` variants quantify
+  explicit `Top` and `Input` parameter types rather than hiding an ancilla
+  convention.
+
+These predicates have composition and specialization theorems, but no
+`Equivalence` instances: direction, decoding, and changed spaces are part of
+their meaning. The stable generic leaf exports 38 declarations.
+`Semantics/SimulationEncoding.lean` adds 20 concrete declarations for the four
+canonical columns: left- and right-inverse facts, losslessness, four raw
+real-linear equivalences, and four normalized representative equivalences.
+The non-root `SimulationAudit.lean` allocates all `38 + 20 = 58` declarations
+and instantiates the generic top policy with normalized `Rebit` and `Qubit`
+coefficient parameter types.
+
+This representative-level strength does not erase the previously checked
+boundaries. Complex phase does not descend through a canonical realification
+column to ordinary `RealRay`; `RealSectorOrbit` is the correct target quotient.
+The concrete top parameters select linear combinations of the two canonical
+columns; they do not assert a factorized target state, mixed joint density, or
+partial trace. Indeed `NonProductWitness.encodedState_not_pureTopBottomProduct`
+refutes that factorization reading for one normalized realified state. Stage 9B
+operator/circuit wrappers and Stage 9C outcome classifications remain pending,
+as do later Goal 2 metric and registry stages.
+
 ## Circuit implementation
 
 The minimum circuit layer uses any finite wire type `W`, with computational
@@ -662,7 +709,9 @@ simulator because it uses the actual added-wire encoding.  A normalized source
 with rational amplitudes `3/5` and `(4/5)i` has canonical real coordinates
 `(3/5,0,0,-4/5)`, which cannot factor even into unnormalized pure top and
 bottom columns.  The neutral module name reflects its exact theorem surface:
-no density-state, signaling, or cryptographic conclusion is drawn.
+no density-state, signaling, or cryptographic conclusion is drawn. It also
+prevents the normalized top-sector coefficient parameter in the generic
+pure-state formulas from being misread as a product-factor certificate.
 
 `Simulation/Postprocessing.lean` upgrades the pointwise normalized outcome
 equalities to equality of the complete finite bottom distributions.  It then
