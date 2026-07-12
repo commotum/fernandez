@@ -191,6 +191,46 @@ same-space equality name or hiding top/marginal policy.
 
 ## Stage Results
 
-- In progress. Relation signatures are being independently probed against the
-  existing realification and complexification APIs before public names are
-  fixed.
+- `QuaternionicComputing/Semantics/Simulation.lean` now exports 38 stable
+  directional declarations in exact groups `5 + 6 + 4 + 4 + 2 + 5 + 8 + 2
+  + 2`: exact/lossless state encoding, exact operator embedding, state
+  intertwining, explicit all-top-sector lifts, decoded basis-weight and finite-
+  distribution agreement, and the two all-top decoded lifts. Encoder/decoder
+  composition order is explicit; no symmetry, equivalence instance, or
+  same-space coercion is declared. The leaf imports only `State.Distribution`,
+  strict-compiles, and its focused build passes at `2345/2345`.
+- `QuaternionicComputing/Semantics/SimulationEncoding.lean` exports 20 stable
+  declarations for the two Stage 9A cohort families: four exact left-inverse
+  certificates, four total-weight-preserving lossless certificates, four
+  independently proved right inverses, four explicit-decoder real-linear
+  equivalences, and four equivalences of normalized representatives. The leaf
+  strict-compiles and its focused build passes at `2350/2350`.
+- Independent review caught a false first-draft claim that the canonical
+  coordinate maps were not surjective. Exact right-inverse proofs show all
+  four raw maps are real-linear bijections and all four normalized maps are
+  representative-level bijections, including the empty-index boundary. The
+  API was strengthened before release rather than merely weakening the prose.
+  These algebraic coordinate equivalences still do not descend to ordinary
+  target-ray equality or imply behavioral/channel equivalence.
+- The non-root `QuaternionicComputing/Semantics/SimulationAudit.lean` allocates
+  all 58 declarations exactly once as
+  `5/6/4/4/2/5/8/2/2/10/10`. Concrete consumers cover rectangular real and
+  quaternionic intertwining, `Rebit`/`Qubit` top-sector parameters, decoded raw
+  basis weights, normalized decoded distributions for both scalar
+  translations, actual `Unit` values, constructive raw `Empty` columns, the
+  impossibility of normalized empty states, ordinary-real-ray non-descent, and
+  the existing nonproduct witness. It strict-compiles and its focused build
+  passes at `2368/2368`.
+- The public root imports only the two stable leaves, never `SimulationAudit`.
+  Twenty representative Stage 9A declarations were added to the root axiom
+  audit, bringing it to 442 commands. The combined stable/audit/root/AxiomAudit
+  build passes at `2766/2766`, and a warning-as-error downstream smoke importing
+  only `QuaternionicComputing` exercises raw and normalized bijections,
+  intertwining, decoded distributions, and every relation group.
+- A parser over the executable audits finds 439 nonempty and three axiom-free
+  root blocks, for all 442 commands, and nine nonempty plus one axiom-free local
+  blocks. Both unions are exactly `propext`, `Classical.choice`, and
+  `Quot.sound`, with no unknown identifier or `sorryAx` output.
+- Semantic-manifest integration, documentation/Goal 3 fold-back, final default
+  builds/scans, and independent integrated 9A closure remain in progress. 9A
+  is not yet complete.

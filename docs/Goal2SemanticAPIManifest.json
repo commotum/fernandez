@@ -15865,6 +15865,934 @@
         "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitAllMeasurementEq",
         "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEncoding",
+      "relation": "ExactStateEncoding — directional exact reconstruction on the encoder image",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode S → T and decode T → S; no scalar, index, finiteness, or surjectivity assumptions",
+        "subject": "the public declaration ExactStateEncoding",
+        "inputScope": "every source value, through decode (encode source) = source",
+        "observationScope": "exact reconstruction only on encoded source values; target values outside the encoder image are unconstrained",
+        "phase": "none",
+        "exactness": "exactly a left-inverse predicate; by itself it asserts no right inverse, surjectivity, symmetry, transitivity instance, or carrier equivalence",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no top-sector, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEncoding.of_leftInverse",
+      "relation": "ExactStateEncoding.of_leftInverse — construct from a left inverse",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode S → T and decode T → S; no scalar, index, finiteness, or surjectivity assumptions",
+        "subject": "the public declaration ExactStateEncoding.of_leftInverse",
+        "inputScope": "every source value, through decode (encode source) = source",
+        "observationScope": "exact reconstruction only on encoded source values; target values outside the encoder image are unconstrained",
+        "phase": "none",
+        "exactness": "exact introduction from the same left-inverse proposition; no stronger equivalence is introduced",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no top-sector, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEncoding.leftInverse",
+      "relation": "ExactStateEncoding.leftInverse — recover the underlying left inverse",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode S → T and decode T → S; no scalar, index, finiteness, or surjectivity assumptions",
+        "subject": "the public declaration ExactStateEncoding.leftInverse",
+        "inputScope": "every source value, through decode (encode source) = source",
+        "observationScope": "exact reconstruction only on encoded source values; target values outside the encoder image are unconstrained",
+        "phase": "none",
+        "exactness": "exact elimination to the same left-inverse proposition; no target-wide reconstruction is obtained",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no top-sector, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEncoding.injective",
+      "relation": "ExactStateEncoding.injective — derive encoder injectivity",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode S → T and decode T → S; no scalar, index, finiteness, or surjectivity assumptions",
+        "subject": "the public declaration ExactStateEncoding.injective",
+        "inputScope": "every source value, through decode (encode source) = source",
+        "observationScope": "exact reconstruction only on encoded source values; target values outside the encoder image are unconstrained",
+        "phase": "none",
+        "exactness": "exact one-way consequence of the left inverse; injectivity does not imply or assert surjectivity",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no top-sector, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEncoding.comp",
+      "relation": "ExactStateEncoding.comp — compose directional exact encodings",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode S → T and decode T → S; no scalar, index, finiteness, or surjectivity assumptions",
+        "subject": "the public declaration ExactStateEncoding.comp",
+        "inputScope": "every source value, through decode (encode source) = source",
+        "observationScope": "exact reconstruction only on encoded source values; target values outside the encoder image are unconstrained",
+        "phase": "none",
+        "exactness": "exact source-to-target composition with encodeTU ∘ encodeST and reverse-order decoder decodeTS ∘ decodeUT",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no top-sector, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding",
+      "relation": "LosslessStateEncoding — exact reconstruction plus explicit total-weight preservation",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact conjunction of a left-inverse certificate and total-weight preservation; no target-wide right inverse, surjectivity, or state-space equivalence",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding.of_exact_of_totalWeight",
+      "relation": "LosslessStateEncoding.of_exact_of_totalWeight — construct losslessness",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding.of_exact_of_totalWeight",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact introduction from the two displayed component certificates",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding.exact",
+      "relation": "LosslessStateEncoding.exact — recover exact reconstruction",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding.exact",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact projection to the left-inverse-based encoding relation",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding.preservesTotalWeight",
+      "relation": "LosslessStateEncoding.preservesTotalWeight — recover total-weight preservation",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding.preservesTotalWeight",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact per-source total-weight equality",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding.injective",
+      "relation": "LosslessStateEncoding.injective — derive encoder injectivity",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding.injective",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact one-way consequence through the left inverse; no surjectivity follows",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.LosslessStateEncoding.comp",
+      "relation": "LosslessStateEncoding.comp — compose lossless directional encodings",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.losslessStateEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "arbitrary source and target carrier types with explicit encode/decode maps and explicit real-valued source and target total-weight functionals",
+        "subject": "the public declaration LosslessStateEncoding.comp",
+        "inputScope": "every source value for decode-after-encode reconstruction and target-weight-after-encode preservation",
+        "observationScope": "exact reconstruction on the encoder image plus equality of the supplied total weights; no basis distribution or channel observation is implied",
+        "phase": "none",
+        "exactness": "exact source-to-target composition with the intermediate total-weight functional kept explicit",
+        "ancillaPolicy": "none generically; any carrier or dimension change is explicit, with no purity, product-state, marginal, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEmbedding",
+      "relation": "ExactOperatorEmbedding — target operator is the explicit image of the source",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target scalar, row-index, and column-index types with an explicit cross-space matrix embedding; no finiteness is required",
+        "subject": "the public declaration ExactOperatorEmbedding",
+        "inputScope": "the specified source/target operator pair",
+        "observationScope": "literal equality target = embed source in the target matrix space",
+        "phase": "none",
+        "exactness": "exact cross-space image equality; it asserts neither same-space ExactOperatorEq nor injectivity of the embedding",
+        "ancillaPolicy": "none generically; changed matrix dimensions remain explicit and do not imply an ancilla, marginal, channel, or same-space operator equality"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEmbedding.of_eq",
+      "relation": "ExactOperatorEmbedding.of_eq — construct from cross-space equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target scalar, row-index, and column-index types with an explicit cross-space matrix embedding; no finiteness is required",
+        "subject": "the public declaration ExactOperatorEmbedding.of_eq",
+        "inputScope": "the specified source/target operator pair",
+        "observationScope": "literal equality target = embed source in the target matrix space",
+        "phase": "none",
+        "exactness": "exact introduction from target = embed source",
+        "ancillaPolicy": "none generically; changed matrix dimensions remain explicit and do not imply an ancilla, marginal, channel, or same-space operator equality"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEmbedding.eq",
+      "relation": "ExactOperatorEmbedding.eq — recover cross-space equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary source and target scalar, row-index, and column-index types with an explicit cross-space matrix embedding; no finiteness is required",
+        "subject": "the public declaration ExactOperatorEmbedding.eq",
+        "inputScope": "the specified source/target operator pair",
+        "observationScope": "literal equality target = embed source in the target matrix space",
+        "phase": "none",
+        "exactness": "exact elimination to target = embed source",
+        "ancillaPolicy": "none generically; changed matrix dimensions remain explicit and do not imply an ancilla, marginal, channel, or same-space operator equality"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEmbedding.comp",
+      "relation": "ExactOperatorEmbedding.comp — compose explicit operator embeddings",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.exactOperatorEmbedding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "arbitrary source and target scalar, row-index, and column-index types with an explicit cross-space matrix embedding; no finiteness is required",
+        "subject": "the public declaration ExactOperatorEmbedding.comp",
+        "inputScope": "the specified source/target operator pair",
+        "observationScope": "literal equality target = embed source in the target matrix space",
+        "phase": "none",
+        "exactness": "exact source-to-target composition using embedTU ∘ embedST without identifying matrix spaces",
+        "ancillaPolicy": "none generically; changed matrix dimensions remain explicit and do not imply an ancilla, marginal, channel, or same-space operator equality"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.StateIntertwining",
+      "relation": "StateIntertwining — exact compatibility of encoded source and target actions",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target scalars and rectangular matrix index types, with finite source and target input indices and explicit input/output encoders",
+        "subject": "the public declaration StateIntertwining",
+        "inputScope": "every raw source input column; no normalization or purity premise",
+        "observationScope": "the exact action equation target *ᵥ encodeInput input = encodeOutput (source *ᵥ input)",
+        "phase": "none",
+        "exactness": "exact all-input action relation; it is not operator equality, a state equivalence, channel equality, or a measurement relation",
+        "ancillaPolicy": "any dimension change is carried only by explicit encoders; no product structure, marginal, channel, all-effect, or operator-equality claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.StateIntertwining.of_forall",
+      "relation": "StateIntertwining.of_forall — construct from the pointwise action law",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target scalars and rectangular matrix index types, with finite source and target input indices and explicit input/output encoders",
+        "subject": "the public declaration StateIntertwining.of_forall",
+        "inputScope": "every raw source input column; no normalization or purity premise",
+        "observationScope": "the exact action equation target *ᵥ encodeInput input = encodeOutput (source *ᵥ input)",
+        "phase": "none",
+        "exactness": "exact introduction from the same universal action equation",
+        "ancillaPolicy": "any dimension change is carried only by explicit encoders; no product structure, marginal, channel, all-effect, or operator-equality claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.StateIntertwining.apply",
+      "relation": "StateIntertwining.apply — specialize the action law to one input",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target scalars and rectangular matrix index types, with finite source and target input indices and explicit input/output encoders",
+        "subject": "the public declaration StateIntertwining.apply",
+        "inputScope": "every raw source input column; no normalization or purity premise",
+        "observationScope": "the exact action equation target *ᵥ encodeInput input = encodeOutput (source *ᵥ input)",
+        "phase": "none",
+        "exactness": "exact specialization at one raw source input",
+        "ancillaPolicy": "any dimension change is carried only by explicit encoders; no product structure, marginal, channel, all-effect, or operator-equality claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.StateIntertwining.comp",
+      "relation": "StateIntertwining.comp — compose explicit state intertwinings",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.stateIntertwining_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "possibly different source and target scalars and rectangular matrix index types, with finite source and target input indices and explicit input/output encoders",
+        "subject": "the public declaration StateIntertwining.comp",
+        "inputScope": "every raw source input column; no normalization or purity premise",
+        "observationScope": "the exact action equation target *ᵥ encodeInput input = encodeOutput (source *ᵥ input)",
+        "phase": "none",
+        "exactness": "exact source-to-target composition with input and output encoders composed in forward order",
+        "ancillaPolicy": "any dimension change is carried only by explicit encoders; no product structure, marginal, channel, all-effect, or operator-equality claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopStateIntertwining",
+      "relation": "AllTopStateIntertwining — arbitrary-Top family of exact action intertwinings",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopStateIntertwining_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.allTopStateIntertwining_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target scalar and rectangular matrix spaces with an arbitrary explicit Top parameter type and finite input indices",
+        "subject": "the public declaration AllTopStateIntertwining",
+        "inputScope": "every supplied Top value and every raw source input column",
+        "observationScope": "exact StateIntertwining for each Top value",
+        "phase": "none",
+        "exactness": "exact universal quantification over an arbitrary Top type; it does not by itself mean all pure top states or assert product structure",
+        "ancillaPolicy": "Top is uninterpreted: the generic type asserts neither normalized purity nor mixedness, ancilla product structure, entanglement, marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopStateIntertwining.forTop",
+      "relation": "AllTopStateIntertwining.forTop — specialize the arbitrary-Top family",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopStateIntertwining_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "possibly different source and target scalar and rectangular matrix spaces with an arbitrary explicit Top parameter type and finite input indices",
+        "subject": "the public declaration AllTopStateIntertwining.forTop",
+        "inputScope": "every supplied Top value and every raw source input column",
+        "observationScope": "exact StateIntertwining for each Top value",
+        "phase": "none",
+        "exactness": "exact specialization at one supplied Top value; no purity or product premise is manufactured",
+        "ancillaPolicy": "Top is uninterpreted: the generic type asserts neither normalized purity nor mixedness, ancilla product structure, entanglement, marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedBasisWeightAgreement",
+      "relation": "DecodedBasisWeightAgreement — exact decoded basis-weight equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target outcome types with an explicit decoder from target real weight functions to source real weight functions; no finiteness required",
+        "subject": "the public declaration DecodedBasisWeightAgreement",
+        "inputScope": "all source outcomes after applying the displayed decoder to the fixed target weight function",
+        "observationScope": "literal equality of decoded and source weight functions",
+        "phase": "none",
+        "exactness": "exact decoded function equality; it does not assert amplitude, phase, state, distribution, channel, or all-effect equality",
+        "ancillaPolicy": "reindexing or marginalization occurs only if encoded by the explicit decoder; no implicit partial trace, state equality, channel, or all-effect claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedBasisWeightAgreement.of_eq",
+      "relation": "DecodedBasisWeightAgreement.of_eq — construct from function equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target outcome types with an explicit decoder from target real weight functions to source real weight functions; no finiteness required",
+        "subject": "the public declaration DecodedBasisWeightAgreement.of_eq",
+        "inputScope": "all source outcomes after applying the displayed decoder to the fixed target weight function",
+        "observationScope": "literal equality of decoded and source weight functions",
+        "phase": "none",
+        "exactness": "exact introduction from decoded target weights = source weights",
+        "ancillaPolicy": "reindexing or marginalization occurs only if encoded by the explicit decoder; no implicit partial trace, state equality, channel, or all-effect claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedBasisWeightAgreement.eq",
+      "relation": "DecodedBasisWeightAgreement.eq — recover function equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target outcome types with an explicit decoder from target real weight functions to source real weight functions; no finiteness required",
+        "subject": "the public declaration DecodedBasisWeightAgreement.eq",
+        "inputScope": "all source outcomes after applying the displayed decoder to the fixed target weight function",
+        "observationScope": "literal equality of decoded and source weight functions",
+        "phase": "none",
+        "exactness": "exact elimination to decoded target weights = source weights",
+        "ancillaPolicy": "reindexing or marginalization occurs only if encoded by the explicit decoder; no implicit partial trace, state equality, channel, or all-effect claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedBasisWeightAgreement.apply",
+      "relation": "DecodedBasisWeightAgreement.apply — specialize to one source outcome",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "possibly different source and target outcome types with an explicit decoder from target real weight functions to source real weight functions; no finiteness required",
+        "subject": "the public declaration DecodedBasisWeightAgreement.apply",
+        "inputScope": "all source outcomes after applying the displayed decoder to the fixed target weight function",
+        "observationScope": "literal equality of decoded and source weight functions",
+        "phase": "none",
+        "exactness": "exact pointwise consequence at one source outcome",
+        "ancillaPolicy": "reindexing or marginalization occurs only if encoded by the explicit decoder; no implicit partial trace, state equality, channel, or all-effect claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedBasisWeightAgreement.comp",
+      "relation": "DecodedBasisWeightAgreement.comp — compose explicit weight decoders",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedBasisWeightAgreement_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "possibly different source and target outcome types with an explicit decoder from target real weight functions to source real weight functions; no finiteness required",
+        "subject": "the public declaration DecodedBasisWeightAgreement.comp",
+        "inputScope": "all source outcomes after applying the displayed decoder to the fixed target weight function",
+        "observationScope": "literal equality of decoded and source weight functions",
+        "phase": "none",
+        "exactness": "exact source-to-target composition with decodeSM ∘ decodeMT",
+        "ancillaPolicy": "reindexing or marginalization occurs only if encoded by the explicit decoder; no implicit partial trace, state equality, channel, or all-effect claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement",
+      "relation": "DecodedDistributionAgreement — exact equality after distribution decoding",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact decoded FiniteDistribution equality; it is not quantum-state or channel equality",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.of_eq",
+      "relation": "DecodedDistributionAgreement.of_eq — construct from decoded distribution equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.of_eq",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact introduction from decode target = source",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.eq",
+      "relation": "DecodedDistributionAgreement.eq — recover decoded distribution equality",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.eq",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact elimination to decode target = source",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.comp",
+      "relation": "DecodedDistributionAgreement.comp — compose explicit distribution decoders",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.comp",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact source-to-target composition with decodeSM ∘ decodeMT",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.decodedBasisWeightAgreement",
+      "relation": "DecodedDistributionAgreement.decodedBasisWeightAgreement — derive compatible decoded point weights",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.decodedBasisWeightAgreement",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact consequence when the distribution decoder's weight field agrees with the displayed weight decoder",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.of_decodedBasisWeightAgreement",
+      "relation": "DecodedDistributionAgreement.of_decodedBasisWeightAgreement — reconstruct agreement from compatible point weights",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.of_decodedBasisWeightAgreement",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact converse under the displayed decoder-compatibility premise, using finite-distribution extensionality",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.eventWeight_eq",
+      "relation": "DecodedDistributionAgreement.eventWeight_eq — preserve every finite source event",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.eventWeight_eq",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact consequence for an arbitrary finite source event; no converse is asserted by this declaration",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DecodedDistributionAgreement.pushforward_eq",
+      "relation": "DecodedDistributionAgreement.pushforward_eq — preserve every deterministic finite postprocessing",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite but possibly different source and target outcome types with an explicit decoder between normalized finite distributions",
+        "subject": "the public declaration DecodedDistributionAgreement.pushforward_eq",
+        "inputScope": "the displayed source/target distributions, with all source outcomes, finite events, or deterministic finite postprocessings where stated",
+        "observationScope": "literal equality after decoding and its exact point-weight, event-weight, or pushforward consequences",
+        "phase": "none",
+        "exactness": "exact consequence for an arbitrary deterministic finite postprocessing; no channel semantics is inferred",
+        "ancillaPolicy": "reindexing or marginalization occurs only through the explicit decoder; no quantum state, partial trace, channel, or all-effect interpretation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopDecodedBasisWeightAgreement",
+      "relation": "AllTopDecodedBasisWeightAgreement — arbitrary-Top/Input family of decoded weight equalities",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedBasisWeightAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedBasisWeightAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary Top and Input parameter types and possibly different source/target outcome types with an explicit weight-function decoder",
+        "subject": "the public declaration AllTopDecodedBasisWeightAgreement",
+        "inputScope": "every supplied Top value and every supplied Input value",
+        "observationScope": "exact decoded basis-weight function equality for each parameter pair",
+        "phase": "none",
+        "exactness": "exact universal quantification over arbitrary Top and Input types; it does not assert pure inputs, normalized tops, or product structure",
+        "ancillaPolicy": "Top and Input are uninterpreted: the generic type asserts neither normalized purity nor product structure, mixedness, marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopDecodedBasisWeightAgreement.forTopInput",
+      "relation": "AllTopDecodedBasisWeightAgreement.forTopInput — specialize the arbitrary-Top/Input family",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedBasisWeightAgreement_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "arbitrary Top and Input parameter types and possibly different source/target outcome types with an explicit weight-function decoder",
+        "subject": "the public declaration AllTopDecodedBasisWeightAgreement.forTopInput",
+        "inputScope": "every supplied Top value and every supplied Input value",
+        "observationScope": "exact decoded basis-weight function equality for each parameter pair",
+        "phase": "none",
+        "exactness": "exact specialization at one supplied Top/Input pair; no purity or product premise is manufactured",
+        "ancillaPolicy": "Top and Input are uninterpreted: the generic type asserts neither normalized purity nor product structure, mixedness, marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopDecodedDistributionAgreement",
+      "relation": "AllTopDecodedDistributionAgreement — arbitrary-Top/Input family of decoded finite distributions",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedDistributionAgreement_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedDistributionAgreement_api; direct release endpoint pending",
+      "classification": {
+        "space": "arbitrary Top and Input parameter types and finite but possibly different source/target outcome types with an explicit distribution decoder",
+        "subject": "the public declaration AllTopDecodedDistributionAgreement",
+        "inputScope": "every supplied Top value and every supplied Input value",
+        "observationScope": "exact decoded finite-distribution equality for each parameter pair",
+        "phase": "none",
+        "exactness": "exact universal quantification over arbitrary Top and Input types; it does not assert pure inputs, normalized tops, or product structure",
+        "ancillaPolicy": "Top and Input are uninterpreted: the generic type asserts neither normalized purity nor product structure, mixedness, quantum marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllTopDecodedDistributionAgreement.forTopInput",
+      "relation": "AllTopDecodedDistributionAgreement.forTopInput — specialize the arbitrary-Top/Input family",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.allTopDecodedDistributionAgreement_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "arbitrary Top and Input parameter types and finite but possibly different source/target outcome types with an explicit distribution decoder",
+        "subject": "the public declaration AllTopDecodedDistributionAgreement.forTopInput",
+        "inputScope": "every supplied Top value and every supplied Input value",
+        "observationScope": "exact decoded finite-distribution equality for each parameter pair",
+        "phase": "none",
+        "exactness": "exact specialization at one supplied Top/Input pair; no purity, product, or channel premise is manufactured",
+        "ancillaPolicy": "Top and Input are uninterpreted: the generic type asserts neither normalized purity nor product structure, mixedness, quantum marginalization, channel behavior, or all-effect behavior"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn0_exactStateEncoding",
+      "relation": "realColumn0_exactStateEncoding — ExactStateEncoding left-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn0 explicit",
+        "subject": "first complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw complex source column",
+        "observationScope": "exact decoder-after-encoder reconstruction on source columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "this declaration alone is only a left-inverse certificate; separate right-inverse and LinearEquiv declarations establish coordinate bijectivity, but no ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn1_exactStateEncoding",
+      "relation": "realColumn1_exactStateEncoding — ExactStateEncoding left-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn1 explicit",
+        "subject": "second complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw complex source column",
+        "observationScope": "exact decoder-after-encoder reconstruction on source columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "this declaration alone is only a left-inverse certificate; separate right-inverse and LinearEquiv declarations establish coordinate bijectivity, but no ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn0_rightInverse",
+      "relation": "realColumn0_rightInverse — explicit decoder right-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn0 explicit",
+        "subject": "first complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw doubled-real target column",
+        "observationScope": "exact encoder-after-decoder reconstruction on target columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact right inverse and encoder surjectivity; with the separate left inverse this gives a representative-level bijection, not ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn1_rightInverse",
+      "relation": "realColumn1_rightInverse — explicit decoder right-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn1 explicit",
+        "subject": "second complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw doubled-real target column",
+        "observationScope": "exact encoder-after-decoder reconstruction on target columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact right inverse and encoder surjectivity; with the separate left inverse this gives a representative-level bijection, not ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn0_losslessStateEncoding",
+      "relation": "realColumn0_losslessStateEncoding — left-inverse and total-weight-preserving certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn0 explicit",
+        "subject": "first complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw complex source column on a finite index type",
+        "observationScope": "exact source reconstruction plus equality of the explicit source and target total weights",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact directional lossless certificate; it is left-inverse-based even though a separate coordinate LinearEquiv is bijective",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn1_losslessStateEncoding",
+      "relation": "realColumn1_losslessStateEncoding — left-inverse and total-weight-preserving certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn1 explicit",
+        "subject": "second complex-to-doubled-real canonical representative column",
+        "inputScope": "every raw complex source column on a finite index type",
+        "observationScope": "exact source reconstruction plus equality of the explicit source and target total weights",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact directional lossless certificate; it is left-inverse-based even though a separate coordinate LinearEquiv is bijective",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn0LinearEquiv",
+      "relation": "realColumn0LinearEquiv — explicit-decoder real-linear coordinate equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn0 explicit",
+        "subject": "first complex-to-doubled-real canonical representative column",
+        "inputScope": "all raw complex source and doubled-real target columns",
+        "observationScope": "a bijection preserving addition and real scalar multiplication in both coordinate presentations",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact ℝ-linear coordinate bijection; no complex-linear, ray, measurement, channel, or circuit equivalence is asserted",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn1LinearEquiv",
+      "relation": "realColumn1LinearEquiv — explicit-decoder real-linear coordinate equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw complex columns I → ℂ and doubled real columns I ⊕ I → ℝ, with source-to-target direction and complexOfRealColumn1 explicit",
+        "subject": "second complex-to-doubled-real canonical representative column",
+        "inputScope": "all raw complex source and doubled-real target columns",
+        "observationScope": "a bijection preserving addition and real scalar multiplication in both coordinate presentations",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact ℝ-linear coordinate bijection; no complex-linear, ray, measurement, channel, or circuit equivalence is asserted",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn0StateEquiv",
+      "relation": "realColumn0StateEquiv — normalized representative carrier equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "normalized complex representatives on finite I and normalized real representatives on finite I ⊕ I, with source-to-target direction and complexOfRealColumn0 explicit",
+        "subject": "first complex-to-doubled-real canonical representative column",
+        "inputScope": "every normalized representative on either finite-index carrier",
+        "observationScope": "a bijection of normalized amplitude representatives with a normalization-preserving explicit inverse",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact carrier Equiv; no phase/sign quotient and no ordinary-ray, measurement, channel, or circuit equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realColumn1StateEquiv",
+      "relation": "realColumn1StateEquiv — normalized representative carrier equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "normalized complex representatives on finite I and normalized real representatives on finite I ⊕ I, with source-to-target direction and complexOfRealColumn1 explicit",
+        "subject": "second complex-to-doubled-real canonical representative column",
+        "inputScope": "every normalized representative on either finite-index carrier",
+        "observationScope": "a bijection of normalized amplitude representatives with a normalization-preserving explicit inverse",
+        "phase": "none; concrete amplitude representatives are not quotiented by complex phases or real signs",
+        "exactness": "exact carrier Equiv; no phase/sign quotient and no ordinary-ray, measurement, channel, or circuit equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn0_exactStateEncoding",
+      "relation": "complexColumn0_exactStateEncoding — ExactStateEncoding left-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn0 explicit",
+        "subject": "first quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw quaternionic source column",
+        "observationScope": "exact decoder-after-encoder reconstruction on source columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "this declaration alone is only a left-inverse certificate; separate right-inverse and LinearEquiv declarations establish coordinate bijectivity, but no ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn1_exactStateEncoding",
+      "relation": "complexColumn1_exactStateEncoding — ExactStateEncoding left-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn1 explicit",
+        "subject": "second quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw quaternionic source column",
+        "observationScope": "exact decoder-after-encoder reconstruction on source columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "this declaration alone is only a left-inverse certificate; separate right-inverse and LinearEquiv declarations establish coordinate bijectivity, but no ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn0_rightInverse",
+      "relation": "complexColumn0_rightInverse — explicit decoder right-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn0 explicit",
+        "subject": "first quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw doubled-complex target column",
+        "observationScope": "exact encoder-after-decoder reconstruction on target columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact right inverse and encoder surjectivity; with the separate left inverse this gives a representative-level bijection, not ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn1_rightInverse",
+      "relation": "complexColumn1_rightInverse — explicit decoder right-inverse certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn1 explicit",
+        "subject": "second quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw doubled-complex target column",
+        "observationScope": "exact encoder-after-decoder reconstruction on target columns",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact right inverse and encoder surjectivity; with the separate left inverse this gives a representative-level bijection, not ray or behavioral equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn0_losslessStateEncoding",
+      "relation": "complexColumn0_losslessStateEncoding — left-inverse and total-weight-preserving certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn0 explicit",
+        "subject": "first quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw quaternionic source column on a finite index type",
+        "observationScope": "exact source reconstruction plus equality of the explicit source and target total weights",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact directional lossless certificate; it is left-inverse-based even though a separate coordinate LinearEquiv is bijective",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn1_losslessStateEncoding",
+      "relation": "complexColumn1_losslessStateEncoding — left-inverse and total-weight-preserving certificate",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn1 explicit",
+        "subject": "second quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every raw quaternionic source column on a finite index type",
+        "observationScope": "exact source reconstruction plus equality of the explicit source and target total weights",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact directional lossless certificate; it is left-inverse-based even though a separate coordinate LinearEquiv is bijective",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn0LinearEquiv",
+      "relation": "complexColumn0LinearEquiv — explicit-decoder real-linear coordinate equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn0 explicit",
+        "subject": "first quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "all raw quaternionic source and doubled-complex target columns",
+        "observationScope": "a bijection preserving addition and real scalar multiplication in both coordinate presentations",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact ℝ-linear coordinate bijection; no quaternionic-linear, complex-linear, ray, measurement, channel, or circuit equivalence is asserted",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn1LinearEquiv",
+      "relation": "complexColumn1LinearEquiv — explicit-decoder real-linear coordinate equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "raw quaternionic columns I → ℍ[ℝ] and doubled complex columns I ⊕ I → ℂ, with source-to-target direction and quaternionOfComplexColumn1 explicit",
+        "subject": "second quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "all raw quaternionic source and doubled-complex target columns",
+        "observationScope": "a bijection preserving addition and real scalar multiplication in both coordinate presentations",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact ℝ-linear coordinate bijection; no quaternionic-linear, complex-linear, ray, measurement, channel, or circuit equivalence is asserted",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn0StateEquiv",
+      "relation": "complexColumn0StateEquiv — normalized representative carrier equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "normalized quaternionic representatives on finite I and normalized complex representatives on finite I ⊕ I, with source-to-target direction and quaternionOfComplexColumn0 explicit",
+        "subject": "first quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every normalized representative on either finite-index carrier",
+        "observationScope": "a bijection of normalized amplitude representatives with a normalization-preserving explicit inverse",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact carrier Equiv; no right-quaternion/complex phase quotient and no ordinary-ray, measurement, channel, or circuit equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexColumn1StateEquiv",
+      "relation": "complexColumn1StateEquiv — normalized representative carrier equivalence",
+      "owner": "goal-2/9A-RELATIONS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api; direct release endpoint pending",
+      "classification": {
+        "space": "normalized quaternionic representatives on finite I and normalized complex representatives on finite I ⊕ I, with source-to-target direction and quaternionOfComplexColumn1 explicit",
+        "subject": "second quaternionic-to-doubled-complex canonical representative column",
+        "inputScope": "every normalized representative on either finite-index carrier",
+        "observationScope": "a bijection of normalized amplitude representatives with a normalization-preserving explicit inverse",
+        "phase": "none; concrete amplitude representatives are not quotiented by right quaternion phases or complex phases",
+        "exactness": "exact carrier Equiv; no right-quaternion/complex phase quotient and no ordinary-ray, measurement, channel, or circuit equivalence",
+        "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
+      }
     }
   ]
 }
