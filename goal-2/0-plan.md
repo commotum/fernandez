@@ -156,7 +156,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   action, and channel equality have exact iff characterizations. Certified
   circuit lifts use `OrderedCircuit.eval`, discharge the inherently inhabited
   `BitBasis W` internally even at zero wires, and retain chronological order.
-  There is still no operator-distance API.
+  Stage 10 adds operator distances separately; it does not define approximate
+  channel or all-effect equality.
 - Stage 5 now exports certified real, complex, and quaternionic
   computational-basis behavior for matrices and chronological circuits. A
   `BasisPermutationImplementation` proves an explicit permutation on every

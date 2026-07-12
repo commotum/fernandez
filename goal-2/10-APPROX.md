@@ -311,7 +311,8 @@ runtime, and false equivalence claims outside Goal 2.
   audit adds 42 Stage 10 commands, reaching 536 total; its parser covers
   `533 + 3` blocks and has the same exact standard-three union. The combined
   stable/audit/public-root/release-audit build passes at 2,775 jobs, and the
-  cached default build passes at 2,773.
+  cached default build passes at 2,773. The adjacent hierarchy/simulation-audit
+  build passes at 2,745.
 - `docs/Goal2SemanticAPIManifest.json` preserves the first 1,100 entries with
   hash `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
   and appends all 169 declarations in exact source order. The manifest now has
