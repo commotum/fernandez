@@ -550,6 +550,339 @@ theorem quaternionOutputLeftPhaseEq
 
 end SameBasisBehavior
 
+/-! ## Scalar phase and measurement converses on the certified class -/
+
+namespace BasisMeasurementEq
+
+variable {I : Type v} [DecidableEq I]
+
+/-- Real basis weights determine the permutation of certified real implementations. -/
+theorem realSameBasisBehavior
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q)
+    (h : BasisMeasurementEq State.realWeight U V) :
+    SameBasisBehavior hU hV := by
+  apply BasisMeasurementEq.sameBasisBehavior
+    (unitPhase := RealUnitSign) (weight := State.realWeight) (hU := hU)
+    (hV := hV) (hmeasure := h)
+  · norm_num [State.realWeight]
+  · intro phase hphase
+    simpa [State.realWeight, RealUnitSign] using hphase
+
+/-- Complex basis weights determine the permutation of certified complex implementations. -/
+theorem complexSameBasisBehavior
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q)
+    (h : BasisMeasurementEq State.complexWeight U V) :
+    SameBasisBehavior hU hV := by
+  apply BasisMeasurementEq.sameBasisBehavior
+    (unitPhase := ComplexUnitPhase) (weight := State.complexWeight)
+    (hU := hU) (hV := hV) (hmeasure := h)
+  · norm_num [State.complexWeight]
+  · intro phase hphase
+    simpa [State.complexWeight, ComplexUnitPhase] using hphase
+
+/--
+Quaternionic basis weights determine the permutation of certified
+quaternionic implementations.
+-/
+theorem quaternionSameBasisBehavior
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q)
+    (h : BasisMeasurementEq State.quaternionWeight U V) :
+    SameBasisBehavior hU hV := by
+  apply BasisMeasurementEq.sameBasisBehavior
+    (unitPhase := QuaternionUnitPhase) (weight := State.quaternionWeight)
+    (hU := hU) (hV := hV) (hmeasure := h)
+  · norm_num [State.quaternionWeight]
+  · intro phase hphase
+    simpa [State.quaternionWeight, QuaternionUnitPhase] using hphase
+
+end BasisMeasurementEq
+
+namespace RealInputBasisSignEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+
+/-- Input-column sign equality forces equal certified real permutations. -/
+theorem sameBasisBehavior (h : RealInputBasisSignEq U V)
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.realSameBasisBehavior hU hV
+
+end RealInputBasisSignEq
+
+namespace ComplexInputBasisPhaseEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+
+/-- Input-column phase equality forces equal certified complex permutations. -/
+theorem sameBasisBehavior (h : ComplexInputBasisPhaseEq U V)
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.complexSameBasisBehavior hU hV
+
+end ComplexInputBasisPhaseEq
+
+namespace QuaternionInputRightPhaseEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+
+/-- Input-right-phase equality forces equal certified quaternionic permutations. -/
+theorem sameBasisBehavior (h : QuaternionInputRightPhaseEq U V)
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.quaternionSameBasisBehavior hU hV
+
+end QuaternionInputRightPhaseEq
+
+namespace RealOutputBasisSignEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+
+/-- Output-row sign equality forces equal certified real permutations. -/
+theorem sameBasisBehavior (h : RealOutputBasisSignEq U V)
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.realSameBasisBehavior hU hV
+
+end RealOutputBasisSignEq
+
+namespace ComplexOutputBasisPhaseEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+
+/-- Output-row phase equality forces equal certified complex permutations. -/
+theorem sameBasisBehavior (h : ComplexOutputBasisPhaseEq U V)
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.complexSameBasisBehavior hU hV
+
+end ComplexOutputBasisPhaseEq
+
+namespace QuaternionOutputLeftPhaseEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+
+/-- Output-left-phase equality forces equal certified quaternionic permutations. -/
+theorem sameBasisBehavior (h : QuaternionOutputLeftPhaseEq U V)
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.basisMeasurementEq.quaternionSameBasisBehavior hU hV
+
+end QuaternionOutputLeftPhaseEq
+
+namespace SameBasisBehavior
+
+variable {I : Type v} [DecidableEq I]
+
+/-- Equal certified real behavior has equal computational-basis weights. -/
+theorem realBasisMeasurementEq
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    {hU : RealBasisPermutationImplementation U p}
+    {hV : RealBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    BasisMeasurementEq State.realWeight U V :=
+  h.realInputBasisSignEq.basisMeasurementEq
+
+/-- Equal certified complex behavior has equal computational-basis weights. -/
+theorem complexBasisMeasurementEq
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    {hU : ComplexBasisPermutationImplementation U p}
+    {hV : ComplexBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    BasisMeasurementEq State.complexWeight U V :=
+  h.complexInputBasisPhaseEq.basisMeasurementEq
+
+/-- Equal certified quaternionic behavior has equal computational-basis weights. -/
+theorem quaternionBasisMeasurementEq
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    {hU : QuaternionBasisPermutationImplementation U p}
+    {hV : QuaternionBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    BasisMeasurementEq State.quaternionWeight U V :=
+  h.quaternionInputRightPhaseEq.basisMeasurementEq
+
+end SameBasisBehavior
+
+/-! ## Exact equivalences on certified real, complex, and quaternionic classes -/
+
+theorem sameBasisBehavior_iff_realInputBasisSignEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ RealInputBasisSignEq U V :=
+  ⟨SameBasisBehavior.realInputBasisSignEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_realOutputBasisSignEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ RealOutputBasisSignEq U V :=
+  ⟨SameBasisBehavior.realOutputBasisSignEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_realBasisMeasurementEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔
+      BasisMeasurementEq State.realWeight U V :=
+  ⟨SameBasisBehavior.realBasisMeasurementEq,
+    fun h ↦ h.realSameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_complexInputBasisPhaseEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ ComplexInputBasisPhaseEq U V :=
+  ⟨SameBasisBehavior.complexInputBasisPhaseEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_complexOutputBasisPhaseEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ ComplexOutputBasisPhaseEq U V :=
+  ⟨SameBasisBehavior.complexOutputBasisPhaseEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_complexBasisMeasurementEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔
+      BasisMeasurementEq State.complexWeight U V :=
+  ⟨SameBasisBehavior.complexBasisMeasurementEq,
+    fun h ↦ h.complexSameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_quaternionInputRightPhaseEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ QuaternionInputRightPhaseEq U V :=
+  ⟨SameBasisBehavior.quaternionInputRightPhaseEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_quaternionOutputLeftPhaseEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔ QuaternionOutputLeftPhaseEq U V :=
+  ⟨SameBasisBehavior.quaternionOutputLeftPhaseEq,
+    fun h ↦ h.sameBasisBehavior hU hV⟩
+
+theorem sameBasisBehavior_iff_quaternionBasisMeasurementEq
+    {I : Type v} [DecidableEq I]
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV ↔
+      BasisMeasurementEq State.quaternionWeight U V :=
+  ⟨SameBasisBehavior.quaternionBasisMeasurementEq,
+    fun h ↦ h.quaternionSameBasisBehavior hU hV⟩
+
+/-! ## Exact and global-phase preservation of certified behavior -/
+
+namespace ExactOperatorEq
+
+variable {I : Type v} [DecidableEq I]
+
+theorem realSameBasisBehavior
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (h : ExactOperatorEq U V)
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  ExactOperatorEq.sameBasisBehavior
+    (fun _ hphase ↦ realUnitSign_ne_zero hphase) hU hV h
+
+theorem complexSameBasisBehavior
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (h : ExactOperatorEq U V)
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  ExactOperatorEq.sameBasisBehavior
+    (fun _ hphase ↦ complexUnitPhase_ne_zero hphase) hU hV h
+
+theorem quaternionSameBasisBehavior
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (h : ExactOperatorEq U V)
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  ExactOperatorEq.sameBasisBehavior
+    (fun _ hphase ↦ quaternionUnitPhase_ne_zero hphase) hU hV h
+
+end ExactOperatorEq
+
+namespace RealGlobalSignEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+
+/-- A real global sign preserves the certified basis permutation. -/
+theorem sameBasisBehavior (h : RealGlobalSignEq U V)
+    (hU : RealBasisPermutationImplementation U p)
+    (hV : RealBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.inputBasisSignEq.sameBasisBehavior hU hV
+
+end RealGlobalSignEq
+
+namespace ComplexGlobalPhaseEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+
+/-- A complex global phase preserves the certified basis permutation. -/
+theorem sameBasisBehavior (h : ComplexGlobalPhaseEq U V)
+    (hU : ComplexBasisPermutationImplementation U p)
+    (hV : ComplexBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.inputBasisPhaseEq.sameBasisBehavior hU hV
+
+end ComplexGlobalPhaseEq
+
+namespace QuaternionCentralSignEq
+
+variable {I : Type v} [DecidableEq I]
+variable {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+
+/-- A quaternionic central sign preserves the certified basis permutation. -/
+theorem sameBasisBehavior (h : QuaternionCentralSignEq U V)
+    (hU : QuaternionBasisPermutationImplementation U p)
+    (hV : QuaternionBasisPermutationImplementation V q) :
+    SameBasisBehavior hU hV :=
+  h.inputRightPhaseEq.sameBasisBehavior hU hV
+
+end QuaternionCentralSignEq
+
 /-! ## Certified unitary operator bundles -/
 
 /-- A square unitary operator together with certified classical basis behavior. -/
@@ -578,6 +911,67 @@ def ofPermMatrix (hone : unitPhase 1) (p : Equiv.Perm I) :
   permutation := p.symm
   implementation := BasisPermutationImplementation.ofPermMatrix hone p
 
+/-- Certified-bundle behavior is equality of the stored certified permutations. -/
+def SameBasisBehavior
+    (A B : BasisClassicalUnitaryOperator R I unitPhase) : Prop :=
+  QuaternionicComputing.Semantics.SameBasisBehavior
+    A.implementation B.implementation
+
+@[simp]
+theorem sameBasisBehavior_iff_permutation_eq
+    (A B : BasisClassicalUnitaryOperator R I unitPhase) :
+    SameBasisBehavior A B ↔ A.permutation = B.permutation :=
+  Iff.rfl
+
+namespace SameBasisBehavior
+
+variable {A B C : BasisClassicalUnitaryOperator R I unitPhase}
+
+@[refl]
+theorem refl (A : BasisClassicalUnitaryOperator R I unitPhase) :
+    BasisClassicalUnitaryOperator.SameBasisBehavior A A :=
+  rfl
+
+@[symm]
+theorem symm (h : BasisClassicalUnitaryOperator.SameBasisBehavior A B) :
+    BasisClassicalUnitaryOperator.SameBasisBehavior B A :=
+  Eq.symm h
+
+@[trans]
+theorem trans
+    (hAB : BasisClassicalUnitaryOperator.SameBasisBehavior A B)
+    (hBC : BasisClassicalUnitaryOperator.SameBasisBehavior B C) :
+    BasisClassicalUnitaryOperator.SameBasisBehavior A C :=
+  Eq.trans hAB hBC
+
+/-- Certified unitary-operator basis behavior is an equivalence relation. -/
+theorem equivalence :
+    Equivalence (BasisClassicalUnitaryOperator.SameBasisBehavior :
+      BasisClassicalUnitaryOperator R I unitPhase →
+        BasisClassicalUnitaryOperator R I unitPhase → Prop) :=
+  ⟨refl, symm, trans⟩
+
+end SameBasisBehavior
+
+/-- Exact equality of bundled matrices forces equality of their certified behavior. -/
+theorem sameBasisBehavior_of_matrix_eq
+    (hnonzero : ∀ phase, unitPhase phase → phase ≠ 0)
+    (A B : BasisClassicalUnitaryOperator R I unitPhase)
+    (hmatrix : A.matrix = B.matrix) :
+    SameBasisBehavior A B :=
+  ExactOperatorEq.sameBasisBehavior hnonzero A.implementation
+    B.implementation hmatrix
+
+/-- Equal bundled behavior gives equality of the underlying raw transition relations. -/
+theorem basisTransitionRelationEq
+    (hnonzero : ∀ phase, unitPhase phase → phase ≠ 0)
+    {A B : BasisClassicalUnitaryOperator R I unitPhase}
+    (h : SameBasisBehavior A B) :
+    QuaternionicComputing.Semantics.BasisTransitionRelationEq
+      unitPhase A.matrix B.matrix :=
+  QuaternionicComputing.Semantics.SameBasisBehavior.basisTransitionRelationEq
+    hnonzero h
+
 end BasisClassicalUnitaryOperator
 
 /-- Real certified basis-classical unitary operators. -/
@@ -594,5 +988,83 @@ abbrev ComplexBasisClassicalUnitaryOperator
 abbrev QuaternionBasisClassicalUnitaryOperator
     (I : Type v) [Fintype I] [DecidableEq I] :=
   BasisClassicalUnitaryOperator ℍ[ℝ] I QuaternionUnitPhase
+
+/-! ## Scalar-specialized permutation constructors and uniqueness -/
+
+namespace RealBasisPermutationImplementation
+
+variable {I : Type v} [DecidableEq I]
+
+theorem ofPermMatrix (p : Equiv.Perm I) :
+    RealBasisPermutationImplementation (p.permMatrix ℝ) p.symm :=
+  BasisPermutationImplementation.ofPermMatrix realUnitSign_one p
+
+theorem permutation_unique {U : Matrix I I ℝ} {p q : Equiv.Perm I}
+    (hp : RealBasisPermutationImplementation U p)
+    (hq : RealBasisPermutationImplementation U q) : p = q :=
+  BasisPermutationImplementation.permutation_unique
+    (fun _ hphase ↦ realUnitSign_ne_zero hphase) hp hq
+
+end RealBasisPermutationImplementation
+
+namespace ComplexBasisPermutationImplementation
+
+variable {I : Type v} [DecidableEq I]
+
+theorem ofPermMatrix (p : Equiv.Perm I) :
+    ComplexBasisPermutationImplementation (p.permMatrix ℂ) p.symm :=
+  BasisPermutationImplementation.ofPermMatrix complexUnitPhase_one p
+
+theorem permutation_unique {U : Matrix I I ℂ} {p q : Equiv.Perm I}
+    (hp : ComplexBasisPermutationImplementation U p)
+    (hq : ComplexBasisPermutationImplementation U q) : p = q :=
+  BasisPermutationImplementation.permutation_unique
+    (fun _ hphase ↦ complexUnitPhase_ne_zero hphase) hp hq
+
+end ComplexBasisPermutationImplementation
+
+namespace QuaternionBasisPermutationImplementation
+
+variable {I : Type v} [DecidableEq I]
+
+theorem ofPermMatrix (p : Equiv.Perm I) :
+    QuaternionBasisPermutationImplementation (p.permMatrix ℍ[ℝ]) p.symm :=
+  BasisPermutationImplementation.ofPermMatrix quaternionUnitPhase_one p
+
+theorem permutation_unique {U : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    (hp : QuaternionBasisPermutationImplementation U p)
+    (hq : QuaternionBasisPermutationImplementation U q) : p = q :=
+  BasisPermutationImplementation.permutation_unique
+    (fun _ hphase ↦ quaternionUnitPhase_ne_zero hphase) hp hq
+
+end QuaternionBasisPermutationImplementation
+
+namespace RealBasisClassicalUnitaryOperator
+
+variable {I : Type v} [Fintype I] [DecidableEq I]
+
+def ofPermMatrix (p : Equiv.Perm I) : RealBasisClassicalUnitaryOperator I :=
+  BasisClassicalUnitaryOperator.ofPermMatrix realUnitSign_one p
+
+end RealBasisClassicalUnitaryOperator
+
+namespace ComplexBasisClassicalUnitaryOperator
+
+variable {I : Type v} [Fintype I] [DecidableEq I]
+
+def ofPermMatrix (p : Equiv.Perm I) : ComplexBasisClassicalUnitaryOperator I :=
+  BasisClassicalUnitaryOperator.ofPermMatrix complexUnitPhase_one p
+
+end ComplexBasisClassicalUnitaryOperator
+
+namespace QuaternionBasisClassicalUnitaryOperator
+
+variable {I : Type v} [Fintype I] [DecidableEq I]
+
+def ofPermMatrix (p : Equiv.Perm I) :
+    QuaternionBasisClassicalUnitaryOperator I :=
+  BasisClassicalUnitaryOperator.ofPermMatrix quaternionUnitPhase_one p
+
+end QuaternionBasisClassicalUnitaryOperator
 
 end QuaternionicComputing.Semantics

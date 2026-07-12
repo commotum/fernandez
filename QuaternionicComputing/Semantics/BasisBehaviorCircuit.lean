@@ -1,6 +1,8 @@
 module
 
 public import QuaternionicComputing.Semantics.BasisBehavior
+public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
+public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Circuit.BasisPreparation
 
 /-!
@@ -126,6 +128,80 @@ theorem trans (hCD : SameCircuitBasisBehavior C D)
 theorem equivalence :
     Equivalence (@SameCircuitBasisBehavior R W _ _ _ unitPhase) :=
   ⟨refl, symm, trans⟩
+
+/-! ### Exact scalar characterizations on certified circuits -/
+
+/-- On certified real circuits, same permutation is exactly input-column sign equality. -/
+theorem iff_realCircuitInputBasisSignEq {W : Type v} [Fintype W]
+    {C D : RealBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      RealCircuitInputBasisSignEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_realInputBasisSignEq C.implementation D.implementation
+
+/-- On certified real circuits, same permutation is exactly output-row sign equality. -/
+theorem iff_realCircuitOutputBasisSignEq {W : Type v} [Fintype W]
+    {C D : RealBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      RealCircuitOutputBasisSignEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_realOutputBasisSignEq C.implementation D.implementation
+
+/-- On certified real circuits, same permutation is exactly basis-measurement equality. -/
+theorem iff_realBasisMeasurementEq {W : Type v} [Fintype W]
+    {C D : RealBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      BasisMeasurementEq State.realWeight C.circuit.eval D.circuit.eval :=
+  sameBasisBehavior_iff_realBasisMeasurementEq C.implementation D.implementation
+
+/-- On certified complex circuits, same permutation is exactly input-column phase equality. -/
+theorem iff_complexCircuitInputBasisPhaseEq {W : Type v} [Fintype W]
+    {C D : ComplexBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      ComplexCircuitInputBasisPhaseEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_complexInputBasisPhaseEq C.implementation D.implementation
+
+/-- On certified complex circuits, same permutation is exactly output-row phase equality. -/
+theorem iff_complexCircuitOutputBasisPhaseEq {W : Type v} [Fintype W]
+    {C D : ComplexBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      ComplexCircuitOutputBasisPhaseEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_complexOutputBasisPhaseEq C.implementation D.implementation
+
+/-- On certified complex circuits, same permutation is exactly basis-measurement equality. -/
+theorem iff_complexBasisMeasurementEq {W : Type v} [Fintype W]
+    {C D : ComplexBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      BasisMeasurementEq State.complexWeight C.circuit.eval D.circuit.eval :=
+  sameBasisBehavior_iff_complexBasisMeasurementEq C.implementation D.implementation
+
+/--
+On certified quaternionic circuits, same permutation is exactly input-column
+right-phase equality.
+-/
+theorem iff_quaternionCircuitInputRightPhaseEq {W : Type v} [Fintype W]
+    {C D : QuaternionBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      QuaternionCircuitInputRightPhaseEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_quaternionInputRightPhaseEq
+    C.implementation D.implementation
+
+/--
+On certified quaternionic circuits, same permutation is exactly output-row
+left-phase equality.
+-/
+theorem iff_quaternionCircuitOutputLeftPhaseEq {W : Type v} [Fintype W]
+    {C D : QuaternionBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      QuaternionCircuitOutputLeftPhaseEq C.circuit D.circuit :=
+  sameBasisBehavior_iff_quaternionOutputLeftPhaseEq
+    C.implementation D.implementation
+
+/-- On certified quaternionic circuits, same permutation is exactly basis-measurement equality. -/
+theorem iff_quaternionBasisMeasurementEq {W : Type v} [Fintype W]
+    {C D : QuaternionBasisClassicalCircuit W} :
+    SameCircuitBasisBehavior C D ↔
+      BasisMeasurementEq State.quaternionWeight C.circuit.eval D.circuit.eval :=
+  sameBasisBehavior_iff_quaternionBasisMeasurementEq
+    C.implementation D.implementation
 
 end SameCircuitBasisBehavior
 

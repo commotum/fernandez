@@ -1,6 +1,6 @@
 module
 
-public import QuaternionicComputing.Semantics.BasisBehavior
+public import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 
 /-!
 # Certified basis-behavior audit
@@ -21,6 +21,8 @@ diagnostic notion and cannot replace a certified permutation implementation.
 open scoped Matrix Quaternion
 
 namespace QuaternionicComputing.Semantics.BasisBehaviorAudit
+
+open QuaternionicComputing.Circuit
 
 /-! ## Structural API consumers -/
 
@@ -99,6 +101,131 @@ theorem sameBehavior_api
     SameBasisBehavior.basisTransitionRelationEq hnonzero hUV,
     ExactOperatorEq.sameBasisBehavior hnonzero hU hV hexact⟩
 
+/-- Consumer for recovery of a certified permutation from basis measurements. -/
+theorem measurementDeterminesBehavior_api
+    {R I : Type*} [Zero R] [DecidableEq I]
+    {unitPhase : R → Prop} {weight : R → ℝ}
+    {U V : Matrix I I R} {p q : Equiv.Perm I}
+    (hzero : weight 0 = 0)
+    (hunit : ∀ phase, unitPhase phase → weight phase = 1)
+    (hU : BasisPermutationImplementation unitPhase U p)
+    (hV : BasisPermutationImplementation unitPhase V q)
+    (hmeasure : BasisMeasurementEq weight U V) :
+    SameBasisBehavior hU hV :=
+  BasisMeasurementEq.sameBasisBehavior hzero hunit hU hV hmeasure
+
+/-- Equal certified permutations produce the correctly sided phase relations. -/
+theorem scalarPhase_api
+    {I : Type*} [DecidableEq I]
+    {UR VR : Matrix I I ℝ} {UC VC : Matrix I I ℂ}
+    {UQ VQ : Matrix I I ℍ[ℝ]}
+    {pR qR pC qC pQ qQ : Equiv.Perm I}
+    {hUR : RealBasisPermutationImplementation UR pR}
+    {hVR : RealBasisPermutationImplementation VR qR}
+    {hUC : ComplexBasisPermutationImplementation UC pC}
+    {hVC : ComplexBasisPermutationImplementation VC qC}
+    {hUQ : QuaternionBasisPermutationImplementation UQ pQ}
+    {hVQ : QuaternionBasisPermutationImplementation VQ qQ}
+    (hR : SameBasisBehavior hUR hVR)
+    (hC : SameBasisBehavior hUC hVC)
+    (hQ : SameBasisBehavior hUQ hVQ) :
+    RealInputBasisSignEq UR VR ∧
+      RealOutputBasisSignEq UR VR ∧
+      ComplexInputBasisPhaseEq UC VC ∧
+      ComplexOutputBasisPhaseEq UC VC ∧
+      QuaternionInputRightPhaseEq UQ VQ ∧
+      QuaternionOutputLeftPhaseEq UQ VQ :=
+  ⟨hR.realInputBasisSignEq,
+    hR.realOutputBasisSignEq,
+    hC.complexInputBasisPhaseEq,
+    hC.complexOutputBasisPhaseEq,
+    hQ.quaternionInputRightPhaseEq,
+    hQ.quaternionOutputLeftPhaseEq⟩
+
+/--
+Complete consumer for the certified-class converses and exact equivalences in
+the real, complex, and quaternionic scalar specializations.
+-/
+theorem certifiedEquivalences_api
+    {I : Type*} [DecidableEq I]
+    {UR VR : Matrix I I ℝ} {UC VC : Matrix I I ℂ}
+    {UQ VQ : Matrix I I ℍ[ℝ]}
+    {pR qR pC qC pQ qQ : Equiv.Perm I}
+    {hUR : RealBasisPermutationImplementation UR pR}
+    {hVR : RealBasisPermutationImplementation VR qR}
+    {hUC : ComplexBasisPermutationImplementation UC pC}
+    {hVC : ComplexBasisPermutationImplementation VC qC}
+    {hUQ : QuaternionBasisPermutationImplementation UQ pQ}
+    {hVQ : QuaternionBasisPermutationImplementation VQ qQ}
+    (hR : SameBasisBehavior hUR hVR)
+    (hC : SameBasisBehavior hUC hVC)
+    (hQ : SameBasisBehavior hUQ hVQ) :
+    SameBasisBehavior hUR hVR ∧
+      SameBasisBehavior hUC hVC ∧
+      SameBasisBehavior hUQ hVQ ∧
+      SameBasisBehavior hUR hVR ∧
+      SameBasisBehavior hUC hVC ∧
+      SameBasisBehavior hUQ hVQ ∧
+      SameBasisBehavior hUR hVR ∧
+      SameBasisBehavior hUC hVC ∧
+      SameBasisBehavior hUQ hVQ ∧
+      BasisMeasurementEq State.realWeight UR VR ∧
+      BasisMeasurementEq State.complexWeight UC VC ∧
+      BasisMeasurementEq State.quaternionWeight UQ VQ ∧
+      (SameBasisBehavior hUR hVR ↔ RealInputBasisSignEq UR VR) ∧
+      (SameBasisBehavior hUR hVR ↔ RealOutputBasisSignEq UR VR) ∧
+      (SameBasisBehavior hUR hVR ↔
+        BasisMeasurementEq State.realWeight UR VR) ∧
+      (SameBasisBehavior hUC hVC ↔ ComplexInputBasisPhaseEq UC VC) ∧
+      (SameBasisBehavior hUC hVC ↔ ComplexOutputBasisPhaseEq UC VC) ∧
+      (SameBasisBehavior hUC hVC ↔
+        BasisMeasurementEq State.complexWeight UC VC) ∧
+      (SameBasisBehavior hUQ hVQ ↔ QuaternionInputRightPhaseEq UQ VQ) ∧
+      (SameBasisBehavior hUQ hVQ ↔ QuaternionOutputLeftPhaseEq UQ VQ) ∧
+      (SameBasisBehavior hUQ hVQ ↔
+        BasisMeasurementEq State.quaternionWeight UQ VQ) ∧
+      SameBasisBehavior hUR hUR ∧
+      SameBasisBehavior hUC hUC ∧
+      SameBasisBehavior hUQ hUQ ∧
+      SameBasisBehavior hUR hUR ∧
+      SameBasisBehavior hUC hUC ∧
+      SameBasisBehavior hUQ hUQ := by
+  have hRin := hR.realInputBasisSignEq
+  have hRout := hR.realOutputBasisSignEq
+  have hCin := hC.complexInputBasisPhaseEq
+  have hCout := hC.complexOutputBasisPhaseEq
+  have hQin := hQ.quaternionInputRightPhaseEq
+  have hQout := hQ.quaternionOutputLeftPhaseEq
+  have hRm := hR.realBasisMeasurementEq
+  have hCm := hC.complexBasisMeasurementEq
+  have hQm := hQ.quaternionBasisMeasurementEq
+  exact ⟨hRm.realSameBasisBehavior hUR hVR,
+    hCm.complexSameBasisBehavior hUC hVC,
+    hQm.quaternionSameBasisBehavior hUQ hVQ,
+    hRin.sameBasisBehavior hUR hVR,
+    hCin.sameBasisBehavior hUC hVC,
+    hQin.sameBasisBehavior hUQ hVQ,
+    hRout.sameBasisBehavior hUR hVR,
+    hCout.sameBasisBehavior hUC hVC,
+    hQout.sameBasisBehavior hUQ hVQ,
+    hRm, hCm, hQm,
+    sameBasisBehavior_iff_realInputBasisSignEq hUR hVR,
+    sameBasisBehavior_iff_realOutputBasisSignEq hUR hVR,
+    sameBasisBehavior_iff_realBasisMeasurementEq hUR hVR,
+    sameBasisBehavior_iff_complexInputBasisPhaseEq hUC hVC,
+    sameBasisBehavior_iff_complexOutputBasisPhaseEq hUC hVC,
+    sameBasisBehavior_iff_complexBasisMeasurementEq hUC hVC,
+    sameBasisBehavior_iff_quaternionInputRightPhaseEq hUQ hVQ,
+    sameBasisBehavior_iff_quaternionOutputLeftPhaseEq hUQ hVQ,
+    sameBasisBehavior_iff_quaternionBasisMeasurementEq hUQ hVQ,
+    ExactOperatorEq.realSameBasisBehavior (ExactOperatorEq.refl UR) hUR hUR,
+    ExactOperatorEq.complexSameBasisBehavior (ExactOperatorEq.refl UC) hUC hUC,
+    ExactOperatorEq.quaternionSameBasisBehavior (ExactOperatorEq.refl UQ) hUQ hUQ,
+    RealGlobalSignEq.sameBasisBehavior (RealGlobalSignEq.refl UR) hUR hUR,
+    ComplexGlobalPhaseEq.sameBasisBehavior (ComplexGlobalPhaseEq.refl UC) hUC hUC,
+    QuaternionCentralSignEq.sameBasisBehavior
+      (QuaternionCentralSignEq.refl UQ) hUQ hUQ⟩
+
 /-- Concrete consumers for all three scalar predicates and implementation aliases. -/
 theorem scalarImplementation_api (p : Equiv.Perm Bool) :
     RealUnitSign 1 ∧
@@ -169,6 +296,138 @@ theorem boolSwap_certified :
       (∃ op : QuaternionBasisClassicalUnitaryOperator Bool,
         op.permutation = p.symm) := by
   exact (certifiedOperator_api (Equiv.swap false true)).2
+
+/-! ## Circuit API consumers -/
+
+/-- Complete consumer for generic certified circuits and their behavior relation. -/
+theorem circuitBehavior_api
+    {R W : Type*} [Semiring R] [StarRing R] [Fintype W]
+    {unitPhase : R → Prop}
+    (C D E : BasisClassicalCircuit R W unitPhase)
+    (hnonzero : ∀ phase, unitPhase phase → phase ≠ 0)
+    (hCD : SameCircuitBasisBehavior C D)
+    (hDE : SameCircuitBasisBehavior D E)
+    (hexact : ExactCircuitEq C.circuit D.circuit) :
+    OrderedCircuit.eval C.circuit ∈
+        unitary (Matrix (BitBasis W) (BitBasis W) R) ∧
+      C.toOperator.matrix = OrderedCircuit.eval C.circuit ∧
+      C.toOperator.permutation = C.permutation ∧
+      (SameCircuitBasisBehavior C D ↔ C.permutation = D.permutation) ∧
+      SameCircuitBasisBehavior C C ∧
+      SameCircuitBasisBehavior D C ∧
+      SameCircuitBasisBehavior C E ∧
+      SameCircuitBasisBehavior C C ∧
+      SameCircuitBasisBehavior C D := by
+  exact ⟨C.eval_mem_unitary,
+    C.toOperator_matrix,
+    C.toOperator_permutation,
+    SameCircuitBasisBehavior.iff_permutation_eq,
+    SameCircuitBasisBehavior.refl C,
+    SameCircuitBasisBehavior.symm hCD,
+    SameCircuitBasisBehavior.trans hCD hDE,
+    SameCircuitBasisBehavior.equivalence.1 C,
+    ExactCircuitEq.sameCircuitBasisBehavior hexact hnonzero⟩
+
+/-- The three scalar circuit aliases consume their specialized exact-evaluation bridges. -/
+theorem scalarCircuit_api
+    {W : Type*} [Fintype W]
+    (CR DR : RealBasisClassicalCircuit W)
+    (CC DC : ComplexBasisClassicalCircuit W)
+    (CQ DQ : QuaternionBasisClassicalCircuit W)
+    (hR : ExactCircuitEq CR.circuit DR.circuit)
+    (hC : ExactCircuitEq CC.circuit DC.circuit)
+    (hQ : ExactCircuitEq CQ.circuit DQ.circuit) :
+    SameCircuitBasisBehavior CR DR ∧
+      SameCircuitBasisBehavior CC DC ∧
+      SameCircuitBasisBehavior CQ DQ :=
+  ⟨hR.realSameCircuitBasisBehavior,
+    hC.complexSameCircuitBasisBehavior,
+    hQ.quaternionSameCircuitBasisBehavior⟩
+
+/-- Complete consumer for the generic certified identity circuit. -/
+theorem emptyCircuit_api
+    {R W : Type*} [Semiring R] [StarRing R] [Fintype W]
+    (unitPhase : R → Prop) (hone : unitPhase 1) :
+    let C := emptyBasisClassicalCircuit (W := W) unitPhase hone
+    C.circuit = [] ∧
+      C.permutation = Equiv.refl (BitBasis W) ∧
+      OrderedCircuit.eval C.circuit ∈
+        unitary (Matrix (BitBasis W) (BitBasis W) R) := by
+  exact ⟨emptyBasisClassicalCircuit_circuit unitPhase hone,
+    emptyBasisClassicalCircuit_permutation unitPhase hone,
+    BasisClassicalCircuit.eval_mem_unitary _⟩
+
+/-- Complete consumer for the matrix, gate, and singleton-circuit XOR certificates. -/
+theorem basisPreparation_api
+    {R W : Type*} [Semiring R] [StarRing R] [Fintype W]
+    (unitPhase : R → Prop) (hone : unitPhase 1)
+    (b x y : BitBasis W) :
+    BasisPermutationImplementation unitPhase
+        (basisPreparationMatrix (R := R) b) (xorBasisEquiv b) ∧
+      (basisPreparationOperator unitPhase hone b).matrix =
+        basisPreparationMatrix (R := R) b ∧
+      (basisPreparationOperator unitPhase hone b).permutation =
+        xorBasisEquiv b ∧
+      BasisPermutationImplementation unitPhase
+        (basisPreparationGate (R := R) b).denote (xorBasisEquiv b) ∧
+      (basisPreparationCircuit unitPhase hone b).circuit =
+        [basisPreparationGate (R := R) b] ∧
+      (basisPreparationCircuit unitPhase hone b).permutation =
+        xorBasisEquiv b ∧
+      BasisTransition unitPhase
+        (OrderedCircuit.eval
+          (basisPreparationCircuit unitPhase hone b).circuit)
+        x (xorBasisEquiv b x) ∧
+      OrderedCircuit.eval
+          (basisPreparationCircuit unitPhase hone b).circuit y x =
+        (if y = xorBasisEquiv b x then 1 else 0) ∧
+      OrderedCircuit.eval
+          (basisPreparationCircuit unitPhase hone b).circuit *ᵥ
+          basisColumn (R := R) (groundBasis W) =
+        basisColumn (R := R) b := by
+  exact ⟨basisPreparationMatrixImplementation unitPhase hone b,
+    basisPreparationOperator_matrix unitPhase hone b,
+    basisPreparationOperator_permutation unitPhase hone b,
+    basisPreparationGateImplementation unitPhase hone b,
+    basisPreparationCircuit_circuit unitPhase hone b,
+    basisPreparationCircuit_permutation unitPhase hone b,
+    basisPreparationCircuit_basisTransition unitPhase hone b x,
+    basisPreparationCircuit_eval_entry unitPhase hone b x y,
+    basisPreparationCircuit_mulVec_ground unitPhase hone b⟩
+
+/-- The zero-wire circuit has one basis assignment and genuine all-input behavior. -/
+theorem zeroWire_circuit_api :
+    let emptyBits : BitBasis Empty := fun e ↦ nomatch e
+    let realIdentity : RealBasisClassicalCircuit Empty :=
+      emptyBasisClassicalCircuit RealUnitSign realUnitSign_one
+    let complexPrep : ComplexBasisClassicalCircuit Empty :=
+      basisPreparationCircuit ComplexUnitPhase complexUnitPhase_one emptyBits
+    let quaternionPrep : QuaternionBasisClassicalCircuit Empty :=
+      basisPreparationCircuit QuaternionUnitPhase quaternionUnitPhase_one emptyBits
+    realIdentity.permutation = Equiv.refl (BitBasis Empty) ∧
+      complexPrep.permutation = xorBasisEquiv emptyBits ∧
+      quaternionPrep.permutation = xorBasisEquiv emptyBits ∧
+      SameCircuitBasisBehavior complexPrep complexPrep ∧
+      OrderedCircuit.eval complexPrep.circuit emptyBits emptyBits = 1 ∧
+      OrderedCircuit.eval complexPrep.circuit *ᵥ
+          basisColumn (R := ℂ) (groundBasis Empty) =
+        basisColumn (R := ℂ) emptyBits := by
+  dsimp only
+  refine ⟨emptyBasisClassicalCircuit_permutation _ _,
+    basisPreparationCircuit_permutation _ _ _,
+    basisPreparationCircuit_permutation _ _ _,
+    SameCircuitBasisBehavior.refl _, ?_, ?_⟩
+  · rw [show OrderedCircuit.eval
+        (basisPreparationCircuit ComplexUnitPhase complexUnitPhase_one
+          (fun e : Empty ↦ nomatch e)).circuit
+        (fun e : Empty ↦ nomatch e) (fun e : Empty ↦ nomatch e) =
+        if (fun e : Empty ↦ nomatch e) =
+            xorBasisEquiv (fun e : Empty ↦ nomatch e)
+              (fun e : Empty ↦ nomatch e)
+          then 1 else 0 by
+      exact basisPreparationCircuit_eval_entry _ _ _ _ _]
+    exact if_pos (Subsingleton.elim _ _)
+  · exact basisPreparationCircuit_mulVec_ground _ _ _
 
 /-! ## Rational unitary vacuity witness -/
 
