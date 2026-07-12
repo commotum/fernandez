@@ -89,6 +89,9 @@ none may remain excluded merely because it is difficult.
 - Do not start Goal 3 implementation before Goal 2 is complete and its clean
   release evidence is recorded.  Do not duplicate or bypass Goal 2 relations
   with ad hoc local predicates.
+- Keep Goal 2's cross-model relations directional and retain every encoder,
+  decoder, and top-sector policy. A representative `LinearEquiv` or `Equiv` is
+  not ordinary ray, circuit, channel, product-state, or all-effect equivalence.
 - Record every new source correction and all transitive effects immediately.
   Preserve unrelated user changes and never track generated build artifacts.
 
@@ -96,8 +99,8 @@ none may remain excluded merely because it is difficult.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The verified baseline has 44 Lean sources.  Clean public-root and explicit
-  audit builds pass; 186 audited endpoints use only `propext`,
+- The pre-Goal-2 Goal 1 baseline has 44 Lean sources. Clean public-root and
+  explicit audit builds pass; 186 audited endpoints use only `propext`,
   `Classical.choice`, and `Quot.sound`.
 - The traceability checksum is exactly 101 rows: 21 proved as stated, 33
   corrected and proved, 28 partially formalized, 16 intentionally excluded,
@@ -153,15 +156,27 @@ none may remain excluded merely because it is difficult.
   same-universe finite deterministic pushforwards; and the real/complex
   global/projective/channel/all-effect graph is explicit. Equal basis
   distributions still do not recover rays, and output-row phase still does not
-  recover channels. The current Goal 2 checkpoint is 84 Lean sources including
-  the public root, 990 semantic-manifest declarations, 116 resolving consumers,
-  236 direct manifest audit labels, and 422 root axiom commands, with exact
-  axiom union `propext`, `Classical.choice`, and `Quot.sound`. Later Goal 2
-  stages remain an explicit unmet prerequisite, so Goal 3 must not be executed
-  yet. Stage 8 does not add quaternionic density/channel semantics, partial
-  trace, Kraus maps, instruments, mixed-top or phase-kickback semantics,
-  cross-model channel equality, or metric approximation for the rows assigned
-  below.
+  recover channels. Stage 9A now adds 38 generic directional cross-model
+  declarations and 20 concrete representative-encoding declarations. The
+  generic API keeps encoders, decoders, observation maps, and `Top`/`Input`
+  policy types explicit; `ExactStateEncoding` is only a left-inverse certificate
+  on the encoder image. For all four canonical columns, separate right inverses
+  prove the stronger raw `ℝ`-linear equivalences and normalized-representative
+  `Equiv`s. These do not identify ordinary ray spaces: complex realification
+  still uses `RealSectorOrbit`. Nor do normalized `Rebit`/`Qubit` coefficient
+  parameters certify product top/bottom states; the existing non-product
+  witness refutes that reading. Stage 9A adds no paper correction.
+  The current Goal 2 checkpoint is 87 Lean sources including the public root,
+  1,048 semantic-manifest declarations, 127 resolving consumers, 256 direct
+  manifest audit labels, and 442 root axiom commands, with exact axiom union
+  `propext`, `Classical.choice`, and `Quot.sound`. Focused Stage 9A builds
+  completed 2,345, 2,350, and 2,368 jobs, and the combined public-root/axiom
+  target completed 2,766. Later Goal 2 stages remain an explicit unmet
+  prerequisite, so Goal 3 must not be executed yet. In particular, Stage 9B
+  operator/circuit wrappers, Stage 9C outcome classifications, quaternionic
+  density/channel semantics, partial trace, Kraus maps, instruments, mixed-top
+  or phase-kickback semantics, cross-model channel equality, and metric
+  approximation remain pending.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix
@@ -243,7 +258,7 @@ Expected prerequisite dispositions:
 
 | Stage | Traceability rows | Baseline | Required direction |
 |---|---|---:|---|
-| 3-DENSITY | `FER03-R-PARTIAL-TRACE-BLOCK-SUM`; `FER03-R-ARBITRARY-TOP-REBIT`; `FER03-Q-ARBITRARY-TOP-QUBIT` | 3 partial | Density matrices, partial trace, and arbitrary mixed uncorrelated tops |
+| 3-DENSITY | `FER03-R-PARTIAL-TRACE-BLOCK-SUM`; `FER03-R-ARBITRARY-TOP-REBIT`; `FER03-Q-ARBITRARY-TOP-QUBIT` | 3 partial | Joint density matrices, partial trace, and mixed product/no-correlation top densities |
 | 4-FOUNDATIONS | `FER03-FND-LINEAR-ISOMETRY-UNITARY`; `FER03-FND-FINITE-DIM-COMPLETE`; `FER03-FND-REAL-PRESERVERS-ORTHOGONAL`; `FER03-INT-NOT-NPLUS1-REBITS` | 2 partial + 2 excluded | Close background facts and prove the exact linear-dimension limitation |
 | 5-DETERMINANT | `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | 1 partial | Prove the missing `det = 1` branch and the corrected special-unitary image theorem |
 | 6-ROUTING | `FER03-FND-ARBITRARY-WIRE-ROUTING`; `FER03-R-TOPO-SORT-COMPLEXITY`; `FER03-Q-CUT-POSET` | 3 partial | Counted swap routing, verified topological sort, and corrected temporal cuts |
@@ -389,6 +404,11 @@ workstream before adding new mathematics.
 
 - Import the narrow Goal 2 leaves for exact, phase, basis, distribution,
   channel/all-effect, embedded-simulation, and approximate relations.
+- Reuse the Stage 9A directional certificate API with its actual strength:
+  generic left-inverse encodings remain directional, while the four canonical
+  coordinate maps separately expose representative `LinearEquiv`/`Equiv`
+  values. Never substitute either result for a ray, channel, or product-state
+  theorem.
 - Map every Goal 3 stage target to the strongest applicable relation and input/
   observation scope before implementation; flag claims needing a genuinely new
   relation rather than using vague equality prose.
@@ -432,8 +452,11 @@ prove the paper's arbitrary mixed top-wire statements.
   and the product index used by partial trace, so the generic API consumes the
   existing embedded states rather than a parallel toy representation.
 - Express the realification and complexification top encodings as frames and
-  prove bottom distributions for every uncorrelated mixed top rebit/qubit,
-  including maximally mixed and off-diagonal examples.
+  prove bottom distributions for every supplied joint density satisfying an
+  explicit tensor-product/no-correlation top hypothesis, including maximally
+  mixed and off-diagonal top-density examples. Do not reuse a normalized
+  `Rebit`/`Qubit` coefficient parameter as if it were that joint-state
+  certificate.
 - Keep native quaternionic density matrices out of this stage; they require the
   separate positivity convention in Stage 16.
 
@@ -443,8 +466,9 @@ prove the paper's arbitrary mixed top-wire statements.
   rank-one special case.
 - Both arbitrary mixed-top claims quantify over actual density matrices, not
   only pure states or ensemble syntax.
-- Product/uncorrelated hypotheses are explicit and no result is generalized to
-  entangled top/bottom inputs.
+- Tensor-product/no-correlation hypotheses are explicit and proved of the
+  actual joint density; no result is generalized to entangled top/bottom
+  inputs.
 - The three assigned rows close with focused builds, numerical sanity checks,
   traceability updates, and audited axioms.
 

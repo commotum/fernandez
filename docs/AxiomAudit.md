@@ -233,8 +233,8 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 9A checkpoint the parser reads 441
-nonempty and one axiom-free root block. The local Stage 9A audit has nine
+from a focused build alone. At the Stage 9A checkpoint the parser reads 439
+nonempty and three axiom-free root blocks. The local Stage 9A audit has nine
 nonempty blocks and one axiom-free block; all ten resolve without an unknown
 identifier or `sorryAx` output.
 
