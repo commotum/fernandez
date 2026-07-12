@@ -162,6 +162,16 @@ theorem eq_iff_forall_effect_bornValue_eq (rho sigma : DensityMatrix 𝕜 I) :
     intro E
     simpa only [Effect.bornValue, Effect.bornScalar] using hborn E
 
+/--
+One-way form of physical-effect separation, convenient for deriving channel
+equality from equality of every physical-effect Born value.
+-/
+theorem eq_of_forall_effect_bornValue_eq (rho sigma : DensityMatrix 𝕜 I)
+    (hborn : ∀ E : Effect 𝕜 I,
+      Effect.bornValue E rho = Effect.bornValue E sigma) :
+    rho = sigma :=
+  (eq_iff_forall_effect_bornValue_eq rho sigma).mpr hborn
+
 end DensityMatrix
 
 end QuaternionicComputing.Semantics

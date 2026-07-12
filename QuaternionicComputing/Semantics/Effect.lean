@@ -254,6 +254,7 @@ theorem basis_coe_eq_density_basis (x : I) :
 
 /-! ## Born values and probability bounds -/
 
+omit [DecidableEq I] in
 /--
 The trace pairing of two positive-semidefinite matrices is nonnegative.
 
@@ -261,10 +262,11 @@ The product itself need not be Hermitian.  The proof factors the second
 matrix, rotates the trace cyclically, and takes the trace of a positive
 conjugation sandwich.
 -/
-omit [DecidableEq I] in
-theorem trace_mul_nonneg_of_posSemidef {A B : Matrix I I 𝕜}
+theorem trace_mul_nonneg_of_posSemidef
+    {A B : Matrix I I 𝕜}
     (hA : A.PosSemidef) (hB : B.PosSemidef) :
     0 ≤ Matrix.trace (A * B) := by
+  classical
   obtain ⟨X, hX⟩ :=
     CStarAlgebra.nonneg_iff_eq_star_mul_self.mp hB.nonneg
   rw [hX, ← Matrix.mul_assoc, Matrix.trace_mul_cycle]
