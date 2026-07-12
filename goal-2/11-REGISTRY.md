@@ -4,7 +4,7 @@
 
 - [x] `11A-EXISTING`
 - [x] `11B-REGISTRY`
-- [ ] `11C-DOCS`
+- [x] `11C-DOCS`
 
 ## Current Facts
 
@@ -250,6 +250,24 @@ unimplemented models explicit.
   final registry. They validate frozen order/checksum, semantic-prefix and
   source order, evidence vocabularies, audit/import boundaries, and temporary
   Lean resolution without writing generated files into the repository.
-  The 51-family/936-declaration overlay and full validation are complete;
-  `11A-EXISTING` and `11B-REGISTRY` are independently checked. Documentation,
-  Goal 3 fold-back, and final integrated review remain under `11C-DOCS`.
+  The 51-family/936-declaration overlay and full validation are complete.
+- The final registry assigns all seven semantic axes at both family and
+  declaration level. Its family statuses are 33 `proved`, nine
+  `correctedAndProved`, two `partiallyFormalized`, and seven `unresolved`;
+  declaration audit evidence divides exactly into 208 direct-root and 728
+  local-endpoint assignments.
+- README, public-root prose, architecture, conventions, classification,
+  traceability, corrections, release, and axiom-audit documentation now agree
+  with the machine registry. Goal 3 is rebaselined to 101 traceability rows
+  with status counts `23/33/26/16/3`, exactly two `closedByGoal2` ray rows, a
+  45-row residual ledger, and a separate exact allocation of source-only
+  `EQC-045`--`EQC-051`.
+- Final checks pass: both validator modes, generated Lean name/consumer checks,
+  direct warning-as-error compilation, a root-only downstream smoke, the
+  `2776/2776` combined build, frozen checksum, proof-hole/shortcut/import/
+  artifact/Markdown/whitespace/diff scans, and the root/local axiom audits.
+  The root audit has `539 + 3 = 542` commands and the local audit has 15; both
+  unions are exactly `propext`, `Classical.choice`, and `Quot.sound`.
+- Independent mathematical/source, registry, documentation, Goal 3, and final
+  integrated closure reviews all returned **PASS**. Stage 11 is closed; Stage
+  12 remains responsible for the clean release and final report.

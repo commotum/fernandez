@@ -280,7 +280,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   ten empty families; the maintained validator and generated Lean checks pass.
   The current tree has 99 Lean sources including the root, 1,275 semantic-
   manifest declarations, 167 consumers, 356 direct labels, and 542 root axiom
-  commands. Stage 11C documentation and Goal 3 fold-back remain in progress.
+  commands. Stage 11C closes the human classification ledger and Goal 3
+  fold-back. Both validator modes, generated Lean checks, warning-as-error
+  builds, a root-only downstream smoke, frozen checksum, scans, and all
+  independent Stage 11 reviews pass. The final registry has 33 proved, nine
+  corrected-and-proved, two partially formalized, and seven unresolved family
+  dispositions, with exact 208 direct-root and 728 local-endpoint declaration
+  audit assignments. Stage 11 is complete; Stage 12 is the first incomplete
+  stage.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
@@ -926,7 +933,7 @@ precision or compilation.
 
 - [x] `11A-EXISTING`
 - [x] `11B-REGISTRY`
-- [ ] `11C-DOCS`
+- [x] `11C-DOCS`
 
 #### Big Picture Objective
 
@@ -1018,5 +1025,5 @@ use without learning the retrofit's implementation history.
 - [x] 8-HIERARCHY
 - [x] 9-CROSSMODEL
 - [x] 10-APPROX
-- [ ] 11-REGISTRY
+- [x] 11-REGISTRY
 - [ ] 12-RELEASE
