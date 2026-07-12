@@ -282,7 +282,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work.",
       "obstruction": null
     },
@@ -751,7 +751,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence.",
       "obstruction": null
     },
@@ -978,7 +978,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -5347,7 +5347,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -5375,7 +5375,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -5403,7 +5403,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -5431,7 +5431,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -5459,7 +5459,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -5487,7 +5487,7 @@
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "The two canonical real columns have the same explicit reduced rank-one block sum, whose diagonal is the source basis-weight family.",
+      "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work."
     },
     {
@@ -20185,7 +20185,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20210,7 +20210,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20219,7 +20219,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20244,7 +20244,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20253,7 +20253,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20278,7 +20278,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20287,7 +20287,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20312,7 +20312,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20321,7 +20321,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20346,7 +20346,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20355,7 +20355,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20380,7 +20380,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20389,7 +20389,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20414,7 +20414,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20423,7 +20423,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20448,7 +20448,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20457,7 +20457,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20482,7 +20482,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20491,7 +20491,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20516,7 +20516,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20525,7 +20525,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20550,7 +20550,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20559,7 +20559,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20584,7 +20584,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20593,7 +20593,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20618,7 +20618,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20627,7 +20627,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20652,7 +20652,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20661,7 +20661,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20686,7 +20686,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20695,7 +20695,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20720,7 +20720,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20729,7 +20729,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20754,7 +20754,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20763,7 +20763,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20788,7 +20788,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20797,7 +20797,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20822,7 +20822,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20831,7 +20831,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20856,7 +20856,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20865,7 +20865,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20890,7 +20890,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20899,7 +20899,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20924,7 +20924,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20933,7 +20933,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20958,7 +20958,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20967,7 +20967,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -20992,7 +20992,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21001,7 +21001,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21026,7 +21026,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21035,7 +21035,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21060,7 +21060,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21069,7 +21069,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21094,7 +21094,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21103,7 +21103,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21128,7 +21128,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21137,7 +21137,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21162,7 +21162,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21171,7 +21171,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21196,7 +21196,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21205,7 +21205,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21230,7 +21230,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21239,7 +21239,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21264,7 +21264,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21273,7 +21273,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21298,7 +21298,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21307,7 +21307,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21332,7 +21332,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21341,7 +21341,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21366,7 +21366,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21375,7 +21375,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21400,7 +21400,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21409,7 +21409,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21434,7 +21434,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21443,7 +21443,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21468,7 +21468,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21477,7 +21477,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21502,7 +21502,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21511,7 +21511,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21536,7 +21536,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21545,7 +21545,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21570,7 +21570,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21579,7 +21579,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21604,7 +21604,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21613,7 +21613,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21638,7 +21638,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21647,7 +21647,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21672,7 +21672,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21681,7 +21681,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21706,7 +21706,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21715,7 +21715,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21740,7 +21740,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21749,7 +21749,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21774,7 +21774,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21783,7 +21783,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21808,7 +21808,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21817,7 +21817,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21842,7 +21842,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21851,7 +21851,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21876,7 +21876,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21885,7 +21885,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21910,7 +21910,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21919,7 +21919,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21944,7 +21944,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21953,7 +21953,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -21978,7 +21978,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21987,7 +21987,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22012,7 +22012,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22021,7 +22021,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22046,7 +22046,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22055,7 +22055,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22080,7 +22080,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22089,7 +22089,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22114,7 +22114,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22123,7 +22123,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22148,7 +22148,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22157,7 +22157,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22182,7 +22182,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22191,7 +22191,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22216,7 +22216,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22225,7 +22225,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22250,7 +22250,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22259,7 +22259,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22284,7 +22284,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22293,7 +22293,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22318,7 +22318,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22327,7 +22327,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22352,7 +22352,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22361,7 +22361,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22386,7 +22386,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22395,7 +22395,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22420,7 +22420,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22429,7 +22429,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22454,7 +22454,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22463,7 +22463,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22488,7 +22488,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22497,7 +22497,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22522,7 +22522,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22531,7 +22531,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22556,7 +22556,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22565,7 +22565,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22590,7 +22590,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22599,7 +22599,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22624,7 +22624,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22633,7 +22633,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22658,7 +22658,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22667,7 +22667,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22692,7 +22692,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22701,7 +22701,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22726,7 +22726,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22735,7 +22735,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22760,7 +22760,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22769,7 +22769,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22794,7 +22794,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22803,7 +22803,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22828,7 +22828,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22837,7 +22837,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22862,7 +22862,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22871,7 +22871,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22896,7 +22896,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22905,7 +22905,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22930,7 +22930,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22939,7 +22939,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22964,7 +22964,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22973,7 +22973,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -22998,7 +22998,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -23007,7 +23007,7 @@
       "classification": {
         "space": "same quaternionic source space plus exact cross-space complexification clauses",
         "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
-        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all-normalized-pure-input equality",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
         "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
         "phase": "none",
         "exactness": "exact equality and exact counterexamples at the stated scopes",
@@ -23032,7 +23032,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all-normalized-pure-input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -26442,7 +26442,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26476,7 +26476,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26510,7 +26510,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26544,7 +26544,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26578,7 +26578,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26612,7 +26612,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26646,7 +26646,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26680,7 +26680,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26714,7 +26714,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26748,7 +26748,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
@@ -26782,7 +26782,7 @@
       ],
       "proofDeclarations": [
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
-        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_stateIntertwining",
+        "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
         "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement"
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
