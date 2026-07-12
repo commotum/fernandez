@@ -349,7 +349,7 @@ The library keeps the following levels distinct:
    (`OutputWeightEqAt`);
 9. all-basis-input agreement (`BasisMeasurementEq`);
 10. all-normalized-pure-input basis agreement
-   (`PureInputBasisMeasurementEq`); and
+   (`PureInputBasisMeasurementEq`);
 11. equality of packaged computational-basis distributions
    (`NormalizedDistributionEq`); and
 12. literal equality of finite real/complex density matrices, equivalently
@@ -360,9 +360,10 @@ The three input scopes in items 8–10 are not interchangeable. The generic
 weight function need not normalize basis kets, so the theorem from
 all-normalized-pure-input agreement to all-basis-input agreement requires that
 normalization as an explicit hypothesis. Channel and all-physical-effect
-operator equality are stronger notions introduced separately. Stage 6 proves
-only that all physical effects separate one fixed pair of density matrices;
-`ChannelEq` and `AllMeasurementEq` over every density input remain Stage 7.
+operator comparisons are stronger notions introduced separately. Stage 6
+proves only that all physical effects separate one fixed pair of density
+matrices; `ChannelEq` and `AllMeasurementEq` over every density input remain
+Stage 7.
 No basis-only relation is treated as either one.
 
 For a coordinate `ψ i`, its computational-basis weight is its scalar norm

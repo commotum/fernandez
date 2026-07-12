@@ -14,7 +14,11 @@ three stable public leaves and one non-root diagnostic leaf extended the
 previous 65-source tree to 69 Lean sources including the public root. Stage 5
 adds the certified basis-behavior core, evaluator-backed circuit layer, and a
 non-root complete audit, bringing the tree to 72 Lean sources including the
-public root.
+public root. Stage 6 adds three stable density/effect/separation leaves and one
+non-root complete audit, bringing the checkpoint tree to 76 Lean sources
+including the public root. Goal 2 remains active: channel relations, the full
+implication/strictness hierarchy, cross-model classification, approximation,
+registry closure, and the final release audit are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -113,6 +117,38 @@ or an unsafe shortcut.
   trivial scalar operators are exactly the full unit-quaternion family, and
   `j` is an explicit unitary noncentral witness.
 - No operator-phase result is promoted to channel or all-effect equality.
+
+### Density matrices and physical effects
+
+- `DensityMatrix 𝕜 I` packages exactly a positive-semidefinite finite
+  matrix and a trace-one proof. Hermiticity is derived, and an explicit theorem
+  proves that no density matrix exists on an empty index type.
+- The proof core is generic over `RCLike 𝕜`; the library exposes explicit
+  `RealDensityMatrix` and `ComplexDensityMatrix` aliases for its supported
+  physical models. No quaternionic density/positivity API is inferred.
+- Pure densities are normalized ket--bra matrices, basis densities are their
+  computational-basis instances, and constructors from existing normalized
+  real and complex states have the expected entries.
+- `DensityMatrix.unitaryConjugate U hU ρ` has matrix `U * ρ * Uᴴ` and is
+  proved positive semidefinite and trace one. Identity, pure-state
+  compatibility, and the chronological law “first `U`, then `V` equals
+  conjugation by `V * U`” are exact.
+- `Effect 𝕜 I` packages the genuine Loewner interval `0 ≤ E ≤ 1`.
+  Zero, identity, complements, normalized rank-one projectors, and basis
+  effects are constructed without treating arbitrary matrices as effects.
+- `Effect.bornValue E ρ` is the real part of `trace (E * ρ)`. The scalar
+  pairing is proved real and nonnegative, the real value lies in `[0,1]`, and
+  zero, identity, complement, pure, and basis formulas compile. Basis effects
+  on state-derived densities recover the existing real/complex basis weights.
+- Genuine physical effects separate arbitrary finite densities:
+  `DensityMatrix.eq_iff_forall_effect_bornValue_eq` proves literal density
+  equality iff all `Effect` Born values agree. Its reverse direction uses
+  normalized rank-one physical effects and quadratic-form polarization, not
+  arbitrary trace-test matrices.
+- This fixed-pair separation theorem is not `ChannelEq` or
+  `AllMeasurementEq`. Stage 6 adds no channel relation, circuit channel lift,
+  quaternionic mixed-state theory, partial trace, Kraus map, instrument, or
+  arbitrary mixed-top simulation.
 
 ### Matrix embeddings and groups
 
@@ -217,6 +253,7 @@ Representative exported declarations include:
 | State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, and the quotient types `RealRay`, `ComplexRay`, `QuaternionRay` with `RebitRay`/`QubitRay`/`QuaterbitRay` aliases |
 | Ray quotient core | the three `*Ray.mk_eq_mk_iff` theorems, `RealRay.mk_eq_mk_iff_eq_or_eq_neg`, representative `exists_rep`/`inductionOn`/`lift` APIs, and `realRay_nonempty_iff`/`complexRay_nonempty_iff`/`quaternionRay_nonempty_iff` |
 | Certified basis behavior | `BasisPermutationImplementation`, `SameBasisBehavior`, `BasisClassicalUnitaryOperator`, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, the scalar `sameBasisBehavior_iff_*` families, and the certified XOR preparation declarations |
+| Densities and effects | `DensityMatrix`, `RealDensityMatrix`, `ComplexDensityMatrix`, `DensityMatrix.pure`, `basis`, `unitaryConjugate`; `Effect`, `RealEffect`, `ComplexEffect`, `Effect.projector`, `basis`, `bornValue`, `bornValue_mem_Icc`; and `DensityMatrix.eq_iff_forall_effect_bornValue_eq` |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -238,7 +275,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, measurement, certified basis, state-, and operator-phase relations
+  Semantics/    exact, measurement, certified basis, phase, density, and effect APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -313,17 +350,21 @@ In addition, the positive determinant branch of the partially formalized
 quaternionic group theorem remains an isolated proof obligation: the library
 proves `det = 1 ∨ det = -1`, but not the general `det = 1` refinement.
 
-Important partial boundaries include mixed top states, generic density/partial
-trace infrastructure, physical swap synthesis and routing cost, uniform
-circuit generators, finite scalar encodings, approximation/error accumulation,
-generic unitary synthesis, randomized postprocessing, preprocessing runtime,
-and BQP containment. Normalized ray computational-basis observables,
+Important partial boundaries include arbitrary mixed top states, generic
+partial trace, Kraus maps, instruments, quaternionic density/channel
+positivity, same-space channel relations, physical swap synthesis and routing
+cost, uniform circuit generators, finite scalar encodings,
+approximation/error accumulation, generic unitary synthesis, randomized
+postprocessing, preprocessing runtime, and BQP containment. Normalized ray computational-basis observables,
 deterministic pushforwards, unitary evolution, and locally-unitary circuit
 evolution descend with exact identity and composition laws. The complex-to-real
 embedding-orbit boundary is also complete: the rebit and complex-state-ray
 source rows are now proved as stated and `closedByGoal2`. This does not settle
-arbitrary mixed top states, the paper's phase-kickback interpretation, generic
-density/partial trace, or channel/all-effect semantics.
+arbitrary mixed top states, the paper's phase-kickback interpretation, partial
+trace, or channel/all-input/all-effect semantics. Stage 6 does provide finite
+same-space real/complex densities, genuine effects, and fixed-pair
+physical-effect separation; it does not supply those missing cross-model or
+channel constructions.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -391,12 +432,32 @@ warning-as-error source checks. All 18 local Stage 5 axiom endpoints use exactly
 build completed 2,573 jobs; the root axiom audit contains 330 commands, 25 of
 them Stage 5 endpoints.
 
-Warning-as-error source checks passed for the stable operator-phase, ray, and
-certified-basis leaves, their diagnostic leaves, public root, axiom audit, and
-all Stage 5 source boundaries. The executable root audit now contains 330
-`#print axioms` commands, including 19 Stage 4C and 25 Stage 5 endpoints. All
-18 local Stage 5 diagnostic prints, the retained 12 local Stage 4C prints, and
-every root endpoint use exactly the union `propext`,
+Stage 6 contributes 97 stable declarations: 40 in
+`Semantics/Density.lean`, 52 in `Semantics/Effect.lean`, and five in
+`Semantics/EffectSeparation.lean`. Eight exact-allocation aggregates in the
+non-root `Semantics/DensityAudit.lean` consume the complete surface as
+`33 + 1 + 6`, `17 + 11 + 20 + 4`, and `5`, with no uncovered named export.
+Concrete checks include real and complex pure/basis compatibility, the
+genuinely mixed rebit density `(1/2) I`, Born bounds and complementation,
+global-sign unitary conjugation, genuine-effect separation, and the exact
+empty-index obstruction. All four Stage 6 leaves pass warning-as-error source
+checks; the focused diagnostic build completed 2,672 jobs. The integrated
+public-root plus explicit-axiom target completed 2,757 jobs. The public root
+imports only the three stable leaves and excludes `DensityAudit.lean`.
+
+The Stage 6 root audit adds 24 independent endpoints for a total of 354.
+Every root endpoint and all seven local Stage 6 diagnostic endpoints use
+exactly the union `propext`, `Classical.choice`, and `Quot.sound`; no
+project-specific axiom is introduced. These are Stage 6 checkpoint results,
+not evidence that the later Goal 2 channel or release stages are complete.
+
+Warning-as-error source checks passed for the stable operator-phase, ray,
+certified-basis, density, effect, and separation leaves, their diagnostic
+leaves, public root, axiom audit, and all Stage 6 source boundaries. The
+executable root audit now contains 354 `#print axioms` commands, including 19
+Stage 4C, 25 Stage 5, and 24 Stage 6 endpoints. All seven local Stage 6
+diagnostic prints, all 18 local Stage 5 diagnostic prints, the retained 12
+local Stage 4C prints, and every root endpoint use exactly the union `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
@@ -415,14 +476,18 @@ SHA-256 `b44178bc6be2adb364fea5a88b88aaebf832b44eb36065435ed5aee89bee194a`;
 Stage 5 appends its 134 declarations exactly once, bringing the manifest to
 705 entries. The integrated checks resolve all 705 names, 73 distinct
 consumers including 14 Stage 5 consumers, and 144 direct-audit labels including
-25 Stage 5 labels. The frozen 936-declaration Goal 1 cohort retains checksum
+25 Stage 5 labels. Stage 6 appends its 97 declarations exactly once, bringing
+the manifest to 802 entries. The current checks resolve all 802 names, 81
+distinct consumers including the eight Stage 6 aggregates, and 168
+direct-audit labels including 24 Stage 6 labels. The frozen 936-declaration
+Goal 1 cohort retains checksum
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty for Stage 5. The public root imports no
-diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
+and heartbeat-override scans are empty through Stage 6. The public root imports
+no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
 
@@ -453,6 +518,12 @@ open QuaternionicComputing
 #check Semantics.BasisClassicalCircuit
 #check Semantics.SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq
 #check Semantics.basisPreparationCircuit_eval_entry
+#check Semantics.DensityMatrix
+#check Semantics.RealDensityMatrix.ofState
+#check Semantics.Effect
+#check Semantics.Effect.bornValue_mem_Icc
+#check Semantics.DensityMatrix.unitaryConjugate_comp
+#check Semantics.DensityMatrix.eq_iff_forall_effect_bornValue_eq
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
@@ -472,6 +543,10 @@ When extending the library:
 - require an explicit `BasisPermutationImplementation` before calling two
   operators or circuits classically basis-equivalent; never substitute the raw
   transition biconditional or generic measurement equality;
+- represent finite real/complex mixed states with `DensityMatrix` and
+  measurements with genuine Loewner `Effect` values; do not reinterpret an
+  arbitrary trace test as a physical effect or infer a channel theorem from
+  fixed-pair density separation;
 - preserve the chronological convention `[g₁,…,gₛ] ↦ Gₛ⋯G₁`;
 - use generic `unitary (Matrix … ℍ)` rather than the commutative-only
   `Matrix.unitaryGroup` for quaternionic matrices;

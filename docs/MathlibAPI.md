@@ -330,57 +330,93 @@ deterministic-pushforward equality in `Simulation/Postprocessing.lean`.
 
 ## Goal 2 semantic representations
 
-Stage 1 of the semantic-classification retrofit rechecked the following narrow
-imports with focused Lean files against the pinned toolchain:
+Stage 6 turns the earlier API probes into three stable public leaves. The
+density core uses:
 
 ```lean
-import Mathlib.Analysis.Matrix.Order
-import Mathlib.Analysis.InnerProductSpace.Positive
-import Mathlib.Analysis.CStarAlgebra.Matrix
-
-open scoped ComplexOrder MatrixOrder Matrix.Norms.L2Operator
+import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.Analysis.RCLike.Basic
 ```
 
-Finite real and complex density matrices can be represented by a matrix with
-the two invariants
+The effect and separation leaves add:
+
+```lean
+import Mathlib.Analysis.InnerProductSpace.Positive
+
+open scoped ComplexOrder MatrixOrder Matrix
+```
+
+`DensityMatrix 𝕜 I` is generic over `RCLike 𝕜`, with explicit
+`RealDensityMatrix` and `ComplexDensityMatrix` aliases. It stores the two
+invariants
 
 ```lean
 rho.PosSemidef
 rho.trace = 1
 ```
 
-because `Matrix.PosSemidef.isHermitian` makes a separate Hermitian field
-redundant.  Physical effects can use the Loewner interval
-`0 ≤ E ∧ E ≤ 1`; `Matrix.nonneg_iff_posSemidef` and `Matrix.le_iff` expose the
-corresponding positive-semidefinite facts.  Useful preservation and trace APIs
-include:
+and derives Hermiticity through `Matrix.PosSemidef.isHermitian`, rather than
+storing it redundantly. Ket--bra positivity uses
+`Matrix.posSemidef_vecMulVec_self_star`; the trace calculation reduces to
+`star psi ⬝ᵥ psi`. Unitary evolution uses
+`Matrix.PosSemidef.mul_mul_conjTranspose_same` for positivity and the generic
+unitary facts plus trace cycling for normalization:
 
 ```lean
-Matrix.PosSemidef.conjTranspose_mul_mul_same
 Matrix.PosSemidef.mul_mul_conjTranspose_same
-Matrix.PosSemidef.trace_nonneg
-Matrix.trace_mul_comm
 Matrix.trace_mul_cycle
-Matrix.ext_iff_trace_mul_left
-Matrix.ext_iff_trace_mul_right
+Unitary.star_mul_self_of_mem
+Matrix.conjTranspose_mul
 ```
 
-The last two lemmas separate matrices using arbitrary algebraic trace tests;
-they are not themselves physical-effect separation.  A separate compiling
-probe constructed every normalized rank-one projector as a genuine effect via
+This proves `unitaryConjugate U hU rho` has matrix
+`U * rho * Uᴴ`, preserves the density invariants, and composes in the exact
+chronological order `V * U`. The pure-state compatibility theorem additionally
+uses `Matrix.mul_vecMulVec`, `Matrix.vecMulVec_mul`, and
+`Matrix.vecMul_conjTranspose`.
+
+`Effect 𝕜 I` stores the genuine Loewner interval `0 ≤ E` and `E ≤ 1`.
+`Matrix.nonneg_iff_posSemidef` and `Matrix.le_iff` expose the positivity of the
+effect and its complement. Normalized rank-one projectors are constructed via
 
 ```lean
+Matrix.toEuclideanLin
+InnerProductSpace.rankOne
 InnerProductSpace.isSymmetricProjection_rankOne_self
 LinearMap.IsSymmetricProjection.isPositive
 Matrix.isPositive_toEuclideanLin_iff
 InnerProductSpace.symm_toEuclideanLin_rankOne
-ext_inner_map
 ```
 
-and established the trace/projector quadratic-form identity.  This supplies a
-viable route to physical-effect separation without relabeling arbitrary test
-matrices as effects.  The real converse will use symmetric polarization rather
-than the complex inner-product extensionality theorem.
+`LinearMap.IsSymmetricProjection.sub_of_range_le_range` proves that a normalized
+rank-one projector is at most the identity, so it bundles as an actual
+`Effect`. Computational-basis effects reuse `EuclideanSpace.basisFun` and are
+identified with both `Matrix.single x x 1` and the corresponding basis-density
+matrix.
+
+The Born bounds do not rely on a positivity field stored in the result.
+`CStarAlgebra.nonneg_iff_eq_star_mul_self` factors one positive-semidefinite
+matrix; trace cycling turns the product into a positive conjugation sandwich;
+and `Matrix.PosSemidef.trace_nonneg` gives the lower bound. Applying the same
+argument to `1 - E` gives the upper bound. `RCLike.nonneg_iff` proves that the
+scalar trace pairing has zero imaginary part, so coercing the real
+`bornValue` back to 𝕜 recovers that scalar exactly.
+
+Physical-effect separation is compiled, not merely probed. For a normalized
+projector, `Effect.trace_rankOneProjector_mul_eq_inner` identifies the trace
+pairing with the corresponding quadratic form. `quadratic_eq_of_unit_sphere`
+extends equality from the unit sphere to every vector by a zero/nonzero split.
+For the symmetric linear maps induced by positive-semidefinite matrices,
+`LinearMap.IsSymmetric.inner_map_self_eq_zero` then identifies the maps, and
+`Matrix.toEuclideanLin.injective` identifies the matrices. The exported result
+
+```lean
+DensityMatrix.eq_iff_forall_effect_bornValue_eq
+```
+
+therefore quantifies over actual `Effect` values. The implementation does not
+use `Matrix.ext_iff_trace_mul_left/right` as if their arbitrary algebraic tests
+were physical effects.
 
 The Euclidean induced operator norm is the scoped L2 operator norm from
 `Mathlib.Analysis.CStarAlgebra.Matrix`.  For square matrices the preferred
@@ -397,14 +433,19 @@ Finite computational and Euclidean bases reuse the existing APIs
 `Circuit.BitBasis W = W → Bool`; no second basis representation or cardinality
 encoding is needed for the semantic core.
 
-Three boundaries are mandatory:
+Five boundaries are mandatory:
 
 - complex positive-semidefinite matrices require the `ComplexOrder` scope;
-- Loewner order and the matrix operator norm require `MatrixOrder` and
+- Loewner order and the later matrix operator norm require `MatrixOrder` and
   `Matrix.Norms.L2Operator`, respectively, so no unscoped matrix norm may be
-  assumed to be spectral; and
-- an empty index type has no trace-one density matrix.  Channel theorems must
-  state a nonempty hypothesis where existence of physical inputs is used.
+  assumed to be spectral;
+- an empty index type has no trace-one density matrix; channel theorems must
+  state a nonempty hypothesis where existence of physical inputs is used;
+- the `RCLike` proof core supplies the real and complex aliases only. It does
+  not provide quaternionic Loewner positivity, density matrices, effects, or
+  channels; and
+- Stage 6 has no partial trace, Kraus map, instrument, mixed-top simulation,
+  `ChannelEq`, or `AllMeasurementEq` API.
 
 ## Goal 2 state phase, normalized ray quotients, and descent
 
@@ -674,7 +715,11 @@ without placeholders:
 - conditional exact primitive compilation, exact summed compiled count, and
   `s*K` count/serial-depth bounds from a supplied compiler and per-gate premise;
 - normalized finite distributions plus event and deterministic-pushforward
-  preservation for both primary simulations; and
+  preservation for both primary simulations;
+- finite `RCLike` density matrices with positive-semidefinite/trace-one
+  invariants, real/complex aliases, pure and basis constructors, unitary
+  conjugation, genuine Loewner effects, real Born values in `[0,1]`, and exact
+  separation of densities by all physical effects;
 - a normalized realification example whose added top wire does not factor as
   a pure product with the bottom system; and
 - the pinned project baseline and axiom smoke audit.

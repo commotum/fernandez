@@ -64,8 +64,8 @@ unit-rotation quotient `RealSectorOrbit`, its bottom marginal distribution is
 preserved, and neither canonical column descends to ordinary `RealRay` except
 vacuously on an empty index. Correction C-027 records this source-order issue.
 The two transferred ray rows are now proved as stated and `closedByGoal2`;
-mixed-top, phase-kickback, density, and channel claims remain open in their
-existing rows. Channels remain Stage 7.
+mixed-top, phase-kickback, cross-model density, and channel claims remain open
+in their existing rows. Channels remain Stage 7.
 
 Stage 5 adds a certified-only classical reversible basis layer. A
 `BasisPermutationImplementation` supplies an explicit permutation and proves
@@ -78,6 +78,21 @@ unitaries prove that equality of raw transition predicates can be vacuous and
 therefore is not the implemented behavior relation. Exact/global/central
 phase gives only a forward preservation result, and no generic projective,
 channel, or all-effect conclusion is added.
+
+Stage 6 adds reusable finite same-space physical-state infrastructure without
+changing any paper row's terminal status. `DensityMatrix` packages
+positive-semidefinite trace-one matrices, with explicit real and complex
+aliases, pure/basis constructors, the empty-index obstruction, and unitary
+conjugation `U * ρ * Uᴴ`. `Effect` packages the genuine Loewner interval
+`0 ≤ E ≤ 1`; its real Born value lies in `[0,1]` and recovers the existing
+real/complex basis weights on pure state-derived densities. The theorem
+`DensityMatrix.eq_iff_forall_effect_bornValue_eq` proves that all genuine
+physical effects separate an arbitrary fixed pair of densities, using
+rank-one projector effects rather than arbitrary trace tests. This is the
+foundation for Stage 7, not a channel theorem: no `ChannelEq`,
+`AllMeasurementEq`, quaternionic density/positivity, partial trace, Kraus map,
+instrument, or cross-model mixed-top result is added. In particular, the
+existing mixed-top and channel rows remain open at exactly their prior status.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 
@@ -140,7 +155,7 @@ channel, or all-effect conclusion is added.
 | `FER03-R-REAL-GATE-PADDING` | L413–430, Eq. 22, Fig. 4 | Place each image gate on the source support plus shared top wire. | P0 / `Circuit/AddedWire.lean`, `Circuit/Realification.lean` | **corrected and proved**, generalized by `addTopSplit`, `wireRealify_place`, `realifyPlacedGate_denote`, and the translated support-map theorems |
 | `FER03-R-ANCILLA-REUSE` | L432–436, Fig. 5 | All translated gates reuse one top wire; abstract gate count remains `s`. | P0 / `Simulation/ComplexToReal.lean` | **corrected and proved** structurally: `realifyCircuit` maps every gate into the same `AddedWire W`, while `gateCount_realifyCircuit` is exact |
 | `FER03-R-SWAP-REALIFICATION` | L462–478 | Realification commutes with central permutation/padding operations. | P0 / `Circuit/Realification.lean` | **corrected and proved** in the stronger support-independent semantic form `wireRealify_place`; explicit physical swap lists are neither needed nor counted |
-| `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / `State/Realification.lean` | **partially formalized** by the explicit rank-one `reducedRealOuter`; a generic density/partial-trace operator is intentionally deferred because it is not needed for the observable theorem |
+| `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / `State/Realification.lean` | **partially formalized** by the explicit rank-one `reducedRealOuter`; Stage 6 now supplies finite same-space real/complex density matrices, but no generic partial-trace operator or cross-model mixed-state theorem, so this row remains partial |
 | `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / `State/Realification.lean`, `State/RealificationOrbit.lean`, `State/RealificationOrbitObservables.lean` | **partially formalized**: every normalized pure `Rebit` is covered by `realTopCombination_bottomWeight_of_rebit` and `realTopState`; Stage 4C further proves every such pure top encoding is in the canonical `RealSectorOrbit`, so its descended bottom distribution is the source complex-ray distribution. The mixed-state extension still awaits a density-state API and is not inferred from the pure orbit theorem |
 | `FER03-R-REAL-GATE-OPTIMIZATION` | L667 | A real source gate maps to identity on top coordinate times the gate. | P1 / `Matrix/Realification.lean`, `Simulation/Resources.lean` | **partially formalized**: `realify_map_ofReal` proves the exact doubled block-diagonal matrix, but the literal uniform gate translator still adds and uses the shared top wire for every occurrence; no optimized circuit translation or resource theorem removes it |
 | `FER03-R-SERIAL-DEPTH` | L669 | Shared-top construction has target depth at most gate count and can lose parallelism. | P1 / `Circuit/Depth.lean`, `Simulation/Resources.lean` | **corrected and proved** in the explicit support-disjoint model: every `SupportLayering` has depth at most gate count, and every layering of the literal realified circuit has depth exactly the source gate count because all image gates use the top wire. This is not a lower bound for alternative translations |

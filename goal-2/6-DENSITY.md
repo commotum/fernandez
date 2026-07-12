@@ -169,4 +169,51 @@ physical effects separate density matrices.
 
 ## Stage Results
 
-- In progress.
+- `QuaternionicComputing/Semantics/Density.lean` now exports 40 explicitly
+  named stable declarations. `DensityMatrix 𝕜 I` stores exactly
+  `Matrix.PosSemidef` and `Matrix.trace = 1`; `RealDensityMatrix` and
+  `ComplexDensityMatrix` are explicit aliases. Hermiticity is derived, empty
+  indices are characterized exactly, normalized ket--bra and basis densities
+  are provided, existing real/complex normalized states embed as pure
+  densities, and `unitaryConjugate` proves positivity, trace, identity,
+  chronological composition by `V * U`, and pure-state compatibility.
+- `QuaternionicComputing/Semantics/Effect.lean` now exports 52 explicitly
+  named stable declarations. `Effect 𝕜 I` carries the genuine Loewner
+  bounds `0 ≤ E` and `E ≤ 1`; zero, identity, complement, normalized
+  rank-one, and basis effects satisfy those invariants. `bornScalar` is proved
+  real, `bornValue` is proved to lie in `[0, 1]`, complement and basis formulas
+  compile, and real/complex basis effects recover the pre-existing pure-state
+  weights.
+- `QuaternionicComputing/Semantics/EffectSeparation.lean` exports five stable
+  declarations. Normalized rank-one projectors are used as actual physical
+  effects, their trace pairing is identified with the quadratic form, equality
+  on the unit sphere extends through the zero/nonzero split, and
+  `DensityMatrix.eq_iff_forall_effect_bornValue_eq` characterizes density
+  equality by every genuine physical effect. No arbitrary trace-test matrix is
+  exposed as an effect.
+- The non-root `QuaternionicComputing/Semantics/DensityAudit.lean` consumes the
+  stable surface exactly once by assigned aggregate: `33 + 1 + 6 = 40`
+  density declarations, `17 + 11 + 20 + 4 = 52` effect declarations, and all
+  five separation declarations. Its concrete checks include real and complex
+  basis states, the non-pure mixed rebit `(1/2) I`, Born bounds and complements,
+  unitary conjugation, genuine effect separation, and empty-index
+  impossibility. Strict compile and its focused build pass at `2672/2672`.
+- An independent source/API review confirmed the exact `40/52/5` declaration
+  counts, ket--bra and conjugation order, physical invariants, real/complex
+  boundary, empty-index handling, and genuine-effect separation. It found no
+  mathematical or architectural blocker, quaternionic overclaim, hidden
+  nonempty premise, proof hole, unsafe shortcut, or arbitrary-test relabeling.
+- The public root imports only `Density`, `Effect`, and `EffectSeparation`, not
+  `DensityAudit`. Twenty-four representative Stage 6 declarations were added
+  to the release axiom audit, bringing it to 354 commands. The public root and
+  explicit audit build together at `2757/2757`; the cached default build passes
+  at `2756/2756`. A root-only downstream smoke file checks density existence,
+  unitary composition, Born bounds, physical-effect separation, and the empty
+  boundary.
+- Every local and release Stage 6 axiom endpoint uses exactly `propext`,
+  `Classical.choice`, and `Quot.sound`. Partial trace, Kraus maps, instruments,
+  quaternionic positivity/mixed states, channels, and mixed-top simulation are
+  deliberately absent and remain later work.
+- Final manifest validation, documentation fold-back, repository scans, and
+  the independent integrated closure review are still in progress; the stage
+  remains unchecked until those gates pass.

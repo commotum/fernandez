@@ -109,11 +109,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The Stage 5 tree has 72 Lean sources including the public root. Strict
+- The Stage 6 tree has 76 Lean sources including the public root. Strict
   focused, adjacent-consumer, public-root, explicit-audit, and cached default
-  builds pass. All 330 audited root endpoints and all 18 local Stage 5
-  diagnostic endpoints use exactly `propext`, `Classical.choice`, and
-  `Quot.sound`.
+  builds pass. The release audit contains 354 endpoints; the seven local Stage
+  6 diagnostic endpoints and the complete release union use exactly `propext`,
+  `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -139,8 +139,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 - The product-input ordering witness proves equal quaternionic basis weights at
   one specified input while disproving right-ray equality.  It is not an
   all-input circuit-equivalence theorem.
-- The library has no generic density matrix, physical effect, unitary channel,
-  `ChannelEq`, `AllMeasurementEq`, or operator-distance API.
+- The library now has generic finite `RCLike` density and effect structures,
+  with explicit real/complex aliases, but still has no unitary-channel
+  relation, `ChannelEq`, `AllMeasurementEq`, or operator-distance API.
 - Stage 5 now exports certified real, complex, and quaternionic
   computational-basis behavior for matrices and chronological circuits. A
   `BasisPermutationImplementation` proves an explicit permutation on every
@@ -164,18 +165,26 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 705 unique declarations:
-  the immutable 571-declaration Stage 4C prefix plus 134 Stage 5 declarations
-  (90 matrix/operator and 44 circuit declarations). Every item has seven
-  semantic axes and a named downstream consumer; all 705 public names, 73
-  distinct consumers, and 144 direct release-audit labels resolve exactly.
-  The frozen Goal 1 cohort and checksum remain unchanged.
-- Pinned mathlib probes validate positive-semidefinite trace-one real/complex
-  densities, Loewner-interval effects, rank-one physical effects, a viable
-  physical-effect separation route, finite basis columns, and the scoped L2
-  induced operator norm. Complex PSD needs `ComplexOrder`; Loewner matrices
-  need `MatrixOrder`; trace-one densities require a nonempty index when
-  existence is used.
+- `docs/Goal2SemanticAPIManifest.json` now contains 802 unique declarations:
+  the immutable 705-declaration Stage 5 prefix plus 97 Stage 6 declarations
+  (40 density, 52 effect, and five separation declarations). Every item has
+  seven semantic axes and a named downstream consumer; all 802 public names,
+  81 distinct consumers, and 168 direct release-audit labels resolve exactly.
+  The first-705 structural hash is
+  `74c141200c61236190eab143188fbf7ebbc7dd7802314e203d7948b23322c66b`,
+  and the frozen Goal 1 cohort and checksum remain unchanged.
+- Stage 6 implements positive-semidefinite trace-one densities,
+  Loewner-interval effects, rank-one and basis physical effects, real-valued
+  Born probabilities in `[0,1]`, and exact `U * ρ * Uᴴ` evolution with
+  chronological composition by `V * U`. Genuine physical effects separate
+  arbitrary densities through normalized rank-one projectors; no arbitrary
+  trace test is relabeled as an effect. Empty indices admit no density value,
+  while the separation theorem remains uniformly stated without an impossible
+  global nonempty premise. Quaternionic positivity, density matrices, partial
+  trace, Kraus maps, instruments, and channel claims remain absent.
+- Pinned mathlib probes also validate finite basis columns and the scoped L2
+  induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
+  Loewner matrices need `MatrixOrder`.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

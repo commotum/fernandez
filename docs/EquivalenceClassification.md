@@ -377,6 +377,33 @@ converses are not asserted. Equal certified permutations may use different
 input-dependent phases, so Stage 5 does not infer one global phase, general
 projective action, a channel, or equality under all physical effects.
 
+## Stage 6 proof-bearing realization
+
+Stage 6 adds the physical state/effect foundation for later channel
+classification. It does not add another circuit-equivalence relation and does
+not alter the frozen Goal 1 cohort. The core is theorem-generic over
+`RCLike 𝕜`, with explicit real and complex density/effect aliases; it is
+not a quaternionic positivity model.
+
+| Compared objects | Exact checked statement | Proof-bearing API | Deliberately excluded upgrade |
+|---|---|---|---|
+| Two finite densities `ρ` and `σ` on one scalar/index space | Literal bundled density equality is equivalent to equal real Born values for every genuine physical effect `E` on that same space. The reverse direction holds for arbitrary densities, not only pure ones, and uses normalized rank-one projector effects. | `DensityMatrix.eq_iff_forall_effect_bornValue_eq`, `DensityMatrix.eq_of_forall_effect_bornValue_eq`, `posSemidef_eq_of_forall_effect_trace_re_eq`, `Effect.trace_rankOneProjector_mul_eq_inner`, `quadratic_eq_of_unit_sphere` | This fixed-pair extensionality theorem is not `ChannelEq` or `AllMeasurementEq`: it does not compare two operators after acting on every density input. |
+| One density `ρ` and one effect `E` | `Effect.bornValue E ρ` is the real part of `trace (E * ρ)` and lies in `[0,1]`; zero, identity, complement, rank-one, pure, and basis formulas are exact. | `Effect.bornScalar`, `Effect.bornValue`, `Effect.bornScalar_im_eq_zero`, `Effect.bornValue_mem_Icc`, `Effect.bornValue_complement`, `Effect.bornValue_basis_pure` | A basis effect is only one physical observation. Basis-effect agreement is not all-effect agreement, ray equality, or channel equality. |
+| One unitary `U` and one density `ρ` | Mixed-state evolution is literal conjugation `U * ρ * Uᴴ`; first `U`, then `V`, is conjugation by `V * U`. Pure evolution agrees with ket evolution. | `DensityMatrix.unitaryConjugate`, `unitaryConjugate_comp`, `unitaryConjugate_pure` | The construction of an induced state map does not by itself define equality between two channels or a circuit channel wrapper. |
+
+The empty-index boundary is explicit: `DensityMatrix.nonempty_iff` proves that
+a finite density exists exactly when the index type is nonempty. The separation
+theorem requires no fake global nonemptiness premise; if the index is empty,
+its density arguments cannot exist. Conversely, effects may exist on an empty
+index, so no nonvacuous channel claim is extracted from effect quantification
+alone.
+
+Stage 6 exports no `ChannelEq`, `AllMeasurementEq`, partial trace, Kraus map,
+instrument, quaternionic density/effect positivity, or cross-model mixed-top
+simulation. Those omissions are semantic boundaries, not failed converses.
+Stage 7 owns the operator/channel quantifiers and the theorem connecting them
+through this physical-effect separation result.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

@@ -650,5 +650,7 @@ means the corrected mathematical target is known but not yet formalized;
   with this corrected cross-model boundary. The representative-level
   `realify_mulVec_realColumn0/1` identities, normalized state wrappers, and
   decoded bottom-outcome results remain valid. Arbitrary mixed top states,
-  density/channel semantics, and the paper's phase-kickback interpretation are
-  unaffected and remain open in their existing Goal 3 rows.
+  cross-model density/channel semantics, and the paper's phase-kickback
+  interpretation are unaffected and remain open in their existing Goal 3
+  rows. The separate Stage 6 same-space real/complex density-and-effect core
+  does not close these claims.
