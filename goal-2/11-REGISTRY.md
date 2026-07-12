@@ -21,8 +21,10 @@
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
   The file intentionally retains historical provisional descriptions and must
   not be rewritten by Stage 11.
-- The 51 families consist of 42 Goal 1 implementation/release families and
-  nine source-only families with empty declaration arrays. Earlier Goal 2
+- The 51 families consist of 42 Goal 1 implementation/release or boundary
+  families and nine source-only families. Ten rows have empty declaration
+  arrays: the Stage 10 boundary row `EQC-042` plus source-only `EQC-043`--
+  `EQC-051`. Earlier Goal 2
   stages already supply proof-bearing exact, phase/ray, basis, density/channel,
   hierarchy, cross-model, and metric overlays, but no single final registry
   currently maps all 936 frozen declarations to their strongest checked
@@ -34,6 +36,15 @@
   Most are algebraic-image, diagnostic, structural, or resource-support
   families rather than behavioral equivalence relations. Their final
   dispositions must be proof-bearing without relabeling them as behavior.
+- The completed Stage 11 inventory divides all 51 families into 27 whose
+  strongest checked API is already stable, six where a small reusable wrapper
+  is justified (`EQC-001`, `EQC-010`, `EQC-016`, `EQC-027`, `EQC-028`, and
+  `EQC-039`), eleven direct nonbehavioral/resource dispositions, and seven
+  source-only Goal 3 claims. The six wrappers respectively expose the checked
+  normalized left-phase rejection, canonical reduced-outer agreement,
+  distribution-equality/ray-inequality boundary, commuting-schedule
+  `ExactCircuitEq`, exact one-input/all-pure-input ordering boundary, and
+  supplied-compiler `ExactCircuitEq`.
 - `docs/EquivalenceClassification.md` has the frozen 51-row family seed plus
   proof-bearing overlays through Stage 10. Its opening still correctly labels
   the seed provisional, but Stage 11 must add a final checked registry view,
@@ -47,8 +58,9 @@
 ## Updated Assumptions
 
 - A new final overlay such as `docs/Goal2ClassificationRegistry.json` is safer
-  than mutating the frozen cohort. It should contain exactly 936 declaration
-  entries plus explicit family-level records for the nine source-only rows.
+  than mutating the frozen cohort. It should contain exactly 51 family records
+  and 936 declaration entries. All ten zero-declaration families, including
+  boundary row `EQC-042`, need explicit family records.
 - Every declaration-level entry needs its frozen family ID, seven semantic
   axes, strongest final relation/category, proof-bearing Lean consumer or an
   explicit nonbehavioral/resource/source-only disposition, and audit evidence.
@@ -62,7 +74,8 @@
   add thin named consequences or aggregate certificates only when the current
   public API lacks a proof-bearing strongest classification.
 - Source-only rows stay source-only or Goal 3-owned unless an earlier Goal 2
-  result genuinely closes them. `EQC-042`, `EQC-043`, and `EQC-044` have Goal 2
+  result genuinely closes them. Boundary row `EQC-042` and source rows
+  `EQC-043` and `EQC-044` have Goal 2
   overlays; `EQC-045`--`EQC-051` retain their exact Goal 3/excluded/unsupported
   dispositions.
 - Registry validation must check Lean names and consumers, not just JSON

@@ -1,0 +1,431 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "Goal2ClassificationRegistry.schema.json",
+  "title": "Goal 2 final semantic classification registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "registryKind",
+    "inputs",
+    "classificationAxes",
+    "families",
+    "declarations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "registryKind": {
+      "const": "goal2-final-classification-overlay"
+    },
+    "inputs": {
+      "$ref": "#/$defs/inputs"
+    },
+    "classificationAxes": {
+      "const": [
+        "space",
+        "subject",
+        "inputScope",
+        "observationScope",
+        "phase",
+        "exactness",
+        "ancillaPolicy"
+      ]
+    },
+    "families": {
+      "type": "array",
+      "minItems": 51,
+      "maxItems": 51,
+      "items": {
+        "$ref": "#/$defs/family"
+      }
+    },
+    "declarations": {
+      "type": "array",
+      "minItems": 936,
+      "maxItems": 936,
+      "items": {
+        "$ref": "#/$defs/declaration"
+      }
+    }
+  },
+  "$defs": {
+    "leanName": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z_][A-Za-z0-9_'.]*(\\.[A-Za-z_][A-Za-z0-9_']*)+$"
+    },
+    "leanNames": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/leanName"
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "space",
+        "subject",
+        "inputScope",
+        "observationScope",
+        "phase",
+        "exactness",
+        "ancillaPolicy"
+      ],
+      "properties": {
+        "space": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputScope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observationScope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exactness": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ancillaPolicy": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "origin": {
+      "enum": [
+        "goal1Public",
+        "goal1Boundary",
+        "sourceOnly"
+      ]
+    },
+    "finalStatus": {
+      "enum": [
+        "proved",
+        "correctedAndProved",
+        "partiallyFormalized",
+        "intentionallyExcluded",
+        "unresolved"
+      ]
+    },
+    "semanticClass": {
+      "enum": [
+        "sameSpaceBehavior",
+        "crossModelSemantics",
+        "representativeOrRay",
+        "algebraicComparison",
+        "structuralSupport",
+        "resourceClaim",
+        "diagnosticCounterexample",
+        "approximationBoundary",
+        "sourceOnlyClaim"
+      ]
+    },
+    "evidenceMode": {
+      "enum": [
+        "proofBearingRelation",
+        "proofBearingEquality",
+        "proofBearingCertificate",
+        "counterexample",
+        "nonbehavioralDisposition",
+        "resourceDisposition",
+        "supportDisposition",
+        "sourceOnlyObstruction"
+      ]
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "endpoint"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "directRoot",
+            "localEndpoint",
+            "transitive",
+            "notApplicable"
+          ]
+        },
+        "endpoint": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/leanName"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "notApplicable"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "endpoint": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "endpoint": {
+                "$ref": "#/$defs/leanName"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frozenCohort",
+        "semanticAPI"
+      ],
+      "properties": {
+        "frozenCohort": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256",
+            "familyCount",
+            "declarationCount"
+          ],
+          "properties": {
+            "path": {
+              "const": "docs/Goal1ComparisonCohort.json"
+            },
+            "sha256": {
+              "const": "65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b"
+            },
+            "familyCount": {
+              "const": 51
+            },
+            "declarationCount": {
+              "const": 936
+            }
+          }
+        },
+        "semanticAPI": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "baselineCount",
+            "baselineStructuralSha256"
+          ],
+          "properties": {
+            "path": {
+              "const": "docs/Goal2SemanticAPIManifest.json"
+            },
+            "baselineCount": {
+              "const": 1269
+            },
+            "baselineStructuralSha256": {
+              "const": "298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc"
+            }
+          }
+        }
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "origin",
+        "declarationCount",
+        "finalStatus",
+        "semanticClass",
+        "evidenceMode",
+        "strongestRelations",
+        "proofDeclarations",
+        "consumer",
+        "audit",
+        "weakerTheorems",
+        "strictnessWitnesses",
+        "finalDisposition",
+        "goal3Boundary",
+        "obstruction"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^EQC-[0-9]{3}-[A-Z0-9-]+$"
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "declarationCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "finalStatus": {
+          "$ref": "#/$defs/finalStatus"
+        },
+        "semanticClass": {
+          "$ref": "#/$defs/semanticClass"
+        },
+        "evidenceMode": {
+          "$ref": "#/$defs/evidenceMode"
+        },
+        "strongestRelations": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "proofDeclarations": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "consumer": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/leanName"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "audit": {
+          "$ref": "#/$defs/audit"
+        },
+        "weakerTheorems": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "strictnessWitnesses": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "finalDisposition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal3Boundary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "obstruction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "declaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration",
+        "familyId",
+        "classification",
+        "semanticClass",
+        "evidenceMode",
+        "strongestRelations",
+        "proofDeclarations",
+        "consumer",
+        "audit",
+        "weakerTheorems",
+        "strictnessWitnesses",
+        "finalDisposition",
+        "goal3Boundary"
+      ],
+      "properties": {
+        "declaration": {
+          "$ref": "#/$defs/leanName"
+        },
+        "familyId": {
+          "type": "string",
+          "pattern": "^EQC-[0-9]{3}-[A-Z0-9-]+$"
+        },
+        "classification": {
+          "$ref": "#/$defs/classification"
+        },
+        "semanticClass": {
+          "$ref": "#/$defs/semanticClass"
+        },
+        "evidenceMode": {
+          "enum": [
+            "proofBearingRelation",
+            "proofBearingEquality",
+            "proofBearingCertificate",
+            "counterexample",
+            "nonbehavioralDisposition",
+            "resourceDisposition",
+            "supportDisposition"
+          ]
+        },
+        "strongestRelations": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "proofDeclarations": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "consumer": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/leanName"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "audit": {
+          "$ref": "#/$defs/audit"
+        },
+        "weakerTheorems": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "strictnessWitnesses": {
+          "$ref": "#/$defs/leanNames"
+        },
+        "finalDisposition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal3Boundary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
