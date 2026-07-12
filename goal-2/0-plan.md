@@ -905,7 +905,7 @@ use without learning the retrofit's implementation history.
 - [x] 3-PHASE
 - [x] 4-RAYS
 - [x] 5-BASIS
-- [ ] 6-DENSITY
+- [x] 6-DENSITY
 - [ ] 7-CHANNELS
 - [ ] 8-HIERARCHY
 - [ ] 9-CROSSMODEL

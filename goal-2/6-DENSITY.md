@@ -214,6 +214,22 @@ physical effects separate density matrices.
   `Classical.choice`, and `Quot.sound`. Partial trace, Kraus maps, instruments,
   quaternionic positivity/mixed states, channels, and mixed-top simulation are
   deliberately absent and remain later work.
-- Final manifest validation, documentation fold-back, repository scans, and
-  the independent integrated closure review are still in progress; the stage
-  remains unchecked until those gates pass.
+- The Goal 2 semantic manifest now has 802 exact entries: the frozen
+  705-entry prefix plus all 97 Stage 6 declarations in source order. Eight
+  Stage 6 consumers give 81 total consumers; 24 Stage 6 direct labels give 168
+  total direct labels. The validator, all 802 generated public-name checks,
+  and all 81 generated consumer checks pass under warnings as errors. The
+  first-705 structural hash is
+  `74c141200c61236190eab143188fbf7ebbc7dd7802314e203d7948b23322c66b`;
+  the frozen Goal 1 cohort retains checksum
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Documentation and Goal 3 now record the physical-state conventions and the
+  later channel/quaternionic/partial-trace boundaries without changing a
+  paper-row status or inventing a correction. The combined focused and
+  adjacent build passes at `2758/2758`; root-only downstream smoke,
+  warning-as-error, frozen-checksum, forbidden-declaration, import-boundary,
+  artifact, Markdown, whitespace, and `git diff --check` checks pass.
+- An independent integrated closure review reproduced all declaration,
+  consumer, manifest, hash, build, axiom, boundary, and documentation evidence
+  and reported **PASS** with no defect. Stage 6 is complete as of 2026-07-11;
+  Stage 7 may now define the channel quantifiers on this physical foundation.
