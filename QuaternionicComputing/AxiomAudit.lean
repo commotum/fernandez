@@ -739,3 +739,81 @@ QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedB
   QuaternionicComputing.Simulation.NonProductWitness.sourceColumn_normalization
 #print axioms
   QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct
+
+/-! ## Goal 2 Stage 10: metric approximation boundary -/
+
+#print axioms
+  QuaternionicComputing.Semantics.operatorDistance_eq_continuousLinearMapNorm
+#print axioms
+  QuaternionicComputing.Semantics.operatorClose_zero_iff_exactOperatorEq
+#print axioms QuaternionicComputing.Semantics.OperatorClose.additive_trans
+#print axioms QuaternionicComputing.Semantics.OperatorClose.mul_of_unitary
+#print axioms QuaternionicComputing.Semantics.operatorDistance_mulVec_le
+#print axioms
+  QuaternionicComputing.Semantics.mappedOperatorClose_zero_iff_exactOperatorEmbedding
+
+#print axioms
+  QuaternionicComputing.Semantics.operatorDistance_smul_of_norm_eq_one
+#print axioms QuaternionicComputing.Semantics.realGlobalSignClose_zero_iff
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignClose.additive_trans
+#print axioms QuaternionicComputing.Semantics.complexGlobalPhaseClose_zero_iff
+#print axioms
+  QuaternionicComputing.Semantics.ComplexGlobalPhaseClose.additive_trans
+
+#print axioms QuaternionicComputing.Semantics.quaternionMulVecCLM_mul
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOperatorNorm_eq_zero_iff
+#print axioms QuaternionicComputing.Semantics.quaternionOperatorDistance_mul
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOperatorDistance_mulVec
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionOperatorClose.zero_iff_exactOperatorEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionCentralSignClose.additive_trans
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionCentralSignClose.zero_iff_quaternionCentralSignEq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOperatorNorm_eq_l2_opNorm_complexify
+
+#print axioms QuaternionicComputing.Semantics.columnL2Distance_eq_zero_iff
+#print axioms QuaternionicComputing.Semantics.ColumnClose.additive_trans
+#print axioms QuaternionicComputing.Semantics.columnL2Distance_right_mul
+#print axioms
+  QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.additive_trans
+#print axioms
+  QuaternionicComputing.Semantics.realStateRayClose_zero_iff_realStatePhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.complexStateRayClose_zero_iff_complexStatePhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionStateRayClose_zero_iff_quaternionStatePhaseEq
+#print axioms QuaternionicComputing.Semantics.realState_l2Norm_eq_one
+#print axioms
+  QuaternionicComputing.Semantics.operatorDistance_realState_output_le
+#print axioms
+  QuaternionicComputing.Semantics.operatorDistance_complexState_output_le
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOperatorDistance_quaternionState_output_le
+
+#print axioms
+  QuaternionicComputing.Semantics.totalVariationDistance_eq_zero_iff
+#print axioms QuaternionicComputing.Semantics.totalVariationDistance_triangle
+#print axioms QuaternionicComputing.Semantics.DistributionClose.additive_trans
+#print axioms QuaternionicComputing.Semantics.totalVariationDistance_le_one
+#print axioms
+  QuaternionicComputing.Semantics.abs_eventWeight_sub_le_totalVariationDistance
+#print axioms
+  QuaternionicComputing.Semantics.totalVariationDistance_pushforward_le
+
+#print axioms
+  QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_unitary
+#print axioms
+  QuaternionicComputing.Semantics.ApproximationStrictness.operatorClose_one_not_transitive
+#print axioms
+  QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_distances
+open QuaternionicComputing.Semantics
+#print axioms
+  ApproximationStrictness.operatorClose_sqrtTwo_not_transitive_on_complex_unitaries
+#print axioms
+  ApproximationStrictness.rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero
+#print axioms
+  QuaternionicComputing.Semantics.ApproximationStrictness.distributionClose_half_not_transitive

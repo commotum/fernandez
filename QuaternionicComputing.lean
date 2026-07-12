@@ -32,6 +32,12 @@ public import QuaternionicComputing.Semantics.Hierarchy.Operator
 public import QuaternionicComputing.Semantics.SimulationEncoding
 public import QuaternionicComputing.Semantics.SimulationWrappers
 public import QuaternionicComputing.Semantics.SimulationOutcomes
+public import QuaternionicComputing.Semantics.Approximation.Operator
+public import QuaternionicComputing.Semantics.Approximation.OperatorPhase
+public import QuaternionicComputing.Semantics.Approximation.Quaternion
+public import QuaternionicComputing.Semantics.Approximation.State
+public import QuaternionicComputing.Semantics.Approximation.Distribution
+public import QuaternionicComputing.Semantics.Approximation.Strictness
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
@@ -182,6 +188,21 @@ distribution, event, and deterministic-pushforward wrappers require locally
 unitary circuits. Supplied schedules remain explicit. No result upgrades these
 facts to product/mixed-state, partial-trace, channel/all-effect, randomized-
 postprocessing, or resource semantics.
+
+Metric approximation is a separate error-budget layer. Real and complex
+matrices use the explicitly scoped Euclidean induced L2 operator norm;
+quaternionic matrices use the norm of their underlying-real continuous linear
+action, without receiving a matrix norm or metric instance. The native
+quaternionic norm is proved equal to the L2 operator norm after canonical
+complexification. Raw, one-global-phase, central-sign, right-state-ray, and
+finite-distribution closeness remain distinctly named. Their zero budgets
+recover the corresponding exact relations, while their valid composition
+laws add budgets. Total variation is half L1 and contracts under deterministic
+postprocessing. Exact real, complex-unitary, and Boolean-distribution witnesses
+show that fixed positive budgets are not transitive and that raw distance is
+global-phase sensitive. This layer supplies no scalar encoding, rounding,
+synthesis, accumulated finite-precision circuit theorem, runtime, or
+complexity claim.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

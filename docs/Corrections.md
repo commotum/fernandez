@@ -519,9 +519,9 @@ means the corrected mathematical target is known but not yet formalized;
 ## C-024 — Algebraic exactness conflicts with finite-precision descriptions
 
 - **Source:** Theorems 2/4 and footnote 6 at line 1292.
-- **Status:** confirmed scope ambiguity; exact abstract and conditional exact
-  compilation sides are proved, while finite-precision compilation remains
-  deliberately unclaimed.
+- **Status:** confirmed scope ambiguity; the exact abstract side and a semantic
+  metric boundary are proved, while encoded finite-precision compilation
+  remains deliberately unclaimed.
 - **Diagnosis:** the main theorems repeatedly say “exact,” while the footnote
   says gate matrices supplied to the simulator are finite-precision
   approximations.  Exact equality of abstract matrices and approximate,
@@ -530,14 +530,25 @@ means the corrected mathematical target is known but not yet formalized;
   `quaternionToComplex_exactSimulation`, and
   `quaternionToReal_exactSimulation` prove exact algebraic translations for
   exact input matrices.  `ExactGateCompiler` can further preserve those
-  operators only from a supplied exact certificate.  The library has no
-  discrete scalar representation, rounding semantics, error metric,
-  accumulation/stability theorem, or computable approximate compiler.
-  Consequently finite precision, uniform approximation, and their runtimes
-  are not consequences of any exact theorem here.
+  operators only from a supplied exact certificate. Goal 2 Stage 10 separately
+  defines Euclidean induced operator distance, a native quaternionic
+  underlying-real induced norm, phase/sign and right-state-ray error-budget
+  relations, and half-L1 total variation. It proves zero-budget exact bridges,
+  additive error laws, normalized output-column bounds, event/pushforward
+  bounds, and fixed-budget nontransitivity witnesses. These relations compare
+  exact mathematical objects; the library still has no discrete scalar
+  representation, rounding semantics, code-to-value certificate, accumulated
+  gatewise circuit-error theorem, or computable approximate compiler.
+  Consequently finite-precision compilation, uniform approximation, and their
+  runtimes are not consequences of any exact or metric theorem here.
 - **Lean declarations:** the three `*exactSimulation` families and
-  `ExactGateCompiler.eval_compileCircuit` mark the exact side of the boundary;
-  no approximation declaration is introduced.
+  `ExactGateCompiler.eval_compileCircuit` mark the exact side of the boundary.
+  `operatorDistance`, `QuaternionOperatorClose`,
+  `ComplexGlobalPhaseClose`, `QuaternionStateRayClose`,
+  `totalVariationDistance`, their zero-budget/output/event bounds, and the
+  `ApproximationStrictness` witnesses mark the semantic metric side. No finite
+  encoder, quantizer, accumulated circuit budget, synthesis result, or runtime
+  declaration is introduced.
 - **Dependents:** Theorems 2/4, preprocessing bounds, and BQP conclusions.
 
 ## C-025 — Equation 63 is an embedding, not an isomorphism onto `SO(4N)`
