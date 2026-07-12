@@ -450,7 +450,7 @@ theorem jThenIOutput_basis00_weight :
     _root_.Quaternion.normSq_def']
   norm_num
 
-/-- The two legal orders have observably different computational-basis outcomes. -/
+/-- The two legal orders give different weights to the same `00` basis outcome. -/
 theorem output_basis00_weight_ne :
     quaternionBasisWeight iThenJOutput basis00 ≠
       quaternionBasisWeight jThenIOutput basis00 := by

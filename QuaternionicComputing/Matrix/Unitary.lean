@@ -74,7 +74,7 @@ def realifyUnitaryImage (n : Type*) [Fintype n] [DecidableEq n] :
     Subgroup (unitary (_root_.Matrix (n ⊕ n) (n ⊕ n) ℝ)) :=
   (realifyUnitary n).toMonoidHom.range
 
-/-- Complex unitaries are multiplicatively equivalent to their realification image. -/
+/-- Complex unitaries are `MulEquiv`-isomorphic to their realification range. -/
 noncomputable def realifyUnitaryEquivImage (n : Type*) [Fintype n] [DecidableEq n] :
     unitary (_root_.Matrix n n ℂ) ≃* realifyUnitaryImage n :=
   MonoidHom.ofInjective (realifyUnitary_injective n)
@@ -158,7 +158,7 @@ def complexifyUnitaryImage (n : Type*) [Fintype n] [DecidableEq n] :
     Subgroup (unitary (_root_.Matrix (n ⊕ n) (n ⊕ n) ℂ)) :=
   (complexifyUnitary n).toMonoidHom.range
 
-/-- Quaternionic unitaries are multiplicatively equivalent to their complexification image. -/
+/-- Quaternionic unitaries are `MulEquiv`-isomorphic to their complexification range. -/
 noncomputable def complexifyUnitaryEquivImage (n : Type*) [Fintype n] [DecidableEq n] :
     unitary (_root_.Matrix n n ℍ[ℝ]) ≃* complexifyUnitaryImage n :=
   MonoidHom.ofInjective (complexifyUnitary_injective n)

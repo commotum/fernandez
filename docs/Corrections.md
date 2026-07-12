@@ -569,7 +569,7 @@ means the corrected mathematical target is known but not yet formalized;
   `[3,1,0,2]` to rows and columns; no additional basis signs occur.  The map is
   injective, multiplicative, adjoint-preserving, and sends quaternionic
   unitaries to `SO(4N)` with determinant one.  The induced unitary-group map is
-  explicitly equivalent to its image.  Finally,
+  explicitly `MulEquiv`-isomorphic to its defined range.  Finally,
   `diag(-1,-1,1,1)` in the paper-sector order lies in `SO(4)` but cannot be the
   direct realification of any quaternionic `1 × 1` matrix, because all four
   direct-image diagonal coordinates would have to equal the same real part.

@@ -136,7 +136,7 @@ theorem gateCount_scheduledCircuit {R : Type v} {W : Type w}
     OrderedCircuit.gateCount (s.scheduledCircuit gates) = Fintype.card ι := by
   simp [scheduledCircuit, OrderedCircuit.gateCount, s.length_order]
 
-/-- Instantiating two legal schedules produces permutation-equivalent circuits. -/
+/-- Two legal schedules produce gate lists that are permutations of one another. -/
 theorem scheduledCircuit_perm {R : Type v} {W : Type w}
     [Semiring R] [Fintype W] (s t : LegalSchedule ι precedes)
     (gates : ι → PlacedGate R W) :

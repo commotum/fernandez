@@ -362,7 +362,7 @@ theorem jThenIRay_basis00_weight :
     QuaternionRay.basisWeight jThenIRay basis00 = 1369 / 15625 := by
   simpa [jThenIRay, jThenIOutput] using jThenIOutput_basis00_weight
 
-/-- The two chronological orders remain observably different after quotient descent. -/
+/-- After quotient descent, the two orders still give different `00` basis weights. -/
 theorem ray_order_is_observable :
     QuaternionRay.basisWeight iThenJRay basis00 ≠
       QuaternionRay.basisWeight jThenIRay basis00 := by

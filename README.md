@@ -119,7 +119,8 @@ documented paper-proof obligation that is not needed by the simulation.
 Equation 63's direct four-real-sector map is also formalized: all sixteen
 coordinate formulas compile, its `4N` dimension is explicit, and it is exactly
 the composed embedding after the checked sector permutation `[3,1,0,2]`.
-Quaternionic unitaries embed into `SO(4N)` and are equivalent to their image,
+Quaternionic unitaries embed into `SO(4N)` and are multiplicatively isomorphic
+(`MulEquiv`) to the embedding range,
 while at rank one an explicit witness proves that the image is proper in
 `SO(4)`.  Separate `SO(4)` and `SU(4)` witnesses record the other qualified
 non-surjectivity results without inferring operational lower bounds.
@@ -370,11 +371,14 @@ The proof-bearing wrapper leaf classifies the primary and composed evaluator
 equalities as `ExactOperatorEmbedding` and their arbitrary raw-coefficient
 amplitude laws as `AllTopStateIntertwining`. Equation 63 remains equality only
 after its named row/column reindexing and is not a circuit translator.
-For a supplied finite legal schedule, the scheduled bridge applies the same
-exact quaternion-to-complex theorem to that schedule's chronological circuit
-without selecting a schedule or asserting schedule independence.  The
-order-sensitive witness remains operator-distinct after this translation.
-The normalized output equality also extends to every finite event and every
+For a supplied finite legal schedule, the scheduled wrappers retain that
+schedule while separately proving mapped-operator equality, raw-state
+intertwining, and decoded outcome agreement for its chronological circuit;
+they neither select a schedule nor assert schedule independence.  On the
+explicit ordering witness, complexification preserves both the mapped-operator
+inequality and the unequal weight of the same selected basis outcome on the
+supplied input.  Normalized decoded finite-distribution equality separately
+implies equality of every finite-event weight and of every pushforward under a
 deterministic finite classical postprocessing map.
 The stable outcome layer starts from the full added-wire target distributions,
 then applies `addedWireDistributionDecoder` or

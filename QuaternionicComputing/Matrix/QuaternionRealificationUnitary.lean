@@ -158,8 +158,8 @@ def directRealifySpecialOrthogonalImage
   (directRealifySpecialOrthogonal n).range
 
 /--
-Quaternionic unitaries are multiplicatively equivalent to their direct
-realification image, rather than to the whole special orthogonal group.
+Quaternionic unitaries are `MulEquiv`-isomorphic to their direct-realification
+range, rather than to the whole special orthogonal group.
 -/
 noncomputable def directRealifyUnitaryEquivImage
     (n : Type*) [Fintype n] [DecidableEq n] :

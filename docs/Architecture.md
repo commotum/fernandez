@@ -701,7 +701,8 @@ Instantiating a schedule with a gate family produces an `OrderedCircuit`, so
 Definition 4's corrected finite semantics is a thin layer over the established
 chronological product.
 
-Any two legal schedules enumerate permutation-equivalent gate occurrences,
+Any two legal schedules give gate lists that are permutations of the same
+occurrence identifiers,
 but their products need not agree.  `scheduledEval_eq_of_pairwise_commute`
 proves equality when all distinct global gate denotations commute.  The
 separate witness leaf places rational unitary `i`- and `j`-mixers on disjoint
@@ -757,9 +758,10 @@ necessary nonempty hypothesis.
 
 `Simulation/Scheduled.lean` applies the fixed-order quaternion-to-complex
 results to the exact chronological circuit selected by a supplied
-`LegalSchedule`.  It preserves occurrence count, pointwise unitarity and arity
-bounds, operator embedding, and bottom probability equality separately for
-that schedule.  It neither chooses among legal schedules nor equates them.
+`LegalSchedule`.  It preserves occurrence count, local unitarity of every gate
+occurrence, the stated arity bounds, operator embedding, and bottom probability
+equality separately for that schedule.  It neither chooses among legal
+schedules nor equates them.
 `Simulation/OrderingWitness.lean` confirms that complexification preserves the
 explicit operator gap and the two exact observable weights.
 
@@ -833,7 +835,8 @@ determinant boundary is therefore explicit:
   canonical symplectic form;
 - simultaneous reindexing of the composed embedding proves that direct
   realification sends a quaternionic unitary to `SO(4N)` with determinant one;
-  the induced group map is injective and equivalent to its image, and an
+  the induced group map is injective and `MulEquiv`-isomorphic to its explicitly
+  defined range, and an
   explicit rank-one witness proves that image is not all of `SO(4)`;
 - the available block and unitary laws prove only that its complex determinant
   is real and lies in `{1, -1}`.  The proof selecting `1` needs Pfaffian,
