@@ -275,11 +275,11 @@ theorem realOutputBasisSignEq
         rw [hUpsi] at hw
         have hVpsi : (V *ᵥ psi) y = 0 :=
           mul_self_eq_zero.mp (by simpa using hw.symm)
-        simp [psi, c, Matrix.mulVec_add] at hVpsi
         change V y x = s * U y x
         simp only [s, mul_assoc]
         rw [← sub_eq_zero]
-        simpa [sub_eq_add_neg, mul_neg, mul_assoc] using hVpsi
+        simpa [psi, c, Matrix.mulVec_add, sub_eq_add_neg, mul_neg,
+          mul_assoc] using hVpsi
   choose s hs hentry using hrow
   exact ⟨s, hs, hentry⟩
 
@@ -335,11 +335,11 @@ theorem complexOutputBasisPhaseEq
         rw [hUpsi] at hw
         have hVpsi : (V *ᵥ psi) y = 0 :=
           Complex.normSq_eq_zero.mp (by simpa using hw.symm)
-        simp [psi, c, Matrix.mulVec_add] at hVpsi
         change V y x = eta * U y x
         simp only [eta, mul_assoc]
         rw [← sub_eq_zero]
-        simpa [sub_eq_add_neg, mul_neg, mul_assoc] using hVpsi
+        simpa [psi, c, Matrix.mulVec_add, sub_eq_add_neg, mul_neg,
+          mul_assoc] using hVpsi
   choose eta heta hentry using hrow
   exact ⟨eta, heta, hentry⟩
 
@@ -398,11 +398,11 @@ theorem quaternionOutputLeftPhaseEq
         rw [hUpsi] at hw
         have hVpsi : (V *ᵥ psi) y = 0 :=
           _root_.Quaternion.normSq_eq_zero.mp (by simpa using hw.symm)
-        simp [psi, c, Matrix.mulVec_add] at hVpsi
         change V y x = theta * U y x
         simp only [theta, mul_assoc]
         rw [← sub_eq_zero]
-        simpa [sub_eq_add_neg, mul_neg, mul_assoc] using hVpsi
+        simpa [psi, c, Matrix.mulVec_add, sub_eq_add_neg, mul_neg,
+          mul_assoc] using hVpsi
   choose theta htheta hentry using hrow
   exact ⟨theta, htheta, hentry⟩
 

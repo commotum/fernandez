@@ -74,14 +74,14 @@ that pushforwards to one fixed smaller codomain suffice.
 -/
 theorem eq_iff_allPushforward_eq_sameUniverse :
     μ = ν ↔
-      ∀ (β : Type u) (_ : Fintype β) (f : α → β),
+      ∀ (β : Type u) [Fintype β] (f : α → β),
         @pushforward α β _ _ μ f = @pushforward α β _ _ ν f := by
   constructor
   · intro h β inst f
     subst ν
     rfl
   · intro h
-    have hid := h α (inferInstance : Fintype α) id
+    have hid := h α id
     simpa using hid
 
 end QuaternionicComputing.State.FiniteDistribution
@@ -118,7 +118,7 @@ theorem normalizedDistributionEq_iff_allPushforward_eq_sameUniverse
     (weight : R → ℝ) (hweight : ∀ z, 0 ≤ weight z)
     (a b : State.NormalizedState I R weight) :
     NormalizedDistributionEq weight hweight a b ↔
-      ∀ (J : Type v) (_ : Fintype J) (f : I → J),
+      ∀ (J : Type v) [Fintype J] (f : I → J),
         @State.FiniteDistribution.pushforward I J _ _
             (State.FiniteDistribution.ofNormalizedState weight hweight a) f =
           @State.FiniteDistribution.pushforward I J _ _
@@ -151,7 +151,7 @@ theorem basisWeightEq_iff_allPushforward_eq_sameUniverse
     (weight : R → ℝ) (hweight : ∀ z, 0 ≤ weight z)
     (a b : State.NormalizedState I R weight) :
     BasisWeightEq weight a b ↔
-      ∀ (J : Type v) (_ : Fintype J) (f : I → J),
+      ∀ (J : Type v) [Fintype J] (f : I → J),
         @State.FiniteDistribution.pushforward I J _ _
             (State.FiniteDistribution.ofNormalizedState weight hweight a) f =
           @State.FiniteDistribution.pushforward I J _ _
