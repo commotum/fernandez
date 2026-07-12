@@ -774,9 +774,10 @@ The final-registry validator passes all ten rule groups. It proves that the
 frozen checksum is still
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`,
 the family IDs are unchanged and ordered, every one of the 936 frozen
-declarations occurs exactly once, all seven classification axes are populated,
-and proof, witness, consumer, audit, and source-only-obstruction policies are
-consistent. Generated Lean checks resolve all 936 declaration names and all
+declarations occurs exactly once, all seven classification axes are populated
+on every family and declaration, and proof, witness, consumer, audit, and
+source-only-obstruction policies are consistent. Generated Lean checks resolve
+all 936 declaration names and all
 named proof/consumer/audit targets. The family summary between the marker
 comments is checked against the JSON rather than maintained independently.
 

@@ -30,9 +30,9 @@ right scaling by associativity.  This is exposed by
 A *ᵥ (ψ · q) = (A *ᵥ ψ) · q.
 ```
 
-Consequently, equality of quaternionic state/ray representatives up to phase is
-represented using a unit quaternion on the **right**, `ψ = ψ' <• q`. The paper places the phase on
-the left in Equation (45); that relation is not preserved by arbitrary left
+Consequently, equality of quaternionic state/ray representatives up to phase
+uses a unit quaternion on the **right**, `ψ = ψ' <• q`. The paper places the
+phase on the left in Equation (45); that relation is not preserved by arbitrary left
 matrix evolution and is corrected here.  Lean's ordinary `SMul` notation is not
 silently confused with ordinary left scalar action.  The state API proves that
 this right phase preserves every basis weight, total weight, normalization,

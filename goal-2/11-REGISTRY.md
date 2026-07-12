@@ -26,9 +26,8 @@
   arrays: the Stage 10 boundary row `EQC-042` plus source-only `EQC-043`--
   `EQC-051`. Earlier Goal 2
   stages already supply proof-bearing exact, phase/ray, basis, density/channel,
-  hierarchy, cross-model, and metric overlays, but no single final registry
-  currently maps all 936 frozen declarations to their strongest checked
-  classification.
+  hierarchy, cross-model, and metric overlays. The final Stage 11 registry now
+  maps all 936 frozen declarations to their strongest checked classification.
 - Twelve frozen families are first-owned by Stage 11 and contain 391
   declarations: `EQC-010` (6), `EQC-015` (26), `EQC-017` (42), `EQC-018`
   (41), `EQC-020` (32), `EQC-021` (12), `EQC-022` (30), `EQC-023` (21),
@@ -45,11 +44,10 @@
   distribution-equality/ray-inequality boundary, commuting-schedule
   `ExactCircuitEq`, exact one-input/all-pure-input ordering boundary, and
   supplied-compiler `ExactCircuitEq`.
-- `docs/EquivalenceClassification.md` has the frozen 51-row family seed plus
-  proof-bearing overlays through Stage 10. Its opening still correctly labels
-  the seed provisional, but Stage 11 must add a final checked registry view,
-  resolve the ambiguity backlog, and distinguish frozen historical text from
-  final classifications.
+- `docs/EquivalenceClassification.md` now distinguishes the frozen historical
+  seed from the authoritative final overlay, renders all 51 family records
+  between checked markers, and closes the ambiguity backlog without rewriting
+  the frozen artifact.
 - `docs/Goal2SemanticAPIManifest.json` is independent of the frozen cohort. It
   now covers all 1,275 Goal 2 semantic exports exactly once and must remain
   an independently validated suffix-growing manifest rather than being merged
@@ -252,5 +250,6 @@ unimplemented models explicit.
   final registry. They validate frozen order/checksum, semantic-prefix and
   source order, evidence vocabularies, audit/import boundaries, and temporary
   Lean resolution without writing generated files into the repository.
-  Construction and full validation of the 51-family/936-declaration overlay
-  remain in progress, so none of the Stage 11 milestones is checked yet.
+  The 51-family/936-declaration overlay and full validation are complete;
+  `11A-EXISTING` and `11B-REGISTRY` are independently checked. Documentation,
+  Goal 3 fold-back, and final integrated review remain under `11C-DOCS`.

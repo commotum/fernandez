@@ -278,7 +278,7 @@ or an unsafe shortcut.
   all sixteen coordinate formulas, and target cardinality `4N`.  It is exactly
   `realify (complexify A)` after the simultaneous sector permutation
   `[3,1,0,2]`, with no additional signs.  Quaternionic unitaries embed into
-  `SO(4N)` and are multiplicatively equivalent to their image.
+  `SO(4N)` and are `MulEquiv`-isomorphic to their explicitly defined range.
 - Explicit matrices prove qualified non-surjectivity in `SO(4)`, `SU(4)`, and
   the direct rank-one `SO(4)` target.  These are matrix facts, not operational
   lower bounds.
@@ -448,8 +448,9 @@ The detailed source locations, diagnoses, proofs, and dependent effects are in
 23. A Hilbert space alone does not supply coherent local circuit semantics.
 24. Exact algebraic matrices and finite-precision descriptions are different
     models.
-25. Equation 63 embeds into `SO(4N)` and is always equivalent to its image; at
-    rank one the explicit `SO(4)` witness proves it is not onto the full target.
+25. Equation 63 embeds into `SO(4N)` and its unitary group is algebraically
+    `MulEquiv`-isomorphic to the explicitly defined range; at rank one the
+    explicit `SO(4)` witness proves it is not onto the full target.
 26. Ground-state “without loss of generality” hides state-preparation and
     uniformity assumptions; only the known basis-input reduction used here is
     packaged as a gate.
