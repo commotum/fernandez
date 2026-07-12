@@ -632,12 +632,12 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** define the direct sector action
   `(x,y) ↦ (re(η)x+im(η)y,-im(η)x+re(η)y)`, prove its unit-orbit
   relation independently, and quotient normalized doubled-real states as
-`RealSectorOrbit`. The resulting `complexRayEquivRealSectorOrbit` is the
-correct phase-invariant representation equivalence. Both canonical columns
-and every normalized `Rebit` top-sector coefficient encoding give the same
-orbit. This coefficient does not certify a factorization of the target column
-into independent top and bottom states. Only the
-bottom marginal distribution descends, and it equals the source complex-ray
+  `RealSectorOrbit`. The resulting `complexRayEquivRealSectorOrbit` is the
+  correct phase-invariant representation equivalence. Both canonical columns
+  and every normalized `Rebit` top-sector coefficient encoding give the same
+  orbit. This coefficient does not certify a factorization of the target column
+  into independent top and bottom states. Only the bottom marginal distribution
+  descends, and it equals the source complex-ray
   distribution; the full doubled-real basis distribution generally changes
   under sector rotation.
 - **Lean declarations:** `State.RealSectorPhaseEquivalent`,

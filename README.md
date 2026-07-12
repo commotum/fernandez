@@ -151,8 +151,8 @@ is exactly the source ray distribution. Each canonical complex-to-real or
 quaternion-to-complex raw column is also an explicit real-linear coordinate
 equivalence, and its restriction is an equivalence of normalized
 representatives. These representative bijections are not ray equivalences.
-In particular, the realification result is not ordinary `RealRay` equality: either
-canonical column preserves the target real ray only for phases `±1`, and a
+In particular, the realification result is not ordinary `RealRay` equality:
+either canonical column preserves the target real ray only for phases `±1`, and a
 representative-compatible `ComplexRay I → RealRay (I ⊕ I)` lift exists only
 in the vacuous `IsEmpty I` case. Thus rays precede representative embeddings;
 the raw column intertwining and decoded bottom outcomes remain valid. Both
@@ -318,8 +318,8 @@ slot counts, not bit complexity or runtime.
 
 The simulation layer proves corrected constructive forms of the paper's
 Theorems 2 and 4 for arbitrary ordered finite circuits.  It separately exports
-whole-operator embedding, all canonical and normalized top-sector-coefficient
-state evolution laws, and equality of normalized bottom computational-basis
+whole-operator embedding, canonical and arbitrary top-sector-coefficient state
+evolution laws, and equality of normalized bottom computational-basis
 probabilities.
 Abstract gate count is unchanged, width grows by exactly one, and every local
 gate grows by exactly one wire; maximum-arity theorems handle the empty circuit
