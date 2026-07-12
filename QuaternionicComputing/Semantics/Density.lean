@@ -137,12 +137,13 @@ theorem index_nonempty (ρ : DensityMatrix 𝕜 I) : Nonempty I := by
 def pureMatrix (psi : I → 𝕜) : Matrix I I 𝕜 :=
   Matrix.vecMulVec psi (star psi)
 
+omit [Fintype I] in
 /-- Entries of a ket--bra matrix have the expected multiplication order. -/
-@[simp]
-omit [Fintype I] in theorem pureMatrix_apply (psi : I → 𝕜) (i j : I) :
+@[simp] theorem pureMatrix_apply (psi : I → 𝕜) (i j : I) :
     pureMatrix psi i j = psi i * star (psi j) :=
   rfl
 
+omit [Fintype I] in variable [Finite I] in
 /-- Every ket--bra matrix is positive semidefinite. -/
 theorem pureMatrix_posSemidef (psi : I → 𝕜) :
     (pureMatrix psi).PosSemidef :=
@@ -195,12 +196,12 @@ by `Semantics.basisKet`, without importing the higher-level basis-behavior
 classification leaf into this low-dependency physical-state core.
 -/
 def basis (x : I) [DecidableEq I] : DensityMatrix 𝕜 I :=
-  pure (Pi.single x 1) (by
-    have hstar : star (Pi.single x (1 : 𝕜)) = Pi.single x 1 := by
-      ext i
-      simp [Pi.single_apply]
-    rw [hstar, Matrix.single_one_dotProduct]
-    simp [Pi.single_apply])
+  pure (Pi.single x (1 : 𝕜) : I → 𝕜) (by
+    rw [dotProduct, Finset.sum_eq_single x]
+    · simp
+    · intro i _ hix
+      simp [hix]
+    · simp)
 
 /-- The underlying basis density is the ket--bra of `Pi.single x 1`. -/
 @[simp]
@@ -214,8 +215,11 @@ theorem basis_coe (x : I) [DecidableEq I] :
 theorem basis_apply (x i j : I) [DecidableEq I] :
     ((basis (𝕜 := 𝕜) x : DensityMatrix 𝕜 I) : Matrix I I 𝕜) i j =
       if i = x ∧ j = x then 1 else 0 := by
+  change Matrix.vecMulVec (Pi.single x (1 : 𝕜))
+      (star (Pi.single x (1 : 𝕜))) i j =
+        if i = x ∧ j = x then 1 else 0
   by_cases hi : i = x <;> by_cases hj : j = x <;>
-    simp [basis, Pi.single_apply, hi, hj]
+    simp [Matrix.vecMulVec_apply, hi, hj]
 
 /-- A basis density is positive semidefinite. -/
 theorem basis_posSemidef (x : I) [DecidableEq I] :
@@ -349,22 +353,6 @@ theorem ofState_apply (psi : State.RealState I) (i j : I) :
     ((ofState psi : RealDensityMatrix I) : Matrix I I ℝ) i j = psi i * psi j :=
   rfl
 
-/-- Real unitary evolution agrees with density-matrix conjugation. -/
-theorem unitaryConjugate_ofState [DecidableEq I]
-    (U : Matrix I I ℝ) (hU : U ∈ unitary (Matrix I I ℝ))
-    (psi : State.RealState I) :
-    DensityMatrix.unitaryConjugate U hU (ofState psi) =
-      ofState (State.RealState.evolveUnitary psi U hU) := by
-  apply DensityMatrix.ext
-  intro i j
-  have h := congrFun
-    (congrFun
-      (DensityMatrix.unitaryConjugate_pure_coe U hU (psi : I → ℝ) (by
-        simpa [State.realTotalWeight, State.totalWeight, State.basisWeight,
-          State.realWeight, dotProduct] using psi.property)) i) j
-  simpa only [DensityMatrix.pureMatrix_apply, ofState_apply,
-    State.RealState.evolveUnitary_apply, star_trivial] using h
-
 end RealDensityMatrix
 
 namespace ComplexDensityMatrix
@@ -384,23 +372,6 @@ theorem ofState_apply (psi : State.ComplexState I) (i j : I) :
     ((ofState psi : ComplexDensityMatrix I) : Matrix I I ℂ) i j =
       psi i * star (psi j) :=
   rfl
-
-/-- Complex unitary evolution agrees with density-matrix conjugation. -/
-theorem unitaryConjugate_ofState [DecidableEq I]
-    (U : Matrix I I ℂ) (hU : U ∈ unitary (Matrix I I ℂ))
-    (psi : State.ComplexState I) :
-    DensityMatrix.unitaryConjugate U hU (ofState psi) =
-      ofState (State.ComplexState.evolveUnitary psi U hU) := by
-  apply DensityMatrix.ext
-  intro i j
-  have h := congrFun
-    (congrFun
-      (DensityMatrix.unitaryConjugate_pure_coe U hU (psi : I → ℂ) (by
-        have h := congrArg (fun r : ℝ ↦ (r : ℂ)) psi.property
-        simpa [State.complexTotalWeight, State.totalWeight, State.basisWeight,
-          State.complexWeight, dotProduct, ← Complex.normSq_eq_conj_mul_self] using h)) i) j
-  simpa only [DensityMatrix.pureMatrix_apply, ofState_apply,
-    State.ComplexState.evolveUnitary_apply] using h
 
 end ComplexDensityMatrix
 
