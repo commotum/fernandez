@@ -515,6 +515,40 @@ theorem allRebit_decodedDistribution_api {I : Type uO} [Fintype I] :
     State.complexBasisWeight input outcome
   exact State.realTopCombination_bottomWeight_of_rebit top input outcome
 
+/--
+The normalized bottom distribution obtained by summing the two complex target
+sectors.  This audit-local decoder is the quaternion-to-complex analogue of
+the stable real-sector bottom distribution.
+-/
+def complexBottomDistribution {I : Type uO} [Fintype I]
+    (target : State.ComplexState (I ⊕ I)) : FiniteDistribution I where
+  weight outcome := State.bottomComplexWeight target outcome
+  nonnegative outcome := add_nonneg
+    (State.ComplexState.basisWeight_nonneg target (Sum.inl outcome))
+    (State.ComplexState.basisWeight_nonneg target (Sum.inr outcome))
+  normalized := by
+    rw [← State.complexTotalWeight_eq_sum_bottomComplexWeight]
+    exact target.property
+
+/--
+Every normalized pure top qubit gives exactly the source quaternionic
+distribution after the two complex target sectors are decoded.
+-/
+theorem allQubit_decodedDistribution_api {I : Type uO} [Fintype I] :
+    AllTopDecodedDistributionAgreement id
+      (fun input : State.QuaternionState I ↦
+        FiniteDistribution.ofNormalizedState State.quaternionWeight
+          State.quaternionWeight_nonneg input)
+      (fun top input ↦ complexBottomDistribution
+        (State.complexTopState top input)) := by
+  intro top input
+  apply FiniteDistribution.ext
+  intro outcome
+  change State.bottomComplexWeight
+      (State.complexTopCombination (top false) (top true) input) outcome =
+    State.quaternionBasisWeight input outcome
+  exact State.complexTopCombination_bottomWeight_of_qubit top input outcome
+
 /-! ## Constructive singleton and empty boundaries -/
 
 /-- The normalized one-coordinate complex state with amplitude one. -/
@@ -542,7 +576,8 @@ def unitQubitTop : State.Qubit :=
 
 /--
 The singleton boundary has actual normalized sources and top parameters and
-therefore exercises both all-top decoded relations non-vacuously.
+therefore exercises both scalar transitions' all-top decoded basis-weight
+relations non-vacuously.
 -/
 theorem unit_allTop_decodedBasisWeight_api :
     DecodedBasisWeightAgreement sumSectorWeightDecoder
@@ -638,6 +673,8 @@ end QuaternionicComputing.Semantics.SimulationAudit
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedBasisWeight_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.allRebit_decodedDistribution_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedDistribution_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.empty_rawEncoding_normalizedBoundary_api
 #print axioms
