@@ -56,11 +56,9 @@
   Reusing an already-marginalized distribution with decoder `id` does not close
   Stage 9C because it hides the changed target outcome type and added-wire
   policy.
-- The stable one-wire decoder will sum the explicit false/true sectors and
-  expose compatibility between distribution weights and the corresponding
-  weight decoder. It should also be identified with deterministic pushforward
-  through `tailBits`; if direct proof engineering favors defining it as that
-  pushforward, the same point-weight compatibility theorem remains mandatory.
+- The stable one-wire decoder sums the explicit false/true sectors, exposes
+  compatibility between distribution weights and the corresponding weight
+  decoder, and is proved equal to deterministic pushforward through `tailBits`.
 - Two-wire decoding is composition in physical construction order: first
   remove the outer realification wire, then remove the inner complexification
   wire. The normalized top parameter is explicitly `Qubit × Rebit`, inner
