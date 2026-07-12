@@ -253,18 +253,19 @@ theorem allTopDecodedDistributionAgreement_api
         (targetDistribution top input) :=
   ⟨h, AllTopDecodedDistributionAgreement.forTopInput h top input⟩
 
-/-! ## Exact allocation of the 12 representative-encoding declarations -/
+/-! ## Exact allocation of the 20 representative-encoding declarations -/
 
 /-
-The next two aggregates allocate the six real and six complex declarations in
-`SimulationEncoding`, including all four normalized `Function.Embedding`
-values.  Together the two stable leaves therefore contribute exactly
-`38 + 12 = 50` declarations to this audit.
+The next two aggregates allocate the ten real and ten complex declarations in
+`SimulationEncoding`: exact reconstruction, right inverses, losslessness, raw
+real-linear equivalences, and normalized representative equivalences.
+Together the two stable leaves therefore contribute exactly `38 + 20 = 58`
+declarations to this audit.
 -/
 
 /--
-Complete consumer for the six complex-to-real representative-encoding
-declarations: four raw certificates and two normalized embeddings.
+Complete consumer for all ten complex-to-real representative-encoding
+declarations.
 -/
 theorem realRepresentativeEncoding_api {I : Type uS} [Fintype I] :
     ExactStateEncoding
@@ -273,6 +274,12 @@ theorem realRepresentativeEncoding_api {I : Type uS} [Fintype I] :
       ExactStateEncoding
         (State.realColumn1 : (I → ℂ) → (I ⊕ I → ℝ))
         State.complexOfRealColumn1 ∧
+      Function.RightInverse
+        (State.complexOfRealColumn0 : (I ⊕ I → ℝ) → (I → ℂ))
+        State.realColumn0 ∧
+      Function.RightInverse
+        (State.complexOfRealColumn1 : (I ⊕ I → ℝ) → (I → ℂ))
+        State.realColumn1 ∧
       LosslessStateEncoding
         (State.realColumn0 : (I → ℂ) → (I ⊕ I → ℝ))
         State.complexOfRealColumn0 State.complexTotalWeight
@@ -281,18 +288,24 @@ theorem realRepresentativeEncoding_api {I : Type uS} [Fintype I] :
         (State.realColumn1 : (I → ℂ) → (I ⊕ I → ℝ))
         State.complexOfRealColumn1 State.complexTotalWeight
         State.realTotalWeight ∧
-      Function.Injective (realColumn0StateEmbedding I) ∧
-      Function.Injective (realColumn1StateEmbedding I) :=
+      Function.Bijective (realColumn0LinearEquiv I) ∧
+      Function.Bijective (realColumn1LinearEquiv I) ∧
+      Function.Bijective (realColumn0StateEquiv I) ∧
+      Function.Bijective (realColumn1StateEquiv I) :=
   ⟨realColumn0_exactStateEncoding,
     realColumn1_exactStateEncoding,
+    realColumn0_rightInverse,
+    realColumn1_rightInverse,
     realColumn0_losslessStateEncoding,
     realColumn1_losslessStateEncoding,
-    (realColumn0StateEmbedding I).injective,
-    (realColumn1StateEmbedding I).injective⟩
+    (realColumn0LinearEquiv I).bijective,
+    (realColumn1LinearEquiv I).bijective,
+    (realColumn0StateEquiv I).bijective,
+    (realColumn1StateEquiv I).bijective⟩
 
 /--
-Complete consumer for the six quaternion-to-complex representative-encoding
-declarations: four raw certificates and two normalized embeddings.
+Complete consumer for all ten quaternion-to-complex representative-encoding
+declarations.
 -/
 theorem complexRepresentativeEncoding_api {I : Type uS} [Fintype I] :
     ExactStateEncoding
@@ -301,6 +314,14 @@ theorem complexRepresentativeEncoding_api {I : Type uS} [Fintype I] :
       ExactStateEncoding
         (State.complexColumn1 : (I → ℍ[ℝ]) → (I ⊕ I → ℂ))
         State.quaternionOfComplexColumn1 ∧
+      Function.RightInverse
+        (State.quaternionOfComplexColumn0 :
+          (I ⊕ I → ℂ) → (I → ℍ[ℝ]))
+        State.complexColumn0 ∧
+      Function.RightInverse
+        (State.quaternionOfComplexColumn1 :
+          (I ⊕ I → ℂ) → (I → ℍ[ℝ]))
+        State.complexColumn1 ∧
       LosslessStateEncoding
         (State.complexColumn0 : (I → ℍ[ℝ]) → (I ⊕ I → ℂ))
         State.quaternionOfComplexColumn0 State.quaternionTotalWeight
@@ -309,14 +330,20 @@ theorem complexRepresentativeEncoding_api {I : Type uS} [Fintype I] :
         (State.complexColumn1 : (I → ℍ[ℝ]) → (I ⊕ I → ℂ))
         State.quaternionOfComplexColumn1 State.quaternionTotalWeight
         State.complexTotalWeight ∧
-      Function.Injective (complexColumn0StateEmbedding I) ∧
-      Function.Injective (complexColumn1StateEmbedding I) :=
+      Function.Bijective (complexColumn0LinearEquiv I) ∧
+      Function.Bijective (complexColumn1LinearEquiv I) ∧
+      Function.Bijective (complexColumn0StateEquiv I) ∧
+      Function.Bijective (complexColumn1StateEquiv I) :=
   ⟨complexColumn0_exactStateEncoding,
     complexColumn1_exactStateEncoding,
+    complexColumn0_rightInverse,
+    complexColumn1_rightInverse,
     complexColumn0_losslessStateEncoding,
     complexColumn1_losslessStateEncoding,
-    (complexColumn0StateEmbedding I).injective,
-    (complexColumn1StateEmbedding I).injective⟩
+    (complexColumn0LinearEquiv I).bijective,
+    (complexColumn1LinearEquiv I).bijective,
+    (complexColumn0StateEquiv I).bijective,
+    (complexColumn1StateEquiv I).bijective⟩
 
 /-! ## Concrete state-intertwining consumers -/
 
@@ -606,6 +633,7 @@ end QuaternionicComputing.Semantics.SimulationAudit
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.decodedDistributionAgreement_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api
+#print axioms QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allRebit_stateIntertwining_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedBasisWeight_api
 #print axioms

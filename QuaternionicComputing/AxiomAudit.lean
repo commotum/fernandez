@@ -572,10 +572,14 @@ set_option linter.style.longLine false in
 
 #print axioms QuaternionicComputing.Semantics.realColumn0_exactStateEncoding
 #print axioms QuaternionicComputing.Semantics.realColumn0_losslessStateEncoding
-#print axioms QuaternionicComputing.Semantics.realColumn0StateEmbedding
+#print axioms QuaternionicComputing.Semantics.realColumn0_rightInverse
+#print axioms QuaternionicComputing.Semantics.realColumn0LinearEquiv
+#print axioms QuaternionicComputing.Semantics.realColumn0StateEquiv
 #print axioms QuaternionicComputing.Semantics.complexColumn0_exactStateEncoding
 #print axioms QuaternionicComputing.Semantics.complexColumn0_losslessStateEncoding
-#print axioms QuaternionicComputing.Semantics.complexColumn0StateEmbedding
+#print axioms QuaternionicComputing.Semantics.complexColumn0_rightInverse
+#print axioms QuaternionicComputing.Semantics.complexColumn0LinearEquiv
+#print axioms QuaternionicComputing.Semantics.complexColumn0StateEquiv
 
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
