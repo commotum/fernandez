@@ -1,6 +1,6 @@
 module
 
-public import QuaternionicComputing.Semantics.Channel
+public import QuaternionicComputing.Semantics.ChannelPhase
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Circuit.LocalUnitary
 
@@ -18,6 +18,11 @@ physical-effect Born value after evolution.  Both are relations on certified
 circuits and therefore have honest equivalence laws.  Appending a later
 circuit uses the established chronological order: the later evaluated matrix
 multiplies on the left.
+
+The matrix-level phase converses require an inhabited basis.  Circuit basis
+types `BitBasis W = W → Bool` are canonically inhabited even when `W` is
+empty, so the circuit wrappers discharge that hypothesis internally rather
+than burdening callers with redundant evidence.
 
 This module compares evaluated physical maps only.  It does not compare gate
 syntax, schedules, resources, cross-model encodings, partial traces, or
@@ -353,5 +358,135 @@ theorem circuitAllMeasurementEq {C D : UnitaryCircuit 𝕜 W}
   (circuitChannelEq h).allMeasurementEq
 
 end ExactCircuitEq
+
+/-! ## Real and complex phase characterizations -/
+
+namespace RealCircuitGlobalSignEq
+
+variable {W : Type u} [Fintype W]
+
+/-- One evaluator-wide real sign gives equality of the induced circuit channels. -/
+theorem circuitChannelEq {C D : RealUnitaryCircuit W}
+    (h : RealCircuitGlobalSignEq C.circuit D.circuit) :
+    CircuitChannelEq C D := by
+  change ChannelEq C.toOperator D.toOperator
+  apply RealGlobalSignEq.channelEq
+  simpa only [UnitaryCircuit.toOperator_coe] using h.eval
+
+/-- One evaluator-wide real sign preserves every physical measurement. -/
+theorem circuitAllMeasurementEq {C D : RealUnitaryCircuit W}
+    (h : RealCircuitGlobalSignEq C.circuit D.circuit) :
+    CircuitAllMeasurementEq C D :=
+  (circuitChannelEq h).allMeasurementEq
+
+end RealCircuitGlobalSignEq
+
+namespace ComplexCircuitGlobalPhaseEq
+
+variable {W : Type u} [Fintype W]
+
+/-- One evaluator-wide complex phase gives equality of the induced circuit channels. -/
+theorem circuitChannelEq {C D : ComplexUnitaryCircuit W}
+    (h : ComplexCircuitGlobalPhaseEq C.circuit D.circuit) :
+    CircuitChannelEq C D := by
+  change ChannelEq C.toOperator D.toOperator
+  apply ComplexGlobalPhaseEq.channelEq
+  simpa only [UnitaryCircuit.toOperator_coe] using h.eval
+
+/-- One evaluator-wide complex phase preserves every physical measurement. -/
+theorem circuitAllMeasurementEq {C D : ComplexUnitaryCircuit W}
+    (h : ComplexCircuitGlobalPhaseEq C.circuit D.circuit) :
+    CircuitAllMeasurementEq C D :=
+  (circuitChannelEq h).allMeasurementEq
+
+end ComplexCircuitGlobalPhaseEq
+
+namespace CircuitChannelEq
+
+/-- Equal real circuit channels differ by one evaluator-wide sign. -/
+theorem realGlobalSignEq
+    {W : Type u} [Fintype W]
+    {C D : RealUnitaryCircuit W} (h : CircuitChannelEq C D) :
+    RealCircuitGlobalSignEq C.circuit D.circuit := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change RealGlobalSignEq C.circuit.eval D.circuit.eval
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    (realGlobalSignEq_iff_channelEq C.toOperator D.toOperator).mpr h
+
+/-- Equal complex circuit channels differ by one evaluator-wide unit phase. -/
+theorem complexGlobalPhaseEq
+    {W : Type u} [Fintype W]
+    {C D : ComplexUnitaryCircuit W} (h : CircuitChannelEq C D) :
+    ComplexCircuitGlobalPhaseEq C.circuit D.circuit := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change ComplexGlobalPhaseEq C.circuit.eval D.circuit.eval
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    (complexGlobalPhaseEq_iff_channelEq C.toOperator D.toOperator).mpr h
+
+/-- Equal real circuit channels act identically on all normalized pure rays. -/
+theorem realProjectiveActionEq
+    {W : Type u} [Fintype W]
+    {C D : RealUnitaryCircuit W} (h : CircuitChannelEq C D) :
+    RealCircuitProjectiveActionEq C.circuit D.circuit := by
+  change RealProjectiveActionEq C.circuit.eval D.circuit.eval
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    ChannelEq.realProjectiveActionEq h
+
+/-- Equal complex circuit channels act identically on all normalized pure rays. -/
+theorem complexProjectiveActionEq
+    {W : Type u} [Fintype W]
+    {C D : ComplexUnitaryCircuit W} (h : CircuitChannelEq C D) :
+    ComplexCircuitProjectiveActionEq C.circuit D.circuit := by
+  change ComplexProjectiveActionEq C.circuit.eval D.circuit.eval
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    ChannelEq.complexProjectiveActionEq h
+
+end CircuitChannelEq
+
+/-- Real circuit global-sign equality is exactly equality of the induced channels. -/
+theorem realCircuitGlobalSignEq_iff_channelEq
+    {W : Type u} [Fintype W]
+    (C D : RealUnitaryCircuit W) :
+    RealCircuitGlobalSignEq C.circuit D.circuit ↔ CircuitChannelEq C D := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change RealGlobalSignEq C.circuit.eval D.circuit.eval ↔
+    ChannelEq C.toOperator D.toOperator
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    realGlobalSignEq_iff_channelEq C.toOperator D.toOperator
+
+/-- Complex circuit global-phase equality is exactly equality of the induced channels. -/
+theorem complexCircuitGlobalPhaseEq_iff_channelEq
+    {W : Type u} [Fintype W]
+    (C D : ComplexUnitaryCircuit W) :
+    ComplexCircuitGlobalPhaseEq C.circuit D.circuit ↔ CircuitChannelEq C D := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change ComplexGlobalPhaseEq C.circuit.eval D.circuit.eval ↔
+    ChannelEq C.toOperator D.toOperator
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    complexGlobalPhaseEq_iff_channelEq C.toOperator D.toOperator
+
+/-- Normalized real projective circuit action is exactly channel equality. -/
+theorem realCircuitProjectiveActionEq_iff_channelEq
+    {W : Type u} [Fintype W]
+    (C D : RealUnitaryCircuit W) :
+    RealCircuitProjectiveActionEq C.circuit D.circuit ↔
+      CircuitChannelEq C D := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change RealProjectiveActionEq C.circuit.eval D.circuit.eval ↔
+    ChannelEq C.toOperator D.toOperator
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    realProjectiveActionEq_iff_channelEq C.toOperator D.toOperator
+
+/-- Normalized complex projective circuit action is exactly channel equality. -/
+theorem complexCircuitProjectiveActionEq_iff_channelEq
+    {W : Type u} [Fintype W]
+    (C D : ComplexUnitaryCircuit W) :
+    ComplexCircuitProjectiveActionEq C.circuit D.circuit ↔
+      CircuitChannelEq C D := by
+  letI : Nonempty (BitBasis W) := ⟨fun _ ↦ false⟩
+  change ComplexProjectiveActionEq C.circuit.eval D.circuit.eval ↔
+    ChannelEq C.toOperator D.toOperator
+  simpa only [UnitaryCircuit.toOperator_coe] using
+    complexProjectiveActionEq_iff_channelEq C.toOperator D.toOperator
 
 end QuaternionicComputing.Semantics

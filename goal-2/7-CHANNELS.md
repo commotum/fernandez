@@ -207,5 +207,25 @@ chronological-circuit wrappers.
   warning-as-error compilation and the focused build pass at `2672/2672`; its
   representative axiom union is exactly `propext`, `Classical.choice`, and
   `Quot.sound`.
-- Stage 7B phase-kernel and Stage 7C circuit work remain in progress; Stage 7
-  is not yet complete.
+- `QuaternionicComputing/Semantics/ChannelPhase.lean` now supplies 40 stable
+  declarations and nine private proof helpers. Equal normalized ket--bra
+  matrices determine one real sign or complex right phase. Explicit raw
+  real/complex projective-action relations have complete equivalence laws,
+  exact/global lifts, and exact iff bridges to the normalized relations through
+  a checked zero/nonzero square-root normalization argument.
+- On `[Nonempty I]`, a ray-fixing matrix is proved scalar by its basis columns
+  and pairwise sums. This gives real and complex raw/normalized projective
+  kernel theorems and the exact inhabited-space iff results
+  `realGlobalSignEq_iff_channelEq`,
+  `complexGlobalPhaseEq_iff_channelEq`, and their normalized/raw projective
+  analogues. The proof uses `V * Uᴴ`, one supplied unitary certificate, and no
+  determinant or dimension-at-least-two premise. Forward global-phase-to-
+  channel and channel-to-projective arrows require no inhabited hypothesis.
+  Named empty-index theorems separately record that empty square matrices are
+  exactly equal, rather than advertising vacuous density quantification as a
+  physical experiment.
+- The phase leaf passes strict compilation and its `2682/2682` focused build.
+  Fourteen representative/main endpoints use exactly `propext`,
+  `Classical.choice`, and `Quot.sound`; forbidden-token and import-boundary
+  scans pass.
+- Stage 7C circuit work remains in progress; Stage 7 is not yet complete.
