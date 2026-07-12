@@ -71,6 +71,8 @@ same-space equality name or hiding top/marginal policy.
 
 - Add a narrow `QuaternionicComputing/Semantics/Simulation.lean` leaf. Define
   directional predicates for:
+  - a lossless state encoding through an explicit left-inverse decoder, plus a
+    finite-column refinement that preserves total computational-basis weight;
   - exact target-operator equality after a supplied source embedding;
   - exact state evolution intertwining through supplied input/output encoders;
   - equality of a decoded target basis-weight function with a source basis-
@@ -88,6 +90,13 @@ same-space equality name or hiding top/marginal policy.
   `complexColumn1`, and `complexTopState`. These consumers should prove the
   representative encoders are injective/normalized and instantiate the policy
   types without claiming ray descent.
+- Package the four canonical raw column maps with their existing explicit
+  reconstruction decoders as lossless, total-weight-preserving state
+  encodings. Derive `Function.Injective` and normalized-state embeddings from
+  the left-inverse/weight certificate rather than inventing a semantic
+  equivalence: these are injective maps into changed scalar/index spaces, not
+  bijections and not ray maps. Keep the existing cross-column orthogonality
+  theorem as a separate algebraic fact rather than hiding it in the relation.
 - Probe empty and singleton source-index types. Empty normalized state types
   are uninhabited; do not pass impossible values merely to exercise a generic
   theorem.
@@ -104,6 +113,10 @@ same-space equality name or hiding top/marginal policy.
   directional relation vocabulary and elementary composition/elimination
   laws. It may import `Semantics.Measurement` and `State.Distribution`, but not
   concrete circuit translators, audits, channels, or the public root.
+- `QuaternionicComputing/Semantics/SimulationEncoding.lean`: stable concrete
+  representative-encoding certificates for the two 9A cohort families. It may
+  import `State.Realification` and `State.Complexification`; generic relation
+  definitions must not import this higher leaf.
 - `QuaternionicComputing/Semantics/SimulationAudit.lean`: non-root consumers
   for the complete Stage 9 relation/wrapper surface and negative scope checks.
   In 9A it may begin with representative-encoding consumers, but it remains
@@ -131,6 +144,13 @@ same-space equality name or hiding top/marginal policy.
 - A top parameter ranges over normalized pure top states only. No theorem may
   accept or imply a mixed top density, an entangled source/top state, or a
   partial trace.
+- More precisely, the present Lean `Rebit`/`Qubit` argument is a normalized
+  pure top-sector coefficient parameter for the encoding. It is not itself a
+  theorem that the encoded target state factors as an uncorrelated top/bottom
+  tensor product: the existing `NonProductWitness` disproves that reading for
+  a canonical real encoding. Stage 9 wrappers must use “top-sector parameter”
+  language and treat mixed joint-density input/partial trace as absent rather
+  than calling the target state uncorrelated.
 - Algebraic `EquivImage`/`MulEquiv` declarations remain nonbehavioral image
   isomorphisms. Reindexing equality remains equality after the named row and
   column equivalences.
