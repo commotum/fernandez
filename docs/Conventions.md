@@ -80,8 +80,10 @@ Deterministic postprocessing is covariant in the classical direction:
 pushforward by `id` is unchanged, and first `f` then `g` is pushforward by
 `g ∘ f`.
 
-These descended operations do not provide a density matrix, arbitrary effect,
-channel, or approximation relation. Cross-model phase is handled separately.
+These descended ray operations do not themselves provide a density matrix,
+physical effect, channel, or approximation relation. The finite real/complex
+density-and-effect layer is separate and does not identify distribution
+equality with density equality. Cross-model phase is handled separately.
 For realification, right multiplication by `eta : ℂ` acts on each doubled
 real coordinate pair by
 
@@ -221,6 +223,81 @@ or provide a uniform preparation algorithm.
   form-preservation result is not silently strengthened to determinant one;
   the pinned symplectic API does not yet supply that theorem.
 
+## Density matrices, effects, and Born values
+
+The same-space finite mixed-state core is theorem-generic over `RCLike 𝕜`.
+The library's physical model aliases instantiate it only for the intended real
+and complex cases:
+
+```text
+RealDensityMatrix I     = DensityMatrix ℝ I
+ComplexDensityMatrix I  = DensityMatrix ℂ I
+RealEffect I            = Effect ℝ I
+ComplexEffect I         = Effect ℂ I
+```
+
+A `DensityMatrix 𝕜 I` stores exactly
+
+```text
+ρ.PosSemidef
+trace ρ = 1.
+```
+
+Hermiticity is derived from positive semidefiniteness and is not redundant
+structure data. A finite empty index type supports no density matrix, because
+its trace is zero. Constructors that require a basis vector expose the
+inhabited case locally; no global `Nonempty I` assumption is hidden.
+
+Pure densities use the ket--bra order
+
+```text
+|ψ⟩⟨ψ| = Matrix.vecMulVec ψ (star ψ),
+(|ψ⟩⟨ψ|) i j = ψ i * star (ψ j).
+```
+
+The basis density is the pure density of `Pi.single x 1`. The real and
+complex constructors from `RealState` and `ComplexState` preserve this exact
+entry convention.
+
+A physical `Effect 𝕜 I` is a square matrix in the Loewner interval
+`0 ≤ E ≤ 1`. It is not an arbitrary Hermitian matrix and never denotes an
+arbitrary algebraic trace test. Zero, identity, complements, normalized
+rank-one projectors, and computational-basis projectors inhabit this
+structure. The scalar pairing and real probability are
+
+```text
+bornScalar E ρ = trace (E * ρ)
+bornValue  E ρ = RCLike.re (bornScalar E ρ).
+```
+
+The scalar pairing is proved real and nonnegative; the real Born value is
+proved to lie in `[0,1]`. The complement law is
+`bornValue (1-E) ρ = 1 - bornValue E ρ`, and basis effects on pure
+densities recover the existing real/complex squared-modulus basis weights.
+
+Unitary density evolution follows the same left-action chronology as columns:
+
+```text
+unitaryConjugate U ρ = U * ρ * Uᴴ.
+```
+
+Applying `U` and then `V` therefore gives conjugation by `V * U`, not by
+`U * V` and not by `Uᴴ * ρ * U`. This construction is available only with a
+supplied unitary certificate and is proved to preserve positivity and trace
+one.
+
+For two density matrices, literal equality is equivalent to equality of their
+Born values against every genuine physical effect. The separation proof uses
+normalized rank-one projector effects and quadratic-form polarization; it
+does not relabel arbitrary matrices as physical effects. This is a fixed-pair
+state extensionality theorem. It is not yet `ChannelEq` or
+`AllMeasurementEq`, which must quantify over every density input after two
+operators act and remain Stage 7 work.
+
+No quaternionic density/effect positivity, generic partial trace, Kraus map,
+instrument, arbitrary mixed-top simulation, or channel semantics is introduced
+by this layer.
+
 ## Scalar decompositions and embeddings
 
 For `q = a₀ + a₁ i + a₂ j + a₃ k`, the paper's decomposition is retained:
@@ -274,14 +351,19 @@ The library keeps the following levels distinct:
 10. all-normalized-pure-input basis agreement
    (`PureInputBasisMeasurementEq`); and
 11. equality of packaged computational-basis distributions
-   (`NormalizedDistributionEq`).
+   (`NormalizedDistributionEq`); and
+12. literal equality of finite real/complex density matrices, equivalently
+    equality of Born values against every genuine physical effect for that
+    fixed pair.
 
 The three input scopes in items 8–10 are not interchangeable. The generic
 weight function need not normalize basis kets, so the theorem from
 all-normalized-pure-input agreement to all-basis-input agreement requires that
 normalization as an explicit hypothesis. Channel and all-physical-effect
-equality are stronger notions introduced separately; no basis-only relation
-is treated as either one.
+operator equality are stronger notions introduced separately. Stage 6 proves
+only that all physical effects separate one fixed pair of density matrices;
+`ChannelEq` and `AllMeasurementEq` over every density input remain Stage 7.
+No basis-only relation is treated as either one.
 
 For a coordinate `ψ i`, its computational-basis weight is its scalar norm
 square.  In a doubled target space, forgetting the top wire means summing the
@@ -289,11 +371,12 @@ two target weights above each bottom basis index.  The main simulation theorems
 state this equality explicitly.  They do not define “simulation” to be
 whatever relation the embedding happens to satisfy.
 
-Normalized states are introduced only at the semantic boundary.  Algebraic
+Normalized states are introduced only at the semantic boundary. Algebraic
 embedding and evolution lemmas should apply to arbitrary vectors whenever the
-proof does not need normalization.  Density matrices and partial traces are
-secondary formulations; direct outcome-weight theorems are the minimum needed
-for the paper's computational claim.
+proof does not need normalization. The separate density/effect layer supports
+same-space finite mixed states, but generic partial trace remains absent;
+direct outcome-weight theorems continue to be the minimum used by the paper's
+current simulation results.
 
 Concretely, `NormalizedState ι α weight` is a finite amplitude column paired
 with the equation `totalWeight weight ψ = 1`.  The scalar weight is an explicit
@@ -303,9 +386,11 @@ parameter, avoiding any global squared-norm instance.  `RealState`,
 the paper's quaterbit definition impossible to omit.
 
 The arbitrary-top-wire results currently cover every normalized pure top
-rebit/qubit and prove pointwise bottom-weight equality.  Claims about arbitrary
-mixed top states require a density-state API and remain explicitly partial;
-they are not silently inferred from the pure-state theorems.
+rebit/qubit and prove pointwise bottom-weight equality. Although finite
+same-space real/complex density matrices now exist, claims about arbitrary
+mixed top states still require a cross-model joint-density encoding, partial
+trace or decoded-effect semantics, and preservation theorems. They remain
+explicitly partial and are not silently inferred from the pure-state results.
 
 `FiniteDistribution α` means a real weight on a finite type, pointwise
 nonnegative and summing to one.  `eventWeight` is a finite sum, and

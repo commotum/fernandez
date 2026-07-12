@@ -58,6 +58,10 @@ QuaternionicComputing/
     BasisBehavior.lean       certified reversible computational-basis action
     BasisBehaviorCircuit.lean evaluator-backed certified circuit behavior
     BasisBehaviorAudit.lean  non-root complete consumers and vacuity witness
+    Density.lean             finite RCLike PSD, trace-one density matrices
+    Effect.lean              Loewner effects, Born values, and probability laws
+    EffectSeparation.lean    separation of densities by genuine physical effects
+    DensityAudit.lean        non-root complete consumers and mixed-state checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -229,8 +233,9 @@ weight(source i) = weight(target (top=0, i)) + weight(target (top=1, i)).
 
 Total-weight and normalized-state corollaries then follow.  For the real case,
 `reducedRealOuter` also proves the paper's rank-one reduced-matrix equality
-directly.  A general density-operator hierarchy remains optional and is not a
-dependency of the central theorem.
+directly.  The separate finite density/effect core described below is now
+available, but it is not a dependency of this representative-level theorem
+and does not turn `reducedRealOuter` into a generic partial trace.
 
 `State/Distribution.lean` packages any finite nonnegative real weight function
 of total mass one as a `FiniteDistribution`.  Generic normalized states map to
@@ -262,6 +267,59 @@ These relations do not assert ray equality, channel equality, equality under
 all physical effects, or cross-model simulation. In particular, deriving
 basis-input agreement from the all-normalized-pure-input relation requires an
 explicit proof that the chosen scalar weight normalizes every basis ket.
+
+`Semantics/Density.lean` supplies the finite mixed-state core used by later
+same-space channel semantics. `DensityMatrix 𝕜 I` stores exactly a
+positive-semidefinite matrix and a proof that its trace is one; Hermiticity is
+derived. The implementation is theorem-generic over `RCLike 𝕜`, while
+`RealDensityMatrix` and `ComplexDensityMatrix` are the model aliases exposed by
+this project. Pure densities use the ket--bra matrix
+`Matrix.vecMulVec ψ (star ψ)`, and computational-basis densities are its
+`Pi.single` specializations. Existing `RealState` and `ComplexState` values
+embed as pure densities. An explicit impossibility theorem rules out a
+trace-one density on an empty index type.
+
+Unitary mixed-state evolution is
+`DensityMatrix.unitaryConjugate U hU ρ`, whose matrix is exactly
+`U * ρ * Uᴴ`. Positivity, Hermiticity, and trace one are proved from the
+stored density invariants and the supplied unitary certificate. Identity fixes
+every density, pure evolution agrees with ket evolution, and chronological
+composition is explicit: first `U`, then `V`, is conjugation by `V * U`.
+
+`Semantics/Effect.lean` defines a genuine physical `Effect 𝕜 I` by the
+Loewner bounds `0 ≤ E` and `E ≤ 1`; arbitrary matrices and arbitrary
+trace-test functionals are not effects. Zero, identity, complement, normalized
+rank-one projectors, and basis effects are constructed with their bounds.
+`Effect.bornScalar E ρ` is `trace (E * ρ)`, and
+`Effect.bornValue E ρ` is its real part. The scalar pairing is proved real
+and nonnegative, while the real value is proved to lie in `[0,1]` and to obey
+the expected zero, identity, complement, pure, and basis formulas. Basis
+effects on pure real and complex densities recover the existing
+computational-basis weights exactly.
+
+`Semantics/EffectSeparation.lean` proves the nontrivial extensionality result
+
+```text
+ρ = σ ↔ ∀ E : Effect 𝕜 I, bornValue E ρ = bornValue E σ.
+```
+
+The reverse implication uses only normalized rank-one projector effects. It
+identifies their trace pairings with quadratic forms, extends equality from
+unit vectors through an explicit zero/nonzero split, and applies
+symmetric/Hermitian polarization. Thus the final quantifier is over genuine
+physical effects, not algebraic test matrices. The theorem needs no artificial
+nonempty assumption; density values themselves cannot inhabit the empty
+index case.
+
+The non-root `Semantics/DensityAudit.lean` imports only the separation leaf.
+Eight exact-allocation aggregates consume all 97 stable declarations
+(`40 + 52 + 5`) once, and concrete `Bool` examples check pure/basis
+compatibility, the mixed state `(1/2) I`, Born bounds and complements, unitary
+conjugation, physical separation, and empty-index impossibility. The public
+root imports only `Density`, `Effect`, and `EffectSeparation`. This layer
+deliberately has no `ChannelEq`, `AllMeasurementEq`, quaternionic
+density/positivity theory, partial trace, Kraus map, instrument, or cross-model
+mixed-top simulation; those require later stages.
 
 `Semantics/BasisBehavior.lean` separates a raw transition diagnostic from
 certified classical reversible behavior. `BasisTransition unitPhase U x y`
@@ -570,8 +628,9 @@ determinant boundary is therefore explicit:
 - Heavy semantic diagnostics stay outside the public root; in particular,
   `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
   operator-phase leaves, and `Semantics/BasisBehaviorAudit.lean` consumes the
-  certified-basis leaves and their raw-transition strictness witness, without
-  either becoming a transitive dependency.
+  certified-basis leaves and their raw-transition strictness witness, while
+  `Semantics/DensityAudit.lean` consumes the complete density/effect/separation
+  surface. None becomes a transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage

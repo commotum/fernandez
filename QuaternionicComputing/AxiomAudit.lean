@@ -396,6 +396,40 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.basisPreparationCircuit_mulVec_ground
 
+#print axioms
+  QuaternionicComputing.Semantics.DensityMatrix.isEmpty_of_index_isEmpty
+#print axioms QuaternionicComputing.Semantics.DensityMatrix.nonempty_iff
+#print axioms QuaternionicComputing.Semantics.DensityMatrix.pure_apply
+#print axioms QuaternionicComputing.Semantics.DensityMatrix.basis_apply
+#print axioms
+  QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_posSemidef
+#print axioms QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_comp
+#print axioms QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_pure
+#print axioms QuaternionicComputing.Semantics.RealDensityMatrix.ofState_apply
+#print axioms QuaternionicComputing.Semantics.ComplexDensityMatrix.ofState_apply
+
+#print axioms QuaternionicComputing.Semantics.Effect.complement_posSemidef
+#print axioms QuaternionicComputing.Semantics.Effect.rankOneProjector_le_one
+#print axioms QuaternionicComputing.Semantics.Effect.projector_coe
+#print axioms QuaternionicComputing.Semantics.Effect.basis_coe_eq_density_basis
+#print axioms
+  QuaternionicComputing.Semantics.Effect.trace_mul_nonneg_of_posSemidef
+#print axioms QuaternionicComputing.Semantics.Effect.bornScalar_im_eq_zero
+#print axioms QuaternionicComputing.Semantics.Effect.bornValue_mem_Icc
+#print axioms QuaternionicComputing.Semantics.Effect.bornValue_complement
+#print axioms QuaternionicComputing.Semantics.Effect.bornValue_basis_pure
+#print axioms QuaternionicComputing.Semantics.Effect.bornValue_basis_basis
+
+#print axioms
+  QuaternionicComputing.Semantics.Effect.trace_rankOneProjector_mul_eq_inner
+#print axioms QuaternionicComputing.Semantics.quadratic_eq_of_unit_sphere
+#print axioms
+  QuaternionicComputing.Semantics.posSemidef_eq_of_forall_effect_trace_re_eq
+#print axioms
+  QuaternionicComputing.Semantics.DensityMatrix.eq_iff_forall_effect_bornValue_eq
+#print axioms
+  QuaternionicComputing.Semantics.DensityMatrix.eq_of_forall_effect_bornValue_eq
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

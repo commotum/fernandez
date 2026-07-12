@@ -56,6 +56,9 @@ import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.Ray
 import QuaternionicComputing.Semantics.BasisBehavior
 import QuaternionicComputing.Semantics.BasisBehaviorCircuit
+import QuaternionicComputing.Semantics.Density
+import QuaternionicComputing.Semantics.Effect
+import QuaternionicComputing.Semantics.EffectSeparation
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -167,6 +170,23 @@ relations. The evaluator-backed `BasisClassicalCircuit` supplies the same
 classification for locally unitary circuits. These equivalences are confined
 to the certified class: they are not generic matrix, global-phase, projective,
 channel, or all-effect equalities.
+
+Finite mixed states and physical effects have a separate same-space API.
+`DensityMatrix 𝕜 I` stores a positive-semidefinite matrix of trace one,
+and `Effect 𝕜 I` stores a matrix in the Loewner interval `0 ≤ E ≤ 1`.
+The core is proved uniformly for `RCLike` scalars; the supported model aliases
+are `RealDensityMatrix`, `ComplexDensityMatrix`, `RealEffect`, and
+`ComplexEffect`. Pure and basis densities recover the existing normalized
+real/complex state weights. `Effect.bornValue` is the real part of
+`trace (E * ρ)` and is proved to lie in `[0,1]`, with exact zero, identity,
+complement, pure, and basis laws. Unitary evolution is
+`U * ρ * Uᴴ`, and applying `U` then `V` is conjugation by `V * U`.
+Most importantly, equality of Born values against every genuine physical
+effect is equivalent to equality of density matrices; the proof uses
+normalized rank-one projector effects rather than arbitrary trace tests.
+There is no density matrix on an empty index type. This layer does not yet
+define channels, `ChannelEq`, `AllMeasurementEq`, quaternionic positivity,
+partial trace, Kraus maps, instruments, or mixed-top simulation.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

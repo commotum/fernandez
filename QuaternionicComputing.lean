@@ -18,6 +18,9 @@ public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Semantics.Ray
 public import QuaternionicComputing.Semantics.BasisBehavior
 public import QuaternionicComputing.Semantics.BasisBehaviorCircuit
+public import QuaternionicComputing.Semantics.Density
+public import QuaternionicComputing.Semantics.Effect
+public import QuaternionicComputing.Semantics.EffectSeparation
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
@@ -112,6 +115,15 @@ remains a diagnostic predicate because two nonmonomial unitaries can satisfy
 it vacuously. Certified circuit wrappers compare evaluations rather than gate
 lists or resources, and the basis-preparation circuit separately exposes its
 all-input XOR permutation and its known-ground-input preparation theorem.
+
+Finite real and complex mixed states are represented by positive-semidefinite,
+trace-one density matrices. Physical effects occupy the Loewner interval from
+zero to identity, and their Born values are proved to lie in `[0, 1]`.
+Normalized pure and computational-basis densities recover the existing state
+weights, unitary evolution is the conjugation `U * ρ * Uᴴ`, and genuine
+rank-one physical effects separate arbitrary density matrices. This layer does
+not introduce quaternionic density matrices, partial trace, Kraus channels, or
+channel-equivalence claims; those require later semantic stages.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

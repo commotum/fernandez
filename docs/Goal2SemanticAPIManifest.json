@@ -11305,6 +11305,1558 @@
         "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
         "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix",
+      "relation": "DensityMatrix — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration DensityMatrix",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealDensityMatrix",
+      "relation": "RealDensityMatrix — explicit real density alias",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite same-index square matrices over the real scalar field",
+        "subject": "the public declaration RealDensityMatrix",
+        "inputScope": "all positive-semidefinite trace-one matrices of the aliased scalar type",
+        "observationScope": "the full physical density value and its stored invariants",
+        "phase": "none; this alias does not identify pure-state representatives",
+        "exactness": "definitional alias of the generic RCLike density structure",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexDensityMatrix",
+      "relation": "ComplexDensityMatrix — explicit complex density alias",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite same-index square matrices over the complex scalar field",
+        "subject": "the public declaration ComplexDensityMatrix",
+        "inputScope": "all positive-semidefinite trace-one matrices of the aliased scalar type",
+        "observationScope": "the full physical density value and its stored invariants",
+        "phase": "none; this alias does not identify pure-state representatives",
+        "exactness": "definitional alias of the generic RCLike density structure",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.coe_matrix",
+      "relation": "coe_matrix — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration coe_matrix",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.ext_matrix",
+      "relation": "ext_matrix — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration ext_matrix",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.ext",
+      "relation": "ext — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration ext",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.eq_iff_entries",
+      "relation": "eq_iff_entries — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration eq_iff_entries",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.isHermitian",
+      "relation": "isHermitian — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration isHermitian",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.conjTranspose_eq",
+      "relation": "conjTranspose_eq — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration conjTranspose_eq",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.trace_eq_one",
+      "relation": "trace_eq_one — density matrix invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar",
+        "subject": "the public declaration trace_eq_one",
+        "inputScope": "one density matrix, or a pair of densities for exact extensional equality",
+        "observationScope": "the complete underlying matrix together with derived Hermiticity and stored trace normalization",
+        "phase": "no representative-phase relation is introduced; matrices and physical outcomes are compared exactly",
+        "exactness": "exact structure, coercion, invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.isEmpty_of_index_isEmpty",
+      "relation": "isEmpty_of_index_isEmpty — exact empty-index density obstruction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_empty_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite square matrices over one RCLike scalar on an empty index type",
+        "subject": "the public declaration isEmpty_of_index_isEmpty",
+        "inputScope": "all putative density matrices on an explicitly empty finite index type",
+        "observationScope": "nonexistence forced by the incompatible trace equations trace = 0 and trace = 1",
+        "phase": "none",
+        "exactness": "exact IsEmpty theorem; it is a boundary obstruction, not a vacuous physical comparison",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.index_nonempty",
+      "relation": "index_nonempty — exact density inhabitation boundary",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite square matrices over one RCLike scalar and one finite index type I",
+        "subject": "the public declaration index_nonempty",
+        "inputScope": "existence of a trace-one positive-semidefinite density matrix versus inhabitation of I",
+        "observationScope": "the exact nonempty-index condition for physical density values",
+        "phase": "none",
+        "exactness": "exact implication or iff; no impossible density premise is hidden globally",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pureMatrix",
+      "relation": "pureMatrix — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pureMatrix",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pureMatrix_apply",
+      "relation": "pureMatrix_apply — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pureMatrix_apply",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pureMatrix_posSemidef",
+      "relation": "pureMatrix_posSemidef — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pureMatrix_posSemidef",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.trace_pureMatrix",
+      "relation": "trace_pureMatrix — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration trace_pureMatrix",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pure",
+      "relation": "pure — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pure",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pure_coe",
+      "relation": "pure_coe — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pure_coe",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pure_apply",
+      "relation": "pure_apply — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pure_apply",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.pure_posSemidef",
+      "relation": "pure_posSemidef — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration pure_posSemidef",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.trace_pure",
+      "relation": "trace_pure — normalized ket-bra density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike column space I -> K and its same-index square matrix space",
+        "subject": "the public declaration trace_pure",
+        "inputScope": "one column; bundling as a density requires the exact star-dot normalization equal to one",
+        "observationScope": "the full ket-bra matrix, its entries, positivity, and trace normalization",
+        "phase": "ket-bra construction uses psi i * star (psi j); no phase quotient or phase comparison is asserted",
+        "exactness": "exact matrix formula or exact physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.basis",
+      "relation": "basis — computational-basis density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix space with decidable basis indices",
+        "subject": "the public declaration basis",
+        "inputScope": "one selected computational-basis index, with all matrix entries characterized where stated",
+        "observationScope": "the complete rank-one basis density and its positivity and trace invariants",
+        "phase": "the basis ket uses scalar one; no phase is ignored by these exact matrix statements",
+        "exactness": "exact constructor, entry formula, or physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.basis_coe",
+      "relation": "basis_coe — computational-basis density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix space with decidable basis indices",
+        "subject": "the public declaration basis_coe",
+        "inputScope": "one selected computational-basis index, with all matrix entries characterized where stated",
+        "observationScope": "the complete rank-one basis density and its positivity and trace invariants",
+        "phase": "the basis ket uses scalar one; no phase is ignored by these exact matrix statements",
+        "exactness": "exact constructor, entry formula, or physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.basis_apply",
+      "relation": "basis_apply — computational-basis density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix space with decidable basis indices",
+        "subject": "the public declaration basis_apply",
+        "inputScope": "one selected computational-basis index, with all matrix entries characterized where stated",
+        "observationScope": "the complete rank-one basis density and its positivity and trace invariants",
+        "phase": "the basis ket uses scalar one; no phase is ignored by these exact matrix statements",
+        "exactness": "exact constructor, entry formula, or physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.basis_posSemidef",
+      "relation": "basis_posSemidef — computational-basis density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix space with decidable basis indices",
+        "subject": "the public declaration basis_posSemidef",
+        "inputScope": "one selected computational-basis index, with all matrix entries characterized where stated",
+        "observationScope": "the complete rank-one basis density and its positivity and trace invariants",
+        "phase": "the basis ket uses scalar one; no phase is ignored by these exact matrix statements",
+        "exactness": "exact constructor, entry formula, or physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.trace_basis",
+      "relation": "trace_basis — computational-basis density construction",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix space with decidable basis indices",
+        "subject": "the public declaration trace_basis",
+        "inputScope": "one selected computational-basis index, with all matrix entries characterized where stated",
+        "observationScope": "the complete rank-one basis density and its positivity and trace invariants",
+        "phase": "the basis ket uses scalar one; no phase is ignored by these exact matrix statements",
+        "exactness": "exact constructor, entry formula, or physical invariant",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.nonempty_iff",
+      "relation": "nonempty_iff — exact density inhabitation boundary",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite square matrices over one RCLike scalar and one finite index type I",
+        "subject": "the public declaration nonempty_iff",
+        "inputScope": "existence of a trace-one positive-semidefinite density matrix versus inhabitation of I",
+        "observationScope": "the exact nonempty-index condition for physical density values",
+        "phase": "none",
+        "exactness": "exact implication or iff; no impossible density premise is hidden globally",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate",
+      "relation": "unitaryConjugate — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_coe",
+      "relation": "unitaryConjugate_coe — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_coe",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_posSemidef",
+      "relation": "unitaryConjugate_posSemidef — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_posSemidef",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_isHermitian",
+      "relation": "unitaryConjugate_isHermitian — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_isHermitian",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.trace_unitaryConjugate",
+      "relation": "trace_unitaryConjugate — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration trace_unitaryConjugate",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_one",
+      "relation": "unitaryConjugate_one — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_one",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_comp",
+      "relation": "unitaryConjugate_comp — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_comp",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_pure_coe",
+      "relation": "unitaryConjugate_pure_coe — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_pure_coe",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.unitaryConjugate_pure",
+      "relation": "unitaryConjugate_pure — exact unitary density evolution",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density and square unitary matrix space",
+        "subject": "the public declaration unitaryConjugate_pure",
+        "inputScope": "one density input and supplied exact unitary certificate; composition covers chronological pairs",
+        "observationScope": "the full evolved density U * rho * U^H, including positivity, Hermiticity, trace, identity, composition, or pure-state compatibility",
+        "phase": "no operator phase is quotiented; conjugation is exact and chronological multiplication is V * U",
+        "exactness": "exact density or underlying-matrix equality and exact preservation theorem",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealDensityMatrix.ofState",
+      "relation": "ofState — normalized real pure state to ket-bra density",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite normalized real state column and its same-index real density space",
+        "subject": "the public declaration ofState",
+        "inputScope": "one complete normalized pure-state representative with all density entries characterized where stated",
+        "observationScope": "the full ket-bra density matrix, not merely computational-basis probabilities",
+        "phase": "the representative is mapped by ket-bra; no quotient equality or channel claim is introduced",
+        "exactness": "exact constructor or entry equality",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealDensityMatrix.ofState_apply",
+      "relation": "ofState_apply — normalized real pure state to ket-bra density",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite normalized real state column and its same-index real density space",
+        "subject": "the public declaration ofState_apply",
+        "inputScope": "one complete normalized pure-state representative with all density entries characterized where stated",
+        "observationScope": "the full ket-bra density matrix, not merely computational-basis probabilities",
+        "phase": "the representative is mapped by ket-bra; no quotient equality or channel claim is introduced",
+        "exactness": "exact constructor or entry equality",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexDensityMatrix.ofState",
+      "relation": "ofState — normalized complex pure state to ket-bra density",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.density_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite normalized complex state column and its same-index complex density space",
+        "subject": "the public declaration ofState",
+        "inputScope": "one complete normalized pure-state representative with all density entries characterized where stated",
+        "observationScope": "the full ket-bra density matrix, not merely computational-basis probabilities",
+        "phase": "the representative is mapped by ket-bra; no quotient equality or channel claim is introduced",
+        "exactness": "exact constructor or entry equality",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexDensityMatrix.ofState_apply",
+      "relation": "ofState_apply — normalized complex pure state to ket-bra density",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.density_scalar_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite normalized complex state column and its same-index complex density space",
+        "subject": "the public declaration ofState_apply",
+        "inputScope": "one complete normalized pure-state representative with all density entries characterized where stated",
+        "observationScope": "the full ket-bra density matrix, not merely computational-basis probabilities",
+        "phase": "the representative is mapped by ket-bra; no quotient equality or channel claim is introduced",
+        "exactness": "exact constructor or entry equality",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect",
+      "relation": "Effect — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration Effect",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealEffect",
+      "relation": "RealEffect — explicit real physical-effect alias",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite same-index square matrices over the real scalar field",
+        "subject": "the public declaration RealEffect",
+        "inputScope": "all matrices in the genuine Loewner interval from zero to identity",
+        "observationScope": "the complete physical effect, not an arbitrary trace-test matrix",
+        "phase": "none",
+        "exactness": "definitional alias of the generic RCLike effect structure",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexEffect",
+      "relation": "ComplexEffect — explicit complex physical-effect alias",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite same-index square matrices over the complex scalar field",
+        "subject": "the public declaration ComplexEffect",
+        "inputScope": "all matrices in the genuine Loewner interval from zero to identity",
+        "observationScope": "the complete physical effect, not an arbitrary trace-test matrix",
+        "phase": "none",
+        "exactness": "definitional alias of the generic RCLike effect structure",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.coe_matrix",
+      "relation": "coe_matrix — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration coe_matrix",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.ext_matrix",
+      "relation": "ext_matrix — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration ext_matrix",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.ext",
+      "relation": "ext — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration ext",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.eq_iff_entries",
+      "relation": "eq_iff_entries — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration eq_iff_entries",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.posSemidef",
+      "relation": "posSemidef — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration posSemidef",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.isHermitian",
+      "relation": "isHermitian — genuine Loewner-interval effect invariant and exact extensionality API",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration isHermitian",
+        "inputScope": "one effect, or a pair of effects for exact extensional equality",
+        "observationScope": "the complete matrix constrained by 0 <= E <= 1; arbitrary trace tests are excluded",
+        "phase": "none",
+        "exactness": "exact structure, coercion, physical invariant, or equality characterization",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement_posSemidef",
+      "relation": "complement_posSemidef — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement_posSemidef",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.zero",
+      "relation": "zero — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration zero",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.one",
+      "relation": "one — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration one",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.zero_coe",
+      "relation": "zero_coe — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration zero_coe",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.one_coe",
+      "relation": "one_coe — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration one_coe",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement",
+      "relation": "complement — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement_coe",
+      "relation": "complement_coe — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement_coe",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement_complement",
+      "relation": "complement_complement — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement_complement",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement_zero",
+      "relation": "complement_zero — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement_zero",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.complement_one",
+      "relation": "complement_one — zero, identity, or complement physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_structure_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_structure_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar with Loewner order",
+        "subject": "the public declaration complement_one",
+        "inputScope": "one physical effect, or the canonical zero and identity effects",
+        "observationScope": "the complete effect matrix and exact complement/positivity laws",
+        "phase": "none",
+        "exactness": "exact constructor, matrix equality, positivity theorem, or involution law",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.rankOneProjector",
+      "relation": "rankOneProjector — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration rankOneProjector",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.rankOneProjector_eq_vecMulVec",
+      "relation": "rankOneProjector_eq_vecMulVec — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration rankOneProjector_eq_vecMulVec",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.rankOneProjector_apply",
+      "relation": "rankOneProjector_apply — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration rankOneProjector_apply",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.rankOneProjector_posSemidef",
+      "relation": "rankOneProjector_posSemidef — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration rankOneProjector_posSemidef",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.rankOneProjector_le_one",
+      "relation": "rankOneProjector_le_one — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration rankOneProjector_le_one",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.projector",
+      "relation": "projector — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration projector",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.projector_coe",
+      "relation": "projector_coe — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration projector_coe",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.basis",
+      "relation": "basis — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration basis",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.basis_apply",
+      "relation": "basis_apply — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration basis_apply",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.basis_coe_eq_single",
+      "relation": "basis_coe_eq_single — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_projector_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration basis_coe_eq_single",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.basis_coe_eq_density_basis",
+      "relation": "basis_coe_eq_density_basis — normalized rank-one or computational-basis physical effect",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_projector_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike Euclidean column space and its same-index square matrix/effect space",
+        "subject": "the public declaration basis_coe_eq_density_basis",
+        "inputScope": "one vector, normalized exactly when bundled as an effect, or one selected basis index",
+        "observationScope": "the complete rank-one projector matrix, its entries, positivity, Loewner upper bound, or basis specialization",
+        "phase": "ket-bra order is x i * star (x j); no arbitrary trace test or phase quotient is introduced",
+        "exactness": "exact matrix identity, physical bound, constructor, or basis formula",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.trace_mul_nonneg_of_posSemidef",
+      "relation": "trace_mul_nonneg_of_posSemidef — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration trace_mul_nonneg_of_posSemidef",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar",
+      "relation": "bornScalar — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue",
+      "relation": "bornValue — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_nonneg",
+      "relation": "bornScalar_nonneg — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_nonneg",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_im_eq_zero",
+      "relation": "bornScalar_im_eq_zero — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_im_eq_zero",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.ofReal_bornValue",
+      "relation": "ofReal_bornValue — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration ofReal_bornValue",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_nonneg",
+      "relation": "bornValue_nonneg — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_nonneg",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_le_one",
+      "relation": "bornScalar_le_one — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_le_one",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_le_one",
+      "relation": "bornValue_le_one — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_le_one",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_mem_Icc",
+      "relation": "bornValue_mem_Icc — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_mem_Icc",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_zero",
+      "relation": "bornScalar_zero — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_zero",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_zero",
+      "relation": "bornValue_zero — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_zero",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_one",
+      "relation": "bornScalar_one — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_one",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_one",
+      "relation": "bornValue_one — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_one",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_complement",
+      "relation": "bornScalar_complement — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_complement",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_complement",
+      "relation": "bornValue_complement — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_complement",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornScalar_basis",
+      "relation": "bornScalar_basis — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornScalar_basis",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_basis",
+      "relation": "bornValue_basis — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_born_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_basis",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_basis_pure",
+      "relation": "bornValue_basis_pure — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_basis_pure",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.bornValue_basis_basis",
+      "relation": "bornValue_basis_basis — physical-effect Born trace pairing",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_born_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect matrix space",
+        "subject": "the public declaration bornValue_basis_basis",
+        "inputScope": "one density and one genuine physical effect, with zero, identity, complement, pure, or basis specialization where named",
+        "observationScope": "one exact Born scalar/value or its reality, [0,1] bound, complement law, and basis formula; not all-effect or channel equality",
+        "phase": "no phase relation is asserted; pure-state amplitudes occur only through the exact ket-bra probability formula",
+        "exactness": "exact trace identity, equality, order bound, or interval membership",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealEffect.bornValue_basis_ofState",
+      "relation": "bornValue_basis_ofState — real basis-effect Born compatibility",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite normalized real pure state and same-index physical basis effect",
+        "subject": "the public declaration bornValue_basis_ofState",
+        "inputScope": "one complete normalized pure-state representative and one selected basis outcome",
+        "observationScope": "one computational-basis Born probability, exactly equal to the existing state-weight API",
+        "phase": "state amplitudes enter through squared norm; no state or channel equivalence is claimed",
+        "exactness": "exact equality of the two probability formulas",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexEffect.bornValue_basis_ofState",
+      "relation": "bornValue_basis_ofState — complex basis-effect Born compatibility",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.DensityAudit.effect_scalar_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite normalized complex pure state and same-index physical basis effect",
+        "subject": "the public declaration bornValue_basis_ofState",
+        "inputScope": "one complete normalized pure-state representative and one selected basis outcome",
+        "observationScope": "one computational-basis Born probability, exactly equal to the existing state-weight API",
+        "phase": "state amplitudes enter through squared norm; no state or channel equivalence is claimed",
+        "exactness": "exact equality of the two probability formulas",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.Effect.trace_rankOneProjector_mul_eq_inner",
+      "relation": "trace_rankOneProjector_mul_eq_inner — rank-one trace/quadratic-form identity",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.separation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike Euclidean space and same-index arbitrary square matrix",
+        "subject": "the public declaration trace_rankOneProjector_mul_eq_inner",
+        "inputScope": "one vector and one arbitrary matrix; this is algebraic support for physical-effect separation",
+        "observationScope": "exact equality between a rank-one-projector trace pairing and the full quadratic form",
+        "phase": "none",
+        "exactness": "exact algebraic identity; the arbitrary matrix is not relabeled as a physical effect",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quadratic_eq_of_unit_sphere",
+      "relation": "quadratic_eq_of_unit_sphere — unit-sphere extension for quadratic-form equality",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.separation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite RCLike Euclidean space and two same-space linear endomorphisms",
+        "subject": "the public declaration quadratic_eq_of_unit_sphere",
+        "inputScope": "all unit vectors as premise and all vectors as conclusion, with the zero vector handled separately",
+        "observationScope": "exact equality of the two scalar quadratic forms",
+        "phase": "none",
+        "exactness": "exact algebraic implication; it is support for separation rather than an observational equivalence",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.posSemidef_eq_of_forall_effect_trace_re_eq",
+      "relation": "posSemidef_eq_of_forall_effect_trace_re_eq — genuine physical-effect separation of positive matrices",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.separation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike square matrix/effect space",
+        "subject": "the public declaration posSemidef_eq_of_forall_effect_trace_re_eq",
+        "inputScope": "two positive-semidefinite matrices tested by every genuine Effect on that space",
+        "observationScope": "equality of the real trace outcome for every physical effect implies full matrix equality",
+        "phase": "none",
+        "exactness": "exact implication proved via normalized rank-one physical effects, not arbitrary-test relabeling",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.eq_iff_forall_effect_bornValue_eq",
+      "relation": "eq_iff_forall_effect_bornValue_eq — density equality characterized by all genuine physical effects",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.separation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect space",
+        "subject": "the public declaration eq_iff_forall_effect_bornValue_eq",
+        "inputScope": "two arbitrary density matrices and every genuine physical effect on the same index type",
+        "observationScope": "equality of every physical-effect Born value versus exact equality of the full density matrix",
+        "phase": "none; this is mixed-state equality, not representative pure-state phase equality",
+        "exactness": "exact iff or forward implication; basis effects alone are not substituted for all effects",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DensityMatrix.eq_of_forall_effect_bornValue_eq",
+      "relation": "eq_of_forall_effect_bornValue_eq — density equality characterized by all genuine physical effects",
+      "owner": "goal-2/6-DENSITY",
+      "consumer": "QuaternionicComputing.Semantics.DensityAudit.separation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike density/effect space",
+        "subject": "the public declaration eq_of_forall_effect_bornValue_eq",
+        "inputScope": "two arbitrary density matrices and every genuine physical effect on the same index type",
+        "observationScope": "equality of every physical-effect Born value versus exact equality of the full density matrix",
+        "phase": "none; this is mixed-state equality, not representative pure-state phase equality",
+        "exactness": "exact iff or forward implication; basis effects alone are not substituted for all effects",
+        "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
+      }
     }
   ]
 }
