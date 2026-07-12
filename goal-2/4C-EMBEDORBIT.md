@@ -56,8 +56,8 @@
 - `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY` now have their complete
   quotient, descended-operation, and embedding-boundary evidence. Their
   canonical traceability rows are **proved as stated** and recorded
-  `closedByGoal2`; the Stage 4C release gate remains open only for final
-  audit/manifest/root/build evidence.
+  `closedByGoal2`; the complete audit/manifest/root/build release gate now
+  passes independently.
 
 ## Updated Assumptions
 
@@ -254,8 +254,32 @@ ordinary map from complex rays to real sign rays.
   stated** and `closedByGoal2`. This closes only normalized pure-state ray
   semantics. Mixed top states, generic density/channel claims, and the
   phase-kickback interpretation remain assigned to Goal 3.
-- **Root closure evidence pending:** record the final non-root audit aggregate
-  allocation and local axiom prints; public-root imports; semantic-manifest
-  total, consumer count, and direct-audit count; focused/adjacent/root/audit
-  build job counts; generated name/consumer validation; exact axiom set; and
-  forbidden-token, boundary, artifact, whitespace, checksum, and diff checks.
+- `State/RealificationOrbitAudit.lean` remains outside the public root. Its five
+  aggregate consumers cover all 84 stable declarations exactly as
+  `28/13/25/10/8`, and its concrete `Unit`, arbitrary-top, and empty-index
+  diagnostics verify same source ray/sector orbit, distinct ordinary real ray
+  and full doubled distribution, equal bottom marginal, arbitrary pure top
+  state, and the exact vacuous boundary. All 12 local axiom prints use exactly
+  `propext`, `Classical.choice`, and `Quot.sound`.
+- The public root imports only the three stable Stage 4C leaves. The explicit
+  root audit adds 19 Stage 4C endpoints and now has 305 commands; parsing every
+  emitted block reproduces the same exact three-axiom union.
+- The semantic manifest has 571 unique entries: 84 Stage 4C entries in exact
+  `66/10/8` source order, five resolving Stage 4C consumers, 59 consumers
+  overall, and 119 exact direct-audit labels. Generated strict Lean files
+  resolve all 571 public names and all 59 consumers. The first-487 structural
+  hash is `b44178bc6be2adb364fea5a88b88aaebf832b44eb36065435ed5aee89bee194a`,
+  and the frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Warning-as-error checks pass for all four Stage 4C leaves, the public root,
+  generated checks, and the explicit audit. The four-leaf focused build
+  completes 2,355 jobs; the adjacent state/simulation/root/audit target
+  completes 2,573; and the cached default build completes 2,571. Forbidden-
+  token, public-diagnostic-boundary, artifact, whitespace, checksum, and
+  `git diff --check` checks pass.
+- An independent read-only closure review reproduced the mathematics,
+  `84 = 66 + 10 + 8` declaration boundary, `28/13/25/10/8` consumer coverage,
+  12 local and 305 root axiom blocks, 571-entry exact manifest, generated
+  public-name/consumer checks, preserved prefix/checksum, strict builds, and
+  scans. It found no unsupported implication, false `RealRay` descent, or
+  remaining Stage 4C completion requirement.

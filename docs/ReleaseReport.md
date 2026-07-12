@@ -9,9 +9,9 @@
 
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
-(`quant-ph/0307017v2`) as a reusable Lean library. Stage 4C has added three
-stable public leaves to the previous 65-source tree. **Root closure must record
-the final source count after adding its non-root diagnostic leaf.**
+(`quant-ph/0307017v2`) as a reusable Lean library. Stage 4C adds three stable
+public leaves and one non-root diagnostic leaf to the previous 65-source tree,
+for 69 Lean sources including the public root.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -345,16 +345,21 @@ not rerun in this restricted environment.
 Stage 4C contributes 84 stable declarations: 66 in the direct rotation/orbit
 core, ten in the bottom-observable descent leaf, and eight in the exact
 ordinary-real-ray boundary leaf. The three public leaves pass strict focused
-compilation. **Root closure must add the non-root audit, then record the final
-focused/adjacent/public-root/axiom/full-build job counts, source count, root and
-local axiom-print counts, manifest totals, generated-name/consumer checks, and
-the final forbidden-token/boundary/artifact/whitespace/diff evidence here.**
+compilation. Five aggregate theorems in the non-root
+`State/RealificationOrbitAudit.lean` consume all 84 declarations with exact
+allocation `28/13/25/10/8`; concrete examples distinguish source-ray and
+sector-orbit equality from ordinary real-ray and full doubled-distribution
+equality while preserving the bottom marginal. The four-leaf focused build
+completed 2,355 jobs. The combined adjacent state/simulation, public-root,
+explicit-audit target completed 2,573 jobs, and the cached default build
+completed 2,571 jobs. All four Stage 4C leaves, the public root, and the axiom
+audit pass warning-as-error compilation.
 
 Warning-as-error source checks passed for the stable operator-phase and ray
-leaves, their diagnostic leaves, public root, axiom audit, and all seven Stage
-4B touched/new source boundaries (the six new leaves plus the touched root).
-The executable root audit now contains 286 `#print axioms` commands. All ten
-local Stage 4B diagnostic prints and every root endpoint use only `propext`,
+leaves, their diagnostic leaves, public root, axiom audit, and all Stage 4C
+source boundaries. The executable root audit now contains 305 `#print axioms`
+commands, including 19 Stage 4C endpoints. All 12 local Stage 4C diagnostic
+prints and every root endpoint use exactly the union `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
@@ -365,17 +370,19 @@ exactly 487 declarations:
 distribution-law, circuit-helper, and evolution declarations plus three
 semantic phase-to-quotient bridges. All seven semantic axes remain present,
 all names resolve through the public root, and 100 manifest entries are direct
-root-audit targets. The frozen 936-declaration Goal 1 cohort checksum remains
-unchanged. Stage 4C's 84 declarations must be appended exactly once during the
-root closure pass; the final manifest, consumer, and direct-audit totals remain
-to be recorded after validation.
+root-audit targets. Stage 4C appends its 84 declarations exactly once, for 571
+entries in exact public-source order. All seven axes are nonempty, all 571
+names and 59 distinct aggregate consumers resolve, and all 119 direct-audit
+labels match actual root commands. The first 487 entries retain structural
+SHA-256 `b44178bc6be2adb364fea5a88b88aaebf832b44eb36065435ed5aee89bee194a`;
+the frozen 936-declaration Goal 1 cohort retains checksum
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
-The warning-as-error downstream file `/tmp/ReleaseImportSmoke.lean` imported
-only `QuaternionicComputing`, checked representative scalar, matrix, state,
-circuit, simulation, resource, outcome, phase, correction-witness, and example
-APIs, and proved `card (DirectRealIndex Bool) = 8`.  Lean-source hole,
-project-axiom, opaque, unsafe, and forbidden noncommutative-shortcut scans were
-empty.  `git diff --check` passed, and no Lake/Lean build artifact is tracked.
+The warning-as-error downstream generated-name and consumer files import only
+the public root or the named non-root audit and resolve all manifest targets.
+Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
+and heartbeat-override scans are empty for Stage 4C. The public root imports no
+diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
 

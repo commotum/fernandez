@@ -109,10 +109,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- At the Stage 4B checkpoint the tree had 65 Lean sources. Clean public-root,
-  focused diagnostic,
-  combined-target, and explicit audit builds pass; 286 audited root endpoints
-  use only `propext`, `Classical.choice`, and `Quot.sound`.
+- The Stage 4C tree has 69 Lean sources including the public root. Strict
+  focused, adjacent-consumer, public-root, explicit-audit, and cached default
+  builds pass. All 305 audited root endpoints and 12 local Stage 4C diagnostic
+  endpoints use exactly `propext`, `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -152,12 +152,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- At the Stage 4B checkpoint the separate
-  `docs/Goal2SemanticAPIManifest.json` contained 487 unique
-  Stage 2/3A/3B/3C/4A/4B declarations, each with seven semantic axes and a named
-  downstream consumer. All names resolve through the public root, 54 distinct
-  diagnostic consumers resolve, and 100 entries are direct release-audit
-  targets. The frozen Goal 1 cohort and checksum remain unchanged.
+- `docs/Goal2SemanticAPIManifest.json` now contains 571 unique declarations:
+  the 487-declaration Stage 4B prefix plus 84 Stage 4C declarations. Every item
+  has seven semantic axes and a named downstream consumer; all 571 public names,
+  59 distinct consumers, and 119 direct release-audit labels resolve exactly.
+  The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
   physical-effect separation route, finite basis columns, and the scoped L2
@@ -234,6 +233,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   intertwining or decoded bottom outcomes. `FER03-D01-REBIT` and
   `FER03-FND-COMPLEX-STATE-RAY` are now proved as stated and
   `closedByGoal2`; phase-kickback, mixed-state, and channel claims remain open.
+  Five non-root aggregate consumers cover all 84 declarations exactly, 19
+  representative root-audit targets compile, and the manifest, generated-name,
+  generated-consumer, frozen-checksum, forbidden-token, and import-boundary
+  checks pass.
 
 ## Inventory and Manifest Policy
 
@@ -588,7 +591,7 @@ two transferred paper rows completely.
 
 - [x] `4A-QUOTIENTS`
 - [x] `4B-DESCENT`
-- [ ] `4C-EMBEDORBIT`
+- [x] `4C-EMBEDORBIT`
 
 ### 5-BASIS
 
@@ -878,7 +881,7 @@ use without learning the retrofit's implementation history.
 - [x] 1-INVENTORY
 - [x] 2-CORE
 - [x] 3-PHASE
-- [ ] 4-RAYS
+- [x] 4-RAYS
 - [ ] 5-BASIS
 - [ ] 6-DENSITY
 - [ ] 7-CHANNELS
