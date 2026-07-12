@@ -2,10 +2,10 @@
 
 ## Current Facts
 
-- Stage 9A is independently complete. The current checkpoint has 87 Lean
-  sources including the public root, 1,048 exact semantic-manifest entries,
-  127 resolving consumers, 256 direct release-audit labels, 442 root axiom
-  commands, and ten local `SimulationAudit` commands. The exact axiom union is
+- Stage 9B is independently complete. The checkpoint has 88 Lean sources
+  including the public root, 1,064 exact semantic-manifest entries, 133
+  resolving consumers, 272 direct release-audit labels, 458 root axiom
+  commands, and 16 local `SimulationAudit` commands. The exact axiom union is
   `propext`, `Classical.choice`, and `Quot.sound`.
 - `Semantics/Simulation.lean` exports the directional relations needed here:
   `ExactOperatorEmbedding`, `StateIntertwining`, and
@@ -114,7 +114,7 @@ be confused with same-space equality or an observational/channel theorem.
   six aggregate consumers as local diagnostic endpoints.
 - Append the 16 declarations exactly once to the semantic API manifest with all
   seven axes and named aggregate consumers. Preserve the first-1,048 hash and
-  the frozen Goal 1 cohort checksum. Projected checkpoint counts are 1,064
+  the frozen Goal 1 cohort checksum. The resulting checkpoint has 1,064
   manifest entries, 133 consumers, 272 direct labels, and 458 root axiom
   commands.
 - Fold the exact classifications into public documentation, traceability,
@@ -206,4 +206,57 @@ be confused with same-space equality or an observational/channel theorem.
 
 ## Stage Results
 
-- Implementation pending.
+- Added the stable public leaf
+  `QuaternionicComputing/Semantics/SimulationWrappers.lean` with exactly the 16
+  planned declarations. All eleven frozen families now have proof-bearing
+  directional wrappers at their strongest justified operator, state,
+  reindexing, supplied-schedule, or conditional-compiler scope.
+- The wrapper leaf has exactly the five authorized public imports. It does not
+  import an audit, outcome, channel, hierarchy, or public-root module, and the
+  public root exports only the stable leaf.
+- Extended the non-root `SimulationAudit` with exactly six disjoint aggregate
+  consumers, allocating the wrappers as `2 + 3 + 4 + 3 + 2 + 2`. The consumers
+  exercise rectangular and empty matrix inputs, both canonical coefficient
+  pairs at matrix and circuit level, actual placed gates, the existing
+  unequal-schedule witness, nested quaternion-to-real coefficients, an
+  inhabitable identity compiler, and the zero-wire circuit boundary.
+- Preserved every material boundary in the theorem types: arbitrary raw
+  coefficient pairs are not normalized/product claims; Equation 63 is a named
+  row/column reindexing rather than a circuit translator; schedules are
+  supplied rather than chosen or quotient-independent; and compiler results
+  require explicit `ExactGateCompiler` data without proving synthesis,
+  approximation, gate counts, or runtime. No outcome, ray, density, channel,
+  all-effect, mixed-top, or partial-trace result was inferred.
+- The first audit draft exposed a definitional mismatch when canonical
+  coefficient specializations were simplified directly to the named column
+  maps. The repaired consumer states the literal specializations supplied by
+  the all-coefficient wrapper, and a second review strengthened the circuit
+  aggregate to cover all four canonical specializations explicitly.
+- Focused builds pass at `2369` for the stable wrapper and `2381` for the audit.
+  The combined stable/audit/public-root/release-audit build passes at
+  `2767/2767`, and the cached default build completes `2765` jobs. All stable,
+  audit, root, release-audit, and root-only downstream files strict-compile with
+  warnings as errors.
+- The semantic manifest contains 1,064 unique declarations, 133 consumers, and
+  272 direct audit labels. Its first-1,048 hash remains
+  `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`,
+  and its full hash is
+  `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`.
+  Generated name and consumer checks pass; the frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Axiom parsing covers all 458 root blocks as `455 + 3` and all 16 local blocks
+  as `15 + 1`; both unions are exactly `propext`, `Classical.choice`, and
+  `Quot.sound`, with no `sorryAx` or unknown declaration. Hole, shortcut,
+  false-equivalence, import-boundary, artifact, Markdown, whitespace, stale-
+  wording, and diff checks pass.
+- README, public docstring, architecture/conventions/API notes,
+  classification, release and axiom reports, traceability, corrections, and
+  Goal 3 prerequisites all record the exact Stage 9B result. No new paper
+  correction was required.
+- Independent source, semantic, manifest, documentation, and integrated closure
+  reviews returned **PASS**. Stage 9B is complete; Stage 9C and the umbrella
+  Stage 9 remain open.
+
+## Completion Status
+
+- [x] Stage 9B is complete. Stage 9 remains open for 9C.

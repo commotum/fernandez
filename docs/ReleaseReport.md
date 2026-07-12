@@ -648,9 +648,12 @@ Stage 7, 29 Stage 8, 20 Stage 9A, and 16 Stage 9B endpoints. All 16 local
 `SimulationAudit` prints,
 all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
-prints, the retained 12 local Stage 4C prints, and every root endpoint use
-exactly the union `propext`,
-`Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
+prints, the retained 12 local Stage 4C prints, and every root endpoint use only
+subsets of `propext`, `Classical.choice`, and `Quot.sound`; the collective union
+is exactly those three standard axioms. At the Stage 9B checkpoint, the parser
+finds 455 nonempty plus three axiom-free root blocks and 15 nonempty plus one
+axiom-free local `SimulationAudit` block. See `AxiomAudit.md` for the
+interpretation.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
 exactly 487 declarations:
