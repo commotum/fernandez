@@ -59,6 +59,9 @@ import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 import QuaternionicComputing.Semantics.Density
 import QuaternionicComputing.Semantics.Effect
 import QuaternionicComputing.Semantics.EffectSeparation
+import QuaternionicComputing.Semantics.Channel
+import QuaternionicComputing.Semantics.ChannelPhase
+import QuaternionicComputing.Semantics.ChannelCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -184,9 +187,33 @@ complement, pure, and basis laws. Unitary evolution is
 Most importantly, equality of Born values against every genuine physical
 effect is equivalent to equality of density matrices; the proof uses
 normalized rank-one projector effects rather than arbitrary trace tests.
-There is no density matrix on an empty index type. This layer does not yet
-define channels, `ChannelEq`, `AllMeasurementEq`, quaternionic positivity,
-partial trace, Kraus maps, instruments, or mixed-top simulation.
+There is no density matrix on an empty index type. This state/effect layer is
+consumed by the separate unitary-channel semantics; neither layer introduces
+quaternionic positivity, partial trace, Kraus maps, instruments, or mixed-top
+simulation.
+
+`UnitaryOperator 𝕜 I` bundles a finite `RCLike` square matrix with its unitary
+certificate. `ChannelEq U V` requires equality of the complete evolved
+density matrix for every density input. `AllMeasurementEq U V` requires equal
+Born values for every density input and every genuine physical `Effect`, and
+`channelEq_iff_allMeasurementEq` proves these notions equivalent through
+physical-effect separation. Chronological composition is explicit:
+`U.followedBy V` stores `V * U` and evolves first by `U`, then by `V`.
+
+For finite real and complex unitary operators on an explicitly nonempty matrix
+index, global sign/phase, raw projective action, normalized projective action,
+and channel equality have the same kernel. Global phase implies channel
+equality without a nonempty premise; the premise is required for the converse
+because density quantification is vacuous on an empty index. Named empty-index
+theorems instead record exact equality of the empty square matrices. The
+`UnitaryCircuit` wrapper stores a chronological circuit and local-unitarity
+certificate and derives its evaluated operator. `CircuitChannelEq` and
+`CircuitAllMeasurementEq` are evaluator-backed equivalence relations with
+exact and append congruences. Since `BitBasis W = W → Bool` is canonically
+inhabited, their real/complex phase characterizations remain nonvacuous even
+at zero wires and need no extra caller-supplied nonempty evidence. No
+quaternionic, cross-model, decoded-marginal, or mixed-top channel theorem is
+claimed.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
@@ -197,7 +224,10 @@ all basis-input weights; output-row phase and projective action preserve
 all-normalized-pure-input basis weights. Input phase is stable under a common
 later evolution, output phase under a common earlier evolution, and a common
 earlier projective evolution requires unitarity. These relations do not assert
-channel equality or cross-model simulation.
+cross-model simulation, and input- or output-dependent basis phase is not
+promoted to channel equality. The separate channel layer proves that, for
+bundled real/complex square unitaries on an inhabited finite space, one global
+phase and all-input projective action are each exactly `ChannelEq`.
 
 Quaternionic matrices have a side-sensitive five-relation layer. One global
 operator phase is restricted to `QuaternionCentralSignEq`, a real central

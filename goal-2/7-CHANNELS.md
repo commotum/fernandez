@@ -245,5 +245,21 @@ chronological-circuit wrappers.
 - The circuit leaf passes strict compilation, its `2685/2685` focused build,
   the combined three-leaf build, representative exact-three-axiom checks,
   import/forbidden scans, diff checks, and an independent API review.
-- The non-root exact-coverage audit, public integration, manifest, docs, and
-  final closure gates remain in progress; Stage 7 is not yet complete.
+- The non-root `QuaternionicComputing/Semantics/ChannelAudit.lean` consumes
+  every stable export exactly once through 23 aggregate consumers. Its checked
+  allocation is `41 + 40 + 58 = 139/139`, excluding only generated structure
+  projections and the two anonymous coercion instances. The audit imports only
+  `ChannelCircuit` and passes strict compile, its automated exact-coverage
+  validator, and the `2686/2686` focused build.
+- Concrete diagnostics prove that global real `-1` and complex `I` preserve
+  both complete channels and all-effect outcomes; identity and Boolean swap
+  are instead separated by a real basis density and genuine basis effect.
+  Other checks instantiate the raw/normalized/phase iff theorems, operator and
+  circuit chronology, empty-index matrix equality versus vacuous channel
+  quantification, and inhabited zero-wire real/complex circuits. All eleven
+  local audit endpoints use exactly `propext`, `Classical.choice`, and
+  `Quot.sound`.
+- Public-root/axiom integration compiles at `2760/2760` with 39 representative
+  Stage 7 root endpoints. Manifest, documentation, final scans/builds, and the
+  independent integrated closure review remain in progress; Stage 7 is not
+  yet complete.

@@ -62,6 +62,10 @@ QuaternionicComputing/
     Effect.lean              Loewner effects, Born values, and probability laws
     EffectSeparation.lean    separation of densities by genuine physical effects
     DensityAudit.lean        non-root complete consumers and mixed-state checks
+    Channel.lean             bundled unitaries and channel/all-effect equality
+    ChannelPhase.lean        real/complex projective and global-phase kernels
+    ChannelCircuit.lean      evaluator-backed locally-unitary channel wrappers
+    ChannelAudit.lean        non-root complete consumers and boundary examples
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -317,9 +321,10 @@ Eight exact-allocation aggregates consume all 97 stable declarations
 compatibility, the mixed state `(1/2) I`, Born bounds and complements, unitary
 conjugation, physical separation, and empty-index impossibility. The public
 root imports only `Density`, `Effect`, and `EffectSeparation`. This layer
-deliberately has no `ChannelEq`, `AllMeasurementEq`, quaternionic
-density/positivity theory, partial trace, Kraus map, instrument, or cross-model
-mixed-top simulation; those require later stages.
+itself deliberately has no `ChannelEq` or `AllMeasurementEq`; the separate
+Stage 7 leaves consume it. Neither layer supplies quaternionic
+density/positivity theory, partial trace, Kraus maps, instruments, or
+cross-model mixed-top simulation.
 
 `Semantics/BasisBehavior.lean` separates a raw transition diagnostic from
 certified classical reversible behavior. `BasisTransition unitPhase U x y`
@@ -417,6 +422,65 @@ raw/normalized bridge, and exercises the dimension-two kernel and rank-one
 exception. The bridge theorem itself covers the empty-input boundary through
 the zero-column branch of its proof; the audit does not add a separate `Empty`
 specialization.
+
+`Semantics/Channel.lean` bundles a square `RCLike` matrix and its unitary proof
+as `UnitaryOperator 𝕜 I`, with explicit real and complex aliases. Its
+chronological `followedBy` operation is intentionally not an ambiguous
+multiplication instance: `U.followedBy V` means first `U`, then `V`, and stores
+`V * U`. `UnitaryOperator.evolve` delegates to Stage 6 conjugation and satisfies
+the corresponding identity and composition laws.
+
+`ChannelEq U V` quantifies over every `DensityMatrix 𝕜 I` and compares the
+complete evolved density outputs. `AllMeasurementEq U V` quantifies over every
+density input and every genuine `Effect 𝕜 I`; arbitrary trace-test matrices
+never inhabit this definition. Both are equivalence relations and are
+congruent under chronological composition. The forward implication is direct,
+and the converse applies Stage 6 physical-effect separation to the two evolved
+density matrices for each input, proving
+`channelEq_iff_allMeasurementEq`.
+
+`Semantics/ChannelPhase.lean` adds raw real and complex projective-action
+relations and proves them equivalent to the existing normalized relations by
+an explicit zero/nonzero normalization argument. Channel equality implies
+normalized and raw projective action, while one real global sign or complex
+global phase cancels from unitary conjugation. For `[Nonempty I]`, basis
+columns and their pairwise sums prove that a ray-fixing unitary has one common
+scalar, yielding
+
+```text
+global sign/phase ↔ raw projective action ↔ normalized projective action
+                  ↔ ChannelEq ↔ AllMeasurementEq.
+```
+
+These inhabited-space kernel theorems need neither a determinant argument nor
+a dimension-at-least-two premise. The nonempty hypothesis is mathematically
+essential at the matrix API: no density exists on an empty index, so
+`ChannelEq` is then vacuous. Separate `realGlobalSignEq_of_isEmpty` and
+`complexGlobalPhaseEq_of_isEmpty` theorems derive phase equality from exact
+subsingleton matrix equality instead of misrepresenting vacuous channel
+quantification as physical evidence.
+
+`Semantics/ChannelCircuit.lean` stores a chronological gate list and its
+local-unitarity certificate in `UnitaryCircuit 𝕜 W`, then derives the
+`UnitaryOperator` of `OrderedCircuit.eval`. Identity, append, associativity,
+extensionality, and evaluator laws are exact. In particular,
+`C.append D` maps to `C.toOperator.followedBy D.toOperator`, whose matrix is
+`eval D * eval C`. `CircuitChannelEq` and `CircuitAllMeasurementEq` are honest
+equivalence relations on these certified bundles; exact evaluator equality,
+global phase, projective action, two-pair append, and common earlier/later
+congruences all lift through the evaluator. Although the matrix converses need
+`Nonempty I`, `BitBasis W = W → Bool` is canonically inhabited even at zero
+wires, so the circuit characterizations discharge that premise internally.
+
+The non-root `Semantics/ChannelAudit.lean` imports only `ChannelCircuit` and
+allocates all 139 stable declarations exactly as `41 + 40 + 58` through 23
+aggregate consumers. Its concrete checks distinguish a genuinely different
+identity/swap channel using one physical basis effect, verify real `-1` and
+complex `I` global phases, record the empty-index matrix/vacuous-channel
+boundary, and exercise the inhabited zero-wire circuit case. The public root
+imports only `Channel`, `ChannelPhase`, and `ChannelCircuit`. No channel leaf
+defines quaternionic positivity, partial trace, a Kraus map, an instrument,
+cross-model channel equality, or mixed-top simulation.
 
 ## Circuit implementation
 
@@ -630,7 +694,8 @@ determinant boundary is therefore explicit:
   operator-phase leaves, and `Semantics/BasisBehaviorAudit.lean` consumes the
   certified-basis leaves and their raw-transition strictness witness, while
   `Semantics/DensityAudit.lean` consumes the complete density/effect/separation
-  surface. None becomes a transitive dependency.
+  surface and `Semantics/ChannelAudit.lean` consumes the complete
+  channel/phase/circuit lift. None becomes a transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage

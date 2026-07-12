@@ -12857,6 +12857,2230 @@
         "exactness": "exact iff or forward implication; basis effects alone are not substituted for all effects",
         "ancillaPolicy": "none; the same finite index type is retained with no added wire, partial trace, marginalization, or decoding"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator",
+      "relation": "UnitaryOperator — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration UnitaryOperator",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealUnitaryOperator",
+      "relation": "RealUnitaryOperator — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration RealUnitaryOperator",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexUnitaryOperator",
+      "relation": "ComplexUnitaryOperator — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration ComplexUnitaryOperator",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.coe_matrix",
+      "relation": "coe_matrix — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration coe_matrix",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ext_matrix",
+      "relation": "ext_matrix — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration ext_matrix",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ext",
+      "relation": "ext — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration ext",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.eq_iff_matrix_eq",
+      "relation": "eq_iff_matrix_eq — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration eq_iff_matrix_eq",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ofMatrix",
+      "relation": "ofMatrix — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration ofMatrix",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ofMatrix_coe",
+      "relation": "ofMatrix_coe — certified finite unitary-operator bundle and exact extensionality API",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index square matrix space over an RCLike scalar; explicit real and complex aliases retain their scalar",
+        "subject": "the public declaration ofMatrix_coe",
+        "inputScope": "one supplied unitary matrix/certificate, or a pair of bundles for exact matrix or entry extensionality",
+        "observationScope": "the complete unitary matrix and its certificate; this is operator data, not channel or measurement equality",
+        "phase": "none; exact bundled-operator equality does not quotient a global phase",
+        "exactness": "exact structure, alias, coercion, constructor, or equality characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.identity",
+      "relation": "identity — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration identity",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.identity_coe",
+      "relation": "identity_coe — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration identity_coe",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.followedBy",
+      "relation": "followedBy — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration followedBy",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.followedBy_coe",
+      "relation": "followedBy_coe — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration followedBy_coe",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.followedBy_assoc",
+      "relation": "followedBy_assoc — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration followedBy_assoc",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.identity_followedBy",
+      "relation": "identity_followedBy — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration identity_followedBy",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.followedBy_identity",
+      "relation": "followedBy_identity — chronological unitary-operator identity and composition",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary space",
+        "subject": "the public declaration followedBy_identity",
+        "inputScope": "the canonical identity or two/three bundled unitary operators in chronological order",
+        "observationScope": "exact bundled operator or complete underlying matrix; U followedBy V stores V * U",
+        "phase": "none; multiplication is literal and no operator phase is ignored",
+        "exactness": "exact constructor or identity, associativity, and matrix computation law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.evolve",
+      "relation": "evolve — exact density evolution by a bundled unitary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary and DensityMatrix space",
+        "subject": "the public declaration evolve",
+        "inputScope": "one arbitrary density input, with identity or chronological operator composition where named",
+        "observationScope": "the complete evolved density U * rho * U^H, not only basis outcomes or one physical effect",
+        "phase": "none at the relation level; conjugation is stated exactly",
+        "exactness": "exact density/matrix equality and exact identity or chronological composition law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.evolve_coe",
+      "relation": "evolve_coe — exact density evolution by a bundled unitary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary and DensityMatrix space",
+        "subject": "the public declaration evolve_coe",
+        "inputScope": "one arbitrary density input, with identity or chronological operator composition where named",
+        "observationScope": "the complete evolved density U * rho * U^H, not only basis outcomes or one physical effect",
+        "phase": "none at the relation level; conjugation is stated exactly",
+        "exactness": "exact density/matrix equality and exact identity or chronological composition law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.identity_evolve",
+      "relation": "identity_evolve — exact density evolution by a bundled unitary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary and DensityMatrix space",
+        "subject": "the public declaration identity_evolve",
+        "inputScope": "one arbitrary density input, with identity or chronological operator composition where named",
+        "observationScope": "the complete evolved density U * rho * U^H, not only basis outcomes or one physical effect",
+        "phase": "none at the relation level; conjugation is stated exactly",
+        "exactness": "exact density/matrix equality and exact identity or chronological composition law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.followedBy_evolve",
+      "relation": "followedBy_evolve — exact density evolution by a bundled unitary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryOperator_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite same-index RCLike bundled-unitary and DensityMatrix space",
+        "subject": "the public declaration followedBy_evolve",
+        "inputScope": "one arbitrary density input, with identity or chronological operator composition where named",
+        "observationScope": "the complete evolved density U * rho * U^H, not only basis outcomes or one physical effect",
+        "phase": "none at the relation level; conjugation is stated exactly",
+        "exactness": "exact density/matrix equality and exact identity or chronological composition law",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq",
+      "relation": "ChannelEq — equality of complete unitary density evolution on every input",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled unitaries on the same finite RCLike scalar and index space",
+        "subject": "the public declaration ChannelEq",
+        "inputScope": "every DensityMatrix on that index type; the quantifier is vacuous on an empty index type because no density exists",
+        "observationScope": "equality of the complete evolved density matrix for every input",
+        "phase": "no phase is built into the definition; phase characterizations are separate theorems",
+        "exactness": "exact equivalence relation candidate, not metric approximation",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq",
+      "relation": "AllMeasurementEq — agreement on every genuine physical effect after every density input",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled unitaries on the same finite RCLike scalar and index space",
+        "subject": "the public declaration AllMeasurementEq",
+        "inputScope": "every DensityMatrix and every genuine Effect on that type; the density quantifier is vacuous when the index is empty",
+        "observationScope": "equality of every physical-effect Born value, not equality for arbitrary trace-test matrices",
+        "phase": "no phase is built into the definition",
+        "exactness": "exact all-input/all-effect observational relation, not basis-only agreement or approximation",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.refl",
+      "relation": "refl — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration refl",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.symm",
+      "relation": "symm — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration symm",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.trans",
+      "relation": "trans — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration trans",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.equivalence",
+      "relation": "equivalence — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration equivalence",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.evolve_eq",
+      "relation": "evolve_eq — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration evolve_eq",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.of_eq",
+      "relation": "of_eq — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration of_eq",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.of_matrix_eq",
+      "relation": "of_matrix_eq — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration of_matrix_eq",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.allMeasurementEq",
+      "relation": "allMeasurementEq — ChannelEq implies AllMeasurementEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.channelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration allMeasurementEq",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "the valid implication from complete evolved-density equality to every physical-effect Born equality",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.followedBy",
+      "relation": "followedBy — ChannelEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration followedBy",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "complete evolved-density equality, exposed at one input or preserved by exact/operator equality and chronological composition where named",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.refl",
+      "relation": "refl — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration refl",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.symm",
+      "relation": "symm — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration symm",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.trans",
+      "relation": "trans — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration trans",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.equivalence",
+      "relation": "equivalence — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration equivalence",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.bornValue_eq",
+      "relation": "bornValue_eq — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration bornValue_eq",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.of_eq",
+      "relation": "of_eq — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration of_eq",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.of_matrix_eq",
+      "relation": "of_matrix_eq — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration of_matrix_eq",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.channelEq",
+      "relation": "channelEq — AllMeasurementEq recovers ChannelEq by genuine-effect separation",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration channelEq",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "equality for every physical Effect is separated back to the complete evolved density matrix",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.followedBy",
+      "relation": "followedBy — AllMeasurementEq law, elimination, introduction, or chronological congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.allMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary, DensityMatrix, and Effect space",
+        "subject": "the public declaration followedBy",
+        "inputScope": "all density inputs and all genuine physical effects; a named eliminator may select one input/effect and composition compares related pairs",
+        "observationScope": "every genuine physical-effect Born value after every density input, exposed at one pair or preserved where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or congruence theorem; basis effects and arbitrary trace tests are not substituted",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.channelEq_iff_allMeasurementEq",
+      "relation": "channelEq_iff_allMeasurementEq — ChannelEq iff AllMeasurementEq through physical-effect separation",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.channelEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike bundled-unitary space; real and complex are covered without cross-scalar comparison",
+        "subject": "the public declaration channelEq_iff_allMeasurementEq",
+        "inputScope": "all density inputs in ChannelEq; named eliminators select one input and composition laws compare related early/later pairs",
+        "observationScope": "the exact equivalence between full evolved-density equality and agreement of all genuine physical effects",
+        "phase": "none in the relation; no global-phase converse is claimed in this core",
+        "exactness": "exact relation law, implication, iff, or congruence theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realSignEquivalent_of_normalized_pureMatrix_eq",
+      "relation": "realSignEquivalent_of_normalized_pureMatrix_eq — equal normalized pure densities determine one real right phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.pureDensityPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite real state-column and same-index ket-bra matrix space",
+        "subject": "the public declaration realSignEquivalent_of_normalized_pureMatrix_eq",
+        "inputScope": "two raw columns, with the first exactly normalized and their complete pureMatrix values equal; the second normalization is derived",
+        "observationScope": "full ket-bra matrix equality implies representative sign/right-phase equivalence, not merely equal basis probabilities",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication with an explicit normalized premise; no density or channel quantifier is weakened",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexRightPhaseEquivalent_of_normalized_pureMatrix_eq",
+      "relation": "complexRightPhaseEquivalent_of_normalized_pureMatrix_eq — equal normalized pure densities determine one complex right phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.pureDensityPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite complex state-column and same-index ket-bra matrix space",
+        "subject": "the public declaration complexRightPhaseEquivalent_of_normalized_pureMatrix_eq",
+        "inputScope": "two raw columns, with the first exactly normalized and their complete pureMatrix values equal; the second normalization is derived",
+        "observationScope": "full ket-bra matrix equality implies representative sign/right-phase equivalence, not merely equal basis probabilities",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication with an explicit normalized premise; no density or channel quantifier is weakened",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq",
+      "relation": "RealRawProjectiveActionEq — all-raw-input real projective operator action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular real matrices with one finite input index type",
+        "subject": "the public declaration RealRawProjectiveActionEq",
+        "inputScope": "every raw input column, including zero and all nonnormalized columns",
+        "observationScope": "the complete output column is sign/right-phase equivalent for each input; the phase witness may depend on the input",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact projective-action relation, not operator equality, channel equality, or a fixed global phase",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq",
+      "relation": "ComplexRawProjectiveActionEq — all-raw-input complex projective operator action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular complex matrices with one finite input index type",
+        "subject": "the public declaration ComplexRawProjectiveActionEq",
+        "inputScope": "every raw input column, including zero and all nonnormalized columns",
+        "observationScope": "the complete output column is sign/right-phase equivalent for each input; the phase witness may depend on the input",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact projective-action relation, not operator equality, channel equality, or a fixed global phase",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.refl",
+      "relation": "refl — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration refl",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.symm",
+      "relation": "symm — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration symm",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.trans",
+      "relation": "trans — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration trans",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.equivalence",
+      "relation": "equivalence — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration equivalence",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.of_exact",
+      "relation": "of_exact — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration of_exact",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.projectiveActionEq",
+      "relation": "projectiveActionEq — real raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular real matrices with finite input type",
+        "subject": "the public declaration projectiveActionEq",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.refl",
+      "relation": "refl — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration refl",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.symm",
+      "relation": "symm — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration symm",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.trans",
+      "relation": "trans — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration trans",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.equivalence",
+      "relation": "equivalence — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration equivalence",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.of_exact",
+      "relation": "of_exact — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration of_exact",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.projectiveActionEq",
+      "relation": "projectiveActionEq — complex raw-projective equivalence law or restriction to normalized inputs",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two or three same-type rectangular complex matrices with finite input type",
+        "subject": "the public declaration projectiveActionEq",
+        "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
+        "observationScope": "per-input sign/right-phase equality of complete output columns",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.rawProjectiveActionEq",
+      "relation": "rawProjectiveActionEq — normalized/raw/global real projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular real matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration rawProjectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.rawProjectiveActionEq",
+      "relation": "rawProjectiveActionEq — normalized/raw/global complex projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular complex matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration rawProjectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realRawProjectiveActionEq_iff_projectiveActionEq",
+      "relation": "realRawProjectiveActionEq_iff_projectiveActionEq — normalized/raw/global real projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two same-type rectangular real matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration realRawProjectiveActionEq_iff_projectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexRawProjectiveActionEq_iff_projectiveActionEq",
+      "relation": "complexRawProjectiveActionEq_iff_projectiveActionEq — normalized/raw/global complex projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two same-type rectangular complex matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration complexRawProjectiveActionEq_iff_projectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.rawProjectiveActionEq",
+      "relation": "rawProjectiveActionEq — normalized/raw/global real projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular real matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration rawProjectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.rawProjectiveActionEq",
+      "relation": "rawProjectiveActionEq — normalized/raw/global complex projective-action bridge",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.normalizedRawProjective_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type rectangular complex matrices with finite input type; no Nonempty assumption is required",
+        "subject": "the public declaration rawProjectiveActionEq",
+        "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
+        "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.globalSignEq_of_unitary",
+      "relation": "globalSignEq_of_unitary — inhabited unitary real projective kernel is one global phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realProjectiveKernel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same-index square real matrices on a finite explicitly Nonempty type; only the first matrix needs a unitary certificate",
+        "subject": "the public declaration globalSignEq_of_unitary",
+        "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
+        "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
+        "phase": "one square-one real sign acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.globalPhaseEq_of_unitary",
+      "relation": "globalPhaseEq_of_unitary — inhabited unitary complex projective kernel is one global phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexProjectiveKernel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same-index square complex matrices on a finite explicitly Nonempty type; only the first matrix needs a unitary certificate",
+        "subject": "the public declaration globalPhaseEq_of_unitary",
+        "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
+        "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
+        "phase": "one unit-norm complex phase acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.globalSignEq_of_unitary",
+      "relation": "globalSignEq_of_unitary — inhabited unitary real projective kernel is one global phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realProjectiveKernel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realProjectiveKernel_api; direct release endpoint pending",
+      "classification": {
+        "space": "same-index square real matrices on a finite explicitly Nonempty type; only the first matrix needs a unitary certificate",
+        "subject": "the public declaration globalSignEq_of_unitary",
+        "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
+        "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
+        "phase": "one square-one real sign acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.globalPhaseEq_of_unitary",
+      "relation": "globalPhaseEq_of_unitary — inhabited unitary complex projective kernel is one global phase",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexProjectiveKernel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexProjectiveKernel_api; direct release endpoint pending",
+      "classification": {
+        "space": "same-index square complex matrices on a finite explicitly Nonempty type; only the first matrix needs a unitary certificate",
+        "subject": "the public declaration globalPhaseEq_of_unitary",
+        "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
+        "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
+        "phase": "one unit-norm complex phase acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.channelEq",
+      "relation": "channelEq — one global real phase preserves the complete unitary channel",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled real unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration channelEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "exact equality of every evolved density matrix, with the scalar cancelling under conjugation",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.channelEq",
+      "relation": "channelEq — one global complex phase preserves the complete unitary channel",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled complex unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration channelEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "exact equality of every evolved density matrix, with the scalar cancelling under conjugation",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.realProjectiveActionEq",
+      "relation": "realProjectiveActionEq — ChannelEq yields normalized or raw real projective action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled real unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration realProjectiveActionEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.complexProjectiveActionEq",
+      "relation": "complexProjectiveActionEq — ChannelEq yields normalized or raw complex projective action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled complex unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration complexProjectiveActionEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.realRawProjectiveActionEq",
+      "relation": "realRawProjectiveActionEq — ChannelEq yields normalized or raw real projective action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled real unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration realRawProjectiveActionEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.complexRawProjectiveActionEq",
+      "relation": "complexRawProjectiveActionEq — ChannelEq yields normalized or raw complex projective action",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled complex unitaries on the same finite index type and their underlying matrices",
+        "subject": "the public declaration complexRawProjectiveActionEq",
+        "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
+        "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realGlobalSignEq_iff_channelEq",
+      "relation": "realGlobalSignEq_iff_channelEq — inhabited real global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled real unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration realGlobalSignEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexGlobalPhaseEq_iff_channelEq",
+      "relation": "complexGlobalPhaseEq_iff_channelEq — inhabited complex global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled complex unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration complexGlobalPhaseEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realProjectiveActionEq_iff_channelEq",
+      "relation": "realProjectiveActionEq_iff_channelEq — inhabited real global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled real unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration realProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexProjectiveActionEq_iff_channelEq",
+      "relation": "complexProjectiveActionEq_iff_channelEq — inhabited complex global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled complex unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration complexProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realRawProjectiveActionEq_iff_channelEq",
+      "relation": "realRawProjectiveActionEq_iff_channelEq — inhabited real global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled real unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration realRawProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexRawProjectiveActionEq_iff_channelEq",
+      "relation": "complexRawProjectiveActionEq_iff_channelEq — inhabited complex global/projective phase iff unitary ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled complex unitaries on one finite explicitly Nonempty index type",
+        "subject": "the public declaration complexRawProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
+        "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
+        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realGlobalSignEq_of_isEmpty",
+      "relation": "realGlobalSignEq_of_isEmpty — exact empty-index real matrix/phase boundary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.emptyPhaseBoundary_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled real unitaries on a finite explicitly IsEmpty index type",
+        "subject": "the public declaration realGlobalSignEq_of_isEmpty",
+        "inputScope": "the unique empty square matrices; this theorem does not infer physical content from the vacuous density-input channel relation",
+        "observationScope": "literal matrix equality implies global sign/unit-phase equality on the empty type",
+        "phase": "one square-one real sign acts on state columns on the right",
+        "exactness": "exact boundary theorem separated from the Nonempty channel characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexGlobalPhaseEq_of_isEmpty",
+      "relation": "complexGlobalPhaseEq_of_isEmpty — exact empty-index complex matrix/phase boundary",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.emptyPhaseBoundary_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled complex unitaries on a finite explicitly IsEmpty index type",
+        "subject": "the public declaration complexGlobalPhaseEq_of_isEmpty",
+        "inputScope": "the unique empty square matrices; this theorem does not infer physical content from the vacuous density-input channel relation",
+        "observationScope": "literal matrix equality implies global sign/unit-phase equality on the empty type",
+        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "exactness": "exact boundary theorem separated from the Nonempty channel characterization",
+        "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ofCircuit",
+      "relation": "ofCircuit — locally unitary circuit evaluator bundled as a UnitaryOperator",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.ofCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.ofCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W with full computational basis BitBasis W over an RCLike scalar",
+        "subject": "the public declaration ofCircuit",
+        "inputScope": "one chronological OrderedCircuit and a certificate that every local gate is unitary",
+        "observationScope": "the complete chronological evaluator matrix, bundled without changing its scalar, basis, or dimension",
+        "phase": "none",
+        "exactness": "exact constructor or evaluator-matrix equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryOperator.ofCircuit_coe",
+      "relation": "ofCircuit_coe — locally unitary circuit evaluator bundled as a UnitaryOperator",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.ofCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.ofCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W with full computational basis BitBasis W over an RCLike scalar",
+        "subject": "the public declaration ofCircuit_coe",
+        "inputScope": "one chronological OrderedCircuit and a certificate that every local gate is unitary",
+        "observationScope": "the complete chronological evaluator matrix, bundled without changing its scalar, basis, or dimension",
+        "phase": "none",
+        "exactness": "exact constructor or evaluator-matrix equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit",
+      "relation": "UnitaryCircuit — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration UnitaryCircuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealUnitaryCircuit",
+      "relation": "RealUnitaryCircuit — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration RealUnitaryCircuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexUnitaryCircuit",
+      "relation": "ComplexUnitaryCircuit — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration ComplexUnitaryCircuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.coe_circuit",
+      "relation": "coe_circuit — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration coe_circuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.ext_circuit",
+      "relation": "ext_circuit — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration ext_circuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.ext",
+      "relation": "ext — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration ext",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.eq_iff_circuit_eq",
+      "relation": "eq_iff_circuit_eq — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration eq_iff_circuit_eq",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.eval_mem_unitary",
+      "relation": "eval_mem_unitary — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration eval_mem_unitary",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.toOperator",
+      "relation": "toOperator — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration toOperator",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.toOperator_coe",
+      "relation": "toOperator_coe — certified locally unitary circuit bundle, syntax equality, and evaluator projection",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration toOperator_coe",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "the stored complete gate list, its local-unitarity certificate, or the exact evaluated UnitaryOperator; syntax equality is not conflated with channel equality",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.identity",
+      "relation": "identity — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration identity",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.identity_circuit",
+      "relation": "identity_circuit — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration identity_circuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.toOperator_identity",
+      "relation": "toOperator_identity — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration toOperator_identity",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.append",
+      "relation": "append — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration append",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.append_circuit",
+      "relation": "append_circuit — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration append_circuit",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.append_assoc",
+      "relation": "append_assoc — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration append_assoc",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.identity_append",
+      "relation": "identity_append — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration identity_append",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.append_identity",
+      "relation": "append_identity — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration append_identity",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.UnitaryCircuit.toOperator_append",
+      "relation": "toOperator_append — certified circuit identity and chronological append algebra",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.unitaryCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one finite wire type W and its full BitBasis W over an RCLike scalar; real and complex aliases are explicit",
+        "subject": "the public declaration toOperator_append",
+        "inputScope": "one or more locally unitary chronological gate lists; equality declarations compare complete stored syntax exactly",
+        "observationScope": "literal gate-list append and the exact evaluated operator; C append D evaluates in chronological order with D later",
+        "phase": "none; evaluator phase is not ignored by the bundled-circuit data API",
+        "exactness": "exact structure, alias, coercion, constructor, syntax equality, unitarity, or append law",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq",
+      "relation": "CircuitChannelEq — evaluator-backed equality of complete density evolution",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitRelationDefinitions_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitRelationDefinitions_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified circuits over the same RCLike scalar and finite wire type, evaluated on the inhabited full BitBasis W",
+        "subject": "the public declaration CircuitChannelEq",
+        "inputScope": "every DensityMatrix input on BitBasis W",
+        "observationScope": "the complete evolved density matrix of the evaluated operators",
+        "phase": "no phase is built into the definition; evaluator-wide phase characterizations are separate",
+        "exactness": "exact evaluator-backed semantic relation, not syntax, schedule, resource, or approximation equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq",
+      "relation": "CircuitAllMeasurementEq — evaluator-backed agreement for every density and genuine effect",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitRelationDefinitions_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitRelationDefinitions_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified circuits over the same RCLike scalar and finite wire type, evaluated on the inhabited full BitBasis W",
+        "subject": "the public declaration CircuitAllMeasurementEq",
+        "inputScope": "every density input and every genuine physical Effect on BitBasis W",
+        "observationScope": "all physical-effect Born values of the evaluated operators",
+        "phase": "no phase is built into the definition; evaluator-wide phase characterizations are separate",
+        "exactness": "exact evaluator-backed semantic relation, not syntax, schedule, resource, or approximation equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.iff_toOperator",
+      "relation": "iff_toOperator — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration iff_toOperator",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.evolve_eq",
+      "relation": "evolve_eq — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration evolve_eq",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.refl",
+      "relation": "refl — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration refl",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.symm",
+      "relation": "symm — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration symm",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.trans",
+      "relation": "trans — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration trans",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.equivalence",
+      "relation": "equivalence — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration equivalence",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.allMeasurementEq",
+      "relation": "allMeasurementEq — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration allMeasurementEq",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.append",
+      "relation": "append — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration append",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.append_same_later",
+      "relation": "append_same_later — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration append_same_later",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.prepend_same_earlier",
+      "relation": "prepend_same_earlier — CircuitChannelEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration prepend_same_earlier",
+        "inputScope": "all density inputs to the evaluated circuit channel; named eliminators select one input and append compares early/later pairs",
+        "observationScope": "complete evolved-density equality of evaluated operators, with AllMeasurementEq implication where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.iff_toOperator",
+      "relation": "iff_toOperator — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration iff_toOperator",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.bornValue_eq",
+      "relation": "bornValue_eq — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration bornValue_eq",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.refl",
+      "relation": "refl — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration refl",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.symm",
+      "relation": "symm — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration symm",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.trans",
+      "relation": "trans — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration trans",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.equivalence",
+      "relation": "equivalence — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration equivalence",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.channelEq",
+      "relation": "channelEq — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration channelEq",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.append",
+      "relation": "append — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration append",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.append_same_later",
+      "relation": "append_same_later — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration append_same_later",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.prepend_same_earlier",
+      "relation": "prepend_same_earlier — CircuitAllMeasurementEq law, operator bridge, elimination, or append congruence",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitAllMeasurementEq_api; direct release endpoint pending",
+      "classification": {
+        "space": "same RCLike scalar and finite circuit wire type with full inhabited BitBasis W, including zero wires",
+        "subject": "the public declaration prepend_same_earlier",
+        "inputScope": "every density input and genuine physical effect; named eliminators select one pair and append compares early/later pairs",
+        "observationScope": "all physical-effect Born values of evaluated operators, with complete ChannelEq recovery where named",
+        "phase": "none in the relation",
+        "exactness": "exact relation law, implication, or chronological append congruence; no arbitrary trace tests",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.circuitChannelEq_iff_allMeasurementEq",
+      "relation": "circuitChannelEq_iff_allMeasurementEq — CircuitChannelEq iff CircuitAllMeasurementEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelMeasurementIff_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified circuits over one RCLike scalar and finite wire type with full BitBasis W",
+        "subject": "the public declaration circuitChannelEq_iff_allMeasurementEq",
+        "inputScope": "every density input versus every density/effect pair after evaluator-backed evolution",
+        "observationScope": "complete evolved-density equality is equivalent to agreement of all genuine physical effects",
+        "phase": "none",
+        "exactness": "exact iff proved through physical-effect separation",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.circuitChannelEq",
+      "relation": "circuitChannelEq — exact circuit evaluator equality implies physical channel semantics",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.exactCircuitChannel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified same-scalar circuits on one finite wire type",
+        "subject": "the public declaration circuitChannelEq",
+        "inputScope": "literal equality of OrderedCircuit.eval through ExactCircuitEq",
+        "observationScope": "CircuitChannelEq or CircuitAllMeasurementEq of the complete evaluated maps",
+        "phase": "none",
+        "exactness": "exact implication; evaluator equality is stronger than the target semantic relation",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.circuitAllMeasurementEq",
+      "relation": "circuitAllMeasurementEq — exact circuit evaluator equality implies physical channel semantics",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.exactCircuitChannel_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.exactCircuitChannel_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified same-scalar circuits on one finite wire type",
+        "subject": "the public declaration circuitAllMeasurementEq",
+        "inputScope": "literal equality of OrderedCircuit.eval through ExactCircuitEq",
+        "observationScope": "CircuitChannelEq or CircuitAllMeasurementEq of the complete evaluated maps",
+        "phase": "none",
+        "exactness": "exact implication; evaluator equality is stronger than the target semantic relation",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.circuitChannelEq",
+      "relation": "circuitChannelEq — evaluator-wide real global phase implies circuit channel/all-effect agreement",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real circuits over the same finite wire type and full BitBasis W",
+        "subject": "the public declaration circuitChannelEq",
+        "inputScope": "the complete evaluated operators related by one global sign/phase",
+        "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
+        "phase": "one evaluator-wide square-one real sign",
+        "exactness": "exact implication, not gatewise syntax equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.circuitAllMeasurementEq",
+      "relation": "circuitAllMeasurementEq — evaluator-wide real global phase implies circuit channel/all-effect agreement",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.realCircuitGlobalSign_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.realCircuitGlobalSign_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real circuits over the same finite wire type and full BitBasis W",
+        "subject": "the public declaration circuitAllMeasurementEq",
+        "inputScope": "the complete evaluated operators related by one global sign/phase",
+        "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
+        "phase": "one evaluator-wide square-one real sign",
+        "exactness": "exact implication, not gatewise syntax equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.circuitChannelEq",
+      "relation": "circuitChannelEq — evaluator-wide complex global phase implies circuit channel/all-effect agreement",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified complex circuits over the same finite wire type and full BitBasis W",
+        "subject": "the public declaration circuitChannelEq",
+        "inputScope": "the complete evaluated operators related by one global sign/phase",
+        "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
+        "phase": "one evaluator-wide unit complex phase",
+        "exactness": "exact implication, not gatewise syntax equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.circuitAllMeasurementEq",
+      "relation": "circuitAllMeasurementEq — evaluator-wide complex global phase implies circuit channel/all-effect agreement",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.complexCircuitGlobalPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.complexCircuitGlobalPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified complex circuits over the same finite wire type and full BitBasis W",
+        "subject": "the public declaration circuitAllMeasurementEq",
+        "inputScope": "the complete evaluated operators related by one global sign/phase",
+        "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
+        "phase": "one evaluator-wide unit complex phase",
+        "exactness": "exact implication, not gatewise syntax equality",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.realGlobalSignEq",
+      "relation": "realGlobalSignEq — circuit ChannelEq determines evaluator-wide real global/projective phase behavior",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real circuits on one finite wire type; BitBasis W is canonically Nonempty even for zero wires",
+        "subject": "the public declaration realGlobalSignEq",
+        "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
+        "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
+        "phase": "one evaluator-wide square-one real sign or per-input real sign in projective form",
+        "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.complexGlobalPhaseEq",
+      "relation": "complexGlobalPhaseEq — circuit ChannelEq determines evaluator-wide complex global/projective phase behavior",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified complex circuits on one finite wire type; BitBasis W is canonically Nonempty even for zero wires",
+        "subject": "the public declaration complexGlobalPhaseEq",
+        "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
+        "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
+        "phase": "one evaluator-wide unit complex phase or per-input right phase in projective form",
+        "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.realProjectiveActionEq",
+      "relation": "realProjectiveActionEq — circuit ChannelEq determines evaluator-wide real global/projective phase behavior",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real circuits on one finite wire type; BitBasis W is canonically Nonempty even for zero wires",
+        "subject": "the public declaration realProjectiveActionEq",
+        "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
+        "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
+        "phase": "one evaluator-wide square-one real sign or per-input real sign in projective form",
+        "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.complexProjectiveActionEq",
+      "relation": "complexProjectiveActionEq — circuit ChannelEq determines evaluator-wide complex global/projective phase behavior",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ChannelAudit.circuitChannelPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified complex circuits on one finite wire type; BitBasis W is canonically Nonempty even for zero wires",
+        "subject": "the public declaration complexProjectiveActionEq",
+        "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
+        "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
+        "phase": "one evaluator-wide unit complex phase or per-input right phase in projective form",
+        "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realCircuitGlobalSignEq_iff_channelEq",
+      "relation": "realCircuitGlobalSignEq_iff_channelEq — exact real evaluator phase/projective iff circuit ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitPhaseIff_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real circuits on one finite wire type; full BitBasis W is inhabited even at zero wires",
+        "subject": "the public declaration realCircuitGlobalSignEq_iff_channelEq",
+        "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
+        "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
+        "phase": "one evaluator-wide square-one real sign, equivalent to normalized projective action",
+        "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexCircuitGlobalPhaseEq_iff_channelEq",
+      "relation": "complexCircuitGlobalPhaseEq_iff_channelEq — exact complex evaluator phase/projective iff circuit ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitPhaseIff_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified complex circuits on one finite wire type; full BitBasis W is inhabited even at zero wires",
+        "subject": "the public declaration complexCircuitGlobalPhaseEq_iff_channelEq",
+        "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
+        "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
+        "phase": "one evaluator-wide unit complex phase, equivalent to normalized right-projective action",
+        "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realCircuitProjectiveActionEq_iff_channelEq",
+      "relation": "realCircuitProjectiveActionEq_iff_channelEq — exact real evaluator phase/projective iff circuit ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitPhaseIff_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real circuits on one finite wire type; full BitBasis W is inhabited even at zero wires",
+        "subject": "the public declaration realCircuitProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
+        "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
+        "phase": "one evaluator-wide square-one real sign, equivalent to normalized projective action",
+        "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexCircuitProjectiveActionEq_iff_channelEq",
+      "relation": "complexCircuitProjectiveActionEq_iff_channelEq — exact complex evaluator phase/projective iff circuit ChannelEq",
+      "owner": "goal-2/7-CHANNELS",
+      "consumer": "QuaternionicComputing.Semantics.ChannelAudit.circuitPhaseIff_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified complex circuits on one finite wire type; full BitBasis W is inhabited even at zero wires",
+        "subject": "the public declaration complexCircuitProjectiveActionEq_iff_channelEq",
+        "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
+        "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
+        "phase": "one evaluator-wide unit complex phase, equivalent to normalized right-projective action",
+        "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
+        "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
+      }
     }
   ]
 }

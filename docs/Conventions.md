@@ -119,6 +119,13 @@ For real matrices every phase witness squares to one; for complex matrices it
 has `Complex.normSq = 1`. Input phases stay visibly on the right and output
 phases on the left even though real and complex multiplication commutes.
 
+For bundled square real/complex unitaries, the separate channel layer proves
+that one global sign/phase and all-input projective action have the same
+physical channel exactly when the finite matrix index is inhabited. This does
+not promote input-column or output-row phase families: input-dependent phases
+can change interference, and output-dependent phases can be exposed by a later
+basis change.
+
 Quaternionic operator phase uses five distinct predicates:
 
 ```text
@@ -291,12 +298,85 @@ Born values against every genuine physical effect. The separation proof uses
 normalized rank-one projector effects and quadratic-form polarization; it
 does not relabel arbitrary matrices as physical effects. This is a fixed-pair
 state extensionality theorem. It is not yet `ChannelEq` or
-`AllMeasurementEq`, which must quantify over every density input after two
-operators act and remain Stage 7 work.
+`AllMeasurementEq` by itself; the separate channel layer now adds those
+operator quantifiers and uses this theorem for its converse.
 
 No quaternionic density/effect positivity, generic partial trace, Kraus map,
-instrument, arbitrary mixed-top simulation, or channel semantics is introduced
-by this layer.
+instrument, or arbitrary mixed-top simulation is introduced by this layer.
+
+## Unitary channels and all physical measurements
+
+A `UnitaryOperator 𝕜 I` stores a square matrix and an actual membership proof
+in `unitary (Matrix I I 𝕜)`. The theorem-generic core uses `RCLike 𝕜`; the
+physical aliases supplied here are real and complex. Evolution is the Stage 6
+density conjugation. Chronological composition is named rather than hidden in
+a multiplication instance:
+
+```text
+U.followedBy V       means first U, then V
+matrix (U.followedBy V) = V * U
+(U.followedBy V).evolve ρ = V.evolve (U.evolve ρ).
+```
+
+The two physical comparison relations have different visible quantifiers:
+
+```text
+ChannelEq U V :=
+  ∀ ρ : DensityMatrix 𝕜 I, U.evolve ρ = V.evolve ρ
+
+AllMeasurementEq U V :=
+  ∀ (ρ : DensityMatrix 𝕜 I) (E : Effect 𝕜 I),
+    bornValue E (U.evolve ρ) = bornValue E (V.evolve ρ).
+```
+
+`Effect` here is always the genuine Loewner-bounded structure. No arbitrary
+matrix, algebraic trace test, or basis-effect-only family is substituted for
+the quantifier. Complete output equality directly implies all-measurement
+agreement; genuine-effect separation proves the converse for each density
+input. Thus `ChannelEq ↔ AllMeasurementEq` over the generic `RCLike` core.
+
+The real and complex phase kernel uses the existing orientation
+`V = η • U`. One global sign/phase cancels from conjugation without an
+inhabited-index premise. Conversely, channel equality implies normalized and
+raw projective action, and on `[Nonempty I]` either projective relation forces
+one common global scalar. Consequently, for real and complex finite unitaries
+on an inhabited matrix index,
+
+```text
+global sign/phase
+  ↔ raw projective action
+  ↔ normalized projective action
+  ↔ ChannelEq
+  ↔ AllMeasurementEq.
+```
+
+The normalization bridge splits the zero column from nonzero columns and uses
+a positive real inverse square root; no determinant or dimension-at-least-two
+argument occurs. The `Nonempty I` premise is essential for interpreting the
+matrix converse: there is no density input on an empty index, so `ChannelEq`
+is vacuous there. The separate empty-index theorems prove global phase from
+exact equality of the unique empty square matrices, not from that vacuous
+channel relation.
+
+`UnitaryCircuit 𝕜 W` stores an `OrderedCircuit` and its local-unitarity
+certificate, then derives the `UnitaryOperator` of its evaluator.
+`C.append D` acts first by `C`, then by `D`, so
+
+```text
+(C.append D).toOperator = C.toOperator.followedBy D.toOperator
+eval (C ++ D) = eval D * eval C.
+```
+
+`CircuitChannelEq` and `CircuitAllMeasurementEq` apply the corresponding
+operator relations to these derived evaluators. They are equivalence relations
+and preserve exact evaluator equality, global phase, projective action, and
+chronological append. Matrix phase converses require `Nonempty I`, but the
+circuit basis `BitBasis W = W → Bool` is canonically inhabited even when `W`
+has no wires, so no redundant nonempty argument appears in the circuit API.
+
+None of these definitions supplies quaternionic density/channel positivity,
+cross-model channel equality, decoded marginal semantics, partial trace,
+Kraus maps, instruments, mixed-top simulation, or channel capacity.
 
 ## Scalar decompositions and embeddings
 
@@ -351,20 +431,22 @@ The library keeps the following levels distinct:
 10. all-normalized-pure-input basis agreement
    (`PureInputBasisMeasurementEq`);
 11. equality of packaged computational-basis distributions
-   (`NormalizedDistributionEq`); and
+   (`NormalizedDistributionEq`);
 12. literal equality of finite real/complex density matrices, equivalently
     equality of Born values against every genuine physical effect for that
-    fixed pair.
+    fixed pair; and
+13. equality of complete unitary-channel outputs for every density input
+    (`ChannelEq`), equivalently equality of every genuine-effect Born value
+    for every density input (`AllMeasurementEq`).
 
 The three input scopes in items 8–10 are not interchangeable. The generic
 weight function need not normalize basis kets, so the theorem from
 all-normalized-pure-input agreement to all-basis-input agreement requires that
-normalization as an explicit hypothesis. Channel and all-physical-effect
-operator comparisons are stronger notions introduced separately. Stage 6
-proves only that all physical effects separate one fixed pair of density
-matrices; `ChannelEq` and `AllMeasurementEq` over every density input remain
-Stage 7.
-No basis-only relation is treated as either one.
+normalization as an explicit hypothesis. Stage 6 proves that all physical
+effects separate one fixed pair of density matrices; Stage 7 quantifies that
+result over every evolved density input and proves
+`ChannelEq ↔ AllMeasurementEq`. No basis-only relation is treated as either
+one.
 
 For a coordinate `ψ i`, its computational-basis weight is its scalar norm
 square.  In a doubled target space, forgetting the top wire means summing the
