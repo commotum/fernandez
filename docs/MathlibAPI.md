@@ -439,13 +439,81 @@ Five boundaries are mandatory:
 - Loewner order and the later matrix operator norm require `MatrixOrder` and
   `Matrix.Norms.L2Operator`, respectively, so no unscoped matrix norm may be
   assumed to be spectral;
-- an empty index type has no trace-one density matrix; channel theorems must
-  state a nonempty hypothesis where existence of physical inputs is used;
+- an empty index type has no trace-one density matrix; the Stage 7 matrix
+  phase/channel converses therefore state `Nonempty I`, while the generic
+  channel/all-measurement equivalence itself remains dimension-uniform;
 - the `RCLike` proof core supplies the real and complex aliases only. It does
   not provide quaternionic Loewner positivity, density matrices, effects, or
   channels; and
-- Stage 6 has no partial trace, Kraus map, instrument, mixed-top simulation,
-  `ChannelEq`, or `AllMeasurementEq` API.
+- the Stage 6 leaves themselves have no channel API. Stage 7 consumes them but
+  still adds no partial trace, Kraus map, instrument, or mixed-top simulation.
+
+## Goal 2 unitary channels and phase kernels
+
+`Semantics/Channel.lean` needs no external channel formalism. It bundles the
+existing generic `unitary` predicate as `UnitaryOperator`, delegates evolution
+to `DensityMatrix.unitaryConjugate`, and defines
+
+```lean
+ChannelEq U V := ∀ rho, U.evolve rho = V.evolve rho
+AllMeasurementEq U V :=
+  ∀ rho E, Effect.bornValue E (U.evolve rho) =
+    Effect.bornValue E (V.evolve rho)
+```
+
+The reverse implication in `channelEq_iff_allMeasurementEq` is exactly
+`DensityMatrix.eq_of_forall_effect_bornValue_eq` applied at every input. Thus
+the implementation retains the genuine `Effect` quantifier and imports no
+arbitrary trace-extensionality interface. Chronological operator composition
+uses the generic unitary subgroup multiplication proof but exposes the
+unambiguous API `U.followedBy V`, whose matrix is `V * U`.
+
+The real/complex phase kernel in `Semantics/ChannelPhase.lean` reuses:
+
+```lean
+Matrix.mulVec_mulVec
+Unitary.mul_star_self_of_mem
+State.*TotalWeight_right_mul
+State.star_dotProduct_mulVec_of_mem_unitary
+Real.sqrt_ne_zero'
+Real.sq_sqrt
+Pi.single
+```
+
+Equality of normalized pure ket--bra matrices first yields real sign or complex
+right phase. To pass from normalized projective action to every raw column,
+the proof handles the zero column separately and rescales a nonzero column by
+the inverse square root of its total weight. For an inhabited finite square
+space, `Pi.single` basis columns and pairwise sums force all column phases to
+coincide. Applying this to `V * star U` and cancelling with
+`Unitary.mul_star_self_of_mem` proves the global kernel. No determinant,
+connectedness, spectral theorem, or dimension-at-least-two lemma is hidden in
+the result.
+
+The exact public matrix boundary is:
+
+- global real sign/complex phase implies `ChannelEq` in every finite
+  dimension;
+- `ChannelEq` implies raw and normalized projective action uniformly;
+- the converses to one global scalar require `[Nonempty I]`; and
+- on an empty index, separate theorems use `Subsingleton.elim` to prove exact
+  matrix equality and then global phase, rather than using vacuous density
+  quantification.
+
+`Semantics/ChannelCircuit.lean` imports the existing evaluator-backed phase
+relations and `Circuit.LocalUnitary`. A `UnitaryCircuit` derives its bundled
+operator with `OrderedCircuit.eval_mem_unitary`; closure under append uses
+`OrderedCircuit.IsLocallyUnitary.append`. The theorem
+`UnitaryCircuit.toOperator_append` combines
+`OrderedCircuit.eval_append` with `UnitaryOperator.followedBy`, preserving the
+order `eval D * eval C`. The matrix-level `Nonempty` hypothesis is discharged
+by the canonical inhabitant `fun _ ↦ false` of `BitBasis W`, including when
+`W` is empty.
+
+These APIs are finite same-space real/complex-style semantics only. Mathlib's
+ordered-star matrix theory used here does not provide native quaternionic
+densities or effects, and no partial trace, Kraus representation, instrument,
+cross-model channel relation, or capacity theorem is imported or synthesized.
 
 ## Goal 2 state phase, normalized ray quotients, and descent
 
@@ -720,6 +788,10 @@ without placeholders:
   invariants, real/complex aliases, pure and basis constructors, unitary
   conjugation, genuine Loewner effects, real Born values in `[0,1]`, and exact
   separation of densities by all physical effects;
+- bundled finite unitary operators, exact channel/all-physical-measurement
+  equivalence, real/complex raw and normalized projective kernels, inhabited
+  global sign/phase characterizations, empty-index matrix boundaries, and
+  evaluator-backed locally-unitary circuit channel wrappers;
 - a normalized realification example whose added top wire does not factor as
   a pure product with the bottom system; and
 - the pinned project baseline and axiom smoke audit.

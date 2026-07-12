@@ -16,9 +16,12 @@ adds the certified basis-behavior core, evaluator-backed circuit layer, and a
 non-root complete audit, bringing the tree to 72 Lean sources including the
 public root. Stage 6 adds three stable density/effect/separation leaves and one
 non-root complete audit, bringing the checkpoint tree to 76 Lean sources
-including the public root. Goal 2 remains active: channel relations, the full
-implication/strictness hierarchy, cross-model classification, approximation,
-registry closure, and the final release audit are later stages.
+including the public root. Stage 7 adds the channel core, real/complex phase
+kernel, evaluator-backed circuit lift, and non-root complete audit, bringing
+the checkpoint tree to 80 Lean sources including the public root. Goal 2
+remains active: the full implication/strictness hierarchy, cross-model
+classification, approximation, registry closure, and the final release audit
+are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -99,7 +102,8 @@ or an unsafe shortcut.
   all-pure-input basis agreement.
 - Sided composition laws follow chronological order. A common earlier
   projective evolution requires unitarity, and no arbitrary two-sided closure
-  or channel conclusion is exported.
+  is exported. Input- and output-dependent phase families are not promoted to
+  channel equality.
 - Rational unitary witnesses certify exact/global strictness, input/output
   incomparability, superposition sensitivity, and the separation between
   output-basis probabilities and output rays.
@@ -116,7 +120,9 @@ or an unsafe shortcut.
   equivalent to one central real sign. Rank one is sharp: the projectively
   trivial scalar operators are exactly the full unit-quaternion family, and
   `j` is an explicit unitary noncentral witness.
-- No operator-phase result is promoted to channel or all-effect equality.
+- Quaternionic operator-phase results are not promoted to channel or
+  all-effect equality. The separate Stage 7 real/complex unitary layer proves
+  exactly the justified global/projective channel characterizations.
 
 ### Density matrices and physical effects
 
@@ -146,9 +152,45 @@ or an unsafe shortcut.
   normalized rank-one physical effects and quadratic-form polarization, not
   arbitrary trace-test matrices.
 - This fixed-pair separation theorem is not `ChannelEq` or
-  `AllMeasurementEq`. Stage 6 adds no channel relation, circuit channel lift,
-  quaternionic mixed-state theory, partial trace, Kraus map, instrument, or
+  `AllMeasurementEq` by itself. Stage 7 now supplies those same-space unitary
+  relations and consumes this separation theorem. Neither stage adds
+  quaternionic mixed-state theory, partial trace, Kraus maps, instruments, or
   arbitrary mixed-top simulation.
+
+### Unitary channels and all physical measurements
+
+- `UnitaryOperator 𝕜 I` bundles a finite `RCLike` square matrix with its
+  unitary certificate; `RealUnitaryOperator` and `ComplexUnitaryOperator` are
+  the supported model aliases.
+- `ChannelEq U V` compares the complete evolved density matrix for every
+  density input. `AllMeasurementEq U V` compares every genuine physical-effect
+  Born value for every density input. `channelEq_iff_allMeasurementEq` proves
+  them equivalent through physical-effect separation, not arbitrary trace
+  tests or basis effects alone.
+- Chronological composition is explicit: `U.followedBy V` stores `V * U` and
+  evolves first by `U`, then by `V`. Both relations are equivalence relations
+  and are congruent under this composition.
+- Raw real/complex projective action is equivalent to the existing normalized
+  relation by a checked zero/nonzero normalization proof. Global real
+  sign/complex phase implies channel equality without an inhabited premise,
+  and channel equality implies raw and normalized projective action.
+- On an explicitly nonempty finite matrix index, global sign/phase, raw
+  projective action, normalized projective action, `ChannelEq`, and
+  `AllMeasurementEq` are equivalent. The proof uses basis columns and pairwise
+  sums for `V * Uᴴ`, with no determinant or dimension-at-least-two argument.
+- Empty-index channel equality is physically vacuous because no density input
+  exists. Separate empty-index theorems prove exact equality of the unique
+  square matrices and derive global phase from that matrix fact.
+- `UnitaryCircuit` bundles a chronological circuit with its local-unitarity
+  certificate. `CircuitChannelEq` and `CircuitAllMeasurementEq` compare its
+  derived evaluator, preserve exact equality and chronological append, and
+  have the same real/complex global/projective characterizations. `BitBasis W`
+  is canonically inhabited even at zero wires, so these circuit theorems need
+  no redundant nonempty premise.
+- The channel API is same-space and real/complex-style only. It adds no
+  quaternionic channels, cross-model channel relation, partial trace, Kraus
+  maps, instruments, decoded marginal, mixed-top simulation, or capacity
+  result.
 
 ### Matrix embeddings and groups
 
@@ -254,6 +296,7 @@ Representative exported declarations include:
 | Ray quotient core | the three `*Ray.mk_eq_mk_iff` theorems, `RealRay.mk_eq_mk_iff_eq_or_eq_neg`, representative `exists_rep`/`inductionOn`/`lift` APIs, and `realRay_nonempty_iff`/`complexRay_nonempty_iff`/`quaternionRay_nonempty_iff` |
 | Certified basis behavior | `BasisPermutationImplementation`, `SameBasisBehavior`, `BasisClassicalUnitaryOperator`, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, the scalar `sameBasisBehavior_iff_*` families, and the certified XOR preparation declarations |
 | Densities and effects | `DensityMatrix`, `RealDensityMatrix`, `ComplexDensityMatrix`, `DensityMatrix.pure`, `basis`, `unitaryConjugate`; `Effect`, `RealEffect`, `ComplexEffect`, `Effect.projector`, `basis`, `bornValue`, `bornValue_mem_Icc`; and `DensityMatrix.eq_iff_forall_effect_bornValue_eq` |
+| Channels | `UnitaryOperator`, `ChannelEq`, `AllMeasurementEq`, `channelEq_iff_allMeasurementEq`; `RealRawProjectiveActionEq`, `ComplexRawProjectiveActionEq`, the real/complex global/projective `*_iff_channelEq` families; `UnitaryCircuit`, `CircuitChannelEq`, `CircuitAllMeasurementEq`, and their phase/append bridges |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -275,7 +318,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, measurement, certified basis, phase, density, and effect APIs
+  Semantics/    exact, measurement, basis, phase, density, effect, and channel APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -352,7 +395,7 @@ proves `det = 1 ∨ det = -1`, but not the general `det = 1` refinement.
 
 Important partial boundaries include arbitrary mixed top states, generic
 partial trace, Kraus maps, instruments, quaternionic density/channel
-positivity, same-space channel relations, physical swap synthesis and routing
+positivity, cross-model channel relations, physical swap synthesis and routing
 cost, uniform circuit generators, finite scalar encodings,
 approximation/error accumulation, generic unitary synthesis, randomized
 postprocessing, preprocessing runtime, and BQP containment. Normalized ray computational-basis observables,
@@ -361,10 +404,10 @@ evolution descend with exact identity and composition laws. The complex-to-real
 embedding-orbit boundary is also complete: the rebit and complex-state-ray
 source rows are now proved as stated and `closedByGoal2`. This does not settle
 arbitrary mixed top states, the paper's phase-kickback interpretation, partial
-trace, or channel/all-input/all-effect semantics. Stage 6 does provide finite
-same-space real/complex densities, genuine effects, and fixed-pair
-physical-effect separation; it does not supply those missing cross-model or
-channel constructions.
+trace, or cross-model channel/all-input/all-effect semantics. Stages 6 and 7
+do provide finite same-space real/complex densities, genuine effects,
+fixed-pair separation, and unitary channel/all-effect equality; they do not
+supply those missing cross-model constructions.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -449,15 +492,36 @@ The Stage 6 root audit adds 24 independent endpoints for a total of 354.
 Every root endpoint and all seven local Stage 6 diagnostic endpoints use
 exactly the union `propext`, `Classical.choice`, and `Quot.sound`; no
 project-specific axiom is introduced. These are Stage 6 checkpoint results,
-not evidence that the later Goal 2 channel or release stages are complete.
+not by themselves evidence for the Stage 7 channel results recorded below or
+for Goal 2 release completion.
+
+Stage 7 contributes 139 stable declarations: 41 in
+`Semantics/Channel.lean`, 40 in `Semantics/ChannelPhase.lean`, and 58 in
+`Semantics/ChannelCircuit.lean`. Twenty-three exact-allocation aggregates in
+the non-root `Semantics/ChannelAudit.lean` consume the full surface as
+`20+11+10`, `2+7+7+6+2+2+6+6+2`, and
+`2+19+2+10+10+1+2+2+2+4+4`, with no uncovered named export. Its examples
+check real and complex global phase, a physically distinct identity/swap
+channel, chronological operator/circuit composition, empty-index vacuity, and
+the inhabited zero-wire circuit basis.
+
+All three stable leaves and the non-root audit pass warning-as-error source
+checks. The focused diagnostic build completed 2,686 jobs; the combined
+public-root plus explicit-axiom target completed 2,760; the cached default
+build completed 2,759; and the broader adjacent combined target completed
+2,763. All 11 local Stage 7 diagnostic endpoints and all 393 public-root
+endpoints use exactly `propext`, `Classical.choice`, and `Quot.sound`. The
+public root imports only `Channel`, `ChannelPhase`, and `ChannelCircuit`, never
+`ChannelAudit`.
 
 Warning-as-error source checks passed for the stable operator-phase, ray,
-certified-basis, density, effect, and separation leaves, their diagnostic
-leaves, public root, axiom audit, and all Stage 6 source boundaries. The
-executable root audit now contains 354 `#print axioms` commands, including 19
-Stage 4C, 25 Stage 5, and 24 Stage 6 endpoints. All seven local Stage 6
-diagnostic prints, all 18 local Stage 5 diagnostic prints, the retained 12
-local Stage 4C prints, and every root endpoint use exactly the union `propext`,
+certified-basis, density, effect, separation, and channel leaves, their
+diagnostic leaves, public root, axiom audit, and all Stage 7 source boundaries.
+The executable root audit now contains 393 `#print axioms` commands, including
+19 Stage 4C, 25 Stage 5, 24 Stage 6, and 39 Stage 7 endpoints. All 11 local
+Stage 7 diagnostic prints, all seven local Stage 6 prints, all 18 local Stage 5
+prints, the retained 12 local Stage 4C prints, and every root endpoint use
+exactly the union `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
@@ -483,10 +547,16 @@ direct-audit labels including 24 Stage 6 labels. The frozen 936-declaration
 Goal 1 cohort retains checksum
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
+Stage 7 appends its 139 declarations exactly once, bringing the semantic
+manifest to 941 entries. The integrated checks resolve all 941 public names,
+104 distinct aggregate consumers including the 23 Stage 7 consumers, and 207
+direct-audit labels including 39 Stage 7 labels. The frozen Goal 1 cohort and
+checksum remain unchanged.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 6. The public root imports
+and heartbeat-override scans are empty through Stage 7. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
@@ -524,6 +594,13 @@ open QuaternionicComputing
 #check Semantics.Effect.bornValue_mem_Icc
 #check Semantics.DensityMatrix.unitaryConjugate_comp
 #check Semantics.DensityMatrix.eq_iff_forall_effect_bornValue_eq
+#check Semantics.UnitaryOperator
+#check Semantics.channelEq_iff_allMeasurementEq
+#check Semantics.realGlobalSignEq_iff_channelEq
+#check Semantics.complexProjectiveActionEq_iff_channelEq
+#check Semantics.UnitaryCircuit
+#check Semantics.circuitChannelEq_iff_allMeasurementEq
+#check Semantics.realCircuitGlobalSignEq_iff_channelEq
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
@@ -545,8 +622,11 @@ When extending the library:
   transition biconditional or generic measurement equality;
 - represent finite real/complex mixed states with `DensityMatrix` and
   measurements with genuine Loewner `Effect` values; do not reinterpret an
-  arbitrary trace test as a physical effect or infer a channel theorem from
-  fixed-pair density separation;
+  arbitrary trace test as a physical effect;
+- use `UnitaryOperator`, `ChannelEq`, and `AllMeasurementEq` for complete
+  same-space real/complex-style physical behavior; retain `Nonempty I` on
+  matrix phase converses and do not infer quaternionic or cross-model channel
+  semantics from them;
 - preserve the chronological convention `[g₁,…,gₛ] ↦ Gₛ⋯G₁`;
 - use generic `unitary (Matrix … ℍ)` rather than the commutative-only
   `Matrix.unitaryGroup` for quaternionic matrices;

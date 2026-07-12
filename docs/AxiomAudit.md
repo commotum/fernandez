@@ -3,9 +3,8 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 354 `#print axioms` commands (330 at the Stage 5
-checkpoint, 305 at the Stage 4C checkpoint, and 286 at the Stage 4B
-checkpoint). Representative endpoint
+the public root. It now runs 393 `#print axioms` commands (354 at the Stage 6
+checkpoint, 330 at Stage 5, and 305 at Stage 4C). Representative endpoint
 categories include:
 
 - quaternion scalar decomposition and phase correction;
@@ -44,6 +43,10 @@ categories include:
   empty-index obstruction, unitary conjugation and chronological composition,
   genuine Loewner effects, Born bounds and basis formulas, and separation by
   all physical effects;
+- bundled real/complex-style unitary operators, complete channel equality,
+  equality under every genuine physical effect, raw/normalized projective
+  kernels, global sign/phase characterizations, empty-index boundaries, and
+  evaluator-backed locally-unitary circuit channels;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
@@ -143,13 +146,38 @@ unitary conjugation and `V * U` composition, projector bounds, Born reality and
 separation. These endpoints do not audit a channel relation because Stage 6
 does not define one.
 
+Stage 7 adds 139 stable declarations split `41 + 40 + 58` across
+`Semantics/Channel.lean`, `ChannelPhase.lean`, and `ChannelCircuit.lean`.
+The non-root `Semantics/ChannelAudit.lean` has 23 exact-allocation aggregate
+consumers. The core allocation is `20 + 11 + 10 = 41`; the phase allocation is
+`2 + 7 + 7 + 6 + 2 + 2 + 6 + 6 + 2 = 40`; and the circuit allocation is
+`2 + 19 + 2 + 10 + 10 + 1 + 2 + 2 + 2 + 4 + 4 = 58`. Generated structure
+projections and the two anonymous coercion instances are excluded consistently
+from the named count while the aggregate statements exercise both coercions.
+
+The concrete audit distinguishes identity from a real swap using a genuine
+basis effect, checks real `-1` and complex `I` global phases, verifies
+chronological `V * U` and `eval D * eval C` order, separates the empty-matrix
+boundary from vacuous empty-density channel quantification, and checks the
+inhabited zero-wire circuit basis. It remains outside the public root and
+contains 11 representative local axiom commands that are separate from the
+root count. Strict compilation and the emitted local audit reproduce exactly
+the standard three-item union below.
+
+The root audit adds 39 independent Stage 7 endpoints, bringing its total to
+393 commands. They cover complete-output/all-effect equivalence, raw and
+normalized phase bridges, inhabited real/complex global and projective
+characterizations, exact empty-index matrix facts, circuit exact/global lifts,
+and chronological append. No quaternionic or cross-model channel endpoint is
+present.
+
 ## Current checkpoint result
 
-The Stage 6 checkpoint audit completed successfully under Lean 4.31.0 and
-mathlib v4.31.0. Every one of the 354 public-root endpoints, all seven local
-Stage 6 diagnostic endpoints, all 18 local Stage 5 diagnostic endpoints, and
-the retained local Stage 4C diagnostics individually depends on a subset of
-the following exact three-item union:
+The Stage 7 public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 393 public-root endpoints, all 11
+local Stage 7 endpoints, all seven local Stage 6 endpoints, all 18 local Stage
+5 endpoints, and the retained local Stage 4C diagnostics individually depends
+on a subset of the following exact three-item union:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -163,11 +191,11 @@ Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
 from a focused build alone.
 
-The completed Stage 6 density, effect, separation, and non-root diagnostic
-leaves also pass warning-as-error compilation. All seven local Stage 6
-endpoints reproduce the same exact three-item union and introduce no
-project-specific axiom. This is a Stage 6 checkpoint, not a claim that Goal 2
-or its later channel/hierarchy stages are complete.
+The three stable Stage 7 channel leaves and non-root audit pass
+warning-as-error compilation. The focused audit build completed 2,686 jobs and
+the public-root plus explicit-audit build completed 2,760 jobs. This is a Stage
+7 checkpoint, not a claim that Goal 2 or its later hierarchy, cross-model,
+approximation, registry, and release stages are complete.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

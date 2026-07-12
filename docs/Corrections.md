@@ -653,4 +653,5 @@ means the corrected mathematical target is known but not yet formalized;
   cross-model density/channel semantics, and the paper's phase-kickback
   interpretation are unaffected and remain open in their existing Goal 3
   rows. The separate Stage 6 same-space real/complex density-and-effect core
-  does not close these claims.
+  and Stage 7 same-space unitary-channel classification do not close these
+  claims.

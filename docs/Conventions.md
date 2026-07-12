@@ -297,8 +297,8 @@ For two density matrices, literal equality is equivalent to equality of their
 Born values against every genuine physical effect. The separation proof uses
 normalized rank-one projector effects and quadratic-form polarization; it
 does not relabel arbitrary matrices as physical effects. This is a fixed-pair
-state extensionality theorem. It is not yet `ChannelEq` or
-`AllMeasurementEq` by itself; the separate channel layer now adds those
+state extensionality theorem. It is not `ChannelEq` or `AllMeasurementEq` by
+itself; the separate channel layer now adds those
 operator quantifiers and uses this theorem for its converse.
 
 No quaternionic density/effect positivity, generic partial trace, Kraus map,

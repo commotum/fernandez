@@ -404,6 +404,47 @@ simulation. Those omissions are semantic boundaries, not failed converses.
 Stage 7 owns the operator/channel quantifiers and the theorem connecting them
 through this physical-effect separation result.
 
+## Stage 7 proof-bearing realization
+
+Stage 7 supplies the same-space real/complex unitary-channel classification
+without changing the frozen Goal 1 cohort or any paper-row disposition. A
+`UnitaryOperator` bundles the unitary proof required for physical evolution;
+the relations do not accept arbitrary square matrices as channels.
+
+| Relation or object | Exact checked meaning | Proved equivalences and implications | Deliberately excluded upgrade |
+|---|---|---|---|
+| `ChannelEq U V` | For every density input `ρ`, the complete outputs `U.evolve ρ` and `V.evolve ρ` are equal as density matrices. | Equivalence relation; exact bundled/matrix equality implies it; chronological composition is congruent. | Not equality only on pure states, basis inputs, diagonal entries, or decoded cross-model outcomes. |
+| `AllMeasurementEq U V` | For every density input `ρ` and every genuine `Effect`, all Born values after `U` and `V` agree. | `ChannelEq U V ↔ AllMeasurementEq U V`, with the converse proved through physical-effect separation for each output pair. | The quantifier is not restricted to basis effects and does not range over arbitrary trace-test matrices. |
+| `RealRawProjectiveActionEq` / `ComplexRawProjectiveActionEq` | Every raw input column produces outputs on the same correctly sided real-sign/complex-right-phase ray. | Equivalent to the existing normalized projective relation for every finite input type by explicit zero/nonzero normalization. | Not a channel relation for arbitrary nonunitary or rectangular matrices. |
+| Real/complex global phase on bundled unitaries | `V = η • U` for one matrix-wide real sign or complex unit phase. | Global phase implies `ChannelEq` in every finite dimension. On `[Nonempty I]`, global phase, raw projective action, normalized projective action, `ChannelEq`, and `AllMeasurementEq` are equivalent. | Input-column and output-row phase families remain outside this kernel and are not upgraded. No determinant or dimension-at-least-two premise is used. |
+| `CircuitChannelEq` / `CircuitAllMeasurementEq` | Apply the corresponding operator relation to `OrderedCircuit.eval` after storing a local-unitarity certificate in `UnitaryCircuit`. | Exact evaluator equality, global phase, projective action, and chronological append lift. The two circuit relations are equivalent and each is an equivalence relation. | No gate-list, schedule, resource, compilation, cross-model, or decoded-marginal equality. |
+
+The matrix-level implication structure for inhabited real and complex unitary
+spaces is now checked as
+
+```text
+Exact bundled/matrix equality
+              │
+              ▼
+global sign/phase ⇔ raw projective action ⇔ normalized projective action
+              │                                      │
+              └──────────────▶ ChannelEq ⇔ AllMeasurementEq
+```
+
+The phase/projective/channel equivalences require `Nonempty I` in the matrix
+API. This is not a technical convenience: no density matrix exists on an
+empty index, so `ChannelEq` and `AllMeasurementEq` are physically vacuous
+there. The named empty-index phase theorems instead use exact equality of the
+unique empty square matrices. For circuits, `BitBasis W = W → Bool` is
+canonically inhabited even when `W` is empty, so the corresponding evaluator
+characterizations discharge the matrix premise internally and remain
+nonvacuous at zero wires.
+
+Stage 7 introduces no quaternionic density/effect/channel theory, arbitrary
+trace-test semantics, partial trace, Kraus channel, instrument, cross-model
+channel relation, decoded marginal, mixed-top theorem, or capacity claim.
+Those omissions are scope boundaries rather than failed converses.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

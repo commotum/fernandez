@@ -13525,7 +13525,7 @@
         "subject": "the public declaration realSignEquivalent_of_normalized_pureMatrix_eq",
         "inputScope": "two raw columns, with the first exactly normalized and their complete pureMatrix values equal; the second normalization is derived",
         "observationScope": "full ket-bra matrix equality implies representative sign/right-phase equivalence, not merely equal basis probabilities",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact implication with an explicit normalized premise; no density or channel quantifier is weakened",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13541,7 +13541,7 @@
         "subject": "the public declaration complexRightPhaseEquivalent_of_normalized_pureMatrix_eq",
         "inputScope": "two raw columns, with the first exactly normalized and their complete pureMatrix values equal; the second normalization is derived",
         "observationScope": "full ket-bra matrix equality implies representative sign/right-phase equivalence, not merely equal basis probabilities",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact implication with an explicit normalized premise; no density or channel quantifier is weakened",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13557,7 +13557,7 @@
         "subject": "the public declaration RealRawProjectiveActionEq",
         "inputScope": "every raw input column, including zero and all nonnormalized columns",
         "observationScope": "the complete output column is sign/right-phase equivalent for each input; the phase witness may depend on the input",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact projective-action relation, not operator equality, channel equality, or a fixed global phase",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13573,7 +13573,7 @@
         "subject": "the public declaration ComplexRawProjectiveActionEq",
         "inputScope": "every raw input column, including zero and all nonnormalized columns",
         "observationScope": "the complete output column is sign/right-phase equivalent for each input; the phase witness may depend on the input",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact projective-action relation, not operator equality, channel equality, or a fixed global phase",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13589,7 +13589,7 @@
         "subject": "the public declaration refl",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13605,7 +13605,7 @@
         "subject": "the public declaration symm",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13621,7 +13621,7 @@
         "subject": "the public declaration trans",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13637,7 +13637,7 @@
         "subject": "the public declaration equivalence",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13653,7 +13653,7 @@
         "subject": "the public declaration of_exact",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13669,7 +13669,7 @@
         "subject": "the public declaration projectiveActionEq",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13685,7 +13685,7 @@
         "subject": "the public declaration refl",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13701,7 +13701,7 @@
         "subject": "the public declaration symm",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13717,7 +13717,7 @@
         "subject": "the public declaration trans",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13733,7 +13733,7 @@
         "subject": "the public declaration equivalence",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13749,7 +13749,7 @@
         "subject": "the public declaration of_exact",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13765,7 +13765,7 @@
         "subject": "the public declaration projectiveActionEq",
         "inputScope": "every raw input column; the named projection restricts this quantifier to normalized pure inputs",
         "observationScope": "per-input sign/right-phase equality of complete output columns",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact equivalence law, exact-equality implication, or raw-to-normalized implication",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13781,7 +13781,7 @@
         "subject": "the public declaration rawProjectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right; global bridges instead use the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13797,7 +13797,7 @@
         "subject": "the public declaration rawProjectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; global bridges instead use the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13813,7 +13813,7 @@
         "subject": "the public declaration realRawProjectiveActionEq_iff_projectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right; global bridges instead use the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13829,7 +13829,7 @@
         "subject": "the public declaration complexRawProjectiveActionEq_iff_projectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; global bridges instead use the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13845,7 +13845,7 @@
         "subject": "the public declaration rawProjectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right; global bridges instead use the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13861,7 +13861,7 @@
         "subject": "the public declaration rawProjectiveActionEq",
         "inputScope": "all normalized pure inputs versus every raw input column, or one fixed operator-wide global phase where named",
         "observationScope": "exact projective equality of complete output columns; raw and normalized quantification are proved equivalent",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; global bridges instead use the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication or iff, including the zero-column normalization case; not a channel theorem",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13877,7 +13877,7 @@
         "subject": "the public declaration globalSignEq_of_unitary",
         "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
         "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
-        "phase": "one square-one real sign acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "phase": "projective output representatives use one square-one real sign on the right; these per-input witnesses collapse to one common scalar and the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13893,7 +13893,7 @@
         "subject": "the public declaration globalPhaseEq_of_unitary",
         "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
         "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
-        "phase": "one unit-norm complex phase acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; these per-input witnesses collapse to one common scalar and the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13909,7 +13909,7 @@
         "subject": "the public declaration globalSignEq_of_unitary",
         "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
         "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
-        "phase": "one square-one real sign acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "phase": "projective output representatives use one square-one real sign on the right; these per-input witnesses collapse to one common scalar and the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13925,7 +13925,7 @@
         "subject": "the public declaration globalPhaseEq_of_unitary",
         "inputScope": "every raw or normalized pure input column, including basis columns and pairwise sums used to force a common scalar",
         "observationScope": "projective agreement collapses to one operator-wide global sign/unit phase",
-        "phase": "one unit-norm complex phase acts on state columns on the right; the conclusion uses one common operator-wide scalar",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; these per-input witnesses collapse to one common scalar and the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication; Nonempty I is explicit and no dimension-at-least-two assumption is added",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13941,7 +13941,7 @@
         "subject": "the public declaration channelEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "exact equality of every evolved density matrix, with the scalar cancelling under conjugation",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13957,7 +13957,7 @@
         "subject": "the public declaration channelEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "exact equality of every evolved density matrix, with the scalar cancelling under conjugation",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13973,7 +13973,7 @@
         "subject": "the public declaration realProjectiveActionEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -13989,7 +13989,7 @@
         "subject": "the public declaration complexProjectiveActionEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14005,7 +14005,7 @@
         "subject": "the public declaration realRawProjectiveActionEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "projective output representatives use one square-one real sign on the right",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14021,7 +14021,7 @@
         "subject": "the public declaration complexRawProjectiveActionEq",
         "inputScope": "all density inputs for ChannelEq and all normalized or raw pure columns where the conclusion is projective",
         "observationScope": "complete channel equality implies sign/right-phase equality of output columns on all normalized or raw inputs",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "projective output representatives use one unit-norm complex phase on the right",
         "exactness": "exact implication; no basis-only behavior is presented as a channel statement",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14037,7 +14037,7 @@
         "subject": "the public declaration realGlobalSignEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14053,7 +14053,7 @@
         "subject": "the public declaration complexGlobalPhaseEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14069,7 +14069,7 @@
         "subject": "the public declaration realProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "projective output representatives use one square-one real sign on the right; projective witnesses are proved to collapse to one global scalar with the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14085,7 +14085,7 @@
         "subject": "the public declaration complexProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; projective witnesses are proved to collapse to one global scalar with the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14101,7 +14101,7 @@
         "subject": "the public declaration realRawProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one square-one real sign acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "projective output representatives use one square-one real sign on the right; projective witnesses are proved to collapse to one global scalar with the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14117,7 +14117,7 @@
         "subject": "the public declaration complexRawProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one global phase or all normalized/raw pure inputs, exactly as named",
         "observationScope": "complete unitary-channel equality is characterized by the corresponding global or projective action relation",
-        "phase": "one unit-norm complex phase acts on state columns on the right; projective witnesses are proved to collapse to one global scalar",
+        "phase": "projective output representatives use one unit-norm complex phase on the right; projective witnesses are proved to collapse to one global scalar with the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact iff with explicit Nonempty I; empty-dimensional channel vacuity is excluded",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14133,7 +14133,7 @@
         "subject": "the public declaration realGlobalSignEq_of_isEmpty",
         "inputScope": "the unique empty square matrices; this theorem does not infer physical content from the vacuous density-input channel relation",
         "observationScope": "literal matrix equality implies global sign/unit-phase equality on the empty type",
-        "phase": "one square-one real sign acts on state columns on the right",
+        "phase": "the operator-wide relation is oriented V = s • U for one square-one real sign",
         "exactness": "exact boundary theorem separated from the Nonempty channel characterization",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14149,7 +14149,7 @@
         "subject": "the public declaration complexGlobalPhaseEq_of_isEmpty",
         "inputScope": "the unique empty square matrices; this theorem does not infer physical content from the vacuous density-input channel relation",
         "observationScope": "literal matrix equality implies global sign/unit-phase equality on the empty type",
-        "phase": "one unit-norm complex phase acts on state columns on the right",
+        "phase": "the operator-wide relation is oriented V = eta • U for one unit-norm complex phase",
         "exactness": "exact boundary theorem separated from the Nonempty channel characterization",
         "ancillaPolicy": "none; both operators retain the same finite index type and there is no added wire, partial trace, marginalization, or decoding"
       }
@@ -14901,7 +14901,7 @@
         "subject": "the public declaration circuitChannelEq",
         "inputScope": "the complete evaluated operators related by one global sign/phase",
         "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
-        "phase": "one evaluator-wide square-one real sign",
+        "phase": "the evaluator-wide relation is oriented eval D = s • eval C for one square-one real sign",
         "exactness": "exact implication, not gatewise syntax equality",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14917,7 +14917,7 @@
         "subject": "the public declaration circuitAllMeasurementEq",
         "inputScope": "the complete evaluated operators related by one global sign/phase",
         "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
-        "phase": "one evaluator-wide square-one real sign",
+        "phase": "the evaluator-wide relation is oriented eval D = s • eval C for one square-one real sign",
         "exactness": "exact implication, not gatewise syntax equality",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14933,7 +14933,7 @@
         "subject": "the public declaration circuitChannelEq",
         "inputScope": "the complete evaluated operators related by one global sign/phase",
         "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
-        "phase": "one evaluator-wide unit complex phase",
+        "phase": "the evaluator-wide relation is oriented eval D = eta • eval C for one unit-norm complex phase",
         "exactness": "exact implication, not gatewise syntax equality",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14949,7 +14949,7 @@
         "subject": "the public declaration circuitAllMeasurementEq",
         "inputScope": "the complete evaluated operators related by one global sign/phase",
         "observationScope": "complete evaluator-backed channel equality or every physical-effect Born value",
-        "phase": "one evaluator-wide unit complex phase",
+        "phase": "the evaluator-wide relation is oriented eval D = eta • eval C for one unit-norm complex phase",
         "exactness": "exact implication, not gatewise syntax equality",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14965,7 +14965,7 @@
         "subject": "the public declaration realGlobalSignEq",
         "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
         "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
-        "phase": "one evaluator-wide square-one real sign or per-input real sign in projective form",
+        "phase": "the evaluator-wide relation is oriented eval D = s • eval C for one square-one real sign",
         "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14981,7 +14981,7 @@
         "subject": "the public declaration complexGlobalPhaseEq",
         "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
         "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
-        "phase": "one evaluator-wide unit complex phase or per-input right phase in projective form",
+        "phase": "the evaluator-wide relation is oriented eval D = eta • eval C for one unit-norm complex phase",
         "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -14997,7 +14997,7 @@
         "subject": "the public declaration realProjectiveActionEq",
         "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
         "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
-        "phase": "one evaluator-wide square-one real sign or per-input real sign in projective form",
+        "phase": "each normalized projective output uses a square-one real sign on the right",
         "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -15013,7 +15013,7 @@
         "subject": "the public declaration complexProjectiveActionEq",
         "inputScope": "all density inputs through CircuitChannelEq and all normalized pure basis-space inputs for projective conclusions",
         "observationScope": "the complete evaluated operators differ by one global scalar or act projectively alike, exactly as named",
-        "phase": "one evaluator-wide unit complex phase or per-input right phase in projective form",
+        "phase": "each normalized projective output uses a unit-norm complex phase on the right",
         "exactness": "exact implication; BitBasis inhabitation discharges the matrix-kernel Nonempty premise",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -15029,7 +15029,7 @@
         "subject": "the public declaration realCircuitGlobalSignEq_iff_channelEq",
         "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
         "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
-        "phase": "one evaluator-wide square-one real sign, equivalent to normalized projective action",
+        "phase": "the evaluator-wide relation is oriented eval D = s • eval C for one square-one real sign",
         "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -15045,7 +15045,7 @@
         "subject": "the public declaration complexCircuitGlobalPhaseEq_iff_channelEq",
         "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
         "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
-        "phase": "one evaluator-wide unit complex phase, equivalent to normalized right-projective action",
+        "phase": "the evaluator-wide relation is oriented eval D = eta • eval C for one unit-norm complex phase",
         "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -15061,7 +15061,7 @@
         "subject": "the public declaration realCircuitProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
         "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
-        "phase": "one evaluator-wide square-one real sign, equivalent to normalized projective action",
+        "phase": "each normalized projective output uses a square-one real sign on the right; these witnesses collapse to eval D = s • eval C",
         "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
@@ -15077,7 +15077,7 @@
         "subject": "the public declaration complexCircuitProjectiveActionEq_iff_channelEq",
         "inputScope": "all density inputs versus one evaluator-wide global phase or all normalized pure inputs, as named",
         "observationScope": "complete evaluator-backed channel equality exactly characterized by global or normalized projective phase behavior",
-        "phase": "one evaluator-wide unit complex phase, equivalent to normalized right-projective action",
+        "phase": "each normalized projective output uses a unit-norm complex phase on the right; these witnesses collapse to eval D = eta • eval C",
         "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }

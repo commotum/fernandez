@@ -65,7 +65,8 @@ preserved, and neither canonical column descends to ordinary `RealRay` except
 vacuously on an empty index. Correction C-027 records this source-order issue.
 The two transferred ray rows are now proved as stated and `closedByGoal2`;
 mixed-top, phase-kickback, cross-model density, and channel claims remain open
-in their existing rows. Channels remain Stage 7.
+in their existing rows. Stage 7 supplies only same-space real/complex unitary
+channels and does not change those cross-model dispositions.
 
 Stage 5 adds a certified-only classical reversible basis layer. A
 `BasisPermutationImplementation` supplies an explicit permutation and proves
@@ -93,6 +94,21 @@ foundation for Stage 7, not a channel theorem: no `ChannelEq`,
 `AllMeasurementEq`, quaternionic density/positivity, partial trace, Kraus map,
 instrument, or cross-model mixed-top result is added. In particular, the
 existing mixed-top and channel rows remain open at exactly their prior status.
+
+Stage 7 consumes that infrastructure without changing any paper row's terminal
+status. `UnitaryOperator` bundles real/complex-style finite unitaries;
+`ChannelEq` compares their complete output density for every density input,
+and `AllMeasurementEq` quantifies every input and genuine physical `Effect`.
+The two relations are equivalent by Stage 6 separation. Raw and normalized
+real/complex projective action, global sign/phase, and channel equality have
+the same kernel on an explicitly inhabited matrix index, while named
+empty-index results use exact subsingleton matrix equality instead of vacuous
+density quantification. `UnitaryCircuit` lifts these facts through
+`OrderedCircuit.eval`; its `BitBasis` is inhabited even at zero wires, and
+append retains the order `eval D * eval C`. These are same-space semantics
+only. No quaternionic channel, arbitrary trace test, cross-model/mixed-top
+channel, partial trace, Kraus map, instrument, teleportation protocol, or
+capacity result is added.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 
@@ -156,7 +172,7 @@ existing mixed-top and channel rows remain open at exactly their prior status.
 | `FER03-R-ANCILLA-REUSE` | L432–436, Fig. 5 | All translated gates reuse one top wire; abstract gate count remains `s`. | P0 / `Simulation/ComplexToReal.lean` | **corrected and proved** structurally: `realifyCircuit` maps every gate into the same `AddedWire W`, while `gateCount_realifyCircuit` is exact |
 | `FER03-R-SWAP-REALIFICATION` | L462–478 | Realification commutes with central permutation/padding operations. | P0 / `Circuit/Realification.lean` | **corrected and proved** in the stronger support-independent semantic form `wireRealify_place`; explicit physical swap lists are neither needed nor counted |
 | `FER03-R-PARTIAL-TRACE-BLOCK-SUM` | L579–598, Eq. 30 | Tracing a two-level top subsystem sums diagonal blocks. | P0 / `State/Realification.lean` | **partially formalized** by the explicit rank-one `reducedRealOuter`; Stage 6 now supplies finite same-space real/complex density matrices, but no generic partial-trace operator or cross-model mixed-state theorem, so this row remains partial |
-| `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / `State/Realification.lean`, `State/RealificationOrbit.lean`, `State/RealificationOrbitObservables.lean` | **partially formalized**: every normalized pure `Rebit` is covered by `realTopCombination_bottomWeight_of_rebit` and `realTopState`; Stage 4C further proves every such pure top encoding is in the canonical `RealSectorOrbit`, so its descended bottom distribution is the source complex-ray distribution. The mixed-state extension still awaits a density-state API and is not inferred from the pure orbit theorem |
+| `FER03-R-ARBITRARY-TOP-REBIT` | L661 | Any normalized pure or mixed product top rebit yields the same bottom basis statistics. | P1 / `State/Realification.lean`, `State/RealificationOrbit.lean`, `State/RealificationOrbitObservables.lean` | **partially formalized**: every normalized pure `Rebit` is covered by `realTopCombination_bottomWeight_of_rebit` and `realTopState`; Stage 4C further proves every such pure top encoding is in the canonical `RealSectorOrbit`, so its descended bottom distribution is the source complex-ray distribution. Stages 6–7 supply same-space real/complex densities and unitary channels, but no cross-model mixed product-top encoding, partial trace, or decoded-effect theorem, so the mixed extension remains open |
 | `FER03-R-REAL-GATE-OPTIMIZATION` | L667 | A real source gate maps to identity on top coordinate times the gate. | P1 / `Matrix/Realification.lean`, `Simulation/Resources.lean` | **partially formalized**: `realify_map_ofReal` proves the exact doubled block-diagonal matrix, but the literal uniform gate translator still adds and uses the shared top wire for every occurrence; no optimized circuit translation or resource theorem removes it |
 | `FER03-R-SERIAL-DEPTH` | L669 | Shared-top construction has target depth at most gate count and can lose parallelism. | P1 / `Circuit/Depth.lean`, `Simulation/Resources.lean` | **corrected and proved** in the explicit support-disjoint model: every `SupportLayering` has depth at most gate count, and every layering of the literal realified circuit has depth exactly the source gate count because all image gates use the top wire. This is not a lower bound for alternative translations |
 | `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | L671 | Several top wires allegedly give `O(log s)` depth increase. | P2 / 8-RESOURCES | **unresolved**: the paper supplies no construction, correctness proof, ancilla count, fan-in convention, or primitive gate set; the one-shared-wire depth theorem neither proves nor refutes another encoding (C-015) |
@@ -183,7 +199,7 @@ existing mixed-top and channel rows remain open at exactly their prior status.
 | `FER03-Q-COMPLEXIFICATION-DEF` | L861–887, Eq. 47–48 | Define the explicit complex block embedding; tensor notation is mnemonic. | P0 / `Matrix/Complexification.lean` | **corrected and proved**: `complexify` is the explicit block matrix, with entrywise lower-block conjugation and four block-entry lemmas; malformed/formal tensor display excluded per C-011 |
 | `FER03-Q-ADJOINT-COMPONENTS` | L931–940, Eq. 50 | Co/Wd identities for quaternionic conjugate transpose. | P0 / `Matrix/Complexification.lean` | **proved as stated**: `complexPartMatrix_conjTranspose`, `jPartMatrix_conjTranspose` |
 | `FER03-Q-STATE-ENCODINGS` | L983–1005, Eq. 52–53 | Define `ĥ₀(q)=(Co q,-conj(Wd q))`, `ĥ₁(q)=(Wd q,conj(Co q))`. | P0 / `State/Complexification.lean` | **proved as stated**: `complexColumn0`, `complexColumn1`, sector lemmas, real-linear maps, reconstruction/injectivity, basis maps, norm preservation, and `complexColumns_orthogonal` |
-| `FER03-Q-ARBITRARY-TOP-QUBIT` | L1075 | Any normalized pure/mixed product top qubit preserves bottom basis statistics. | P1 / `State/Complexification.lean` | **partially formalized**: every normalized pure `Qubit` is covered by `complexTopCombination_bottomWeight_of_qubit` and `complexTopState`; mixed states await a density-state API |
+| `FER03-Q-ARBITRARY-TOP-QUBIT` | L1075 | Any normalized pure/mixed product top qubit preserves bottom basis statistics. | P1 / `State/Complexification.lean` | **partially formalized**: every normalized pure `Qubit` is covered by `complexTopCombination_bottomWeight_of_qubit` and `complexTopState`; same-space complex densities/channels now exist, but no quaternionic-source density encoding, mixed top-product construction, partial trace, or decoded-effect theorem is available |
 | `FER03-Q-DIRECT-REALIFICATION` | L1208–1221, Eq. 63 | Verify direct `4×4` scalar representation and matrix/unitary consequences. | P1 / `Matrix/QuaternionRealification.lean`, `Matrix/QuaternionRealificationUnitary.lean`, `Matrix/ProperImage.lean` | **corrected and proved**: `directRealify` has four real sectors per source index, all 16 Equation 63 entries, and the pure sector permutation `[3,1,0,2]` relation `directRealify_eq_reindex` to `realify (complexify A)`. It is injective, multiplicative, star-preserving, and sends quaternionic unitaries into `SO(4N)` with determinant one. `directRealifyUnitaryEquivImage` gives the corrected isomorphism onto its image, while `directWitness_specialOrthogonal_not_directRealify` proves the image is already proper in `SO(4)` at rank one (C-025) |
 
 ## Resource and universality claims
@@ -227,8 +243,8 @@ requirements of this library unless a later stage proves a nearby finite result.
 | `FER03-OPEN-PATH-WEIGHTS` | L1243 | Could paths carry probabilities or amplitudes? | **intentionally excluded**: no multi-path semantics or weighting rule is supplied |
 | `FER03-OPEN-PATH-INTERFERENCE` | L1243 | Could paths interfere constructively or destructively? | **intentionally excluded**: no path superposition or interference model is supplied |
 | `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | L1243 | Could path parallelism exceed quantum computational power? | **intentionally excluded**: speculative complexity question with no formal model |
-| `FER03-OPEN-QUATERBIT-TELEPORTATION` | L1251 | How many classical bits are needed to teleport a quaterbit? | **intentionally excluded**: no channel or teleportation protocol is defined |
-| `FER03-OPEN-CHANNEL-CAPACITY` | L1251 | How do quaternionic amplitudes affect channel capacities? | **intentionally excluded**: no channel/capacity framework is defined |
+| `FER03-OPEN-QUATERBIT-TELEPORTATION` | L1251 | How many classical bits are needed to teleport a quaterbit? | **intentionally excluded**: no quaternionic channel, teleportation protocol, discard operation, or communication model is defined; same-space real/complex unitary-channel equality does not address the question |
+| `FER03-OPEN-CHANNEL-CAPACITY` | L1251 | How do quaternionic amplitudes affect channel capacities? | **intentionally excluded**: no quaternionic, noisy, or capacity framework is defined; the finite same-space unitary-channel equivalence layer has no coding or information-rate semantics |
 | `FER03-OPEN-COMMUNICATION-COMPLEXITY` | L1251 | How does communication complexity change? | **intentionally excluded**: no communication model or cost measure is defined |
 | `FER03-OPEN-REBIT-INFORMATION-THEORY` | L1251 | What analogous distinctions occur for rebits? | **intentionally excluded**: broad research question, not a source theorem |
 | `FER03-OPEN-OTHER-SCALARS` | L1253–1257 | What coherent models arise from octonions or finite fields? | **intentionally excluded**: outside the associative real/complex/quaternion scope |
