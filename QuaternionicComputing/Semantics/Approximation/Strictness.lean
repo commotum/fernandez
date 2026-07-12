@@ -1,6 +1,7 @@
 module
 
 public import QuaternionicComputing.Semantics.Approximation.Operator
+public import QuaternionicComputing.Semantics.Approximation.OperatorPhase
 public import QuaternionicComputing.Semantics.Approximation.Distribution
 
 /-!
@@ -11,6 +12,10 @@ budget is not transitive.  The operator witnesses include both an elementary
 real chain and a chain of genuine one-dimensional complex unitaries.  The
 distribution witness uses the two Boolean point masses and the fair Boolean
 distribution.
+
+The identity scalar matrix and its negative additionally witness that raw
+operator distance is phase-sensitive even though complex global-phase
+closeness holds at budget zero.
 
 These examples justify treating `OperatorClose` and `DistributionClose` as
 budgeted relations whose valid composition law adds budgets, rather than as
@@ -129,6 +134,20 @@ theorem operatorClose_sqrtTwo_not_transitive_on_complex_unitaries :
 theorem rawDistance_one_negOne_eq_two :
     operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) = 2 :=
   complexScalarPhaseChain_distances.2.2
+
+/--
+The identity scalar matrix and its negative are raw distance `2` apart, but
+one global complex phase makes them close at budget zero.  This is the exact
+boundary between phase-sensitive raw distance and phase-aware closeness.
+-/
+theorem rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero :
+    operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) = 2 ∧
+      ComplexGlobalPhaseClose 0
+        (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) := by
+  refine ⟨rawDistance_one_negOne_eq_two, complexGlobalPhaseClose_zero_iff.mpr ?_⟩
+  refine ⟨-1, by norm_num [Complex.normSq_apply], ?_⟩
+  ext i j
+  simp [scalarMatrix]
 
 /-! ## Boolean-distribution witness -/
 
