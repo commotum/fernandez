@@ -2,16 +2,19 @@ module
 
 public import QuaternionicComputing.Semantics.SimulationEncoding
 public import QuaternionicComputing.Semantics.SimulationWrappers
+public import QuaternionicComputing.Semantics.SimulationOutcomes
 public import QuaternionicComputing.Circuit.OrderingWitness
 public import QuaternionicComputing.State.RealificationOrbitBoundary
 public import QuaternionicComputing.State.RealificationOrbitObservables
 public import QuaternionicComputing.Simulation.NonProductWitness
+public import QuaternionicComputing.Simulation.Examples
 
 /-!
 # Directional simulation semantic audit
 
 This non-root leaf consumes the Stage 9A relation and representative-encoding
-APIs and the Stage 9B operator/state wrapper API.  Its abstract aggregate
+APIs, the Stage 9B operator/state wrapper API, and the Stage 9C decoded-outcome
+API. Its abstract aggregate
 sections allocate every stable declaration from those leaves exactly once,
 while the concrete sections exercise the intended scalar, index, coefficient,
 schedule, compiler, and boundary policies.
@@ -20,8 +23,9 @@ The top-sector consumers below quantify `Rebit` and `Qubit` values exactly.
 They are normalized coefficient parameter types, not mixed density inputs or
 proofs that the encoded target column factors as a top/bottom product.  The final
 boundary section reuses the existing ordinary-real-ray non-descent and
-nonproduct witnesses.  Nothing in this audit finalizes a Stage 9C cohort family
-or claims same-space, ray, channel, or all-effect equality.
+nonproduct witnesses. The Stage 9C aggregates consume full target
+distributions through explicit one- and two-wire decoders. Nothing here claims
+same-space, ray, product, mixed-top, channel, or all-effect equality.
 -/
 
 @[expose] public noncomputable section
@@ -32,6 +36,7 @@ namespace QuaternionicComputing.Semantics.SimulationAudit
 
 open QuaternionicComputing.State
 open QuaternionicComputing.Circuit
+open QuaternionicComputing.Simulation
 
 universe uS uT uU uOS uIS uOT uIT uOU uIU uO uM uP uTop uInput
 
@@ -401,11 +406,6 @@ theorem allQubit_stateIntertwining_api
     A (top false) (top true) input
 
 /-! ## Concrete decoded basis-weight consumers -/
-
-/-- Sum the two target-sector weights over one source outcome. -/
-def sumSectorWeightDecoder {I : Type uO}
-    (targetWeight : I ⊕ I → ℝ) (outcome : I) : ℝ :=
-  targetWeight (Sum.inl outcome) + targetWeight (Sum.inr outcome)
 
 /-- The two canonical real columns preserve every decoded source weight. -/
 theorem realColumn_decodedBasisWeight_api
