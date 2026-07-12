@@ -137,15 +137,23 @@ none may remain excluded merely because it is difficult.
   separately scoped. Stage 6 adds the finite real/complex physical core:
   positive-semidefinite trace-one densities, Loewner-interval effects,
   real-valued Born probabilities in `[0,1]`, exact `U * ρ * Uᴴ` evolution,
-  pure/basis compatibility, and separation by genuine physical effects. It
-  does not add quaternionic mixed states, partial trace, Kraus maps, or a
-  channel relation. The current Goal 2 baseline is 76 Lean sources including
-  the public root, 802 semantic-manifest declarations, 81 resolving consumers,
-  168 direct manifest audit labels, and 354 root axiom commands, with exact
+  pure/basis compatibility, and separation by genuine physical effects.
+  Stage 7 adds bundled real/complex-style unitary operators and certified
+  chronological circuits. Its same-space `ChannelEq` compares complete
+  evolved densities for every input, `AllMeasurementEq` quantifies over every
+  genuine effect, and the two relations are equivalent. On explicitly
+  inhabited real and complex matrix spaces, global sign/phase, raw and
+  normalized projective action, channel equality, and all-effect agreement
+  have exact iff characterizations; the evaluator-backed circuit forms retain
+  chronological append order and cover zero-wire circuits without a redundant
+  nonempty premise. The current Goal 2 baseline is 80 Lean sources including
+  the public root, 941 semantic-manifest declarations, 104 resolving consumers,
+  207 direct manifest audit labels, and 393 root axiom commands, with exact
   axiom union `propext`, `Classical.choice`, and `Quot.sound`. Later Goal 2
   stages remain an explicit unmet prerequisite, so Goal 3 must not be executed
-  yet. Stage 6 does not settle the mixed-top, phase-kickback, quaternionic
-  density, or channel rows assigned below.
+  yet. Stage 7 does not add quaternionic density/channel semantics, partial
+  trace, Kraus maps, instruments, mixed-top or phase-kickback semantics, or
+  cross-model channel equality for the rows assigned below.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

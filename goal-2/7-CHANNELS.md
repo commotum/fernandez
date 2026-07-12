@@ -2,7 +2,7 @@
 
 ## Current Facts
 
-- Stages 1--6 are independently closed. The current tree has 76 Lean sources
+- At Stage 7 entry, Stages 1--6 were independently closed and the tree had 76 Lean sources
   including the public root, 802 exact Goal 2 semantic-manifest entries, 81
   resolving consumers, 168 direct manifest/root-audit labels, and 354 root
   axiom commands. The exact axiom union remains `propext`,
@@ -260,6 +260,30 @@ chronological-circuit wrappers.
   local audit endpoints use exactly `propext`, `Classical.choice`, and
   `Quot.sound`.
 - Public-root/axiom integration compiles at `2760/2760` with 39 representative
-  Stage 7 root endpoints. Manifest, documentation, final scans/builds, and the
-  independent integrated closure review remain in progress; Stage 7 is not
-  yet complete.
+  Stage 7 root endpoints. The combined channel-audit/public-root/axiom build
+  passes at `2761/2761`; the cached default build passes at `2759/2759`, and
+  the adjacent Stage 6/7 diagnostic build passes at `2763/2763`. All six
+  Stage 7/public integration sources also compile directly with warnings as
+  errors.
+- `docs/Goal2SemanticAPIManifest.json` appends the stable declarations in exact
+  source order `41 + 40 + 58`, bringing the manifest to 941 unique entries,
+  104 resolving consumers, and 207 direct root-audit labels. Both generated
+  strict manifest consumers compile, the first-802 structural hash remains
+  `6554f0c773ef602e3e8791c77142a37dda2c0fc97df5d8b1b41f8a162eadf2e0`,
+  and the frozen Goal 1 cohort checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- README and the architecture, conventions, mathlib-API, axiom-audit, release,
+  classification, traceability, and corrections documents now publish the
+  checked Stage 7 boundary. The Goal 3 forecast is rebaselined to the current
+  80-source, 941-manifest, 104-consumer, 207-direct-audit, and 393-root-audit
+  checkpoint without treating Goal 2 as released.
+- The root-only downstream smoke compiles the channel/all-effect iff,
+  inhabited complex phase/channel iff, circuit phase/channel iff, empty-index
+  boundary, and chronology. Proof-hole, declaration-shortcut, forbidden
+  Stage 7 scope, import-boundary, generated-artifact, Markdown, whitespace,
+  and diff scans pass. The 393 root audit commands report exactly the union
+  `propext`, `Classical.choice`, and `Quot.sound`; all eleven local Stage 7
+  commands report the same exact set.
+- An independent integrated closure review is the only remaining Stage 7 gate;
+  the stage checkbox remains open until that review checks every completion
+  requirement against these artifacts.
