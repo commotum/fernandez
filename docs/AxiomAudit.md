@@ -3,8 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 422 `#print axioms` commands (393 at the Stage 7
-checkpoint, 354 at Stage 6, 330 at Stage 5, and 305 at Stage 4C).
+the public root. It now runs 442 `#print axioms` commands (422 at the Stage 8
+checkpoint, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5, and 305 at Stage
+4C).
 Representative endpoint categories include:
 
 - quaternion scalar decomposition and phase correction;
@@ -24,9 +25,9 @@ Representative endpoint categories include:
   circuit evolution, exact identity/composition laws, and representative-phase
   iff quotient-equality bridges;
 - complex-to-real sector action and normalized orbit equivalence, descended
-  bottom marginal distribution, canonical-column and arbitrary-pure-top orbit
-  consumers, the exact `±1` ordinary-real-ray boundary, and empty/nonempty
-  no-lift classification;
+  bottom marginal distribution, canonical-column and normalized `Rebit`
+  coefficient orbit consumers, the exact `±1` ordinary-real-ray boundary, and
+  empty/nonempty no-lift classification;
 - real/complex global operator phase, input-column phase, output-row phase,
   projective action, evaluator-backed circuit relations, and their sided
   composition and measurement implications;
@@ -51,6 +52,10 @@ Representative endpoint categories include:
   finite-distribution event and deterministic-pushforward characterizations,
   state-ray covering arrows, real/complex channel/all-effect consequences,
   and their evaluator-backed circuit lifts;
+- directional exact/lossless state encodings, mapped operators, state
+  intertwining, decoded weight/distribution agreements, explicit top-sector
+  policies, and the canonical raw `LinearEquiv` and normalized representative
+  `Equiv` endpoints;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
@@ -193,14 +198,30 @@ leaves respectively; the combined hierarchy-audit/public-root/axiom-audit
 target completed 2,769 jobs. Every new endpoint emits a subset of the exact
 standard three-item union below.
 
+Stage 9A adds 58 stable declarations split `38 + 20` across
+`Semantics/Simulation.lean` and `Semantics/SimulationEncoding.lean`. Eleven
+manifest consumers allocate the complete surface: nine aggregates cover the
+generic directional relations and two cover the concrete representative
+encodings. The non-root `Semantics/SimulationAudit.lean` also checks the
+complex-to-real and quaternion-to-complex concrete instances, explicit
+normalized `Rebit`/`Qubit` coefficient parameters, empty and singleton
+boundaries, ordinary-ray non-descent, and the non-product witness.
+
+The simulation audit contains ten local `#print axioms` endpoints and is not
+imported by the public root. The root audit instead adds 20 independent Stage
+9A endpoints, bringing its total to 442 commands. Focused builds completed
+2,345, 2,350, and 2,368 jobs for the relation, encoding, and audit leaves,
+respectively; the combined public-root/axiom-audit target completed 2,766 jobs.
+Every new endpoint emits a subset of the same exact standard union below.
+
 ## Current checkpoint result
 
-The Stage 8 public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 422 public-root endpoints, all 33
-local Stage 8 endpoints, all 11 local Stage 7 endpoints, all seven local Stage
-6 endpoints, all 18 local Stage 5 endpoints, and the retained local Stage 4C
-diagnostics individually depends on a subset of the following exact three-item
-union:
+The Stage 9A public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 442 public-root endpoints, all ten
+local Stage 9A endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
+endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
+and the retained local Stage 4C diagnostics individually depends on a subset
+of the following exact three-item union:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -212,15 +233,15 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 8 checkpoint the parser reads 421
-nonempty and one axiom-free root block, plus 33 nonempty hierarchy-audit
-blocks, with no unknown identifier or `sorryAx` output.
+from a focused build alone. At the Stage 9A checkpoint the parser reads 441
+nonempty and one axiom-free root block. The local Stage 9A audit has nine
+nonempty blocks and one axiom-free block; all ten resolve without an unknown
+identifier or `sorryAx` output.
 
-The three stable Stage 8 hierarchy leaves and non-root audit pass
-warning-as-error compilation. The focused hierarchy-audit build completed
-2,713 jobs and the hierarchy-audit/public-root/explicit-audit build completed
-2,769 jobs. This is a Stage 8 checkpoint, not a claim that Goal 2 or its later
-cross-model, approximation, registry, and release stages are complete.
+The two stable Stage 9A leaves and non-root audit pass warning-as-error
+compilation. This is a Stage 9A checkpoint, not a claim that Goal 2 is complete:
+Stages 9B and 9C, approximation, registry closure, and the final release audit
+remain pending.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

@@ -632,10 +632,12 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** define the direct sector action
   `(x,y) ↦ (re(η)x+im(η)y,-im(η)x+re(η)y)`, prove its unit-orbit
   relation independently, and quotient normalized doubled-real states as
-  `RealSectorOrbit`. The resulting `complexRayEquivRealSectorOrbit` is the
-  correct phase-invariant representation equivalence. Both canonical columns
-  and every normalized pure top-rebit encoding give the same orbit. Only the
-  bottom marginal distribution descends, and it equals the source complex-ray
+`RealSectorOrbit`. The resulting `complexRayEquivRealSectorOrbit` is the
+correct phase-invariant representation equivalence. Both canonical columns
+and every normalized `Rebit` top-sector coefficient encoding give the same
+orbit. This coefficient does not certify a factorization of the target column
+into independent top and bottom states. Only the
+bottom marginal distribution descends, and it equals the source complex-ray
   distribution; the full doubled-real basis distribution generally changes
   under sector rotation.
 - **Lean declarations:** `State.RealSectorPhaseEquivalent`,
@@ -667,3 +669,30 @@ consequences. The accompanying witnesses rule out stronger converses. This
 refines how prior evidence is classified; it does not change a source claim or
 close the remaining cross-model, mixed-top, quaternionic-channel,
 approximation, ordering-resource, or complexity obligations.
+
+## Goal 2 Stage 9A semantic-refinement note
+
+Stage 9A adds no new paper correction and does not change the correction count.
+It introduces directional cross-model predicates with explicit encoders,
+decoders, embeddings, observation maps, and top-sector parameter types. The
+generic `ExactStateEncoding` is exactly a left-inverse certificate on the
+encoder image; it is not silently strengthened to a carrier equivalence.
+
+For the four canonical columns, direct verification of the displayed decoders
+proves a stronger concrete fact: each raw map is an `ℝ`-linear equivalence and
+each normalized representative map is an `Equiv`. An early internal Stage 9A
+draft described these maps only through injectivity/non-surjectivity. The
+right-inverse calculation exposed that draft description as too weak, and the
+implementation, manifest, and documentation were strengthened before release.
+Because this was caught during construction and was not a claim of the paper
+or a released library theorem, it is not numbered as a new correction.
+
+The new representative bijections do not alter C-027: complex phase still
+descends to `RealSectorOrbit`, not through a canonical column to ordinary
+`RealRay`. Nor do the normalized `Rebit`/`Qubit` coefficient parameters assert
+a pure top/bottom product. The existing
+`NonProductWitness.encodedState_not_pureTopBottomProduct` proves that the
+factorization reading fails for a normalized realified state. Mixed joint
+density encoders, no-correlation hypotheses, partial trace, channels, and
+all-effect semantics remain outside Stage 9A; Stage 9B and Stage 9C wrappers
+also remain pending.

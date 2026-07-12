@@ -20,9 +20,12 @@ including the public root. Stage 7 adds the channel core, real/complex phase
 kernel, evaluator-backed circuit lift, and non-root complete audit, bringing
 the checkpoint tree to 80 Lean sources including the public root. Stage 8 adds
 three stable hierarchy leaves and one non-root complete audit, bringing the
-checkpoint tree to 84 Lean sources including the public root. Goal 2 remains
-active: cross-model classification, approximation, registry closure, and the
-final release audit are later stages.
+checkpoint tree to 84 Lean sources including the public root. Stage 9A adds the
+directional cross-model relation leaf, its concrete representative-encoding
+leaf, and one non-root audit, bringing the checkpoint tree to 87 Lean sources
+including the public root. Goal 2 remains active: Stage 9B circuit and operator
+wrappers, Stage 9C outcome classifications, approximation, registry closure,
+and the final release audit are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -216,6 +219,32 @@ or an unsafe shortcut.
   output-row phase and basis-only agreement do not imply channel equality, and
   equal basis distributions do not determine a ray.
 
+### Directional cross-model certificates
+
+- `ExactStateEncoding` is the source-to-target certificate
+  `Function.LeftInverse decode encode`; it gives exact reconstruction on the
+  encoder image and injectivity, not generic surjectivity or a carrier
+  equivalence.
+- `LosslessStateEncoding` additionally preserves supplied total-weight
+  functionals. `ExactOperatorEmbedding`, `StateIntertwining`, and the decoded
+  basis-weight/distribution predicates keep their embedding, encoders, decoders,
+  and observation scope explicit.
+- The `AllTop...` variants quantify an explicit `Top` parameter. The generic
+  relation does not manufacture purity, normalization, product structure,
+  mixedness, a marginal, channel behavior, or all-effect behavior.
+- Both canonical complex-to-real columns and both canonical
+  quaternion-to-complex columns are exact `ℝ`-linear coordinate equivalences
+  with displayed inverses. Their normalized restrictions are equivalences of
+  representative carriers.
+- These concrete bijections are not ray or behavioral equivalences. Complex
+  phase still requires `RealSectorOrbit`; the normalized `Rebit`/`Qubit`
+  top-sector values used by the pure-state formulas are coefficient parameters,
+  not product-factor certificates. The non-product witness makes that boundary
+  explicit.
+- Stage 9A classifies the representative encodings and generic relation
+  vocabulary only. Operator/circuit wrappers and final outcome-family
+  classifications remain pending in Stages 9B and 9C.
+
 ### Matrix embeddings and groups
 
 - `Matrix.realify` maps compatible complex matrices to doubled real block
@@ -245,7 +274,9 @@ or an unsafe shortcut.
   columns with nonnegative squared-norm basis weights summing to one.
 - Both columns of each doubled state embedding are defined, reconstructed,
   proved injective, norm-preserving, appropriately real-linear, and compatible
-  with matrix evolution.
+  with matrix evolution. Stage 9A strengthens each raw canonical coordinate map
+  to an explicit `ℝ`-linear equivalence and each normalized representative map
+  to an `Equiv`, without inferring a ray or behavioral equivalence.
 - Bottom computational-basis probabilities are preserved after summing over
   the added top wire.
 - The real rank-one reduced matrices for the two canonical encodings are equal.
@@ -322,6 +353,7 @@ Representative exported declarations include:
 | Densities and effects | `DensityMatrix`, `RealDensityMatrix`, `ComplexDensityMatrix`, `DensityMatrix.pure`, `basis`, `unitaryConjugate`; `Effect`, `RealEffect`, `ComplexEffect`, `Effect.projector`, `basis`, `bornValue`, `bornValue_mem_Icc`; and `DensityMatrix.eq_iff_forall_effect_bornValue_eq` |
 | Channels | `UnitaryOperator`, `ChannelEq`, `AllMeasurementEq`, `channelEq_iff_allMeasurementEq`; `RealRawProjectiveActionEq`, `ComplexRawProjectiveActionEq`, the real/complex global/projective `*_iff_channelEq` families; `UnitaryCircuit`, `CircuitChannelEq`, `CircuitAllMeasurementEq`, and their phase/append bridges |
 | Semantic hierarchy | `realOutputBasisSignEq_iff_pureInputBasisMeasurementEq`, `complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq`, `quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq`; `FiniteDistribution.eq_iff_eventWeight_eq`, `eq_iff_allPushforward_eq_sameUniverse`; and the channel/all-effect covering-arrow families in `Semantics.Hierarchy.Operator` |
+| Cross-model certificates | `ExactStateEncoding`, `LosslessStateEncoding`, `ExactOperatorEmbedding`, `StateIntertwining`, `DecodedBasisWeightAgreement`, `DecodedDistributionAgreement`, the three `AllTop...` relations, and the four canonical `*LinearEquiv`/`*StateEquiv` values |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -343,7 +375,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, measurement, phase, hierarchy, density, effect, and channel APIs
+  Semantics/    exact, phase, hierarchy, density/channel, and directional simulation APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -433,6 +465,11 @@ trace, or cross-model channel/all-input/all-effect semantics. Stages 6 and 7
 do provide finite same-space real/complex densities, genuine effects,
 fixed-pair separation, and unitary channel/all-effect equality; they do not
 supply those missing cross-model constructions.
+Stage 9A now supplies generic directional comparison certificates and complete
+representative-coordinate bijections, but the Goal 1 simulation declarations
+still await their Stage 9B operator/circuit wrappers and Stage 9C outcome-family
+classifications. Those pending wrappers do not weaken the exact Goal 1
+theorems.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -560,12 +597,31 @@ smoke importing only `QuaternionicComputing` instantiated the rectangular
 output-phase characterizations, finite-distribution characterizations, and
 representative operator/circuit hierarchy arrows.
 
+Stage 9A contributes 58 stable declarations: 38 in
+`Semantics/Simulation.lean` and 20 in
+`Semantics/SimulationEncoding.lean`. Eleven manifest consumers—nine generic
+relation aggregates and two representative-encoding aggregates—allocate the
+complete surface. The non-root `Semantics/SimulationAudit.lean` additionally
+checks concrete complex-to-real and quaternion-to-complex intertwining,
+normalized `Rebit`/`Qubit` coefficient policies, decoded basis weights and
+distributions, empty and singleton boundaries, ray non-descent, and the
+non-product witness. Its ten local axiom commands are diagnostic.
+
+Focused builds completed 2,345 jobs for `Semantics.Simulation`, 2,350 for
+`Semantics.SimulationEncoding`, and 2,368 for `Semantics.SimulationAudit`; the
+combined public-root plus explicit-axiom target completed 2,766 jobs. Stage 9A
+adds 20 direct public-root audit endpoints, bringing the root audit from 422 to
+442 commands. All Stage 9A local and public endpoints remain within the exact
+standard union `propext`, `Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
-hierarchy leaves, their diagnostic leaves, public root, axiom audit, and all
-Stage 8 source boundaries. The executable root audit now contains 422
+hierarchy and simulation-semantics leaves, their diagnostic leaves, public
+root, axiom audit, and all Stage 9A source boundaries. The executable root audit
+now contains 442
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
-Stage 7, and 29 Stage 8 endpoints. All 33 local Stage 8 diagnostic prints, all
+Stage 7, 29 Stage 8, and 20 Stage 9A endpoints. All ten local Stage 9A prints,
+all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use
 exactly the union `propext`,
@@ -606,10 +662,15 @@ consumers, including the 12 Stage 8 aggregates, and records 236 direct-audit
 labels, including 29 Stage 8 labels. The first 941 entries and the frozen Goal
 1 cohort remain unchanged.
 
+Stage 9A appends its 58 declarations exactly once, bringing the semantic
+manifest to 1,048 entries. It resolves 127 distinct consumers, including the 11
+Stage 9A aggregates, and records 256 direct-audit labels, including 20 Stage 9A
+labels. The first 990 entries and the frozen Goal 1 cohort remain unchanged.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 8. The public root imports
+and heartbeat-override scans are empty through Stage 9A. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
@@ -659,6 +720,13 @@ open QuaternionicComputing
 #check Semantics.quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq
 #check State.FiniteDistribution.eq_iff_eventWeight_eq
 #check State.FiniteDistribution.eq_iff_allPushforward_eq_sameUniverse
+#check Semantics.ExactStateEncoding
+#check Semantics.LosslessStateEncoding
+#check Semantics.StateIntertwining
+#check Semantics.DecodedDistributionAgreement
+#check Semantics.AllTopDecodedBasisWeightAgreement
+#check Semantics.realColumn0LinearEquiv
+#check Semantics.complexColumn0StateEquiv
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
@@ -691,6 +759,10 @@ When extending the library:
 - never use the commutative Kronecker interchange law over quaternions;
 - distinguish matrix embedding, state evolution, ray equality, and output
   distribution equality in theorem statements;
+- use the directional cross-model certificate matching the actual conclusion,
+  keep encoders/decoders and top-sector policy explicit, and do not reinterpret
+  a representative `LinearEquiv`/`Equiv` as ray, channel, or product-state
+  equivalence;
 - treat Equation 63 as a matrix reindexing unless a new direct placement/wire
   bridge is separately proved; and
 - supply an `ExactGateCompiler` certificate before claiming primitive count or
