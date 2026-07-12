@@ -5,10 +5,10 @@ William A. Schneeberger's paper *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library.
 
 The source extraction is in `Fernandez/fernandez-2003.md`. Goal 1's completed
-paper reconstruction is recorded under `goal-1/`; the active semantic
-classification retrofit is staged under `goal-2/`, and the remaining frontier
-is reindexed under `goal-3/`. Lean-changing stages follow the authoritative
-incremental workflow in `BUILD-PLAN.md`.
+paper reconstruction is recorded under `goal-1/`; Goal 2's semantic registry is
+closed and its final release audit remains active under `goal-2/`; the remaining
+mathematical frontier is reindexed under `goal-3/`. Lean-changing stages follow
+the authoritative incremental workflow in `BUILD-PLAN.md`.
 
 The project is pinned to Lean 4.31.0 and mathlib v4.31.0.  Once dependencies are
 available, build it with:
@@ -75,6 +75,7 @@ import QuaternionicComputing.Semantics.Approximation.Quaternion
 import QuaternionicComputing.Semantics.Approximation.State
 import QuaternionicComputing.Semantics.Approximation.Distribution
 import QuaternionicComputing.Semantics.Approximation.Strictness
+import QuaternionicComputing.Semantics.ExistingResults
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -288,6 +289,17 @@ pushforward, and exact witnesses refute fixed positive-budget transitivity.
 This is a metric boundary over exact mathematical values, not a finite scalar
 encoding, rounding/quantization algorithm, circuit-error accumulator,
 approximate compiler/synthesis construction, runtime, or BQP theorem.
+
+The final semantic classification is recorded in
+`docs/Goal2ClassificationRegistry.json` and rendered in
+`docs/EquivalenceClassification.md`. It assigns all 936 immutable Goal 1
+declarations exactly once across 51 families. The independent Goal 2 semantic
+manifest contains 1,275 unique public declarations, 167 consumers, and 354
+direct root-audit labels. `Semantics.ExistingResults` exports six final thin
+classifications for earlier raw equalities and counterexamples; its 15-endpoint
+allocation audit remains outside the public root. The registry does not turn
+algebraic embeddings, counts, or source-only claims into behavioral theorems.
+Stage 12 clean-release verification remains pending.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

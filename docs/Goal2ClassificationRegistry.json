@@ -751,7 +751,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence.",
       "obstruction": null
     },
@@ -20210,7 +20210,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20244,7 +20244,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20278,7 +20278,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20312,7 +20312,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20346,7 +20346,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20380,7 +20380,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20414,7 +20414,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20448,7 +20448,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20482,7 +20482,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20516,7 +20516,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20550,7 +20550,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20584,7 +20584,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20618,7 +20618,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20652,7 +20652,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20686,7 +20686,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20720,7 +20720,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20754,7 +20754,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20788,7 +20788,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20822,7 +20822,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20856,7 +20856,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20890,7 +20890,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20924,7 +20924,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20958,7 +20958,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -20992,7 +20992,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21026,7 +21026,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21060,7 +21060,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21094,7 +21094,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21128,7 +21128,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21162,7 +21162,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21196,7 +21196,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21230,7 +21230,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21264,7 +21264,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21298,7 +21298,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21332,7 +21332,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21366,7 +21366,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21400,7 +21400,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21434,7 +21434,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21468,7 +21468,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21502,7 +21502,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21536,7 +21536,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21570,7 +21570,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21604,7 +21604,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21638,7 +21638,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21672,7 +21672,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21706,7 +21706,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21740,7 +21740,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21774,7 +21774,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21808,7 +21808,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21842,7 +21842,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21876,7 +21876,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21910,7 +21910,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21944,7 +21944,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -21978,7 +21978,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22012,7 +22012,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22046,7 +22046,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22080,7 +22080,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22114,7 +22114,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22148,7 +22148,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22182,7 +22182,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22216,7 +22216,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22250,7 +22250,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22284,7 +22284,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22318,7 +22318,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22352,7 +22352,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22386,7 +22386,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22420,7 +22420,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22454,7 +22454,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22488,7 +22488,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22522,7 +22522,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22556,7 +22556,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22590,7 +22590,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22624,7 +22624,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22658,7 +22658,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22692,7 +22692,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22726,7 +22726,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22760,7 +22760,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22794,7 +22794,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22828,7 +22828,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22862,7 +22862,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22896,7 +22896,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22930,7 +22930,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22964,7 +22964,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -22998,7 +22998,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -23032,7 +23032,7 @@
       "strictnessWitnesses": [
         "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary"
       ],
-      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed ground input agrees in all basis weights, while all normalized pure input basis behavior differs.",
+      "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence."
     },
     {
@@ -28341,28 +28341,28 @@
       "declaration": "QuaternionicComputing.Circuit.OrderedCircuit.translationWork_le_gateCount_mul",
       "familyId": "EQC-041-STRUCTURAL-RESOURCE-EQUALITIES",
       "classification": {
-        "space": "same or cross structural carrier exactly as typed by the declaration",
-        "subject": "circuit gate-count resource",
-        "inputScope": "every source/translated/compiled circuit under the stated per-gate bound when present",
-        "observationScope": "exact gate count or stated upper bound only",
+        "space": "one finite chronological circuit over a fixed scalar and wire type",
+        "subject": "generic per-occurrence translation work",
+        "inputScope": "every supplied gate-work function, circuit, and common bound K satisfying the explicit per-occurrence premise",
+        "observationScope": "the total translation-work sum is at most gateCount times K",
         "phase": "none",
-        "exactness": "exact equality/certificate or the explicitly stated inequality; never an approximation relation",
-        "ancillaPolicy": "added-wire and shared-wire policies are explicit in the declaration; no decoder or hidden ancilla"
+        "exactness": "exact finite combinatorial inequality",
+        "ancillaPolicy": "none; the theorem is generic and does not itself translate or compile a circuit"
       },
       "semanticClass": "resourceClaim",
       "evidenceMode": "resourceDisposition",
       "strongestRelations": [],
       "proofDeclarations": [
-        "QuaternionicComputing.Simulation.gateCount_realifyCircuit"
+        "QuaternionicComputing.Circuit.OrderedCircuit.translationWork_le_gateCount_mul"
       ],
       "consumer": null,
       "audit": {
         "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "gate-count identity or bound; this declaration is nonbehavioral and does not assert circuit, state, measurement, or channel equivalence.",
+      "finalDisposition": "A generic per-occurrence work bound controls the exact finite translation-work sum; this is a nonbehavioral resource inequality, not a gate translation, compiler-existence, runtime, or bit-cost theorem.",
       "goal3Boundary": "Uniform synthesis, physical routing cost, runtime, and bit complexity remain Goal 3 work."
     },
     {
@@ -28593,28 +28593,28 @@
       "declaration": "QuaternionicComputing.Circuit.PlacedGate.localArity_le_log_four_of_denseEntrySlots_le",
       "familyId": "EQC-041-STRUCTURAL-RESOURCE-EQUALITIES",
       "classification": {
-        "space": "same or cross structural carrier exactly as typed by the declaration",
-        "subject": "dense matrix entry-slot resource",
-        "inputScope": "every placed gate or translated circuit under the stated arity premise",
-        "observationScope": "exact dense-entry-slot count or stated upper bound only",
+        "space": "one placed gate over a fixed scalar and finite wire type",
+        "subject": "inverse arity bound from a finite dense-entry-slot bound",
+        "inputScope": "every placed gate and natural bound N satisfying denseEntrySlots at most N",
+        "observationScope": "localArity is at most the exact base-four logarithm of N",
         "phase": "none",
-        "exactness": "exact equality/certificate or the explicitly stated inequality; never an approximation relation",
-        "ancillaPolicy": "added-wire and shared-wire policies are explicit in the declaration; no decoder or hidden ancilla"
+        "exactness": "exact finite combinatorial inequality",
+        "ancillaPolicy": "none; the theorem concerns one stored dense local matrix"
       },
       "semanticClass": "resourceClaim",
       "evidenceMode": "resourceDisposition",
       "strongestRelations": [],
       "proofDeclarations": [
-        "QuaternionicComputing.Simulation.totalDenseEntrySlots_realifyCircuit"
+        "QuaternionicComputing.Circuit.PlacedGate.localArity_le_log_four_of_denseEntrySlots_le"
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.PlacedGate.localArity_le_log_four_of_denseEntrySlots_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
-      "finalDisposition": "dense-entry-slot count or bound; this declaration is nonbehavioral and does not assert circuit, state, measurement, or channel equivalence.",
+      "finalDisposition": "A finite bound on the stored dense local matrix size yields the corresponding base-four logarithmic arity bound; this is a nonbehavioral inverse description-size inequality, not a runtime, encoding, or circuit-equivalence theorem.",
       "goal3Boundary": "Uniform synthesis, physical routing cost, runtime, and bit complexity remain Goal 3 work."
     },
     {

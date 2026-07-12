@@ -84,6 +84,8 @@ QuaternionicComputing/
       Distribution.lean      half-L1 total variation and deterministic contraction
       Strictness.lean        exact fixed-budget nontransitivity witnesses
     ApproximationAudit.lean  non-root allocation and concrete metric checks
+    ExistingResults.lean     six thin final classifications of earlier results
+    ExistingResultsAudit.lean non-root family consumers and registry endpoints
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -635,8 +637,25 @@ real, complex-unitary, raw-phase-sensitive, and Boolean-distribution
 counterexamples to fixed-budget equivalence. These modules compare exact
 mathematical values; finite scalar encodings, rounding, accumulated circuit
 error, approximate compiler/synthesis construction, runtime, and uniformity
-remain Goal 3 work. Goal 2 registry and release stages remain pending until
-their independent coverage and build gates close.
+remain Goal 3 work. The Goal 2 registry is closed; the independent final
+release gates remain Stage 12 work.
+
+`Semantics/ExistingResults.lean` supplies the six stable wrappers that the final
+classification pass found genuinely useful: a normalized rejection of left
+quaternionic state phase, canonical real reduced-outer agreement, distribution-
+but-not-ray ordering separation, commuting-schedule `ExactCircuitEq`, the exact
+scope of the order-distinction witness, and conditional compiler
+`ExactCircuitEq`. The non-root `ExistingResultsAudit.lean` allocates those six
+wrappers and supplies meaningful consumers for the remaining algebraic,
+combinatorial, and resource families. It deliberately does not manufacture a
+behavior relation for nonbehavioral evidence.
+
+The Stage 11 registry is now closed. `Goal1ComparisonCohort.json` remains the
+immutable 51-family/936-declaration historical boundary;
+`Goal2ClassificationRegistry.json` is its final declaration-complete overlay,
+and `Goal2SemanticAPIManifest.json` independently covers 1,275 Goal 2 exports.
+The current source tree has 99 Lean files including the public root. Stage 12
+release verification remains pending.
 
 ## Circuit implementation
 
@@ -849,17 +868,24 @@ determinant boundary is therefore explicit:
 
 - Every substantive module must compile without placeholders.
 - `QuaternionicComputing/AxiomAudit.lean` lists `#print axioms` commands for the
-  main public theorems.
+  main public theorems. Its Stage 11 surface contains 542 commands; the non-root
+  `ExistingResultsAudit.lean` has 15 local endpoints.
 - Heavy semantic diagnostics stay outside the public root; in particular,
   `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
   operator-phase leaves, and `Semantics/BasisBehaviorAudit.lean` consumes the
   certified-basis leaves and their raw-transition strictness witness, while
   `Semantics/DensityAudit.lean` consumes the complete density/effect/separation
   surface and `Semantics/ChannelAudit.lean` consumes the complete
-  channel/phase/circuit lift. None becomes a transitive dependency.
+  channel/phase/circuit lift. `Semantics/ExistingResultsAudit.lean` similarly
+  consumes the final existing-result families. None becomes a transitive
+  dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage
   as corresponding declarations.
+- The frozen comparison cohort, final 936-declaration overlay, and independent
+  1,275-declaration Goal 2 manifest are checked separately. Registry labels are
+  accepted only with resolving proof/consumer/audit evidence or an explicit
+  source-only obstruction.
 - Release verification includes a downstream import module that imports only
   `QuaternionicComputing`.

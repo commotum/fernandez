@@ -205,6 +205,17 @@ global-phase sensitive. This layer supplies no scalar encoding, rounding,
 synthesis, accumulated finite-precision circuit theorem, runtime, or
 complexity claim.
 
+The final existing-results leaf gives six earlier comparisons reusable semantic
+names at their exact scopes: normalized rejection of left quaternionic state
+phase, equality of the two canonical real reduced outers, distribution without
+ray equality for a fixed ordering example, exact equality of commuting legal
+schedules, the bounded source/translation ordering witness, and exact evaluator
+equality under a supplied compiler certificate. These wrappers add no generic
+partial trace, every-input ordering conclusion, schedule converse, compiler
+existence, synthesis, or runtime claim. Complete family allocation and
+classification metadata live outside the public import graph in the non-root
+audit and documentation registry.
+
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input
 from the ground column, a fixed-value quaternionic order audit, and the

@@ -30,6 +30,10 @@ REGISTRY_PATH = Path("docs/Goal2ClassificationRegistry.json")
 SCHEMA_PATH = Path("docs/Goal2ClassificationRegistry.schema.json")
 PUBLIC_ROOT_PATH = Path("QuaternionicComputing.lean")
 AXIOM_AUDIT_PATH = Path("QuaternionicComputing/AxiomAudit.lean")
+CLASSIFICATION_DOC_PATH = Path("docs/EquivalenceClassification.md")
+
+REGISTRY_TABLE_START = "<!-- GOAL2-REGISTRY-TABLE:START -->"
+REGISTRY_TABLE_END = "<!-- GOAL2-REGISTRY-TABLE:END -->"
 
 FROZEN_SHA256 = "65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b"
 STAGE10_MANIFEST_COUNT = 1269
@@ -639,6 +643,45 @@ def validate_registry(
             "ground" in scope and "all normalized pure" in scope,
             "EQC-028 overlay must distinguish fixed-ground agreement from all-pure-input failure",
         )
+        disposition = record["finalDisposition"]
+        require(
+            "one fixed normalized ground input" in disposition
+            and "equality over all normalized pure inputs fails" in disposition,
+            "EQC-028 disposition must state a failed universal relation, not that every pure input differs",
+        )
+
+    translation_work_name = (
+        "QuaternionicComputing.Circuit.OrderedCircuit."
+        "translationWork_le_gateCount_mul"
+    )
+    translation_work = next(
+        record for record in declarations if record["declaration"] == translation_work_name
+    )
+    require(
+        translation_work["proofDeclarations"] == [translation_work_name]
+        and "per-occurrence translation work"
+        in translation_work["classification"]["subject"]
+        and translation_work["audit"]["endpoint"].endswith(
+            "ExistingResultsAudit.compiledResourceBounds_family"
+        ),
+        "translationWork_le_gateCount_mul must retain its generic work-bound classification",
+    )
+
+    inverse_arity_name = (
+        "QuaternionicComputing.Circuit.PlacedGate."
+        "localArity_le_log_four_of_denseEntrySlots_le"
+    )
+    inverse_arity = next(
+        record for record in declarations if record["declaration"] == inverse_arity_name
+    )
+    require(
+        inverse_arity["proofDeclarations"] == [inverse_arity_name]
+        and "inverse arity bound" in inverse_arity["classification"]["subject"]
+        and "localArity" in inverse_arity["classification"]["observationScope"]
+        and inverse_arity["audit"]
+        == {"mode": "directRoot", "endpoint": inverse_arity_name},
+        "localArity_le_log_four_of_denseEntrySlots_le must retain its inverse arity-bound classification",
+    )
     return registry
 
 
@@ -665,6 +708,42 @@ def validate_consumer_mentions(root: Path, registry: dict[str, Any]) -> None:
             declaration_short in blocks[consumer_short],
             f"{consumer} does not textually exercise {record['declaration']}",
         )
+
+
+def registry_table_cell(value: str) -> str:
+    """Normalize prose for one single-line Markdown table cell."""
+    return " ".join(value.split()).replace("|", r"\|")
+
+
+def render_registry_family_table(registry: dict[str, Any]) -> str:
+    lines = [
+        REGISTRY_TABLE_START,
+        "| ID | Final status | Semantic class | Evidence mode | Strongest checked result | Goal 3 boundary |",
+        "|---|---|---|---|---|---|",
+    ]
+    for family in registry["families"]:
+        proofs = family["proofDeclarations"]
+        proof_cell = "<br>".join(f"`{name}`" for name in proofs) if proofs else "—"
+        lines.append(
+            "| "
+            f"`{family['id']}` | `{family['finalStatus']}` | "
+            f"`{family['semanticClass']}` | `{family['evidenceMode']}` | "
+            f"{proof_cell} | {registry_table_cell(family['goal3Boundary'])} |"
+        )
+    lines.append(REGISTRY_TABLE_END)
+    return "\n".join(lines)
+
+
+def validate_documented_registry_table(root: Path, registry: dict[str, Any]) -> None:
+    path = resolve(root, CLASSIFICATION_DOC_PATH)
+    text = path.read_text(encoding="utf-8")
+    require(text.count(REGISTRY_TABLE_START) == 1, "classification document lacks one registry-table start marker")
+    require(text.count(REGISTRY_TABLE_END) == 1, "classification document lacks one registry-table end marker")
+    start = text.index(REGISTRY_TABLE_START)
+    end = text.index(REGISTRY_TABLE_END, start) + len(REGISTRY_TABLE_END)
+    actual = text[start:end]
+    expected = render_registry_family_table(registry)
+    require(actual == expected, "documented final 51-family table differs from the checked registry")
 
 
 def run_lean_checks(
@@ -734,6 +813,7 @@ def main(argv: list[str] | None = None) -> int:
         if not args.self_check:
             registry = validate_registry(root, args.registry, cohort, flattened)
             validate_consumer_mentions(root, registry)
+            validate_documented_registry_table(root, registry)
         if not args.skip_lean:
             run_lean_checks(
                 root,

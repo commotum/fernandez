@@ -689,6 +689,29 @@ than ray equality in general and is not used as the quotient relation.
   approximation. No Stage 10 theorem supplies scalar codes, rounding,
   accumulated circuit error, synthesis, runtime, or uniformity.
 
+## Classification records
+
+- `Goal1ComparisonCohort.json` is an immutable historical seed. Its 51 family
+  IDs and 936 declaration names record the pre-retrofit discovery boundary;
+  stale discovery prose is not a final semantic judgment.
+- `Goal2ClassificationRegistry.json` is the final overlay. Every frozen
+  declaration occurs exactly once and carries the seven axes `space`, `subject`,
+  `inputScope`, `observationScope`, `phase`, `exactness`, and `ancillaPolicy`.
+- `Goal2SemanticAPIManifest.json` is independent of that overlay. It covers the
+  1,275 declarations introduced by Goal 2, with 167 consumers and 354 direct
+  root-audit labels; it never expands the frozen Goal 1 cohort.
+- A `proofBearingRelation`, `proofBearingCertificate`, or
+  `proofBearingEquality` names the exact theorem inhabiting the stated scope.
+  A `counterexample` proves a bounded non-arrow. `nonbehavioralDisposition`,
+  `supportDisposition`, and `resourceDisposition` prevent algebraic or
+  structural evidence from being promoted to behavior. `sourceOnlyObstruction`
+  records an unresolved source claim without a fabricated Lean theorem.
+- The registry classifies evidence; it does not create mathematics by label.
+  Proof declarations and consumers must resolve, audit endpoints must compile,
+  and source-only rows must state both the obstruction and Goal 3 boundary.
+- Stage 11 closes the registry, not the release: Stage 12 clean-build,
+  downstream-import, scan, and independent-review gates remain pending.
+
 ## Simulation and abstract resources
 
 - `realifyCircuit` and `complexifyCircuit` are literal gatewise list maps.  A

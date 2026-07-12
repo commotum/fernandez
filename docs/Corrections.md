@@ -745,3 +745,33 @@ schedule. None of these statements supplies product or mixed top-state
 factorization, partial trace, cross-model channel/all-effect semantics,
 randomized postprocessing, or a resource theorem, so no existing correction or
 Goal 3 obstruction is silently closed.
+
+## Goal 2 Stage 10 semantic-refinement note
+
+Stage 10 adds no new paper correction and does not change the correction count.
+It makes C-024's exact/finite-precision boundary proof-bearing for exact
+mathematical values: real/complex L2 operator distance, native quaternionic
+operator distance, one-global-phase or central-sign budgets, normalized
+right-state-ray budgets, and half-L1 distribution distance all have exact
+zero-budget bridges and additive-budget laws. Fixed positive budgets are not
+declared equivalence relations. No finite scalar encoding, rounding procedure,
+circuit-error accumulator, approximate compiler/synthesis construction,
+runtime, or complexity result is introduced.
+
+## Goal 2 Stage 11 classification-refinement note
+
+Stage 11 adds no new paper correction and does not change the correction count.
+It classifies all 936 declarations in the frozen 51-family Goal 1 comparison
+cohort exactly once without modifying the frozen artifact or its checksum. Six
+thin public wrappers expose useful corrected scopes that were previously only
+raw equalities, counterexamples, or conditional certificates; the underlying
+mathematics was already present or is proved directly in the wrapper leaf.
+
+The final overlay keeps algebraic embedding facts, structural support, resource
+equalities, and source-only obstructions distinct from behavioral relations.
+Its seven unresolved families are explicit Goal 3 boundaries, not new
+corrections and not assumed axioms. In particular, the registry does not turn a
+unitary-image `MulEquiv` into computational-model equivalence, a one-input
+ordering witness into channel inequivalence, a two-sector reduced outer into
+generic partial trace, or a supplied exact compiler into synthesis. Stage 12
+release verification remains pending.

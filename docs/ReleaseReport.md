@@ -31,8 +31,12 @@ non-root audit, bringing the checkpoint tree to 90 Lean sources including the
 public root. Stage 10 adds six stable metric leaves and one non-root allocation
 audit, bringing the checkpoint tree to 97 Lean sources including the public
 root. It supplies the semantic approximation boundary over exact mathematical
-values. Goal 2 remains active: registry closure and the final release audit are
-later stages; finite encodings and numerical compilation remain Goal 3 work.
+values. Stage 11 adds the stable existing-results classification leaf and its
+non-root audit, bringing the checkpoint tree to 99 Lean sources including the
+public root. It closes the final 51-family/936-declaration registry while
+preserving the frozen historical seed. Goal 2 remains active only for the Stage
+12 release audit; finite encodings and numerical compilation remain Goal 3
+work.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -376,6 +380,7 @@ Representative exported declarations include:
 | Resources | `Circuit.SupportLayering`, `PlacedGate.denseEntrySlots`, `ExactGateCompiler`, `allChronologicalOrders` |
 | Outcomes | `State.FiniteDistribution`, `realifyCircuitBottomDistribution_eq`, `complexifyCircuitBottomDistribution_eq` |
 | Approximation | `operatorDistance`, `QuaternionOperatorClose`, `ComplexGlobalPhaseClose`, `QuaternionStateRayClose`, `totalVariationDistance` |
+| Existing-result classifications | `normalizedQuaternionLeftPhase_rejection`, `realCanonicalColumns_reducedOuterAgreement`, `quaternionGroundOutputs_distributionEq_not_rayEq`, `scheduledCircuit_exactCircuitEq_of_pairwise_commute`, `quaternionOrderingWitness_scopeBoundary`, `ExactGateCompiler.compileCircuit_exactCircuitEq` |
 | Diagnostics | `OrderingWitness.output_basis00_weight_ne`, `ProductInputOrderingWitness.ground_outputs_not_rightPhaseEquivalent`, `NonProductWitness.encodedState_not_pureTopBottomProduct` |
 
 The full paper-to-declaration mapping is in `Traceability.md`.
@@ -387,7 +392,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, phase, hierarchy, channel, simulation, and metric APIs
+  Semantics/    exact, phase, hierarchy, channel, simulation, metric, and final-classification APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -398,6 +403,9 @@ QuaternionicComputing.lean   public root
 scalar sides, multiplication order, adjoints, basis orders, state/ray/outcome
 distinctions, and resource meanings.  `MathlibAPI.md` records the selected
 mathlib interfaces and noncommutative boundaries.
+`EquivalenceClassification.md` renders the final 51-family registry;
+`Goal2ClassificationRegistry.json` is its declaration-complete authoritative
+overlay over the immutable Goal 1 seed.
 
 ## Material corrections
 
@@ -457,6 +465,15 @@ Three inventory claims remain unresolved rather than assumed:
 - the unconstructed multi-top `O(log s)` depth alternative; and
 - the claimed generic `2^(d+1)` elementary-gate decomposition; and
 - existence of the conjectured finite quaternionic universal gate set.
+
+The final semantic-comparison overlay has seven unresolved **source-only
+families** (`EQC-045` through `EQC-051`). This is a different inventory axis
+from the three unresolved paper rows above: it groups absent comparison
+theories for norm-preserver converses, mixed-top observation, quaternionic
+reduced separation, uniform computational-model equivalence, physical swaps,
+top-wire phase tracking, and operational converse simulation. Each registry
+row records an obstruction and a Goal 3 owner and has no fabricated proof
+declaration.
 
 In addition, the positive determinant branch of the partially formalized
 quaternionic group theorem remains an isolated proof obligation: the library
@@ -694,23 +711,40 @@ commands. The root parser finds 533 nonempty and three axiom-free blocks; all
 16 approximation blocks are nonempty. Both exact unions remain `propext`,
 `Classical.choice`, and `Quot.sound`.
 
+Stage 11 adds six stable declarations in
+`Semantics/ExistingResults.lean` and a non-root
+`Semantics/ExistingResultsAudit.lean`. The wrappers name a normalized
+left-phase rejection, canonical reduced-outer agreement, distribution/ray
+separation, a commuting-schedule exact-circuit result, the exact scope of the
+ordering witness, and supplied-compiler exact circuit equality. Fifteen local
+audit endpoints consume these and the Stage 11-owned algebraic, structural,
+combinatorial, and resource families without promoting them to behavior.
+
+The combined stable/local-audit/public-root/release-audit build completes 2,776
+jobs. Stage 11 adds six root audit commands, bringing the root to 542; the root
+parser finds 539 nonempty and three axiom-free blocks. All 15 local
+`ExistingResultsAudit` blocks are nonempty. Both exact unions remain
+`propext`, `Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
-root, axiom audit, and all Stage 10 source boundaries. The executable root audit
-now contains 536
+root, axiom audit, and all Stage 10 and Stage 11 source boundaries. The
+executable root audit now contains 542
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
-Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, 36 Stage 9C, and 42 Stage 10
-endpoints. All 16 local `ApproximationAudit` prints,
+Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, 36 Stage 9C, 42 Stage 10, and six
+Stage 11 endpoints. All 15 local `ExistingResultsAudit` prints, all 16 local
+`ApproximationAudit` prints,
 20 local
 `SimulationAudit` prints,
 all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use only
 subsets of `propext`, `Classical.choice`, and `Quot.sound`; the collective union
-is exactly those three standard axioms. At the Stage 10 checkpoint, the parser
-finds 533 nonempty plus three axiom-free root blocks, 16 nonempty local
-approximation blocks, and 19 nonempty plus one
+is exactly those three standard axioms. At the Stage 11 checkpoint, the parser
+finds 539 nonempty plus three axiom-free root blocks, 15 nonempty local
+existing-results blocks, 16 nonempty local approximation blocks, and 19
+nonempty plus one
 axiom-free local `SimulationAudit` block. See `AxiomAudit.md` for the
 interpretation.
 

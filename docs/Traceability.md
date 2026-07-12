@@ -166,6 +166,32 @@ sources; scheduled forms retain one supplied schedule. These results add no
 product/mixed-top, partial-trace, channel/all-effect, randomized-postprocessing,
 or resource conclusion.
 
+Stage 10 adds the exact-object metric boundary without changing a paper-row
+terminal status. Real/complex operator distance is the Euclidean induced L2
+norm; quaternionic operator distance is defined through the underlying-real
+continuous linear action and proved equal to complexification's L2 norm.
+One-global-phase or central-sign operator budgets, normalized right-state-ray
+budgets, and half-L1 distribution budgets have zero-exact bridges and additive
+composition laws. These are not finite scalar encodings, circuit-error
+accumulators, approximate compilers, synthesis algorithms, or runtime results.
+C-024 records that exact and finite-precision source language must remain
+separate.
+
+Stage 11 completes the declaration-level classification overlay without
+changing the 101-row paper inventory or any terminal paper status. The frozen
+Goal 1 comparison seed still contains 51 families and 936 declarations with
+checksum
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+`Goal2ClassificationRegistry.json` classifies every one of those declarations
+exactly once at its strongest checked scope; its family statuses are 33 proved,
+nine corrected and proved, two partially formalized, and seven unresolved
+source-only claims. Six thin stable wrappers in `Semantics/ExistingResults`
+name the remaining useful semantic boundaries, while algebraic, structural,
+resource, and source-only families retain explicit nonbehavioral or obstruction
+dispositions. The separate Goal 2 manifest covers 1,275 new declarations and
+does not rewrite the frozen seed. Stage 12 release verification remains
+pending.
+
 ## Numbered definitions, theorems, lemmas, and corollary
 
 | ID | Source | Concise target and dependencies | Priority / stage | Status |

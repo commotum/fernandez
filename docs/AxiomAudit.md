@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 536 `#print axioms` commands (494 at Stage 9C, 458
+the public root. It now runs 542 `#print axioms` commands (536 at Stage 10, 494 at Stage 9C, 458
 at Stage 9B, 442 at Stage 9A, 422 at Stage 8, 393 at Stage 7, 354 at Stage 6,
 330 at Stage 5, and 305 at Stage 4C).
 Representative endpoint categories include:
@@ -65,6 +65,10 @@ Representative endpoint categories include:
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
 - the non-product and product-input diagnostics.
+- the six stable final-classification wrappers for normalized left-phase
+  rejection, canonical reduced outer agreement, distribution/ray separation,
+  commuting schedules, the bounded ordering witness, and supplied exact
+  compilation.
 
 Run it from the repository root with:
 
@@ -290,10 +294,27 @@ endpoint remains within the exact standard union below. The combined stable/
 audit/public-root/release-audit target completes 2,775 jobs, and the cached
 default build completes 2,773.
 
+Stage 11 adds six stable declarations in
+`Semantics/ExistingResults.lean`. The non-root
+`Semantics/ExistingResultsAudit.lean` allocates those declarations through
+three source-order aggregates and gives the remaining Stage 11-owned
+diagnostic, algebraic, combinatorial, and resource families meaningful
+nonbehavioral consumers. Its 15 selected `#print axioms` endpoints are all
+nonempty. The public-root audit adds all six stable wrappers directly, bringing
+its total from 536 to 542 commands. The root parser finds 539 nonempty and three
+axiom-free blocks; the local parser finds 15 nonempty and no axiom-free block.
+Both exact unions are the same standard three items below.
+
+The combined Stage 11 stable/local-audit/public-root/release-audit build
+completes 2,776 jobs. The separate final registry validator resolves all 936
+frozen declaration names and all named proof, consumer, and audit targets; it
+does not infer axiom cleanliness from metadata alone.
+
 ## Current checkpoint result
 
-The Stage 10 public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 536 public-root endpoints, all 16
+The Stage 11 public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 542 public-root endpoints, all 15
+local existing-results endpoints, all 16
 local approximation endpoints, all 20
 local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
 endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
@@ -310,15 +331,16 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 10 checkpoint the parser reads 533
-nonempty and three axiom-free root blocks. The local approximation audit has
+from a focused build alone. At the Stage 11 checkpoint the parser reads 539
+nonempty and three axiom-free root blocks. The local existing-results audit has
+15 nonempty blocks and no axiom-free block. The local approximation audit has
 16 nonempty blocks and no axiom-free block. The local simulation audit has 19
 nonempty blocks and one axiom-free block; all 20 resolve without an unknown
 identifier or `sorryAx` output.
 
-The Stage 10 stable leaves and non-root audit pass warning-as-error compilation.
-This is a Stage 10 checkpoint, not a claim that Goal 2 is complete: registry
-closure and the final release audit remain pending. Finite scalar encoding,
+The Stage 11 stable leaf and non-root audit pass warning-as-error compilation.
+This closes the registry audit, not Goal 2 as a whole: the final Stage 12
+release audit remains pending. Finite scalar encoding,
 rounding, accumulated circuit error, approximate compiler construction, and
 runtime remain Goal 3 work rather than missing Stage 10 axioms.
 

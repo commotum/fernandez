@@ -600,10 +600,88 @@ boundary. Finite scalar encoding, rounding, code-to-value error, accumulated
 circuit budgets, approximate compiler/synthesis construction, runtime, and
 uniformity remain Goal 3 work under C-024.
 
-## Ambiguous wording backlog
+## Final checked registry overlay
 
-The following prose must be adjudicated during the retrofit.  A registry label
-must not silently choose one reading.
+`Goal2ClassificationRegistry.json` is the authoritative Stage 11 overlay. It
+classifies the immutable cohort's 936 declarations exactly once across the same
+51 families. Its family totals are 33 `proved`, nine `correctedAndProved`, two
+`partiallyFormalized`, and seven `unresolved` source-only claims. Every one of
+the 42 implementation/release families names proof-bearing evidence or an
+explicit nonbehavioral/resource/support disposition; the seven unresolved rows
+have no invented Lean proof. The overlay also records all seven classification
+axes on every declaration, 41 direct-root audit assignments, and 895 non-root
+local-endpoint assignments.
+
+The table below is a mechanically rendered family summary. Within each row,
+proof declarations retain JSON order and are joined by `<br>`; `—` means that
+the source-only obstruction intentionally has no proof declaration. Final
+dispositions, per-declaration axes, consumers, weaker results, witnesses,
+obstructions, and audit assignments remain in the JSON.
+
+<!-- GOAL2-REGISTRY-TABLE:START -->
+| ID | Final status | Semantic class | Evidence mode | Strongest checked result | Goal 3 boundary |
+|---|---|---|---|---|---|
+| `EQC-001-Q-LEFT-PHASE-FAILURE` | `correctedAndProved` | `diagnosticCounterexample` | `counterexample` | `QuaternionicComputing.Semantics.normalizedQuaternionLeftPhase_rejection` | No Goal 3 upgrade is licensed: this is not a rejection of right phase and not circuit or channel inequivalence. |
+| `EQC-002-Q-RIGHT-RAY` | `proved` | `representativeOrRay` | `proofBearingRelation` | `QuaternionicComputing.Semantics.QuaternionStatePhaseEq.equivalence`<br>`QuaternionicComputing.Semantics.QuaternionStatePhaseEq.raw_eval`<br>`QuaternionicComputing.Semantics.QuaternionStatePhaseEq.evolveUnitary` | No arbitrary quaternion operator phase or channel equality is inferred. |
+| `EQC-003-C-RIGHT-RAY` | `proved` | `representativeOrRay` | `proofBearingRelation` | `QuaternionicComputing.Semantics.ComplexStatePhaseEq.equivalence`<br>`QuaternionicComputing.Semantics.ComplexStatePhaseEq.raw_eval`<br>`QuaternionicComputing.Semantics.ComplexStatePhaseEq.evolveUnitary` | No channel converse follows from equality of basis distributions. |
+| `EQC-004-NORMALIZED-BASIS-DIST` | `proved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Semantics.basisWeightEq_iff_normalizedDistributionEq` | Vector, ray, all-pure-input, and channel equality remain strictly stronger or incomparable claims. |
+| `EQC-005-EVENT-PUSHFORWARD-CONGRUENCE` | `proved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq`<br>`QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq` | Randomized postprocessing, quantum partial trace, and channel equality are outside this family. |
+| `EQC-006-UNITARY-EVOLUTION-NORM` | `proved` | `structuralSupport` | `supportDisposition` | `QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary`<br>`QuaternionicComputing.State.complexTotalWeight_mulVec_of_mem_unitary`<br>`QuaternionicComputing.State.quaternionTotalWeight_mulVec_of_mem_unitary` | Converse classifications of norm preservers remain in EQC-045 and Goal 3. |
+| `EQC-007-REAL-COLUMNS-REPRESENTATIVE` | `proved` | `representativeOrRay` | `proofBearingCertificate` | `QuaternionicComputing.Semantics.realColumn0StateEquiv`<br>`QuaternionicComputing.Semantics.realColumn1StateEquiv` | Complex phase descends through RealSectorOrbit, not through a canonical column as ordinary RealRay equality. |
+| `EQC-008-REAL-COLUMNS-INTERTWINING` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyMatrix_allCoefficient_stateIntertwining` | Raw coordinate coefficients are not normalized product ancillas, rays, densities, or decoded outcomes. |
+| `EQC-009-REAL-COLUMNS-MEASUREMENT` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realTopCombination_allRebit_raw_decodedBasisWeightAgreement` | A mixed-top density/partial-trace extension remains Goal 3 work. |
+| `EQC-010-REAL-REDUCED-OUTER` | `correctedAndProved` | `crossModelSemantics` | `proofBearingEquality` | `QuaternionicComputing.Semantics.realCanonicalColumns_reducedOuterAgreement` | Generic density matrices and a generic partial-trace theorem remain Goal 3 work. |
+| `EQC-011-COMPLEX-COLUMNS-REPRESENTATIVE` | `proved` | `representativeOrRay` | `proofBearingCertificate` | `QuaternionicComputing.Semantics.complexColumn0StateEquiv`<br>`QuaternionicComputing.Semantics.complexColumn1StateEquiv` | No quaternionic/complex linearity, phase quotient, channel equality, or measurement equality is inferred. |
+| `EQC-012-COMPLEX-COLUMNS-INTERTWINING` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.complexifyMatrix_allCoefficient_stateIntertwining` | No right-phase quotient, normalized product-top state, density, or decoded outcome is bundled. |
+| `EQC-013-COMPLEX-COLUMNS-MEASUREMENT` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.complexTopCombination_allQubit_raw_decodedBasisWeightAgreement` | No reduced-density conclusion or mixed-top extension is claimed; those remain Goal 3 work. |
+| `EQC-014-BASIS-PREPARATION` | `correctedAndProved` | `sameSpaceBehavior` | `proofBearingCertificate` | `QuaternionicComputing.Semantics.basisPreparationMatrixImplementation`<br>`QuaternionicComputing.Semantics.basisPreparationGateImplementation`<br>`QuaternionicComputing.Semantics.basisPreparationCircuit` | Unknown-state preparation, primitive synthesis, uniform compilation, and runtime claims remain outside this family. |
+| `EQC-015-NONPRODUCT-WITNESS` | `correctedAndProved` | `diagnosticCounterexample` | `counterexample` | `QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct` | Operational entanglement, mixed-state, channel, and signaling consequences require Goal 3 machinery. |
+| `EQC-016-PRODUCT-ORDER-RAY-WITNESS` | `correctedAndProved` | `diagnosticCounterexample` | `counterexample` | `QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq` | This one-input strictness witness is not channel or all-measurement inequivalence. |
+| `EQC-017-REALIFY-ALGEBRA` | `proved` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Matrix.realify_mul`<br>`QuaternionicComputing.Matrix.realify_conjTranspose`<br>`QuaternionicComputing.Matrix.realify_injective` | No additional behavioral or Goal 3 conclusion follows from the algebra alone. |
+| `EQC-018-COMPLEXIFY-ALGEBRA` | `proved` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Quaternion.complexify_mul`<br>`QuaternionicComputing.Quaternion.complexify_conjTranspose`<br>`QuaternionicComputing.Quaternion.complexify_injective` | No phase, circuit, observation, or channel relation is inferred from the block algebra. |
+| `EQC-019-DIRECT-REALIFY-REINDEX` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.directRealify_exactOperatorEmbedding` | It is not unreindexed literal matrix equality and does not define a second circuit translator. |
+| `EQC-020-UNITARY-IMAGE-EQUIVS` | `proved` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Matrix.realifyUnitaryEquivImage`<br>`QuaternionicComputing.Quaternion.complexifyUnitaryEquivImage`<br>`QuaternionicComputing.Quaternion.directRealifyUnitaryEquivImage` | Ambient surjectivity and computational-model equivalence are not consequences. |
+| `EQC-021-DETERMINANT-IMAGE` | `partiallyFormalized` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Matrix.realify_mem_specialOrthogonal`<br>`QuaternionicComputing.Quaternion.complexify_det_eq_one_or_neg_one_of_mem_unitary`<br>`QuaternionicComputing.Quaternion.directRealify_mem_specialOrthogonal` | The positive-sign quaternion-to-complex determinant theorem remains Goal 3 work. |
+| `EQC-022-PROPER-IMAGE-WITNESSES` | `proved` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Matrix.ProperImage.realWitness_specialOrthogonal_not_realify`<br>`QuaternionicComputing.Matrix.ProperImage.complexWitness_specialUnitary_not_complexify`<br>`QuaternionicComputing.Matrix.ProperImage.directWitness_specialOrthogonal_not_directRealify` | Operational lower bounds or converse simulation separations remain Goal 3 work. |
+| `EQC-023-KRONECKER-INTERCHANGE` | `partiallyFormalized` | `algebraicComparison` | `nonbehavioralDisposition` | `QuaternionicComputing.Matrix.kronecker_mul_kronecker_of_entrywiseCommute`<br>`QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_without_zeroOne`<br>`QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_i_j_failure` | No necessity theorem for the sufficient commutation condition is proved. |
+| `EQC-024-PLACE-ALGEBRA` | `proved` | `structuralSupport` | `supportDisposition` | `QuaternionicComputing.Circuit.place_mul`<br>`QuaternionicComputing.Circuit.place_conjTranspose`<br>`QuaternionicComputing.Circuit.place_injective`<br>`QuaternionicComputing.Circuit.place_mem_unitary` | Physical swaps, routing circuits, and routing cost remain Goal 3 work. |
+| `EQC-025-WIRE-EMBED-PLACEMENT` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyPlacedGate_exactOperatorEmbedding`<br>`QuaternionicComputing.Semantics.complexifyPlacedGate_exactOperatorEmbedding` | No prepared/product ancilla, physical routing circuit, or resource claim is bundled. |
+| `EQC-026-ORDERED-EVAL` | `proved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Semantics.ExactCircuitEq.iff_eval_eq`<br>`QuaternionicComputing.Semantics.ExactCircuitEq.append` | Gate-list equality is sufficient but unnecessary; phase, resources, schedules, and cross-model maps remain separate. |
+| `EQC-027-SCHEDULE-INDEPENDENCE` | `proved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Semantics.scheduledCircuit_exactCircuitEq_of_pairwise_commute` | No converse and no generic disjoint-support implication without scalar commutation are claimed. |
+| `EQC-028-ORDER-DISTINCTION-WITNESS` | `correctedAndProved` | `diagnosticCounterexample` | `counterexample` | `QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary` | This does not assert channel, all-effect, or every-input inequivalence. |
+| `EQC-029-SCHEDULE-ENUMERATION` | `proved` | `structuralSupport` | `supportDisposition` | `QuaternionicComputing.Circuit.length_allChronologicalOrders`<br>`QuaternionicComputing.Circuit.LegalSchedule.order_mem_allChronologicalOrders`<br>`QuaternionicComputing.Circuit.ScheduleCount.BoolChain.reverseOrder_not_legal` | These combinatorial counts are not schedule independence or circuit behavior. |
+| `EQC-030-C2R-OPERATOR` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyCircuit_exactOperatorEmbedding` | This is directional mapped equality with an explicit added wire, not same-space circuit equality. |
+| `EQC-031-C2R-STATE` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyCircuit_allCoefficient_stateIntertwining` | Coefficients are not normalized product-top certificates; outcomes are classified separately. |
+| `EQC-032-C2R-OBSERVABLE` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyCircuit_allRebit_raw_decodedBasisWeightAgreement`<br>`QuaternionicComputing.Semantics.realifyCircuit_allRebit_decodedDistributionAgreement` | Mixed top states, randomized postprocessing, partial trace, and channel equality remain outside this result. |
+| `EQC-033-Q2C-OPERATOR` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.complexifyCircuit_exactOperatorEmbedding` | This is directional mapped equality with an explicit added wire, not same-space circuit equality. |
+| `EQC-034-Q2C-STATE` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.complexifyCircuit_allCoefficient_stateIntertwining` | No right-phase quotient, normalized product-top certificate, outcome, or channel result is bundled. |
+| `EQC-035-Q2C-OBSERVABLE` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement`<br>`QuaternionicComputing.Semantics.complexifyCircuit_allQubit_decodedDistributionAgreement` | Mixed top states, partial trace, and channel equality remain outside this result. |
+| `EQC-036-SCHEDULED-Q2C` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.scheduledComplexifyCircuit_exactOperatorEmbedding`<br>`QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allCoefficient_stateIntertwining`<br>`QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement` | No schedule selection, schedule independence, quotient, mixed-top, channel, or resource theorem follows. |
+| `EQC-037-Q2R-COMPOSED` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding`<br>`QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining`<br>`QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement` | Both coordinate layers remain explicit; Equation 63 is not a second circuit translator and no mixed-top/channel claim follows. |
+| `EQC-038-POSTPROCESSING-SIMULATION` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.realifyCircuit_allRebit_decodedDistributionAgreement`<br>`QuaternionicComputing.Semantics.complexifyCircuit_allQubit_decodedDistributionAgreement`<br>`QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement` | Randomized postprocessing, channel equality, and resource accounting are not included. |
+| `EQC-039-EXACT-COMPILER-SEMANTICS` | `correctedAndProved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Circuit.ExactGateCompiler.compileCircuit_exactCircuitEq` | Compiler existence, synthesis, approximation, primitive-count guarantees, and runtime remain Goal 3 work. |
+| `EQC-040-COMPILED-IMAGE-SEMANTICS` | `proved` | `crossModelSemantics` | `proofBearingRelation` | `QuaternionicComputing.Semantics.compileRealifyCircuit_exactOperatorEmbedding`<br>`QuaternionicComputing.Semantics.compileComplexifyCircuit_exactOperatorEmbedding` | No compiler existence, synthesis, approximation, gate-count bound, or runtime is inferred. |
+| `EQC-041-STRUCTURAL-RESOURCE-EQUALITIES` | `proved` | `resourceClaim` | `resourceDisposition` | `QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family`<br>`QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family` | Uniform synthesis, physical routing cost, runtime, and bit complexity remain Goal 3 work. |
+| `EQC-042-EXACT-VS-APPROX-BOUNDARY` | `proved` | `approximationBoundary` | `proofBearingRelation` | `QuaternionicComputing.Semantics.operatorClose_zero_iff_exactOperatorEq`<br>`QuaternionicComputing.Semantics.complexStateRayClose_zero_iff_complexStatePhaseEq`<br>`QuaternionicComputing.Semantics.distributionClose_zero_iff` | Finite scalar encoding, circuit-error accumulation, approximate compilation/synthesis, and runtime remain Goal 3 work. |
+| `EQC-043-REAL-SIGN-RAY` | `correctedAndProved` | `representativeOrRay` | `proofBearingRelation` | `QuaternionicComputing.Semantics.RealStatePhaseEq.equivalence`<br>`QuaternionicComputing.Semantics.RealStatePhaseEq.iff_realRay_mk_eq` | No converse from basis distributions and no arbitrary complex-phase realification are claimed. |
+| `EQC-044-BASIS-CLASSICAL-BEHAVIOR` | `correctedAndProved` | `sameSpaceBehavior` | `proofBearingRelation` | `QuaternionicComputing.Semantics.sameBasisBehavior_iff_realBasisMeasurementEq`<br>`QuaternionicComputing.Semantics.sameBasisBehavior_iff_complexBasisMeasurementEq`<br>`QuaternionicComputing.Semantics.sameBasisBehavior_iff_quaternionBasisMeasurementEq` | No raw transition biconditional or arbitrary-matrix behavior relation is accepted. |
+| `EQC-045-NORM-PRESERVER-CONVERSES` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/4-FOUNDATIONS must state and prove the scalar-specific converse classifications. |
+| `EQC-046-MIXED-TOP-OBSERVATIONAL` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/3-DENSITY must define joint mixed states, product/no-correlation hypotheses, and the decoded marginal theorem. |
+| `EQC-047-QUATERNION-REDUCED-SEPARATION` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/3-DENSITY must formalize the two reduced matrices, diagonal agreement, and matrix inequality. |
+| `EQC-048-COMPUTATIONAL-MODEL-EQUIVALENCE` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/12-UNIFORMITY and 13-REALQTM must supply the uniform computational models and resource accounting. |
+| `EQC-049-PHYSICAL-SWAP-SIMULATION` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/6-ROUTING must define the architecture, synthesize swap circuits, and prove denotation and cost. |
+| `EQC-050-TOP-WIRE-PHASE-TRACKING` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/14-STRUCTURE must select and prove a convention-correct invariant-subspace/orbit replacement. |
+| `EQC-051-OPERATIONAL-CONVERSE-SIMULATION` | `unresolved` | `sourceOnlyClaim` | `sourceOnlyObstruction` | — | Goal 3/14-STRUCTURE and 16-CHANNELS must define an operational simulation relation before any converse separation. |
+<!-- GOAL2-REGISTRY-TABLE:END -->
+
+## Ambiguity closure ledger
+
+All wording issues found during the retrofit now have an explicit disposition.
+“Closed” means the current public documentation and registry state the checked
+scope. Historical Goal 1 plans remain untouched as evidence of the discovery
+state. “Bounded” means the source claim is still absent or partial, but the
+registry names the exact obstruction and Goal 3 boundary rather than silently
+choosing an interpretation.
 
 1. **Resolved in Stage 3A:** `docs/ReleaseReport.md` now says quaternionic
    state/ray phase acts on the right, not unqualified “global phase.”
@@ -614,81 +692,70 @@ must not silently choose one reading.
    right phase as state/ray representative phase, while the operator layer
    separately restricts matrix-wide global phase to a central real sign and
    records the rank-one projective exception.
-4. `goal-1/6-SIMULATION.md:203` says a real probability equals a quaternionic
-   output.  The intended comparison is with the source output basis
-   probability/weight.  `goal-1/0-plan.md:129-132` has the same type-confused
-   wording.
-5. `goal-1/3-MATRICES.md:214-216` says “symplectic image/group isomorphism.”
-   Goal 1 proves equivalence onto `complexifyUnitaryImage` plus symplectic-form
-   membership, not equality with the entire symplectic group.
-6. `docs/Traceability.md:104` requires the same image-membership qualification;
-   it is not a converse characterization of the compact symplectic group.
-7. `README.md:81`, `docs/ReleaseReport.md:56,202`,
-   `docs/Architecture.md:92,329`, and `docs/Corrections.md:550` use
-   “equivalent to its image.”  This is algebraic `MulEquiv`-onto-range, not
-   circuit, ray, channel, or observational equivalence.
-8. `README.md:143-144` says “normalized output equality.”  The implemented
-   relation is equality of decoded bottom finite distributions, followed by
-   event and deterministic-pushforward equality.  `goal-1/0-plan.md:164-167`
-   similarly says “normalized simulation equality.”
-9. `README.md:139-142` says a scheduled bridge applies “the same exact theorem”
-   and remains “observably distinct.”  The actual axes are a mapped operator
-   theorem and one-input computational-basis weight separation.
-10. `README.md:103-105` omits the one-input scope of its unequal output-weight
-    witness.  `docs/ReleaseReport.md:89-91` supplies the input scope but calls
-    unequal weights “distinct normalized measurement outcomes”; the outcome
-    label is the same and its probability differs.
-11. `docs/ReleaseReport.md:68-69` omits the standalone quantifier: arbitrary
-    normalized source state and every normalized `Rebit`/`Qubit` top-sector
-    coefficient covered by the corresponding theorem.
-12. `README.md:88-90` calls basis-weight and matrix-evolution invariance
-    “operational laws.”  No channel or all-measurement theorem exists in Goal 1.
-13. `docs/Traceability.md:90` says “all marginals.”  The implemented result is
-    finite events and deterministic maps of the bottom classical outcome
-    distribution, not generic quantum partial trace.
-14. `docs/Traceability.md:91` says “the same deterministic finite output
-    distribution.”  Deterministic modifies the supported postprocessing map,
-    not the probability distribution.
-15. `docs/Architecture.md:199` calls occurrence lists
-    “permutation-equivalent.”  This is list/permutation data, not semantic
-    circuit equivalence.
-16. `docs/Architecture.md:255` says scheduled simulation preserves “pointwise
-    unitarity.”  It means local unitarity of each gate occurrence, not equality
-    of pointwise state actions.
-17. `README.md:79-80`, `docs/Architecture.md:88-90`, and
-    `docs/Traceability.md:47,113` call Equation 63 “the same embedding.”  The
-    theorem is equality only after the named simultaneous row/column reindexing
-    and does not construct a second circuit translator.
-18. Paper Theorem 2 at `Fernandez/fernandez-2003.md:169`, Theorem 4 at
-    `Fernandez/fernandez-2003.md:855`, and the oracle criterion at
-    `Fernandez/fernandez-2003.md:142` use “simulation” at different levels:
-    structural gate overhead, operator embedding, and equality of classical
-    outcome probabilities.
-19. Paper `Fernandez/fernandez-2003.md:835,839` overstates quaternionic order
-    dependence and path counts.  Goal 1 has only an existential distinguishing
-    example, a sufficient commutation theorem, and an exact factorial count for
-    empty precedence.
-20. Paper `Fernandez/fernandez-2003.md:1239` says paths have the same
-    computational power.  This means each path is claimed separately
-    simulable; it does not imply that two paths have equal operators, rays,
-    basis distributions, or channels.
-21. Paper `Fernandez/fernandez-2003.md:661` requires a mixed top state to be
-    unentangled and uncorrelated with the bottom system. Any formal version
-    therefore needs an actual joint density, product/no-correlation hypothesis,
-    and partial trace. The current normalized `Rebit`/`Qubit` coefficient
-    parameters do not assert such a factorization.
-22. Paper `Fernandez/fernandez-2003.md:1077-1083,1136-1171` distinguishes
-    quaternionic reduced-matrix inequality from equality of computational
-    diagonals; it must not be paraphrased as the real reduced-matrix theorem.
-23. Paper `Fernandez/fernandez-2003.md:1180-1188` counts unrestricted image
-    matrices as gates before making unsupported primitive-decomposition claims.
-    Abstract same-count results are not primitive-circuit equality or runtime.
-24. Paper footnote `Fernandez/fernandez-2003.md:1292` describes finite-precision
-    matrix approximations, while its main theorems say “exact.”  The exact and
-    approximate models require separate relations and bridge theorems.
-25. Paper `Fernandez/fernandez-2003.md:1251` infers operational converse failure
-    from matrix non-surjectivity.  That inference requires a chosen simulation
-    relation, encoders, decoders, ancilla policy, and observation scope.
+4. **Closed in Stages 9B-9C:** the type-confused historical Goal 1 phrase is
+   classified as equality of the source and explicitly decoded target basis
+   weights/distributions, never equality of a probability with a state output.
+5. **Closed in Stage 11:** “symplectic image/group isomorphism” is classified as
+   a `MulEquiv` onto `complexifyUnitaryImage` plus one-way symplectic-form
+   membership, not equality with the ambient compact symplectic group.
+6. **Closed in Stage 11:** traceability uses the same one-way image-membership
+   qualification and records the missing converse.
+7. **Closed in Stage 11:** every “equivalent to its image” reference is explicitly
+   algebraic `MulEquiv`-onto-range, never ray, circuit, channel, observational,
+   or computational-model equivalence.
+8. **Closed in Stage 9C:** “normalized output equality” is rendered as equality
+   of decoded finite distributions, then finite events and deterministic
+   pushforwards. The historical Goal 1 plan remains discovery evidence.
+9. **Closed in Stages 9B-9C:** scheduled simulation is split into mapped operator
+   equality and the exactly scoped decoded observation theorems; the concrete
+   distinction is a one-input basis-weight inequality.
+10. **Closed in Stages 8 and 11:** the ordering witness is explicitly one-input;
+    the same outcome label has unequal weight. The registry forbids promotion
+    to every-input, channel, or all-effect inequivalence.
+11. **Closed in Stages 9B-9C:** the standalone theorems quantify every source
+    state and every named normalized `Rebit`/`Qubit` coefficient at the stated
+    observation level.
+12. **Closed in Stages 7-8:** basis-weight and matrix-evolution invariance are
+    not called channel or all-measurement laws. Those notions now have separate
+    same-space real/complex APIs.
+13. **Closed in Stage 9C:** “all marginals” is restricted to finite events and
+    deterministic maps of the decoded classical outcome distribution; no
+    generic quantum partial trace is inferred.
+14. **Closed in Stage 9C:** “deterministic” modifies the postprocessing map, not
+    the finite probability distribution.
+15. **Closed in Stage 11:** occurrence-list permutation data is structural
+    support, not semantic circuit equivalence; exact schedule equality requires
+    the proved commutation hypothesis.
+16. **Closed in Stages 9B-9C:** scheduled normalized results require local
+    unitarity of every gate occurrence; “pointwise” never means equality of
+    state actions.
+17. **Closed in Stage 9B:** Equation 63 agrees with the composed embedding only
+    after named simultaneous row/column reindexing and is not a second circuit
+    translator.
+18. **Closed by the final axes:** the paper's three uses of “simulation” are
+    separately classified as structural resource statements, directional
+    operator embeddings, and decoded classical-outcome agreement.
+19. **Closed by C-018 and Stage 11:** order dependence is existential, schedule
+    equality has a sufficient commutation theorem, and the factorial count is
+    confined to empty precedence.
+20. **Bounded as `EQC-048`:** “same computational power” is a source-only
+    uniform-model claim, not equality between the two path operators, rays,
+    distributions, or channels.
+21. **Bounded as `EQC-046`:** mixed-top observation requires a joint density,
+    product/no-correlation hypothesis, and partial trace. Normalized coefficient
+    parameters do not certify factorization.
+22. **Bounded as `EQC-047`:** quaternionic reduced-matrix separation remains a
+    source-only density claim distinct from the corrected real two-sector outer
+    equality in `EQC-010`.
+23. **Closed for current results and bounded for synthesis:** literal image-gate
+    counts are structural resource equalities; primitive decomposition and
+    runtime remain outside `EQC-041`.
+24. **Closed by C-024 and `EQC-042`:** exact algebraic relations and budgeted
+    exact-object approximation are distinct. Finite encodings, accumulated
+    circuit error, approximate synthesis, and runtime remain Goal 3 work.
+25. **Bounded as `EQC-051`:** algebraic non-surjectivity is not an operational
+    converse separation without a chosen simulation relation, encoders,
+    decoders, ancilla policy, and observation scope.
 26. **Resolved in Stage 4C / C-027:** the paper defines source states as rays
     before applying `h₀` or `h₁` to representatives. Neither column map
     descends to ordinary `RealRay` on a nonempty space. Complex phase descends
@@ -700,20 +767,31 @@ must not silently choose one reading.
     relation therefore requires explicit permutation certificates before
     `SameBasisBehavior` can be formed.
 
-## Verification obligations before any row becomes final
+## Completed Stage 11 validation evidence
 
-For each family, Stage 1 and its later owner must:
+The final-registry validator passes all ten rule groups. It proves that the
+frozen checksum is still
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`,
+the family IDs are unchanged and ordered, every one of the 936 frozen
+declarations occurs exactly once, all seven classification axes are populated,
+and proof, witness, consumer, audit, and source-only-obstruction policies are
+consistent. Generated Lean checks resolve all 936 declaration names and all
+named proof/consumer/audit targets. The family summary between the marker
+comments is checked against the JSON rather than maintained independently.
 
-1. expand the exact declaration/evidence arrays in the cohort JSON;
-2. inspect scalar, dimension, nonempty, normalization, unitarity, and
-   commutativity assumptions from the Lean signatures;
-3. state the strongest candidate relation without defining it to contain the
-   target theorem tautologically;
-4. compile a proof-bearing wrapper through the public declaration;
-5. record every weaker consequence and attempt the converse on an exact small
-   example;
-6. add a checked counterexample or exact obstruction for every published
-   non-arrow;
-7. keep source-only and Goal 3 rows visibly unimplemented; and
-8. add public results to the independent Goal 2 API manifest and axiom audit
-   without changing this frozen family count.
+Stage 11 adds six stable `Semantics/ExistingResults.lean` wrappers and 15
+non-root `ExistingResultsAudit` endpoints. The independent Goal 2 semantic API
+manifest preserves its first-1,269 structural hash
+`298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
+and contains 1,275 unique declarations, 167 distinct consumers, and 354 direct
+root-audit labels; its full structural hash is
+`6e5624c17e652dadac6c436c2d2c5d265bd88416b1cb124d5d0f00c83f46b414`.
+The combined Stage 11 build completes 2,776 jobs.
+
+The executable public-root audit contains 542 commands: 539 report nonempty
+axiom sets and three are axiom-free. All 15 `ExistingResultsAudit` commands are
+nonempty. Both exact unions are `{propext, Classical.choice, Quot.sound}`; no
+project-specific axiom was introduced. The source tree contains 99 Lean files
+including the public root. Stage 12's clean release, downstream, scan, and
+independent-review gates remain pending, so these results close the registry
+stage rather than Goal 2 as a whole.
