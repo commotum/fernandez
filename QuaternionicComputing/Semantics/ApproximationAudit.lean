@@ -651,4 +651,23 @@ theorem boolEvent_and_pushforward :
     totalVariationDistance_pushforward_le deltaFalse fairBool (fun _ ↦ ()),
     distributionClose_half_not_transitive.1.pushforward (fun _ ↦ ())⟩
 
+/-! ## Representative local axiom audit -/
+
+#print axioms operatorMetric_api
+#print axioms operatorPerturbation_api
+#print axioms mappedOperator_api
+#print axioms complexGlobalPhaseClose_api
+#print axioms quaternionAction_api
+#print axioms quaternionComplexificationNorm_api
+#print axioms quaternionStateRayClose_api
+#print axioms normalizedStateOutput_api
+#print axioms distributionObservable_api
+#print axioms operatorStrictness_api
+#print axioms distributionStrictness_api
+#print axioms zeroWire_and_nontrivialUnitary
+#print axioms mapped_realToComplex_zero
+#print axioms quaternion_rightPhase_side
+#print axioms normalizedSingleton_outputBounds
+#print axioms boolEvent_and_pushforward
+
 end QuaternionicComputing.Semantics.ApproximationAudit

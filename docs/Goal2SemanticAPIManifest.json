@@ -17625,6 +17625,2710 @@
         "exactness": "exact deterministic pushforward; no algorithm/runtime claim",
         "ancillaPolicy": "outer then inner decoding precedes postprocessing; no mixed top, channel/effect, randomized, or resource claim"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance",
+      "relation": "operatorDistance — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose",
+      "relation": "OperatorClose — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_eq_l2_opNorm",
+      "relation": "operatorDistance_eq_l2_opNorm — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_eq_continuousLinearMapNorm",
+      "relation": "operatorDistance_eq_continuousLinearMapNorm — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_eq_toEuclideanCLM_norm",
+      "relation": "operatorDistance_eq_toEuclideanCLM_norm — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_self",
+      "relation": "operatorDistance_self — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_nonneg",
+      "relation": "operatorDistance_nonneg — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_symm",
+      "relation": "operatorDistance_symm — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_triangle",
+      "relation": "operatorDistance_triangle — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_eq_zero_iff_exactOperatorEq",
+      "relation": "operatorDistance_eq_zero_iff_exactOperatorEq — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorClose_zero_iff_exactOperatorEq",
+      "relation": "operatorClose_zero_iff_exactOperatorEq — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose.refl",
+      "relation": "refl — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose.mono",
+      "relation": "mono — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose.symm",
+      "relation": "symm — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose.additive_trans",
+      "relation": "additive_trans — Stage 10 operatorMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite row/column index types over one RCLike scalar; rectangular allowed",
+        "subject": "raw matrix operators and their Euclidean induced L2 distance",
+        "inputScope": "all finite L2 input columns; square specialization only where toEuclideanCLM is named",
+        "observationScope": "full induced operator norm, metric laws, and explicit error budgets",
+        "phase": "none; raw distance remains global-phase sensitive",
+        "exactness": "exact norm identities and inequalities; budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_mul_left_le",
+      "relation": "operatorDistance_mul_left_le — Stage 10 operatorPerturbation",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api; direct release endpoint not selected",
+      "classification": {
+        "space": "compatible finite RCLike matrix shapes; same scalar and composed index spaces",
+        "subject": "operator products and action on one arbitrary L2 input column",
+        "inputScope": "all compatible factors/columns; unitary additive specialization has explicit Nonempty index",
+        "observationScope": "induced operator and output-column error bounds",
+        "phase": "none",
+        "exactness": "exact submultiplicative inequalities; supplied budgets add",
+        "ancillaPolicy": "none; ordinary matrix composition only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_mul_right_le",
+      "relation": "operatorDistance_mul_right_le — Stage 10 operatorPerturbation",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api; direct release endpoint not selected",
+      "classification": {
+        "space": "compatible finite RCLike matrix shapes; same scalar and composed index spaces",
+        "subject": "operator products and action on one arbitrary L2 input column",
+        "inputScope": "all compatible factors/columns; unitary additive specialization has explicit Nonempty index",
+        "observationScope": "induced operator and output-column error bounds",
+        "phase": "none",
+        "exactness": "exact submultiplicative inequalities; supplied budgets add",
+        "ancillaPolicy": "none; ordinary matrix composition only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_mul_le",
+      "relation": "operatorDistance_mul_le — Stage 10 operatorPerturbation",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api; direct release endpoint not selected",
+      "classification": {
+        "space": "compatible finite RCLike matrix shapes; same scalar and composed index spaces",
+        "subject": "operator products and action on one arbitrary L2 input column",
+        "inputScope": "all compatible factors/columns; unitary additive specialization has explicit Nonempty index",
+        "observationScope": "induced operator and output-column error bounds",
+        "phase": "none",
+        "exactness": "exact submultiplicative inequalities; supplied budgets add",
+        "ancillaPolicy": "none; ordinary matrix composition only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.OperatorClose.mul_of_unitary",
+      "relation": "mul_of_unitary — Stage 10 operatorPerturbation",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "compatible finite RCLike matrix shapes; same scalar and composed index spaces",
+        "subject": "operator products and action on one arbitrary L2 input column",
+        "inputScope": "all compatible factors/columns; unitary additive specialization has explicit Nonempty index",
+        "observationScope": "induced operator and output-column error bounds",
+        "phase": "none",
+        "exactness": "exact submultiplicative inequalities; supplied budgets add",
+        "ancillaPolicy": "none; ordinary matrix composition only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_mulVec_le",
+      "relation": "operatorDistance_mulVec_le — Stage 10 operatorPerturbation",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorPerturbation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "compatible finite RCLike matrix shapes; same scalar and composed index spaces",
+        "subject": "operator products and action on one arbitrary L2 input column",
+        "inputScope": "all compatible factors/columns; unitary additive specialization has explicit Nonempty index",
+        "observationScope": "induced operator and output-column error bounds",
+        "phase": "none",
+        "exactness": "exact submultiplicative inequalities; supplied budgets add",
+        "ancillaPolicy": "none; ordinary matrix composition only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.mappedOperatorDistance",
+      "relation": "mappedOperatorDistance — Stage 10 mappedOperator",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api; direct release endpoint not selected",
+      "classification": {
+        "space": "explicit source matrix type mapped into one finite RCLike target matrix space",
+        "subject": "directional mapped operator comparison",
+        "inputScope": "one supplied map, source matrix, and target matrix",
+        "observationScope": "raw induced distance in the common target space",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEmbedding through the displayed map",
+        "ancillaPolicy": "all scalar/index/dimension change remains visible in the supplied map; no hidden marginal"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.MappedOperatorClose",
+      "relation": "MappedOperatorClose — Stage 10 mappedOperator",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api; direct release endpoint not selected",
+      "classification": {
+        "space": "explicit source matrix type mapped into one finite RCLike target matrix space",
+        "subject": "directional mapped operator comparison",
+        "inputScope": "one supplied map, source matrix, and target matrix",
+        "observationScope": "raw induced distance in the common target space",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEmbedding through the displayed map",
+        "ancillaPolicy": "all scalar/index/dimension change remains visible in the supplied map; no hidden marginal"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.mappedOperatorDistance_eq_zero_iff_exactOperatorEmbedding",
+      "relation": "mappedOperatorDistance_eq_zero_iff_exactOperatorEmbedding — Stage 10 mappedOperator",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api; direct release endpoint not selected",
+      "classification": {
+        "space": "explicit source matrix type mapped into one finite RCLike target matrix space",
+        "subject": "directional mapped operator comparison",
+        "inputScope": "one supplied map, source matrix, and target matrix",
+        "observationScope": "raw induced distance in the common target space",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEmbedding through the displayed map",
+        "ancillaPolicy": "all scalar/index/dimension change remains visible in the supplied map; no hidden marginal"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.mappedOperatorClose_zero_iff_exactOperatorEmbedding",
+      "relation": "mappedOperatorClose_zero_iff_exactOperatorEmbedding — Stage 10 mappedOperator",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.mappedOperator_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "explicit source matrix type mapped into one finite RCLike target matrix space",
+        "subject": "directional mapped operator comparison",
+        "inputScope": "one supplied map, source matrix, and target matrix",
+        "observationScope": "raw induced distance in the common target space",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEmbedding through the displayed map",
+        "ancillaPolicy": "all scalar/index/dimension change remains visible in the supplied map; no hidden marginal"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_smul",
+      "relation": "operatorDistance_smul — Stage 10 operatorScalarIsometry",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorScalarIsometry_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorScalarIsometry_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "simultaneous scalar action on raw operators",
+        "inputScope": "all matrices and scalars; isometry specialization requires scalar norm one",
+        "observationScope": "Euclidean induced operator distance",
+        "phase": "one scalar multiplies the whole matrix",
+        "exactness": "exact distance scaling and unit-scalar isometry",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_smul_of_norm_eq_one",
+      "relation": "operatorDistance_smul_of_norm_eq_one — Stage 10 operatorScalarIsometry",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorScalarIsometry_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "simultaneous scalar action on raw operators",
+        "inputScope": "all matrices and scalars; isometry specialization requires scalar norm one",
+        "observationScope": "Euclidean induced operator distance",
+        "phase": "one scalar multiplies the whole matrix",
+        "exactness": "exact distance scaling and unit-scalar isometry",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RCLikeGlobalPhaseClose",
+      "relation": "RCLikeGlobalPhaseClose — Stage 10 rclikeGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "operator comparison up to one global unit scalar",
+        "inputScope": "whole source and target matrices; one scalar witness shared by every entry",
+        "observationScope": "Euclidean induced operator distance after global scalar action",
+        "phase": "one global RCLike unit scalar; not row/input-dependent",
+        "exactness": "error-budget relation with nonnegative reflexivity and additive composition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RCLikeGlobalPhaseClose.refl",
+      "relation": "refl — Stage 10 rclikeGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "operator comparison up to one global unit scalar",
+        "inputScope": "whole source and target matrices; one scalar witness shared by every entry",
+        "observationScope": "Euclidean induced operator distance after global scalar action",
+        "phase": "one global RCLike unit scalar; not row/input-dependent",
+        "exactness": "error-budget relation with nonnegative reflexivity and additive composition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RCLikeGlobalPhaseClose.mono",
+      "relation": "mono — Stage 10 rclikeGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "operator comparison up to one global unit scalar",
+        "inputScope": "whole source and target matrices; one scalar witness shared by every entry",
+        "observationScope": "Euclidean induced operator distance after global scalar action",
+        "phase": "one global RCLike unit scalar; not row/input-dependent",
+        "exactness": "error-budget relation with nonnegative reflexivity and additive composition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RCLikeGlobalPhaseClose.symm",
+      "relation": "symm — Stage 10 rclikeGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "operator comparison up to one global unit scalar",
+        "inputScope": "whole source and target matrices; one scalar witness shared by every entry",
+        "observationScope": "Euclidean induced operator distance after global scalar action",
+        "phase": "one global RCLike unit scalar; not row/input-dependent",
+        "exactness": "error-budget relation with nonnegative reflexivity and additive composition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RCLikeGlobalPhaseClose.additive_trans",
+      "relation": "additive_trans — Stage 10 rclikeGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rclikeGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite RCLike matrix space",
+        "subject": "operator comparison up to one global unit scalar",
+        "inputScope": "whole source and target matrices; one scalar witness shared by every entry",
+        "observationScope": "Euclidean induced operator distance after global scalar action",
+        "phase": "one global RCLike unit scalar; not row/input-dependent",
+        "exactness": "error-budget relation with nonnegative reflexivity and additive composition",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignClose",
+      "relation": "RealGlobalSignClose — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.real_norm_eq_one_iff_mul_self_eq_one",
+      "relation": "real_norm_eq_one_iff_mul_self_eq_one — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realGlobalSignClose_iff_rclike",
+      "relation": "realGlobalSignClose_iff_rclike — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realGlobalSignClose_zero_iff",
+      "relation": "realGlobalSignClose_zero_iff — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignClose.refl",
+      "relation": "refl — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignClose.mono",
+      "relation": "mono — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignClose.symm",
+      "relation": "symm — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignClose.additive_trans",
+      "relation": "additive_trans — Stage 10 realGlobalSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realGlobalSignClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite real matrix space",
+        "subject": "operator comparison up to one global real sign",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one sign",
+        "phase": "one real scalar s with s*s=1",
+        "exactness": "budget zero iff RealGlobalSignEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseClose",
+      "relation": "ComplexGlobalPhaseClose — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complex_norm_eq_one_iff_normSq_eq_one",
+      "relation": "complex_norm_eq_one_iff_normSq_eq_one — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexGlobalPhaseClose_iff_rclike",
+      "relation": "complexGlobalPhaseClose_iff_rclike — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexGlobalPhaseClose_zero_iff",
+      "relation": "complexGlobalPhaseClose_zero_iff — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseClose.refl",
+      "relation": "refl — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseClose.mono",
+      "relation": "mono — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseClose.symm",
+      "relation": "symm — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseClose.additive_trans",
+      "relation": "additive_trans — Stage 10 complexGlobalPhaseClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexGlobalPhaseClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite complex matrix space",
+        "subject": "operator comparison up to one global complex phase",
+        "inputScope": "whole source and target matrices",
+        "observationScope": "Euclidean induced operator distance after one phase",
+        "phase": "one complex scalar z with normSq z=1",
+        "exactness": "budget zero iff ComplexGlobalPhaseEq; fixed budgets compose additively",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionEuclidean",
+      "relation": "QuaternionEuclidean — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecLinear",
+      "relation": "quaternionMulVecLinear — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecLinear_toLp",
+      "relation": "quaternionMulVecLinear_toLp — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM",
+      "relation": "quaternionMulVecCLM — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_toLp",
+      "relation": "quaternionMulVecCLM_toLp — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_apply",
+      "relation": "quaternionMulVecCLM_apply — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_zero",
+      "relation": "quaternionMulVecCLM_zero — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_add",
+      "relation": "quaternionMulVecCLM_add — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_neg",
+      "relation": "quaternionMulVecCLM_neg — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_sub",
+      "relation": "quaternionMulVecCLM_sub — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_real_smul",
+      "relation": "quaternionMulVecCLM_real_smul — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_mul",
+      "relation": "quaternionMulVecCLM_mul — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionMulVecCLM_injective",
+      "relation": "quaternionMulVecCLM_injective — Stage 10 quaternionAction",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionAction_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite quaternionic rectangular matrices acting between quaternionic PiLp 2 columns",
+        "subject": "underlying-real linear and continuous-linear matrix action",
+        "inputScope": "every finite quaternionic L2 column",
+        "observationScope": "complete output amplitude column and faithful real-linear action",
+        "phase": "none; quaternion multiplication order is retained",
+        "exactness": "exact bundling, algebraic action, composition, and injectivity laws",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm",
+      "relation": "quaternionOperatorNorm — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance",
+      "relation": "quaternionOperatorDistance — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose",
+      "relation": "QuaternionOperatorClose — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_nonneg",
+      "relation": "quaternionOperatorNorm_nonneg — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_zero",
+      "relation": "quaternionOperatorNorm_zero — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_neg",
+      "relation": "quaternionOperatorNorm_neg — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_eq_zero_iff",
+      "relation": "quaternionOperatorNorm_eq_zero_iff — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_add_le",
+      "relation": "quaternionOperatorNorm_add_le — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_sub_le",
+      "relation": "quaternionOperatorNorm_sub_le — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_mul",
+      "relation": "quaternionOperatorNorm_mul — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_mulVec",
+      "relation": "quaternionOperatorNorm_mulVec — Stage 10 quaternionNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionNorm_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space without a matrix Norm instance",
+        "subject": "native underlying-real induced operator norm and budget relation",
+        "inputScope": "all finite quaternionic L2 columns",
+        "observationScope": "operator norm and action bound",
+        "phase": "none",
+        "exactness": "exact definitions, norm-zero detection, and submultiplicative inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_self",
+      "relation": "quaternionOperatorDistance_self — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_nonneg",
+      "relation": "quaternionOperatorDistance_nonneg — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_symm",
+      "relation": "quaternionOperatorDistance_symm — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_triangle",
+      "relation": "quaternionOperatorDistance_triangle — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_eq_zero_iff",
+      "relation": "quaternionOperatorDistance_eq_zero_iff — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_add",
+      "relation": "quaternionOperatorDistance_add — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_sub",
+      "relation": "quaternionOperatorDistance_sub — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_mul_right",
+      "relation": "quaternionOperatorDistance_mul_right — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_mul_left",
+      "relation": "quaternionOperatorDistance_mul_left — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_mul",
+      "relation": "quaternionOperatorDistance_mul — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_mulVec",
+      "relation": "quaternionOperatorDistance_mulVec — Stage 10 quaternionDistance",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionDistance_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic rectangular matrix space",
+        "subject": "native underlying-real induced operator distance",
+        "inputScope": "all compatible matrices and finite L2 input columns",
+        "observationScope": "metric, product-perturbation, and output-column error bounds",
+        "phase": "none; raw distance is phase sensitive",
+        "exactness": "exact metric laws and inequalities",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.refl",
+      "relation": "refl — Stage 10 quaternionOperatorClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "raw quaternionic operator error budget",
+        "inputScope": "whole matrices",
+        "observationScope": "native underlying-real induced distance",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.mono",
+      "relation": "mono — Stage 10 quaternionOperatorClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "raw quaternionic operator error budget",
+        "inputScope": "whole matrices",
+        "observationScope": "native underlying-real induced distance",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.symm",
+      "relation": "symm — Stage 10 quaternionOperatorClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "raw quaternionic operator error budget",
+        "inputScope": "whole matrices",
+        "observationScope": "native underlying-real induced distance",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.additive_trans",
+      "relation": "additive_trans — Stage 10 quaternionOperatorClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "raw quaternionic operator error budget",
+        "inputScope": "whole matrices",
+        "observationScope": "native underlying-real induced distance",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.zero_iff_exactOperatorEq",
+      "relation": "zero_iff_exactOperatorEq — Stage 10 quaternionOperatorClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionOperatorClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "raw quaternionic operator error budget",
+        "inputScope": "whole matrices",
+        "observationScope": "native underlying-real induced distance",
+        "phase": "none",
+        "exactness": "budget zero iff ExactOperatorEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose",
+      "relation": "QuaternionCentralSignClose — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOperatorClose.sign_smul",
+      "relation": "sign_smul — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose.refl",
+      "relation": "refl — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose.mono",
+      "relation": "mono — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose.symm",
+      "relation": "symm — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose.additive_trans",
+      "relation": "additive_trans — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignClose.zero_iff_quaternionCentralSignEq",
+      "relation": "zero_iff_quaternionCentralSignEq — Stage 10 quaternionCentralSignClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionCentralSignClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite quaternionic matrix space",
+        "subject": "operator comparison up to one central sign",
+        "inputScope": "whole matrices with one real sign witness",
+        "observationScope": "native underlying-real induced distance after central real scaling",
+        "phase": "real central s with s*s=1 only; arbitrary unit quaternion excluded",
+        "exactness": "budget zero iff QuaternionCentralSignEq; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorNorm_eq_l2_opNorm_complexify",
+      "relation": "quaternionOperatorNorm_eq_l2_opNorm_complexify — Stage 10 quaternionComplexificationNorm",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionComplexificationNorm_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic source matrix and its canonical doubled complex target",
+        "subject": "comparison of native and complexified induced norms",
+        "inputScope": "every finite quaternionic matrix",
+        "observationScope": "complete Euclidean induced operator norm",
+        "phase": "none",
+        "exactness": "exact equality of native real-CLM norm and complexification L2 norm",
+        "ancillaPolicy": "canonical complexification sectors are explicit; no state marginal or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance",
+      "relation": "columnL2Distance — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose",
+      "relation": "ColumnClose — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_self",
+      "relation": "columnL2Distance_self — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_nonneg",
+      "relation": "columnL2Distance_nonneg — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_symm",
+      "relation": "columnL2Distance_symm — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_triangle",
+      "relation": "columnL2Distance_triangle — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_eq_zero_iff",
+      "relation": "columnL2Distance_eq_zero_iff — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose.refl",
+      "relation": "refl — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose.mono",
+      "relation": "mono — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose.symm",
+      "relation": "symm — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose.additive_trans",
+      "relation": "additive_trans — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ColumnClose.zero_iff_eq",
+      "relation": "zero_iff_eq — Stage 10 columnMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.columnMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed additive commutative group",
+        "subject": "raw amplitude columns and Euclidean L2 distance",
+        "inputScope": "all finite columns",
+        "observationScope": "complete L2 amplitude distance",
+        "phase": "none",
+        "exactness": "metric laws; budget zero iff literal column equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.columnL2Distance_right_mul",
+      "relation": "columnL2Distance_right_mul — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose",
+      "relation": "RightUnitPhaseColumnClose — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.refl",
+      "relation": "refl — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.mono",
+      "relation": "mono — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.symm",
+      "relation": "symm — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.additive_trans",
+      "relation": "additive_trans — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RightUnitPhaseColumnClose.zero_iff",
+      "relation": "zero_iff — Stage 10 rightUnitPhaseColumnClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.rightUnitPhaseColumnClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite column type over one normed division ring",
+        "subject": "raw columns modulo one uniform right unit scalar",
+        "inputScope": "all finite columns",
+        "observationScope": "Euclidean L2 amplitude distance after right scalar action",
+        "phase": "one unit scalar on the right; noncommutative composition order theta*eta",
+        "exactness": "budget zero iff exact right-scaled equality; chaining adds budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStateRayClose",
+      "relation": "RealStateRayClose — Stage 10 realStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite real-state representative type",
+        "subject": "normalized pure-state representatives up to sign",
+        "inputScope": "all normalized real representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one right real unit sign",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on RealRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStateRayClose",
+      "relation": "ComplexStateRayClose — Stage 10 complexStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite complex-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized complex representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit complex scalar on the right",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on ComplexRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStateRayClose",
+      "relation": "QuaternionStateRayClose — Stage 10 quaternionStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite quaternion-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized quaternionic representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit quaternion on the right; composition order theta*eta",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on QuaternionRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStateRayClose.refl",
+      "relation": "refl — Stage 10 realStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite real-state representative type",
+        "subject": "normalized pure-state representatives up to sign",
+        "inputScope": "all normalized real representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one right real unit sign",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on RealRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStateRayClose.mono",
+      "relation": "mono — Stage 10 realStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite real-state representative type",
+        "subject": "normalized pure-state representatives up to sign",
+        "inputScope": "all normalized real representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one right real unit sign",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on RealRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStateRayClose.symm",
+      "relation": "symm — Stage 10 realStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite real-state representative type",
+        "subject": "normalized pure-state representatives up to sign",
+        "inputScope": "all normalized real representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one right real unit sign",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on RealRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStateRayClose.additive_trans",
+      "relation": "additive_trans — Stage 10 realStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.realStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite real-state representative type",
+        "subject": "normalized pure-state representatives up to sign",
+        "inputScope": "all normalized real representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one right real unit sign",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on RealRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStateRayClose.refl",
+      "relation": "refl — Stage 10 complexStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite complex-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized complex representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit complex scalar on the right",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on ComplexRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStateRayClose.mono",
+      "relation": "mono — Stage 10 complexStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite complex-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized complex representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit complex scalar on the right",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on ComplexRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStateRayClose.symm",
+      "relation": "symm — Stage 10 complexStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite complex-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized complex representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit complex scalar on the right",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on ComplexRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStateRayClose.additive_trans",
+      "relation": "additive_trans — Stage 10 complexStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.complexStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite complex-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized complex representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit complex scalar on the right",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on ComplexRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStateRayClose.refl",
+      "relation": "refl — Stage 10 quaternionStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite quaternion-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized quaternionic representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit quaternion on the right; composition order theta*eta",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on QuaternionRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStateRayClose.mono",
+      "relation": "mono — Stage 10 quaternionStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite quaternion-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized quaternionic representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit quaternion on the right; composition order theta*eta",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on QuaternionRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStateRayClose.symm",
+      "relation": "symm — Stage 10 quaternionStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite quaternion-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized quaternionic representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit quaternion on the right; composition order theta*eta",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on QuaternionRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStateRayClose.additive_trans",
+      "relation": "additive_trans — Stage 10 quaternionStateRayClose",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.quaternionStateRayClose_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same normalized finite quaternion-state representative type",
+        "subject": "normalized pure-state representatives up to one right phase",
+        "inputScope": "all normalized quaternionic representatives",
+        "observationScope": "L2 representative distance",
+        "phase": "one unit quaternion on the right; composition order theta*eta",
+        "exactness": "error-budget representative relation; additive composition",
+        "ancillaPolicy": "none; not a descended metric on QuaternionRay values"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realStateRayClose_zero_iff_realStatePhaseEq",
+      "relation": "realStateRayClose_zero_iff_realStatePhaseEq — Stage 10 stateRayZeroBridges",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.stateRayZeroBridges_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same normalized real, complex, or quaternionic representative type",
+        "subject": "zero-budget state-ray comparison",
+        "inputScope": "all normalized representatives at the named scalar",
+        "observationScope": "complete representative ray relation",
+        "phase": "real sign or complex/quaternionic unit scalar on the right",
+        "exactness": "budget zero iff the existing exact state-phase relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexStateRayClose_zero_iff_complexStatePhaseEq",
+      "relation": "complexStateRayClose_zero_iff_complexStatePhaseEq — Stage 10 stateRayZeroBridges",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.stateRayZeroBridges_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same normalized real, complex, or quaternionic representative type",
+        "subject": "zero-budget state-ray comparison",
+        "inputScope": "all normalized representatives at the named scalar",
+        "observationScope": "complete representative ray relation",
+        "phase": "real sign or complex/quaternionic unit scalar on the right",
+        "exactness": "budget zero iff the existing exact state-phase relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionStateRayClose_zero_iff_quaternionStatePhaseEq",
+      "relation": "quaternionStateRayClose_zero_iff_quaternionStatePhaseEq — Stage 10 stateRayZeroBridges",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.stateRayZeroBridges_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same normalized real, complex, or quaternionic representative type",
+        "subject": "zero-budget state-ray comparison",
+        "inputScope": "all normalized representatives at the named scalar",
+        "observationScope": "complete representative ray relation",
+        "phase": "real sign or complex/quaternionic unit scalar on the right",
+        "exactness": "budget zero iff the existing exact state-phase relation",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realState_l2Norm_eq_one",
+      "relation": "realState_l2Norm_eq_one — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexState_l2Norm_eq_one",
+      "relation": "complexState_l2Norm_eq_one — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionState_l2Norm_eq_one",
+      "relation": "quaternionState_l2Norm_eq_one — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_realState_output_le",
+      "relation": "operatorDistance_realState_output_le — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.operatorDistance_complexState_output_le",
+      "relation": "operatorDistance_complexState_output_le — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOperatorDistance_quaternionState_output_le",
+      "relation": "quaternionOperatorDistance_quaternionState_output_le — Stage 10 normalizedStateOutput",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.normalizedStateOutput_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite rectangular same-scalar operator action on a normalized input representative",
+        "subject": "normalized input L2 norm and operator-to-output-column stability",
+        "inputScope": "every normalized real, complex, or quaternionic pure-state representative",
+        "observationScope": "complete L2 output amplitude column; no probability/channel upgrade",
+        "phase": "none",
+        "exactness": "exact norm-one identities and induced-distance upper bounds",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance",
+      "relation": "totalVariationDistance — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose",
+      "relation": "DistributionClose — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_self",
+      "relation": "totalVariationDistance_self — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_nonneg",
+      "relation": "totalVariationDistance_nonneg — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_symm",
+      "relation": "totalVariationDistance_symm — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_triangle",
+      "relation": "totalVariationDistance_triangle — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_eq_zero_iff",
+      "relation": "totalVariationDistance_eq_zero_iff — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose.refl",
+      "relation": "refl — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose.mono",
+      "relation": "mono — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose.symm",
+      "relation": "symm — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose.additive_trans",
+      "relation": "additive_trans — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.distributionClose_zero_iff",
+      "relation": "distributionClose_zero_iff — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api; direct release endpoint not selected",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_le_one",
+      "relation": "totalVariationDistance_le_one — Stage 10 distributionMetric",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionMetric_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite outcome type",
+        "subject": "packaged finite probability distributions",
+        "inputScope": "all finite normalized distributions",
+        "observationScope": "complete half-L1 total-variation distance",
+        "phase": "none",
+        "exactness": "metric laws, upper bound one, zero iff equality, and additive budgets",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.abs_eventWeight_sub_le_totalVariationDistance",
+      "relation": "abs_eventWeight_sub_le_totalVariationDistance — Stage 10 distributionObservable",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite source outcomes and an explicit finite pushforward target",
+        "subject": "finite distributions, events, points, and deterministic postprocessing",
+        "inputScope": "all finite events/outcomes and deterministic maps",
+        "observationScope": "sharp event/point probability bounds and total-variation contraction",
+        "phase": "none",
+        "exactness": "exact inequalities at the supplied error budget",
+        "ancillaPolicy": "deterministic map explicit; no randomized processing, trace distance, or channel norm"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.abs_weight_sub_le_totalVariationDistance",
+      "relation": "abs_weight_sub_le_totalVariationDistance — Stage 10 distributionObservable",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite source outcomes and an explicit finite pushforward target",
+        "subject": "finite distributions, events, points, and deterministic postprocessing",
+        "inputScope": "all finite events/outcomes and deterministic maps",
+        "observationScope": "sharp event/point probability bounds and total-variation contraction",
+        "phase": "none",
+        "exactness": "exact inequalities at the supplied error budget",
+        "ancillaPolicy": "deterministic map explicit; no randomized processing, trace distance, or channel norm"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.totalVariationDistance_pushforward_le",
+      "relation": "totalVariationDistance_pushforward_le — Stage 10 distributionObservable",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite source outcomes and an explicit finite pushforward target",
+        "subject": "finite distributions, events, points, and deterministic postprocessing",
+        "inputScope": "all finite events/outcomes and deterministic maps",
+        "observationScope": "sharp event/point probability bounds and total-variation contraction",
+        "phase": "none",
+        "exactness": "exact inequalities at the supplied error budget",
+        "ancillaPolicy": "deterministic map explicit; no randomized processing, trace distance, or channel norm"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.DistributionClose.pushforward",
+      "relation": "pushforward — Stage 10 distributionObservable",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionObservable_api; direct release endpoint not selected",
+      "classification": {
+        "space": "finite source outcomes and an explicit finite pushforward target",
+        "subject": "finite distributions, events, points, and deterministic postprocessing",
+        "inputScope": "all finite events/outcomes and deterministic maps",
+        "observationScope": "sharp event/point probability bounds and total-variation contraction",
+        "phase": "none",
+        "exactness": "exact inequalities at the supplied error budget",
+        "ancillaPolicy": "deterministic map explicit; no randomized processing, trace distance, or channel norm"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.scalarMatrix",
+      "relation": "scalarMatrix — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.operatorDistance_scalarMatrix",
+      "relation": "operatorDistance_scalarMatrix — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.operatorClose_one_not_transitive",
+      "relation": "operatorClose_one_not_transitive — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarMatrix_mem_unitary",
+      "relation": "complexScalarMatrix_mem_unitary — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_unitary",
+      "relation": "complexScalarPhaseChain_unitary — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_distances",
+      "relation": "complexScalarPhaseChain_distances — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.operatorClose_sqrtTwo_not_transitive_on_complex_unitaries",
+      "relation": "operatorClose_sqrtTwo_not_transitive_on_complex_unitaries — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.rawDistance_one_negOne_eq_two",
+      "relation": "rawDistance_one_negOne_eq_two — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero",
+      "relation": "rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero — Stage 10 operatorStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.operatorStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "one-dimensional real or complex matrix spaces",
+        "subject": "exact counterexamples for fixed-budget operator closeness",
+        "inputScope": "explicit scalar matrices 0,1,2 and genuine complex unitaries 1,I,-1",
+        "observationScope": "exact Euclidean induced distances and close/non-close propositions",
+        "phase": "raw distance is phase sensitive; separate global-phase budget is zero for 1 versus -1",
+        "exactness": "exact strictness witness; refutes fixed positive-budget transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.deltaFalse",
+      "relation": "deltaFalse — Stage 10 distributionStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "Boolean finite outcome type",
+        "subject": "exact counterexample for fixed-budget distribution closeness",
+        "inputScope": "false point mass, fair distribution, and true point mass",
+        "observationScope": "exact half-L1 total-variation distances",
+        "phase": "none",
+        "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.fairBool",
+      "relation": "fairBool — Stage 10 distributionStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "Boolean finite outcome type",
+        "subject": "exact counterexample for fixed-budget distribution closeness",
+        "inputScope": "false point mass, fair distribution, and true point mass",
+        "observationScope": "exact half-L1 total-variation distances",
+        "phase": "none",
+        "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.deltaTrue",
+      "relation": "deltaTrue — Stage 10 distributionStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "Boolean finite outcome type",
+        "subject": "exact counterexample for fixed-budget distribution closeness",
+        "inputScope": "false point mass, fair distribution, and true point mass",
+        "observationScope": "exact half-L1 total-variation distances",
+        "phase": "none",
+        "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.totalVariation_bool_chain",
+      "relation": "totalVariation_bool_chain — Stage 10 distributionStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api; direct release endpoint not selected",
+      "classification": {
+        "space": "Boolean finite outcome type",
+        "subject": "exact counterexample for fixed-budget distribution closeness",
+        "inputScope": "false point mass, fair distribution, and true point mass",
+        "observationScope": "exact half-L1 total-variation distances",
+        "phase": "none",
+        "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ApproximationStrictness.distributionClose_half_not_transitive",
+      "relation": "distributionClose_half_not_transitive — Stage 10 distributionStrictness",
+      "owner": "goal-2/10-APPROX",
+      "consumer": "QuaternionicComputing.Semantics.ApproximationAudit.distributionStrictness_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "Boolean finite outcome type",
+        "subject": "exact counterexample for fixed-budget distribution closeness",
+        "inputScope": "false point mass, fair distribution, and true point mass",
+        "observationScope": "exact half-L1 total-variation distances",
+        "phase": "none",
+        "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
+        "ancillaPolicy": "none"
+      }
     }
   ]
 }
