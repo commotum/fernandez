@@ -2,8 +2,8 @@
 
 ## Milestone Status
 
-- [ ] `11A-EXISTING`
-- [ ] `11B-REGISTRY`
+- [x] `11A-EXISTING`
+- [x] `11B-REGISTRY`
 - [ ] `11C-DOCS`
 
 ## Current Facts

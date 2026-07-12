@@ -109,7 +109,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current Stage 10 tree has 97 Lean sources including the public root. All
+- At the independently closed Stage 10 checkpoint, the tree had 97 Lean
+  sources including the public root. All
   six stable approximation leaves and the non-root allocation audit
   strict-compile; the final combined stable/audit/public-root/release-audit
   build passes at `2775/2775`, and the cached default build completes `2773`
@@ -923,8 +924,8 @@ precision or compilation.
 
 #### Milestone Status
 
-- [ ] `11A-EXISTING`
-- [ ] `11B-REGISTRY`
+- [x] `11A-EXISTING`
+- [x] `11B-REGISTRY`
 - [ ] `11C-DOCS`
 
 #### Big Picture Objective

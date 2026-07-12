@@ -20,6 +20,14 @@ external, interpretive, information-theoretic, multi-path, and alternative-
 scalar question a precise model plus a substantive constructive, negative,
 reduction, or underdetermination result.
 
+Separately consume the seven unresolved source-only families in
+`docs/Goal2ClassificationRegistry.json` without adding them to the 47/45 row
+counts: `EQC-045` to foundations; `EQC-046`/`047` to density;
+`EQC-048` to uniformity/real QTM; `EQC-049` to routing; `EQC-050` to structure;
+and `EQC-051` to structure/channels. Preserve each exact obstruction and require
+an explicit operational relation—with allowed encoders, ancillas, decoders,
+marginals, and tests—before claiming any converse simulation separation.
+
 Do not treat relabeling, definitions alone, conditional structures, supplied
 schedules/compilers/certificates, or a green build as completion. Never use
 sorry, admit, sorryAx, unjustified axioms, vacuous hypotheses, noncomputable
@@ -46,14 +54,15 @@ quaternionic output-row phase acts on the left. Goal 3 must consume these
 relations and their strictness witnesses without inventing stronger
 same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 Stage 10 checkpoint has 97 Lean sources including the public
-root, 1,269 semantic-manifest declarations, 164 resolving consumers, 348 direct
-audit labels, 536 root axiom commands, 20 local simulation-audit commands, and
-16 local approximation-audit commands. Its exact axiom union remains
-`propext`, `Classical.choice`, and `Quot.sound`. The root audit parser reports
-533 nonempty plus three axiom-free blocks; the approximation parser reports 16
-nonempty blocks, and the simulation parser reports 19 nonempty plus one
-axiom-free block.
+The current Goal 2 Stage 11 checkpoint has 99 Lean sources including the public
+root, 1,275 semantic-manifest declarations, 167 resolving consumers, 356 direct
+audit labels, 542 root axiom commands, and 15 local existing-result audit
+commands. Its exact axiom union remains `propext`, `Classical.choice`, and
+`Quot.sound`. The root audit parser reports 539 nonempty plus three axiom-free
+blocks; the existing-result parser reports 15 nonempty blocks. The final
+classification overlay contains 51 family records and all 936 frozen
+declarations exactly once, including all ten empty families, and its maintained
+validator plus generated Lean checks pass.
 Stage 9A contributes 38 generic directional cross-model declarations and 20
 concrete encoding declarations.
 `ExactStateEncoding` is only a left-inverse certificate on the encoder image;
@@ -96,19 +105,22 @@ budgets, half-L1 total variation, local output/event/pushforward bounds,
 zero-budget exact bridges, and strictness witnesses. Do not infer a quaternion
 matrix norm instance, arbitrary unit-quaternion operator phase, quotient-ray
 metric, encoded finite precision, accumulated circuit error, approximate
-compiler construction, runtime, or uniformity. The current checkpoint is 97
-Lean sources including the root, 1,269 manifest declarations, 164 consumers,
-348 direct manifest audit labels, 536 root axiom commands, and 16 local
-approximation-audit commands. The combined Stage 10/public/audit build completes
-2,775 jobs and the cached default build completes 2,773. The preserved
-first-1,100 manifest hash is
+compiler construction, runtime, or uniformity. At Stage 10 closure the project
+had 97 Lean sources, 1,269 manifest declarations, 164 consumers, 348 manifest
+entries then labeled direct, and 536 root audit commands; the combined build
+completed 2,775 jobs and the cached default build completed 2,773. The
+preserved first-1,100 manifest hash is
 `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`,
-the full-1,269 hash is
-`298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`,
-and the frozen Goal 1 cohort checksum remains
+while Stage 11 corrects two already-existing root strictness endpoints from
+transitive to direct metadata. The authoritative first-1,269 hash is therefore
+`c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
+and the full-1,275 hash is
+`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
-Goal 2 registry closure and final-release work remain prerequisites to Goal 3.
+Stage 11 registry closure is achieved. Only Goal 2 Stage 12 final release
+remains a prerequisite to Goal 3.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;
@@ -132,4 +144,8 @@ evidence or a completed formal case study; the pinned project builds without
 holes or project axioms; all main exports pass the executable axiom audit; and
 genuinely open scientific questions are carried forward under new exact theorem
 IDs rather than hidden or overstated.
+
+The seven unresolved Goal 2 registry families must also be closed or assigned
+new frontier IDs, but remain a separate overlay ledger rather than inflating
+the 47-row traceability arithmetic.
 ```

@@ -40,9 +40,11 @@ none may remain excluded merely because it is difficult.
 - Completed `goal-2/0-plan.md` and its stage reports are a hard prerequisite.
   Goal 3 must reuse its equality, phase, measurement, channel, embedded-
   simulation, and approximation vocabulary rather than defining competitors.
-- `docs/EquivalenceClassification.md`, the frozen Goal 1 comparison-cohort
-  registry, and the Goal 2 semantic API manifest are authoritative semantic
-  inputs once Goal 2 completes.
+- `docs/EquivalenceClassification.md`, the frozen Goal 1 comparison cohort,
+  `docs/Goal2ClassificationRegistry.json`, and the Goal 2 semantic API manifest
+  are authoritative semantic inputs once Goal 2 completes. The final registry's
+  seven unresolved source-only families are a separate no-skip boundary ledger;
+  they do not change the immutable 47-row traceability cohort count.
 - Repository-root `BUILD-PLAN.md` is authoritative for every Lean-changing
   stage.  Its narrow-module, import-hygiene, focused-build, adjacent-consumer,
   boundary-check, reporting, and fold-back rules are goal requirements.
@@ -113,7 +115,7 @@ none may remain excluded merely because it is difficult.
   stated, 33 corrected and proved, 26 partially formalized, 16 intentionally
   excluded, and 3 unresolved. The expected 45-row Goal 3 worklist is unchanged,
   but Stage 1 must still recompute it after all later Goal 2 stages finish.
-- Goal 2 implementation is active: its inventory, exact/measurement core,
+- Goal 2 Stages 1--11 are implemented: its inventory, exact/measurement core,
   normalized representative phase layer, real/complex operator-phase layer,
   quaternionic operator-phase classification, and normalized ray-quotient core
   are complete. `RealRay`, `ComplexRay`, and `QuaternionRay` have exact
@@ -195,30 +197,33 @@ none may remain excluded merely because it is difficult.
   normalized output/event/pushforward bounds, zero-budget exact bridges, and
   exact fixed-budget strictness witnesses. It introduces no quaternion matrix
   norm instance or arbitrary unit-quaternion operator phase.
-  The current Goal 2 checkpoint is 97 Lean sources including the public root,
-  1,269 semantic-manifest declarations, 164 resolving consumers, 348 direct
-  manifest audit labels, 536 root axiom commands, 20 local simulation-audit
-  commands, and 16 local approximation-audit commands, with exact axiom union
-  `propext`, `Classical.choice`, and `Quot.sound`. The root parser reports 533
-  nonempty plus three axiom-free blocks; the approximation parser reports 16
-  nonempty blocks. Focused Stage 10 distribution/operator/phase/quaternion/
-  state/strictness/audit builds completed 2,345, 2,365, 2,372, 2,376, 2,378,
-  2,374, and 2,383 jobs. The combined stable/audit/public-root/release-audit
-  build completed 2,775 jobs and the cached default build completed 2,773. The
-  semantic-manifest hashes are
-  `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
-  for the preserved first 1,100 items and
-  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
-  for all 1,269 items; the frozen Goal 1 cohort checksum remains
+  Stage 11 adds six stable strongest-scope existing-result wrappers and a
+  non-root 15-endpoint audit. Its final overlay gives all 51 frozen comparison
+  families and all 936 declarations exactly one checked disposition, including
+  explicit axes for all ten empty families. The maintained validator and all
+  generated Lean name/evidence/consumer checks pass. The current Goal 2
+  checkpoint is 99 Lean sources including the public root, 1,275 semantic-
+  manifest declarations, 167 resolving consumers, 356 direct manifest audit
+  labels, 542 root axiom commands, and exact root/local axiom union `propext`,
+  `Classical.choice`, and `Quot.sound`. The root parser reports 539 nonempty
+  plus three axiom-free blocks; the existing-result parser reports 15 nonempty
+  blocks. The combined stable/audit/public-root/release-audit build completes
+  2,776 jobs. Stage 11 corrected two Stage 10 strictness entries that were
+  genuinely printed in the root audit but mislabeled transitive in manifest
+  metadata. The corrected first-1,269 structural hash is
+  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
+  and the full-1,275 hash is
+  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`;
+  the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Goal 2 registry closure and final release remain explicit unmet
-  prerequisites, so Goal 3 must not be executed yet. Finite scalar encodings,
+  Only Goal 2 Stage 12 final release remains an unmet prerequisite, so Goal 3
+  must not be executed yet. Finite scalar encodings,
   rounding/code-to-value certification, accumulated circuit error, approximate
   compiler/synthesis construction, runtime, and uniformity remain assigned to
   Goal 3 rather than Stage 10. Native
   quaternionic density/channel semantics, partial trace, Kraus maps,
   instruments, mixed-top or phase-kickback semantics, cross-model channel
-  equality, and randomized/resource upgrades also remain outside Stage 9C.
+  equality, and randomized/resource upgrades also remain Goal 3 work.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix
@@ -297,6 +302,20 @@ Expected prerequisite dispositions:
 | Goal 2 owner | Transferred rows | Required Goal 2 disposition |
 |---|---|---|
 | Phase/ray classification | `FER03-D01-REBIT`; `FER03-FND-COMPLEX-STATE-RAY` | `closedByGoal2`, with quotient/evolution/outcome theorems and updated canonical traceability status |
+
+The final Goal 2 classification registry also carries seven source-only family
+boundaries into Goal 3. They overlap the mathematical work below but are not
+additional traceability rows and must not be added to the 47/45 counts:
+
+| Registry family | Goal 3 owner | Required boundary |
+|---|---|---|
+| `EQC-045-NORM-PRESERVER-CONVERSES` | `4-FOUNDATIONS` | Scalar-specific linear/antiunitary norm-preserver converses with exact hypotheses |
+| `EQC-046-MIXED-TOP-OBSERVATIONAL` | `3-DENSITY` | Joint density, product/no-correlation top hypothesis, partial trace, and decoded marginal |
+| `EQC-047-QUATERNION-REDUCED-SEPARATION` | `3-DENSITY` | Pure-state quaternionic reduced-matrix inequality separated from diagonal agreement |
+| `EQC-048-COMPUTATIONAL-MODEL-EQUIVALENCE` | `12-UNIFORMITY`; `13-REALQTM` | Uniform encoders/decoders, acceptance behavior, error, and resource overhead |
+| `EQC-049-PHYSICAL-SWAP-SIMULATION` | `6-ROUTING` | Physical swap network, exact denotation, architecture, and routing cost |
+| `EQC-050-TOP-WIRE-PHASE-TRACKING` | `14-STRUCTURE` | Convention-correct invariant-subspace/orbit formulation with explicit decoded observables |
+| `EQC-051-OPERATIONAL-CONVERSE-SIMULATION` | `14-STRUCTURE`; `16-CHANNELS` | Explicit operational relation with allowed encoders, ancillas, decoders, marginals, and tests before any converse separation |
 
 | Stage | Traceability rows | Baseline | Required direction |
 |---|---|---:|---|
@@ -410,6 +429,9 @@ mathematics or statuses.
   mark each row `closedByGoal2` with evidence or assign it to Goal 3 with its
   post-Goal-2 status, dependencies, intended closure outcome, primary route,
   fallback, and verification witness.
+- Add a separate seven-family section for `EQC-045`--`EQC-051`, preserving the
+  Goal 2 registry IDs, owners, exact obstructions, and closure evidence without
+  counting them as seven additional traceability rows or silently merging them.
 - Re-read the source sections and relevant citations for each hard/external
   item; use primary literature and record versions rather than relying on the
   paper's summaries.
@@ -428,6 +450,9 @@ mathematics or statuses.
 - All 47 cohort IDs are accounted for exactly once.  Forecast Goal 3 totals are
   45 rows with categories 26/16/3, but the checker-derived post-Goal-2 totals
   replace the forecast.
+- All seven unresolved Goal 2 registry families are also assigned exactly once
+  to the owners above and linked to overlapping traceability rows without
+  changing the 47/45 ledger totals.
 - Every row has a stage, concrete success test, and non-tautological fallback.
 - The closure-outcome taxonomy is mapped unambiguously to the canonical
   traceability statuses and enforced by the checker.
@@ -1115,6 +1140,9 @@ research boundary in a form another Lean project can trust and reuse.
 - Re-run the closure checker and independently review every one of the 47
   pre-Goal-2 cohort rows, including each `closedByGoal2` disposition, every new
   correction, and every dependency effect.
+- Reconcile `EQC-045`--`EQC-051` separately against their Goal 3 owners and
+  operational obstructions; none may disappear merely because the overlapping
+  traceability row has a different identifier.
 - Stabilize module boundaries, namespace names, public imports, docstrings,
   examples, research/diagnostic separation, and downstream usage guidance.
 - Update README, Architecture, Conventions, Traceability, Corrections,
@@ -1127,6 +1155,9 @@ research boundary in a form another Lean project can trust and reuse.
 - The immutable 47-row cohort has no unexamined item; Goal 2 dispositions and
   Goal 3 closure outcomes satisfy the rules above and totals reconcile with the
   101-row source inventory.
+- The seven unresolved Goal 2 classification families have terminal Goal 3
+  evidence or new frontier IDs, while remaining separate from the 47-row
+  arithmetic.
 - No original partial/unresolved row retains either status.  A corrected,
   negative, conditional, or underdetermination theorem moves it to **corrected
   and proved**; any residual research question receives a new frontier ID.

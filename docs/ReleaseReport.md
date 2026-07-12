@@ -828,7 +828,8 @@ Two strictness declarations already printed directly in the root audit were
 misclassified as transitive in the Stage 10 closure snapshot. Stage 11 corrects
 those two manifest labels to direct; the historical 1,269-entry count and
 `348`-label closure record above remain checkpoint evidence, while the current
-prefix has 350 direct labels. No Lean theorem or root audit command changed.
+prefix has 350 direct labels. No Lean theorem or selected root-audit endpoint
+changed; the two long commands are now fully qualified for exact parsing.
 
 Independently, `Goal2ClassificationRegistry.json` preserves the 51 frozen
 family IDs and assigns every one of the 936 frozen declarations exactly once.

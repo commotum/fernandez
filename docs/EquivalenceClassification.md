@@ -790,7 +790,8 @@ root-audit labels; its full structural hash is
 The two-label difference from the Stage 10 closure snapshot is an audit-metadata
 repair: two strictness declarations already had genuine root `#print axioms`
 commands and are now labeled direct instead of transitive. It changes neither
-Lean code nor the 542-command root audit.
+theorem/proof code nor the selected endpoints or 542-command root-audit count;
+the two long commands are now fully qualified for exact parsing.
 The combined Stage 11 build completes 2,776 jobs.
 
 The executable public-root audit contains 542 commands: 539 report nonempty
