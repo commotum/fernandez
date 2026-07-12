@@ -445,6 +445,55 @@ trace-test semantics, partial trace, Kraus channel, instrument, cross-model
 channel relation, decoded marginal, mixed-top theorem, or capacity claim.
 Those omissions are scope boundaries rather than failed converses.
 
+## Stage 8 proof-bearing realization
+
+Stage 8 closes the valid implication graph without changing the frozen Goal 1
+cohort or a paper-row disposition. Its 49 stable declarations add missing
+covering arrows and finite-observation converses; the non-root audit owns the
+counterexamples and consumes the already complete certified-classical layer.
+
+| Comparison | Strongest checked result | Exact boundary |
+|---|---|---|
+| Output-row phase versus all-pure basis measurement | For arbitrary rectangular matrices with `[Fintype I]`, `RealOutputBasisSignEq`, `ComplexOutputBasisPhaseEq`, and `QuaternionOutputLeftPhaseEq` are each iff the corresponding `PureInputBasisMeasurementEq`. | No output finiteness, decidable equality, nonempty type, unitarity, or nonzero-row premise. Quaternion phases multiply on the left. This is still basis-output behavior, not projective or channel equality. |
+| Finite distributions versus events | Distribution equality is iff equality of every singleton event and iff equality of every finite event. | Empty outcome types admit no finite distribution; the audit proves `IsEmpty` rather than assuming an impossible value. |
+| Finite distributions versus deterministic postprocessing | Distribution equality is iff equality of every pushforward to a finite target in the same universe. | The converse uses the identity target. Forward preservation remains universe-polymorphic. No randomized postprocessor or runtime claim is included. |
+| Rays versus basis outcomes | Exact representatives imply equal ray constructors, and ray-constructor equality implies basis-weight equality for real, complex, and quaternionic normalized states. | Equal weights, distributions, events, and pushforwards do not imply ray equality. Rational complex and existing quaternionic witnesses prove the failure. |
+| Real/complex unitary kernel | On inhabited finite spaces, global sign/phase, projective action, `ChannelEq`, and `AllMeasurementEq` are pairwise connected by named iff theorems. | Input-column phase and output-row/all-pure agreement are weaker incomparable branches. The inhabited premise remains on the matrix kernel. |
+| Certified classical behavior | The nine matrix and nine circuit `SameBasisBehavior` iff theorems are consumed unchanged. | Every result requires supplied permutation certificates. Raw basis-transition equivalence remains vacuous on explicit nonmonomial unitaries. |
+
+The checked complex-unitary graph is therefore
+
+```text
+ExactOperatorEq
+        |
+        v
+ComplexGlobalPhaseEq <-> ProjectiveActionEq <-> ChannelEq <-> AllMeasurementEq
+       /                                      \
+      v                                        v
+InputBasisPhaseEq        OutputBasisPhaseEq <-> PureInputBasisMeasurementEq
+      \                                        /
+       +----------------> BasisMeasurementEq <-+
+```
+
+The real graph replaces complex phase by a sign. The output-row/all-pure iff
+also holds over quaternions with output phases on the left, but Stage 8 draws
+no quaternionic channel edge.
+
+Every missing converse in this diagram has checked evidence. Rational unitary
+input and output twists prove the two phase branches incomparable, show that
+input-column phase can change a superposition's output weights, and show that
+output-row/all-pure agreement can fail channel and all-effect equality. They
+also give both failures from `BasisMeasurementEq` to a coherent input/output
+phase branch. A rational complex coordinate-phase pair and the normalized
+quaternionic product-ordering outputs have equal complete distributions but
+unequal rays. The scheduled quaternionic example is separately packaged as
+`OutputWeightEqAt` on the ground input while another normalized input proves
+failure of `PureInputBasisMeasurementEq`; it is not all-input evidence.
+
+For certified basis-permutation implementations only, the existing input,
+output, and basis-measurement relations collapse to equality of the certified
+permutations. No such equivalence is published for generic unitaries.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label

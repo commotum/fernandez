@@ -378,6 +378,45 @@ None of these definitions supplies quaternionic density/channel positivity,
 cross-model channel equality, decoded marginal semantics, partial trace,
 Kraus maps, instruments, mixed-top simulation, or channel capacity.
 
+## Hierarchy and observation scope
+
+All-pure-input computational-basis agreement has an exact row-functional
+classification. For arbitrary rectangular matrices with finite input type,
+it is equivalent to one unit phase per output row. Real rows differ by signs,
+complex rows by unit complex phases, and quaternionic rows by unit quaternions
+on the **left**:
+
+```text
+V y x = theta y * U y x.
+```
+
+This theorem does not require either matrix to be unitary and remains valid
+for empty input or output types. It does not identify output-row phase with
+projective action or a channel: output-dependent phases are invisible to the
+final basis measurement but become observable after later interference.
+Checked unitary twists satisfy output-row phase and every pure-input basis
+statistic while failing both `ChannelEq` and `AllMeasurementEq`.
+
+For finite distributions, equality is equivalent to equality of every finite
+event weight. It is also equivalent to equality of every deterministic
+pushforward whose finite target lives in the same universe as the source; the
+converse uses the identity postprocessing. The forward pushforward theorem
+remains universe-polymorphic. These equivalences do not recover an amplitude
+ray: normalized complex and quaternionic witnesses have identical complete
+basis distributions but no common scalar-correct phase.
+
+The resulting real/complex unitary kernel is
+
+```text
+global phase <-> projective action <-> ChannelEq <-> AllMeasurementEq,
+```
+
+with the existing inhabited matrix-space premise on the converse kernel.
+Input-column phase, output-row phase/all-pure basis agreement, and certified
+basis-permutation behavior are weaker or incomparable branches. The final
+branch is equivalent to input/output/basis agreement only when both operators
+carry explicit `BasisPermutationImplementation` certificates.
+
 ## Scalar decompositions and embeddings
 
 For `q = a₀ + a₁ i + a₂ j + a₃ k`, the paper's decomposition is retained:

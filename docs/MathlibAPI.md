@@ -515,6 +515,40 @@ ordered-star matrix theory used here does not provide native quaternionic
 densities or effects, and no partial trace, Kraus representation, instrument,
 cross-model channel relation, or capacity theorem is imported or synthesized.
 
+## Goal 2 hierarchy closure
+
+`Semantics/Hierarchy/OutputPhase.lean` proves the converse from all-pure-input
+basis measurement agreement to output-row phase directly over `ℝ`, `ℂ`, and
+`ℍ[ℝ]`. The proof relies on small, stable APIs rather than a spectral theorem:
+
+- `Fintype.sum_eq_zero_iff_of_nonneg` shows total weight zero exactly for the
+  zero column;
+- `Real.sqrt`, inverse cancellation, and the existing scalar total-weight laws
+  normalize every nonzero raw input;
+- `Pi.single`, `Matrix.mulVec_add`, and division-ring inverse laws build a
+  two-coordinate input in the kernel of one output row;
+- complex and quaternionic norm-square zero, multiplication, and inverse laws
+  recover a unit row phase.
+
+This yields arbitrary rectangular theorems with only `[Fintype I]`; no
+`Fintype O`, `DecidableEq`, `Nonempty`, or unitarity premise survives in the
+public signatures. The quaternionic conclusion retains the noncommutative
+order `V y x = theta y * U y x`.
+
+`Semantics/Hierarchy/State.lean` uses `FiniteDistribution.ext`, singleton
+`Finset` events, and `FiniteDistribution.pushforward_id`. Distribution
+equality is iff all event weights and iff all deterministic pushforwards to
+finite target types in the source universe. The same-universe restriction is
+the precise Lean scope that permits the identity target in one quantified
+statement; the existing forward theorem accepts arbitrary target universes.
+Empty outcome types are handled by constructive `IsEmpty` results for
+`FiniteDistribution Empty` and normalized states, not by impossible test
+arguments.
+
+`Semantics/Hierarchy/Operator.lean` contains only compositions of the checked
+phase, channel, circuit, and output-row APIs. It introduces no new analytic or
+quantum-channel dependency.
+
 ## Goal 2 state phase, normalized ray quotients, and descent
 
 The real sign characterization uses mathlib's `sq_eq_one_iff`; after rewriting
