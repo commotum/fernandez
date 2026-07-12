@@ -21,6 +21,9 @@ public import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 public import QuaternionicComputing.Semantics.Density
 public import QuaternionicComputing.Semantics.Effect
 public import QuaternionicComputing.Semantics.EffectSeparation
+public import QuaternionicComputing.Semantics.Channel
+public import QuaternionicComputing.Semantics.ChannelPhase
+public import QuaternionicComputing.Semantics.ChannelCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
@@ -122,8 +125,18 @@ zero to identity, and their Born values are proved to lie in `[0, 1]`.
 Normalized pure and computational-basis densities recover the existing state
 weights, unitary evolution is the conjugation `U * ρ * Uᴴ`, and genuine
 rank-one physical effects separate arbitrary density matrices. This layer does
-not introduce quaternionic density matrices, partial trace, Kraus channels, or
-channel-equivalence claims; those require later semantic stages.
+not introduce quaternionic density matrices, partial trace, or Kraus channels.
+
+Finite real and complex unitary operators and locally unitary chronological
+circuits have a separate physical-channel layer. `ChannelEq` means equality of
+the complete evolved density for every density input, while
+`AllMeasurementEq` quantifies over every density input and every genuine
+physical effect; the two are proved equivalent. On explicitly inhabited
+matrix spaces, real global sign, complex global phase, raw and normalized
+projective action, and channel equality have exact checked characterizations.
+The evaluator-backed circuit versions inherit the canonically inhabited
+computational basis even at zero wires. No result asserts a quaternionic
+channel, cross-model channel equality, partial trace, or mixed-top semantics.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

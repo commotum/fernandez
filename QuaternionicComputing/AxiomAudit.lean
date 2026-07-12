@@ -430,6 +430,73 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.DensityMatrix.eq_of_forall_effect_bornValue_eq
 
+#print axioms QuaternionicComputing.Semantics.UnitaryOperator.identity_evolve
+#print axioms QuaternionicComputing.Semantics.UnitaryOperator.followedBy_evolve
+#print axioms QuaternionicComputing.Semantics.ChannelEq.equivalence
+#print axioms QuaternionicComputing.Semantics.ChannelEq.followedBy
+#print axioms QuaternionicComputing.Semantics.AllMeasurementEq.equivalence
+#print axioms QuaternionicComputing.Semantics.AllMeasurementEq.channelEq
+#print axioms
+  QuaternionicComputing.Semantics.channelEq_iff_allMeasurementEq
+
+#print axioms
+  QuaternionicComputing.Semantics.realSignEquivalent_of_normalized_pureMatrix_eq
+#print axioms
+  QuaternionicComputing.Semantics.complexRightPhaseEquivalent_of_normalized_pureMatrix_eq
+#print axioms
+  QuaternionicComputing.Semantics.RealRawProjectiveActionEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.realRawProjectiveActionEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.complexRawProjectiveActionEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.RealRawProjectiveActionEq.globalSignEq_of_unitary
+#print axioms
+  QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.globalPhaseEq_of_unitary
+#print axioms QuaternionicComputing.Semantics.RealGlobalSignEq.channelEq
+#print axioms QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.channelEq
+#print axioms
+  QuaternionicComputing.Semantics.ChannelEq.realProjectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.ChannelEq.complexProjectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.realGlobalSignEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.complexGlobalPhaseEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.realProjectiveActionEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.complexProjectiveActionEq_iff_channelEq
+#print axioms QuaternionicComputing.Semantics.realGlobalSignEq_of_isEmpty
+#print axioms QuaternionicComputing.Semantics.complexGlobalPhaseEq_of_isEmpty
+
+#print axioms QuaternionicComputing.Semantics.UnitaryCircuit.toOperator_append
+#print axioms QuaternionicComputing.Semantics.CircuitChannelEq.equivalence
+#print axioms QuaternionicComputing.Semantics.CircuitChannelEq.append
+#print axioms
+  QuaternionicComputing.Semantics.CircuitAllMeasurementEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.circuitChannelEq_iff_allMeasurementEq
+#print axioms QuaternionicComputing.Semantics.ExactCircuitEq.circuitChannelEq
+#print axioms
+  QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.circuitChannelEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.circuitChannelEq
+#print axioms
+  QuaternionicComputing.Semantics.CircuitChannelEq.realGlobalSignEq
+#print axioms
+  QuaternionicComputing.Semantics.CircuitChannelEq.complexGlobalPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.realCircuitGlobalSignEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.complexCircuitGlobalPhaseEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.realCircuitProjectiveActionEq_iff_channelEq
+#print axioms
+  QuaternionicComputing.Semantics.complexCircuitProjectiveActionEq_iff_channelEq
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

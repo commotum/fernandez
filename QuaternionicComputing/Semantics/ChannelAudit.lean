@@ -483,3 +483,250 @@ theorem circuitPhaseIff_api
     complexCircuitGlobalPhaseEq_iff_channelEq CC DC,
     realCircuitProjectiveActionEq_iff_channelEq CR DR,
     complexCircuitProjectiveActionEq_iff_channelEq CC DC⟩
+
+/-! ## Concrete two-level phase and channel witnesses -/
+
+/-- The real negative identity matrix is unitary on the Boolean basis. -/
+theorem realNegIdentity_mem_unitary :
+    (-1 : Matrix Bool Bool ℝ) ∈ unitary (Matrix Bool Bool ℝ) := by
+  rw [Unitary.mem_iff]
+  constructor <;> simp
+
+/-- The real negative identity bundled as a physical unitary operator. -/
+def realNegIdentity : RealUnitaryOperator Bool :=
+  UnitaryOperator.ofMatrix (-1) realNegIdentity_mem_unitary
+
+/-- Identity and negative identity differ by exactly one global sign. -/
+theorem real_identity_neg_globalSign :
+    RealGlobalSignEq
+      ((UnitaryOperator.identity : RealUnitaryOperator Bool) :
+        Matrix Bool Bool ℝ)
+      (realNegIdentity : Matrix Bool Bool ℝ) := by
+  refine ⟨-1, by norm_num, ?_⟩
+  apply Matrix.ext
+  intro i j
+  simp [realNegIdentity, UnitaryOperator.identity,
+    UnitaryOperator.ofMatrix]
+
+/-- Global negative sign preserves the complete channel and every physical effect. -/
+theorem real_identity_neg_channel_and_measurement :
+    ChannelEq (UnitaryOperator.identity : RealUnitaryOperator Bool)
+        realNegIdentity ∧
+      AllMeasurementEq (UnitaryOperator.identity : RealUnitaryOperator Bool)
+        realNegIdentity := by
+  have h := RealGlobalSignEq.channelEq real_identity_neg_globalSign
+  exact ⟨h, h.allMeasurementEq⟩
+
+/-- The complex scalar-`I` identity matrix. -/
+def complexIIdentityMatrix : Matrix Bool Bool ℂ :=
+  Complex.I • (1 : Matrix Bool Bool ℂ)
+
+/-- The scalar-`I` identity is unitary. -/
+theorem complexIIdentity_mem_unitary :
+    complexIIdentityMatrix ∈ unitary (Matrix Bool Bool ℂ) := by
+  apply ComplexGlobalPhaseEq.mem_unitary
+    (U := (1 : Matrix Bool Bool ℂ))
+  · exact ⟨Complex.I, by norm_num, rfl⟩
+  · exact (unitary (Matrix Bool Bool ℂ)).one_mem
+
+/-- The scalar-`I` identity bundled as a complex unitary operator. -/
+def complexIIdentity : ComplexUnitaryOperator Bool :=
+  UnitaryOperator.ofMatrix complexIIdentityMatrix
+    complexIIdentity_mem_unitary
+
+/-- Identity and scalar-`I` identity differ by exactly one global phase. -/
+theorem complex_identity_I_globalPhase :
+    ComplexGlobalPhaseEq
+      ((UnitaryOperator.identity : ComplexUnitaryOperator Bool) :
+        Matrix Bool Bool ℂ)
+      (complexIIdentity : Matrix Bool Bool ℂ) := by
+  refine ⟨Complex.I, by norm_num, ?_⟩
+  rfl
+
+/-- Global complex phase `I` preserves the complete channel and every effect. -/
+theorem complex_identity_I_channel_and_measurement :
+    ChannelEq (UnitaryOperator.identity : ComplexUnitaryOperator Bool)
+        complexIIdentity ∧
+      AllMeasurementEq (UnitaryOperator.identity : ComplexUnitaryOperator Bool)
+        complexIIdentity := by
+  have h := ComplexGlobalPhaseEq.channelEq complex_identity_I_globalPhase
+  exact ⟨h, h.allMeasurementEq⟩
+
+/-- The concrete phase witnesses satisfy every raw/normalized/channel iff. -/
+theorem concrete_phase_characterizations :
+    (RealRawProjectiveActionEq
+        ((UnitaryOperator.identity : RealUnitaryOperator Bool) :
+          Matrix Bool Bool ℝ)
+        (realNegIdentity : Matrix Bool Bool ℝ) ↔
+      RealProjectiveActionEq
+        ((UnitaryOperator.identity : RealUnitaryOperator Bool) :
+          Matrix Bool Bool ℝ)
+        (realNegIdentity : Matrix Bool Bool ℝ)) ∧
+      (RealGlobalSignEq
+          ((UnitaryOperator.identity : RealUnitaryOperator Bool) :
+            Matrix Bool Bool ℝ)
+          (realNegIdentity : Matrix Bool Bool ℝ) ↔
+        ChannelEq (UnitaryOperator.identity : RealUnitaryOperator Bool)
+          realNegIdentity) ∧
+      (ComplexRawProjectiveActionEq
+          ((UnitaryOperator.identity : ComplexUnitaryOperator Bool) :
+            Matrix Bool Bool ℂ)
+          (complexIIdentity : Matrix Bool Bool ℂ) ↔
+        ComplexProjectiveActionEq
+          ((UnitaryOperator.identity : ComplexUnitaryOperator Bool) :
+            Matrix Bool Bool ℂ)
+          (complexIIdentity : Matrix Bool Bool ℂ)) ∧
+      (ComplexGlobalPhaseEq
+          ((UnitaryOperator.identity : ComplexUnitaryOperator Bool) :
+            Matrix Bool Bool ℂ)
+          (complexIIdentity : Matrix Bool Bool ℂ) ↔
+        ChannelEq (UnitaryOperator.identity : ComplexUnitaryOperator Bool)
+          complexIIdentity) :=
+  ⟨realRawProjectiveActionEq_iff_projectiveActionEq,
+    realGlobalSignEq_iff_channelEq _ _,
+    complexRawProjectiveActionEq_iff_projectiveActionEq,
+    complexGlobalPhaseEq_iff_channelEq _ _⟩
+
+/-! ## A genuinely distinct channel separated by a physical effect -/
+
+/-- The Boolean swap permutation matrix over the reals. -/
+def realSwapMatrix : Matrix Bool Bool ℝ :=
+  fun y x ↦ if y = !x then 1 else 0
+
+/-- The Boolean swap permutation matrix is unitary. -/
+theorem realSwapMatrix_mem_unitary :
+    realSwapMatrix ∈ unitary (Matrix Bool Bool ℝ) := by
+  rw [Unitary.mem_iff]
+  constructor <;> ext i j <;> cases i <;> cases j <;>
+    norm_num [realSwapMatrix, Matrix.mul_apply, Fintype.univ_bool]
+
+/-- The Boolean swap bundled as a real unitary operator. -/
+def realSwapOperator : RealUnitaryOperator Bool :=
+  UnitaryOperator.ofMatrix realSwapMatrix realSwapMatrix_mem_unitary
+
+/-- The swap sends the false basis density to the true basis density. -/
+theorem realSwap_evolve_false :
+    realSwapOperator.evolve (DensityMatrix.basis (𝕜 := ℝ) false) =
+      DensityMatrix.basis (𝕜 := ℝ) true := by
+  apply DensityMatrix.ext
+  intro i j
+  cases i <;> cases j <;>
+    simp [UnitaryOperator.evolve_coe, realSwapOperator, realSwapMatrix,
+      Matrix.mul_apply, DensityMatrix.basis_apply, Fintype.univ_bool]
+
+/--
+A basis density and genuine basis effect distinguish identity from swap, so
+the two unitaries have neither equal channels nor equal all-effect behavior.
+-/
+theorem identity_swap_physically_separated :
+    Effect.bornValue (Effect.basis (𝕜 := ℝ) false)
+        ((UnitaryOperator.identity : RealUnitaryOperator Bool).evolve
+          (DensityMatrix.basis (𝕜 := ℝ) false)) = 1 ∧
+      Effect.bornValue (Effect.basis (𝕜 := ℝ) false)
+        (realSwapOperator.evolve
+          (DensityMatrix.basis (𝕜 := ℝ) false)) = 0 ∧
+      ¬ ChannelEq (UnitaryOperator.identity : RealUnitaryOperator Bool)
+        realSwapOperator ∧
+      ¬ AllMeasurementEq
+        (UnitaryOperator.identity : RealUnitaryOperator Bool)
+        realSwapOperator := by
+  have hone :
+      Effect.bornValue (Effect.basis (𝕜 := ℝ) false)
+          ((UnitaryOperator.identity : RealUnitaryOperator Bool).evolve
+            (DensityMatrix.basis (𝕜 := ℝ) false)) = 1 := by
+    simp [Effect.bornValue_basis_basis]
+  have hzero :
+      Effect.bornValue (Effect.basis (𝕜 := ℝ) false)
+          (realSwapOperator.evolve
+            (DensityMatrix.basis (𝕜 := ℝ) false)) = 0 := by
+    rw [realSwap_evolve_false]
+    simp [Effect.bornValue_basis_basis]
+  refine ⟨hone, hzero, ?_, ?_⟩
+  · intro h
+    have heq := congrArg
+      (Effect.bornValue (Effect.basis (𝕜 := ℝ) false))
+      (h (DensityMatrix.basis (𝕜 := ℝ) false))
+    rw [hone, hzero] at heq
+    norm_num at heq
+  · intro h
+    have heq := h (DensityMatrix.basis (𝕜 := ℝ) false)
+      (Effect.basis (𝕜 := ℝ) false)
+    rw [hone, hzero] at heq
+    norm_num at heq
+
+/-! ## Chronology and dimensional boundaries -/
+
+/-- Operator composition and circuit append expose the same chronological order. -/
+theorem chronological_operator_and_circuit
+    {𝕜 : Type u} {I : Type v} {W : Type*} [RCLike 𝕜]
+    [Fintype I] [DecidableEq I] [Fintype W]
+    (U V : UnitaryOperator 𝕜 I) (rho : DensityMatrix 𝕜 I)
+    (C D : UnitaryCircuit 𝕜 W) :
+    ((U.followedBy V : UnitaryOperator 𝕜 I) : Matrix I I 𝕜) =
+        (V : Matrix I I 𝕜) * (U : Matrix I I 𝕜) ∧
+      (U.followedBy V).evolve rho = V.evolve (U.evolve rho) ∧
+      (C.append D).circuit = C.circuit ++ D.circuit ∧
+      (C.append D).toOperator =
+        C.toOperator.followedBy D.toOperator :=
+  ⟨UnitaryOperator.followedBy_coe U V,
+    UnitaryOperator.followedBy_evolve U V rho,
+    UnitaryCircuit.append_circuit C D,
+    UnitaryCircuit.toOperator_append C D⟩
+
+/--
+On an empty index type, square matrices are equal independently of the
+physically vacuous density-input channel quantifier; both phase boundary
+theorems record only this exact matrix fact.
+-/
+theorem empty_index_matrix_boundary
+    (UR VR : RealUnitaryOperator Empty)
+    (UC VC : ComplexUnitaryOperator Empty) :
+    (UR : Matrix Empty Empty ℝ) = (VR : Matrix Empty Empty ℝ) ∧
+      (UC : Matrix Empty Empty ℂ) = (VC : Matrix Empty Empty ℂ) ∧
+      RealGlobalSignEq
+        (UR : Matrix Empty Empty ℝ) (VR : Matrix Empty Empty ℝ) ∧
+      ComplexGlobalPhaseEq
+        (UC : Matrix Empty Empty ℂ) (VC : Matrix Empty Empty ℂ) :=
+  ⟨Subsingleton.elim _ _,
+    Subsingleton.elim _ _,
+    realGlobalSignEq_of_isEmpty UR VR,
+    complexGlobalPhaseEq_of_isEmpty UC VC⟩
+
+/-- Empty-index channel equality is vacuous because no density input exists. -/
+theorem empty_channel_vacuous
+    (U V : RealUnitaryOperator Empty) : ChannelEq U V := by
+  intro rho
+  exact (DensityMatrix.isEmpty_of_index_isEmpty.false rho).elim
+
+/-- The zero-wire Boolean basis and its real/complex identity circuits are inhabited. -/
+theorem zeroWire_circuit_inhabited :
+    Nonempty (BitBasis Empty) ∧
+      Nonempty (RealUnitaryCircuit Empty) ∧
+      Nonempty (ComplexUnitaryCircuit Empty) ∧
+      CircuitChannelEq
+        (UnitaryCircuit.identity : RealUnitaryCircuit Empty)
+        UnitaryCircuit.identity ∧
+      CircuitAllMeasurementEq
+        (UnitaryCircuit.identity : ComplexUnitaryCircuit Empty)
+        UnitaryCircuit.identity :=
+  ⟨⟨fun _ ↦ false⟩,
+    ⟨UnitaryCircuit.identity⟩,
+    ⟨UnitaryCircuit.identity⟩,
+    CircuitChannelEq.refl _,
+    CircuitAllMeasurementEq.refl _⟩
+
+/-! ## Representative local axiom audit -/
+
+#print axioms unitaryOperator_api
+#print axioms channelEq_api
+#print axioms pureDensityPhase_api
+#print axioms realChannelPhase_api
+#print axioms unitaryCircuit_api
+#print axioms circuitChannelEq_api
+#print axioms circuitPhaseIff_api
+#print axioms identity_swap_physically_separated
+#print axioms empty_index_matrix_boundary
+#print axioms empty_channel_vacuous
+#print axioms zeroWire_circuit_inhabited
+
+end QuaternionicComputing.Semantics.ChannelAudit
