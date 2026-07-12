@@ -140,8 +140,12 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   one specified input while disproving right-ray equality.  It is not an
   all-input circuit-equivalence theorem.
 - The library now has generic finite `RCLike` density and effect structures,
-  with explicit real/complex aliases, but still has no unitary-channel
-  relation, `ChannelEq`, `AllMeasurementEq`, or operator-distance API.
+  with explicit real/complex aliases. Stage 7A has added a narrow, not-yet-
+  promoted `UnitaryOperator` leaf whose `ChannelEq` compares every complete
+  evolved density and whose `AllMeasurementEq` quantifies over every density
+  and genuine effect; their iff is proved through Stage 6 separation. The
+  global-phase/projective converses and circuit lifts remain in progress, and
+  there is still no operator-distance API.
 - Stage 5 now exports certified real, complex, and quaternionic
   computational-basis behavior for matrices and chronological circuits. A
   `BasisPermutationImplementation` proves an explicit permutation on every
