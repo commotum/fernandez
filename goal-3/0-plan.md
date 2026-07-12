@@ -127,10 +127,20 @@ none may remain excluded merely because it is difficult.
   `FER03-FND-COMPLEX-STATE-RAY` are proved as stated and `closedByGoal2`. The
   quaternionic layer proves the side-correct five-relation vocabulary,
   raw/normalized bridge, dimension-at-least-two central-sign kernel, and full
-  unit-quaternion rank-one exception. Later Goal 2 stages remain an explicit
-  unmet prerequisite, so Goal 3 must not be executed yet. Stage 4C does not
-  settle the mixed-top, phase-kickback, density, or channel rows assigned
-  below.
+  unit-quaternion rank-one exception. Stage 5 adds certified classical
+  computational-basis behavior for real, complex, and quaternionic matrices
+  and chronological circuits: equality is equality of proved all-column
+  permutations, never the vacuous raw transition biconditional. On the
+  certified class it is equivalent to scalar-correct input phase, output
+  phase, and basis measurement; the existing preparation circuit implements
+  the all-input XOR permutation while its known-ground-input theorem remains
+  separately scoped. The current Goal 2 baseline is 72 Lean sources including
+  the public root, 705 semantic-manifest declarations, 73 resolving consumers,
+  144 direct manifest audit labels, and 330 root axiom commands, with exact
+  axiom union `propext`, `Classical.choice`, and `Quot.sound`. Later Goal 2
+  stages remain an explicit unmet prerequisite, so Goal 3 must not be executed
+  yet. Stage 5 does not settle the mixed-top, phase-kickback, density, or
+  channel rows assigned below.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

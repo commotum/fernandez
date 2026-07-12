@@ -47,9 +47,6 @@ QuaternionicComputing/
     StatePhase.lean          normalized exact/sign/right-phase relations
     StatePhaseAudit.lean     normalized left-phase rejection and API consumers
     Ray.lean                 representative phase iff quotient-constructor equality
-    BasisBehavior.lean       certified reversible computational-basis action
-    BasisBehaviorCircuit.lean evaluator-backed certified circuit behavior
-    BasisBehaviorAudit.lean  non-root complete consumers and vacuity witness
     OperatorPhase/
       ComplexReal.lean       global, basis-sided, and projective operator phase
       ComplexRealCircuit.lean  sided composition and evaluator-backed circuits
@@ -58,6 +55,9 @@ QuaternionicComputing/
       QuaternionCircuit.lean sided composition and four evaluator-backed circuits
       QuaternionKernel.lean  dimension-sensitive kernel and rank-one exception
       QuaternionAudit.lean   non-root order, vacuity, kernel, and API diagnostics
+    BasisBehavior.lean       certified reversible computational-basis action
+    BasisBehaviorCircuit.lean evaluator-backed certified circuit behavior
+    BasisBehaviorAudit.lean  non-root complete consumers and vacuity witness
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing

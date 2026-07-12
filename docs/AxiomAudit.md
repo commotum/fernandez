@@ -89,8 +89,8 @@ proves the exact ordinary-`RealRay` obstruction. The non-root
 the complete surface as `28 + 13 + 25 + 10 + 8 = 84` declarations. Its 12
 local prints cover those aggregates and seven concrete boundary/consumer
 examples. The public-root audit instead adds 19 independent Stage 4C endpoints,
-bringing the Stage 4C executable root total to 305 commands; the public root does not
-import the diagnostic leaf.
+bringing the Stage 4C executable root total to 305 commands; the public root
+does not import the diagnostic leaf.
 
 Stage 5 adds 134 stable declarations split `90 + 44` across
 `Semantics/BasisBehavior.lean` and `BasisBehaviorCircuit.lean`. The non-root

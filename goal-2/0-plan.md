@@ -109,10 +109,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The Stage 4C tree has 69 Lean sources including the public root. Strict
+- The Stage 5 tree has 72 Lean sources including the public root. Strict
   focused, adjacent-consumer, public-root, explicit-audit, and cached default
-  builds pass. All 305 audited root endpoints and 12 local Stage 4C diagnostic
-  endpoints use exactly `propext`, `Classical.choice`, and `Quot.sound`.
+  builds pass. All 330 audited root endpoints and all 18 local Stage 5
+  diagnostic endpoints use exactly `propext`, `Classical.choice`, and
+  `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -139,8 +140,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   one specified input while disproving right-ray equality.  It is not an
   all-input circuit-equivalence theorem.
 - The library has no generic density matrix, physical effect, unitary channel,
-  `ChannelEq`, `AllMeasurementEq`, certified basis behavior, or
-  operator-distance API.
+  `ChannelEq`, `AllMeasurementEq`, or operator-distance API.
+- Stage 5 now exports certified real, complex, and quaternionic
+  computational-basis behavior for matrices and chronological circuits. A
+  `BasisPermutationImplementation` proves an explicit permutation on every
+  input column, and `SameBasisBehavior` compares only two such certificates.
+  On this certified class, equality of permutations is equivalent to the
+  scalar-correct input-phase, output-phase, and basis-measurement relations.
+  Quaternion input phases remain on the right and output phases on the left.
+  The existing basis-preparation circuit certifies the all-input XOR
+  permutation while retaining its separate known-ground-input theorem. Two
+  rational nonmonomial real unitaries prove that the unrestricted raw
+  transition biconditional can be vacuously equal while basis measurements
+  differ.
 - Pinned mathlib provides matrix positive-semidefiniteness, matrix order, trace,
   finite-dimensional linear algebra, and continuous-linear-map norms, but API
   probes are required before choosing representations.
@@ -152,10 +164,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 571 unique declarations:
-  the 487-declaration Stage 4B prefix plus 84 Stage 4C declarations. Every item
-  has seven semantic axes and a named downstream consumer; all 571 public names,
-  59 distinct consumers, and 119 direct release-audit labels resolve exactly.
+- `docs/Goal2SemanticAPIManifest.json` now contains 705 unique declarations:
+  the immutable 571-declaration Stage 4C prefix plus 134 Stage 5 declarations
+  (90 matrix/operator and 44 circuit declarations). Every item has seven
+  semantic axes and a named downstream consumer; all 705 public names, 73
+  distinct consumers, and 144 direct release-audit labels resolve exactly.
   The frozen Goal 1 cohort and checksum remain unchanged.
 - Pinned mathlib probes validate positive-semidefinite trace-one real/complex
   densities, Loewner-interval effects, rank-one physical effects, a viable
@@ -882,7 +895,7 @@ use without learning the retrofit's implementation history.
 - [x] 2-CORE
 - [x] 3-PHASE
 - [x] 4-RAYS
-- [ ] 5-BASIS
+- [x] 5-BASIS
 - [ ] 6-DENSITY
 - [ ] 7-CHANNELS
 - [ ] 8-HIERARCHY
