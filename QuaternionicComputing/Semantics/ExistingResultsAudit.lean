@@ -1,6 +1,11 @@
 module
 
+public import QuaternionicComputing.Circuit.ScheduleCount
+public import QuaternionicComputing.Matrix.KroneckerCommute
+public import QuaternionicComputing.Matrix.ProperImage
 public import QuaternionicComputing.Semantics.ExistingResults
+public import QuaternionicComputing.Simulation.CompiledResources
+public import QuaternionicComputing.Simulation.NonProductWitness
 
 /-!
 # Audit of semantic classifications for existing exact results
@@ -11,6 +16,11 @@ This non-root leaf allocates the six stable declarations introduced by
 * three normalized-state and reduced-matrix boundary declarations;
 * two schedule and order-distinction declarations;
 * one conditional exact-compilation declaration.
+
+It also gives each Stage 11-owned diagnostic, algebraic, combinatorial, and
+resource family a meaningful theorem consumer.  Those consumers deliberately
+remain nonbehavioral: an injective algebraic embedding, image description,
+schedule count, or finite resource bound is not circuit or channel equality.
 
 The aggregates retain the concrete counterexample inputs and observations.
 In particular, they do not promote one-input output agreement to an all-input
@@ -72,7 +82,7 @@ theorem scheduleResults_api
     {precedes : ι → ι → Prop}
     {R : Type v} {W : Type w} [Semiring R] [Fintype W]
     (s t : LegalSchedule ι precedes) (gates : ι → PlacedGate R W)
-    (hcomm : Pairwise fun i j : ι ⇒
+    (hcomm : Pairwise fun i j : ι ↦
       Commute (gates i).denote (gates j).denote) :
     ExactCircuitEq (s.scheduledCircuit gates) (t.scheduledCircuit gates) ∧
       (¬ ExactCircuitEq

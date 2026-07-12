@@ -104,7 +104,182 @@
           "type": "string",
           "minLength": 1
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "enum": [
+                  "goal1Boundary",
+                  "sourceOnly"
+                ]
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "properties": {
+              "declarationCount": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingEquality",
+                  "proofBearingCertificate",
+                  "counterexample"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "proofDeclarations": {
+                "minItems": 1
+              },
+              "consumer": {
+                "$ref": "#/$defs/leanName"
+              },
+              "audit": {
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "directRoot",
+                      "localEndpoint",
+                      "transitive"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingCertificate"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "nonbehavioralDisposition",
+                  "resourceDisposition",
+                  "supportDisposition"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "const": "sourceOnlyObstruction"
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "origin": {
+                "const": "sourceOnly"
+              },
+              "declarationCount": {
+                "const": 0
+              },
+              "strongestRelations": {
+                "maxItems": 0
+              },
+              "proofDeclarations": {
+                "maxItems": 0
+              },
+              "consumer": {
+                "type": "null"
+              },
+              "audit": {
+                "properties": {
+                  "mode": {
+                    "const": "notApplicable"
+                  },
+                  "endpoint": {
+                    "type": "null"
+                  }
+                }
+              },
+              "obstruction": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "finalStatus": {
+                "enum": [
+                  "intentionallyExcluded",
+                  "unresolved"
+                ]
+              }
+            },
+            "required": [
+              "finalStatus"
+            ]
+          },
+          "then": {
+            "properties": {
+              "obstruction": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     },
     "origin": {
       "enum": [
@@ -347,7 +522,182 @@
             }
           ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "enum": [
+                  "goal1Boundary",
+                  "sourceOnly"
+                ]
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "properties": {
+              "declarationCount": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingEquality",
+                  "proofBearingCertificate",
+                  "counterexample"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "proofDeclarations": {
+                "minItems": 1
+              },
+              "consumer": {
+                "$ref": "#/$defs/leanName"
+              },
+              "audit": {
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "directRoot",
+                      "localEndpoint",
+                      "transitive"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingCertificate"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "nonbehavioralDisposition",
+                  "resourceDisposition",
+                  "supportDisposition"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "const": "sourceOnlyObstruction"
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "origin": {
+                "const": "sourceOnly"
+              },
+              "declarationCount": {
+                "const": 0
+              },
+              "strongestRelations": {
+                "maxItems": 0
+              },
+              "proofDeclarations": {
+                "maxItems": 0
+              },
+              "consumer": {
+                "type": "null"
+              },
+              "audit": {
+                "properties": {
+                  "mode": {
+                    "const": "notApplicable"
+                  },
+                  "endpoint": {
+                    "type": "null"
+                  }
+                }
+              },
+              "obstruction": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "finalStatus": {
+                "enum": [
+                  "intentionallyExcluded",
+                  "unresolved"
+                ]
+              }
+            },
+            "required": [
+              "finalStatus"
+            ]
+          },
+          "then": {
+            "properties": {
+              "obstruction": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     },
     "declaration": {
       "type": "object",
@@ -425,7 +775,130 @@
           "type": "string",
           "minLength": 1
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingEquality",
+                  "proofBearingCertificate",
+                  "counterexample"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "proofDeclarations": {
+                "minItems": 1
+              },
+              "consumer": {
+                "$ref": "#/$defs/leanName"
+              },
+              "audit": {
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "directRoot",
+                      "localEndpoint",
+                      "transitive"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "proofBearingRelation",
+                  "proofBearingCertificate"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "enum": [
+                  "nonbehavioralDisposition",
+                  "resourceDisposition",
+                  "supportDisposition"
+                ]
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "strongestRelations": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "const": "resourceDisposition"
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "semanticClass": {
+                "const": "resourceClaim"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidenceMode": {
+                "const": "counterexample"
+              }
+            },
+            "required": [
+              "evidenceMode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "semanticClass": {
+                "const": "diagnosticCounterexample"
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

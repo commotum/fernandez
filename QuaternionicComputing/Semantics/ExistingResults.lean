@@ -85,8 +85,8 @@ theorem normalizedQuaternionLeftPhase_rejection :
     have hgateK := congrArg (fun q : ℍ[ℝ] => q.imK) htrue
     norm_num [i, j] at hgateK
   refine ⟨a, b, hab, ?_, ?_, hnot⟩
-  · simpa [a, hgate y] using hgate y |>.trans hy
-  · simpa [b, hgate x] using hgate x |>.trans hx
+  · simpa [a] using (hgate y).trans hy
+  · simpa [b] using (hgate x).trans hx
 
 /--
 The two canonical real encodings of every complex column have the same

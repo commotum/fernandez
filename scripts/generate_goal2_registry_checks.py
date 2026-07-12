@@ -161,21 +161,34 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--cohort", type=Path, default=DEFAULT_COHORT)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--registry", type=Path, default=DEFAULT_REGISTRY)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="write to this caller-supplied path outside the repository instead of stdout",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(sys.argv[1:] if argv is None else argv)
     root = args.repo_root.resolve()
-    sys.stdout.write(
-        render_kind(
-            args.kind,
-            root=root,
-            cohort_path=args.cohort,
-            manifest_path=args.manifest,
-            registry_path=args.registry,
-        )
+    source = render_kind(
+        args.kind,
+        root=root,
+        cohort_path=args.cohort,
+        manifest_path=args.manifest,
+        registry_path=args.registry,
     )
+    if args.output is None:
+        sys.stdout.write(source)
+    else:
+        output = args.output.resolve()
+        if output.is_relative_to(root):
+            raise SystemExit(
+                f"refusing to write a generated check inside the repository: {output}"
+            )
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(source, encoding="utf-8")
     return 0
 
 
