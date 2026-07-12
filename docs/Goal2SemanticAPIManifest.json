@@ -20329,6 +20329,102 @@
         "exactness": "exact 1/2,1/2,1 chain; refutes fixed-half transitivity",
         "ancillaPolicy": "none"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.normalizedQuaternionLeftPhase_rejection",
+      "relation": "Normalized quaternionic left-phase rejection",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternion scalar and explicit Boolean coordinate type",
+        "subject": "normalized quaternionic state representatives and one norm-preserving diagnostic gate",
+        "inputScope": "one explicit normalized pair related by a unit quaternion on the left",
+        "observationScope": "failure of left-phase naturality under the displayed gate action",
+        "phase": "unit quaternion on the left, deliberately rejected as the ray convention",
+        "exactness": "exact existential counterexample with normalized inputs and outputs",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realCanonicalColumns_reducedOuterAgreement",
+      "relation": "Canonical real-column reduced-outer agreement",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "complex source column and doubled real target column",
+        "subject": "two canonical representative encodings and their explicit reduced rank-one matrices",
+        "inputScope": "every raw complex source column",
+        "observationScope": "complete explicit reduced matrix equality and its computational diagonal",
+        "phase": "none",
+        "exactness": "exact equality",
+        "ancillaPolicy": "explicit sum of the two real sector blocks; not a generic partial trace"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq",
+      "relation": "Quaternionic distribution equality without ray equality",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same finite Boolean computational-basis space over quaternions",
+        "subject": "two normalized outputs of the explicit legal product-input orderings",
+        "inputScope": "one fixed normalized pointwise-product ground input",
+        "observationScope": "complete basis distribution equality together with representative-phase and ray inequality",
+        "phase": "quaternionic state phase on the right",
+        "exactness": "exact equality and exact failed converse witness",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledCircuit_exactCircuitEq_of_pairwise_commute",
+      "relation": "Commuting legal schedules imply ExactCircuitEq",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same scalar, wire type, and finite occurrence family",
+        "subject": "two chronological circuits selected by supplied legal schedules",
+        "inputScope": "all supplied schedules and gates under pairwise commutation of distinct denotations",
+        "observationScope": "literal equality of OrderedCircuit.eval through ExactCircuitEq",
+        "phase": "none",
+        "exactness": "exact sufficient implication; no converse",
+        "ancillaPolicy": "no schedule selection and no added wires"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
+      "relation": "Quaternionic ordering witness at exact input and observation scopes",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic source circuit space and same doubled-complex translated circuit space",
+        "subject": "two explicit legal schedules and their exact complex translations",
+        "inputScope": "one fixed ground input for agreement and all normalized pure inputs for the failed stronger relation",
+        "observationScope": "source and translated circuit inequality, fixed-input output-weight equality, and all-pure-input failure",
+        "phase": "none",
+        "exactness": "exact conjunction of equality and inequality boundaries",
+        "ancillaPolicy": "the translated clauses expose one AddedWire; no mixed top state or marginal is inferred"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Circuit.ExactGateCompiler.compileCircuit_exactCircuitEq",
+      "relation": "Supplied exact compiler preserves ExactCircuitEq",
+      "owner": "goal-2/11-REGISTRY",
+      "consumer": "QuaternionicComputing.Semantics.ExistingResultsAudit.compilerResult_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same scalar and finite wire type",
+        "subject": "a source chronological circuit and its supplied certified primitive expansion",
+        "inputScope": "every circuit for every explicitly supplied ExactGateCompiler",
+        "observationScope": "literal equality of OrderedCircuit.eval through ExactCircuitEq",
+        "phase": "none",
+        "exactness": "exact conditional theorem; no compiler existence or synthesis",
+        "ancillaPolicy": "none; the compiler certificate and primitive predicate remain explicit data"
+      }
     }
   ]
 }

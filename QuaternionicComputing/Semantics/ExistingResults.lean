@@ -211,7 +211,7 @@ variable {R : Type u} {W : Type v} [Semiring R] [Fintype W]
 /--
 A supplied exact gate compiler produces a circuit that is exactly
 evaluation-equal to its source circuit.  The compiler remains data: this
-theorem neither constructs an instance nor asserts finite synthesis.
+result neither constructs an instance nor asserts finite synthesis.
 -/
 theorem compileCircuit_exactCircuitEq (compiler : ExactGateCompiler R W)
     (circuit : OrderedCircuit R W) :

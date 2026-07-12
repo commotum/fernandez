@@ -38,6 +38,7 @@ public import QuaternionicComputing.Semantics.Approximation.Quaternion
 public import QuaternionicComputing.Semantics.Approximation.State
 public import QuaternionicComputing.Semantics.Approximation.Distribution
 public import QuaternionicComputing.Semantics.Approximation.Strictness
+public import QuaternionicComputing.Semantics.ExistingResults
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification

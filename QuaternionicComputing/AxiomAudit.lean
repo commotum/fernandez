@@ -817,3 +817,18 @@ open QuaternionicComputing.Semantics
   ApproximationStrictness.rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero
 #print axioms
   QuaternionicComputing.Semantics.ApproximationStrictness.distributionClose_half_not_transitive
+
+/-! ## Goal 2 Stage 11: strongest classifications of existing results -/
+
+#print axioms
+  QuaternionicComputing.Semantics.normalizedQuaternionLeftPhase_rejection
+#print axioms
+  QuaternionicComputing.Semantics.realCanonicalColumns_reducedOuterAgreement
+#print axioms
+  QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq
+#print axioms
+  QuaternionicComputing.Semantics.scheduledCircuit_exactCircuitEq_of_pairwise_commute
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary
+#print axioms
+  QuaternionicComputing.Circuit.ExactGateCompiler.compileCircuit_exactCircuitEq

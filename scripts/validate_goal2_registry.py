@@ -274,12 +274,33 @@ def validate_cohort(root: Path) -> tuple[dict[str, Any], list[tuple[str, str]]]:
 def declaration_names(path: Path) -> list[str]:
     namespace: list[str] = []
     names: list[str] = []
+    block_comment_depth = 0
     declaration_pattern = re.compile(
         r"^\s*(?:@\[[^\]]+\]\s*)?"
         r"(?:(?:public|protected|noncomputable)\s+)*"
         r"(?:def|theorem|lemma|abbrev|structure|instance)\s+([A-Za-z0-9_.']+)"
     )
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        # Declaration-like prose in Lean doc comments must never enter a
+        # source-order manifest. Lean block comments nest, so remove them with
+        # a tiny depth-aware scanner rather than a line-based regular
+        # expression.
+        code: list[str] = []
+        cursor = 0
+        while cursor < len(raw_line):
+            token = raw_line[cursor : cursor + 2]
+            if token == "/-":
+                block_comment_depth += 1
+                cursor += 2
+            elif token == "-/" and block_comment_depth:
+                block_comment_depth -= 1
+                cursor += 2
+            elif block_comment_depth:
+                cursor += 1
+            else:
+                code.append(raw_line[cursor])
+                cursor += 1
+        line = "".join(code)
         namespace_match = re.match(r"^namespace\s+([A-Za-z0-9_.']+)\s*$", line)
         if namespace_match:
             namespace.extend(namespace_match.group(1).split("."))
