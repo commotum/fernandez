@@ -804,18 +804,16 @@ QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedB
 #print axioms
   QuaternionicComputing.Semantics.totalVariationDistance_pushforward_le
 
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_unitary
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.operatorClose_one_not_transitive
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.complexScalarPhaseChain_distances
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.operatorClose_sqrtTwo_not_transitive_on_complex_unitaries
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero
-#print axioms
-  QuaternionicComputing.Semantics.ApproximationStrictness.distributionClose_half_not_transitive
+namespace QuaternionicComputing.Semantics.ApproximationStrictness
+
+#print axioms complexScalarPhaseChain_unitary
+#print axioms operatorClose_one_not_transitive
+#print axioms complexScalarPhaseChain_distances
+#print axioms operatorClose_sqrtTwo_not_transitive_on_complex_unitaries
+#print axioms rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero
+#print axioms distributionClose_half_not_transitive
+
+end QuaternionicComputing.Semantics.ApproximationStrictness
 
 /-! ## Goal 2 Stage 11: strongest classifications of existing results -/
 
