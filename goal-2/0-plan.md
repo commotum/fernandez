@@ -118,8 +118,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   `Classical.choice`, and `Quot.sound`. The cached default build completes
   `2762` jobs; the root-only warning-as-error downstream smoke, generated
   manifest checks, boundary/shortcut/artifact/Markdown/whitespace scans, and
-  documentation/Goal 3 fold-back pass. Only the independent integrated Stage 8
-  closure review remains due.
+  documentation/Goal 3 fold-back pass. The independent integrated closure
+  review reproduced every requirement and returned **PASS** with no semantic,
+  scope, proof, manifest, or release defect.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -942,7 +943,7 @@ use without learning the retrofit's implementation history.
 - [x] 5-BASIS
 - [x] 6-DENSITY
 - [x] 7-CHANNELS
-- [ ] 8-HIERARCHY
+- [x] 8-HIERARCHY
 - [ ] 9-CROSSMODEL
 - [ ] 10-APPROX
 - [ ] 11-REGISTRY

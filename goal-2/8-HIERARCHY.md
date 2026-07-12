@@ -322,5 +322,11 @@ input or observation scope is stronger than its proof.
   declaration-shortcut, scope, multiplication-side, import-boundary,
   generated-artifact, Markdown-fence/table, whitespace, JSON, and diff checks
   pass.
-- The independent integrated closure review remains in progress. Stage 8 is
-  not yet complete.
+- The independent integrated closure review re-read the current theorem and
+  witness sources and reproduced the `49/49` allocation, `990/116/236`
+  manifest evidence, `2769` adjacent and `2762` default builds, generated-name
+  and consumer strict checks, downstream smoke, exact `422/33` axiom audits,
+  frozen hashes, scope/import boundaries, documentation counts, and all final
+  scans. It returned **PASS** with no semantic, proof, scope, manifest, or
+  release defect. Stage 8 is complete as of 2026-07-11; Stage 9 may now add
+  directional cross-model relations and wrappers.
