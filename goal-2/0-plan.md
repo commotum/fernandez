@@ -109,10 +109,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The Stage 6 tree has 76 Lean sources including the public root. Strict
+- The Stage 7 tree has 80 Lean sources including the public root. Strict
   focused, adjacent-consumer, public-root, explicit-audit, and cached default
-  builds pass. The release audit contains 354 endpoints; the seven local Stage
-  6 diagnostic endpoints and the complete release union use exactly `propext`,
+  builds pass. The release audit contains 393 endpoints; the eleven local Stage
+  7 diagnostic endpoints and the complete release union use exactly `propext`,
   `Classical.choice`, and `Quot.sound`.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
@@ -139,13 +139,16 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 - The product-input ordering witness proves equal quaternionic basis weights at
   one specified input while disproving right-ray equality.  It is not an
   all-input circuit-equivalence theorem.
-- The library now has generic finite `RCLike` density and effect structures,
-  with explicit real/complex aliases. Stage 7A has added a narrow, not-yet-
-  promoted `UnitaryOperator` leaf whose `ChannelEq` compares every complete
-  evolved density and whose `AllMeasurementEq` quantifies over every density
-  and genuine effect; their iff is proved through Stage 6 separation. The
-  global-phase/projective converses and circuit lifts remain in progress, and
-  there is still no operator-distance API.
+- The library now has generic finite `RCLike` density, effect, bundled-unitary,
+  and same-space channel structures with explicit real/complex aliases.
+  `ChannelEq` compares every complete evolved density and
+  `AllMeasurementEq` quantifies over every density and genuine effect; their
+  iff is proved through Stage 6 separation. On explicitly inhabited matrix
+  spaces, real global sign, complex global phase, raw/normalized projective
+  action, and channel equality have exact iff characterizations. Certified
+  circuit lifts use `OrderedCircuit.eval`, discharge the inherently inhabited
+  `BitBasis W` internally even at zero wires, and retain chronological order.
+  There is still no operator-distance API.
 - Stage 5 now exports certified real, complex, and quaternionic
   computational-basis behavior for matrices and chronological circuits. A
   `BasisPermutationImplementation` proves an explicit permutation on every
@@ -169,13 +172,13 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 802 unique declarations:
-  the immutable 705-declaration Stage 5 prefix plus 97 Stage 6 declarations
-  (40 density, 52 effect, and five separation declarations). Every item has
-  seven semantic axes and a named downstream consumer; all 802 public names,
-  81 distinct consumers, and 168 direct release-audit labels resolve exactly.
-  The first-705 structural hash is
-  `74c141200c61236190eab143188fbf7ebbc7dd7802314e203d7948b23322c66b`,
+- `docs/Goal2SemanticAPIManifest.json` now contains 941 unique declarations:
+  the immutable 802-declaration Stage 6 prefix plus 139 Stage 7 declarations
+  (41 channel core, 40 phase-kernel, and 58 circuit declarations). Every item
+  has seven semantic axes and a named downstream consumer; all 941 public
+  names, 104 distinct consumers, and 207 direct release-audit labels resolve
+  exactly. The first-802 structural hash is
+  `6554f0c773ef602e3e8791c77142a37dda2c0fc97df5d8b1b41f8a162eadf2e0`,
   and the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
@@ -186,6 +189,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   while the separation theorem remains uniformly stated without an impossible
   global nonempty premise. Quaternionic positivity, density matrices, partial
   trace, Kraus maps, instruments, and channel claims remain absent.
+- Stage 7 bundles unitary matrices and locally unitary circuits without adding
+  syntax/resource claims. Its 139 stable declarations have exact `139/139`
+  non-root aggregate coverage. The physical identity-versus-swap diagnostic
+  uses one genuine basis effect to refute both channel and all-measurement
+  equality, while global real `-1` and complex `I` witnesses prove the intended
+  channel invariance. Empty-index matrix equality is separated from vacuous
+  density quantification, and no quaternionic, cross-model, partial-trace,
+  mixed-top, Kraus, or instrument result is inferred.
 - Pinned mathlib probes also validate finite basis columns and the scoped L2
   induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
   Loewner matrices need `MatrixOrder`.

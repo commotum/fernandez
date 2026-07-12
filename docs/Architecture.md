@@ -319,8 +319,9 @@ The non-root `Semantics/DensityAudit.lean` imports only the separation leaf.
 Eight exact-allocation aggregates consume all 97 stable declarations
 (`40 + 52 + 5`) once, and concrete `Bool` examples check pure/basis
 compatibility, the mixed state `(1/2) I`, Born bounds and complements, unitary
-conjugation, physical separation, and empty-index impossibility. The public
-root imports only `Density`, `Effect`, and `EffectSeparation`. This layer
+conjugation, physical separation, and empty-index impossibility. Among these
+Stage 6 leaves, the public root imports only `Density`, `Effect`, and
+`EffectSeparation`. This layer
 itself deliberately has no `ChannelEq` or `AllMeasurementEq`; the separate
 Stage 7 leaves consume it. Neither layer supplies quaternionic
 density/positivity theory, partial trace, Kraus maps, instruments, or
@@ -477,8 +478,9 @@ allocates all 139 stable declarations exactly as `41 + 40 + 58` through 23
 aggregate consumers. Its concrete checks distinguish a genuinely different
 identity/swap channel using one physical basis effect, verify real `-1` and
 complex `I` global phases, record the empty-index matrix/vacuous-channel
-boundary, and exercise the inhabited zero-wire circuit case. The public root
-imports only `Channel`, `ChannelPhase`, and `ChannelCircuit`. No channel leaf
+boundary, and exercise the inhabited zero-wire circuit case. Among the Stage 7
+leaves, the public root imports only `Channel`, `ChannelPhase`, and
+`ChannelCircuit`. No channel leaf
 defines quaternionic positivity, partial trace, a Kraus map, an instrument,
 cross-model channel equality, or mixed-top simulation.
 
