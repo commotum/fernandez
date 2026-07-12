@@ -228,4 +228,22 @@ chronological-circuit wrappers.
   Fourteen representative/main endpoints use exactly `propext`,
   `Classical.choice`, and `Quot.sound`; forbidden-token and import-boundary
   scans pass.
-- Stage 7C circuit work remains in progress; Stage 7 is not yet complete.
+- `QuaternionicComputing/Semantics/ChannelCircuit.lean` now supplies 58
+  explicitly named stable declarations plus one anonymous circuit coercion.
+  `UnitaryCircuit` bundles only a chronological circuit and its local-unitary
+  certificate, derives its `UnitaryOperator`, and has exact extensionality,
+  identity, append, associativity, and evaluator laws. `C.append D` maps to
+  `C.toOperator.followedBy D.toOperator`, so the matrix remains
+  `eval D * eval C`.
+- `CircuitChannelEq` and `CircuitAllMeasurementEq` are honest equivalence
+  relations on certified circuits. Their iff, exact-evaluator implications,
+  all-measurement conversions, both-pair append congruence, and common
+  earlier/later congruences compile. Real/complex global phase and normalized
+  projective action are each equivalent to circuit channel equality. The
+  evaluator basis `BitBasis W` is inhabited canonically even at zero wires, so
+  the public circuit theorems do not ask callers for redundant nonempty data.
+- The circuit leaf passes strict compilation, its `2685/2685` focused build,
+  the combined three-leaf build, representative exact-three-axiom checks,
+  import/forbidden scans, diff checks, and an independent API review.
+- The non-root exact-coverage audit, public integration, manifest, docs, and
+  final closure gates remain in progress; Stage 7 is not yet complete.
