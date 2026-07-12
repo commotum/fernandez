@@ -29,7 +29,7 @@ strict-compiled.
 
 @[expose] public noncomputable section
 
-open scoped Matrix Quaternion
+open scoped Matrix Kronecker Quaternion
 
 namespace QuaternionicComputing.Semantics.HierarchyAudit
 
@@ -851,16 +851,17 @@ def unitFiniteDistribution : State.FiniteDistribution Unit where
   nonnegative _ := by norm_num
   normalized := by simp
 
-/-- Event and same-universe pushforward characterizations cover `Empty` and `Unit`. -/
-theorem finiteDistribution_empty_unit_boundaries_api
-    (mu nu : State.FiniteDistribution Empty) :
-    ((mu = nu ↔
-        ∀ event : Finset Empty,
-          mu.eventWeight event = nu.eventWeight event) ∧
-      (mu = nu ↔
-        ∀ (J : Type) [Fintype J] (f : Empty → J),
-          @State.FiniteDistribution.pushforward Empty J _ _ mu f =
-            @State.FiniteDistribution.pushforward Empty J _ _ nu f)) ∧
+/-- A probability distribution cannot inhabit the empty outcome type. -/
+theorem emptyFiniteDistribution_isEmpty :
+    IsEmpty (State.FiniteDistribution Empty) :=
+  ⟨fun mu ↦ by simpa using mu.normalized⟩
+
+/--
+The empty boundary is constructive impossibility; the `Unit` boundary is an
+actual event and same-universe pushforward consumer.
+-/
+theorem finiteDistribution_empty_unit_boundaries_api :
+    IsEmpty (State.FiniteDistribution Empty) ∧
       ((unitFiniteDistribution = unitFiniteDistribution ↔
         ∀ event : Finset Unit,
           unitFiniteDistribution.eventWeight event =
@@ -871,34 +872,25 @@ theorem finiteDistribution_empty_unit_boundaries_api
               unitFiniteDistribution f =
             @State.FiniteDistribution.pushforward Unit J _ _
               unitFiniteDistribution f)) := by
-  have hEmpty := finiteDistribution_characterizations_api mu nu
   have hUnit := finiteDistribution_characterizations_api
     unitFiniteDistribution unitFiniteDistribution
-  exact ⟨⟨hEmpty.2.1, hEmpty.2.2⟩, ⟨hUnit.2.1, hUnit.2.2⟩⟩
+  exact ⟨emptyFiniteDistribution_isEmpty, hUnit.2.1, hUnit.2.2⟩
 
 /-- The concrete normalized real state on the singleton outcome type. -/
 def unitRealState : State.RealState Unit :=
   ⟨fun _ ↦ 1, by
-    simp [State.realTotalWeight, State.totalWeight,
-      State.basisWeight, State.realWeight]⟩
+    simp [State.totalWeight, State.basisWeight, State.realWeight]⟩
 
-/-- Normalized-state event and pushforward iff theorems cover `Empty` and `Unit`. -/
-theorem normalizedState_empty_unit_boundaries_api
-    (a b : State.RealState Empty) :
-    ((NormalizedDistributionEq State.realWeight State.realWeight_nonneg a b ↔
-        ∀ event : Finset Empty,
-          (State.FiniteDistribution.ofNormalizedState State.realWeight
-              State.realWeight_nonneg a).eventWeight event =
-            (State.FiniteDistribution.ofNormalizedState State.realWeight
-              State.realWeight_nonneg b).eventWeight event) ∧
-      (NormalizedDistributionEq State.realWeight State.realWeight_nonneg a b ↔
-        ∀ (J : Type) [Fintype J] (f : Empty → J),
-          @State.FiniteDistribution.pushforward Empty J _ _
-              (State.FiniteDistribution.ofNormalizedState State.realWeight
-                State.realWeight_nonneg a) f =
-            @State.FiniteDistribution.pushforward Empty J _ _
-              (State.FiniteDistribution.ofNormalizedState State.realWeight
-                State.realWeight_nonneg b) f)) ∧
+/-- A normalized real state cannot inhabit an empty coordinate type. -/
+theorem emptyRealState_isEmpty : IsEmpty (State.RealState Empty) :=
+  ⟨fun a ↦ by simpa [State.totalWeight] using a.property⟩
+
+/--
+The normalized-state empty boundary is constructive impossibility; the
+singleton state concretely exercises both observation iff theorems.
+-/
+theorem normalizedState_empty_unit_boundaries_api :
+    IsEmpty (State.RealState Empty) ∧
       ((NormalizedDistributionEq State.realWeight State.realWeight_nonneg
           unitRealState unitRealState ↔
         ∀ event : Finset Unit,
@@ -915,14 +907,158 @@ theorem normalizedState_empty_unit_boundaries_api
             @State.FiniteDistribution.pushforward Unit J _ _
               (State.FiniteDistribution.ofNormalizedState State.realWeight
                 State.realWeight_nonneg unitRealState) f)) := by
-  have hEmpty := normalizedState_observationCharacterizations_api
-    State.realWeight State.realWeight_nonneg a b
   have hUnit := normalizedState_observationCharacterizations_api
     State.realWeight State.realWeight_nonneg unitRealState unitRealState
-  exact ⟨⟨hEmpty.1, hEmpty.2.1⟩, ⟨hUnit.1, hUnit.2.1⟩⟩
+  exact ⟨emptyRealState_isEmpty, hUnit.1, hUnit.2.1⟩
+
+/-! ## Existing strictness, preservation, and ordering consumers -/
+
+/-- Real and complex global phase are strictly weaker than exact equality on unitaries. -/
+theorem real_complex_exact_global_strictness :
+    OperatorPhase.ComplexRealAudit.realRotation ∈
+        unitary (Matrix Bool Bool ℝ) ∧
+      OperatorPhase.ComplexRealAudit.realNegRotation ∈
+        unitary (Matrix Bool Bool ℝ) ∧
+      RealGlobalSignEq
+        OperatorPhase.ComplexRealAudit.realRotation
+        OperatorPhase.ComplexRealAudit.realNegRotation ∧
+      ¬ ExactOperatorEq
+        OperatorPhase.ComplexRealAudit.realRotation
+        OperatorPhase.ComplexRealAudit.realNegRotation ∧
+      OperatorPhase.ComplexRealAudit.complexRotation ∈
+        unitary (Matrix Bool Bool ℂ) ∧
+      OperatorPhase.ComplexRealAudit.complexIRotation ∈
+        unitary (Matrix Bool Bool ℂ) ∧
+      ComplexGlobalPhaseEq
+        OperatorPhase.ComplexRealAudit.complexRotation
+        OperatorPhase.ComplexRealAudit.complexIRotation ∧
+      ¬ ExactOperatorEq
+        OperatorPhase.ComplexRealAudit.complexRotation
+        OperatorPhase.ComplexRealAudit.complexIRotation :=
+  ⟨OperatorPhase.ComplexRealAudit.realRotation_mem_unitary,
+    OperatorPhase.ComplexRealAudit.realNegRotation_mem_unitary,
+    OperatorPhase.ComplexRealAudit.realRotation_neg_global,
+    OperatorPhase.ComplexRealAudit.realRotation_neg_not_exact,
+    OperatorPhase.ComplexRealAudit.complexRotation_mem_unitary,
+    OperatorPhase.ComplexRealAudit.complexIRotation_mem_unitary,
+    OperatorPhase.ComplexRealAudit.complexRotation_I_global,
+    OperatorPhase.ComplexRealAudit.complexRotation_I_not_exact⟩
+
+/-- Exact and global/central phase preserve all certified matrix permutations. -/
+theorem certified_matrix_preservation_api
+    {I : Type*} [DecidableEq I]
+    {UR VR : Matrix I I ℝ} {UC VC : Matrix I I ℂ}
+    {UQ VQ : Matrix I I ℍ[ℝ]}
+    {pR qR pC qC pQ qQ : Equiv.Perm I}
+    (hUR : RealBasisPermutationImplementation UR pR)
+    (hVR : RealBasisPermutationImplementation VR qR)
+    (hUC : ComplexBasisPermutationImplementation UC pC)
+    (hVC : ComplexBasisPermutationImplementation VC qC)
+    (hUQ : QuaternionBasisPermutationImplementation UQ pQ)
+    (hVQ : QuaternionBasisPermutationImplementation VQ qQ)
+    (heR : ExactOperatorEq UR VR)
+    (heC : ExactOperatorEq UC VC)
+    (heQ : ExactOperatorEq UQ VQ)
+    (hpR : RealGlobalSignEq UR VR)
+    (hpC : ComplexGlobalPhaseEq UC VC)
+    (hpQ : QuaternionCentralSignEq UQ VQ) :
+    SameBasisBehavior hUR hVR ∧ SameBasisBehavior hUC hVC ∧
+      SameBasisBehavior hUQ hVQ ∧ SameBasisBehavior hUR hVR ∧
+      SameBasisBehavior hUC hVC ∧ SameBasisBehavior hUQ hVQ :=
+  ⟨ExactOperatorEq.realSameBasisBehavior heR hUR hVR,
+    ExactOperatorEq.complexSameBasisBehavior heC hUC hVC,
+    ExactOperatorEq.quaternionSameBasisBehavior heQ hUQ hVQ,
+    RealGlobalSignEq.sameBasisBehavior hpR hUR hVR,
+    ComplexGlobalPhaseEq.sameBasisBehavior hpC hUC hVC,
+    QuaternionCentralSignEq.sameBasisBehavior hpQ hUQ hVQ⟩
+
+/-- Exact and global/central phase preserve all certified circuit permutations. -/
+theorem certified_circuit_preservation_api
+    {W : Type*} [Fintype W]
+    {CR DR : RealBasisClassicalCircuit W}
+    {CC DC : ComplexBasisClassicalCircuit W}
+    {CQ DQ : QuaternionBasisClassicalCircuit W}
+    (heR : ExactCircuitEq CR.circuit DR.circuit)
+    (heC : ExactCircuitEq CC.circuit DC.circuit)
+    (heQ : ExactCircuitEq CQ.circuit DQ.circuit)
+    (hpR : RealCircuitGlobalSignEq CR.circuit DR.circuit)
+    (hpC : ComplexCircuitGlobalPhaseEq CC.circuit DC.circuit)
+    (hpQ : QuaternionCircuitCentralSignEq CQ.circuit DQ.circuit) :
+    SameCircuitBasisBehavior CR DR ∧ SameCircuitBasisBehavior CC DC ∧
+      SameCircuitBasisBehavior CQ DQ ∧ SameCircuitBasisBehavior CR DR ∧
+      SameCircuitBasisBehavior CC DC ∧ SameCircuitBasisBehavior CQ DQ :=
+  ⟨ExactCircuitEq.realSameCircuitBasisBehavior heR,
+    ExactCircuitEq.complexSameCircuitBasisBehavior heC,
+    ExactCircuitEq.quaternionSameCircuitBasisBehavior heQ,
+    RealCircuitGlobalSignEq.sameCircuitBasisBehavior hpR,
+    ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior hpC,
+    QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior hpQ⟩
+
+/--
+Commuting scheduled denotations are order-independent, while the existing
+quaternionic schedule and one-by-one Kronecker witnesses exhibit the exact
+noncommutative failures.
+-/
+theorem schedule_kronecker_boundary_api
+    {R ι W : Type*} [Semiring R] [Fintype ι] [DecidableEq ι] [Fintype W]
+    {precedes : ι → ι → Prop}
+    (s t : Circuit.LegalSchedule ι precedes)
+    (gates : ι → Circuit.PlacedGate R W)
+    (hcomm : Pairwise fun i j : ι ↦
+      Commute (gates i).denote (gates j).denote) :
+    s.scheduledEval gates = t.scheduledEval gates ∧
+      Circuit.OrderingWitness.iThenJSchedule.scheduledEval
+          Circuit.OrderingWitness.gateFamily ≠
+        Circuit.OrderingWitness.jThenISchedule.scheduledEval
+          Circuit.OrderingWitness.gateFamily ∧
+      (¬ QuaternionicComputing.Matrix.IsZeroOneMatrix
+          (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne
+            Quaternion.i) ∧
+        ¬ QuaternionicComputing.Matrix.IsZeroOneMatrix
+          (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne
+            Quaternion.j) ∧
+        (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j ⊗ₖ
+            QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i) *
+            (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i ⊗ₖ
+              QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j) =
+          (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j *
+              QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i) ⊗ₖ
+            (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i *
+              QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j)) ∧
+      ¬ ((QuaternionicComputing.Matrix.QuaternionExamples.oneByOne 1 ⊗ₖ
+            QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i) *
+          (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j ⊗ₖ
+            QuaternionicComputing.Matrix.QuaternionExamples.oneByOne 1) =
+        (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne 1 *
+            QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.j) ⊗ₖ
+          (QuaternionicComputing.Matrix.QuaternionExamples.oneByOne Quaternion.i *
+            QuaternionicComputing.Matrix.QuaternionExamples.oneByOne 1)) :=
+  ⟨Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute s t gates hcomm,
+    Circuit.OrderingWitness.scheduled_operators_ne,
+    QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_without_zeroOne,
+    QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_i_j_failure⟩
 
 /-! ## Local axiom endpoints -/
 
+#print axioms outputPhase_basisConsequences_api
+#print axioms outputPhase_rowConverses_api
+#print axioms outputPhase_characterizations_api
+#print axioms finiteDistribution_characterizations_api
+#print axioms normalizedState_observationCharacterizations_api
+#print axioms stateRay_chain_api
+#print axioms operator_projectiveKernel_api
+#print axioms channel_hierarchy_api
+#print axioms allMeasurement_hierarchy_api
+#print axioms circuit_characterizations_api
+#print axioms circuitChannel_hierarchy_api
+#print axioms circuitAllMeasurement_hierarchy_api
+#print axioms outputPhase_rectangular_empty_boundaries_api
+#print axioms finiteDistribution_empty_unit_boundaries_api
+#print axioms normalizedState_empty_unit_boundaries_api
+#print axioms real_complex_exact_global_strictness
+#print axioms certified_matrix_preservation_api
+#print axioms certified_circuit_preservation_api
+#print axioms schedule_kronecker_boundary_api
 #print axioms real_inputTwist_hierarchy_boundary
 #print axioms real_outputTwist_hierarchy_boundary
 #print axioms complex_inputTwist_hierarchy_boundary

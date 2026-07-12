@@ -497,6 +497,65 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.complexCircuitProjectiveActionEq_iff_channelEq
 
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.realBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.complexBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.quaternionBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.realOutputBasisSignEq
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.complexOutputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.quaternionOutputLeftPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.realOutputBasisSignEq_iff_pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq
+
+#print axioms
+  QuaternionicComputing.State.FiniteDistribution.eq_iff_singletonEventWeight_eq
+#print axioms
+  QuaternionicComputing.State.FiniteDistribution.eq_iff_eventWeight_eq
+#print axioms
+  QuaternionicComputing.State.FiniteDistribution.eq_iff_allPushforward_eq_sameUniverse
+#print axioms
+  QuaternionicComputing.Semantics.normalizedDistributionEq_iff_eventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.basisWeightEq_iff_allPushforward_eq_sameUniverse
+#print axioms QuaternionicComputing.Semantics.ExactStateEq.complexRay_mk_eq
+#print axioms QuaternionicComputing.Semantics.ExactStateEq.quaternionRay_mk_eq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexStatePhaseEq.basisWeightEq_of_complexRay_mk_eq
+
+#print axioms
+  QuaternionicComputing.Semantics.realGlobalSignEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.complexGlobalPhaseEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.ChannelEq.realPureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.ChannelEq.complexOutputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.AllMeasurementEq.complexBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.realCircuitOutputBasisSignEq_iff_pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.complexCircuitOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionCircuitOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.realCircuitGlobalSignEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.complexCircuitGlobalPhaseEq_iff_projectiveActionEq
+#print axioms
+  QuaternionicComputing.Semantics.CircuitChannelEq.complexOutputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.CircuitAllMeasurementEq.realPureInputBasisMeasurementEq
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount
