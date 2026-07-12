@@ -2,14 +2,16 @@
 
 ## Current Facts
 
-- Stage 9B is independently complete. The current tree has 88 Lean sources
-  including the public root, 1,064 exact semantic-manifest entries, 133
-  resolving consumers, 272 direct release-audit labels, 458 root axiom
-  commands, and 16 local `SimulationAudit` commands. The wrapper/audit focused
-  builds pass at `2369` and `2381`, the combined stable/audit/public-root/
-  release-audit build passes at `2767/2767`, and the cached default build
-  completes `2765` jobs. The parsed axiom union is exactly `propext`,
-  `Classical.choice`, and `Quot.sound`.
+- Stage 9C is independently implemented and verified. The current tree has 90
+  Lean sources including the public root, 1,100 exact semantic-manifest
+  entries, 140 resolving consumers, 308 direct release-audit labels, 494 root
+  axiom commands, and 20 local `SimulationAudit` commands. Focused decoder,
+  postprocessing, outcome-wrapper, and audit builds pass at `2347`, `2361`,
+  `2365`, and `2385`; the final combined stable/audit/public-root/release-audit
+  build passes at `2769/2769`, and the cached default build completes `2767`
+  jobs. The root parser covers `491 + 3 = 494` blocks and the local parser
+  covers `19 + 1 = 20`; every endpoint uses a subset and both collective
+  unions are exactly `propext`, `Classical.choice`, and `Quot.sound`.
 - Stage 9C has exactly seven inventory touchpoints: five Stage 9C-owned frozen
   families (`EQC-009`, `EQC-013`, `EQC-032`, `EQC-035`, and `EQC-038`) plus the
   outcome slices of the Stage 9B-owned scheduled and composed families
@@ -31,22 +33,22 @@
 - `DecodedBasisWeightAgreement`, `DecodedDistributionAgreement`, their
   composition and event/pushforward consequences, and both `AllTop...`
   quantifier policies already compile in `Semantics/Simulation.lean`.
-- `Simulation/Postprocessing.lean` packages normalized source distributions and
-  already-marginalized primary target distributions. It does not yet expose a
-  decoder from a full `BitBasis (AddedWire W)` distribution, a full target
-  distribution, or the composed quaternion-to-real distribution closure.
+- `Simulation/Postprocessing.lean` now packages normalized source and full
+  target distributions, refactors the primary bottom distributions through the
+  explicit decoder, and exports the composed quaternion-to-real distribution,
+  finite-event, and deterministic-pushforward closure.
 - `FiniteDistribution.pushforward` can express forgetting the added wire via
   `Circuit.tailBits`. Independently, the explicit false/true sector formula
   makes a direct decoder constructive and normalization-preserving. A second
   strict-compiling probe at `/private/tmp/Stage9CRelationsProbe.lean` proves
   that the direct decoder equals `pushforward tailBits`, so this desired
   identification has no remaining proof obstruction.
-- The strict-compiling prototype
-  `/private/tmp/Stage9CDecoderProbe.lean` constructs explicit one- and two-wire
-  weight/distribution decoders, full target distributions, the missing composed
-  distribution equality, and ten core relation wrappers. Its emitted wrapper
-  axiom union is exactly the standard three items. The prototype is signature
-  evidence only, not repository implementation or audit coverage.
+- The strict-compiling prototypes
+  `/private/tmp/Stage9CDecoderProbe.lean` and
+  `/private/tmp/Stage9CRelationsProbe.lean` established the decoder and wrapper
+  architecture before promotion. The repository implementation now provides
+  the corresponding stable API, concrete consumers, direct release-audit
+  endpoints, and downstream checks.
 
 ## Updated Assumptions
 
@@ -147,12 +149,13 @@ mixed-top, randomized, or resource semantics.
   distribution relations. Obtain the scheduled family by instantiating the
   primary quaternion-to-complex result at the exact supplied chronological
   circuit.
-- Replace the audit-local `sumSectorWeightDecoder` and already-decoded `id`
-  examples in `Semantics/SimulationAudit.lean` with the stable explicit
-  decoders. Add five disjoint aggregates allocating the 18 semantic wrappers
-  exactly as `2 + 4 + 4 + 4 + 4`: representative, complex-to-real,
-  quaternion-to-complex, scheduled quaternion-to-complex, and composed
-  quaternion-to-real outcomes.
+- Use the stable explicit decoders in all new Stage 9C consumers. Retain the
+  four historical Stage 9A `id` diagnostics only where they compare
+  already-decoded same-carrier distributions; do not select them as Stage 9C
+  endpoints or closure evidence. Add five disjoint aggregates allocating the
+  18 semantic wrappers exactly as `2 + 4 + 4 + 4 + 4`: representative,
+  complex-to-real, quaternion-to-complex, scheduled quaternion-to-complex, and
+  composed quaternion-to-real outcomes.
 - Exercise both canonical `|0⟩`/`|1⟩` top specializations, an arbitrary
   normalized top, the genuinely quaternionic `j` example, existing nontrivial
   circuit examples, one actual legal schedule with locally unitary gates, the
@@ -286,4 +289,73 @@ mixed-top, randomized, or resource semantics.
 
 ## Stage Results
 
-- Implementation pending.
+- Added the low-dependency stable decoder leaf
+  `QuaternionicComputing/Simulation/OutcomeDecoder.lean` with exactly ten
+  public declarations and two private helper lemmas. Its explicit one-wire
+  distribution decoder sums the false/true sectors and is proved equal to
+  deterministic `pushforward tailBits`; its two-wire decoder removes the outer
+  realification wire before the inner complexification wire.
+- Extended `Simulation/Postprocessing.lean` with exactly eight new public
+  full-target/composed declarations. Primary bottom distributions now use the
+  explicit full-target decoder, and the composed quaternion-to-real family has
+  normalized distribution, finite-event, and deterministic-pushforward
+  closure.
+- Added `Semantics/SimulationOutcomes.lean` with exactly 18 stable wrappers.
+  The five Stage 9C-owned families `EQC-009`, `EQC-013`, `EQC-032`, `EQC-035`,
+  and `EQC-038` are closed, and the outcome slices of `EQC-036` and `EQC-037`
+  are added without changing their Stage 9B operator/state classifications.
+  Raw point wrappers quantify every raw source column and need no unitarity;
+  normalized distribution/event/pushforward wrappers retain normalized source
+  states and the exact local-unitarity hypotheses. Scheduled wrappers retain
+  the supplied schedule and gates.
+- Extended the non-root `SimulationAudit` with two infrastructure aggregates
+  allocating the decoder/postprocessing APIs as `10 + 8` and five semantic
+  aggregates allocating the 18 wrappers as `2 + 4 + 4 + 4 + 4`. Concrete
+  consumers exercise both canonical tops, a genuine quaternionic `j`, actual
+  locally unitary zero-wire scalar circuits, the supplied `iThenJ` schedule,
+  finite events, Boolean pushforwards, and the nested decoder order. Four
+  historical Stage 9A same-carrier `id` diagnostics remain diagnostic-only and
+  are not Stage 9C exports, manifest entries, selected endpoints, or evidence.
+- Stable imports remain narrow: the decoder leaf has two public imports, the
+  postprocessing leaf has two, and the semantic wrapper leaf has three. No
+  stable Stage 9C leaf imports an audit, and the public root exports only the
+  stable outcome leaf.
+- Focused builds pass at `2347`, `2361`, `2365`, and `2385`; the final combined
+  decoder/postprocessing/outcome/audit/public-root/release-audit build passes
+  at `2769/2769`, and the cached default build completes `2767` jobs. Direct
+  warning-as-error checks pass for every touched leaf, the audit, public root,
+  and release audit. Public-root downstream, postprocessing-compatibility,
+  relation, and concrete-audit probes all strict-compile.
+- The semantic manifest contains 1,100 unique declarations, 140 consumers, and
+  308 direct audit labels. The last 36 entries have exact source order, owner,
+  seven nonempty axes, direct-audit intersection, and allocation
+  `10 / 8 / 2 / 4 / 4 / 4 / 4`. Generated checks resolve all 1,100 public names
+  and all 140 consumers. The preserved first-1,064 hash is
+  `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
+  the full-1,100 hash is
+  `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
+  the frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- Axiom parsing covers all 494 root blocks as `491 + 3` and all 20 local blocks
+  as `19 + 1`. Every endpoint uses a subset of the permitted standard axioms,
+  and both collective unions are exactly `propext`, `Classical.choice`, and
+  `Quot.sound`, with no unknown declaration or `sorryAx`. Independent review
+  found one newly introduced 101-character audit line; placing the unchanged
+  fully qualified target at column zero repaired the strict style failure and
+  preserved exact manifest/audit identity.
+- Hole, declaration-axiom, unsafe, opaque, heartbeat, false-upgrade,
+  import-boundary, tracked-artifact, stale-wording, Markdown table/fence,
+  whitespace, diff, and frozen-checksum checks pass. README, public docstring,
+  architecture, conventions, API notes, classification, traceability,
+  corrections, release/axiom reports, and Goal 3 record the exact scopes and
+  counts. Stage 9C adds no paper correction and no product/mixed-top, partial-
+  trace, channel/all-effect, randomized, resource, compiler, or schedule-choice
+  claim.
+- Independent source, semantic, and manifest review returned **PASS**. Final
+  documentation, Goal 3, and integrated milestone review remains the last
+  closure gate.
+
+## Completion Status
+
+- [ ] Final integrated documentation review is pending before Stage 9C and the
+  umbrella Stage 9 are marked complete.

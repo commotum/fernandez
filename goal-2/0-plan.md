@@ -109,18 +109,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current Stage 9B tree has 88 Lean sources including the public root. The
-  three stable simulation-semantics leaves and non-root audit strict-compile;
-  the new wrapper and audit focused builds pass at `2369` and `2381`, the
-  combined stable/audit/public-root/release-audit build passes at `2767/2767`,
-  and the cached default build completes `2765` jobs. The release audit has 458
-  endpoints and the local simulation audit has 16; their parsed unions are
-  exactly `propext`, `Classical.choice`, and `Quot.sound`. Root-only downstream
-  smoke, regenerated manifest name/consumer checks, boundary/shortcut/artifact/
-  Markdown/whitespace scans, frozen checksums, documentation/Goal 3 fold-back,
-  and diff checks pass. Independent code, source, manifest, and integrated
-  closure reviews returned **PASS** with no remaining semantic, scope, proof,
-  manifest, or release defect.
+- The current Stage 9C tree has 90 Lean sources including the public root. The
+  explicit decoder, postprocessing, outcome-wrapper, and non-root audit leaves
+  strict-compile; focused builds pass at `2347`, `2361`, `2365`, and `2385`,
+  the final combined stable/audit/public-root/release-audit build passes at
+  `2769/2769`, and the cached default build completes `2767` jobs. The release
+  audit has 494 endpoints and the local simulation audit has 20; parsers cover
+  them exactly as `491 + 3` and `19 + 1`, with both collective unions exactly
+  `propext`, `Classical.choice`, and `Quot.sound`. Public-root downstream,
+  regenerated manifest name/consumer, boundary/shortcut/artifact/Markdown/
+  whitespace, frozen-checksum, documentation/Goal 3 fold-back, and diff checks
+  pass. Independent code, source, semantic, and manifest review returned
+  **PASS**; final documentation/integrated milestone review is the remaining
+  Stage 9C closure gate.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
