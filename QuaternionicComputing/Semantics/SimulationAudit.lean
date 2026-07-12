@@ -17,8 +17,8 @@ while the concrete sections exercise the intended scalar, index, coefficient,
 schedule, compiler, and boundary policies.
 
 The top-sector consumers below quantify `Rebit` and `Qubit` values exactly.
-They are normalized coefficient parameter types, not mixed density inputs or proofs
-that the encoded target column factors as a top/bottom product.  The final
+They are normalized coefficient parameter types, not mixed density inputs or
+proofs that the encoded target column factors as a top/bottom product.  The final
 boundary section reuses the existing ordinary-real-ray non-descent and
 nonproduct witnesses.  Nothing in this audit finalizes a Stage 9C cohort family
 or claims same-space, ray, channel, or all-effect equality.
@@ -718,10 +718,6 @@ theorem matrixStateIntertwining_wrappers_api
   have hReal := realifyMatrix_allCoefficient_stateIntertwining complexMatrix
   have hComplex :=
     complexifyMatrix_allCoefficient_stateIntertwining quaternionMatrix
-  have hEmptyReal := realifyMatrix_allCoefficient_stateIntertwining
-    (0 : Matrix Unit Empty ℂ)
-  have hEmptyComplex := complexifyMatrix_allCoefficient_stateIntertwining
-    (0 : Matrix Unit Empty ℍ[ℝ])
   refine ⟨hReal, hComplex, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · simpa using
       (AllTopStateIntertwining.forTop hReal ((1, 0) : ℝ × ℝ))
@@ -731,10 +727,12 @@ theorem matrixStateIntertwining_wrappers_api
       (AllTopStateIntertwining.forTop hComplex ((1, 0) : ℂ × ℂ))
   · simpa using
       (AllTopStateIntertwining.forTop hComplex ((0, 1) : ℂ × ℂ))
-  · simpa using
-      (AllTopStateIntertwining.forTop hEmptyReal ((1, 0) : ℝ × ℝ))
-  · simpa using
-      (AllTopStateIntertwining.forTop hEmptyComplex ((1, 0) : ℂ × ℂ))
+  · intro input
+    exact State.realify_mulVec_realTopCombination
+      (0 : Matrix Unit Empty ℂ) 1 0 input
+  · intro input
+    exact State.complexify_mulVec_complexTopCombination
+      (0 : Matrix Unit Empty ℍ[ℝ]) 1 0 input
 
 /--
 Complete consumer for the Equation 63 reindexing wrapper and both placed-gate
@@ -799,11 +797,44 @@ theorem primaryCircuit_wrappers_api
         (OrderedCircuit.eval quaternionCircuit)
         (OrderedCircuit.eval
           (QuaternionicComputing.Simulation.complexifyCircuit
-            quaternionCircuit)) :=
-  ⟨realifyCircuit_exactOperatorEmbedding complexCircuit,
+            quaternionCircuit)) ∧
+      StateIntertwining
+        (QuaternionicComputing.Simulation.wireRealTopCombination 1 0)
+        (QuaternionicComputing.Simulation.wireRealTopCombination 1 0)
+        (OrderedCircuit.eval complexCircuit)
+        (OrderedCircuit.eval
+          (QuaternionicComputing.Simulation.realifyCircuit complexCircuit)) ∧
+      StateIntertwining
+        (QuaternionicComputing.Simulation.wireRealTopCombination 0 1)
+        (QuaternionicComputing.Simulation.wireRealTopCombination 0 1)
+        (OrderedCircuit.eval complexCircuit)
+        (OrderedCircuit.eval
+          (QuaternionicComputing.Simulation.realifyCircuit complexCircuit)) ∧
+      StateIntertwining
+        (QuaternionicComputing.Simulation.wireComplexTopCombination 1 0)
+        (QuaternionicComputing.Simulation.wireComplexTopCombination 1 0)
+        (OrderedCircuit.eval quaternionCircuit)
+        (OrderedCircuit.eval
+          (QuaternionicComputing.Simulation.complexifyCircuit
+            quaternionCircuit)) ∧
+      StateIntertwining
+        (QuaternionicComputing.Simulation.wireComplexTopCombination 0 1)
+        (QuaternionicComputing.Simulation.wireComplexTopCombination 0 1)
+        (OrderedCircuit.eval quaternionCircuit)
+        (OrderedCircuit.eval
+          (QuaternionicComputing.Simulation.complexifyCircuit
+            quaternionCircuit)) := by
+  have hRealState :=
+    realifyCircuit_allCoefficient_stateIntertwining complexCircuit
+  have hComplexState :=
+    complexifyCircuit_allCoefficient_stateIntertwining quaternionCircuit
+  exact ⟨realifyCircuit_exactOperatorEmbedding complexCircuit,
     complexifyCircuit_exactOperatorEmbedding quaternionCircuit,
-    realifyCircuit_allCoefficient_stateIntertwining complexCircuit,
-    complexifyCircuit_allCoefficient_stateIntertwining quaternionCircuit⟩
+    hRealState, hComplexState,
+    AllTopStateIntertwining.forTop hRealState ((1, 0) : ℝ × ℝ),
+    AllTopStateIntertwining.forTop hRealState ((0, 1) : ℝ × ℝ),
+    AllTopStateIntertwining.forTop hComplexState ((1, 0) : ℂ × ℂ),
+    AllTopStateIntertwining.forTop hComplexState ((0, 1) : ℂ × ℂ)⟩
 
 /--
 Complete consumer for the three scheduled wrappers.  The inequality conjunct
@@ -912,20 +943,18 @@ circuits; no normalized empty state is required.
 -/
 theorem compiledCircuit_wrappers_api
     {W : Type uT} [Fintype W]
-    (realCompiler : ExactGateCompiler ℝ (AddedWire W))
-    (complexCompiler : ExactGateCompiler ℂ (AddedWire W))
     (complexCircuit : OrderedCircuit ℂ W)
     (quaternionCircuit : OrderedCircuit ℍ[ℝ] W) :
     ExactOperatorEmbedding QuaternionicComputing.Circuit.wireRealify
         (OrderedCircuit.eval complexCircuit)
         (OrderedCircuit.eval
-          (realCompiler.compileCircuit
+          ((identityExactGateCompiler ℝ (AddedWire W)).compileCircuit
             (QuaternionicComputing.Simulation.realifyCircuit
               complexCircuit))) ∧
       ExactOperatorEmbedding QuaternionicComputing.Circuit.wireComplexify
         (OrderedCircuit.eval quaternionCircuit)
         (OrderedCircuit.eval
-          (complexCompiler.compileCircuit
+          ((identityExactGateCompiler ℂ (AddedWire W)).compileCircuit
             (QuaternionicComputing.Simulation.complexifyCircuit
               quaternionCircuit))) ∧
       ExactOperatorEmbedding QuaternionicComputing.Circuit.wireRealify
@@ -940,12 +969,13 @@ theorem compiledCircuit_wrappers_api
           ((identityExactGateCompiler ℂ (AddedWire Empty)).compileCircuit
             (QuaternionicComputing.Simulation.complexifyCircuit
               ([] : OrderedCircuit ℍ[ℝ] Empty)))) :=
-  ⟨compileRealifyCircuit_exactOperatorEmbedding realCompiler complexCircuit,
+  ⟨compileRealifyCircuit_exactOperatorEmbedding
+      (identityExactGateCompiler ℝ (AddedWire W)) complexCircuit,
     compileComplexifyCircuit_exactOperatorEmbedding
-      complexCompiler quaternionCircuit,
-    compileRealifyCircuit_exactOperatorEmbedding
+      (identityExactGateCompiler ℂ (AddedWire W)) quaternionCircuit,
+    QuaternionicComputing.Simulation.eval_compile_realifyCircuit
       (identityExactGateCompiler ℝ (AddedWire Empty)) [],
-    compileComplexifyCircuit_exactOperatorEmbedding
+    QuaternionicComputing.Simulation.eval_compile_complexifyCircuit
       (identityExactGateCompiler ℂ (AddedWire Empty)) []⟩
 
 end QuaternionicComputing.Semantics.SimulationAudit

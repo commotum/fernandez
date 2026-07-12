@@ -16793,6 +16793,262 @@
         "exactness": "exact carrier Equiv; no right-quaternion/complex phase quotient and no ordinary-ray, measurement, channel, or circuit equivalence",
         "ancillaPolicy": "the Sum sector I ⊕ I is coordinate doubling, not a claimed physical ancilla, product factor, marginal, partial trace, channel, or all-effect comparison"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyMatrix_allCoefficient_stateIntertwining",
+      "relation": "realifyMatrix_allCoefficient_stateIntertwining — rectangular complex-to-real raw-state action",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "rectangular complex matrices Matrix O I ℂ mapped source-to-target by Matrix.realify to doubled real row and column indices; only the input index I is finite",
+        "subject": "the source matrix action and its realified target action on canonical-column combinations",
+        "inputScope": "every raw real coefficient pair ℝ × ℝ and every raw complex source column; coefficients are not required to be normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for each supplied coefficient pair; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitude representatives are compared exactly without a phase or sign quotient",
+        "exactness": "exact AllTopStateIntertwining, where Top is the raw coordinate-pair type rather than a pure-state or product-system assertion",
+        "ancillaPolicy": "the doubled Sum indices are explicit coordinate sectors, not a claimed normalized top state, tensor-product ancilla, product factor, marginal, or partial trace"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyMatrix_allCoefficient_stateIntertwining",
+      "relation": "complexifyMatrix_allCoefficient_stateIntertwining — rectangular quaternion-to-complex raw-state action",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "rectangular quaternionic matrices Matrix O I ℍ[ℝ] mapped source-to-target by Quaternion.complexify to doubled complex row and column indices; only the input index I is finite",
+        "subject": "the source matrix action and its complexified target action on canonical-column combinations",
+        "inputScope": "every raw complex coefficient pair ℂ × ℂ and every raw quaternionic source column; coefficients are not required to be normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for each supplied coefficient pair; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitude representatives are compared exactly without a complex or right-quaternion phase quotient",
+        "exactness": "exact AllTopStateIntertwining, where Top is the raw coordinate-pair type rather than a pure-state or product-system assertion",
+        "ancillaPolicy": "the doubled Sum indices are explicit coordinate sectors, not a claimed normalized top state, tensor-product ancilla, product factor, marginal, or partial trace"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.directRealify_exactOperatorEmbedding",
+      "relation": "directRealify_exactOperatorEmbedding — Equation 63 representation under named row/column reindexing",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a rectangular quaternionic source matrix and its direct real Equation 63 target, compared through realify ∘ complexify and the explicit eq63PaperToComposed row and column equivalences",
+        "subject": "the direct Equation 63 real matrix representation of one source matrix",
+        "inputScope": "one arbitrary rectangular quaternionic matrix; no finiteness, unitarity, or circuit premise",
+        "observationScope": "literal target-matrix equality to the explicitly reindexed composed embedding; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; matrix entries are compared exactly without projective quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding with both reindexings visible; not unreindexed literal equality, same-space ExactOperatorEq, or a circuit translator",
+        "ancillaPolicy": "Equation 63 index expansion and reindexing are coordinate data, not a physical ancilla, product state, marginal, or partial trace"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyPlacedGate_exactOperatorEmbedding",
+      "relation": "realifyPlacedGate_exactOperatorEmbedding — exact full-denotation embedding for one translated placed gate",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a placed complex gate on W mapped source-to-target to a placed real gate on AddedWire W by realifyPlacedGate, with wireRealify explicit",
+        "subject": "the full matrix denotations of one source placed gate and its translated target gate",
+        "inputScope": "one arbitrary placed gate on a finite wire type; no local unitarity, arity, support-size, or resource premise",
+        "observationScope": "literal equality of the translated full denotation to the named cross-space image of the source denotation; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; operator representatives are compared exactly without phase quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding; not same-space gate/circuit equality and not a placement-support or resource theorem",
+        "ancillaPolicy": "AddedWire W is explicit in the target type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyPlacedGate_exactOperatorEmbedding",
+      "relation": "complexifyPlacedGate_exactOperatorEmbedding — exact full-denotation embedding for one translated placed gate",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a placed quaternionic gate on W mapped source-to-target to a placed complex gate on AddedWire W by complexifyPlacedGate, with wireComplexify explicit",
+        "subject": "the full matrix denotations of one source placed gate and its translated target gate",
+        "inputScope": "one arbitrary placed gate on a finite wire type; no local unitarity, arity, support-size, or resource premise",
+        "observationScope": "literal equality of the translated full denotation to the named cross-space image of the source denotation; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; operator representatives are compared exactly without phase quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding; not same-space gate/circuit equality and not a placement-support or resource theorem",
+        "ancillaPolicy": "AddedWire W is explicit in the target type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_exactOperatorEmbedding",
+      "relation": "realifyCircuit_exactOperatorEmbedding — exact evaluated-operator embedding for one translated ordered circuit",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "an OrderedCircuit over complex scalars on W mapped source-to-target to an OrderedCircuit over real scalars on AddedWire W by realifyCircuit, with wireRealify explicit",
+        "subject": "the complete evaluated source operator and complete evaluated translated target operator",
+        "inputScope": "one arbitrary chronological ordered circuit on a finite wire type; local unitarity is not required",
+        "observationScope": "literal target evaluator equality to the named cross-space image of the source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; evaluated operators are compared exactly without projective quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding; not same-space ExactCircuitEq, syntax equality, or a resource comparison",
+        "ancillaPolicy": "AddedWire W is explicit in the target evaluator type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_exactOperatorEmbedding",
+      "relation": "complexifyCircuit_exactOperatorEmbedding — exact evaluated-operator embedding for one translated ordered circuit",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "an OrderedCircuit over quaternionic scalars on W mapped source-to-target to an OrderedCircuit over complex scalars on AddedWire W by complexifyCircuit, with wireComplexify explicit",
+        "subject": "the complete evaluated source operator and complete evaluated translated target operator",
+        "inputScope": "one arbitrary chronological ordered circuit on a finite wire type; local unitarity is not required",
+        "observationScope": "literal target evaluator equality to the named cross-space image of the source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; evaluated operators are compared exactly without projective quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding; not same-space ExactCircuitEq, syntax equality, or a resource comparison",
+        "ancillaPolicy": "AddedWire W is explicit in the target evaluator type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_allCoefficient_stateIntertwining",
+      "relation": "realifyCircuit_allCoefficient_stateIntertwining — all-coefficient exact raw-state action for one translated ordered circuit",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and target evaluators of the realifyCircuit translation from complex circuits on W to real circuits on AddedWire W, with wireRealTopCombination explicit",
+        "subject": "the complete source and translated target circuit actions on wire-facing canonical-column combinations",
+        "inputScope": "every raw coefficient pair ℝ × ℝ and every raw source evaluator input column; coefficients are not required to be normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for each supplied coefficient pair; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitudes are compared without complex-phase or real-sign quotienting",
+        "exactness": "exact AllTopStateIntertwining over a raw coordinate-pair Top type; it asserts neither pure-top normalization nor a top/bottom product system",
+        "ancillaPolicy": "AddedWire W and the wire-facing coordinate encoder are explicit; no prepared ancilla state, tensor-product factorization, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_allCoefficient_stateIntertwining",
+      "relation": "complexifyCircuit_allCoefficient_stateIntertwining — all-coefficient exact raw-state action for one translated ordered circuit",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and target evaluators of the complexifyCircuit translation from quaternionic circuits on W to complex circuits on AddedWire W, with wireComplexTopCombination explicit",
+        "subject": "the complete source and translated target circuit actions on wire-facing canonical-column combinations",
+        "inputScope": "every raw coefficient pair ℂ × ℂ and every raw source evaluator input column; coefficients are not required to be normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for each supplied coefficient pair; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitudes are compared without complex- or right-quaternion-phase quotienting",
+        "exactness": "exact AllTopStateIntertwining over a raw coordinate-pair Top type; it asserts neither pure-top normalization nor a top/bottom product system",
+        "ancillaPolicy": "AddedWire W and the wire-facing coordinate encoder are explicit; no prepared ancilla state, tensor-product factorization, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_exactOperatorEmbedding",
+      "relation": "scheduledComplexifyCircuit_exactOperatorEmbedding — exact embedding for one supplied legal schedule",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one supplied LegalSchedule of quaternionic placed gates on W and the evaluator of its complexified target circuit on AddedWire W, with wireComplexify explicit",
+        "subject": "the scheduled source operator and the complete evaluator of its translated chronological target circuit",
+        "inputScope": "one supplied legal schedule and one supplied finite gate family; no schedule is selected or compared",
+        "observationScope": "literal translated evaluator equality to wireComplexify of that schedule's exact source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; scheduled operator representatives are compared exactly without projective quotienting",
+        "exactness": "exact cross-space ExactOperatorEmbedding for the supplied schedule only; no schedule independence, quotient, canonical choice, or resource equality",
+        "ancillaPolicy": "AddedWire W is explicit in the target type; no prepared ancilla, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allCoefficient_stateIntertwining",
+      "relation": "scheduledComplexifyCircuit_allCoefficient_stateIntertwining — all-coefficient action for one supplied legal schedule",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one supplied scheduled quaternionic source evaluator on W and its complexified target circuit evaluator on AddedWire W, with wireComplexTopCombination explicit",
+        "subject": "the scheduled source and translated target actions on raw canonical-column combinations",
+        "inputScope": "one supplied legal schedule, its gate family, every raw coefficient pair ℂ × ℂ, and every raw source column; coefficients are not normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for that schedule and each coefficient pair; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitudes are compared without complex- or right-quaternion-phase quotienting",
+        "exactness": "exact AllTopStateIntertwining for one supplied schedule and raw coefficient-pair Top type; no schedule selection or independence and no purity/product assertion",
+        "ancillaPolicy": "AddedWire W is explicit; no prepared ancilla state, tensor-product factorization, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_eval_ne_of_source_ne",
+      "relation": "scheduledComplexifyCircuit_eval_ne_of_source_ne — injective preservation of a supplied schedule-operator gap",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two supplied legal schedules of the same quaternionic placed-gate family and their complexified target circuit evaluators on AddedWire W",
+        "subject": "inequality of two scheduled source operators and inequality of the corresponding translated target evaluators",
+        "inputScope": "two supplied legal schedules, one gate family, and an explicit premise that their source scheduled evaluators differ",
+        "observationScope": "the translated target evaluators are unequal; no probability, distribution, density, channel, all-effect, or resource consequence",
+        "phase": "none; literal operator inequality is preserved, not inequality modulo phase",
+        "exactness": "exact implication using injectivity of complexification; it does not assert arbitrary schedules differ, choose a schedule, or prove schedule independence",
+        "ancillaPolicy": "AddedWire W is explicit in both target evaluators; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding",
+      "relation": "quaternionToRealCircuit_exactOperatorEmbedding — exact composed quaternion-to-real evaluator embedding",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a quaternionic source circuit on W mapped through complexifyCircuit then realifyCircuit to a real target circuit, with wireRealify ∘ wireComplexify explicit and both added-wire layers retained",
+        "subject": "the complete source evaluator and twice-translated real target evaluator",
+        "inputScope": "one arbitrary chronological quaternionic ordered circuit on a finite wire type; local unitarity is not required",
+        "observationScope": "literal target evaluator equality to the explicit composed cross-space image of the source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; evaluated operators are compared exactly without projective quotienting",
+        "exactness": "exact composed ExactOperatorEmbedding in source-to-target order; not same-space circuit equality, syntax equality, or a resource comparison",
+        "ancillaPolicy": "both added-wire coordinate layers are explicit; no prepared ancilla states, product factorization, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining",
+      "relation": "quaternionToRealCircuit_allCoefficient_stateIntertwining — nested all-coefficient composed raw-state action",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a quaternionic source evaluator and twice-translated real target evaluator, with inner wireComplexTopCombination followed by outer wireRealTopCombination",
+        "subject": "the composed source/target circuit actions on nested canonical-column coordinate combinations",
+        "inputScope": "every nested raw coefficient value (ℂ × ℂ) × (ℝ × ℝ) and every raw quaternionic source column; neither coefficient pair is normalized",
+        "observationScope": "exact amplitude-level StateIntertwining for each nested coefficient value; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; raw amplitudes are compared exactly without real, complex, or right-quaternion phase quotienting",
+        "exactness": "exact AllTopStateIntertwining with inner complex then outer real coordinate order explicit; the nested pair is not a pure top state or top/bottom product system",
+        "ancillaPolicy": "both added-wire coordinate layers are explicit; no prepared ancilla states, tensor-product factorization, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.compileRealifyCircuit_exactOperatorEmbedding",
+      "relation": "compileRealifyCircuit_exactOperatorEmbedding — conditional exact evaluator embedding under a supplied compiler",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a complex source circuit on W, its realifyCircuit image on AddedWire W, and a target-real circuit returned by an explicitly supplied ExactGateCompiler, with wireRealify explicit",
+        "subject": "the source evaluator and evaluator of the supplied compiler's compiled translated circuit",
+        "inputScope": "one supplied exact gate compiler and one source ordered circuit; compiler existence is a premise, not a conclusion",
+        "observationScope": "literal compiled target evaluator equality to the named cross-space image of the source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; evaluated operators are compared exactly without projective quotienting",
+        "exactness": "conditional exact ExactOperatorEmbedding only; no compiler existence, finite primitive basis, synthesis algorithm, approximation, gate-count/depth bound, runtime, or complexity-class result",
+        "ancillaPolicy": "AddedWire W is explicit in the translated/compiler target type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.compileComplexifyCircuit_exactOperatorEmbedding",
+      "relation": "compileComplexifyCircuit_exactOperatorEmbedding — conditional exact evaluator embedding under a supplied compiler",
+      "owner": "goal-2/9B-WRAPPERS",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a quaternionic source circuit on W, its complexifyCircuit image on AddedWire W, and a target-complex circuit returned by an explicitly supplied ExactGateCompiler, with wireComplexify explicit",
+        "subject": "the source evaluator and evaluator of the supplied compiler's compiled translated circuit",
+        "inputScope": "one supplied exact gate compiler and one source ordered circuit; compiler existence is a premise, not a conclusion",
+        "observationScope": "literal compiled target evaluator equality to the named cross-space image of the source evaluator; no decoded outcome, probability distribution, density evolution, channel, all-effect, or resource conclusion",
+        "phase": "none; evaluated operators are compared exactly without projective quotienting",
+        "exactness": "conditional exact ExactOperatorEmbedding only; no compiler existence, finite primitive basis, synthesis algorithm, approximation, gate-count/depth bound, runtime, or complexity-class result",
+        "ancillaPolicy": "AddedWire W is explicit in the translated/compiler target type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
+      }
     }
   ]
 }
