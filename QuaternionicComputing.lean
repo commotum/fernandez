@@ -173,7 +173,15 @@ conditional compilation. Its amplitude statements quantify raw coefficient
 pairs, not normalized or product top states. Equation 63 is not a second
 circuit translator; schedules are not selected or identified; and a supplied
 `ExactGateCompiler` is not a compiler-existence, synthesis, approximation, or
-runtime theorem. Decoded cross-model outcomes remain a separate open layer.
+runtime theorem. The decoded-outcome layer retains full one- or two-added-wire
+target distributions until explicit decoders are applied; one-wire decoding
+equals deterministic pushforward by `tailBits`, and composed decoding removes
+the outer realification wire before the inner complexification wire. Raw
+point-weight wrappers need no unitarity premise, whereas normalized
+distribution, event, and deterministic-pushforward wrappers require locally
+unitary circuits. Supplied schedules remain explicit. No result upgrades these
+facts to product/mixed-state, partial-trace, channel/all-effect, randomized-
+postprocessing, or resource semantics.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

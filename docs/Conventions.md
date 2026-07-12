@@ -470,8 +470,23 @@ prove schedule independence. Compiler wrappers quantify supplied
 `ExactGateCompiler` data and prove only exact evaluator preservation: they do
 not establish compiler existence, a finite primitive library, synthesis,
 approximation, gate-count complexity, or runtime. None of these 16 wrappers is
-a decoded-outcome, ray, channel, or all-effect theorem; those scopes require
-separate relations and Stage 9C still owns the cross-model outcome wrappers.
+a decoded-outcome, ray, channel, or all-effect theorem.
+
+The separate outcome layer always exposes the full target carrier before
+decoding. `addedWireWeightDecoder` and `addedWireDistributionDecoder` forget
+one added wire by summing its false/true assignments; the distribution decoder
+is proved equal to deterministic `pushforward tailBits`.
+`twoAddedWireWeightDecoder` and `twoAddedWireDistributionDecoder` compose this
+operation in construction order: remove the outer realification wire first,
+then the inner complexification wire. Raw decoded point-weight wrappers accept
+every raw source column and require no local-unitarity premise; their values are
+not called probabilities unless the source is normalized. Decoded distribution,
+finite-event, and deterministic-pushforward wrappers instead quantify
+normalized source states and locally unitary circuits. Scheduled wrappers use
+one supplied legal schedule and add pointwise local unitarity only at those
+normalized levels. Deterministic pushforward is not randomized postprocessing,
+and no outcome wrapper asserts product or mixed top states, partial trace,
+channel/all-effect equality, or resource preservation.
 
 ## Scalar decompositions and embeddings
 

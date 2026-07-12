@@ -74,6 +74,7 @@ QuaternionicComputing/
     Simulation.lean          directional cross-model relation vocabulary
     SimulationEncoding.lean  representative coordinate equivalences
     SimulationWrappers.lean  exact matrix/circuit/schedule/compiler wrappers
+    SimulationOutcomes.lean  decoded weights/distributions/events/pushforwards
     SimulationAudit.lean     non-root allocations and concrete scope checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
@@ -102,6 +103,7 @@ QuaternionicComputing/
     OrderingWitness.lean     translated observable ordering witness
     Resources.lean           shared-top depth and dense-slot consequences
     CompiledResources.lean   conditional compiled count/depth consequences
+    OutcomeDecoder.lean      explicit one/two-added-wire outcome decoders
     Postprocessing.lean      finite event and deterministic-output closure
     Examples.lean            exact non-real and quaternionic end-to-end checks
   AxiomAudit.lean
@@ -586,8 +588,30 @@ does not weaken that boundary: its coefficient pairs are raw coordinates, not
 pure or product top states. Equation 63 remains a named row/column reindexing,
 not another wire-facing translator; a schedule is supplied without choice or
 independence; and conditional compiler wrappers do not prove compiler
-existence, synthesis, approximation, or runtime. Stage 9C outcome
-classifications and later Goal 2 metric and registry stages remain pending.
+existence, synthesis, approximation, or runtime.
+
+`Simulation/OutcomeDecoder.lean` exposes one-wire point/distribution decoders
+and their two-wire compositions without importing circuit evolution. The
+one-wire distribution decoder is proved equal to
+`FiniteDistribution.pushforward tailBits`. The two-wire decoder first removes
+the outer realification wire, yielding the intermediate complex outcome
+carrier, and then removes the inner complexification wire. Updated
+`Simulation/Postprocessing.lean` retains the full target distributions until
+those decoders are applied, including the missing composed quaternion-to-real
+distribution, event, and deterministic-pushforward closure.
+
+`Semantics/SimulationOutcomes.lean` adds exactly 18 proof-bearing wrappers:
+two representative decoded-weight wrappers and four each for complex-to-real,
+quaternion-to-complex, one supplied scheduled quaternion-to-complex circuit,
+and composed quaternion-to-real outcomes. Each four-theorem family separates
+raw point weights from normalized distributions, finite events, and
+deterministic pushforwards. Point-weight wrappers require no local unitarity;
+the three normalized levels require locally unitary circuits. The non-root
+audit allocates the semantic surface as `2 + 4 + 4 + 4 + 4` and separately
+allocates the ten decoder and eight concrete postprocessing declarations in two
+infrastructure aggregates. No wrapper asserts product/mixed-top structure,
+partial trace, a channel/all-effect relation, randomized postprocessing, or a
+resource theorem. Later Goal 2 metric and registry stages remain pending.
 
 ## Circuit implementation
 

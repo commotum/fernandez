@@ -592,6 +592,26 @@ gate set, approximation, or runtime API is inferred. The non-root audit gives
 the exact wrapper allocation `2 + 3 + 4 + 3 + 2 + 2` and constructs an identity
 compiler only to show that the conditional premise is inhabitable.
 
+`Simulation/OutcomeDecoder.lean` builds its full-target decoders directly from
+`FiniteDistribution`, `Circuit.addedBasisEquiv`, and finite false/true sums.
+The one-wire distribution decoder is extensionally equal to
+`FiniteDistribution.pushforward Circuit.tailBits`; its weight theorem and
+compatibility equality connect it to `addedWireWeightDecoder`. The two-wire
+decoder is the explicit composition of two one-wire decoders, first at
+`AddedWire W` to remove the outer realification wire and then at `W` to remove
+the inner complexification wire. No partial-trace or tensor-product API is used.
+
+`Semantics/SimulationOutcomes.lean` uses only the existing decoded-agreement
+relations and concrete postprocessing API. Its 18 wrappers are allocated
+`2 + 4 + 4 + 4 + 4`: representative weights, two primary circuit families,
+one supplied schedule, and the composed simulation. Raw point-weight proofs
+use the underlying `mulVec`/bottom-weight identities and need no unitarity.
+Normalized distribution proofs use full target `FiniteDistribution` values and
+locally unitary circuits; generic relation eliminators then yield finite-event
+and deterministic-pushforward statements. The audit separately aggregates all
+ten decoder and eight new concrete postprocessing declarations. No mathlib
+channel, randomized-kernel, resource, or mixed-state machinery is inferred.
+
 These `LinearEquiv` and `Equiv` values are coordinate-carrier bijections. They
 do not use quotient lifting and do not imply an ordinary target-ray map:
 complex phase still requires `RealSectorOrbit`, while either canonical column
@@ -601,8 +621,8 @@ fails to respect `RealRay` on every nonempty source index. Nor does a normalized
 boundary. No partial-trace, mixed joint-density, circuit, channel, or
 all-measurement API is imported by the two Stage 9A stable leaves. The wrapper
 leaf imports circuit translations and compilation only for exact operator and
-raw-state classifications; it still exports no decoded outcome or channel
-semantics.
+raw-state classifications. The outcome leaf adds only explicit classical-basis
+decoding; it exports no channel/all-effect or mixed-state semantics.
 
 ## Goal 2 state phase, normalized ray quotients, and descent
 

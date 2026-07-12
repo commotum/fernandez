@@ -17049,6 +17049,582 @@
         "exactness": "conditional exact ExactOperatorEmbedding only; no compiler existence, finite primitive basis, synthesis algorithm, approximation, gate-count/depth bound, runtime, or complexity-class result",
         "ancillaPolicy": "AddedWire W is explicit in the translated/compiler target type; no prepared ancilla state, product input, marginal, or partial trace is asserted"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.sumSectorWeightDecoder",
+      "relation": "sumSectorWeightDecoder — explicit two-sector point-weight decoder",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "an abstract doubled carrier I ⊕ I decoded to I",
+        "subject": "raw real-valued basis-weight functions",
+        "inputScope": "every target weight function and source outcome; no nonnegativity or normalization",
+        "observationScope": "one weight, the exact sum of the inl and inr sectors",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact definitional raw-weight decoder; not distribution equality",
+        "ancillaPolicy": "two abstract sectors are forgotten; no product/mixed-state, partial-trace, channel, effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireWeightDecoder",
+      "relation": "addedWireWeightDecoder — explicit one-wire point-weight decoder",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "BitBasis (AddedWire W) decoded to BitBasis W through addedBasisEquiv",
+        "subject": "raw real-valued basis-weight functions",
+        "inputScope": "every target weight function and source basis outcome; no normalization",
+        "observationScope": "one weight, summing false/true assignments of the added wire",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact definitional raw-weight decoder; not a normalized distribution",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireDistributionDecoder",
+      "relation": "addedWireDistributionDecoder — normalized one-wire distribution decoder",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a full distribution on BitBasis (AddedWire W) decoded to BitBasis W",
+        "subject": "complete finite basis distributions",
+        "inputScope": "every FiniteDistribution on the full target basis for finite W",
+        "observationScope": "all decoded weights with nonnegativity and total mass one",
+        "phase": "none",
+        "exactness": "exact normalized distribution construction by false/true sector summation",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireDistributionDecoder_weight",
+      "relation": "addedWireDistributionDecoder_weight — one-wire point computation",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "decoded BitBasis W distribution versus its full added-wire target",
+        "subject": "one decoded distribution weight",
+        "inputScope": "every full target distribution and source outcome",
+        "observationScope": "the decoded weight equals addedWireWeightDecoder of target.weight",
+        "phase": "none",
+        "exactness": "exact distribution-to-raw-weight computation theorem",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireDistributionDecoder_compat",
+      "relation": "addedWireDistributionDecoder_compat — one-wire decoder compatibility",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "decoded BitBasis W distribution versus its full added-wire target",
+        "subject": "the complete decoded weight function",
+        "inputScope": "every full target distribution",
+        "observationScope": "function equality with addedWireWeightDecoder target.weight",
+        "phase": "none",
+        "exactness": "exact compatibility for decoded distribution and point-weight relations",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireDistributionDecoder_eq_pushforward",
+      "relation": "addedWireDistributionDecoder_eq_pushforward — deterministic tailBits marginal",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "full added-wire and decoded tail distributions",
+        "subject": "finite distributions under Circuit.tailBits",
+        "inputScope": "every full target distribution for finite W",
+        "observationScope": "equality with deterministic pushforward through tailBits",
+        "phase": "none",
+        "exactness": "exact distribution equality; no randomized algorithm claim",
+        "ancillaPolicy": "one wire is forgotten by tailBits; no quantum partial trace, channel, effect, or runtime claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.twoAddedWireWeightDecoder",
+      "relation": "twoAddedWireWeightDecoder — ordered two-wire point decoder",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "BitBasis (AddedWire (AddedWire W)) decoded to BitBasis W",
+        "subject": "raw real-valued basis-weight functions",
+        "inputScope": "every target weight function and source outcome; no normalization",
+        "observationScope": "one weight after outer-wire then inner-wire decoding",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact nested raw-weight decoder in construction order",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder",
+      "relation": "twoAddedWireDistributionDecoder — ordered normalized two-wire decoder",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a full two-added-wire distribution decoded to BitBasis W",
+        "subject": "complete finite basis distributions",
+        "inputScope": "every full target FiniteDistribution for finite W",
+        "observationScope": "all weights after two ordered normalized decoders",
+        "phase": "none",
+        "exactness": "exact composition of outer then inner distribution decoders",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder_weight",
+      "relation": "twoAddedWireDistributionDecoder_weight — two-wire point computation",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "twice-decoded distribution versus its full two-wire target",
+        "subject": "one decoded distribution weight",
+        "inputScope": "every full two-wire target distribution and source outcome",
+        "observationScope": "the decoded weight equals twoAddedWireWeightDecoder target.weight",
+        "phase": "none",
+        "exactness": "exact normalized-to-raw nested-weight computation",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder_compat",
+      "relation": "twoAddedWireDistributionDecoder_compat — two-wire decoder compatibility",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "twice-decoded distribution versus its full two-wire target",
+        "subject": "the complete decoded weight function",
+        "inputScope": "every full two-wire target distribution",
+        "observationScope": "function equality with twoAddedWireWeightDecoder target.weight",
+        "phase": "none",
+        "exactness": "exact compatibility for composed distribution/point relations",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.addedWireDistributionDecoder_ofNormalizedState",
+      "relation": "addedWireDistributionDecoder_ofNormalizedState — full-state/bottom-distribution bridge",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one normalized added-wire state, its full distribution, and decoded bottom distribution",
+        "subject": "finite distributions induced by normalized amplitudes",
+        "inputScope": "every normalized state with an explicit nonnegative scalar-weight function",
+        "observationScope": "decoding the full basis distribution equals addedWireBottomDistribution",
+        "phase": "none; amplitudes are observed only through supplied weights",
+        "exactness": "exact finite-distribution bridge; no circuit or channel conclusion",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.realifyCircuitFullOutputDistribution",
+      "relation": "realifyCircuitFullOutputDistribution — full real target distribution",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "full BitBasis (AddedWire W) target of a realified complex circuit",
+        "subject": "normalized target basis distribution before decoding",
+        "inputScope": "a locally unitary complex circuit, normalized ComplexState, and pure Rebit coefficient",
+        "observationScope": "the complete full real target distribution; no source equality is built in",
+        "phase": "none",
+        "exactness": "exact FiniteDistribution from normalized realifyCircuitOutput",
+        "ancillaPolicy": "the added wire remains explicit; no factorization, mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.complexifyCircuitFullOutputDistribution",
+      "relation": "complexifyCircuitFullOutputDistribution — full complex target distribution",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "full BitBasis (AddedWire W) target of a complexified quaternionic circuit",
+        "subject": "normalized target basis distribution before decoding",
+        "inputScope": "a locally unitary quaternionic circuit, normalized QuaternionState, and pure Qubit coefficient",
+        "observationScope": "the complete full complex target distribution; no source equality is built in",
+        "phase": "none",
+        "exactness": "exact FiniteDistribution from normalized complexifyCircuitOutput",
+        "ancillaPolicy": "the added wire remains explicit; no factorization, mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.quaternionToRealCircuitFullOutputDistribution",
+      "relation": "quaternionToRealCircuitFullOutputDistribution — full composed real distribution",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "full BitBasis (AddedWire (AddedWire W)) target of composed Q2R",
+        "subject": "normalized target basis distribution before either decoder",
+        "inputScope": "a locally unitary quaternionic circuit, normalized source, Qubit, and Rebit",
+        "observationScope": "the complete full real target distribution; no source equality is built in",
+        "phase": "none",
+        "exactness": "exact FiniteDistribution from quaternionToRealCircuitOutput",
+        "ancillaPolicy": "both wires remain explicit; no factorization, mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.quaternionToRealCircuitBottomDistribution",
+      "relation": "quaternionToRealCircuitBottomDistribution — twice-decoded real distribution",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "the full two-wire real target decoded to BitBasis W",
+        "subject": "normalized bottom basis distribution of composed Q2R",
+        "inputScope": "a locally unitary circuit, normalized quaternionic source, Qubit, and Rebit",
+        "observationScope": "the complete target distribution after outer then inner decoding",
+        "phase": "none",
+        "exactness": "exact definition via twoAddedWireDistributionDecoder; source equality is separate",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.quaternionToRealCircuitBottomDistribution_eq",
+      "relation": "quaternionToRealCircuitBottomDistribution_eq — composed distribution equality",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic source and twice-decoded real target distributions on BitBasis W",
+        "subject": "complete normalized basis distributions",
+        "inputScope": "every locally unitary circuit, normalized source, and pure Qubit/Rebit pair",
+        "observationScope": "equality of all decoded basis probabilities as full distributions",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact normalized distribution equality",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_eventWeight",
+      "relation": "quaternionToRealCircuitOutput_eventWeight — composed finite-event equality",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and twice-decoded target distributions on BitBasis W",
+        "subject": "one finite event",
+        "inputScope": "every locally unitary circuit, normalized source/top pair, and finite event",
+        "observationScope": "equal total probability for the supplied event",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact consequence of composed distribution equality",
+        "ancillaPolicy": "both wires are decoded before events; no randomized, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_pushforward_eq",
+      "relation": "quaternionToRealCircuitOutput_pushforward_eq — composed deterministic postprocessing",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and twice-decoded target distributions mapped to a finite carrier",
+        "subject": "deterministic finite postprocessing",
+        "inputScope": "every locally unitary circuit, normalized source/top pair, and deterministic finite map",
+        "observationScope": "equality of complete pushed-forward distributions",
+        "phase": "none; only real outcome weights/probabilities are compared",
+        "exactness": "exact deterministic pushforward; no computability, runtime, or randomized-machine claim",
+        "ancillaPolicy": "both wires are decoded before postprocessing; no mixed-state, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realTopCombination_allRebit_raw_decodedBasisWeightAgreement",
+      "relation": "realTopCombination_allRebit_raw_decodedBasisWeightAgreement — raw all-Rebit point weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw complex I-column versus doubled-real I ⊕ I column",
+        "subject": "representative-level decoded basis weights",
+        "inputScope": "every raw complex column and normalized Rebit coefficient; source need not normalize",
+        "observationScope": "all decoded point weights, not probabilities/distributions for raw inputs",
+        "phase": "none; no ray quotient",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement via sumSectorWeightDecoder",
+        "ancillaPolicy": "Rebit is a coefficient parameter, not a product proof; no mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexTopCombination_allQubit_raw_decodedBasisWeightAgreement",
+      "relation": "complexTopCombination_allQubit_raw_decodedBasisWeightAgreement — raw all-Qubit point weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "raw quaternionic I-column versus doubled-complex I ⊕ I column",
+        "subject": "representative-level decoded basis weights",
+        "inputScope": "every raw quaternionic column and normalized Qubit coefficient; source need not normalize",
+        "observationScope": "all decoded point weights, not probabilities/distributions for raw inputs",
+        "phase": "none; no right-phase/ray quotient",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement via sumSectorWeightDecoder",
+        "ancillaPolicy": "Qubit is a coefficient parameter, not a product proof; no mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_allRebit_raw_decodedBasisWeightAgreement",
+      "relation": "realifyCircuit_allRebit_raw_decodedBasisWeightAgreement — raw C2R point weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "complex circuit on W versus realified circuit on AddedWire W",
+        "subject": "decoded basis weights after circuit action",
+        "inputScope": "every circuit, raw complex input, and pure Rebit coefficient; no unitarity",
+        "observationScope": "all decoded output point weights; raw inputs need not define distributions",
+        "phase": "none; no same-space/ray equality",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement via one-wire weight decoder",
+        "ancillaPolicy": "one wire is summed; Rebit is not a product proof; no mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_allRebit_decodedDistributionAgreement",
+      "relation": "realifyCircuit_allRebit_decodedDistributionAgreement — normalized C2R distributions",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "complex source distribution versus full real added-wire target",
+        "subject": "complete decoded output distributions",
+        "inputScope": "every locally unitary complex circuit, normalized source, and pure Rebit",
+        "observationScope": "the explicit decoder sends the full target distribution to the source",
+        "phase": "none",
+        "exactness": "exact AllTopDecodedDistributionAgreement",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_decodedEventWeight_eq",
+      "relation": "realifyCircuit_decodedEventWeight_eq — decoded C2R events",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded real target distributions on BitBasis W",
+        "subject": "one finite event",
+        "inputScope": "every locally unitary circuit, normalized source/Rebit, and finite event",
+        "observationScope": "equal event probability after explicit decoding",
+        "phase": "none",
+        "exactness": "exact event consequence of decoded-distribution agreement",
+        "ancillaPolicy": "decode precedes event evaluation; no mixed top, partial trace, channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realifyCircuit_decodedPushforward_eq",
+      "relation": "realifyCircuit_decodedPushforward_eq — decoded C2R deterministic postprocessing",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded real target mapped to a finite carrier",
+        "subject": "deterministic finite postprocessing",
+        "inputScope": "every locally unitary circuit, normalized source/Rebit, and deterministic map",
+        "observationScope": "equal complete pushed-forward distributions",
+        "phase": "none",
+        "exactness": "exact deterministic pushforward; no algorithm/runtime claim",
+        "ancillaPolicy": "decode precedes postprocessing; no mixed top, partial trace, channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement",
+      "relation": "complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement — raw Q2C point weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic circuit on W versus complexified circuit on AddedWire W",
+        "subject": "decoded basis weights after circuit action",
+        "inputScope": "every circuit, raw quaternionic input, and pure Qubit coefficient; no unitarity",
+        "observationScope": "all decoded output point weights; raw inputs need not define distributions",
+        "phase": "none; no same-space/right-ray equality",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement via one-wire weight decoder",
+        "ancillaPolicy": "one wire is summed; Qubit is not a product proof; no mixed top, partial trace, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_allQubit_decodedDistributionAgreement",
+      "relation": "complexifyCircuit_allQubit_decodedDistributionAgreement — normalized Q2C distributions",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic source distribution versus full complex added-wire target",
+        "subject": "complete decoded output distributions",
+        "inputScope": "every locally unitary quaternionic circuit, normalized source, and pure Qubit",
+        "observationScope": "the explicit decoder sends the full target distribution to the source",
+        "phase": "none",
+        "exactness": "exact AllTopDecodedDistributionAgreement",
+        "ancillaPolicy": "one added wire is decoded explicitly; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_decodedEventWeight_eq",
+      "relation": "complexifyCircuit_decodedEventWeight_eq — decoded Q2C events",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded complex target distributions on BitBasis W",
+        "subject": "one finite event",
+        "inputScope": "every locally unitary circuit, normalized source/Qubit, and finite event",
+        "observationScope": "equal event probability after explicit decoding",
+        "phase": "none",
+        "exactness": "exact event consequence of decoded-distribution agreement",
+        "ancillaPolicy": "decode precedes event evaluation; no mixed top, partial trace, quaternionic channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexifyCircuit_decodedPushforward_eq",
+      "relation": "complexifyCircuit_decodedPushforward_eq — decoded Q2C deterministic postprocessing",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded complex target mapped to a finite carrier",
+        "subject": "deterministic finite postprocessing",
+        "inputScope": "every locally unitary circuit, normalized source/Qubit, and deterministic map",
+        "observationScope": "equal complete pushed-forward distributions",
+        "phase": "none",
+        "exactness": "exact deterministic pushforward; no algorithm/runtime claim",
+        "ancillaPolicy": "decode precedes postprocessing; no mixed top, partial trace, quaternionic channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement",
+      "relation": "scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement — supplied-schedule raw weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledQuaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one supplied scheduled quaternionic circuit and complexified target",
+        "subject": "decoded basis weights after exact scheduled action",
+        "inputScope": "every LegalSchedule, gate family, raw input, and pure Qubit; no unitarity/arity",
+        "observationScope": "all point weights for that exact schedule; no normalized distribution at raw scope",
+        "phase": "none",
+        "exactness": "exact per-schedule AllTopDecodedBasisWeightAgreement",
+        "ancillaPolicy": "one wire decoded; no schedule choice/independence, product, mixed top, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement",
+      "relation": "scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement — supplied-schedule distributions",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledQuaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one supplied scheduled source distribution and full complex target",
+        "subject": "complete decoded distributions for the selected schedule",
+        "inputScope": "every LegalSchedule, pointwise locally unitary gates, normalized source, and pure Qubit",
+        "observationScope": "decoded full target equals source for that exact schedule",
+        "phase": "none",
+        "exactness": "exact per-schedule AllTopDecodedDistributionAgreement; no arity premise",
+        "ancillaPolicy": "one wire decoded; no schedule choice/independence, product, mixed top, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_decodedEventWeight_eq",
+      "relation": "scheduledComplexifyCircuit_decodedEventWeight_eq — supplied-schedule events",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledQuaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded target for one schedule on BitBasis W",
+        "subject": "one finite event",
+        "inputScope": "every schedule, locally unitary gate family, normalized source/Qubit, and event",
+        "observationScope": "equal event probability for that exact schedule",
+        "phase": "none",
+        "exactness": "exact per-schedule event consequence",
+        "ancillaPolicy": "decode precedes event; no schedule choice/independence, mixed top, channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.scheduledComplexifyCircuit_decodedPushforward_eq",
+      "relation": "scheduledComplexifyCircuit_decodedPushforward_eq — supplied-schedule postprocessing",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledQuaternionToComplexOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and decoded target for one schedule mapped to a finite carrier",
+        "subject": "deterministic finite postprocessing",
+        "inputScope": "every schedule, locally unitary gate family, normalized source/Qubit, and map",
+        "observationScope": "equal pushed-forward distributions for that exact schedule",
+        "phase": "none",
+        "exactness": "exact per-schedule deterministic pushforward; no runtime/randomized claim",
+        "ancillaPolicy": "decode precedes postprocessing; no schedule choice/independence, mixed top, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_raw_decodedBasisWeightAgreement",
+      "relation": "quaternionToRealCircuit_allPureTop_raw_decodedBasisWeightAgreement — raw composed point weights",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedQuaternionToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic circuit versus twice-translated real circuit",
+        "subject": "decoded basis weights after composed action",
+        "inputScope": "every circuit, raw quaternionic input, and pure Qubit × Rebit pair; no unitarity",
+        "observationScope": "all decoded output point weights; raw inputs need not define distributions",
+        "phase": "none; no same-space/ray equality",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement via ordered two-wire decoder",
+        "ancillaPolicy": "outer then inner decoding; top pair is not a product proof; no mixed top, channel/effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement",
+      "relation": "quaternionToRealCircuit_allPureTop_decodedDistributionAgreement — normalized composed distributions",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedQuaternionToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "quaternionic source distribution versus full twice-translated real target",
+        "subject": "complete decoded output distributions",
+        "inputScope": "every locally unitary circuit, normalized source, and pure Qubit × Rebit pair",
+        "observationScope": "two ordered decoders send the full target distribution to the source",
+        "phase": "none",
+        "exactness": "exact AllTopDecodedDistributionAgreement via two-wire decoder",
+        "ancillaPolicy": "outer realification wire is decoded before the inner complexification wire; no product/mixed-state, partial-trace, channel, all-effect, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_decodedEventWeight_eq",
+      "relation": "quaternionToRealCircuit_decodedEventWeight_eq — composed decoded events",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedQuaternionToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and twice-decoded target on BitBasis W",
+        "subject": "one finite event",
+        "inputScope": "every locally unitary circuit, normalized source/top pair, and event",
+        "observationScope": "equal event probability after both decoders",
+        "phase": "none",
+        "exactness": "exact event consequence of composed decoded-distribution agreement",
+        "ancillaPolicy": "outer then inner decoding precedes event; no mixed top, channel/effect, randomized, or resource claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionToRealCircuit_decodedPushforward_eq",
+      "relation": "quaternionToRealCircuit_decodedPushforward_eq — composed decoded postprocessing",
+      "owner": "goal-2/9C-OUTCOMES",
+      "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedQuaternionToRealOutcomes_wrappers_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "source and twice-decoded target mapped to a finite carrier",
+        "subject": "deterministic finite postprocessing",
+        "inputScope": "every locally unitary circuit, normalized source/top pair, and map",
+        "observationScope": "equal complete pushed-forward distributions after both decoders",
+        "phase": "none",
+        "exactness": "exact deterministic pushforward; no algorithm/runtime claim",
+        "ancillaPolicy": "outer then inner decoding precedes postprocessing; no mixed top, channel/effect, randomized, or resource claim"
+      }
     }
   ]
 }

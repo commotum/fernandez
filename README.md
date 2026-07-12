@@ -68,6 +68,7 @@ import QuaternionicComputing.Semantics.Hierarchy.Operator
 import QuaternionicComputing.Semantics.Simulation
 import QuaternionicComputing.Semantics.SimulationEncoding
 import QuaternionicComputing.Semantics.SimulationWrappers
+import QuaternionicComputing.Semantics.SimulationOutcomes
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -99,6 +100,7 @@ import QuaternionicComputing.Simulation.Scheduled
 import QuaternionicComputing.Simulation.OrderingWitness
 import QuaternionicComputing.Simulation.Resources
 import QuaternionicComputing.Simulation.CompiledResources
+import QuaternionicComputing.Simulation.OutcomeDecoder
 import QuaternionicComputing.Simulation.Postprocessing
 ```
 
@@ -259,7 +261,11 @@ conditional-compiler results 16 proof-bearing directional classifications.
 Its state theorems quantify raw coefficient pairs, not normalized top states
 or product subsystems. Its schedule is supplied rather than chosen, and its
 compiler is explicit input data rather than an existence or synthesis result.
-Decoded outcome-family classifications remain in Goal 2 Stage 9C.
+`SimulationOutcomes` now classifies decoded point weights, normalized full-
+target distributions, finite events, and deterministic pushforwards for the
+primary, supplied-schedule, and composed simulations. One- and two-added-wire
+decoders remain visible, and one-wire decoding is proved equal to pushforward
+by `tailBits`.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
@@ -349,6 +355,16 @@ without selecting a schedule or asserting schedule independence.  The
 order-sensitive witness remains operator-distinct after this translation.
 The normalized output equality also extends to every finite event and every
 deterministic finite classical postprocessing map.
+The stable outcome layer starts from the full added-wire target distributions,
+then applies `addedWireDistributionDecoder` or
+`twoAddedWireDistributionDecoder`; the composed decoder removes the outer
+realification wire before the inner complexification wire. Raw point-weight
+wrappers need no unitarity premise and do not call unnormalized weights
+probabilities. Packaged distribution, event, and pushforward wrappers require
+locally unitary circuits and normalized source states. Scheduled forms retain
+one supplied schedule and do not choose or identify schedules. None of these
+results asserts a product or mixed top state, partial trace, channel/all-effect
+equality, randomized postprocessing, or a resource bound.
 
 Primitive compilation is deliberately conditional.  A supplied
 `ExactGateCompiler` must provide a primitive predicate, exact chronological
