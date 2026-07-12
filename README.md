@@ -226,7 +226,8 @@ quaternionic phase multiplying on the left. No unitarity, nonempty-index, or
 finite-output premise is needed. Finite-distribution equality is likewise
 equivalent to agreement on every finite event and on every deterministic
 pushforward to a finite target in the same universe. Together with the ray and
-channel kernels, this gives the checked real/complex unitary chain
+channel kernels, this gives, on an inhabited finite space, the checked
+real/complex unitary chain
 `global phase ↔ projective action ↔ ChannelEq ↔ AllMeasurementEq`, while
 output-row phase is only
 `PureInputBasisMeasurementEq`. Exact unitary twists prove that neither

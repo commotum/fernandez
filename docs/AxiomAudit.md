@@ -212,7 +212,9 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone.
+from a focused build alone. At the Stage 8 checkpoint the parser reads 421
+nonempty and one axiom-free root block, plus 33 nonempty hierarchy-audit
+blocks, with no unknown identifier or `sorryAx` output.
 
 The three stable Stage 8 hierarchy leaves and non-root audit pass
 warning-as-error compilation. The focused hierarchy-audit build completed

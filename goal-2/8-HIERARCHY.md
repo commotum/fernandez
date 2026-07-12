@@ -302,6 +302,25 @@ input or observation scope is stronger than its proof.
   classification checks, public-root/audit boundary, frozen cohort checksum,
   and diff checks pass. Review caught and repaired a manifest-generator scalar
   classification bug before this evidence was recorded.
-- Documentation/Goal 3 count fold-back, final default/downstream builds, scans,
-  and the independent integrated closure review remain in progress. Stage 8 is
+- README, architecture, conventions, mathlib-API, axiom-audit, release,
+  classification, traceability, and corrections documentation now publish the
+  checked Stage 8 graph and its missing-arrow boundaries. No paper row status
+  changes and no new correction is introduced. Goal 3 is rebaselined to the
+  current `84/990/116/236/422` checkpoint while remaining explicitly blocked
+  on the later Goal 2 stages.
+- The cached default build passes at `2762/2762`; the adjacent hierarchy and
+  prior semantic-audit build passes at `2769/2769`. All six Stage 8/public
+  integration sources strict-compile. A root-only downstream smoke imports
+  only `QuaternionicComputing` and instantiates the three rectangular
+  output-phase iff theorems, both distribution characterizations, and
+  representative operator/circuit hierarchy arrows. Its warning-as-error
+  compilation passes.
+- A parser over the executable audits finds 421 nonempty and one axiom-free
+  root blocks, for all 422 commands, and exactly 33 nonempty local blocks. Both
+  unions are exactly `propext`, `Classical.choice`, and `Quot.sound`, with no
+  unknown identifier or `sorryAx` output. Frozen-checksum, proof-hole,
+  declaration-shortcut, scope, multiplication-side, import-boundary,
+  generated-artifact, Markdown-fence/table, whitespace, JSON, and diff checks
+  pass.
+- The independent integrated closure review remains in progress. Stage 8 is
   not yet complete.

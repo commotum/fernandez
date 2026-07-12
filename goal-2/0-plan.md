@@ -115,8 +115,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   hierarchy-audit/public-root/release-audit build passes at `2769/2769`. The
   release audit contains 422 endpoints; all 33 local Stage 8 diagnostic
   endpoints and the complete release union use exactly `propext`,
-  `Classical.choice`, and `Quot.sound`. Final default/downstream builds, scans,
-  documentation fold-back, and independent Stage 8 closure review remain due.
+  `Classical.choice`, and `Quot.sound`. The cached default build completes
+  `2762` jobs; the root-only warning-as-error downstream smoke, generated
+  manifest checks, boundary/shortcut/artifact/Markdown/whitespace scans, and
+  documentation/Goal 3 fold-back pass. Only the independent integrated Stage 8
+  closure review remains due.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real

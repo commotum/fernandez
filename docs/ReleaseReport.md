@@ -555,6 +555,10 @@ audit/public-root/axiom-audit target completed 2,769 jobs. The public root
 imports the three stable leaves but never `HierarchyAudit`. All 33 local Stage
 8 diagnostic endpoints and all 422 public-root endpoints use only the exact
 standard union `propext`, `Classical.choice`, and `Quot.sound`.
+The cached default build completed 2,762 jobs, and a warning-as-error downstream
+smoke importing only `QuaternionicComputing` instantiated the rectangular
+output-phase characterizations, finite-distribution characterizations, and
+representative operator/circuit hierarchy arrows.
 
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
