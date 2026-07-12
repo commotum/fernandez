@@ -244,6 +244,41 @@ theorem quaternionSameCircuitBasisBehavior {W : Type v} [Fintype W]
 
 end ExactCircuitEq
 
+/-! ## Global and central circuit phase preservation -/
+
+namespace RealCircuitGlobalSignEq
+
+/-- A real global circuit sign preserves the certified basis permutation. -/
+theorem sameCircuitBasisBehavior {W : Type v} [Fintype W]
+    {C D : RealBasisClassicalCircuit W}
+    (h : RealCircuitGlobalSignEq C.circuit D.circuit) :
+    SameCircuitBasisBehavior C D :=
+  h.eval.sameBasisBehavior C.implementation D.implementation
+
+end RealCircuitGlobalSignEq
+
+namespace ComplexCircuitGlobalPhaseEq
+
+/-- A complex global circuit phase preserves the certified basis permutation. -/
+theorem sameCircuitBasisBehavior {W : Type v} [Fintype W]
+    {C D : ComplexBasisClassicalCircuit W}
+    (h : ComplexCircuitGlobalPhaseEq C.circuit D.circuit) :
+    SameCircuitBasisBehavior C D :=
+  h.eval.sameBasisBehavior C.implementation D.implementation
+
+end ComplexCircuitGlobalPhaseEq
+
+namespace QuaternionCircuitCentralSignEq
+
+/-- A quaternionic central circuit sign preserves the certified basis permutation. -/
+theorem sameCircuitBasisBehavior {W : Type v} [Fintype W]
+    {C D : QuaternionBasisClassicalCircuit W}
+    (h : QuaternionCircuitCentralSignEq C.circuit D.circuit) :
+    SameCircuitBasisBehavior C D :=
+  h.eval.sameBasisBehavior C.implementation D.implementation
+
+end QuaternionCircuitCentralSignEq
+
 /-! ## Identity circuit -/
 
 section EmptyCircuit
@@ -301,6 +336,14 @@ def basisPreparationMatrixImplementation (unitPhase : R → Prop)
     (BasisPermutationImplementation.ofPermMatrix
       (R := R) (unitPhase := unitPhase) unit_one (xorBasisEquiv b))
 
+/-- The denotation of the existing full-support gate carries the XOR certificate. -/
+def basisPreparationGateImplementation (unitPhase : R → Prop)
+    (unit_one : unitPhase 1) (b : BitBasis W) :
+    BasisPermutationImplementation unitPhase
+      (basisPreparationGate (R := R) b).denote (xorBasisEquiv b) := by
+  simpa only [basisPreparationGate_denote] using
+    basisPreparationMatrixImplementation unitPhase unit_one b
+
 section Star
 
 variable [StarRing R]
@@ -326,14 +369,6 @@ theorem basisPreparationOperator_permutation (unitPhase : R → Prop)
     (unit_one : unitPhase 1) (b : BitBasis W) :
     (basisPreparationOperator unitPhase unit_one b).permutation = xorBasisEquiv b :=
   rfl
-
-/-- The denotation of the existing full-support gate carries the XOR certificate. -/
-def basisPreparationGateImplementation (unitPhase : R → Prop)
-    (unit_one : unitPhase 1) (b : BitBasis W) :
-    BasisPermutationImplementation unitPhase
-      (basisPreparationGate (R := R) b).denote (xorBasisEquiv b) := by
-  simpa only [basisPreparationGate_denote] using
-    basisPreparationMatrixImplementation unitPhase unit_one b
 
 /-- The singleton full-support preparation gate as a certified basis-classical circuit. -/
 def basisPreparationCircuit (unitPhase : R → Prop)

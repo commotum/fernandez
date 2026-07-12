@@ -266,9 +266,56 @@ theorem certifiedOperator_api (p : Equiv.Perm Bool) :
     ⟨BasisClassicalUnitaryOperator.ofPermMatrix complexUnitPhase_one p, rfl⟩,
     ⟨BasisClassicalUnitaryOperator.ofPermMatrix quaternionUnitPhase_one p, rfl⟩⟩
 
+/-- Complete consumer for certified unitary-bundle behavior and its laws. -/
+theorem bundledBehavior_api
+    {R I : Type*} [Semiring R] [StarRing R] [Fintype I] [DecidableEq I]
+    {unitPhase : R → Prop}
+    (A B C : BasisClassicalUnitaryOperator R I unitPhase)
+    (hnonzero : ∀ phase, unitPhase phase → phase ≠ 0)
+    (hAB : BasisClassicalUnitaryOperator.SameBasisBehavior A B)
+    (hBC : BasisClassicalUnitaryOperator.SameBasisBehavior B C)
+    (hmatrix : A.matrix = B.matrix) :
+    (BasisClassicalUnitaryOperator.SameBasisBehavior A B ↔
+        A.permutation = B.permutation) ∧
+      BasisClassicalUnitaryOperator.SameBasisBehavior A A ∧
+      BasisClassicalUnitaryOperator.SameBasisBehavior B A ∧
+      BasisClassicalUnitaryOperator.SameBasisBehavior A C ∧
+      BasisClassicalUnitaryOperator.SameBasisBehavior A A ∧
+      BasisClassicalUnitaryOperator.SameBasisBehavior A B ∧
+      BasisTransitionRelationEq unitPhase A.matrix B.matrix := by
+  exact ⟨BasisClassicalUnitaryOperator.sameBasisBehavior_iff_permutation_eq A B,
+    BasisClassicalUnitaryOperator.SameBasisBehavior.refl A,
+    BasisClassicalUnitaryOperator.SameBasisBehavior.symm hAB,
+    BasisClassicalUnitaryOperator.SameBasisBehavior.trans hAB hBC,
+    BasisClassicalUnitaryOperator.SameBasisBehavior.equivalence.1 A,
+    BasisClassicalUnitaryOperator.sameBasisBehavior_of_matrix_eq
+      hnonzero A B hmatrix,
+    BasisClassicalUnitaryOperator.basisTransitionRelationEq hnonzero hAB⟩
+
+/-- Complete consumer for scalar-specialized permutation and bundle constructors. -/
+theorem specializedConstructors_api (p : Equiv.Perm Bool) :
+    RealBasisPermutationImplementation (p.permMatrix ℝ) p.symm ∧
+      ComplexBasisPermutationImplementation (p.permMatrix ℂ) p.symm ∧
+      QuaternionBasisPermutationImplementation (p.permMatrix ℍ[ℝ]) p.symm ∧
+      p.symm = p.symm ∧
+      p.symm = p.symm ∧
+      p.symm = p.symm ∧
+      (RealBasisClassicalUnitaryOperator.ofPermMatrix p).permutation = p.symm ∧
+      (ComplexBasisClassicalUnitaryOperator.ofPermMatrix p).permutation = p.symm ∧
+      (QuaternionBasisClassicalUnitaryOperator.ofPermMatrix p).permutation =
+        p.symm := by
+  let hR := RealBasisPermutationImplementation.ofPermMatrix p
+  let hC := ComplexBasisPermutationImplementation.ofPermMatrix p
+  let hQ := QuaternionBasisPermutationImplementation.ofPermMatrix p
+  exact ⟨hR, hC, hQ,
+    RealBasisPermutationImplementation.permutation_unique hR hR,
+    ComplexBasisPermutationImplementation.permutation_unique hC hC,
+    QuaternionBasisPermutationImplementation.permutation_unique hQ hQ,
+    rfl, rfl, rfl⟩
+
 /-! ## Empty-index and nontrivial-permutation checks -/
 
-/-- Empty index types admit a unique certified permutation without a hidden inhabitant. -/
+/-- Empty index types support a unique certified permutation without a hidden inhabitant. -/
 theorem emptyIndex_certified :
     (∀ p : Equiv.Perm Empty, p = Equiv.refl Empty) ∧
       Nonempty (RealBasisClassicalUnitaryOperator Empty) ∧
@@ -289,13 +336,18 @@ theorem emptyIndex_certified :
 /-- A nonidentity Bool permutation has certified real, complex, and quaternionic operators. -/
 theorem boolSwap_certified :
     let p : Equiv.Perm Bool := Equiv.swap false true
-    (∃ op : RealBasisClassicalUnitaryOperator Bool,
+    p ≠ Equiv.refl Bool ∧
+      (∃ op : RealBasisClassicalUnitaryOperator Bool,
         op.permutation = p.symm) ∧
       (∃ op : ComplexBasisClassicalUnitaryOperator Bool,
         op.permutation = p.symm) ∧
       (∃ op : QuaternionBasisClassicalUnitaryOperator Bool,
         op.permutation = p.symm) := by
-  exact (certifiedOperator_api (Equiv.swap false true)).2
+  dsimp only
+  refine ⟨?_, (certifiedOperator_api (Equiv.swap false true)).2⟩
+  intro h
+  have hfalse := congrArg (fun e : Equiv.Perm Bool ↦ e false) h
+  simp at hfalse
 
 /-! ## Circuit API consumers -/
 
@@ -339,10 +391,47 @@ theorem scalarCircuit_api
     (hQ : ExactCircuitEq CQ.circuit DQ.circuit) :
     SameCircuitBasisBehavior CR DR ∧
       SameCircuitBasisBehavior CC DC ∧
-      SameCircuitBasisBehavior CQ DQ :=
+      SameCircuitBasisBehavior CQ DQ ∧
+      (SameCircuitBasisBehavior CR DR ↔
+        RealCircuitInputBasisSignEq CR.circuit DR.circuit) ∧
+      (SameCircuitBasisBehavior CR DR ↔
+        RealCircuitOutputBasisSignEq CR.circuit DR.circuit) ∧
+      (SameCircuitBasisBehavior CR DR ↔
+        BasisMeasurementEq State.realWeight CR.circuit.eval DR.circuit.eval) ∧
+      (SameCircuitBasisBehavior CC DC ↔
+        ComplexCircuitInputBasisPhaseEq CC.circuit DC.circuit) ∧
+      (SameCircuitBasisBehavior CC DC ↔
+        ComplexCircuitOutputBasisPhaseEq CC.circuit DC.circuit) ∧
+      (SameCircuitBasisBehavior CC DC ↔
+        BasisMeasurementEq State.complexWeight CC.circuit.eval DC.circuit.eval) ∧
+      (SameCircuitBasisBehavior CQ DQ ↔
+        QuaternionCircuitInputRightPhaseEq CQ.circuit DQ.circuit) ∧
+      (SameCircuitBasisBehavior CQ DQ ↔
+        QuaternionCircuitOutputLeftPhaseEq CQ.circuit DQ.circuit) ∧
+      (SameCircuitBasisBehavior CQ DQ ↔
+        BasisMeasurementEq State.quaternionWeight CQ.circuit.eval
+          DQ.circuit.eval) ∧
+      SameCircuitBasisBehavior CR CR ∧
+      SameCircuitBasisBehavior CC CC ∧
+      SameCircuitBasisBehavior CQ CQ :=
   ⟨hR.realSameCircuitBasisBehavior,
     hC.complexSameCircuitBasisBehavior,
-    hQ.quaternionSameCircuitBasisBehavior⟩
+    hQ.quaternionSameCircuitBasisBehavior,
+    SameCircuitBasisBehavior.iff_realCircuitInputBasisSignEq,
+    SameCircuitBasisBehavior.iff_realCircuitOutputBasisSignEq,
+    SameCircuitBasisBehavior.iff_realBasisMeasurementEq,
+    SameCircuitBasisBehavior.iff_complexCircuitInputBasisPhaseEq,
+    SameCircuitBasisBehavior.iff_complexCircuitOutputBasisPhaseEq,
+    SameCircuitBasisBehavior.iff_complexBasisMeasurementEq,
+    SameCircuitBasisBehavior.iff_quaternionCircuitInputRightPhaseEq,
+    SameCircuitBasisBehavior.iff_quaternionCircuitOutputLeftPhaseEq,
+    SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq,
+    RealCircuitGlobalSignEq.sameCircuitBasisBehavior
+      (RealCircuitGlobalSignEq.refl CR.circuit),
+    ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior
+      (ComplexCircuitGlobalPhaseEq.refl CC.circuit),
+    QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior
+      (QuaternionCircuitCentralSignEq.refl CQ.circuit)⟩
 
 /-- Complete consumer for the generic certified identity circuit. -/
 theorem emptyCircuit_api
@@ -550,10 +639,20 @@ theorem unitary_vacuity_witness :
 #print axioms rawTransition_api
 #print axioms implementation_api
 #print axioms sameBehavior_api
+#print axioms measurementDeterminesBehavior_api
+#print axioms scalarPhase_api
+#print axioms certifiedEquivalences_api
 #print axioms scalarImplementation_api
 #print axioms certifiedOperator_api
+#print axioms bundledBehavior_api
+#print axioms specializedConstructors_api
 #print axioms emptyIndex_certified
 #print axioms boolSwap_certified
+#print axioms circuitBehavior_api
+#print axioms scalarCircuit_api
+#print axioms emptyCircuit_api
+#print axioms basisPreparation_api
+#print axioms zeroWire_circuit_api
 #print axioms unitary_vacuity_witness
 
 end QuaternionicComputing.Semantics.BasisBehaviorAudit
