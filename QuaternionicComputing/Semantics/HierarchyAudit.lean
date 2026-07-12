@@ -7,6 +7,7 @@ public import QuaternionicComputing.Semantics.StatePhaseAudit
 public import QuaternionicComputing.Semantics.BasisBehaviorAudit
 public import QuaternionicComputing.Semantics.Ray
 public import QuaternionicComputing.Semantics.Hierarchy.Operator
+public import QuaternionicComputing.Semantics.Hierarchy.State
 public import QuaternionicComputing.Circuit.ProductInputOrderingWitness
 public import QuaternionicComputing.Matrix.KroneckerCommute
 
@@ -31,6 +32,8 @@ strict-compiled.
 open scoped Matrix Quaternion
 
 namespace QuaternionicComputing.Semantics.HierarchyAudit
+
+universe u v
 
 open QuaternionicComputing.Circuit
 open QuaternionicComputing.State
@@ -601,6 +604,322 @@ theorem outputPhase_characterizations_api
   ⟨realOutputBasisSignEq_iff_pureInputBasisMeasurementEq UR VR,
     complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq UC VC,
     quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq UQ VQ⟩
+
+/-- Consumer for the three finite-distribution extensional characterizations. -/
+theorem finiteDistribution_characterizations_api
+    {I : Type u} [Fintype I]
+    (mu nu : State.FiniteDistribution I) :
+    (mu = nu ↔
+        ∀ x : I, mu.eventWeight {x} = nu.eventWeight {x}) ∧
+      (mu = nu ↔
+        ∀ event : Finset I, mu.eventWeight event = nu.eventWeight event) ∧
+      (mu = nu ↔
+        ∀ (J : Type u) [Fintype J] (f : I → J),
+          @State.FiniteDistribution.pushforward I J _ _ mu f =
+            @State.FiniteDistribution.pushforward I J _ _ nu f) :=
+  ⟨State.FiniteDistribution.eq_iff_singletonEventWeight_eq,
+    State.FiniteDistribution.eq_iff_eventWeight_eq,
+    State.FiniteDistribution.eq_iff_allPushforward_eq_sameUniverse⟩
+
+/-- Consumer for all four normalized-state event and pushforward wrappers. -/
+theorem normalizedState_observationCharacterizations_api
+    {R : Type u} {I : Type v} [Fintype I]
+    (weight : R → ℝ) (hweight : ∀ z, 0 ≤ weight z)
+    (a b : State.NormalizedState I R weight) :
+    (NormalizedDistributionEq weight hweight a b ↔
+        ∀ event : Finset I,
+          (State.FiniteDistribution.ofNormalizedState
+              weight hweight a).eventWeight event =
+            (State.FiniteDistribution.ofNormalizedState
+              weight hweight b).eventWeight event) ∧
+      (NormalizedDistributionEq weight hweight a b ↔
+        ∀ (J : Type v) [Fintype J] (f : I → J),
+          @State.FiniteDistribution.pushforward I J _ _
+              (State.FiniteDistribution.ofNormalizedState weight hweight a) f =
+            @State.FiniteDistribution.pushforward I J _ _
+              (State.FiniteDistribution.ofNormalizedState weight hweight b) f) ∧
+      (BasisWeightEq weight a b ↔
+        ∀ event : Finset I,
+          (State.FiniteDistribution.ofNormalizedState
+              weight hweight a).eventWeight event =
+            (State.FiniteDistribution.ofNormalizedState
+              weight hweight b).eventWeight event) ∧
+      (BasisWeightEq weight a b ↔
+        ∀ (J : Type v) [Fintype J] (f : I → J),
+          @State.FiniteDistribution.pushforward I J _ _
+              (State.FiniteDistribution.ofNormalizedState weight hweight a) f =
+            @State.FiniteDistribution.pushforward I J _ _
+              (State.FiniteDistribution.ofNormalizedState weight hweight b) f) :=
+  ⟨normalizedDistributionEq_iff_eventWeight_eq weight hweight a b,
+    normalizedDistributionEq_iff_allPushforward_eq_sameUniverse
+      weight hweight a b,
+    basisWeightEq_iff_eventWeight_eq weight hweight a b,
+    basisWeightEq_iff_allPushforward_eq_sameUniverse weight hweight a b⟩
+
+/-- Consumer for all six exact-representative/ray/basis-weight arrows. -/
+theorem stateRay_chain_api
+    {I : Type u} [Fintype I]
+    {aR bR : State.RealState I}
+    {aC bC : State.ComplexState I}
+    {aQ bQ : State.QuaternionState I}
+    (hR : ExactStateEq aR bR)
+    (hC : ExactStateEq aC bC)
+    (hQ : ExactStateEq aQ bQ) :
+    State.RealRay.mk aR = State.RealRay.mk bR ∧
+      State.ComplexRay.mk aC = State.ComplexRay.mk bC ∧
+      State.QuaternionRay.mk aQ = State.QuaternionRay.mk bQ ∧
+      BasisWeightEq State.realWeight aR bR ∧
+      BasisWeightEq State.complexWeight aC bC ∧
+      BasisWeightEq State.quaternionWeight aQ bQ := by
+  have hRray := ExactStateEq.realRay_mk_eq hR
+  have hCray := ExactStateEq.complexRay_mk_eq hC
+  have hQray := ExactStateEq.quaternionRay_mk_eq hQ
+  exact ⟨hRray, hCray, hQray,
+    RealStatePhaseEq.basisWeightEq_of_realRay_mk_eq hRray,
+    ComplexStatePhaseEq.basisWeightEq_of_complexRay_mk_eq hCray,
+    QuaternionStatePhaseEq.basisWeightEq_of_quaternionRay_mk_eq hQray⟩
+
+/-- Consumer for the two real/complex global-phase/projective kernel iff theorems. -/
+theorem operator_projectiveKernel_api
+    {I : Type u} [Fintype I] [DecidableEq I] [Nonempty I]
+    (UR VR : RealUnitaryOperator I)
+    (UC VC : ComplexUnitaryOperator I) :
+    (RealGlobalSignEq (UR : Matrix I I ℝ) (VR : Matrix I I ℝ) ↔
+        RealProjectiveActionEq
+          (UR : Matrix I I ℝ) (VR : Matrix I I ℝ)) ∧
+      (ComplexGlobalPhaseEq
+          (UC : Matrix I I ℂ) (VC : Matrix I I ℂ) ↔
+        ComplexProjectiveActionEq
+          (UC : Matrix I I ℂ) (VC : Matrix I I ℂ)) :=
+  ⟨realGlobalSignEq_iff_projectiveActionEq UR VR,
+    complexGlobalPhaseEq_iff_projectiveActionEq UC VC⟩
+
+/-- Consumer for all six matrix-level consequences of `ChannelEq`. -/
+theorem channel_hierarchy_api
+    {IR IC : Type*}
+    [Fintype IR] [DecidableEq IR] [Fintype IC] [DecidableEq IC]
+    {UR VR : RealUnitaryOperator IR}
+    {UC VC : ComplexUnitaryOperator IC}
+    (hR : ChannelEq UR VR) (hC : ChannelEq UC VC) :
+    PureInputBasisMeasurementEq State.realWeight
+        (UR : Matrix IR IR ℝ) (VR : Matrix IR IR ℝ) ∧
+      PureInputBasisMeasurementEq State.complexWeight
+        (UC : Matrix IC IC ℂ) (VC : Matrix IC IC ℂ) ∧
+      RealOutputBasisSignEq
+        (UR : Matrix IR IR ℝ) (VR : Matrix IR IR ℝ) ∧
+      ComplexOutputBasisPhaseEq
+        (UC : Matrix IC IC ℂ) (VC : Matrix IC IC ℂ) ∧
+      BasisMeasurementEq State.realWeight
+        (UR : Matrix IR IR ℝ) (VR : Matrix IR IR ℝ) ∧
+      BasisMeasurementEq State.complexWeight
+        (UC : Matrix IC IC ℂ) (VC : Matrix IC IC ℂ) :=
+  ⟨ChannelEq.realPureInputBasisMeasurementEq hR,
+    ChannelEq.complexPureInputBasisMeasurementEq hC,
+    ChannelEq.realOutputBasisSignEq hR,
+    ChannelEq.complexOutputBasisPhaseEq hC,
+    ChannelEq.realBasisMeasurementEq hR,
+    ChannelEq.complexBasisMeasurementEq hC⟩
+
+/-- Consumer for all four matrix-level consequences of `AllMeasurementEq`. -/
+theorem allMeasurement_hierarchy_api
+    {IR IC : Type*}
+    [Fintype IR] [DecidableEq IR] [Fintype IC] [DecidableEq IC]
+    {UR VR : RealUnitaryOperator IR}
+    {UC VC : ComplexUnitaryOperator IC}
+    (hR : AllMeasurementEq UR VR) (hC : AllMeasurementEq UC VC) :
+    PureInputBasisMeasurementEq State.realWeight
+        (UR : Matrix IR IR ℝ) (VR : Matrix IR IR ℝ) ∧
+      PureInputBasisMeasurementEq State.complexWeight
+        (UC : Matrix IC IC ℂ) (VC : Matrix IC IC ℂ) ∧
+      BasisMeasurementEq State.realWeight
+        (UR : Matrix IR IR ℝ) (VR : Matrix IR IR ℝ) ∧
+      BasisMeasurementEq State.complexWeight
+        (UC : Matrix IC IC ℂ) (VC : Matrix IC IC ℂ) :=
+  ⟨AllMeasurementEq.realPureInputBasisMeasurementEq hR,
+    AllMeasurementEq.complexPureInputBasisMeasurementEq hC,
+    AllMeasurementEq.realBasisMeasurementEq hR,
+    AllMeasurementEq.complexBasisMeasurementEq hC⟩
+
+/-- Consumer for the five evaluator-backed circuit characterizations. -/
+theorem circuit_characterizations_api
+    {W : Type*} [Fintype W]
+    (R C : Circuit.OrderedCircuit ℝ W)
+    (K L : Circuit.OrderedCircuit ℂ W)
+    (Q T : Circuit.OrderedCircuit ℍ[ℝ] W)
+    (UR VR : RealUnitaryCircuit W)
+    (UC VC : ComplexUnitaryCircuit W) :
+    (RealCircuitOutputBasisSignEq R C ↔
+        PureInputBasisMeasurementEq State.realWeight R.eval C.eval) ∧
+      (ComplexCircuitOutputBasisPhaseEq K L ↔
+        PureInputBasisMeasurementEq State.complexWeight K.eval L.eval) ∧
+      (QuaternionCircuitOutputLeftPhaseEq Q T ↔
+        PureInputBasisMeasurementEq State.quaternionWeight Q.eval T.eval) ∧
+      (RealCircuitGlobalSignEq UR.circuit VR.circuit ↔
+        RealCircuitProjectiveActionEq UR.circuit VR.circuit) ∧
+      (ComplexCircuitGlobalPhaseEq UC.circuit VC.circuit ↔
+        ComplexCircuitProjectiveActionEq UC.circuit VC.circuit) :=
+  ⟨realCircuitOutputBasisSignEq_iff_pureInputBasisMeasurementEq R C,
+    complexCircuitOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq K L,
+    quaternionCircuitOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq Q T,
+    realCircuitGlobalSignEq_iff_projectiveActionEq UR VR,
+    complexCircuitGlobalPhaseEq_iff_projectiveActionEq UC VC⟩
+
+/-- Consumer for all six consequences of `CircuitChannelEq`. -/
+theorem circuitChannel_hierarchy_api
+    {WR WC : Type*} [Fintype WR] [Fintype WC]
+    {UR VR : RealUnitaryCircuit WR}
+    {UC VC : ComplexUnitaryCircuit WC}
+    (hR : CircuitChannelEq UR VR) (hC : CircuitChannelEq UC VC) :
+    PureInputBasisMeasurementEq State.realWeight
+        UR.circuit.eval VR.circuit.eval ∧
+      PureInputBasisMeasurementEq State.complexWeight
+        UC.circuit.eval VC.circuit.eval ∧
+      RealCircuitOutputBasisSignEq UR.circuit VR.circuit ∧
+      ComplexCircuitOutputBasisPhaseEq UC.circuit VC.circuit ∧
+      BasisMeasurementEq State.realWeight UR.circuit.eval VR.circuit.eval ∧
+      BasisMeasurementEq State.complexWeight UC.circuit.eval VC.circuit.eval :=
+  ⟨CircuitChannelEq.realPureInputBasisMeasurementEq hR,
+    CircuitChannelEq.complexPureInputBasisMeasurementEq hC,
+    CircuitChannelEq.realOutputBasisSignEq hR,
+    CircuitChannelEq.complexOutputBasisPhaseEq hC,
+    CircuitChannelEq.realBasisMeasurementEq hR,
+    CircuitChannelEq.complexBasisMeasurementEq hC⟩
+
+/-- Consumer for all four consequences of `CircuitAllMeasurementEq`. -/
+theorem circuitAllMeasurement_hierarchy_api
+    {WR WC : Type*} [Fintype WR] [Fintype WC]
+    {UR VR : RealUnitaryCircuit WR}
+    {UC VC : ComplexUnitaryCircuit WC}
+    (hR : CircuitAllMeasurementEq UR VR)
+    (hC : CircuitAllMeasurementEq UC VC) :
+    PureInputBasisMeasurementEq State.realWeight
+        UR.circuit.eval VR.circuit.eval ∧
+      PureInputBasisMeasurementEq State.complexWeight
+        UC.circuit.eval VC.circuit.eval ∧
+      BasisMeasurementEq State.realWeight UR.circuit.eval VR.circuit.eval ∧
+      BasisMeasurementEq State.complexWeight UC.circuit.eval VC.circuit.eval :=
+  ⟨CircuitAllMeasurementEq.realPureInputBasisMeasurementEq hR,
+    CircuitAllMeasurementEq.complexPureInputBasisMeasurementEq hC,
+    CircuitAllMeasurementEq.realBasisMeasurementEq hR,
+    CircuitAllMeasurementEq.complexBasisMeasurementEq hC⟩
+
+/-! ### Explicit rectangular and finite-type boundaries -/
+
+/--
+The three output-phase iff theorems instantiate uniformly on a genuine
+`3 × 2` rectangle, an empty input type, and an empty output type.
+-/
+theorem outputPhase_rectangular_empty_boundaries_api
+    (RR SR : Matrix (Fin 3) Bool ℝ)
+    (RC SC : Matrix (Fin 3) Bool ℂ)
+    (RQ SQ : Matrix (Fin 3) Bool ℍ[ℝ])
+    (EIR EIS : Matrix Unit Empty ℝ)
+    (EIC EIT : Matrix Unit Empty ℂ)
+    (EIQ EIU : Matrix Unit Empty ℍ[ℝ])
+    (EOR EOS : Matrix Empty Unit ℝ)
+    (EOC EOT : Matrix Empty Unit ℂ)
+    (EOQ EOU : Matrix Empty Unit ℍ[ℝ]) :
+    (RealOutputBasisSignEq RR SR ↔
+        PureInputBasisMeasurementEq State.realWeight RR SR) ∧
+      (ComplexOutputBasisPhaseEq RC SC ↔
+        PureInputBasisMeasurementEq State.complexWeight RC SC) ∧
+      (QuaternionOutputLeftPhaseEq RQ SQ ↔
+        PureInputBasisMeasurementEq State.quaternionWeight RQ SQ) ∧
+      (RealOutputBasisSignEq EIR EIS ↔
+        PureInputBasisMeasurementEq State.realWeight EIR EIS) ∧
+      (ComplexOutputBasisPhaseEq EIC EIT ↔
+        PureInputBasisMeasurementEq State.complexWeight EIC EIT) ∧
+      (QuaternionOutputLeftPhaseEq EIQ EIU ↔
+        PureInputBasisMeasurementEq State.quaternionWeight EIQ EIU) ∧
+      (RealOutputBasisSignEq EOR EOS ↔
+        PureInputBasisMeasurementEq State.realWeight EOR EOS) ∧
+      (ComplexOutputBasisPhaseEq EOC EOT ↔
+        PureInputBasisMeasurementEq State.complexWeight EOC EOT) ∧
+      (QuaternionOutputLeftPhaseEq EOQ EOU ↔
+        PureInputBasisMeasurementEq State.quaternionWeight EOQ EOU) := by
+  rcases outputPhase_characterizations_api RR SR RC SC RQ SQ with
+    ⟨hRR, hRC, hRQ⟩
+  rcases outputPhase_characterizations_api EIR EIS EIC EIT EIQ EIU with
+    ⟨hIR, hIC, hIQ⟩
+  rcases outputPhase_characterizations_api EOR EOS EOC EOT EOQ EOU with
+    ⟨hOR, hOC, hOQ⟩
+  exact ⟨hRR, hRC, hRQ, hIR, hIC, hIQ, hOR, hOC, hOQ⟩
+
+/-- The unique concrete probability distribution on `Unit`. -/
+def unitFiniteDistribution : State.FiniteDistribution Unit where
+  weight _ := 1
+  nonnegative _ := by norm_num
+  normalized := by simp
+
+/-- Event and same-universe pushforward characterizations cover `Empty` and `Unit`. -/
+theorem finiteDistribution_empty_unit_boundaries_api
+    (mu nu : State.FiniteDistribution Empty) :
+    ((mu = nu ↔
+        ∀ event : Finset Empty,
+          mu.eventWeight event = nu.eventWeight event) ∧
+      (mu = nu ↔
+        ∀ (J : Type) [Fintype J] (f : Empty → J),
+          @State.FiniteDistribution.pushforward Empty J _ _ mu f =
+            @State.FiniteDistribution.pushforward Empty J _ _ nu f)) ∧
+      ((unitFiniteDistribution = unitFiniteDistribution ↔
+        ∀ event : Finset Unit,
+          unitFiniteDistribution.eventWeight event =
+            unitFiniteDistribution.eventWeight event) ∧
+      (unitFiniteDistribution = unitFiniteDistribution ↔
+        ∀ (J : Type) [Fintype J] (f : Unit → J),
+          @State.FiniteDistribution.pushforward Unit J _ _
+              unitFiniteDistribution f =
+            @State.FiniteDistribution.pushforward Unit J _ _
+              unitFiniteDistribution f)) := by
+  have hEmpty := finiteDistribution_characterizations_api mu nu
+  have hUnit := finiteDistribution_characterizations_api
+    unitFiniteDistribution unitFiniteDistribution
+  exact ⟨⟨hEmpty.2.1, hEmpty.2.2⟩, ⟨hUnit.2.1, hUnit.2.2⟩⟩
+
+/-- The concrete normalized real state on the singleton outcome type. -/
+def unitRealState : State.RealState Unit :=
+  ⟨fun _ ↦ 1, by
+    simp [State.realTotalWeight, State.totalWeight,
+      State.basisWeight, State.realWeight]⟩
+
+/-- Normalized-state event and pushforward iff theorems cover `Empty` and `Unit`. -/
+theorem normalizedState_empty_unit_boundaries_api
+    (a b : State.RealState Empty) :
+    ((NormalizedDistributionEq State.realWeight State.realWeight_nonneg a b ↔
+        ∀ event : Finset Empty,
+          (State.FiniteDistribution.ofNormalizedState State.realWeight
+              State.realWeight_nonneg a).eventWeight event =
+            (State.FiniteDistribution.ofNormalizedState State.realWeight
+              State.realWeight_nonneg b).eventWeight event) ∧
+      (NormalizedDistributionEq State.realWeight State.realWeight_nonneg a b ↔
+        ∀ (J : Type) [Fintype J] (f : Empty → J),
+          @State.FiniteDistribution.pushforward Empty J _ _
+              (State.FiniteDistribution.ofNormalizedState State.realWeight
+                State.realWeight_nonneg a) f =
+            @State.FiniteDistribution.pushforward Empty J _ _
+              (State.FiniteDistribution.ofNormalizedState State.realWeight
+                State.realWeight_nonneg b) f)) ∧
+      ((NormalizedDistributionEq State.realWeight State.realWeight_nonneg
+          unitRealState unitRealState ↔
+        ∀ event : Finset Unit,
+          (State.FiniteDistribution.ofNormalizedState State.realWeight
+              State.realWeight_nonneg unitRealState).eventWeight event =
+            (State.FiniteDistribution.ofNormalizedState State.realWeight
+              State.realWeight_nonneg unitRealState).eventWeight event) ∧
+      (NormalizedDistributionEq State.realWeight State.realWeight_nonneg
+          unitRealState unitRealState ↔
+        ∀ (J : Type) [Fintype J] (f : Unit → J),
+          @State.FiniteDistribution.pushforward Unit J _ _
+              (State.FiniteDistribution.ofNormalizedState State.realWeight
+                State.realWeight_nonneg unitRealState) f =
+            @State.FiniteDistribution.pushforward Unit J _ _
+              (State.FiniteDistribution.ofNormalizedState State.realWeight
+                State.realWeight_nonneg unitRealState) f)) := by
+  have hEmpty := normalizedState_observationCharacterizations_api
+    State.realWeight State.realWeight_nonneg a b
+  have hUnit := normalizedState_observationCharacterizations_api
+    State.realWeight State.realWeight_nonneg unitRealState unitRealState
+  exact ⟨⟨hEmpty.1, hEmpty.2.1⟩, ⟨hUnit.1, hUnit.2.1⟩⟩
 
 /-! ## Local axiom endpoints -/
 

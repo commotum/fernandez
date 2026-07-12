@@ -1,7 +1,6 @@
 module
 
 public import QuaternionicComputing.Semantics.Hierarchy.OutputPhase
-public import QuaternionicComputing.Semantics.Hierarchy.State
 public import QuaternionicComputing.Semantics.ChannelCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 

@@ -16,6 +16,7 @@ public import QuaternionicComputing.State.RealificationOrbitBoundary
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Semantics.Ray
+public import QuaternionicComputing.Semantics.Hierarchy.State
 public import QuaternionicComputing.Semantics.BasisBehavior
 public import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 public import QuaternionicComputing.Semantics.Density
@@ -27,6 +28,7 @@ public import QuaternionicComputing.Semantics.ChannelCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
+public import QuaternionicComputing.Semantics.Hierarchy.Operator
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification
