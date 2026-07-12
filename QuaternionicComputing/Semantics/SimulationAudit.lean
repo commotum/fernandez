@@ -1499,6 +1499,10 @@ end QuaternionicComputing.Semantics.SimulationAudit
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.ordinaryRealRay_nonDescent_nonProduct_boundary
 #print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.outcomeDecoder_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api
+#print axioms
   QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api
