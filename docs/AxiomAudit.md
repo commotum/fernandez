@@ -3,8 +3,8 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 442 `#print axioms` commands (422 at the Stage 8
-checkpoint, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5, and 305 at Stage
+the public root. It now runs 458 `#print axioms` commands (442 at Stage 9A, 422
+at Stage 8, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5, and 305 at Stage
 4C).
 Representative endpoint categories include:
 
@@ -56,6 +56,8 @@ Representative endpoint categories include:
   intertwining, decoded weight/distribution agreements, explicit top-sector
   policies, and the canonical raw `LinearEquiv` and normalized representative
   `Equiv` endpoints;
+- proof-bearing rectangular, reindexed, placed-gate, primary, scheduled,
+  composed, and conditional-compiler simulation wrappers;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
@@ -214,11 +216,27 @@ imported by the public root. The root audit instead adds 20 independent Stage
 respectively; the combined public-root/axiom-audit target completed 2,766 jobs.
 Every new endpoint emits a subset of the same exact standard union below.
 
+Stage 9B adds 16 stable declarations in
+`Semantics/SimulationWrappers.lean`. Six disjoint consumers in the existing
+non-root `SimulationAudit.lean` allocate them as
+`2 + 3 + 4 + 3 + 2 + 2`: matrix state action, reindexing/placement, primary
+circuits, supplied schedules, composed circuits, and conditional compilation.
+The consumers also check canonical raw coefficient pairs, rectangular and
+empty input indices, the concrete unequal-schedule witness, local identity
+compiler inhabitation, and zero-wire circuits.
+
+The root audit adds all 16 wrappers directly, bringing its total to 458
+commands. The local simulation audit adds six aggregate endpoints, bringing
+its total to 16 commands. Focused builds completed 2,369 and 2,381 jobs for the
+wrapper and extended audit leaves, and the combined stable/audit/public-root/
+axiom-audit target completed 2,767 jobs. Every new endpoint emits a subset of
+the same exact standard union below.
+
 ## Current checkpoint result
 
-The Stage 9A public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 442 public-root endpoints, all ten
-local Stage 9A endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
+The Stage 9B public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 458 public-root endpoints, all 16
+local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
 endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
 and the retained local Stage 4C diagnostics individually depends on a subset
 of the following exact three-item union:
@@ -233,15 +251,15 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 9A checkpoint the parser reads 439
-nonempty and three axiom-free root blocks. The local Stage 9A audit has nine
-nonempty blocks and one axiom-free block; all ten resolve without an unknown
+from a focused build alone. At the Stage 9B checkpoint the parser reads 455
+nonempty and three axiom-free root blocks. The local simulation audit has 15
+nonempty blocks and one axiom-free block; all 16 resolve without an unknown
 identifier or `sorryAx` output.
 
-The two stable Stage 9A leaves and non-root audit pass warning-as-error
-compilation. This is a Stage 9A checkpoint, not a claim that Goal 2 is complete:
-Stages 9B and 9C, approximation, registry closure, and the final release audit
-remain pending.
+The three stable Stage 9A/9B leaves and non-root audit pass warning-as-error
+compilation. This is a Stage 9B checkpoint, not a claim that Goal 2 is complete:
+Stage 9C, approximation, registry closure, and the final release audit remain
+pending.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

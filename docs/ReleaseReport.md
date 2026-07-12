@@ -23,9 +23,11 @@ three stable hierarchy leaves and one non-root complete audit, bringing the
 checkpoint tree to 84 Lean sources including the public root. Stage 9A adds the
 directional cross-model relation leaf, its concrete representative-encoding
 leaf, and one non-root audit, bringing the checkpoint tree to 87 Lean sources
-including the public root. Goal 2 remains active: Stage 9B circuit and operator
-wrappers, Stage 9C outcome classifications, approximation, registry closure,
-and the final release audit are later stages.
+including the public root. Stage 9B adds the stable proof-bearing simulation
+wrapper leaf and extends the existing non-root audit, bringing the checkpoint
+tree to 88 Lean sources including the public root. Goal 2 remains active:
+Stage 9C outcome classifications, approximation, registry closure, and the
+final release audit are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -242,8 +244,10 @@ or an unsafe shortcut.
   not product-factor certificates. The non-product witness makes that boundary
   explicit.
 - Stage 9A classifies the representative encodings and generic relation
-  vocabulary only. Operator/circuit wrappers and final outcome-family
-  classifications remain pending in Stages 9B and 9C.
+  vocabulary. Stage 9B adds exact operator/state/reindex/schedule/compiler
+  wrappers for all eleven assigned frozen families. Their coefficient pairs
+  are raw coordinates, schedules and compilers are supplied data, and decoded
+  outcome-family classifications remain pending in Stage 9C.
 
 ### Matrix embeddings and groups
 
@@ -465,11 +469,13 @@ trace, or cross-model channel/all-input/all-effect semantics. Stages 6 and 7
 do provide finite same-space real/complex densities, genuine effects,
 fixed-pair separation, and unitary channel/all-effect equality; they do not
 supply those missing cross-model constructions.
-Stage 9A now supplies generic directional comparison certificates and complete
-representative-coordinate bijections, but the Goal 1 simulation declarations
-still await their Stage 9B operator/circuit wrappers and Stage 9C outcome-family
-classifications. Those pending wrappers do not weaken the exact Goal 1
-theorems.
+Stage 9A supplies generic directional comparison certificates and complete
+representative-coordinate bijections. Stage 9B now gives the Goal 1
+operator/state, Equation 63 reindexing, placed-gate, supplied-schedule,
+composed, and conditional-compiler comparisons proof-bearing wrappers at their
+exact scopes. The decoded probability/distribution/event/postprocessing
+families still await Stage 9C. Neither checkpoint weakens the exact Goal 1
+theorems or promotes them to cross-model channel/all-effect claims.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -614,13 +620,32 @@ adds 20 direct public-root audit endpoints, bringing the root audit from 422 to
 442 commands. All Stage 9A local and public endpoints remain within the exact
 standard union `propext`, `Classical.choice`, and `Quot.sound`.
 
+Stage 9B contributes 16 stable declarations in
+`Semantics/SimulationWrappers.lean`. They classify rectangular raw-state
+intertwining, Equation 63 reindexing, translated placed-gate denotations,
+primary and composed circuit operators/states, one supplied legal schedule,
+preservation of the concrete schedule-operator gap, and exact compilation
+under supplied compiler data. Six non-root `SimulationAudit` aggregates
+allocate them exactly as `2 + 3 + 4 + 3 + 2 + 2`. The audit uses literal
+canonical coefficient pairs, rectangular and raw-empty matrices, the existing
+unequal schedules, local identity compilers, and zero-wire circuits without
+constructing an impossible normalized empty state.
+
+The wrapper leaf focused build completed 2,369 jobs; the extended audit build
+completed 2,381; and the combined stable/audit/public-root/axiom-audit target
+completed 2,767. Stage 9B adds 16 direct root-audit commands and six local
+commands, bringing the checkpoint to 458 root commands and 16 local
+`SimulationAudit` commands. Their exact axiom union remains `propext`,
+`Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
-root, axiom audit, and all Stage 9A source boundaries. The executable root audit
-now contains 442
+root, axiom audit, and all Stage 9B source boundaries. The executable root audit
+now contains 458
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
-Stage 7, 29 Stage 8, and 20 Stage 9A endpoints. All ten local Stage 9A prints,
+Stage 7, 29 Stage 8, 20 Stage 9A, and 16 Stage 9B endpoints. All 16 local
+`SimulationAudit` prints,
 all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use
@@ -667,10 +692,19 @@ manifest to 1,048 entries. It resolves 127 distinct consumers, including the 11
 Stage 9A aggregates, and records 256 direct-audit labels, including 20 Stage 9A
 labels. The first 990 entries and the frozen Goal 1 cohort remain unchanged.
 
+Stage 9B appends its 16 wrappers exactly once, bringing the semantic manifest
+to 1,064 entries. It resolves 133 distinct consumers, including the six new
+aggregates, and records 272 direct-audit labels, including all 16 Stage 9B
+wrappers. The first 1,048 entries retain structural SHA-256
+`3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`;
+the full 1,064-entry hash is
+`ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`.
+The frozen Goal 1 cohort remains unchanged.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 9A. The public root imports
+and heartbeat-override scans are empty through Stage 9B. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project

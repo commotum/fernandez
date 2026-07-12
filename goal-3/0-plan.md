@@ -166,14 +166,20 @@ none may remain excluded merely because it is difficult.
   still uses `RealSectorOrbit`. Nor do normalized `Rebit`/`Qubit` coefficient
   parameters certify product top/bottom states; the existing non-product
   witness refutes that reading. Stage 9A adds no paper correction.
-  The current Goal 2 checkpoint is 87 Lean sources including the public root,
-  1,048 semantic-manifest declarations, 127 resolving consumers, 256 direct
-  manifest audit labels, and 442 root axiom commands, with exact axiom union
-  `propext`, `Classical.choice`, and `Quot.sound`. Focused Stage 9A builds
-  completed 2,345, 2,350, and 2,368 jobs, and the combined public-root/axiom
-  target completed 2,766. Later Goal 2 stages remain an explicit unmet
-  prerequisite, so Goal 3 must not be executed yet. In particular, Stage 9B
-  operator/circuit wrappers, Stage 9C outcome classifications, quaternionic
+  Stage 9B now adds 16 proof-bearing wrappers for all eleven assigned frozen
+  operator/state/reindex/schedule/compiler families. Raw coefficient pairs are
+  not pure/product top states; Equation 63 remains a named reindexing rather
+  than a circuit translator; schedules and exact compilers remain supplied
+  data, with no schedule choice/independence or compiler existence/synthesis/
+  runtime conclusion. Stage 9B also adds no paper correction.
+  The current Goal 2 checkpoint is 88 Lean sources including the public root,
+  1,064 semantic-manifest declarations, 133 resolving consumers, 272 direct
+  manifest audit labels, 458 root axiom commands, and 16 local simulation-audit
+  commands, with exact axiom union `propext`, `Classical.choice`, and
+  `Quot.sound`. Focused Stage 9B wrapper/audit builds completed 2,369 and 2,381
+  jobs, and the combined target completed 2,767. Later Goal 2 stages remain an
+  explicit unmet prerequisite, so Goal 3 must not be executed yet. In
+  particular, Stage 9C outcome classifications, quaternionic
   density/channel semantics, partial trace, Kraus maps, instruments, mixed-top
   or phase-kickback semantics, cross-model channel equality, and metric
   approximation remain pending.
@@ -404,11 +410,14 @@ workstream before adding new mathematics.
 
 - Import the narrow Goal 2 leaves for exact, phase, basis, distribution,
   channel/all-effect, embedded-simulation, and approximate relations.
-- Reuse the Stage 9A directional certificate API with its actual strength:
+- Reuse the Stage 9A directional certificate API and Stage 9B proof-bearing
+  wrappers at their actual strength:
   generic left-inverse encodings remain directional, while the four canonical
   coordinate maps separately expose representative `LinearEquiv`/`Equiv`
-  values. Never substitute either result for a ray, channel, or product-state
-  theorem.
+  values. Stage 9B operator/state wrappers retain raw coefficient encoders,
+  explicit reindexing/added wires, supplied schedules, and supplied compilers.
+  Never substitute any of these results for a ray, decoded outcome, channel,
+  product-state, compiler-existence, synthesis, or runtime theorem.
 - Map every Goal 3 stage target to the strongest applicable relation and input/
   observation scope before implementation; flag claims needing a genuinely new
   relation rather than using vague equality prose.

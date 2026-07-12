@@ -46,20 +46,27 @@ quaternionic output-row phase acts on the left. Goal 3 must consume these
 relations and their strictness witnesses without inventing stronger
 same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 Stage 9A checkpoint has 87 Lean sources including the public
-root, 1,048 semantic-manifest declarations, 127 resolving consumers, 256 direct
-audit labels, and 442 root axiom commands; its exact axiom union remains
-`propext`, `Classical.choice`, and `Quot.sound`. Stage 9A contributes 38 generic
-directional cross-model declarations and 20 concrete encoding declarations.
+The current Goal 2 Stage 9B checkpoint has 88 Lean sources including the public
+root, 1,064 semantic-manifest declarations, 133 resolving consumers, 272 direct
+audit labels, 458 root axiom commands, and 16 local simulation-audit commands;
+its exact axiom union remains `propext`, `Classical.choice`, and `Quot.sound`.
+Stage 9A contributes 38 generic directional cross-model declarations and 20
+concrete encoding declarations.
 `ExactStateEncoding` is only a left-inverse certificate on the encoder image;
 the four canonical columns separately have stronger raw real-linear and
 normalized-representative equivalences. Keep those results distinct from ray,
 circuit, channel, product-state, and all-effect equivalence. A normalized
 `Rebit`/`Qubit` top-sector value is a coefficient parameter, not a mixed joint
 density or a top/bottom factorization certificate; the non-product witness
-rules out that reading. Stage 9B operator/circuit wrappers, Stage 9C outcome
-classifications, and all later Goal 2 stages remain prerequisites. Stage 9A
-adds no new paper correction.
+rules out that reading. Stage 9B contributes 16 exact wrappers for all eleven
+assigned operator/state/reindex/schedule/compiler families. Its coefficient
+pairs are raw coordinates; Equation 63 remains a reindexing, not a circuit
+translator; schedules and exact compilers are supplied data, not choice,
+independence, existence, synthesis, or runtime results. Its six audit consumers
+allocate the wrappers as `2 + 3 + 4 + 3 + 2 + 2`; focused wrapper/audit builds
+complete 2,369 and 2,381 jobs and the combined target completes 2,767. Stage 9C
+outcome classifications and all later Goal 2 stages remain prerequisites.
+Stages 9A and 9B add no new paper correction.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

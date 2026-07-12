@@ -694,5 +694,24 @@ a pure top/bottom product. The existing
 `NonProductWitness.encodedState_not_pureTopBottomProduct` proves that the
 factorization reading fails for a normalized realified state. Mixed joint
 density encoders, no-correlation hypotheses, partial trace, channels, and
-all-effect semantics remain outside Stage 9A; Stage 9B and Stage 9C wrappers
-also remain pending.
+all-effect semantics remain outside Stage 9A; Stage 9B does not alter those
+boundaries, and Stage 9C outcome wrappers remain pending.
+
+## Goal 2 Stage 9B semantic-refinement note
+
+Stage 9B adds no new paper correction and does not change the correction count.
+Its 16 wrappers classify already proved comparisons at exact directional
+operator, raw-state, reindexing, supplied-schedule, composed, and conditional-
+compiler scope. The underlying mathematics and every existing correction
+remain unchanged.
+
+In particular, the arbitrary `ℝ × ℝ`, `ℂ × ℂ`, and nested coefficient pairs
+are raw coordinates, not pure or product top states. Equation 63 remains equal
+to the composed embedding only after its named row and column reindexings and
+does not become a second circuit translator. Scheduled wrappers retain one
+supplied legal schedule, preserve the existing concrete operator gap, and make
+no schedule choice or independence claim. Compiler wrappers retain supplied
+`ExactGateCompiler` data and prove no compiler existence, primitive synthesis,
+approximation, count bound, runtime, or complexity result. Decoded outcomes,
+mixed-top semantics, partial trace, cross-model channels, and all effects remain
+outside Stage 9B and are not silently promoted by the new classifications.
