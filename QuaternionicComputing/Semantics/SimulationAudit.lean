@@ -37,6 +37,8 @@ namespace QuaternionicComputing.Semantics.SimulationAudit
 open QuaternionicComputing.State
 open QuaternionicComputing.Circuit
 open QuaternionicComputing.Simulation
+open QuaternionicComputing.Simulation.Examples
+open QuaternionicComputing.Circuit.OrderingWitness
 
 universe uS uT uU uOS uIS uOT uIT uOU uIU uO uM uP uTop uInput
 
@@ -864,19 +866,19 @@ theorem scheduledCircuit_wrappers_api
             (schedule.scheduledCircuit gates))) ∧
       OrderedCircuit.eval
           (QuaternionicComputing.Simulation.complexifyCircuit
-            (QuaternionicComputing.Circuit.OrderingWitness.iThenJSchedule.scheduledCircuit
-              QuaternionicComputing.Circuit.OrderingWitness.gateFamily)) ≠
+            (iThenJSchedule.scheduledCircuit
+              gateFamily)) ≠
         OrderedCircuit.eval
           (QuaternionicComputing.Simulation.complexifyCircuit
-            (QuaternionicComputing.Circuit.OrderingWitness.jThenISchedule.scheduledCircuit
-              QuaternionicComputing.Circuit.OrderingWitness.gateFamily)) :=
+            (jThenISchedule.scheduledCircuit
+              gateFamily)) :=
   ⟨scheduledComplexifyCircuit_exactOperatorEmbedding schedule gates,
     scheduledComplexifyCircuit_allCoefficient_stateIntertwining schedule gates,
     scheduledComplexifyCircuit_eval_ne_of_source_ne
-      QuaternionicComputing.Circuit.OrderingWitness.iThenJSchedule
-      QuaternionicComputing.Circuit.OrderingWitness.jThenISchedule
-      QuaternionicComputing.Circuit.OrderingWitness.gateFamily
-      QuaternionicComputing.Circuit.OrderingWitness.scheduled_operators_ne⟩
+      iThenJSchedule
+      jThenISchedule
+      gateFamily
+      scheduled_operators_ne⟩
 
 /--
 Complete consumer for the composed quaternion-to-real wrappers, including the
@@ -978,6 +980,513 @@ theorem compiledCircuit_wrappers_api
     QuaternionicComputing.Simulation.eval_compile_complexifyCircuit
       (identityExactGateCompiler ℂ (AddedWire Empty)) []⟩
 
+/-! ## Exact allocation of the 18 Stage 9C outcome wrappers -/
+
+/-
+The five aggregates below allocate the stable outcome wrapper leaf in source
+order as `2 + 4 + 4 + 4 + 4 = 18`.  They use full target distributions and the
+stable explicit decoders; none uses `id` to hide an added-wire carrier.
+-/
+
+/-! ### Concrete normalized tops and zero-wire states -/
+
+/-- Computational-basis rebit `|0⟩`. -/
+def outcomeTopRebitZero : Rebit :=
+  ⟨fun bit ↦ if bit then 0 else 1, by
+    simp [totalWeight, basisWeight, realWeight, Fintype.univ_bool]⟩
+
+/-- Computational-basis rebit `|1⟩`. -/
+def outcomeTopRebitOne : Rebit :=
+  ⟨fun bit ↦ if bit then 1 else 0, by
+    simp [totalWeight, basisWeight, realWeight, Fintype.univ_bool]⟩
+
+/-- Computational-basis qubit `|0⟩`. -/
+def outcomeTopQubitZero : Qubit :=
+  ⟨fun bit ↦ if bit then 0 else 1, by
+    simp [totalWeight, basisWeight, complexWeight, Fintype.univ_bool]⟩
+
+/-- Computational-basis qubit `|1⟩`. -/
+def outcomeTopQubitOne : Qubit :=
+  ⟨fun bit ↦ if bit then 1 else 0, by
+    simp [totalWeight, basisWeight, complexWeight, Fintype.univ_bool]⟩
+
+/-- One-coordinate raw complex column used by both canonical rebit tops. -/
+def outcomeUnitComplexColumn : Unit → ℂ := fun _ ↦ 1
+
+/-- Genuinely quaternionic raw `j` column used by both canonical qubit tops. -/
+def outcomeUnitQuaternionJColumn : Unit → ℍ[ℝ] := fun _ ↦ QuaternionicComputing.Quaternion.j
+
+/-- Normalized source state on the singleton zero-wire basis. -/
+def outcomeZeroWireComplexState : ComplexState (BitBasis Empty) :=
+  ⟨complexOneColumn, by
+    simp [totalWeight, basisWeight, complexWeight,
+      complexOneColumn, bitBasisEmpty_eq_emptyBasis]⟩
+
+/-- Normalized quaternionic source state on the singleton zero-wire basis. -/
+def outcomeZeroWireQuaternionState : QuaternionState (BitBasis Empty) :=
+  ⟨quaternionOneColumn, by
+    simp [totalWeight, basisWeight, quaternionWeight,
+      quaternionOneColumn, _root_.Quaternion.normSq_def',
+      bitBasisEmpty_eq_emptyBasis]⟩
+
+/-- The scalar-`I` zero-wire example gate is genuinely locally unitary. -/
+theorem outcomeComplexIGate_locallyUnitary :
+    complexIGate.IsLocallyUnitary := by
+  rw [complexIGate, PlacedGate.isLocallyUnitary_ofSplit]
+  constructor <;> ext x y
+  all_goals
+    have hx : x = emptyBasis := Subsingleton.elim _ _
+    have hy : y = emptyBasis := Subsingleton.elim _ _
+    subst x
+    subst y
+    simp [complexILocal, Matrix.mul_apply,
+      Matrix.star_eq_conjTranspose, Matrix.conjTranspose_apply]
+
+/-- The scalar-`I` one-gate circuit has locally unitary gates. -/
+theorem outcomeComplexICircuit_locallyUnitary :
+    complexICircuit.IsLocallyUnitary := by
+  simp [complexICircuit, OrderedCircuit.IsLocallyUnitary,
+    outcomeComplexIGate_locallyUnitary]
+
+/-- The scalar-`j` zero-wire example gate is genuinely locally unitary. -/
+theorem outcomeQuaternionJGate_locallyUnitary :
+    quaternionJGate.IsLocallyUnitary := by
+  rw [quaternionJGate, PlacedGate.isLocallyUnitary_ofSplit]
+  constructor <;> ext x y
+  all_goals
+    have hx : x = emptyBasis := Subsingleton.elim _ _
+    have hy : y = emptyBasis := Subsingleton.elim _ _
+    subst x
+    subst y
+    simp [quaternionJLocal, Matrix.mul_apply,
+      Matrix.star_eq_conjTranspose, Matrix.conjTranspose_apply]
+
+/-- The scalar-`j` one-gate circuit has locally unitary gates. -/
+theorem outcomeQuaternionJCircuit_locallyUnitary :
+    quaternionJCircuit.IsLocallyUnitary := by
+  simp [quaternionJCircuit, OrderedCircuit.IsLocallyUnitary,
+    outcomeQuaternionJGate_locallyUnitary]
+
+/-- Every gate in the concrete two-gate scheduling witness is locally unitary. -/
+theorem outcomeWitnessGateFamily_locallyUnitary (q : Bool) :
+    (gateFamily q).IsLocallyUnitary := by
+  cases q
+  · exact iGate_locallyUnitary
+  · exact jGate_locallyUnitary
+
+/-! ### Decoder and concrete-source infrastructure allocation -/
+
+/--
+Complete consumer for the ten public decoder declarations. The one-wire
+distribution is also checked against the deterministic `tailBits` pushforward,
+and the nested decoder visibly removes the outer wire before the inner wire.
+-/
+theorem outcomeDecoder_api
+    {W : Type uT} [Finite W]
+    (genericWeight : Unit ⊕ Unit → ℝ)
+    (oneWire : FiniteDistribution (BitBasis (AddedWire W)))
+    (twoWire : FiniteDistribution (BitBasis (AddedWire (AddedWire W))))
+    (outcome : BitBasis W) :
+    sumSectorWeightDecoder genericWeight () =
+        genericWeight (Sum.inl ()) + genericWeight (Sum.inr ()) ∧
+      addedWireWeightDecoder oneWire.weight outcome =
+        oneWire.weight (addedBasisEquiv W (Sum.inl outcome)) +
+          oneWire.weight (addedBasisEquiv W (Sum.inr outcome)) ∧
+      (addedWireDistributionDecoder oneWire).weight outcome =
+        addedWireWeightDecoder oneWire.weight outcome ∧
+      (addedWireDistributionDecoder oneWire).weight =
+        addedWireWeightDecoder oneWire.weight ∧
+      addedWireDistributionDecoder oneWire = oneWire.pushforward tailBits ∧
+      twoAddedWireWeightDecoder twoWire.weight outcome =
+        addedWireWeightDecoder (W := W)
+          (addedWireWeightDecoder (W := AddedWire W) twoWire.weight)
+          outcome ∧
+      twoAddedWireDistributionDecoder twoWire =
+        addedWireDistributionDecoder (W := W)
+          (addedWireDistributionDecoder (W := AddedWire W) twoWire) ∧
+      (twoAddedWireDistributionDecoder twoWire).weight outcome =
+        twoAddedWireWeightDecoder twoWire.weight outcome ∧
+      (twoAddedWireDistributionDecoder twoWire).weight =
+        twoAddedWireWeightDecoder twoWire.weight :=
+  ⟨rfl, rfl,
+    addedWireDistributionDecoder_weight oneWire outcome,
+    addedWireDistributionDecoder_compat oneWire,
+    addedWireDistributionDecoder_eq_pushforward oneWire,
+    rfl, rfl,
+    twoAddedWireDistributionDecoder_weight twoWire outcome,
+    twoAddedWireDistributionDecoder_compat twoWire⟩
+
+/--
+Complete consumer for the eight new concrete postprocessing declarations,
+using the real scalar-`I` target and the composed scalar-`j` target rather than
+abstract placeholders.
+-/
+theorem outcomePostprocessing_api :
+    addedWireDistributionDecoder
+        (FiniteDistribution.ofNormalizedState realWeight realWeight_nonneg
+          (realifyCircuitOutput complexICircuit
+            outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+            outcomeZeroWireComplexState)) =
+      addedWireBottomDistribution realWeight_nonneg
+        (realifyCircuitOutput complexICircuit
+          outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+          outcomeZeroWireComplexState) ∧
+      realifyCircuitFullOutputDistribution complexICircuit
+          outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+          outcomeZeroWireComplexState =
+        FiniteDistribution.ofNormalizedState realWeight realWeight_nonneg
+          (realifyCircuitOutput complexICircuit
+            outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+            outcomeZeroWireComplexState) ∧
+      complexifyCircuitFullOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeZeroWireQuaternionState =
+        FiniteDistribution.ofNormalizedState complexWeight
+          complexWeight_nonneg
+          (complexifyCircuitOutput quaternionJCircuit
+            outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+            outcomeZeroWireQuaternionState) ∧
+      quaternionToRealCircuitFullOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeTopRebitZero outcomeZeroWireQuaternionState =
+        FiniteDistribution.ofNormalizedState realWeight realWeight_nonneg
+          (quaternionToRealCircuitOutput quaternionJCircuit
+            outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+            outcomeTopRebitZero outcomeZeroWireQuaternionState) ∧
+      quaternionToRealCircuitBottomDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeTopRebitZero outcomeZeroWireQuaternionState =
+        twoAddedWireDistributionDecoder
+          (quaternionToRealCircuitFullOutputDistribution quaternionJCircuit
+            outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+            outcomeTopRebitZero outcomeZeroWireQuaternionState) ∧
+      quaternionToRealCircuitBottomDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeTopRebitZero outcomeZeroWireQuaternionState =
+        quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState ∧
+      (quaternionToRealCircuitBottomDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeTopRebitZero outcomeZeroWireQuaternionState).eventWeight
+            {emptyBasis} =
+        (quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState).eventWeight {emptyBasis} ∧
+      (quaternionToRealCircuitBottomDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeTopRebitZero outcomeZeroWireQuaternionState).pushforward
+            (fun _ ↦ true) =
+        (quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState).pushforward (fun _ ↦ true) := by
+  classical
+  exact ⟨addedWireDistributionDecoder_ofNormalizedState _ _,
+    rfl, rfl, rfl, rfl,
+    quaternionToRealCircuitBottomDistribution_eq quaternionJCircuit
+      outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+      outcomeTopRebitZero outcomeZeroWireQuaternionState,
+    quaternionToRealCircuitOutput_eventWeight quaternionJCircuit
+      outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+      outcomeTopRebitZero outcomeZeroWireQuaternionState {emptyBasis},
+    quaternionToRealCircuitOutput_pushforward_eq quaternionJCircuit
+      outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+      outcomeTopRebitZero outcomeZeroWireQuaternionState (fun _ ↦ true)⟩
+
+/-! ### Five disjoint outcome-wrapper aggregates -/
+
+/--
+Complete consumer for both representative-level wrappers, with both canonical
+tops and a genuinely quaternionic `j` input.
+-/
+theorem representativeOutcomes_wrappers_api :
+    DecodedBasisWeightAgreement sumSectorWeightDecoder
+        (complexBasisWeight outcomeUnitComplexColumn)
+        (realBasisWeight
+          (realTopCombination
+            (outcomeTopRebitZero false) (outcomeTopRebitZero true)
+            outcomeUnitComplexColumn)) ∧
+      DecodedBasisWeightAgreement sumSectorWeightDecoder
+        (complexBasisWeight outcomeUnitComplexColumn)
+        (realBasisWeight
+          (realTopCombination
+            (outcomeTopRebitOne false) (outcomeTopRebitOne true)
+            outcomeUnitComplexColumn)) ∧
+      DecodedBasisWeightAgreement sumSectorWeightDecoder
+        (quaternionBasisWeight outcomeUnitQuaternionJColumn)
+        (complexBasisWeight
+          (complexTopCombination
+            (outcomeTopQubitZero false) (outcomeTopQubitZero true)
+            outcomeUnitQuaternionJColumn)) ∧
+      DecodedBasisWeightAgreement sumSectorWeightDecoder
+        (quaternionBasisWeight outcomeUnitQuaternionJColumn)
+        (complexBasisWeight
+          (complexTopCombination
+            (outcomeTopQubitOne false) (outcomeTopQubitOne true)
+            outcomeUnitQuaternionJColumn)) := by
+  have hReal :=
+    realTopCombination_allRebit_raw_decodedBasisWeightAgreement (I := Unit)
+  have hQuaternion :=
+    complexTopCombination_allQubit_raw_decodedBasisWeightAgreement (I := Unit)
+  exact ⟨AllTopDecodedBasisWeightAgreement.forTopInput hReal
+      outcomeTopRebitZero outcomeUnitComplexColumn,
+    AllTopDecodedBasisWeightAgreement.forTopInput hReal
+      outcomeTopRebitOne outcomeUnitComplexColumn,
+    AllTopDecodedBasisWeightAgreement.forTopInput hQuaternion
+      outcomeTopQubitZero outcomeUnitQuaternionJColumn,
+    AllTopDecodedBasisWeightAgreement.forTopInput hQuaternion
+      outcomeTopQubitOne outcomeUnitQuaternionJColumn⟩
+
+/--
+Complete consumer for the four complex-to-real outcome levels on the actual
+scalar-`I` zero-wire circuit. `BitBasis Empty` is a singleton, not empty.
+-/
+theorem complexToRealOutcomes_wrappers_api :
+    DecodedBasisWeightAgreement (addedWireWeightDecoder (W := Empty))
+        (fun outcome ↦ complexBasisWeight
+          (OrderedCircuit.eval complexICircuit *ᵥ
+            complexOneColumn) outcome)
+        (fun targetOutcome ↦ realBasisWeight
+          (OrderedCircuit.eval
+              (realifyCircuit complexICircuit) *ᵥ
+            wireRealTopCombination
+              (outcomeTopRebitOne false) (outcomeTopRebitOne true)
+              complexOneColumn)
+          targetOutcome) ∧
+      DecodedDistributionAgreement
+        (addedWireDistributionDecoder (W := Empty))
+        (complexCircuitOutputDistribution complexICircuit
+          outcomeComplexICircuit_locallyUnitary outcomeZeroWireComplexState)
+        (realifyCircuitFullOutputDistribution complexICircuit
+          outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+          outcomeZeroWireComplexState) ∧
+      (addedWireDistributionDecoder
+          (realifyCircuitFullOutputDistribution complexICircuit
+            outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+            outcomeZeroWireComplexState)).eventWeight
+            {emptyBasis} =
+        (complexCircuitOutputDistribution complexICircuit
+          outcomeComplexICircuit_locallyUnitary
+          outcomeZeroWireComplexState).eventWeight {emptyBasis} ∧
+      (addedWireDistributionDecoder
+          (realifyCircuitFullOutputDistribution complexICircuit
+            outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+            outcomeZeroWireComplexState)).pushforward (fun _ ↦ true) =
+        (complexCircuitOutputDistribution complexICircuit
+          outcomeComplexICircuit_locallyUnitary
+          outcomeZeroWireComplexState).pushforward (fun _ ↦ true) := by
+  classical
+  exact ⟨AllTopDecodedBasisWeightAgreement.forTopInput
+      (realifyCircuit_allRebit_raw_decodedBasisWeightAgreement
+        complexICircuit)
+      outcomeTopRebitOne complexOneColumn,
+    AllTopDecodedDistributionAgreement.forTopInput
+      (realifyCircuit_allRebit_decodedDistributionAgreement
+        complexICircuit outcomeComplexICircuit_locallyUnitary)
+      outcomeTopRebitZero outcomeZeroWireComplexState,
+    realifyCircuit_decodedEventWeight_eq complexICircuit
+      outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+      outcomeZeroWireComplexState {emptyBasis},
+    realifyCircuit_decodedPushforward_eq complexICircuit
+      outcomeComplexICircuit_locallyUnitary outcomeTopRebitZero
+      outcomeZeroWireComplexState (fun _ ↦ true)⟩
+
+/--
+Complete consumer for the four quaternion-to-complex outcome levels on the
+actual scalar-`j` zero-wire circuit.
+-/
+theorem quaternionToComplexOutcomes_wrappers_api :
+    DecodedBasisWeightAgreement (addedWireWeightDecoder (W := Empty))
+        (fun outcome ↦ quaternionBasisWeight
+          (OrderedCircuit.eval quaternionJCircuit *ᵥ
+            quaternionOneColumn) outcome)
+        (fun targetOutcome ↦ complexBasisWeight
+          (OrderedCircuit.eval
+              (complexifyCircuit quaternionJCircuit) *ᵥ
+            wireComplexTopCombination
+              (outcomeTopQubitOne false) (outcomeTopQubitOne true)
+              quaternionOneColumn)
+          targetOutcome) ∧
+      DecodedDistributionAgreement
+        (addedWireDistributionDecoder (W := Empty))
+        (quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState)
+        (complexifyCircuitFullOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+          outcomeZeroWireQuaternionState) ∧
+      (addedWireDistributionDecoder
+          (complexifyCircuitFullOutputDistribution
+            quaternionJCircuit
+            outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+            outcomeZeroWireQuaternionState)).eventWeight
+            {emptyBasis} =
+        (quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState).eventWeight {emptyBasis} ∧
+      (addedWireDistributionDecoder
+          (complexifyCircuitFullOutputDistribution
+            quaternionJCircuit
+            outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+            outcomeZeroWireQuaternionState)).pushforward (fun _ ↦ false) =
+        (quaternionCircuitOutputDistribution quaternionJCircuit
+          outcomeQuaternionJCircuit_locallyUnitary
+          outcomeZeroWireQuaternionState).pushforward (fun _ ↦ false) := by
+  classical
+  exact ⟨AllTopDecodedBasisWeightAgreement.forTopInput
+      (complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
+        quaternionJCircuit)
+      outcomeTopQubitOne quaternionOneColumn,
+    AllTopDecodedDistributionAgreement.forTopInput
+      (complexifyCircuit_allQubit_decodedDistributionAgreement
+        quaternionJCircuit outcomeQuaternionJCircuit_locallyUnitary)
+      outcomeTopQubitZero outcomeZeroWireQuaternionState,
+    complexifyCircuit_decodedEventWeight_eq quaternionJCircuit
+      outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+      outcomeZeroWireQuaternionState {emptyBasis},
+    complexifyCircuit_decodedPushforward_eq quaternionJCircuit
+      outcomeQuaternionJCircuit_locallyUnitary outcomeTopQubitZero
+      outcomeZeroWireQuaternionState (fun _ ↦ false)⟩
+
+/--
+Complete consumer for the four scheduled outcome wrappers on the actual
+`iThenJ` legal schedule, including a two-outcome event and bit projection.
+-/
+theorem scheduledQuaternionToComplexOutcomes_wrappers_api :
+    DecodedBasisWeightAgreement (addedWireWeightDecoder (W := Bool))
+        (fun outcome ↦ quaternionBasisWeight
+          (iThenJSchedule.scheduledEval gateFamily *ᵥ
+            inputColumn) outcome)
+        (fun targetOutcome ↦ complexBasisWeight
+          (OrderedCircuit.eval
+              (complexifyCircuit
+                (iThenJSchedule.scheduledCircuit
+                  gateFamily)) *ᵥ
+            wireComplexTopCombination
+              (outcomeTopQubitOne false) (outcomeTopQubitOne true)
+              inputColumn)
+          targetOutcome) ∧
+      DecodedDistributionAgreement
+        (addedWireDistributionDecoder (W := Bool))
+        (quaternionCircuitOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          inputState)
+        (complexifyCircuitFullOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          outcomeTopQubitZero inputState) ∧
+      (addedWireDistributionDecoder
+        (complexifyCircuitFullOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          outcomeTopQubitZero inputState)).eventWeight
+            {basis00, basis11} =
+        (quaternionCircuitOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          inputState).eventWeight
+            {basis00, basis11} ∧
+      (addedWireDistributionDecoder
+        (complexifyCircuitFullOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          outcomeTopQubitZero inputState)).pushforward
+            (fun outcome ↦ outcome false) =
+        (quaternionCircuitOutputDistribution
+          (iThenJSchedule.scheduledCircuit gateFamily)
+          (LegalSchedule.scheduledCircuit_isLocallyUnitary
+            iThenJSchedule gateFamily
+            outcomeWitnessGateFamily_locallyUnitary)
+          inputState).pushforward (fun outcome ↦ outcome false) := by
+  classical
+  exact ⟨AllTopDecodedBasisWeightAgreement.forTopInput
+      (scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
+        iThenJSchedule gateFamily)
+      outcomeTopQubitOne inputColumn,
+    AllTopDecodedDistributionAgreement.forTopInput
+      (scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement
+        iThenJSchedule gateFamily
+        outcomeWitnessGateFamily_locallyUnitary)
+      outcomeTopQubitZero inputState,
+    scheduledComplexifyCircuit_decodedEventWeight_eq
+      iThenJSchedule gateFamily
+      outcomeWitnessGateFamily_locallyUnitary
+      outcomeTopQubitZero inputState
+      {basis00, basis11},
+    scheduledComplexifyCircuit_decodedPushforward_eq
+      iThenJSchedule gateFamily
+      outcomeWitnessGateFamily_locallyUnitary
+      outcomeTopQubitZero inputState
+      (fun outcome ↦ outcome false)⟩
+
+/--
+Complete consumer for the four composed outcome wrappers.  The explicit
+two-wire decoder removes the outer realification wire before the inner
+complexification wire.
+-/
+theorem composedQuaternionToRealOutcomes_wrappers_api :
+    DecodedBasisWeightAgreement (twoAddedWireWeightDecoder (W := Bool))
+        (fun outcome ↦ quaternionBasisWeight
+          (OrderedCircuit.eval iThenJ *ᵥ inputColumn)
+          outcome)
+        (fun targetOutcome ↦ realBasisWeight
+          (OrderedCircuit.eval (quaternionToRealCircuit iThenJ) *ᵥ
+            wireRealTopCombination
+              (outcomeTopRebitZero false) (outcomeTopRebitZero true)
+              (wireComplexTopCombination
+                (outcomeTopQubitOne false) (outcomeTopQubitOne true)
+                inputColumn))
+          targetOutcome) ∧
+      DecodedDistributionAgreement
+        (twoAddedWireDistributionDecoder (W := Bool))
+        (quaternionCircuitOutputDistribution iThenJ
+          iThenJ_locallyUnitary inputState)
+        (quaternionToRealCircuitFullOutputDistribution iThenJ
+          iThenJ_locallyUnitary outcomeTopQubitOne
+          outcomeTopRebitZero inputState) ∧
+      (twoAddedWireDistributionDecoder
+        (quaternionToRealCircuitFullOutputDistribution iThenJ
+          iThenJ_locallyUnitary outcomeTopQubitOne
+          outcomeTopRebitZero inputState)).eventWeight
+            {basis00, basis11} =
+        (quaternionCircuitOutputDistribution iThenJ
+          iThenJ_locallyUnitary inputState).eventWeight
+            {basis00, basis11} ∧
+      (twoAddedWireDistributionDecoder
+        (quaternionToRealCircuitFullOutputDistribution iThenJ
+          iThenJ_locallyUnitary outcomeTopQubitOne
+          outcomeTopRebitZero inputState)).pushforward
+            (fun outcome ↦ outcome true) =
+        (quaternionCircuitOutputDistribution iThenJ
+          iThenJ_locallyUnitary inputState).pushforward
+            (fun outcome ↦ outcome true) := by
+  classical
+  exact ⟨AllTopDecodedBasisWeightAgreement.forTopInput
+      (quaternionToRealCircuit_allPureTop_raw_decodedBasisWeightAgreement
+        iThenJ)
+      (outcomeTopQubitOne, outcomeTopRebitZero) inputColumn,
+    AllTopDecodedDistributionAgreement.forTopInput
+      (quaternionToRealCircuit_allPureTop_decodedDistributionAgreement
+        iThenJ iThenJ_locallyUnitary)
+      (outcomeTopQubitOne, outcomeTopRebitZero) inputState,
+    quaternionToRealCircuit_decodedEventWeight_eq iThenJ
+      iThenJ_locallyUnitary outcomeTopQubitOne outcomeTopRebitZero
+      inputState {basis00, basis11},
+    quaternionToRealCircuit_decodedPushforward_eq iThenJ
+      iThenJ_locallyUnitary outcomeTopQubitOne outcomeTopRebitZero
+      inputState (fun outcome ↦ outcome true)⟩
+
 end QuaternionicComputing.Semantics.SimulationAudit
 
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.exactStateEncoding_api
@@ -985,15 +1494,20 @@ end QuaternionicComputing.Semantics.SimulationAudit
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allRebit_stateIntertwining_api
-#print axioms QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedBasisWeight_api
-#print axioms
-  QuaternionicComputing.Semantics.SimulationAudit.allRebit_decodedDistribution_api
-#print axioms
-  QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedDistribution_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.empty_rawEncoding_normalizedBoundary_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.ordinaryRealRay_nonDescent_nonProduct_boundary
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.scheduledQuaternionToComplexOutcomes_wrappers_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.composedQuaternionToRealOutcomes_wrappers_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api
 #print axioms
