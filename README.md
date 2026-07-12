@@ -54,6 +54,8 @@ import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.Ray
+import QuaternionicComputing.Semantics.BasisBehavior
+import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -154,6 +156,18 @@ all computational-basis inputs, and all normalized pure inputs.
 distributions. None of these basis-observation relations is silently promoted
 to ray or channel equality.
 
+Classical reversible basis behavior is certified rather than inferred from a
+possibly empty transition predicate. `BasisPermutationImplementation` carries
+an explicit `Equiv.Perm` and proves that every input column is a unit-phased
+basis ket at its designated output. `SameBasisBehavior` can therefore be
+formed only from two certificates and means equality of their permutations.
+For certified real, complex, and quaternionic operators this is equivalent to
+the correctly sided input phase, output phase, and `BasisMeasurementEq`
+relations. The evaluator-backed `BasisClassicalCircuit` supplies the same
+classification for locally unitary circuits. These equivalences are confined
+to the certified class: they are not generic matrix, global-phase, projective,
+channel, or all-effect equalities.
+
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
 phase, and `RealProjectiveActionEq`/`ComplexProjectiveActionEq`. Matching
@@ -194,7 +208,10 @@ order-sensitive.  On the normalized ground product input, the same orders
 instead yield distinct right-phase rays while agreeing on every
 computational-basis weight; this is not a signaling or entanglement theorem.
 A known computational-basis input can be prepared from the ground column by a
-certified XOR permutation gate.  One-gate realification and complexification
+certified XOR permutation gate. Its matrix, full-support gate, and singleton
+circuit implement the XOR permutation on every basis input; the separate
+ground-column and prepended-circuit theorems remain one-known-input statements,
+not arbitrary-state preparation or uniform synthesis. One-gate realification and complexification
 reuse one shared distinguished top wire, commute with actual contextual
 placement, preserve local unitarity, and increase local arity by exactly one.
 

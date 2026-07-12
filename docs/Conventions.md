@@ -161,6 +161,50 @@ quaternion defines a unitary, projectively trivial scalar matrix, and
 `Quaternion.j` is not a central sign. None of these phase relations is channel
 equality or all-effect equality.
 
+## Certified computational-basis behavior
+
+Classical reversible behavior is not defined by comparing an unqualified
+predicate of the form “`U|x⟩` is `|y⟩` up to phase.” The raw
+`BasisTransition` predicate records one such column transition, and
+`BasisTransitionRelationEq` compares all of them, but both relations may be
+empty for a nonmonomial unitary. The audit proves this with two everywhere-
+nonzero rational real rotations whose raw relations agree while a basis
+measurement probability differs.
+
+A genuine implementation has the form
+
+```text
+BasisPermutationImplementation unitPhase U p
+```
+
+where `p : Equiv.Perm I` is explicit and every input column `x` has exactly one
+unit-phase entry at output `p x`, with zeros elsewhere. The scalar predicates
+are `RealUnitSign`, `ComplexUnitPhase`, and `QuaternionUnitPhase`.
+`SameBasisBehavior hU hV` is available only after both certificates have been
+supplied and means equality of their permutations. It is deliberately not a
+relation on arbitrary matrices and is not defined from measurement equality.
+
+On the certified real, complex, and quaternionic classes, same permutation is
+equivalent to the corresponding input-column phase, output-row phase, and
+computational-basis measurement relation. For quaternions, input phases act on
+the right and output phases on the left; the proof witnesses retain the
+noncommutative orders `star a * b` and `b * star a`. Exact equality and one
+real/complex global phase or quaternionic central sign preserve certified
+behavior, but no converse to a global phase is claimed. In particular,
+input-dependent phases need not define the same action on superpositions, so
+certified basis behavior is not projective, channel, or all-effect equality.
+
+`BasisClassicalCircuit` applies the same convention to
+`OrderedCircuit.eval`. Its stored permutation describes evaluator behavior,
+not equality of gate lists, schedules, resource counts, or compilers. The
+empty circuit has the identity certificate, including at zero wires.
+
+Known basis preparation has two distinct scopes. The certified XOR matrix,
+full-support gate, and singleton circuit implement `x ↦ x XOR b` for every
+basis input. The ground-column and prepended-circuit theorems use only the one
+known input `groundBasis W`; they do not synthesize an arbitrary quantum state
+or provide a uniform preparation algorithm.
+
 ## Conjugation and adjoints
 
 - Complex and quaternionic conjugation use `star`.

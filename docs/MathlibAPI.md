@@ -157,11 +157,15 @@ Known basis preparation uses the permutation-matrix surface:
 Equiv.Perm.permMatrix
 Matrix.conjTranspose_permMatrix
 Matrix.permMatrix_mul
+PEquiv.toMatrix_apply
 PEquiv.toMatrix_toPEquiv_mulVec
 ```
 
 This makes XOR preparation scalar-generic and proves its action on the one-hot
 ground column directly, without introducing a circuit synthesis algorithm.
+The row/column orientation is explicit: `p.permMatrix R` sends input basis
+label `x` to output `p.symm x`. Since `xorBasisEquiv b` is self-inverse, its
+certified output permutation is again XOR by `b`.
 
 ## Unitary matrices and determinants
 
@@ -578,6 +582,44 @@ that the scalar matrix for `q` is unitary and projectively trivial exactly when
 `normSq q = 1`. Component extensionality then proves the concrete `j` scalar is
 not a central real sign. This is a theorem-level exception, not an artifact of
 an omitted `Nonempty` hypothesis.
+
+## Goal 2 certified basis behavior
+
+The certified basis layer uses `Equiv.Perm I` as explicit data rather than
+trying to infer a permutation from a matrix. The essential mathlib surface is:
+
+```lean
+Equiv.ext
+Equiv.Perm.permMatrix
+PEquiv.toMatrix_apply
+Pi.single
+Matrix.mulVec_single_one
+Matrix.conjTranspose_permMatrix
+Matrix.permMatrix_mul
+Unitary.mem_iff
+```
+
+`BasisPermutationImplementation.ofPermMatrix` expands
+`PEquiv.toMatrix_apply` to prove the exact one-hot entry formula and records
+the induced permutation as `p.symm`. `BasisClassicalUnitaryOperator` uses the
+two permutation-matrix adjoint products for unitarity. No generic mathlib
+“monomial matrix classifier” is assumed, and no arbitrary function is accepted
+in place of an equivalence.
+
+Permutation uniqueness is proved internally from the certified nonzero entry:
+if two certificates name outputs `p x` and `q x` for the same column, evaluating
+one certificate at the other's output forces equality; `Equiv.ext` then gives
+`p = q`. This works for an empty index type without introducing an inhabitant.
+For circuits, the existing `OrderedCircuit.eval_mem_unitary` turns stored local
+unitarity into the unitary field of the evaluated certified operator.
+
+The real/complex/quaternionic equivalences with sided phase and basis
+measurement reuse `State.realWeight`, `State.complexWeight`, and
+`State.quaternionWeight`. Quaternionic phases are never commuted: equal
+certified permutations yield input witness `star a * b` on the right and
+output witness `b * star a` on the left. The exact rational vacuity witness is
+checked with `Unitary.mem_iff`, finite Boolean extensionality, and `norm_num`;
+it imports no numerical approximation API.
 
 ## Promoted compiled APIs
 

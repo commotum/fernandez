@@ -16,6 +16,8 @@ public import QuaternionicComputing.State.RealificationOrbitBoundary
 public import QuaternionicComputing.Semantics.Measurement
 public import QuaternionicComputing.Semantics.StatePhase
 public import QuaternionicComputing.Semantics.Ray
+public import QuaternionicComputing.Semantics.BasisBehavior
+public import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionCircuit
 public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
@@ -98,6 +100,18 @@ and global operator phase means only a central real sign. Raw and normalized
 all-input projective action coincide; for unitary square spaces of dimension
 at least two their kernel is exactly the central signs, while rank one has the
 full unit-quaternion scalar family as an explicit exception.
+
+Classical reversible computational-basis behavior is exported only through an
+explicit permutation certificate: every input column must be a unit-phased
+basis ket at its certified output. Equality of certified behavior means
+equality of those permutations. On the certified real, complex, and
+quaternionic classes it is equivalent to the corresponding input-phase,
+output-phase, and basis-measurement relations, with quaternionic input phases
+on the right and output phases on the left. The raw transition biconditional
+remains a diagnostic predicate because two nonmonomial unitaries can satisfy
+it vacuously. Certified circuit wrappers compare evaluations rather than gate
+lists or resources, and the basis-preparation circuit separately exposes its
+all-input XOR permutation and its known-ground-input preparation theorem.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

@@ -3,8 +3,10 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 305 `#print axioms` commands (286 at the Stage 4B
-checkpoint). The Stage 4C audit scope covers representative endpoints from
+the public root. At the Stage 4C checkpoint it ran 305 `#print axioms`
+commands (286 at the Stage 4B checkpoint). The final Stage 5 root total is
+recorded during public-root integration; the completed local Stage 5 audit is
+described below. The Stage 4C audit scope covers representative endpoints from
 every public layer, including:
 
 - quaternion scalar decomposition and phase correction;
@@ -36,6 +38,9 @@ every public layer, including:
   exception;
 - gate placement, chronological circuits, schedules, ordering witnesses, and
   basis preparation;
+- certified basis-permutation implementations, certified unitary
+  operator/circuit bundles, certified-only same-basis behavior, scalar-sided
+  phase/measurement equivalences, and the all-input XOR consumer;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and

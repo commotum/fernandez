@@ -350,6 +350,52 @@ set_option linter.style.longLine false in
   QuaternionicComputing.Semantics.quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one
 #print axioms QuaternionicComputing.Semantics.quaternionRankOneJ_exception
 
+#print axioms
+  QuaternionicComputing.Semantics.BasisTransitionRelationEq.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.BasisPermutationImplementation.permutation_unique
+#print axioms
+  QuaternionicComputing.Semantics.SameBasisBehavior.basisTransitionRelationEq
+#print axioms QuaternionicComputing.Semantics.ExactOperatorEq.sameBasisBehavior
+#print axioms QuaternionicComputing.Semantics.BasisMeasurementEq.sameBasisBehavior
+#print axioms
+  QuaternionicComputing.Semantics.SameBasisBehavior.quaternionInputRightPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.SameBasisBehavior.quaternionOutputLeftPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.sameBasisBehavior_iff_realBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.sameBasisBehavior_iff_complexBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.sameBasisBehavior_iff_quaternionBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.RealBasisClassicalUnitaryOperator.ofPermMatrix
+
+#print axioms QuaternionicComputing.Semantics.BasisClassicalCircuit.eval_mem_unitary
+#print axioms QuaternionicComputing.Semantics.SameCircuitBasisBehavior.equivalence
+#print axioms
+  QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_complexCircuitInputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionCircuitInputRightPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionCircuitOutputLeftPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq
+#print axioms
+  QuaternionicComputing.Semantics.ExactCircuitEq.quaternionSameCircuitBasisBehavior
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior
+#print axioms QuaternionicComputing.Semantics.emptyBasisClassicalCircuit
+#print axioms
+  QuaternionicComputing.Semantics.basisPreparationCircuit_basisTransition
+#print axioms QuaternionicComputing.Semantics.basisPreparationCircuit_eval_entry
+#print axioms
+  QuaternionicComputing.Semantics.basisPreparationCircuit_mulVec_ground
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

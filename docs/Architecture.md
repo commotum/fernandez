@@ -47,6 +47,9 @@ QuaternionicComputing/
     StatePhase.lean          normalized exact/sign/right-phase relations
     StatePhaseAudit.lean     normalized left-phase rejection and API consumers
     Ray.lean                 representative phase iff quotient-constructor equality
+    BasisBehavior.lean       certified reversible computational-basis action
+    BasisBehaviorCircuit.lean evaluator-backed certified circuit behavior
+    BasisBehaviorAudit.lean  non-root complete consumers and vacuity witness
     OperatorPhase/
       ComplexReal.lean       global, basis-sided, and projective operator phase
       ComplexRealCircuit.lean  sided composition and evaluator-backed circuits
@@ -260,6 +263,43 @@ all physical effects, or cross-model simulation. In particular, deriving
 basis-input agreement from the all-normalized-pure-input relation requires an
 explicit proof that the chosen scalar weight normalizes every basis ket.
 
+`Semantics/BasisBehavior.lean` separates a raw transition diagnostic from
+certified classical reversible behavior. `BasisTransition unitPhase U x y`
+says only that one input column is a unit-phased basis ket at `y`, and
+`BasisTransitionRelationEq` compares those predicates extensionally. Either
+relation can be empty for a unitary matrix. A genuine
+`BasisPermutationImplementation unitPhase U p` instead supplies an explicit
+`Equiv.Perm I` and proves the designated transition for every input. Unit
+phase implies nonzero phase, so the implemented permutation is unique rather
+than stored with an extra uniqueness axiom.
+
+`SameBasisBehavior` is defined only from two implementation certificates and
+means equality of their certified permutations. The real, complex, and
+quaternionic specializations prove exact equivalences, on this certified class
+only, with the correctly sided input phase, output phase, and
+`BasisMeasurementEq` relations. Exact equality and real/complex global phase
+or quaternionic central sign give only the justified forward preservation
+arrows. Quaternionic column witnesses multiply on the right and row witnesses
+on the left; their order is proved with `star a * b` and `b * star a`,
+respectively.
+
+`Semantics/BasisBehaviorCircuit.lean` stores a locally unitary chronological
+circuit, its explicit basis permutation, and an implementation proof for
+`OrderedCircuit.eval`. It derives evaluated unitarity and lifts the same
+certified equivalences, exact-evaluator implication, and global/central-phase
+arrows. The generic empty circuit implements the identity permutation,
+including on zero wires. This layer says nothing about gate-list equality,
+resources, schedule certificates, cross-model embeddings, channels, or all
+effects.
+
+The non-root `Semantics/BasisBehaviorAudit.lean` consumes the entire stable
+core and circuit API. Its strictness witness uses two exact rational real
+rotations, both unitary and everywhere nonzero, with no phased basis
+transition and hence equal empty raw relations, but unequal
+`false → false` basis weights. Neither matrix admits a certified basis
+permutation. This proves that a raw transition biconditional cannot replace
+the explicit certificate even on unitaries.
+
 `Semantics/OperatorPhase/ComplexReal.lean` separates four same-space operator
 relations for each commutative scalar. `RealGlobalSignEq` and
 `ComplexGlobalPhaseEq` use one scalar for the complete matrix. Input-basis
@@ -346,8 +386,11 @@ computational-basis assignment.  XOR by that assignment is a self-inverse
 permutation whose matrix is unitary over a compatible star semiring; as a
 full-support placed gate it maps the all-zero basis column to the requested
 column.  Prepending the gate obeys the established chronological evaluator.
-There is no unknown-state preparation, primitive synthesis, or uniform cost
-claim.
+`Semantics/BasisBehaviorCircuit.lean` additionally certifies the matrix, gate,
+and singleton circuit as implementing `x ↦ x XOR b` for every basis input.
+That all-input classification is distinct from the original ground-column and
+prepended-circuit theorems, which each concern one known external input. There
+is no unknown-state preparation, primitive synthesis, or uniform cost claim.
 
 `AddedWire W := Unit ⊕ W` is shared by every translated gate.  `addTopSplit`
 puts this one distinguished wire into the translated local support while
@@ -526,7 +569,9 @@ determinant boundary is therefore explicit:
   main public theorems.
 - Heavy semantic diagnostics stay outside the public root; in particular,
   `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
-  operator-phase leaves without becoming a transitive dependency.
+  operator-phase leaves, and `Semantics/BasisBehaviorAudit.lean` consumes the
+  certified-basis leaves and their raw-transition strictness witness, without
+  either becoming a transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage

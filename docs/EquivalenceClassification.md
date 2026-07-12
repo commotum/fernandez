@@ -349,6 +349,34 @@ operation descent already present, `FER03-D01-REBIT` and
 `closedByGoal2`. This does not close mixed-top, phase-kickback, density,
 channel, or all-effect claims.
 
+## Stage 5 proof-bearing realization
+
+Stage 5 replaces the paper-facing idea of “same classical basis action” with
+an explicit, nonvacuous certificate. It updates the proof-bearing
+classifications of frozen rows `EQC-014` and `EQC-044` without changing the
+frozen Goal 1 cohort.
+
+| Frozen row | Strongest checked Stage 5 classification | Proof-bearing API | Deliberately excluded upgrade |
+|---|---|---|---|
+| `EQC-014-BASIS-PREPARATION` | For every finite wire type and known basis assignment `b`, the existing permutation matrix, full-support gate, and singleton circuit implement the all-input permutation `x ↦ x XOR b`; the matrix and circuit are unitary through their actual certificates. The original ground-column and prepended-circuit statements remain one-known-input consequences. | `basisPreparationMatrixImplementation`, `basisPreparationOperator`, `basisPreparationGateImplementation`, `basisPreparationCircuit`, `basisPreparationCircuit_basisTransition`, `basisPreparationCircuit_eval_entry`, `basisPreparationCircuit_mulVec_ground` | No unknown-state preparation, primitive synthesis, uniform compiler, runtime, or arbitrary-input-state reduction is claimed. |
+| `EQC-044-BASIS-CLASSICAL-BEHAVIOR` | A matrix has certified classical reversible behavior only after supplying an explicit `Equiv.Perm I` and an all-input proof that each column is a unit-phased basis ket at the permuted output. `SameBasisBehavior` compares two such certificates by equality of the certified permutations. On the certified real, complex, and quaternionic classes it is equivalent to the appropriate input phase, output phase, and `BasisMeasurementEq`; evaluator-backed circuit wrappers state the same facts through `OrderedCircuit.eval`. | `BasisPermutationImplementation`, `BasisClassicalUnitaryOperator`, `SameBasisBehavior`, the nine `sameBasisBehavior_iff_*` theorems, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, and its nine scalar iff wrappers | No relation on arbitrary matrices, no inference from a raw transition biconditional, and no generic exact, global-phase, projective, channel, or all-effect equality. Quaternionic input phases remain on the right and output phases on the left. |
+
+`BasisTransition` and `BasisTransitionRelationEq` remain useful diagnostics, but
+they are deliberately not the certified behavior relation. The non-root audit
+uses the exact real rotations
+`[[3/5,4/5],[-4/5,3/5]]` and
+`[[5/13,12/13],[-12/13,5/13]]`. Both matrices are unitary and every entry is
+nonzero, yet neither has any phased basis transition or certified permutation.
+Their empty raw transition relations are equal while their
+`false → false` basis weights differ. Thus the unrestricted transition
+biconditional is vacuous even on physically relevant unitary examples.
+
+Exact operator/circuit equality and real/complex global phase or quaternionic
+central sign preserve certified behavior when certificates are supplied. The
+converses are not asserted. Equal certified permutations may use different
+input-dependent phases, so Stage 5 does not infer one global phase, general
+projective action, a channel, or equality under all physical effects.
+
 ## Ambiguous wording backlog
 
 The following prose must be adjudicated during the retrofit.  A registry label
@@ -440,6 +468,11 @@ must not silently choose one reading.
     descends to ordinary `RealRay` on a nonempty space. Complex phase descends
     as `RealSectorOrbit` rotation, while representative intertwining and the
     decoded bottom distribution remain exact.
+27. **Resolved in Stage 5:** equality of the raw predicate “input `x` reaches
+    basis output `y` up to phase” is not classical reversible behavior. Two
+    nonmonomial unitaries can make both raw relations empty. The implemented
+    relation therefore requires explicit permutation certificates before
+    `SameBasisBehavior` can be formed.
 
 ## Verification obligations before any row becomes final
 
