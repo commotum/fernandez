@@ -458,6 +458,21 @@ all-effect equality. In particular, complex realification uses
 `RealSectorOrbit` at the ray level, and the non-product witness rules out
 reading a top-sector coefficient as a pure top/bottom factorization.
 
+The stable `SimulationWrappers` layer applies these directional relations at
+their exact proved strength. Matrix and circuit state intertwinings quantify
+raw `ℝ × ℝ`, `ℂ × ℂ`, or nested `(ℂ × ℂ) × (ℝ × ℝ)` coordinate pairs; they do
+not require normalization and must not be described as pure top states or
+product ancillas. Operator wrappers always display `wireRealify`,
+`wireComplexify`, their composition, or the Equation 63 row/column reindexing.
+Equation 63 is therefore not a second circuit translator. Scheduled wrappers
+describe one caller-supplied `LegalSchedule` and neither choose a schedule nor
+prove schedule independence. Compiler wrappers quantify supplied
+`ExactGateCompiler` data and prove only exact evaluator preservation: they do
+not establish compiler existence, a finite primitive library, synthesis,
+approximation, gate-count complexity, or runtime. None of these 16 wrappers is
+a decoded-outcome, ray, channel, or all-effect theorem; those scopes require
+separate relations and Stage 9C still owns the cross-model outcome wrappers.
+
 ## Scalar decompositions and embeddings
 
 For `q = a₀ + a₁ i + a₂ j + a₃ k`, the paper's decomposition is retained:

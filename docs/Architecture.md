@@ -73,7 +73,8 @@ QuaternionicComputing/
     HierarchyAudit.lean      non-root hierarchy strictness and exact coverage
     Simulation.lean          directional cross-model relation vocabulary
     SimulationEncoding.lean  representative coordinate equivalences
-    SimulationAudit.lean     non-root allocation and concrete scope checks
+    SimulationWrappers.lean  exact matrix/circuit/schedule/compiler wrappers
+    SimulationAudit.lean     non-root allocations and concrete scope checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -557,9 +558,22 @@ their meaning. The stable generic leaf exports 38 declarations.
 `Semantics/SimulationEncoding.lean` adds 20 concrete declarations for the four
 canonical columns: left- and right-inverse facts, losslessness, four raw
 real-linear equivalences, and four normalized representative equivalences.
-The non-root `SimulationAudit.lean` allocates all `38 + 20 = 58` declarations
-and instantiates the generic top policy with normalized `Rebit` and `Qubit`
-coefficient parameter types.
+The Stage 9A portion of non-root `SimulationAudit.lean` allocates all
+`38 + 20 = 58` declarations and instantiates the generic top policy with
+normalized `Rebit` and `Qubit` coefficient parameter types.
+
+`Semantics/SimulationWrappers.lean` adds 16 stable proof-bearing wrappers. Two
+classify rectangular matrix action for every raw `ℝ × ℝ` or `ℂ × ℂ`
+coefficient pair; three classify Equation 63 reindexing and both translated
+placed-gate denotations; four classify the two primary circuit operators and
+their raw-coefficient state actions; three classify one supplied legal
+schedule and injective preservation of an explicit schedule-operator gap; two
+classify the composed quaternion-to-real operator and nested coefficient
+action; and two classify exact compilation under supplied compiler data.
+`SimulationAudit.lean` allocates these as `2 + 3 + 4 + 3 + 2 + 2`, exercises
+both canonical coefficient pairs, rectangular and raw-empty indices, the
+existing unequal-schedule witness, inhabitable identity compilers, and
+zero-wire circuits, and remains outside the public root.
 
 This representative-level strength does not erase the previously checked
 boundaries. Complex phase does not descend through a canonical realification
@@ -568,8 +582,12 @@ The concrete top parameters select linear combinations of the two canonical
 columns; they do not assert a factorized target state, mixed joint density, or
 partial trace. Indeed `NonProductWitness.encodedState_not_pureTopBottomProduct`
 refutes that factorization reading for one normalized realified state. Stage 9B
-operator/circuit wrappers and Stage 9C outcome classifications remain pending,
-as do later Goal 2 metric and registry stages.
+does not weaken that boundary: its coefficient pairs are raw coordinates, not
+pure or product top states. Equation 63 remains a named row/column reindexing,
+not another wire-facing translator; a schedule is supplied without choice or
+independence; and conditional compiler wrappers do not prove compiler
+existence, synthesis, approximation, or runtime. Stage 9C outcome
+classifications and later Goal 2 metric and registry stages remain pending.
 
 ## Circuit implementation
 

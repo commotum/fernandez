@@ -165,6 +165,14 @@ stronger concrete fact that the raw coordinate maps are real-linear
 equivalences and their normalized representative maps are equivalences. Those
 are representative-coordinate bijections, not ordinary ray, circuit, channel,
 mixed-state, product-state, partial-trace, or all-effect equivalences.
+The separate proof-bearing wrapper layer classifies exact rectangular matrix
+action, Equation 63 reindexing, translated placed-gate and circuit evaluators,
+one supplied legal schedule, the composed quaternion-to-real translation, and
+conditional compilation. Its amplitude statements quantify raw coefficient
+pairs, not normalized or product top states. Equation 63 is not a second
+circuit translator; schedules are not selected or identified; and a supplied
+`ExactGateCompiler` is not a compiler-existence, synthesis, approximation, or
+runtime theorem. Decoded cross-model outcomes remain a separate open layer.
 
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input

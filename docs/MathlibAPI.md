@@ -578,6 +578,20 @@ inverse, addition, and real-scalar laws, this yields
 preservation then restricts these to the four `*StateEquiv` values on normalized
 representatives. The stable allocation is `38 + 20 = 58` declarations.
 
+`Semantics/SimulationWrappers.lean` needs no external simulation abstraction.
+Its 16 declarations are transparent inhabitants of `ExactOperatorEmbedding`,
+`AllTopStateIntertwining`, or one exact inequality, built from the existing
+matrix/circuit theorems. `Matrix.reindex` with the two explicit
+`eq63PaperToComposed` equivalences states the Equation 63 result. Ordinary
+function composition states the composed `wireRealify ∘ wireComplexify`
+embedding and the nested inner-complex/outer-real state encoder. The scheduled
+API reuses one supplied `LegalSchedule`; injectivity of complexification
+transports a concrete source evaluator inequality. The compiler API reuses a
+supplied `ExactGateCompiler.eval_compileCircuit`; no search, synthesis, finite
+gate set, approximation, or runtime API is inferred. The non-root audit gives
+the exact wrapper allocation `2 + 3 + 4 + 3 + 2 + 2` and constructs an identity
+compiler only to show that the conditional premise is inhabitable.
+
 These `LinearEquiv` and `Equiv` values are coordinate-carrier bijections. They
 do not use quotient lifting and do not imply an ordinary target-ray map:
 complex phase still requires `RealSectorOrbit`, while either canonical column
@@ -585,7 +599,10 @@ fails to respect `RealRay` on every nonempty source index. Nor does a normalized
 `Rebit`/`Qubit` coefficient parameter create a product-state theorem;
 `NonProductWitness.encodedState_not_pureTopBottomProduct` supplies the explicit
 boundary. No partial-trace, mixed joint-density, circuit, channel, or
-all-measurement API is imported by these two leaves.
+all-measurement API is imported by the two Stage 9A stable leaves. The wrapper
+leaf imports circuit translations and compilation only for exact operator and
+raw-state classifications; it still exports no decoded outcome or channel
+semantics.
 
 ## Goal 2 state phase, normalized ray quotients, and descent
 

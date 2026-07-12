@@ -67,6 +67,7 @@ import QuaternionicComputing.Semantics.ChannelCircuit
 import QuaternionicComputing.Semantics.Hierarchy.Operator
 import QuaternionicComputing.Semantics.Simulation
 import QuaternionicComputing.Semantics.SimulationEncoding
+import QuaternionicComputing.Semantics.SimulationWrappers
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -252,8 +253,13 @@ distribution relations keep source, target, encoder, decoder, and observation
 scope visible. Their `AllTop...` forms quantify an explicitly supplied
 top-sector parameter type. They are not reflexive/symmetric/transitive
 same-space equivalence relations, and they assert no ray, channel, product,
-partial-trace, or all-effect semantics. Circuit wrappers and final
-outcome-family classifications remain in Goal 2 Stages 9B and 9C.
+partial-trace, or all-effect semantics. `SimulationWrappers` now gives the
+existing matrix, placed-gate, primary-circuit, scheduled, composed, and
+conditional-compiler results 16 proof-bearing directional classifications.
+Its state theorems quantify raw coefficient pairs, not normalized top states
+or product subsystems. Its schedule is supplied rather than chosen, and its
+compiler is explicit input data rather than an existence or synthesis result.
+Decoded outcome-family classifications remain in Goal 2 Stage 9C.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
@@ -333,10 +339,14 @@ bottom system, without upgrading that fact to a mixed-state or signaling
 claim. Consequently the normalized `Rebit`/`Qubit` top-sector parameters used
 by the pure-state formulas must not be read as certificates that the encoded
 target state factors into an independent top subsystem and bottom subsystem.
+The proof-bearing wrapper leaf classifies the primary and composed evaluator
+equalities as `ExactOperatorEmbedding` and their arbitrary raw-coefficient
+amplitude laws as `AllTopStateIntertwining`. Equation 63 remains equality only
+after its named row/column reindexing and is not a circuit translator.
 For a supplied finite legal schedule, the scheduled bridge applies the same
 exact quaternion-to-complex theorem to that schedule's chronological circuit
 without selecting a schedule or asserting schedule independence.  The
-order-sensitive witness remains observably distinct after this translation.
+order-sensitive witness remains operator-distinct after this translation.
 The normalized output equality also extends to every finite event and every
 deterministic finite classical postprocessing map.
 
