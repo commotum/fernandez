@@ -90,8 +90,8 @@ theorem normalizedQuaternionLeftPhase_rejection :
 
 /--
 The two canonical real encodings of every complex column have the same
-explicit reduced rank-one matrix, and its computational diagonal is exactly
-the source complex basis-weight family.
+explicit two-sector reduction of the real rank-one outer product, and its
+computational diagonal is exactly the source complex basis-weight family.
 -/
 theorem realCanonicalColumns_reducedOuterAgreement
     (column : n → ℂ) :

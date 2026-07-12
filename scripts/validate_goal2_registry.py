@@ -455,6 +455,12 @@ def validate_audit(value: Any, label: str, root_targets: set[str], all_targets: 
     endpoint_name = lean_name(endpoint, f"{label}.endpoint")
     if mode == "directRoot":
         require(endpoint_name in root_targets, f"{label} direct endpoint is absent from AxiomAudit")
+    elif mode == "localEndpoint":
+        require(endpoint_name in all_targets, f"{label} endpoint is absent from maintained axiom audits")
+        require(
+            endpoint_name not in root_targets,
+            f"{label} is marked localEndpoint but is directly audited in AxiomAudit",
+        )
     else:
         require(endpoint_name in all_targets, f"{label} endpoint is absent from maintained axiom audits")
 
@@ -561,6 +567,37 @@ def validate_registry(
         if record["finalStatus"] in {"intentionallyExcluded", "unresolved"}:
             require(isinstance(obstruction, str) and bool(obstruction), f"{label} terminal status lacks obstruction")
 
+    family_by_number = {family_number(record["id"]): record for record in families}
+    require(
+        family_by_number[42]["semanticClass"] == "approximationBoundary"
+        and family_by_number[42]["finalStatus"] == "proved",
+        "EQC-042 must record the proved Stage 10 metric boundary",
+    )
+    require(
+        any(name.endswith("RealStatePhaseEq") for name in family_by_number[43]["strongestRelations"]),
+        "EQC-043 must record the proved real-sign state relation",
+    )
+    require(
+        any(name.endswith("SameBasisBehavior") for name in family_by_number[44]["strongestRelations"]),
+        "EQC-044 must record the certified classical-basis relation",
+    )
+    for number in range(45, 52):
+        record = family_by_number[number]
+        require(
+            record["origin"] == "sourceOnly"
+            and record["evidenceMode"] == "sourceOnlyObstruction"
+            and record["finalStatus"] == "unresolved",
+            f"EQC-{number:03d} must retain its explicit source-only Goal 3 obstruction",
+        )
+
+    explicitly_nonbehavioral = {6, 15, 17, 18, 20, 21, 22, 23, 24, 29, 41}
+    for number in explicitly_nonbehavioral:
+        record = family_by_number[number]
+        require(
+            record["evidenceMode"] in NONBEHAVIORAL_MODES | {"counterexample"},
+            f"EQC-{number:03d} is algebraic/structural/resource support, not behavioral equivalence",
+        )
+
     declarations = registry.get("declarations")
     require(isinstance(declarations, list) and len(declarations) == 936, "registry must have 936 declarations")
     actual_pairs: list[tuple[str, str]] = []
@@ -580,6 +617,28 @@ def validate_registry(
         )
     require(actual_pairs == flattened, "registry declaration set, family assignment, or order differs")
     require(len({name for _, name in actual_pairs}) == 936, "registry declarations are duplicated")
+
+    declarations_by_number: dict[int, list[dict[str, Any]]] = {}
+    for record in declarations:
+        declarations_by_number.setdefault(family_number(record["familyId"]), []).append(record)
+    for record in declarations_by_number[1]:
+        scope = record["classification"]["inputScope"]
+        require(
+            "raw" in scope and "normalized" in scope,
+            "EQC-001 overlay must retain the raw witness and the checked normalized repair",
+        )
+    for record in declarations_by_number[14]:
+        scope = record["classification"]["inputScope"]
+        require(
+            "every computational-basis input" in scope and "ground" in scope,
+            "EQC-014 overlay must record both certified all-input behavior and the ground-input theorem",
+        )
+    for record in declarations_by_number[28]:
+        scope = record["classification"]["inputScope"]
+        require(
+            "ground" in scope and "all normalized pure" in scope,
+            "EQC-028 overlay must distinguish fixed-ground agreement from all-pure-input failure",
+        )
     return registry
 
 

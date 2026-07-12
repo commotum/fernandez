@@ -212,4 +212,42 @@ unimplemented models explicit.
 
 ## Stage Results
 
-- Inventory and implementation pending.
+- The exact 51-family inventory is complete. It partitions the frozen cohort
+  into 27 already-strong stable families, six families needing reusable thin
+  wrappers, eleven direct nonbehavioral/resource dispositions, and seven
+  source-only Goal 3 claims. The frozen 51-family/936-declaration file and its
+  checksum are unchanged.
+- Added `Semantics/ExistingResults.lean` with exactly six stable declarations:
+  `normalizedQuaternionLeftPhase_rejection`,
+  `realCanonicalColumns_reducedOuterAgreement`,
+  `quaternionGroundOutputs_distributionEq_not_rayEq`,
+  `scheduledCircuit_exactCircuitEq_of_pairwise_commute`,
+  `quaternionOrderingWitness_scopeBoundary`, and
+  `ExactGateCompiler.compileCircuit_exactCircuitEq`.
+- Added non-root `Semantics/ExistingResultsAudit.lean` with 15 endpoints. Its
+  three source-order wrapper consumers and concrete boundary endpoint are
+  joined by meaningful family consumers for `EQC-015`, `EQC-017`, `EQC-018`,
+  `EQC-020`--`EQC-024`, `EQC-029`, and both structural and conditional-
+  compiler portions of `EQC-041`. Algebraic image, determinant, placement,
+  scheduling, and resource results remain explicitly nonbehavioral.
+- Both new leaves pass direct warning-as-error compilation. Their combined
+  focused build passes at `2536/2536`; all 15 local audit endpoints have exact
+  axiom union `propext`, `Classical.choice`, and `Quot.sound`. An additional
+  stable/audit/public-root/release-audit build passes at `2776/2776` after
+  public promotion and six root audit additions.
+- The tree now has 99 Lean sources including the public root. The root audit
+  has 542 commands and the new local audit has 15. The semantic manifest
+  preserves its first 1,269 items with structural hash
+  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
+  and appends the six stable declarations in exact source order. It now has
+  1,275 unique declarations, 167 resolving consumers, 354 direct root-audit
+  labels, and full structural hash
+  `6e562417a749b67102c072f67aa1270715ac0bb2eeed0af0efd559e995663d7b`.
+  The maintained input validator and all generated frozen/manifest name and
+  consumer checks pass at `51/936/10`, `1275/167/354`, and seven axes.
+- Added the closed JSON schema and standard-library Python tooling for the
+  final registry. They validate frozen order/checksum, semantic-prefix and
+  source order, evidence vocabularies, audit/import boundaries, and temporary
+  Lean resolution without writing generated files into the repository.
+  Construction and full validation of the 51-family/936-declaration overlay
+  remain in progress, so none of the Stage 11 milestones is checked yet.
