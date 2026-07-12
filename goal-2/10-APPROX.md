@@ -331,7 +331,10 @@ runtime, and false equivalence claims outside Goal 2.
 
 ## Completion Status
 
-- Stage 10 implementation, allocation, manifest, public-root, and axiom gates
-  pass. Independent source, mathematical, manifest, documentation, and
-  integrated closure review remain required before `10-APPROX` is checked in
-  the master plan.
+- [x] Stage 10 is complete. Independent mathematical/source,
+  manifest/documentation, and integrated closure reviews returned **PASS**
+  after one stale master-plan sentence was repaired. The reviewers independently
+  reproduced the 169/24 allocation, focused/combined/default builds,
+  generated-name/consumer checks, manifest hashes, frozen checksum, exact root
+  and local axiom unions, downstream smoke, import boundaries, and all bounded
+  no-cheating/format/artifact/diff scans.

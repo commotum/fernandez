@@ -119,9 +119,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   `propext`, `Classical.choice`, and `Quot.sound`. Public-root downstream,
   generated manifest name/consumer, boundary/shortcut/artifact/Markdown/
   whitespace, frozen-checksum, documentation/Goal 3 fold-back, and diff checks
-  pass. Stage 9's independent closure remains valid; independent Stage 10
-  source, mathematical, manifest/documentation, and integrated closure reviews
-  are the remaining gate before the Stage 10 checkbox changes.
+  pass. Stage 9's independent closure remains valid. Independent Stage 10
+  mathematical/source, manifest/documentation, and integrated closure reviews
+  returned **PASS** after one stale plan sentence was repaired.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -996,6 +996,6 @@ use without learning the retrofit's implementation history.
 - [x] 7-CHANNELS
 - [x] 8-HIERARCHY
 - [x] 9-CROSSMODEL
-- [ ] 10-APPROX
+- [x] 10-APPROX
 - [ ] 11-REGISTRY
 - [ ] 12-RELEASE
