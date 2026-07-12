@@ -2,29 +2,31 @@
 
 ## Status and purpose
 
-This document is the human-readable Stage 1 seed for Goal 2's semantic
-classification retrofit.  It records the comparison families visible in the
-completed Goal 1 public surface and in the source paper.  Every classification
-below is **provisional**: a row is an inventory hypothesis, not a proof that the
-named declarations inhabit a future relation and not evidence that a relation
-planned by Goal 2 has already been implemented.
-The frozen JSON cohort fixes the immutable membership and checksum. This
-Markdown table is its reviewed human rendering, so inaccurate prose may be
-sharpened while the family IDs and machine-readable discovery boundary remain
-fixed. The proof-bearing sections below record later checked refinements.
+This document is the human-readable guide to Goal 2's completed semantic
+classification registry. The Stage 1 table below remains a historical rendering
+of the pre-retrofit discovery seed: its wording records what was known then and
+is not the final classification. The machine-readable seed is the immutable
+`Goal1ComparisonCohort.json`; the final checked overlay is
+`Goal2ClassificationRegistry.json`. The latter assigns every frozen declaration
+exactly once and is authoritative for final statuses, semantic classes, evidence
+modes, proof declarations, audit endpoints, seven-axis classifications,
+dispositions, and Goal 3 boundaries.
 
 The catalog freezes the membership of 51 family-level rows. The first 42 come
 from the completed
 library and its release evidence.  The final nine are source-paper comparison
 families that are absent, partial, external, or deliberately assigned to later
-work.  Freezing these rows prevents later Goal 2 declarations from making the
-Goal 1 inventory grow recursively.
+work. Freezing these rows prevented later Goal 2 declarations from making the
+Goal 1 inventory grow recursively. The final overlay contains the same 51
+families and all 936 frozen declarations; it does not mutate that historical
+boundary.
 
 ## Scope policy
 
-- A **family row** groups declarations that express one mathematical comparison
-  at one semantic level.  It is stable enough for review, documentation, and
-  ownership, but is not declaration-complete.
+- A **seed family row** groups declarations that appeared to express one
+  mathematical comparison at discovery time. It is stable enough for historical
+  review and ownership, but its prose is neither final nor
+  declaration-authoritative.
 - Exact declaration names, source references, aliases, wrapper theorems, and
   audit endpoints belong in the machine-readable `Goal1ComparisonCohort` JSON.
   Its array fields are authoritative for declaration-level coverage and its
@@ -33,6 +35,10 @@ Goal 1 inventory grow recursively.
   metrics created by Goal 2 belong in the separate `Goal2SemanticAPIManifest`
   JSON.  They do not become new rows in this table or alter the frozen cohort
   checksum.
+- Final classifications belong in `Goal2ClassificationRegistry.json`. It
+  covers the 936 frozen declarations, whereas the independent semantic API
+  manifest covers the 1,275 declarations introduced by Goal 2. Neither file is
+  a substitute for the proof declaration and audit endpoint named by its rows.
 - “Same space” means the compared objects have the same scalar and index type.
   “Cross space” includes scalar change, dimension change, reindexing, encoding,
   decoding, or marginalization.  “Source only” records a paper claim for which
@@ -57,11 +63,11 @@ Goal 1 inventory grow recursively.
   rounding algorithm, accumulated circuit-error theorem, approximate compiler,
   or runtime result.
 
-## Frozen family seed
+## Frozen historical family seed
 
 Abbreviations in the owner column are Goal 2 (`G2`) and Goal 3 (`G3`) stages.
 “Existing” in a disposition means only that representative Goal 1 declarations
-exist; the proposed Goal 2 classification wrapper is still unimplemented.
+existed at discovery time; it does not describe the final Stage 11 state.
 Each owner cell has exactly one primary owner: the leftmost stage. Any later
 comma- or semicolon-separated stages are consumers or downstream extensions,
 not co-owners. The JSON records these separately as `primaryOwner` and
@@ -70,8 +76,8 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | ID | Evidence / representative declarations | Space | Subject | Input scope | Observation scope | Phase side | Exactness | Ancilla / marginal policy | Provisional disposition | Primary owner; consumer stages |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `EQC-001-Q-LEFT-PHASE-FAILURE` | `LeftPhaseEquivalent`, `not_leftPhaseEquivalent_gate_i_input`, `fixed_left_phase_not_natural`; `Corrections.md:90-116` | same | state columns and one evolution | one explicit raw unnormalized pair of weight `2`; the Stage 3A overlay supplies a normalized replacement | ray preservation failure | quaternion left, deliberately rejected | exact counterexample | none | Existing diagnostic; classify as a failed convention, never physical ray equality | G2 `3A-STATEPHASE`, `8B-WITNESSES` |
-| `EQC-002-Q-RIGHT-RAY` | `Quaternion.RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`, `rightPhaseEquivalent_mulVec`; `Architecture.md:111-119` | same | quaternionic state columns | arbitrary compatible columns; normalized wrappers where probabilities are claimed | ray, basis weight, total weight, evolution | quaternion right | exact | none | Existing state-ray API; relation-valued wrappers and normalized quotient remain future work | G2 `3A-STATEPHASE`, `4-RAYS` |
-| `EQC-003-C-RIGHT-RAY` | `Complex.RightPhaseEquivalent`, `rightPhaseEquivalent_complex_mulVec`; `Traceability.md:53` | same | complex state columns | arbitrary compatible columns; normalized wrappers | ray, basis weight, total weight, evolution | complex right, equal to left by commutativity | exact | none | Existing state-ray API; quotient and hierarchy classification unimplemented | G2 `3A-STATEPHASE`, `4-RAYS` |
+| `EQC-002-Q-RIGHT-RAY` | `Quaternion.RightPhaseEquivalent`, `rightPhaseEquivalent_equivalence`, `rightPhaseEquivalent_mulVec`; `Architecture.md:111-119` | same | quaternionic state columns | arbitrary compatible columns; normalized wrappers where probabilities are claimed | ray, basis weight, total weight, evolution | quaternion right | exact | none | Historical seed: Goal 2 later proved normalized relation, quotient, observable, and unitary/circuit descent APIs | G2 `3A-STATEPHASE`, `4-RAYS` |
+| `EQC-003-C-RIGHT-RAY` | `Complex.RightPhaseEquivalent`, `rightPhaseEquivalent_complex_mulVec`; `Traceability.md:53` | same | complex state columns | arbitrary compatible columns; normalized wrappers | ray, basis weight, total weight, evolution | complex right, equal to left by commutativity | exact | none | Historical seed: Goal 2 later proved normalized relation, quotient, observable, and unitary/circuit descent APIs | G2 `3A-STATEPHASE`, `4-RAYS` |
 | `EQC-004-NORMALIZED-BASIS-DIST` | `FiniteDistribution.ofNormalizedState`, `FiniteDistribution.ext`; `Architecture.md:132-136` | same | normalized state and finite distribution | one normalized state or two distributions | full computational-basis distribution | none | exact | none | Existing distribution construction/extensionality; classify independently of state-ray equality | G2 `2-CORE` |
 | `EQC-005-EVENT-PUSHFORWARD-CONGRUENCE` | `eventWeight_eq_of_weight_eq`, `pushforward_eq_of_weight_eq`; `Conventions.md:131-136` | same | finite distributions | one pair of pointwise-equal distributions | finite events and deterministic finite postprocessing | none | exact | deterministic map supplies classical marginal/decoder | Existing finite consequence family; not channel or randomized-machine equality | G2 `2-CORE`, `9C-OUTCOMES` |
 | `EQC-006-UNITARY-EVOLUTION-NORM` | `star_dotProduct_mulVec_of_mem_unitary`, `*TotalWeight_mulVec`, `*State.evolveUnitary`; `Architecture.md:238-242` | same | matrix action on state | every compatible state under a supplied unitary | norm, total weight, normalization | none | exact | none | Existing forward preservation family; does not include converse norm-preserver classification | G2 `2-CORE`, `8A-ARROWS` |
@@ -82,7 +88,7 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | `EQC-011-COMPLEX-COLUMNS-REPRESENTATIVE` | `complexColumn0`, `complexColumn1`, reconstruction, injectivity, `complexColumns_orthogonal`; `goal-1/4-STATES.md:199-212` | cross | quaternionic representative to doubled complex representative | arbitrary finite column | amplitudes, reconstruction, norm and inner product | source quaternion state phase remains right-sided | exact after encoding | one explicit top sector; no marginal | Existing algebraic state-encoding family | G2 `9A-RELATIONS`, `11B-CERTIFICATES` |
 | `EQC-012-COMPLEX-COLUMNS-INTERTWINING` | `complexifyMatrix_allCoefficient_stateIntertwining`; canonical specializations in `SimulationAudit.matrixStateIntertwining_wrappers_api` | cross | rectangular matrix action and encoded raw column | every raw quaternionic source column and every raw coefficient pair `ℂ × ℂ` | exact evolved amplitudes | none; no right-phase quotient | `AllTopStateIntertwining` | doubled sum coordinates; no normalized/product-top claim | Stage 9B proof-bearing directional wrapper | G2 `9B-WRAPPERS` |
 | `EQC-013-COMPLEX-COLUMNS-MEASUREMENT` | `complexTopCombination_allQubit_raw_decodedBasisWeightAgreement` | cross | encoded raw quaternionic column | every raw source column and normalized `Qubit` coefficient | exact decoded computational-basis weights | none | `AllTopDecodedBasisWeightAgreement` | explicit false/true sector sum; no product/mixed-top claim | Stage 9C proof-bearing representative-weight wrapper; no reduced-density conclusion | G2 `9C-OUTCOMES`; G3 `3-DENSITY` for mixed extension |
-| `EQC-014-BASIS-PREPARATION` | `basisPreparationGate_mulVec_ground`, `eval_prepend_basisPreparation_mulVec_ground`; `Corrections.md:583-593` | same | basis state and circuit | one known computational-basis assignment | exact output column | none | exact | no ancilla; full-support XOR gate | Existing basis-preparation behavior; not arbitrary-state preparation or uniform synthesis | G2 `5-BASIS`, `11B-CERTIFICATES` |
+| `EQC-014-BASIS-PREPARATION` | `basisPreparationGate_mulVec_ground`, `eval_prepend_basisPreparation_mulVec_ground`; `Corrections.md:583-593` | same | basis state and circuit | one known computational-basis assignment | exact output column | none | exact | no ancilla; full-support XOR gate | Historical seed: Goal 2 later certified the full all-basis-input XOR permutation; no unknown-state or uniform synthesis claim | G2 `5-BASIS`, `11B-CERTIFICATES` |
 | `EQC-015-NONPRODUCT-WITNESS` | `encodedState_not_pureTopBottomProduct`; `Architecture.md:269-274` | cross | one encoded pure state | one normalized rational source state | pure factorization obstruction | none | exact negation | explicit added wire; no density marginal | Existing structural witness; not entanglement, channel, or signaling classification | G2 `11-REGISTRY`; G3 `16C-WITNESS` for operational consumers |
 | `EQC-016-PRODUCT-ORDER-RAY-WITNESS` | `ground_outputs_not_rightPhaseEquivalent`, `ground_outputs_basis_weights_eq`; `Corrections.md:378-393` | same | two scheduled quaternionic outputs | one normalized pointwise-product ground input | state ray and complete basis-weight family | quaternion state phase right | exact inequality plus exact equality | none | Existing strictness witness: basis weights do not determine quaternionic ray | G2 `8B-WITNESSES` |
 | `EQC-017-REALIFY-ALGEBRA` | `realify_mul`, `realify_conjTranspose`, `realify_injective`; `goal-1/3-MATRICES.md:126-144` | cross | matrix embedding | arbitrary compatible matrices | full matrix entries and algebraic operations | none | exact mapped algebra | doubled sum indices | Existing algebraic identity family; classify as nonbehavioral support | G2 `11-REGISTRY` |
@@ -94,7 +100,7 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | `EQC-023-KRONECKER-INTERCHANGE` | `kronecker_mul_kronecker_of_entrywiseCommute`, success/failure examples; `goal-1/7-ORDERING.md:151-162` | same | matrix products | arbitrary compatible matrices under explicit crossing commutation; explicit examples | full matrix equality or inequality | none | exact | tensor-factor indices only | Existing algebraic condition and witnesses; no necessity theorem | G2 `11-REGISTRY`, `8B-WITNESSES` |
 | `EQC-024-PLACE-ALGEBRA` | `place_mul`, `place_conjTranspose`, `place_injective`, `place_mem_unitary`; `goal-1/5-CIRCUITS.md:146-159` | cross | local versus contextual matrix | every local matrix and explicit split/support | full contextual operator | none | exact after reindex/padding | semantic complement; no physical swaps | Existing placement algebra; nonbehavioral support until consumed by a circuit comparison | G2 `11-REGISTRY` |
 | `EQC-025-WIRE-EMBED-PLACEMENT` | `realifyPlacedGate_exactOperatorEmbedding`, `complexifyPlacedGate_exactOperatorEmbedding` | cross | placed source gate and translated placed gate | every placed gate on a finite wire type | exact mapped full denotation | none | exact `ExactOperatorEmbedding` | one explicit `AddedWire`; no prepared/product ancilla | Stage 9B proof-bearing denotation wrappers; support/resources remain separate | G2 `9B-WRAPPERS` |
-| `EQC-026-ORDERED-EVAL` | `OrderedCircuit.eval`, `eval_cons`, `eval_append`; `Traceability.md:30,72` | same | ordered circuits | every chronological list | exact operator denotation | none | exact | none | Existing semantics equality family; future `ExactCircuitEq` wrapper unimplemented | G2 `2-CORE`, `11B-CERTIFICATES` |
+| `EQC-026-ORDERED-EVAL` | `OrderedCircuit.eval`, `eval_cons`, `eval_append`; `Traceability.md:30,72` | same | ordered circuits | every chronological list | exact operator denotation | none | exact | none | Historical seed: Goal 2 later proved the evaluator-backed `ExactCircuitEq` characterization and append congruence | G2 `2-CORE`, `11B-CERTIFICATES` |
 | `EQC-027-SCHEDULE-INDEPENDENCE` | `LegalSchedule.scheduledEval_eq_of_pairwise_commute`; `Architecture.md:199-206` | same | two legal schedules of one occurrence family | all supplied schedules under pairwise-commuting global denotations | exact evaluated operator | none | exact | no schedule selection; same finite occurrence family | Existing sufficient equality theorem; no converse or generic disjoint-support implication | G2 `8A-ARROWS`, `8B-WITNESSES` |
 | `EQC-028-ORDER-DISTINCTION-WITNESS` | `scheduled_operators_ne`, `output_basis00_weight_ne`, translated analogues; `goal-1/7-ORDERING.md:174-186` | same and cross translation | two legal schedules | one explicit source input; one basis outcome | operator inequality and selected basis-weight inequality | none | exact counterexample | translated version uses one fixed canonical sector encoding, with no product-state claim | Existing existential witness; not all-input or all-measurement inequivalence | G2 `8B-WITNESSES`, `9B-WRAPPERS` |
 | `EQC-029-SCHEDULE-ENUMERATION` | `allChronologicalOrders`, exact length and legality theorems; `Architecture.md:223-228` | same | finite lists/schedules | finite identifier type; empty or general precedence as stated | structural membership/count, not circuit behavior | none | exact | none | Existing combinatorial equalities; classify as nonbehavioral resource/support | G2 `11-REGISTRY` |
@@ -111,8 +117,8 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | `EQC-040-COMPILED-IMAGE-SEMANTICS` | `compileRealifyCircuit_exactOperatorEmbedding`, `compileComplexifyCircuit_exactOperatorEmbedding` | cross then same-target compilation | source evaluator and supplied compiler output | every source circuit under explicit `ExactGateCompiler` data | same embedded operator after compilation | none | conditional exact `ExactOperatorEmbedding` | same translated target wires; no compiler-created ancilla claim | Stage 9B proof-bearing conditional wrappers; no compiler existence, synthesis, approximation, count, or runtime | G2 `9B-WRAPPERS`, `11-REGISTRY` |
 | `EQC-041-STRUCTURAL-RESOURCE-EQUALITIES` | gate count, width, arity, depth, dense-slot, and schedule-count theorems; `Architecture.md:283-315` | same and cross structural | finite circuit/resource certificates | every circuit under each theorem's nonempty/common-wire/bound premise | counts and bounds only | none | exact equality or stated inequality | shared-wire policy explicit; no observable decoder | Existing nonbehavioral resource family; JSON must split heterogeneous declaration arrays | G2 `11-REGISTRY` |
 | `EQC-042-EXACT-VS-APPROX-BOUNDARY` | three `*exactSimulation` families, `ExactGateCompiler.eval_compileCircuit`, and the six `Semantics/Approximation` leaves; C-024 | same-space and directional mapped semantic boundary | exact mathematical operators, normalized pure-state representatives, and finite distributions | every finite matrix/normalized state/distribution at the named scalar and phase scope; no encoded circuit family | Euclidean L2 operator and output-column error, right-ray error, half-L1 distribution error, finite events, and deterministic pushforwards | real/complex one global phase, quaternion operator central sign only, and complex/quaternion state phase on the right | nonnegative error budgets with zero iff the corresponding exact relation; composition adds budgets | mapped comparisons retain the explicit map; no hidden ancilla, encoding, rounding, or marginal | Stage 10 proof-bearing metric boundary with exact nontransitivity witnesses; finite encoding, circuit-error accumulation, approximate compilation/synthesis, and runtime remain Goal 3 | G2 `10-APPROX`; G3 `9-APPROX` for encoded finite precision |
-| `EQC-043-REAL-SIGN-RAY` | Paper Equations 5-6, `fernandez-2003.md:101-114`; `Traceability.md:27` | source only | normalized real state rays | every normalized real state representative | ray equality modulo sign | real right/left sign, central | exact relation requested, quotient absent | none | Source family partially represented by concrete `Rebit`; relation/quotient unimplemented | G2 `3A-STATEPHASE`, `4-RAYS` |
-| `EQC-044-BASIS-CLASSICAL-BEHAVIOR` | Paper `fernandez-2003.md:40-48,119-128,395-407,812`; basis-preparation declarations are only one consumer | same and cross | certified computational-basis action | every basis input for a certified basis-classical operator | induced classical basis permutation, deliberately forgetting general quantum action | input-column phase may be forgotten only under certificate | exact behavior relation unimplemented | top-labelled target basis for the embedding examples | Source anchor for nonvacuous `SameBasisBehavior`; generic biconditional forbidden | G2 `5-BASIS` |
+| `EQC-043-REAL-SIGN-RAY` | Paper Equations 5-6, `fernandez-2003.md:101-114`; `Traceability.md:27` | source only | normalized real state rays | every normalized real state representative | ray equality modulo sign | real right/left sign, central | exact relation requested, quotient absent | none | Historical seed: Goal 2 later proved normalized sign equivalence, `RealRay` equality, observables, and evolution descent | G2 `3A-STATEPHASE`, `4-RAYS` |
+| `EQC-044-BASIS-CLASSICAL-BEHAVIOR` | Paper `fernandez-2003.md:40-48,119-128,395-407,812`; basis-preparation declarations are only one consumer | same and cross | certified computational-basis action | every basis input for a certified basis-classical operator | induced classical basis permutation, deliberately forgetting general quantum action | input-column phase may be forgotten only under certificate | exact behavior relation unimplemented | top-labelled target basis for the embedding examples | Historical seed: Goal 2 later implemented certified `SameBasisBehavior`; the raw transition biconditional remains rejected | G2 `5-BASIS` |
 | `EQC-045-NORM-PRESERVER-CONVERSES` | Paper `fernandez-2003.md:50,69,818,1288`; `Traceability.md:55,60` | source only | linear maps and unitary/orthogonal classes | every finite linear map under scalar/linearity hypotheses | preservation of full norm/inner product | none | exact classification requested | none | Background converse family absent or partial; antiunitary and scalar assumptions must remain explicit | G3 `4-FOUNDATIONS` |
 | `EQC-046-MIXED-TOP-OBSERVATIONAL` | Paper `fernandez-2003.md:661,1075`; `Traceability.md:85,112` | source only cross | mixed product top state and encoded bottom system | every product/no-correlation mixed top density and source density or pure state under a future explicit joint-state model | decoded bottom basis distribution | none | exact claim unimplemented | actual product-density hypothesis and added-subsystem partial trace required; entangled inputs excluded | Source mixed-state extension; current `Rebit`/`Qubit` coefficient results do not implement it | G3 `3-DENSITY` |
 | `EQC-047-QUATERNION-REDUCED-SEPARATION` | Paper Lemma 10 and explicit contrast, `fernandez-2003.md:1077-1083,1136-1171` | source only cross | two complex reduced density matrices from quaternionic encodings | every source quaternionic pure state | reduced matrices may differ while computational diagonals agree | none | exact equality/inequality boundary unimplemented as density API | trace added top qubit | Source separation family; current library proves direct weights only | G3 `3-DENSITY` |
