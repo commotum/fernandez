@@ -326,6 +326,230 @@ abbrev QuaternionBasisPermutationImplementation {I : Type v} [DecidableEq I]
     (U : Matrix I I ℍ[ℝ]) (p : Equiv.Perm I) :=
   BasisPermutationImplementation QuaternionUnitPhase U p
 
+/-! ## Measurement determination of the certified permutation -/
+
+namespace BasisMeasurementEq
+
+variable {R : Type u} {I : Type v} [Zero R] [DecidableEq I]
+variable {unitPhase : R → Prop} {weight : R → ℝ}
+variable {U V : Matrix I I R} {p q : Equiv.Perm I}
+
+/--
+On certified permutation implementations, basis-measurement equality forces
+the same permutation whenever zero has weight zero and every unit phase has
+weight one.
+-/
+theorem sameBasisBehavior
+    (hzero : weight 0 = 0)
+    (hunit : ∀ phase, unitPhase phase → weight phase = 1)
+    (hU : BasisPermutationImplementation unitPhase U p)
+    (hV : BasisPermutationImplementation unitPhase V q)
+    (hmeasure : BasisMeasurementEq weight U V) :
+    SameBasisBehavior hU hV := by
+  apply Equiv.ext
+  intro x
+  by_contra hpq
+  rcases hU.basisTransition x with ⟨a, ha, hUa⟩
+  rcases hV.basisTransition x with ⟨b, hb, hVb⟩
+  have hUone : weight (U (p x) x) = 1 := by
+    rw [hUa (p x), if_pos rfl, hunit a ha]
+  have hVzero : weight (V (p x) x) = 0 := by
+    rw [hVb (p x), if_neg hpq, hzero]
+  have honezero : (1 : ℝ) = 0 :=
+    hUone.symm.trans ((hmeasure x (p x)).trans hVzero)
+  exact one_ne_zero honezero
+
+end BasisMeasurementEq
+
+/-! ## Same certified behavior produces the scalar phase relations -/
+
+namespace SameBasisBehavior
+
+variable {I : Type v} [DecidableEq I]
+
+/-- Equal certified real permutations differ only by input-column signs. -/
+theorem realInputBasisSignEq
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    {hU : RealBasisPermutationImplementation U p}
+    {hV : RealBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    RealInputBasisSignEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun x ↦ a x * b x, ?_, ?_⟩
+  · intro x
+    calc
+      (a x * b x) * (a x * b x) =
+          (a x * a x) * (b x * b x) := by ring
+      _ = 1 := by rw [ha x, hb x, one_mul]
+  · intro y x
+    rw [hUa x y, hVb x y]
+    by_cases hy : y = p x
+    · simp only [if_pos hy]
+      rw [← mul_assoc, ha x, one_mul]
+    · simp [hy]
+
+/-- Equal certified complex permutations differ only by input-column phases. -/
+theorem complexInputBasisPhaseEq
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    {hU : ComplexBasisPermutationImplementation U p}
+    {hV : ComplexBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    ComplexInputBasisPhaseEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun x ↦ star (a x) * b x, ?_, ?_⟩
+  · intro x
+    rw [Complex.normSq_mul]
+    change Complex.normSq ((starRingEnd ℂ) (a x)) *
+      Complex.normSq (b x) = 1
+    rw [Complex.normSq_conj]
+    rw [show Complex.normSq (a x) = 1 by
+      simpa [ComplexUnitPhase] using ha x]
+    rw [show Complex.normSq (b x) = 1 by
+      simpa [ComplexUnitPhase] using hb x]
+    norm_num
+  · intro y x
+    rw [hUa x y, hVb x y]
+    by_cases hy : y = p x
+    · simp only [if_pos hy]
+      rw [← mul_assoc]
+      change b x = (a x * (starRingEnd ℂ) (a x)) * b x
+      rw [Complex.mul_conj, ha x]
+      simp
+    · simp [hy]
+
+/--
+Equal certified quaternionic permutations differ only by input-column phases
+on the right.  The witness is `star a * b`, in that order.
+-/
+theorem quaternionInputRightPhaseEq
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    {hU : QuaternionBasisPermutationImplementation U p}
+    {hV : QuaternionBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    QuaternionInputRightPhaseEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun x ↦ star (a x) * b x, ?_, ?_⟩
+  · intro x
+    rw [map_mul, _root_.Quaternion.normSq_star]
+    rw [show _root_.Quaternion.normSq (a x) = 1 by
+      simpa [QuaternionUnitPhase] using ha x]
+    rw [show _root_.Quaternion.normSq (b x) = 1 by
+      simpa [QuaternionUnitPhase] using hb x]
+    norm_num
+  · intro y x
+    rw [hUa x y, hVb x y]
+    by_cases hy : y = p x
+    · simp only [if_pos hy]
+      rw [← mul_assoc, _root_.Quaternion.self_mul_star, ha x]
+      simp
+    · simp [hy]
+
+/-- Equal certified real permutations differ only by output-row signs. -/
+theorem realOutputBasisSignEq
+    {U V : Matrix I I ℝ} {p q : Equiv.Perm I}
+    {hU : RealBasisPermutationImplementation U p}
+    {hV : RealBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    RealOutputBasisSignEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun y ↦ b (p.symm y) * a (p.symm y), ?_, ?_⟩
+  · intro y
+    calc
+      (b (p.symm y) * a (p.symm y)) *
+          (b (p.symm y) * a (p.symm y)) =
+          (b (p.symm y) * b (p.symm y)) *
+            (a (p.symm y) * a (p.symm y)) := by ring
+      _ = 1 := by rw [hb, ha, one_mul]
+  · intro y x
+    by_cases hy : y = p x
+    · subst y
+      rw [hUa x (p x), hVb x (p x)]
+      simp only [Equiv.symm_apply_apply, if_true]
+      rw [mul_assoc, ha x, mul_one]
+    · rw [hUa x y, hVb x y]
+      simp [hy]
+
+/-- Equal certified complex permutations differ only by output-row phases. -/
+theorem complexOutputBasisPhaseEq
+    {U V : Matrix I I ℂ} {p q : Equiv.Perm I}
+    {hU : ComplexBasisPermutationImplementation U p}
+    {hV : ComplexBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    ComplexOutputBasisPhaseEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun y ↦ b (p.symm y) * star (a (p.symm y)), ?_, ?_⟩
+  · intro y
+    rw [Complex.normSq_mul]
+    change Complex.normSq (b (p.symm y)) *
+      Complex.normSq ((starRingEnd ℂ) (a (p.symm y))) = 1
+    rw [Complex.normSq_conj]
+    rw [show Complex.normSq (b (p.symm y)) = 1 by
+      simpa [ComplexUnitPhase] using hb (p.symm y)]
+    rw [show Complex.normSq (a (p.symm y)) = 1 by
+      simpa [ComplexUnitPhase] using ha (p.symm y)]
+    norm_num
+  · intro y x
+    by_cases hy : y = p x
+    · subst y
+      rw [hUa x (p x), hVb x (p x)]
+      simp only [Equiv.symm_apply_apply, if_true]
+      rw [mul_assoc]
+      change b x = b x * ((starRingEnd ℂ) (a x) * a x)
+      rw [mul_comm ((starRingEnd ℂ) (a x)) (a x),
+        Complex.mul_conj, ha x]
+      simp
+    · rw [hUa x y, hVb x y]
+      simp [hy]
+
+/--
+Equal certified quaternionic permutations differ only by output-row phases on
+the left.  The witness is `b * star a`, in that order.
+-/
+theorem quaternionOutputLeftPhaseEq
+    {U V : Matrix I I ℍ[ℝ]} {p q : Equiv.Perm I}
+    {hU : QuaternionBasisPermutationImplementation U p}
+    {hV : QuaternionBasisPermutationImplementation V q}
+    (h : SameBasisBehavior hU hV) :
+    QuaternionOutputLeftPhaseEq U V := by
+  change p = q at h
+  subst q
+  choose a ha hUa using hU.basisTransition
+  choose b hb hVb using hV.basisTransition
+  refine ⟨fun y ↦ b (p.symm y) * star (a (p.symm y)), ?_, ?_⟩
+  · intro y
+    rw [map_mul, _root_.Quaternion.normSq_star]
+    rw [show _root_.Quaternion.normSq (b (p.symm y)) = 1 by
+      simpa [QuaternionUnitPhase] using hb (p.symm y)]
+    rw [show _root_.Quaternion.normSq (a (p.symm y)) = 1 by
+      simpa [QuaternionUnitPhase] using ha (p.symm y)]
+    norm_num
+  · intro y x
+    by_cases hy : y = p x
+    · subst y
+      rw [hUa x (p x), hVb x (p x)]
+      simp only [Equiv.symm_apply_apply, if_true]
+      rw [mul_assoc, _root_.Quaternion.star_mul_self, ha x]
+      simp
+    · rw [hUa x y, hVb x y]
+      simp [hy]
+
+end SameBasisBehavior
+
 /-! ## Certified unitary operator bundles -/
 
 /-- A square unitary operator together with certified classical basis behavior. -/
