@@ -28,8 +28,11 @@ wrapper leaf and extends the existing non-root audit, bringing the checkpoint
 tree to 88 Lean sources including the public root. Stage 9C adds the stable
 outcome-decoder and semantic-outcome leaves and extends postprocessing plus the
 non-root audit, bringing the checkpoint tree to 90 Lean sources including the
-public root. Goal 2 remains active: approximation, registry closure, and the
-final release audit are later stages.
+public root. Stage 10 adds six stable metric leaves and one non-root allocation
+audit, bringing the checkpoint tree to 97 Lean sources including the public
+root. It supplies the semantic approximation boundary over exact mathematical
+values. Goal 2 remains active: registry closure and the final release audit are
+later stages; finite encodings and numerical compilation remain Goal 3 work.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -461,9 +464,13 @@ proves `det = 1 ∨ det = -1`, but not the general `det = 1` refinement.
 Important partial boundaries include arbitrary mixed top states, generic
 partial trace, Kraus maps, instruments, quaternionic density/channel
 positivity, cross-model channel relations, physical swap synthesis and routing
-cost, uniform circuit generators, finite scalar encodings,
-approximation/error accumulation, generic unitary synthesis, randomized
-postprocessing, preprocessing runtime, and BQP containment. Normalized ray computational-basis observables,
+cost, uniform circuit generators, finite scalar encodings and rounding,
+code-to-value certification, accumulated gatewise/circuit error, approximate
+compiler construction, generic unitary synthesis, randomized postprocessing,
+preprocessing runtime, and BQP containment. Stage 10 now supplies exact-object
+operator, phase/sign, state-ray, and distribution error budgets with local
+output/event/pushforward bounds; it supplies none of those encoded numerical
+or runtime constructions. Normalized ray computational-basis observables,
 deterministic pushforwards, unitary evolution, and locally-unitary circuit
 evolution descend with exact identity and composition laws. The complex-to-real
 embedding-orbit boundary is also complete: the rebit and complex-state-ray
@@ -803,6 +810,15 @@ open QuaternionicComputing
 #check Semantics.complexColumn0StateEquiv
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
+#check Semantics.operatorDistance
+#check Semantics.operatorClose_zero_iff_exactOperatorEq
+#check Semantics.ComplexGlobalPhaseClose
+#check Semantics.QuaternionCentralSignClose
+#check Semantics.QuaternionStateRayClose
+#check Semantics.quaternionOperatorDistance_quaternionState_output_le
+#check Semantics.totalVariationDistance
+#check Semantics.totalVariationDistance_pushforward_le
+#check Semantics.ApproximationStrictness.distributionClose_half_not_transitive
 #check Simulation.quaternionToComplex_exactSimulation
 #check Simulation.quaternionToReal_exactSimulation
 ```

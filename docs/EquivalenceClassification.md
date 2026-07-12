@@ -52,8 +52,10 @@ Goal 1 inventory grow recursively.
   build is not behavioral evidence unless a theorem explicitly inhabits the
   relevant behavioral relation.
 - Approximate closeness is an error-budget relation, not an equivalence
-  relation.  Exact algebraic simulation does not supply a metric, encoder,
-  approximation algorithm, or accumulated-error theorem.
+  relation. Exact algebraic simulation does not itself supply a metric. Goal 2
+  Stage 10 supplies a separate semantic metric layer, but no finite encoder,
+  rounding algorithm, accumulated circuit-error theorem, approximate compiler,
+  or runtime result.
 
 ## Frozen family seed
 
@@ -108,7 +110,7 @@ not co-owners. The JSON records these separately as `primaryOwner` and
 | `EQC-039-EXACT-COMPILER-SEMANTICS` | `ExactGateCompiler.eval_compileCircuit`; `Architecture.md:307-315` | same | source circuit and supplied expansion circuit | every circuit under a supplied exact compiler certificate | exact evaluated operator | none | exact | compiler is ancilla-free on same wires unless separately stated | Existing conditional semantic preservation; no compiler existence | G2 `11-REGISTRY`; G3 `10-SYNTHESIS` for construction |
 | `EQC-040-COMPILED-IMAGE-SEMANTICS` | `compileRealifyCircuit_exactOperatorEmbedding`, `compileComplexifyCircuit_exactOperatorEmbedding` | cross then same-target compilation | source evaluator and supplied compiler output | every source circuit under explicit `ExactGateCompiler` data | same embedded operator after compilation | none | conditional exact `ExactOperatorEmbedding` | same translated target wires; no compiler-created ancilla claim | Stage 9B proof-bearing conditional wrappers; no compiler existence, synthesis, approximation, count, or runtime | G2 `9B-WRAPPERS`, `11-REGISTRY` |
 | `EQC-041-STRUCTURAL-RESOURCE-EQUALITIES` | gate count, width, arity, depth, dense-slot, and schedule-count theorems; `Architecture.md:283-315` | same and cross structural | finite circuit/resource certificates | every circuit under each theorem's nonempty/common-wire/bound premise | counts and bounds only | none | exact equality or stated inequality | shared-wire policy explicit; no observable decoder | Existing nonbehavioral resource family; JSON must split heterogeneous declaration arrays | G2 `11-REGISTRY` |
-| `EQC-042-EXACT-VS-APPROX-BOUNDARY` | three `*exactSimulation` families and `ExactGateCompiler.eval_compileCircuit`; absence recorded in `Corrections.md:508-529` | source only boundary | exact versus encoded approximate circuit models | exact mathematical matrices only | no implemented error metric or approximate observation bound | phase-aware approximation not implemented | exact side only | none | Boundary row: no Goal 1 approximation relation exists | G2 `10-APPROX`; G3 `9-APPROX` for finite precision |
+| `EQC-042-EXACT-VS-APPROX-BOUNDARY` | three `*exactSimulation` families, `ExactGateCompiler.eval_compileCircuit`, and the six `Semantics/Approximation` leaves; C-024 | same-space and directional mapped semantic boundary | exact mathematical operators, normalized pure-state representatives, and finite distributions | every finite matrix/normalized state/distribution at the named scalar and phase scope; no encoded circuit family | Euclidean L2 operator and output-column error, right-ray error, half-L1 distribution error, finite events, and deterministic pushforwards | real/complex one global phase, quaternion operator central sign only, and complex/quaternion state phase on the right | nonnegative error budgets with zero iff the corresponding exact relation; composition adds budgets | mapped comparisons retain the explicit map; no hidden ancilla, encoding, rounding, or marginal | Stage 10 proof-bearing metric boundary with exact nontransitivity witnesses; finite encoding, circuit-error accumulation, approximate compilation/synthesis, and runtime remain Goal 3 | G2 `10-APPROX`; G3 `9-APPROX` for encoded finite precision |
 | `EQC-043-REAL-SIGN-RAY` | Paper Equations 5-6, `fernandez-2003.md:101-114`; `Traceability.md:27` | source only | normalized real state rays | every normalized real state representative | ray equality modulo sign | real right/left sign, central | exact relation requested, quotient absent | none | Source family partially represented by concrete `Rebit`; relation/quotient unimplemented | G2 `3A-STATEPHASE`, `4-RAYS` |
 | `EQC-044-BASIS-CLASSICAL-BEHAVIOR` | Paper `fernandez-2003.md:40-48,119-128,395-407,812`; basis-preparation declarations are only one consumer | same and cross | certified computational-basis action | every basis input for a certified basis-classical operator | induced classical basis permutation, deliberately forgetting general quantum action | input-column phase may be forgotten only under certificate | exact behavior relation unimplemented | top-labelled target basis for the embedding examples | Source anchor for nonvacuous `SameBasisBehavior`; generic biconditional forbidden | G2 `5-BASIS` |
 | `EQC-045-NORM-PRESERVER-CONVERSES` | Paper `fernandez-2003.md:50,69,818,1288`; `Traceability.md:55,60` | source only | linear maps and unitary/orthogonal classes | every finite linear map under scalar/linearity hypotheses | preservation of full norm/inner product | none | exact classification requested | none | Background converse family absent or partial; antiunitary and scalar assumptions must remain explicit | G3 `4-FOUNDATIONS` |
@@ -568,6 +570,29 @@ Two additional audit aggregates allocate all ten decoder declarations and the
 eight new full-distribution/concrete postprocessing declarations. One-wire
 distribution decoding is proved equal to `pushforward tailBits`; two-wire
 decoding is its ordered composition. No new paper correction is required.
+
+## Stage 10 proof-bearing realization
+
+Stage 10 separates exact semantics from metric approximation without adding a
+finite computational representation. The six stable approximation leaves
+export 169 declarations; the non-root audit and semantic manifest allocate
+their exact source-order surface separately from the frozen Goal 1 cohort.
+
+| Scope | Strongest checked Stage 10 result | Exact boundary |
+|---|---|---|
+| Raw real/complex operators | `operatorDistance` is the explicitly scoped Euclidean induced L2 norm, `OperatorClose 0` is `ExactOperatorEq`, multiplication and normalized-input output-column bounds compile, and directional `MappedOperatorClose` retains its map. | Fixed-budget closeness has no `Equivalence` instance or fixed-budget transitivity; additive composition changes the budget. |
+| Quaternionic operators | `quaternionOperatorDistance` is the norm of the underlying-real continuous linear action and equals the L2 norm after canonical complexification. `QuaternionCentralSignClose` permits only a real central sign. | No matrix `Norm`/`Metric` instance and no arbitrary unit-quaternion operator phase are introduced. |
+| Phase and state rays | `RealGlobalSignClose`, `ComplexGlobalPhaseClose`, and all three normalized `*StateRayClose` predicates have zero-budget bridges to their exact relations. State phases act on the right, and quaternionic composition uses the checked order `theta * eta`. | These are predicates on normalized representatives, not descended metrics on quotient ray values. |
+| Finite distributions | `totalVariationDistance` is exactly half L1, bounds every finite event, is at most one, and contracts under deterministic pushforward. | It is not trace distance, channel distance, randomized processing, or runtime semantics. |
+| Strictness | Exact real, complex-unitary, raw-phase-sensitive, and Boolean-distribution examples refute fixed positive-budget transitivity and separate raw from phase-aware distance. | Approximation is not added to the exact implication hierarchy as another equivalence relation. |
+
+The frozen `Goal1ComparisonCohort.json` deliberately retains `EQC-042`'s
+historical statement that Goal 1 had no approximation relation. Its checksum
+is immutable. The human row above and the separate Goal 2 semantic manifest
+record the Stage 10 refinement; neither rewrites the pre-retrofit discovery
+boundary. Finite scalar encoding, rounding, code-to-value error, accumulated
+circuit budgets, approximate compiler/synthesis construction, runtime, and
+uniformity remain Goal 3 work under C-024.
 
 ## Ambiguous wording backlog
 

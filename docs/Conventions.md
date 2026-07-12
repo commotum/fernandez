@@ -654,6 +654,41 @@ than ray equality in general and is not used as the quotient relation.
   not an assertion that all orders are legal or that the number of legal
   schedules is factorial or exponential.
 
+## Metric approximation
+
+- `operatorDistance U V` is matrix distance only under the explicitly opened
+  `Matrix.Norms.L2Operator` scope. It is the Euclidean induced operator norm of
+  `U - V`, not an entrywise, Frobenius, or `ℓ∞` norm.
+- Quaternionic matrices receive no global or scoped `Norm`, `MetricSpace`,
+  `RCLike`, or C⋆ instance. `quaternionOperatorNorm` is the explicit norm of
+  the underlying-real continuous linear action on finite `PiLp 2` columns.
+  Its equality with the L2 norm of `Quaternion.complexify A` is a theorem.
+- `OperatorClose`, `QuaternionOperatorClose`, `ColumnClose`, and
+  `DistributionClose` are error-budget relations. Reflexivity requires a
+  nonnegative budget, symmetry preserves a budget, and chaining changes it to
+  `epsilon + delta`. They have no fixed-budget `Equivalence` instance or
+  fixed-budget transitivity theorem.
+- `RealGlobalSignClose` and `ComplexGlobalPhaseClose` use one scalar for the
+  whole matrix. `QuaternionCentralSignClose` permits only a real central sign
+  `s` with `s*s=1`; it never quantifies an arbitrary unit quaternion.
+- `RealStateRayClose`, `ComplexStateRayClose`, and
+  `QuaternionStateRayClose` remain predicates on normalized representatives.
+  Complex and quaternionic state phases multiply every coordinate on the
+  right. In the quaternionic additive law the later phase precedes the earlier
+  phase as `theta * eta`. These predicates are not descended metrics on the
+  quotient ray types.
+- `MappedOperatorClose` is directional: its encoder/map and common target
+  matrix space remain explicit. It never identifies changed scalar or index
+  types as same-space operator equality.
+- `totalVariationDistance` uses the standard half-L1 convention. It bounds
+  every finite event and contracts under deterministic pushforward. It is not
+  quantum trace distance, a channel norm, randomized postprocessing, or a
+  runtime statement.
+- Normalized operator-output theorems bound L2 amplitude-column error. They do
+  not silently convert that bound into probability, all-effect, or channel
+  approximation. No Stage 10 theorem supplies scalar codes, rounding,
+  accumulated circuit error, synthesis, runtime, or uniformity.
+
 ## Simulation and abstract resources
 
 - `realifyCircuit` and `complexifyCircuit` are literal gatewise list maps.  A

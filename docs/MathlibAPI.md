@@ -839,6 +839,65 @@ output witness `b * star a` on the left. The exact rational vacuity witness is
 checked with `Unitary.mem_iff`, finite Boolean extensionality, and `norm_num`;
 it imports no numerical approximation API.
 
+## Goal 2 metric approximation
+
+Finite real and complex operator distance uses mathlib's scoped Euclidean
+induced matrix norm:
+
+```lean
+open scoped Matrix.Norms.L2Operator
+Matrix.l2_opNorm_def
+Matrix.l2_opNorm_mulVec
+Matrix.l2_opNorm_mul
+Matrix.l2_opNorm_toEuclideanCLM
+Matrix.toEuclideanCLM
+```
+
+The scope is essential. Without it, a convenient default matrix norm would not
+certify the intended spectral/induced convention. `operatorDistance` is
+therefore accompanied by theorems identifying it with both `‖U - V‖` under
+that scope and the norm of the corresponding continuous linear map.
+
+Finite column metrics use `PiLp 2` and the following L2 identities:
+
+```lean
+WithLp.toLp
+WithLp.ofLp
+PiLp.norm_sq_eq_of_L2
+PiLp.dist_sq_eq_of_L2
+PiLp.norm_apply_le
+```
+
+They apply uniformly to real, complex, and quaternionic amplitudes. The
+right-multiplication isometry is proved from `norm_mul`; no commutativity is
+assumed, so quaternionic phase order remains visible in the additive law.
+
+Quaternions are a `NormedDivisionRing`, not an `RCLike` field, so the scoped
+matrix norm cannot be reused as a quaternion matrix instance. The native
+construction instead uses:
+
+```lean
+LinearMap.continuous_of_finiteDimensional
+ContinuousLinearMap.le_opNorm
+ContinuousLinearMap.opNorm_comp_le
+ContinuousLinearMap.norm_restrictScalars
+ContinuousLinearMap.opNorm_linearIsometryEquiv_comp
+ContinuousLinearMap.opNorm_comp_linearIsometryEquiv
+```
+
+The matrix action is bundled as an underlying-real map between finite
+quaternionic `PiLp 2` spaces. Existing `complexColumn0LinearEquiv` coordinates
+are upgraded locally to a real linear isometry, proving
+`quaternionOperatorNorm_eq_l2_opNorm_complexify`. No quaternion matrix
+`Norm`/`MetricSpace`/C⋆ instance is installed.
+
+Finite total variation is proved directly with `Finset` sums. The main support
+is `Finset.sum_eq_zero_iff_of_nonneg`, `Finset.abs_sum_le_sum_abs`,
+`Finset.sum_add_sum_compl`, and `Finset.sum_fiberwise`. This yields the exact
+half-L1 zero/equality law, sharp event bound, upper bound one, and deterministic
+pushforward contraction without importing measure-theoretic or channel
+distance machinery.
+
 ## Promoted compiled APIs
 
 The following formerly probed results now compile as public declarations

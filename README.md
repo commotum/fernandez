@@ -69,6 +69,12 @@ import QuaternionicComputing.Semantics.Simulation
 import QuaternionicComputing.Semantics.SimulationEncoding
 import QuaternionicComputing.Semantics.SimulationWrappers
 import QuaternionicComputing.Semantics.SimulationOutcomes
+import QuaternionicComputing.Semantics.Approximation.Operator
+import QuaternionicComputing.Semantics.Approximation.OperatorPhase
+import QuaternionicComputing.Semantics.Approximation.Quaternion
+import QuaternionicComputing.Semantics.Approximation.State
+import QuaternionicComputing.Semantics.Approximation.Distribution
+import QuaternionicComputing.Semantics.Approximation.Strictness
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -266,6 +272,21 @@ target distributions, finite events, and deterministic pushforwards for the
 primary, supplied-schedule, and composed simulations. One- and two-added-wire
 decoders remain visible, and one-wire decoding is proved equal to pushforward
 by `tailBits`.
+
+Approximation has its own budgeted semantic API. `operatorDistance` is the
+explicit Euclidean induced L2 norm for finite real/complex matrices, while
+quaternionic matrices use an unbundled underlying-real continuous-linear-map
+norm that is proved equal to the L2 norm after canonical complexification.
+`OperatorClose`, global sign/phase closeness, quaternion central-sign
+closeness, normalized right-state-ray closeness, and half-L1
+`totalVariationDistance` remain separate relations. Zero budgets recover the
+corresponding exact relations; chaining adds budgets and no fixed-budget
+`Equivalence` instance exists. Normalized operator error bounds L2 output
+columns, total variation bounds finite events and contracts under deterministic
+pushforward, and exact witnesses refute fixed positive-budget transitivity.
+This is a metric boundary over exact mathematical values, not a finite scalar
+encoding, rounding/quantization algorithm, circuit-error accumulator,
+approximate compiler/synthesis construction, runtime, or BQP theorem.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

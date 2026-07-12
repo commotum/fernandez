@@ -76,6 +76,14 @@ QuaternionicComputing/
     SimulationWrappers.lean  exact matrix/circuit/schedule/compiler wrappers
     SimulationOutcomes.lean  decoded weights/distributions/events/pushforwards
     SimulationAudit.lean     non-root allocations and concrete scope checks
+    Approximation/
+      Operator.lean          scoped RCLike Euclidean induced operator distance
+      OperatorPhase.lean     real sign and complex one-global-phase budgets
+      Quaternion.lean        native underlying-real quaternion operator norm
+      State.lean             finite L2 columns and right-state-ray budgets
+      Distribution.lean      half-L1 total variation and deterministic contraction
+      Strictness.lean        exact fixed-budget nontransitivity witnesses
+    ApproximationAudit.lean  non-root allocation and concrete metric checks
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -611,7 +619,24 @@ audit allocates the semantic surface as `2 + 4 + 4 + 4 + 4` and separately
 allocates the ten decoder and eight concrete postprocessing declarations in two
 infrastructure aggregates. No wrapper asserts product/mixed-top structure,
 partial trace, a channel/all-effect relation, randomized postprocessing, or a
-resource theorem. Later Goal 2 metric and registry stages remain pending.
+resource theorem.
+
+`Semantics/Approximation` is a separate semantic metric layer. Real and
+complex matrices use mathlib's explicitly scoped Euclidean induced L2 norm.
+Quaternionic matrices remain unbundled: their norm is the operator norm of the
+underlying-real continuous linear action on finite `PiLp 2` columns, and a
+theorem identifies it with the L2 norm of canonical complexification. No
+quaternionic matrix `Norm`, `Metric`, `RCLike`, or C⋆ instance is installed.
+The operator, one-global-phase/central-sign, normalized right-state-ray, and
+finite-distribution relations have separate names, zero-budget exact bridges,
+and additive-budget composition laws. Total variation is exactly half L1 and
+contracts under deterministic pushforward. The strictness leaf gives exact
+real, complex-unitary, raw-phase-sensitive, and Boolean-distribution
+counterexamples to fixed-budget equivalence. These modules compare exact
+mathematical values; finite scalar encodings, rounding, accumulated circuit
+error, approximate compiler/synthesis construction, runtime, and uniformity
+remain Goal 3 work. Goal 2 registry and release stages remain pending until
+their independent coverage and build gates close.
 
 ## Circuit implementation
 

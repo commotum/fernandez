@@ -349,3 +349,306 @@ theorem quaternionComplexificationNorm_api
     quaternionOperatorNorm A = ‖Quaternion.complexify A‖ :=
   quaternionOperatorNorm_eq_l2_opNorm_complexify A
 
+/-! ## Exact allocation of the 43 column and state-ray declarations -/
+
+/-- Complete consumer for all 12 raw finite-column metric declarations. -/
+theorem columnMetric_api
+    {R : Type u} [NormedAddCommGroup R]
+    {I : Type v} [Fintype I] (a b c : I → R)
+    {ε δ : ℝ} (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hab : ColumnClose ε a b) (hbc : ColumnClose δ b c) :
+    columnL2Distance a a = 0 ∧
+      0 ≤ columnL2Distance a b ∧
+      columnL2Distance a b = columnL2Distance b a ∧
+      columnL2Distance a c ≤ columnL2Distance a b + columnL2Distance b c ∧
+      (columnL2Distance a b = 0 ↔ a = b) ∧
+      ColumnClose ε a a ∧
+      ColumnClose δ a b ∧
+      ColumnClose ε b a ∧
+      ColumnClose (ε + δ) a c ∧
+      (ColumnClose 0 a b ↔ a = b) :=
+  ⟨columnL2Distance_self a,
+    columnL2Distance_nonneg a b,
+    columnL2Distance_symm a b,
+    columnL2Distance_triangle a b c,
+    columnL2Distance_eq_zero_iff,
+    ColumnClose.refl hε a,
+    hab.mono hεδ,
+    hab.symm,
+    hab.additive_trans hbc,
+    ColumnClose.zero_iff_eq⟩
+
+/-- Complete consumer for all seven generic right-unit-phase declarations. -/
+theorem rightUnitPhaseColumnClose_api
+    {R : Type u} [NormedDivisionRing R]
+    {I : Type v} [Fintype I] (a b c : I → R)
+    (eta : R) (heta : ‖eta‖ = 1)
+    {ε δ : ℝ} (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hab : RightUnitPhaseColumnClose ε a b)
+    (hbc : RightUnitPhaseColumnClose δ b c) :
+    columnL2Distance (fun i ↦ a i * eta) (fun i ↦ b i * eta) =
+        columnL2Distance a b ∧
+      RightUnitPhaseColumnClose ε a a ∧
+      RightUnitPhaseColumnClose δ a b ∧
+      RightUnitPhaseColumnClose ε b a ∧
+      RightUnitPhaseColumnClose (ε + δ) a c ∧
+      (RightUnitPhaseColumnClose 0 a b ↔
+        ∃ q : R, ‖q‖ = 1 ∧ a = fun i ↦ b i * q) :=
+  ⟨columnL2Distance_right_mul a b eta heta,
+    RightUnitPhaseColumnClose.refl hε a,
+    hab.mono hεδ,
+    hab.symm,
+    hab.additive_trans hbc,
+    RightUnitPhaseColumnClose.zero_iff⟩
+
+/-- Complete consumer for the five stable real state-ray declarations. -/
+theorem realStateRayClose_api
+    {I : Type u} [Fintype I] {a b c : RealState I} {ε δ : ℝ}
+    (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hab : RealStateRayClose ε a b) (hbc : RealStateRayClose δ b c) :
+    RealStateRayClose ε a a ∧
+      RealStateRayClose δ a b ∧
+      RealStateRayClose ε b a ∧
+      RealStateRayClose (ε + δ) a c :=
+  ⟨RealStateRayClose.refl hε a,
+    hab.mono hεδ,
+    hab.symm,
+    hab.additive_trans hbc⟩
+
+/-- Complete consumer for the five stable complex state-ray declarations. -/
+theorem complexStateRayClose_api
+    {I : Type u} [Fintype I] {a b c : ComplexState I} {ε δ : ℝ}
+    (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hab : ComplexStateRayClose ε a b)
+    (hbc : ComplexStateRayClose δ b c) :
+    ComplexStateRayClose ε a a ∧
+      ComplexStateRayClose δ a b ∧
+      ComplexStateRayClose ε b a ∧
+      ComplexStateRayClose (ε + δ) a c :=
+  ⟨ComplexStateRayClose.refl hε a,
+    hab.mono hεδ,
+    hab.symm,
+    hab.additive_trans hbc⟩
+
+/-- Complete consumer for the five stable quaternionic state-ray declarations. -/
+theorem quaternionStateRayClose_api
+    {I : Type u} [Fintype I] {a b c : QuaternionState I} {ε δ : ℝ}
+    (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hab : QuaternionStateRayClose ε a b)
+    (hbc : QuaternionStateRayClose δ b c) :
+    QuaternionStateRayClose ε a a ∧
+      QuaternionStateRayClose δ a b ∧
+      QuaternionStateRayClose ε b a ∧
+      QuaternionStateRayClose (ε + δ) a c :=
+  ⟨QuaternionStateRayClose.refl hε a,
+    hab.mono hεδ,
+    hab.symm,
+    hab.additive_trans hbc⟩
+
+/-- Complete consumer for the three exact zero-budget state-ray bridges. -/
+theorem stateRayZeroBridges_api
+    {I : Type u} [Fintype I]
+    {aR bR : RealState I} {aC bC : ComplexState I}
+    {aQ bQ : QuaternionState I} :
+    (RealStateRayClose 0 aR bR ↔ RealStatePhaseEq aR bR) ∧
+      (ComplexStateRayClose 0 aC bC ↔ ComplexStatePhaseEq aC bC) ∧
+      (QuaternionStateRayClose 0 aQ bQ ↔ QuaternionStatePhaseEq aQ bQ) :=
+  ⟨realStateRayClose_zero_iff_realStatePhaseEq,
+    complexStateRayClose_zero_iff_complexStatePhaseEq,
+    quaternionStateRayClose_zero_iff_quaternionStatePhaseEq⟩
+
+/-- Complete consumer for the six normalized-input norm and output declarations. -/
+theorem normalizedStateOutput_api
+    {O : Type u} {I : Type v} [Fintype O] [Fintype I]
+    (aR : RealState I) (aC : ComplexState I) (aQ : QuaternionState I)
+    (UR VR : Matrix O I ℝ) (UC VC : Matrix O I ℂ)
+    (UQ VQ : Matrix O I ℍ[ℝ]) :
+    ‖toLp 2 (aR : I → ℝ)‖ = 1 ∧
+      ‖toLp 2 (aC : I → ℂ)‖ = 1 ∧
+      ‖toLp 2 (aQ : I → ℍ[ℝ])‖ = 1 ∧
+      columnL2Distance (UR *ᵥ (aR : I → ℝ)) (VR *ᵥ (aR : I → ℝ)) ≤
+        operatorDistance UR VR ∧
+      columnL2Distance (UC *ᵥ (aC : I → ℂ)) (VC *ᵥ (aC : I → ℂ)) ≤
+        operatorDistance UC VC ∧
+      columnL2Distance (UQ *ᵥ (aQ : I → ℍ[ℝ]))
+          (VQ *ᵥ (aQ : I → ℍ[ℝ])) ≤
+        quaternionOperatorDistance UQ VQ :=
+  ⟨realState_l2Norm_eq_one aR,
+    complexState_l2Norm_eq_one aC,
+    quaternionState_l2Norm_eq_one aQ,
+    operatorDistance_realState_output_le UR VR aR,
+    operatorDistance_complexState_output_le UC VC aC,
+    quaternionOperatorDistance_quaternionState_output_le UQ VQ aQ⟩
+
+/-! ## Exact allocation of the 17 total-variation declarations -/
+
+/-- Complete consumer for the 13 total-variation metric and budget declarations. -/
+theorem distributionMetric_api
+    {I : Type u} [Fintype I]
+    (mu nu xi : FiniteDistribution I) {ε δ : ℝ}
+    (hε : 0 ≤ ε) (hεδ : ε ≤ δ)
+    (hmunu : DistributionClose ε mu nu)
+    (hnuxi : DistributionClose δ nu xi) :
+    totalVariationDistance mu mu = 0 ∧
+      0 ≤ totalVariationDistance mu nu ∧
+      totalVariationDistance mu nu = totalVariationDistance nu mu ∧
+      totalVariationDistance mu xi ≤
+        totalVariationDistance mu nu + totalVariationDistance nu xi ∧
+      (totalVariationDistance mu nu = 0 ↔ mu = nu) ∧
+      DistributionClose ε mu mu ∧
+      DistributionClose δ mu nu ∧
+      DistributionClose ε nu mu ∧
+      DistributionClose (ε + δ) mu xi ∧
+      (DistributionClose 0 mu nu ↔ mu = nu) ∧
+      totalVariationDistance mu nu ≤ 1 :=
+  ⟨totalVariationDistance_self mu,
+    totalVariationDistance_nonneg mu nu,
+    totalVariationDistance_symm mu nu,
+    totalVariationDistance_triangle mu nu xi,
+    totalVariationDistance_eq_zero_iff,
+    DistributionClose.refl hε mu,
+    hmunu.mono hεδ,
+    hmunu.symm,
+    hmunu.additive_trans hnuxi,
+    distributionClose_zero_iff,
+    totalVariationDistance_le_one mu nu⟩
+
+/-- Complete consumer for the four TV event, point, and pushforward declarations. -/
+theorem distributionObservable_api
+    {I : Type u} {J : Type v} [Fintype I] [Fintype J]
+    (mu nu : FiniteDistribution I) (event : Finset I) (i : I)
+    (f : I → J) {ε : ℝ} (hclose : DistributionClose ε mu nu) :
+    |mu.eventWeight event - nu.eventWeight event| ≤
+        totalVariationDistance mu nu ∧
+      |mu.weight i - nu.weight i| ≤ totalVariationDistance mu nu ∧
+      totalVariationDistance (mu.pushforward f) (nu.pushforward f) ≤
+        totalVariationDistance mu nu ∧
+      DistributionClose ε (mu.pushforward f) (nu.pushforward f) :=
+  ⟨abs_eventWeight_sub_le_totalVariationDistance mu nu event,
+    abs_weight_sub_le_totalVariationDistance mu nu i,
+    totalVariationDistance_pushforward_le mu nu f,
+    hclose.pushforward f⟩
+
+/-! ## Exact allocation of the 14 strictness declarations -/
+
+/-- Complete consumer for the nine exact scalar-matrix strictness declarations. -/
+theorem operatorStrictness_api :
+    operatorDistance (scalarMatrix (0 : ℝ)) (scalarMatrix 1) =
+        dist (0 : ℝ) 1 ∧
+      (OperatorClose 1 (scalarMatrix (0 : ℝ)) (scalarMatrix 1) ∧
+        OperatorClose 1 (scalarMatrix (1 : ℝ)) (scalarMatrix 2) ∧
+        ¬ OperatorClose 1 (scalarMatrix (0 : ℝ)) (scalarMatrix 2)) ∧
+      scalarMatrix (1 : ℂ) ∈ unitary (Matrix Unit Unit ℂ) ∧
+      (scalarMatrix (1 : ℂ) ∈ unitary (Matrix Unit Unit ℂ) ∧
+        scalarMatrix Complex.I ∈ unitary (Matrix Unit Unit ℂ) ∧
+        scalarMatrix (-1 : ℂ) ∈ unitary (Matrix Unit Unit ℂ)) ∧
+      (operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix Complex.I) = √2 ∧
+        operatorDistance (scalarMatrix Complex.I) (scalarMatrix (-1 : ℂ)) = √2 ∧
+        operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) = 2) ∧
+      (OperatorClose √2 (scalarMatrix (1 : ℂ)) (scalarMatrix Complex.I) ∧
+        OperatorClose √2 (scalarMatrix Complex.I) (scalarMatrix (-1 : ℂ)) ∧
+        ¬ OperatorClose √2 (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ))) ∧
+      operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) = 2 ∧
+      (operatorDistance (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ)) = 2 ∧
+        ComplexGlobalPhaseClose 0 (scalarMatrix (1 : ℂ)) (scalarMatrix (-1 : ℂ))) :=
+  ⟨operatorDistance_scalarMatrix (0 : ℝ) (1 : ℝ),
+    operatorClose_one_not_transitive,
+    complexScalarMatrix_mem_unitary 1 (by norm_num [Complex.normSq_apply]),
+    complexScalarPhaseChain_unitary,
+    complexScalarPhaseChain_distances,
+    operatorClose_sqrtTwo_not_transitive_on_complex_unitaries,
+    rawDistance_one_negOne_eq_two,
+    rawDistance_one_negOne_eq_two_and_complexGlobalPhaseClose_zero⟩
+
+/-- Complete consumer for the five exact Boolean-distribution strictness declarations. -/
+theorem distributionStrictness_api :
+    (totalVariationDistance deltaFalse fairBool = 1 / 2 ∧
+      totalVariationDistance fairBool deltaTrue = 1 / 2 ∧
+      totalVariationDistance deltaFalse deltaTrue = 1) ∧
+    (DistributionClose (1 / 2) deltaFalse fairBool ∧
+      DistributionClose (1 / 2) fairBool deltaTrue ∧
+      ¬ DistributionClose (1 / 2) deltaFalse deltaTrue) :=
+  ⟨totalVariation_bool_chain, distributionClose_half_not_transitive⟩
+
+/-! ## Concrete boundary consumers -/
+
+/-- The singleton zero-wire basis and a nontrivial scalar phase are genuine unitaries. -/
+theorem zeroWire_and_nontrivialUnitary :
+    (1 : Matrix (Circuit.BitBasis Empty) (Circuit.BitBasis Empty) ℂ) ∈
+        unitary (Matrix (Circuit.BitBasis Empty) (Circuit.BitBasis Empty) ℂ) ∧
+      OperatorClose 0
+        (1 : Matrix (Circuit.BitBasis Empty) (Circuit.BitBasis Empty) ℂ) 1 ∧
+      scalarMatrix Complex.I ∈ unitary (Matrix Unit Unit ℂ) := by
+  exact ⟨(unitary
+      (Matrix (Circuit.BitBasis Empty) (Circuit.BitBasis Empty) ℂ)).one_mem,
+    OperatorClose.refl 1 le_rfl,
+    complexScalarPhaseChain_unitary.2.1⟩
+
+/-- Entrywise real-to-complex embedding used by the concrete mapped consumer. -/
+def realToComplexMatrix {O : Type u} {I : Type v} (A : Matrix O I ℝ) :
+    Matrix O I ℂ :=
+  fun i j ↦ A i j
+
+/-- The mapped zero budget recovers the exact directional embedding certificate. -/
+theorem mapped_realToComplex_zero :
+    ExactOperatorEmbedding realToComplexMatrix (scalarMatrix (1 : ℝ))
+        (realToComplexMatrix (scalarMatrix (1 : ℝ))) ∧
+      MappedOperatorClose 0 realToComplexMatrix (scalarMatrix (1 : ℝ))
+        (realToComplexMatrix (scalarMatrix (1 : ℝ))) := by
+  have hexact : ExactOperatorEmbedding realToComplexMatrix
+      (scalarMatrix (1 : ℝ))
+      (realToComplexMatrix (scalarMatrix (1 : ℝ))) := rfl
+  exact ⟨hexact,
+    mappedOperatorClose_zero_iff_exactOperatorEmbedding.mpr hexact⟩
+
+/-- The generic state phase is visibly on the right, including for quaternions. -/
+theorem quaternion_rightPhase_side
+    (x : Unit → ℍ[ℝ]) (eta : ℍ[ℝ]) (heta : ‖eta‖ = 1) :
+    RightUnitPhaseColumnClose 0 (fun i ↦ x i * eta) x := by
+  exact ⟨eta, heta, ColumnClose.zero_iff_eq.mpr rfl⟩
+
+/-- Concrete normalized singleton states for all three scalar conventions. -/
+def unitRealState : RealState Unit :=
+  ⟨fun _ ↦ 1, by simp [State.totalWeight, State.basisWeight, State.realWeight]⟩
+
+def unitComplexState : ComplexState Unit :=
+  ⟨fun _ ↦ 1, by simp [State.totalWeight, State.basisWeight, State.complexWeight]⟩
+
+def unitQuaternionState : QuaternionState Unit :=
+  ⟨fun _ ↦ 1, by
+    simp [State.totalWeight, State.basisWeight, State.quaternionWeight,
+      _root_.Quaternion.normSq_def']⟩
+
+/-- Normalized singleton inputs instantiate all three output-column error bounds. -/
+theorem normalizedSingleton_outputBounds :
+    columnL2Distance
+        ((1 : Matrix Unit Unit ℝ) *ᵥ (unitRealState : Unit → ℝ))
+        ((0 : Matrix Unit Unit ℝ) *ᵥ (unitRealState : Unit → ℝ)) ≤
+        operatorDistance (1 : Matrix Unit Unit ℝ) 0 ∧
+      columnL2Distance
+        ((1 : Matrix Unit Unit ℂ) *ᵥ (unitComplexState : Unit → ℂ))
+        ((0 : Matrix Unit Unit ℂ) *ᵥ (unitComplexState : Unit → ℂ)) ≤
+        operatorDistance (1 : Matrix Unit Unit ℂ) 0 ∧
+      columnL2Distance
+        ((1 : Matrix Unit Unit ℍ[ℝ]) *ᵥ (unitQuaternionState : Unit → ℍ[ℝ]))
+        ((0 : Matrix Unit Unit ℍ[ℝ]) *ᵥ (unitQuaternionState : Unit → ℍ[ℝ])) ≤
+        quaternionOperatorDistance (1 : Matrix Unit Unit ℍ[ℝ]) 0 :=
+  ⟨operatorDistance_realState_output_le 1 0 unitRealState,
+    operatorDistance_complexState_output_le 1 0 unitComplexState,
+    quaternionOperatorDistance_quaternionState_output_le 1 0 unitQuaternionState⟩
+
+/-- Boolean event bounds and deterministic postprocessing are concrete TV consumers. -/
+theorem boolEvent_and_pushforward :
+    |deltaFalse.eventWeight {false} - fairBool.eventWeight {false}| ≤
+        totalVariationDistance deltaFalse fairBool ∧
+      totalVariationDistance
+          (deltaFalse.pushforward fun _ ↦ ()) (fairBool.pushforward fun _ ↦ ()) ≤
+        totalVariationDistance deltaFalse fairBool ∧
+      DistributionClose (1 / 2)
+        (deltaFalse.pushforward fun _ ↦ ()) (fairBool.pushforward fun _ ↦ ()) := by
+  exact ⟨abs_eventWeight_sub_le_totalVariationDistance
+      deltaFalse fairBool {false},
+    totalVariationDistance_pushforward_le deltaFalse fairBool (fun _ ↦ ()),
+    distributionClose_half_not_transitive.1.pushforward (fun _ ↦ ())⟩
+
+end QuaternionicComputing.Semantics.ApproximationAudit
