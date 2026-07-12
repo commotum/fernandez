@@ -115,7 +115,7 @@ while Stage 11 corrects two already-existing root strictness endpoints from
 transitive to direct metadata. The authoritative first-1,269 hash is therefore
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
 and the full-1,275 hash is
-`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
 The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.

@@ -17,7 +17,7 @@
   The corrected first-1,269 semantic-manifest hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
   the full 1,275-entry hash is
-  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
 - The root axiom audit has 542 commands (`539 + 3`) and the existing-results
   audit has 15 (`15 + 0`). Their collective axiom unions are exactly
   `propext`, `Classical.choice`, and `Quot.sound`.
@@ -155,4 +155,3 @@ handoff, then record one final evidence-backed release report.
 ## Stage Results
 
 - Pending execution.
-

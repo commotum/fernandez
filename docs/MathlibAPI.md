@@ -22,8 +22,9 @@ import Mathlib.LinearAlgebra.Matrix.Permutation
 The isolated determinant leaf additionally uses
 `Mathlib.LinearAlgebra.Basis.SMul`, `Mathlib.RingTheory.Complex`, and
 `Mathlib.RingTheory.Norm.Transitivity`; consumers of the basic embeddings do
-not inherit that proof machinery.  Add `Mathlib.Algebra.QuaternionBasis` only where canonical `i,j,k` basis
-machinery is useful, `Mathlib.Analysis.InnerProductSpace.PiL2` for complex/real
+not inherit that proof machinery. Add `Mathlib.Algebra.QuaternionBasis` only
+where canonical `i,j,k` basis machinery is useful,
+`Mathlib.Analysis.InnerProductSpace.PiL2` for complex/real
 Euclidean spaces, and determinant imports only in determinant-specific modules.
 
 ## Quaternion scalars

@@ -1,6 +1,6 @@
 # Quaternionic Computing Lean Library — Release Report
 
-- Release date: 2026-07-10
+- Release date: 2026-07-12
 - Project version: 0.1.0
 - Lean: 4.31.0
 - Mathlib: v4.31.0 (`fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`)
@@ -294,7 +294,8 @@ or an unsafe shortcut.
   to an `Equiv`, without inferring a ray or behavioral equivalence.
 - Bottom computational-basis probabilities are preserved after summing over
   the added top wire.
-- The real rank-one reduced matrices for the two canonical encodings are equal.
+- The explicit two-sector reductions of the real rank-one outer products for
+  the two canonical encodings are equal.
 - `FiniteDistribution` packages normalized finite outcomes, event weights, and
   deterministic pushforwards.
 - `RealRay`, `ComplexRay`, and `QuaternionRay` expose those finite observables
@@ -824,13 +825,14 @@ consumers, and 356 direct-root audit labels. The corrected first-1,269
 structural hash is
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
 the full 1,275-entry hash is
-`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
 Two strictness declarations already printed directly in the root audit were
 misclassified as transitive in the Stage 10 closure snapshot. Stage 11 corrects
 those two manifest labels to direct; the historical 1,269-entry count and
 `348`-label closure record above remain checkpoint evidence, while the current
 prefix has 350 direct labels. No Lean theorem or selected root-audit endpoint
-changed; the two long commands are now fully qualified for exact parsing.
+changed; the two long targets now sit in their exact namespace scope for
+qualified parsing without a long-line warning.
 
 Independently, `Goal2ClassificationRegistry.json` preserves the 51 frozen
 family IDs and assigns every one of the 936 frozen declarations exactly once.

@@ -787,12 +787,13 @@ manifest preserves its corrected first-1,269 structural hash
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
 and contains 1,275 unique declarations, 167 distinct consumers, and 356 direct
 root-audit labels; its full structural hash is
-`0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
 The two-label difference from the Stage 10 closure snapshot is an audit-metadata
 repair: two strictness declarations already had genuine root `#print axioms`
 commands and are now labeled direct instead of transitive. It changes neither
 theorem/proof code nor the selected endpoints or 542-command root-audit count;
-the two long commands are now fully qualified for exact parsing.
+the two long targets now sit in their exact namespace scope for qualified
+parsing without a long-line warning.
 The combined Stage 11 build completes 2,776 jobs.
 
 The executable public-root audit contains 542 commands: 539 report nonempty

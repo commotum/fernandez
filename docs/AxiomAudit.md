@@ -304,9 +304,9 @@ nonempty. The public-root audit adds all six stable wrappers directly, bringing
 its total from 536 to 542 commands. The root parser finds 539 nonempty and three
 axiom-free blocks; the local parser finds 15 nonempty and no axiom-free block.
 Both exact unions are the same standard three items below.
-Stage 11 fully qualifies the two long Stage 10 strictness commands and corrects
-their manifest evidence from transitive to direct; the selected endpoints and
-root command count do not change.
+Stage 11 puts the two long Stage 10 strictness targets in their exact namespace
+scope and corrects their manifest evidence from transitive to direct; the
+selected endpoints and root command count do not change.
 
 The combined Stage 11 stable/local-audit/public-root/release-audit build
 completes 2,776 jobs. The separate final registry validator resolves all 936

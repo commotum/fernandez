@@ -238,7 +238,7 @@ unimplemented models explicit.
   appends the six stable declarations in exact source order. It now has
   1,275 unique declarations, 167 resolving consumers, 356 direct root-audit
   labels, and full structural hash
-  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`.
+  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
   Stage 11 corrected two Stage 10 strictness entries that were directly printed
   in the root audit through an opened namespace but mislabeled transitive in
   the manifest. Consequently the corrected first-1,269 structural hash is

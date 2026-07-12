@@ -262,8 +262,9 @@ weight(source i) = weight(target (top=0, i)) + weight(target (top=1, i)).
 ```
 
 Total-weight and normalized-state corollaries then follow.  For the real case,
-`reducedRealOuter` also proves the paper's rank-one reduced-matrix equality
-directly.  The separate finite density/effect core described below is now
+`reducedRealOuter` also proves equality of the explicit two-sector reductions
+of the real rank-one outer products directly.  The separate finite
+density/effect core described below is now
 available, but it is not a dependency of this representative-level theorem
 and does not turn `reducedRealOuter` into a generic partial trace.
 

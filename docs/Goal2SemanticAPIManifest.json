@@ -20354,7 +20354,7 @@
       "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
       "classification": {
         "space": "complex source column and doubled real target column",
-        "subject": "two canonical representative encodings and their explicit reduced rank-one matrices",
+        "subject": "two canonical representative encodings and the explicit two-sector reductions of their real rank-one outer products",
         "inputScope": "every raw complex source column",
         "observationScope": "complete explicit reduced matrix equality and its computational diagonal",
         "phase": "none",

@@ -213,7 +213,7 @@ none may remain excluded merely because it is difficult.
   metadata. The corrected first-1,269 structural hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
   and the full-1,275 hash is
-  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`;
+  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
   Only Goal 2 Stage 12 final release remains an unmet prerequisite, so Goal 3

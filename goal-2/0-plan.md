@@ -201,7 +201,7 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   in the root audit but mislabeled transitive. The corrected first-1,269 hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
   and the current full hash is
-  `0e65c11f13e05341558a96d0113a6362f32f5549a4ee39e47bdce8cd13dc5efb`;
+  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
   the old `298a...` hash is historical Stage 10-at-closure evidence only;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
