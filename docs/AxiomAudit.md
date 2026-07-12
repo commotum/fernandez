@@ -3,9 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. At the Stage 4B checkpoint it ran 286 `#print axioms`
-commands. The final Stage 4C audit scope is required to cover representative
-endpoints from every public layer, including:
+the public root. It now runs 305 `#print axioms` commands (286 at the Stage 4B
+checkpoint). The Stage 4C audit scope covers representative endpoints from
+every public layer, including:
 
 - quaternion scalar decomposition and phase correction;
 - both primary matrix embeddings, Equation 63 direct realification, group
@@ -60,14 +60,13 @@ local axiom prints sample five of those aggregates plus the three side-order
 and central-sign diagnostics; they include the generic raw/normalized bridge,
 the dimension-two kernel, and the rank-one exception. The generic bridge proof
 itself covers the empty-input zero-column case; this diagnostic leaf does not
-contain a separate `Empty` specialization. The 286-command count above is the
-independent public-root audit count and does not fold these diagnostic-only
-commands into it.
+contain a separate `Empty` specialization. The 305-command public-root count
+does not fold these diagnostic-only commands into it.
 
 `State/RayAudit.lean` is likewise non-root. Four aggregate consumers cover all
 40 stable Stage 4A declarations, while seven local axiom prints sample those
 aggregates and the concrete rebit `-1`, qubit `I`, and quaterbit right-`j`
-constructor equalities. The 286-command root count includes eight independent
+constructor equalities. The 305-command root count includes eight independent
 public-ray endpoints but excludes these diagnostic-only prints.
 
 `State/RayDescentAudit.lean` is the non-root Stage 4B consumer. Its aggregate
@@ -82,16 +81,19 @@ Stage 4C adds 84 stable declarations split `66 + 10 + 8` across
 `State/RealificationOrbit.lean`, `RealificationOrbitObservables.lean`, and
 `RealificationOrbitBoundary.lean`. The core relation is proved independently,
 the observable leaf descends only the bottom marginal, and the boundary leaf
-proves the exact ordinary-`RealRay` obstruction. **Root closure must replace
-this sentence with the final non-root aggregate/local-print counts, the number
-of independent public-root Stage 4C endpoints, the new total root-command
-count, and the reproduced axiom set after the diagnostic and command list are
-finalized.**
+proves the exact ordinary-`RealRay` obstruction. The non-root
+`State/RealificationOrbitAudit.lean` has five aggregate consumers allocating
+the complete surface as `28 + 13 + 25 + 10 + 8 = 84` declarations. Its 12
+local prints cover those aggregates and seven concrete boundary/consumer
+examples. The public-root audit instead adds 19 independent Stage 4C endpoints,
+bringing the executable root total to 305 commands; the public root does not
+import the diagnostic leaf.
 
 ## Release result
 
-The Stage 4B release audit completed successfully under Lean 4.31.0 and
-mathlib v4.31.0. Every audited endpoint depended on a subset of only:
+The Stage 4C release audit completed successfully under Lean 4.31.0 and
+mathlib v4.31.0. Every one of the 305 public-root endpoints and all 12 local
+Stage 4C diagnostic endpoints depended on a subset of exactly:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -101,9 +103,9 @@ No project-specific axiom appears.  Lean-source scans also find no `sorry`,
 `admit`, `sorryAx`, declaration-level `axiom` or `opaque`, or `unsafe`
 declaration in `QuaternionicComputing/`.
 
-The final Stage 4C closure must rerun this audit after its endpoints are added
-and explicitly confirm whether the same three-item set remains exact; no new
-axiom is inferred merely from the focused compilation of the 84 declarations.
+Warning-as-error compilation and a parser over every emitted axiom block
+reproduced exactly this three-item union. No additional axiom was inferred
+from a focused build alone.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no
