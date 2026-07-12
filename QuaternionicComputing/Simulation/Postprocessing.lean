@@ -1,16 +1,15 @@
 module
 
-public import QuaternionicComputing.State.Distribution
-public import QuaternionicComputing.Simulation.ComplexToReal
-public import QuaternionicComputing.Simulation.QuaternionToComplex
+public import QuaternionicComputing.Simulation.OutcomeDecoder
+public import QuaternionicComputing.Simulation.QuaternionToReal
 
 /-!
 # Finite events and deterministic postprocessing of simulated outcomes
 
-The primary simulation theorems identify each normalized bottom
-computational-basis weight.  This file packages those weights as finite
-distributions and closes the result under arbitrary finite events and
-deterministic classical maps.
+The primary and composed simulation theorems identify each normalized bottom
+computational-basis weight. This file retains the full target outcome
+distributions, decodes their added wires explicitly, and closes the resulting
+equalities under arbitrary finite events and deterministic classical maps.
 
 This is the precise finite semantic content of the paper's claim that the same
 classical postprocessing can be reused.  It carries no Turing-machine,
@@ -52,6 +51,21 @@ theorem addedWireBottomDistribution_weight
       addedWireBottomWeight weight v x :=
   rfl
 
+/--
+Decoding the full basis distribution of a normalized added-wire state gives
+the existing bottom distribution of that state.
+-/
+theorem addedWireDistributionDecoder_ofNormalizedState
+    {R : Type u} {W : Type v} [Finite W]
+    {weight : R → ℝ} (hweight : ∀ r, 0 ≤ weight r)
+    (v : NormalizedState (BitBasis (AddedWire W)) R weight) :
+    addedWireDistributionDecoder
+        (FiniteDistribution.ofNormalizedState weight hweight v) =
+      addedWireBottomDistribution hweight v := by
+  apply FiniteDistribution.ext
+  intro x
+  rfl
+
 /-! ## Complex-to-real output distributions -/
 
 /-- Normalized source output distribution of a complex circuit. -/
@@ -61,13 +75,24 @@ def complexCircuitOutputDistribution {W : Type v} [Fintype W]
   FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg
     (complexCircuitOutput c hc psi)
 
+/--
+Normalized full target output distribution of the realified circuit, before
+the added-wire outcome is decoded.
+-/
+def realifyCircuitFullOutputDistribution {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary)
+    (top : Rebit) (psi : ComplexState (BitBasis W)) :
+    FiniteDistribution (BitBasis (AddedWire W)) :=
+  FiniteDistribution.ofNormalizedState realWeight realWeight_nonneg
+    (realifyCircuitOutput c hc top psi)
+
 /-- Normalized bottom distribution of the realified circuit output. -/
 def realifyCircuitBottomDistribution {W : Type v} [Fintype W]
     (c : OrderedCircuit ℂ W) (hc : c.IsLocallyUnitary)
     (top : Rebit) (psi : ComplexState (BitBasis W)) :
     FiniteDistribution (BitBasis W) :=
-  addedWireBottomDistribution realWeight_nonneg
-    (realifyCircuitOutput c hc top psi)
+  addedWireDistributionDecoder
+    (realifyCircuitFullOutputDistribution c hc top psi)
 
 /-- The two normalized complex-to-real output distributions are exactly equal. -/
 theorem realifyCircuitBottomDistribution_eq {W : Type v} [Fintype W]
@@ -75,6 +100,9 @@ theorem realifyCircuitBottomDistribution_eq {W : Type v} [Fintype W]
     (top : Rebit) (psi : ComplexState (BitBasis W)) :
     realifyCircuitBottomDistribution c hc top psi =
       complexCircuitOutputDistribution c hc psi := by
+  rw [realifyCircuitBottomDistribution,
+    realifyCircuitFullOutputDistribution,
+    addedWireDistributionDecoder_ofNormalizedState]
   apply FiniteDistribution.ext
   intro x
   exact realifyCircuitOutput_bottomProbability c hc top psi x
@@ -107,13 +135,24 @@ def quaternionCircuitOutputDistribution {W : Type v} [Fintype W]
   FiniteDistribution.ofNormalizedState quaternionWeight quaternionWeight_nonneg
     (quaternionCircuitOutput c hc psi)
 
+/--
+Normalized full target output distribution of the complexified circuit,
+before the added-wire outcome is decoded.
+-/
+def complexifyCircuitFullOutputDistribution {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (top : Qubit) (psi : QuaternionState (BitBasis W)) :
+    FiniteDistribution (BitBasis (AddedWire W)) :=
+  FiniteDistribution.ofNormalizedState complexWeight complexWeight_nonneg
+    (complexifyCircuitOutput c hc top psi)
+
 /-- Normalized bottom distribution of the complexified circuit output. -/
 def complexifyCircuitBottomDistribution {W : Type v} [Fintype W]
     (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
     (top : Qubit) (psi : QuaternionState (BitBasis W)) :
     FiniteDistribution (BitBasis W) :=
-  addedWireBottomDistribution complexWeight_nonneg
-    (complexifyCircuitOutput c hc top psi)
+  addedWireDistributionDecoder
+    (complexifyCircuitFullOutputDistribution c hc top psi)
 
 /-- The two normalized quaternion-to-complex output distributions are exactly equal. -/
 theorem complexifyCircuitBottomDistribution_eq {W : Type v} [Fintype W]
@@ -121,6 +160,9 @@ theorem complexifyCircuitBottomDistribution_eq {W : Type v} [Fintype W]
     (top : Qubit) (psi : QuaternionState (BitBasis W)) :
     complexifyCircuitBottomDistribution c hc top psi =
       quaternionCircuitOutputDistribution c hc psi := by
+  rw [complexifyCircuitBottomDistribution,
+    complexifyCircuitFullOutputDistribution,
+    addedWireDistributionDecoder_ofNormalizedState]
   apply FiniteDistribution.ext
   intro x
   exact complexifyCircuitOutput_bottomProbability c hc top psi x
@@ -143,5 +185,78 @@ theorem complexifyCircuitOutput_pushforward_eq
     (complexifyCircuitBottomDistribution c hc top psi).pushforward postprocess =
       (quaternionCircuitOutputDistribution c hc psi).pushforward postprocess := by
   rw [complexifyCircuitBottomDistribution_eq]
+
+/-! ## Quaternion-to-real composed output distributions -/
+
+/--
+Normalized full real target distribution of the literally composed
+quaternion-to-real simulation, before either added wire is decoded.
+-/
+def quaternionToRealCircuitFullOutputDistribution
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (complexTop : Qubit) (realTop : Rebit)
+    (psi : QuaternionState (BitBasis W)) :
+    FiniteDistribution (BitBasis (AddedWire (AddedWire W))) :=
+  FiniteDistribution.ofNormalizedState realWeight realWeight_nonneg
+    (quaternionToRealCircuitOutput c hc complexTop realTop psi)
+
+/--
+Decode the outer realification wire and then the inner complexification wire
+from the normalized composed target output.
+-/
+def quaternionToRealCircuitBottomDistribution
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (complexTop : Qubit) (realTop : Rebit)
+    (psi : QuaternionState (BitBasis W)) :
+    FiniteDistribution (BitBasis W) :=
+  twoAddedWireDistributionDecoder
+    (quaternionToRealCircuitFullOutputDistribution
+      c hc complexTop realTop psi)
+
+/--
+The decoded composed real output distribution is exactly the quaternionic
+source output distribution.
+-/
+theorem quaternionToRealCircuitBottomDistribution_eq
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (complexTop : Qubit) (realTop : Rebit)
+    (psi : QuaternionState (BitBasis W)) :
+    quaternionToRealCircuitBottomDistribution c hc complexTop realTop psi =
+      quaternionCircuitOutputDistribution c hc psi := by
+  apply FiniteDistribution.ext
+  intro x
+  exact quaternionToRealCircuitOutput_bottomProbability
+    c hc complexTop realTop psi x
+
+/-- Every finite event agrees after the two added wires are decoded. -/
+theorem quaternionToRealCircuitOutput_eventWeight
+    {W : Type v} [Fintype W]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (complexTop : Qubit) (realTop : Rebit)
+    (psi : QuaternionState (BitBasis W))
+    (event : Finset (BitBasis W)) :
+    (quaternionToRealCircuitBottomDistribution
+      c hc complexTop realTop psi).eventWeight event =
+      (quaternionCircuitOutputDistribution c hc psi).eventWeight event := by
+  rw [quaternionToRealCircuitBottomDistribution_eq]
+
+/--
+Every deterministic finite postprocessing agrees after the two added wires
+are decoded.
+-/
+theorem quaternionToRealCircuitOutput_pushforward_eq
+    {W : Type v} [Fintype W] {β : Type u} [Fintype β]
+    (c : OrderedCircuit ℍ[ℝ] W) (hc : c.IsLocallyUnitary)
+    (complexTop : Qubit) (realTop : Rebit)
+    (psi : QuaternionState (BitBasis W))
+    (postprocess : BitBasis W → β) :
+    (quaternionToRealCircuitBottomDistribution
+      c hc complexTop realTop psi).pushforward postprocess =
+      (quaternionCircuitOutputDistribution c hc psi).pushforward
+        postprocess := by
+  rw [quaternionToRealCircuitBottomDistribution_eq]
 
 end QuaternionicComputing.Simulation

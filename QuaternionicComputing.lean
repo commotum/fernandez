@@ -31,6 +31,7 @@ public import QuaternionicComputing.Semantics.OperatorPhase.QuaternionKernel
 public import QuaternionicComputing.Semantics.Hierarchy.Operator
 public import QuaternionicComputing.Semantics.SimulationEncoding
 public import QuaternionicComputing.Semantics.SimulationWrappers
+public import QuaternionicComputing.Semantics.SimulationOutcomes
 public import QuaternionicComputing.Circuit.OrderSanity
 public import QuaternionicComputing.Circuit.BasisPreparation
 public import QuaternionicComputing.Circuit.Realification

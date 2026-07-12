@@ -612,6 +612,76 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.compileComplexifyCircuit_exactOperatorEmbedding
 
+#print axioms QuaternionicComputing.Simulation.sumSectorWeightDecoder
+#print axioms QuaternionicComputing.Simulation.addedWireWeightDecoder
+#print axioms QuaternionicComputing.Simulation.addedWireDistributionDecoder
+#print axioms
+  QuaternionicComputing.Simulation.addedWireDistributionDecoder_weight
+#print axioms
+  QuaternionicComputing.Simulation.addedWireDistributionDecoder_compat
+#print axioms
+  QuaternionicComputing.Simulation.addedWireDistributionDecoder_eq_pushforward
+#print axioms QuaternionicComputing.Simulation.twoAddedWireWeightDecoder
+#print axioms QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder
+#print axioms
+  QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder_weight
+#print axioms
+  QuaternionicComputing.Simulation.twoAddedWireDistributionDecoder_compat
+
+#print axioms
+  QuaternionicComputing.Simulation.addedWireDistributionDecoder_ofNormalizedState
+#print axioms
+  QuaternionicComputing.Simulation.realifyCircuitFullOutputDistribution
+#print axioms
+  QuaternionicComputing.Simulation.complexifyCircuitFullOutputDistribution
+#print axioms
+  QuaternionicComputing.Simulation.quaternionToRealCircuitFullOutputDistribution
+#print axioms
+  QuaternionicComputing.Simulation.quaternionToRealCircuitBottomDistribution
+#print axioms
+  QuaternionicComputing.Simulation.quaternionToRealCircuitBottomDistribution_eq
+#print axioms
+  QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_eventWeight
+#print axioms
+  QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_pushforward_eq
+
+#print axioms
+  QuaternionicComputing.Semantics.realTopCombination_allRebit_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.complexTopCombination_allQubit_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.realifyCircuit_allRebit_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.realifyCircuit_allRebit_decodedDistributionAgreement
+#print axioms
+  QuaternionicComputing.Semantics.realifyCircuit_decodedEventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.realifyCircuit_decodedPushforward_eq
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_allQubit_decodedDistributionAgreement
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_decodedEventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_decodedPushforward_eq
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_decodedEventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_decodedPushforward_eq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_raw_decodedBasisWeightAgreement
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_allPureTop_decodedDistributionAgreement
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_decodedEventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_decodedPushforward_eq
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount
