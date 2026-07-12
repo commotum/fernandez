@@ -244,9 +244,13 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   tailBits`; composed decoding removes the outer realification wire before the
   inner complexification wire. No product/mixed-top, partial-trace, channel,
   all-effect, randomized, or resource conclusion is inferred.
-- Pinned mathlib probes also validate finite basis columns and the scoped L2
-  induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
-  Loewner matrices need `MatrixOrder`.
+- Pinned Stage 10 probes validate the scoped L2 induced operator norm for
+  finite rectangular `RCLike` matrices, a native unbundled quaternionic induced
+  norm through the underlying real continuous-linear action on `PiLp 2`, a
+  common all-three-scalar column L2 metric, and finite total variation with
+  event/pushforward bounds. Quaternion matrices cannot use the RCLike matrix
+  norm and will receive no global/scoped norm instance. Complex PSD still needs
+  `ComplexOrder`, and Loewner matrices need `MatrixOrder`.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
