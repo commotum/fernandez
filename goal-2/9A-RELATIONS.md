@@ -92,11 +92,13 @@ same-space equality name or hiding top/marginal policy.
   types without claiming ray descent.
 - Package the four canonical raw column maps with their existing explicit
   reconstruction decoders as lossless, total-weight-preserving state
-  encodings. Derive `Function.Injective` and normalized-state embeddings from
-  the left-inverse/weight certificate rather than inventing a semantic
-  equivalence: these are injective maps into changed scalar/index spaces, not
-  bijections and not ray maps. Keep the existing cross-column orthogonality
-  theorem as a separate algebraic fact rather than hiding it in the relation.
+  encodings. Independent right-inverse probes show that all four coordinate
+  maps are actually bijective, including on normalized representative state
+  spaces. Export explicit raw and normalized `Equiv` values at this algebraic
+  coordinate layer while keeping them visibly distinct from same-space
+  semantic equivalence and from ray maps. Keep the existing cross-column
+  orthogonality theorem as a separate algebraic fact rather than hiding it in
+  the relation.
 - Probe empty and singleton source-index types. Empty normalized state types
   are uninhabited; do not pass impossible values merely to exercise a generic
   theorem.

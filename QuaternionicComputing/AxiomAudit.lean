@@ -556,6 +556,27 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.CircuitAllMeasurementEq.realPureInputBasisMeasurementEq
 
+#print axioms QuaternionicComputing.Semantics.ExactStateEncoding.comp
+#print axioms QuaternionicComputing.Semantics.LosslessStateEncoding.comp
+#print axioms QuaternionicComputing.Semantics.ExactOperatorEmbedding.comp
+#print axioms QuaternionicComputing.Semantics.StateIntertwining.comp
+#print axioms QuaternionicComputing.Semantics.AllTopStateIntertwining.forTop
+#print axioms QuaternionicComputing.Semantics.DecodedBasisWeightAgreement.comp
+#print axioms QuaternionicComputing.Semantics.DecodedDistributionAgreement.comp
+#print axioms
+  QuaternionicComputing.Semantics.DecodedDistributionAgreement.eventWeight_eq
+#print axioms
+  QuaternionicComputing.Semantics.AllTopDecodedBasisWeightAgreement.forTopInput
+#print axioms
+  QuaternionicComputing.Semantics.AllTopDecodedDistributionAgreement.forTopInput
+
+#print axioms QuaternionicComputing.Semantics.realColumn0_exactStateEncoding
+#print axioms QuaternionicComputing.Semantics.realColumn0_losslessStateEncoding
+#print axioms QuaternionicComputing.Semantics.realColumn0StateEmbedding
+#print axioms QuaternionicComputing.Semantics.complexColumn0_exactStateEncoding
+#print axioms QuaternionicComputing.Semantics.complexColumn0_losslessStateEncoding
+#print axioms QuaternionicComputing.Semantics.complexColumn0StateEmbedding
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount

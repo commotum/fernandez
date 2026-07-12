@@ -34,6 +34,23 @@ universe uS uT uU uOS uIS uOT uIT uOU uIU uO uM uP uTop uInput
 
 /-! ## Exact allocation of the 38 generic relation declarations -/
 
+/-
+Allocation, in source order:
+
+* `ExactStateEncoding`: `5`;
+* `LosslessStateEncoding`: `6`;
+* `ExactOperatorEmbedding`: `4`;
+* `StateIntertwining`: `4`;
+* `AllTopStateIntertwining`: `2`;
+* `DecodedBasisWeightAgreement`: `5`;
+* `DecodedDistributionAgreement`: `8`;
+* `AllTopDecodedBasisWeightAgreement`: `2`;
+* `AllTopDecodedDistributionAgreement`: `2`.
+
+Thus the nine aggregates below allocate `5+6+4+4+2+5+8+2+2 = 38`
+stable declarations exactly once.
+-/
+
 /-- Complete consumer for all five `ExactStateEncoding` declarations. -/
 theorem exactStateEncoding_api
     {S : Type uS} {T : Type uT} {U : Type uU}
@@ -237,6 +254,13 @@ theorem allTopDecodedDistributionAgreement_api
   ⟨h, AllTopDecodedDistributionAgreement.forTopInput h top input⟩
 
 /-! ## Exact allocation of the 12 representative-encoding declarations -/
+
+/-
+The next two aggregates allocate the six real and six complex declarations in
+`SimulationEncoding`, including all four normalized `Function.Embedding`
+values.  Together the two stable leaves therefore contribute exactly
+`38 + 12 = 50` declarations to this audit.
+-/
 
 /--
 Complete consumer for the six complex-to-real representative-encoding
@@ -584,6 +608,8 @@ end QuaternionicComputing.Semantics.SimulationAudit
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allRebit_stateIntertwining_api
 #print axioms QuaternionicComputing.Semantics.SimulationAudit.allQubit_decodedBasisWeight_api
+#print axioms
+  QuaternionicComputing.Semantics.SimulationAudit.allRebit_decodedDistribution_api
 #print axioms
   QuaternionicComputing.Semantics.SimulationAudit.empty_rawEncoding_normalizedBoundary_api
 #print axioms
