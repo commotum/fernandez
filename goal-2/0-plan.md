@@ -109,19 +109,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current Stage 9C tree has 90 Lean sources including the public root. The
-  explicit decoder, postprocessing, outcome-wrapper, and non-root audit leaves
-  strict-compile; focused builds pass at `2347`, `2361`, `2365`, and `2385`,
-  the final combined stable/audit/public-root/release-audit build passes at
-  `2769/2769`, and the cached default build completes `2767` jobs. The release
-  audit has 494 endpoints and the local simulation audit has 20; parsers cover
-  them exactly as `491 + 3` and `19 + 1`, with both collective unions exactly
+- The current Stage 10 tree has 97 Lean sources including the public root. All
+  six stable approximation leaves and the non-root allocation audit
+  strict-compile; the final combined stable/audit/public-root/release-audit
+  build passes at `2775/2775`, and the cached default build completes `2773`
+  jobs. The release audit has 536 endpoints, the local approximation audit has
+  16, and the retained local simulation audit has 20; parsers cover them as
+  `533 + 3`, `16 + 0`, and `19 + 1`, with every collective union exactly
   `propext`, `Classical.choice`, and `Quot.sound`. Public-root downstream,
-  regenerated manifest name/consumer, boundary/shortcut/artifact/Markdown/
+  generated manifest name/consumer, boundary/shortcut/artifact/Markdown/
   whitespace, frozen-checksum, documentation/Goal 3 fold-back, and diff checks
-  pass. Independent code, source, semantic, manifest, documentation, Goal 3,
-  and integrated milestone reviews returned **PASS** with no remaining Stage 9
-  defect.
+  pass. Stage 9's independent closure remains valid; independent Stage 10
+  source, mathematical, manifest/documentation, and integrated closure reviews
+  are the remaining gate before the Stage 10 checkbox changes.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -180,19 +180,22 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 1,100 unique declarations:
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,269 unique declarations:
   the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, 16
-  Stage 9B wrappers, and 36 Stage 9C decoder/postprocessing/outcome declarations
-  in exact source order. Every item has seven semantic axes and a named
-  downstream consumer; all 1,100 public names, 140 distinct consumers, and 308
-  direct release-audit labels resolve exactly. The first-990 structural hash is
+  Stage 9B wrappers, 36 Stage 9C decoder/postprocessing/outcome declarations,
+  and 169 Stage 10 metric declarations in exact source order. Every item has
+  seven semantic axes and a named downstream consumer; all 1,269 public names,
+  164 distinct consumers, and 348 direct release-audit labels resolve exactly.
+  The first-990 structural hash is
   `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
   and the preserved first-1,048 hash is
   `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`.
   The preserved first-1,064 hash is
   `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
-  the full manifest hash is
+  the preserved first-1,100 hash is
   `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
+  the full manifest hash is
+  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued

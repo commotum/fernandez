@@ -3,9 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 494 `#print axioms` commands (458 at Stage 9B, 442
-at Stage 9A, 422 at Stage 8, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5,
-and 305 at Stage 4C).
+the public root. It now runs 536 `#print axioms` commands (494 at Stage 9C, 458
+at Stage 9B, 442 at Stage 9A, 422 at Stage 8, 393 at Stage 7, 354 at Stage 6,
+330 at Stage 5, and 305 at Stage 4C).
 Representative endpoint categories include:
 
 - quaternion scalar decomposition and phase correction;

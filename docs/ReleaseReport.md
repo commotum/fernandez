@@ -375,6 +375,7 @@ Representative exported declarations include:
 | Simulations | `Simulation.complexToReal_exactSimulation`, `quaternionToComplex_exactSimulation`, `scheduledQuaternionToComplex_exactSimulation`, `quaternionToReal_exactSimulation` |
 | Resources | `Circuit.SupportLayering`, `PlacedGate.denseEntrySlots`, `ExactGateCompiler`, `allChronologicalOrders` |
 | Outcomes | `State.FiniteDistribution`, `realifyCircuitBottomDistribution_eq`, `complexifyCircuitBottomDistribution_eq` |
+| Approximation | `operatorDistance`, `QuaternionOperatorClose`, `ComplexGlobalPhaseClose`, `QuaternionStateRayClose`, `totalVariationDistance` |
 | Diagnostics | `OrderingWitness.output_basis00_weight_ne`, `ProductInputOrderingWitness.ground_outputs_not_rightPhaseEquivalent`, `NonProductWitness.encodedState_not_pureTopBottomProduct` |
 
 The full paper-to-declaration mapping is in `Traceability.md`.
@@ -386,7 +387,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, phase, hierarchy, density/channel, and directional simulation APIs
+  Semantics/    exact, phase, hierarchy, channel, simulation, and metric APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean

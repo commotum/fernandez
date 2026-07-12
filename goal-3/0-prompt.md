@@ -46,12 +46,14 @@ quaternionic output-row phase acts on the left. Goal 3 must consume these
 relations and their strictness witnesses without inventing stronger
 same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 Stage 9C checkpoint has 90 Lean sources including the public
-root, 1,100 semantic-manifest declarations, 140 resolving consumers, 308 direct
-audit labels, 494 root axiom commands, and 20 local simulation-audit commands;
-its exact axiom union remains `propext`, `Classical.choice`, and `Quot.sound`.
-The root audit parser reports 491 nonempty plus three axiom-free blocks, and the
-local parser reports 19 nonempty plus one axiom-free block.
+The current Goal 2 Stage 10 checkpoint has 97 Lean sources including the public
+root, 1,269 semantic-manifest declarations, 164 resolving consumers, 348 direct
+audit labels, 536 root axiom commands, 20 local simulation-audit commands, and
+16 local approximation-audit commands. Its exact axiom union remains
+`propext`, `Classical.choice`, and `Quot.sound`. The root audit parser reports
+533 nonempty plus three axiom-free blocks; the approximation parser reports 16
+nonempty blocks, and the simulation parser reports 19 nonempty plus one
+axiom-free block.
 Stage 9A contributes 38 generic directional cross-model declarations and 20
 concrete encoding declarations.
 `ExactStateEncoding` is only a left-inverse certificate on the encoder image;
@@ -97,7 +99,9 @@ metric, encoded finite precision, accumulated circuit error, approximate
 compiler construction, runtime, or uniformity. The current checkpoint is 97
 Lean sources including the root, 1,269 manifest declarations, 164 consumers,
 348 direct manifest audit labels, 536 root axiom commands, and 16 local
-approximation-audit commands. The preserved first-1,100 manifest hash is
+approximation-audit commands. The combined Stage 10/public/audit build completes
+2,775 jobs and the cached default build completes 2,773. The preserved
+first-1,100 manifest hash is
 `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`,
 the full-1,269 hash is
 `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`,

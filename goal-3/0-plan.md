@@ -203,7 +203,9 @@ none may remain excluded merely because it is difficult.
   nonempty plus three axiom-free blocks; the approximation parser reports 16
   nonempty blocks. Focused Stage 10 distribution/operator/phase/quaternion/
   state/strictness/audit builds completed 2,345, 2,365, 2,372, 2,376, 2,378,
-  2,374, and 2,383 jobs. The semantic-manifest hashes are
+  2,374, and 2,383 jobs. The combined stable/audit/public-root/release-audit
+  build completed 2,775 jobs and the cached default build completed 2,773. The
+  semantic-manifest hashes are
   `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
   for the preserved first 1,100 items and
   `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
