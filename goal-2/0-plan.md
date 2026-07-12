@@ -218,6 +218,15 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   phase still does not imply channel equality. No quaternionic channel,
   cross-model simulation, metric, partial-trace, mixed-top, or resource claim
   is introduced.
+- Stage 9 owns exactly 18 frozen-cohort families: two representative-encoding
+  families in 9A, eleven operator/state/reindex/schedule/compiler wrapper
+  families in 9B, and five decoded basis/distribution/event/postprocessing
+  families in 9C. Existing theorems already contain the underlying exact
+  mapped-operator, state-intertwining, pure-top bottom-weight, distribution,
+  event, and deterministic-pushforward facts. The missing work is a reusable
+  directional cross-space vocabulary and proof-bearing wrappers that keep
+  scalar/index changes, added wires, top-state quantifiers, decoders, and
+  marginals explicit without upgrading them to same-space ray/channel claims.
 - Pinned mathlib probes also validate finite basis columns and the scoped L2
   induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
   Loewner matrices need `MatrixOrder`.
