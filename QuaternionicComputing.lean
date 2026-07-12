@@ -140,6 +140,18 @@ The evaluator-backed circuit versions inherit the canonically inhabited
 computational basis even at zero wires. No result asserts a quaternionic
 channel, cross-model channel equality, partial trace, or mixed-top semantics.
 
+The same-space hierarchy is closed at its exact observation scopes. For
+arbitrary rectangular real, complex, and quaternionic matrices with only a
+finite input type, equality of computational-basis output weights for every
+normalized pure input is equivalent to one unit phase per output row; the
+quaternionic phase multiplies on the left. Finite-distribution equality is
+equivalent to equality of every finite-event weight and of every deterministic
+pushforward to a finite target in the same universe. These results compose
+with the real/complex channel kernels and certified-classical APIs without
+identifying output-row phase, basis statistics, finite distributions, rays,
+or channels. Counterexamples and exhaustive allocation checks remain in the
+non-root hierarchy audit.
+
 The circuit surface provides noncommutative-safe gate placement,
 locality-certified chronological circuits, preparation of a known basis input
 from the ground column, a fixed-value quaternionic order audit, and the

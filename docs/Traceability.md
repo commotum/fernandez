@@ -110,6 +110,22 @@ only. No quaternionic channel, arbitrary trace test, cross-model/mixed-top
 channel, partial trace, Kraus map, instrument, teleportation protocol, or
 capacity result is added.
 
+Stage 8 closes the proof-bearing same-space implication and strictness graph
+without changing any paper row's terminal status and without creating a new
+paper correction. For arbitrary rectangular real, complex, and quaternionic
+matrices with only a finite input type, all-normalized-pure-input basis
+agreement is exactly output-row phase, with quaternionic phase on the left.
+Finite-distribution equality is exactly equality of all finite-event weights
+and of all deterministic pushforwards to finite targets in the same universe.
+The real/complex channel and all-effect covering arrows and the circuit lifts
+reuse the already checked kernels. Exact unitary and normalized-state
+witnesses show why output-row or basis-only agreement does not imply channel
+equality and why equal basis distributions do not imply ray equality. These
+results refine the semantic classification of existing evidence; they do not
+alter the scope of a fixed-input witness, infer an unrestricted classical
+permutation, or close any cross-model, mixed-top, quaternionic-channel,
+approximation, ordering-resource, or complexity row.
+
 ## Numbered definitions, theorems, lemmas, and corollary
 
 | ID | Source | Concise target and dependencies | Priority / stage | Status |

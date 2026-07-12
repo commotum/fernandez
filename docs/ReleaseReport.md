@@ -18,10 +18,11 @@ public root. Stage 6 adds three stable density/effect/separation leaves and one
 non-root complete audit, bringing the checkpoint tree to 76 Lean sources
 including the public root. Stage 7 adds the channel core, real/complex phase
 kernel, evaluator-backed circuit lift, and non-root complete audit, bringing
-the checkpoint tree to 80 Lean sources including the public root. Goal 2
-remains active: the full implication/strictness hierarchy, cross-model
-classification, approximation, registry closure, and the final release audit
-are later stages.
+the checkpoint tree to 80 Lean sources including the public root. Stage 8 adds
+three stable hierarchy leaves and one non-root complete audit, bringing the
+checkpoint tree to 84 Lean sources including the public root. Goal 2 remains
+active: cross-model classification, approximation, registry closure, and the
+final release audit are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -192,6 +193,29 @@ or an unsafe shortcut.
   maps, instruments, decoded marginal, mixed-top simulation, or capacity
   result.
 
+### Same-space semantic hierarchy
+
+- `Hierarchy/OutputPhase.lean` proves, for arbitrary rectangular matrices with
+  only a finite input type, that all-normalized-pure-input computational-basis
+  agreement is exactly one output-row sign/phase. The quaternionic phase acts
+  on the left. The theorem needs no output finiteness, decidable equality,
+  nonempty index, unitarity, or nonzero-row premise.
+- `Hierarchy/State.lean` characterizes equality of finite distributions by
+  equality of every singleton event, every finite event, and every
+  deterministic pushforward to a finite target in the same universe. Its
+  state wrappers preserve the distinction between exact representatives,
+  scalar-correct rays, basis weights, and distributions.
+- `Hierarchy/Operator.lean` supplies useful real/complex channel and
+  all-effect consequences, direct global/projective characterizations, and
+  evaluator-backed circuit lifts. Its quaternionic contribution is limited to
+  the output-left-phase circuit characterization; no quaternionic channel is
+  introduced.
+- The three stable leaves export exactly `9 + 13 + 27 = 49` declarations. The
+  non-root hierarchy audit allocates all 49, checks rectangular and empty
+  boundaries, and packages exact failed-converse witnesses. In particular,
+  output-row phase and basis-only agreement do not imply channel equality, and
+  equal basis distributions do not determine a ray.
+
 ### Matrix embeddings and groups
 
 - `Matrix.realify` maps compatible complex matrices to doubled real block
@@ -297,6 +321,7 @@ Representative exported declarations include:
 | Certified basis behavior | `BasisPermutationImplementation`, `SameBasisBehavior`, `BasisClassicalUnitaryOperator`, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, the scalar `sameBasisBehavior_iff_*` families, and the certified XOR preparation declarations |
 | Densities and effects | `DensityMatrix`, `RealDensityMatrix`, `ComplexDensityMatrix`, `DensityMatrix.pure`, `basis`, `unitaryConjugate`; `Effect`, `RealEffect`, `ComplexEffect`, `Effect.projector`, `basis`, `bornValue`, `bornValue_mem_Icc`; and `DensityMatrix.eq_iff_forall_effect_bornValue_eq` |
 | Channels | `UnitaryOperator`, `ChannelEq`, `AllMeasurementEq`, `channelEq_iff_allMeasurementEq`; `RealRawProjectiveActionEq`, `ComplexRawProjectiveActionEq`, the real/complex global/projective `*_iff_channelEq` families; `UnitaryCircuit`, `CircuitChannelEq`, `CircuitAllMeasurementEq`, and their phase/append bridges |
+| Semantic hierarchy | `realOutputBasisSignEq_iff_pureInputBasisMeasurementEq`, `complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq`, `quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq`; `FiniteDistribution.eq_iff_eventWeight_eq`, `eq_iff_allPushforward_eq_sameUniverse`; and the channel/all-effect covering-arrow families in `Semantics.Hierarchy.Operator` |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -318,7 +343,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, measurement, basis, phase, density, effect, and channel APIs
+  Semantics/    exact, measurement, phase, hierarchy, density, effect, and channel APIs
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -514,12 +539,30 @@ endpoints use exactly `propext`, `Classical.choice`, and `Quot.sound`. The
 public root imports only `Channel`, `ChannelPhase`, and `ChannelCircuit`, never
 `ChannelAudit`.
 
+Stage 8 contributes 49 stable declarations: nine in
+`Semantics/Hierarchy/OutputPhase.lean`, 13 in
+`Semantics/Hierarchy/State.lean`, and 27 in
+`Semantics/Hierarchy/Operator.lean`. Twelve exact-allocation aggregates in the
+non-root `Semantics/HierarchyAudit.lean` consume all 49 declarations. Its
+rectangular, empty-index, singleton-distribution, strictness,
+certified-classical, schedule, and Kronecker consumers compile without using
+impossible normalized empty values.
+
+The three stable leaves and non-root audit pass warning-as-error source checks.
+Focused builds completed 2,355 jobs for `OutputPhase`, 2,356 for `State`,
+2,693 for `Operator`, and 2,713 for `HierarchyAudit`; the combined hierarchy
+audit/public-root/axiom-audit target completed 2,769 jobs. The public root
+imports the three stable leaves but never `HierarchyAudit`. All 33 local Stage
+8 diagnostic endpoints and all 422 public-root endpoints use only the exact
+standard union `propext`, `Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
-diagnostic leaves, public root, axiom audit, and all Stage 7 source boundaries.
-The executable root audit now contains 393 `#print axioms` commands, including
-19 Stage 4C, 25 Stage 5, 24 Stage 6, and 39 Stage 7 endpoints. All 11 local
-Stage 7 diagnostic prints, all seven local Stage 6 prints, all 18 local Stage 5
+hierarchy leaves, their diagnostic leaves, public root, axiom audit, and all
+Stage 8 source boundaries. The executable root audit now contains 422
+`#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
+Stage 7, and 29 Stage 8 endpoints. All 33 local Stage 8 diagnostic prints, all
+11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use
 exactly the union `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
@@ -553,10 +596,16 @@ manifest to 941 entries. The integrated checks resolve all 941 public names,
 direct-audit labels including 39 Stage 7 labels. The frozen Goal 1 cohort and
 checksum remain unchanged.
 
+Stage 8 appends its 49 declarations exactly once, bringing the semantic
+manifest to 990 entries. The current manifest resolves 116 distinct aggregate
+consumers, including the 12 Stage 8 aggregates, and records 236 direct-audit
+labels, including 29 Stage 8 labels. The first 941 entries and the frozen Goal
+1 cohort remain unchanged.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 7. The public root imports
+and heartbeat-override scans are empty through Stage 8. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
@@ -601,6 +650,11 @@ open QuaternionicComputing
 #check Semantics.UnitaryCircuit
 #check Semantics.circuitChannelEq_iff_allMeasurementEq
 #check Semantics.realCircuitGlobalSignEq_iff_channelEq
+#check Semantics.realOutputBasisSignEq_iff_pureInputBasisMeasurementEq
+#check Semantics.complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq
+#check Semantics.quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq
+#check State.FiniteDistribution.eq_iff_eventWeight_eq
+#check State.FiniteDistribution.eq_iff_allPushforward_eq_sameUniverse
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation

@@ -655,3 +655,15 @@ means the corrected mathematical target is known but not yet formalized;
   rows. The separate Stage 6 same-space real/complex density-and-effect core
   and Stage 7 same-space unitary-channel classification do not close these
   claims.
+
+## Goal 2 Stage 8 semantic-refinement note
+
+Stage 8 adds no new paper correction. Its hierarchy theorems prove the exact
+scope of existing comparison notions: all-pure-input computational-basis
+agreement is output-row phase, finite-distribution equality is equivalent to
+all finite-event and same-universe deterministic-pushforward agreement, and
+real/complex channel equality has the recorded weaker observation
+consequences. The accompanying witnesses rule out stronger converses. This
+refines how prior evidence is classified; it does not change a source claim or
+close the remaining cross-model, mixed-top, quaternionic-channel,
+approximation, ordering-resource, or complexity obligations.

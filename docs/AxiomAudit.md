@@ -3,9 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 393 `#print axioms` commands (354 at the Stage 6
-checkpoint, 330 at Stage 5, and 305 at Stage 4C). Representative endpoint
-categories include:
+the public root. It now runs 422 `#print axioms` commands (393 at the Stage 7
+checkpoint, 354 at Stage 6, 330 at Stage 5, and 305 at Stage 4C).
+Representative endpoint categories include:
 
 - quaternion scalar decomposition and phase correction;
 - both primary matrix embeddings, Equation 63 direct realification, group
@@ -47,6 +47,10 @@ categories include:
   equality under every genuine physical effect, raw/normalized projective
   kernels, global sign/phase characterizations, empty-index boundaries, and
   evaluator-backed locally-unitary circuit channels;
+- the all-three-scalar output-row-phase/all-pure-input characterizations,
+  finite-distribution event and deterministic-pushforward characterizations,
+  state-ray covering arrows, real/complex channel/all-effect consequences,
+  and their evaluator-backed circuit lifts;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
@@ -171,13 +175,32 @@ characterizations, exact empty-index matrix facts, circuit exact/global lifts,
 and chronological append. No quaternionic or cross-model channel endpoint is
 present.
 
+Stage 8 adds 49 stable declarations split `9 + 13 + 27` across
+`Semantics/Hierarchy/OutputPhase.lean`, `Hierarchy/State.lean`, and
+`Hierarchy/Operator.lean`. The non-root
+`Semantics/HierarchyAudit.lean` has 12 exact-allocation aggregates covering all
+49 declarations. Its concrete diagnostics include arbitrary rectangular and
+empty matrix boundaries, genuine singleton distributions, real/complex
+channel strictness, equal-distribution/not-ray witnesses, the exact
+one-input quaternionic ordering scope, the rank-one kernel exception, and all
+certified-classical equivalences under their supplied certificates.
+
+The hierarchy audit contains 33 local `#print axioms` endpoints. The public
+root does not import it. Instead, the root audit adds 29 independent Stage 8
+endpoints, bringing its total to 422 commands. Focused builds completed 2,355,
+2,356, 2,693, and 2,713 jobs for the output-phase, state, operator, and audit
+leaves respectively; the combined hierarchy-audit/public-root/axiom-audit
+target completed 2,769 jobs. Every new endpoint emits a subset of the exact
+standard three-item union below.
+
 ## Current checkpoint result
 
-The Stage 7 public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 393 public-root endpoints, all 11
-local Stage 7 endpoints, all seven local Stage 6 endpoints, all 18 local Stage
-5 endpoints, and the retained local Stage 4C diagnostics individually depends
-on a subset of the following exact three-item union:
+The Stage 8 public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 422 public-root endpoints, all 33
+local Stage 8 endpoints, all 11 local Stage 7 endpoints, all seven local Stage
+6 endpoints, all 18 local Stage 5 endpoints, and the retained local Stage 4C
+diagnostics individually depends on a subset of the following exact three-item
+union:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -191,11 +214,11 @@ Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
 from a focused build alone.
 
-The three stable Stage 7 channel leaves and non-root audit pass
-warning-as-error compilation. The focused audit build completed 2,686 jobs and
-the public-root plus explicit-audit build completed 2,760 jobs. This is a Stage
-7 checkpoint, not a claim that Goal 2 or its later hierarchy, cross-model,
-approximation, registry, and release stages are complete.
+The three stable Stage 8 hierarchy leaves and non-root audit pass
+warning-as-error compilation. The focused hierarchy-audit build completed
+2,713 jobs and the hierarchy-audit/public-root/explicit-audit build completed
+2,769 jobs. This is a Stage 8 checkpoint, not a claim that Goal 2 or its later
+cross-model, approximation, registry, and release stages are complete.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

@@ -146,14 +146,22 @@ none may remain excluded merely because it is difficult.
   normalized projective action, channel equality, and all-effect agreement
   have exact iff characterizations; the evaluator-backed circuit forms retain
   chronological append order and cover zero-wire circuits without a redundant
-  nonempty premise. The current Goal 2 baseline is 80 Lean sources including
-  the public root, 941 semantic-manifest declarations, 104 resolving consumers,
-  207 direct manifest audit labels, and 393 root axiom commands, with exact
+  nonempty premise. Stage 8 adds the checked implication/strictness hierarchy:
+  all-pure-input basis measurement is exactly output-row sign/phase for
+  rectangular real, complex, and quaternionic matrices with finite input
+  indices; finite-distribution equality is exactly all finite events and all
+  same-universe finite deterministic pushforwards; and the real/complex
+  global/projective/channel/all-effect graph is explicit. Equal basis
+  distributions still do not recover rays, and output-row phase still does not
+  recover channels. The current Goal 2 checkpoint is 84 Lean sources including
+  the public root, 990 semantic-manifest declarations, 116 resolving consumers,
+  236 direct manifest audit labels, and 422 root axiom commands, with exact
   axiom union `propext`, `Classical.choice`, and `Quot.sound`. Later Goal 2
   stages remain an explicit unmet prerequisite, so Goal 3 must not be executed
-  yet. Stage 7 does not add quaternionic density/channel semantics, partial
-  trace, Kraus maps, instruments, mixed-top or phase-kickback semantics, or
-  cross-model channel equality for the rows assigned below.
+  yet. Stage 8 does not add quaternionic density/channel semantics, partial
+  trace, Kraus maps, instruments, mixed-top or phase-kickback semantics,
+  cross-model channel equality, or metric approximation for the rows assigned
+  below.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix

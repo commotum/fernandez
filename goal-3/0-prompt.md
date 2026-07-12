@@ -39,6 +39,13 @@ the checked Stage 4C cross-model sector-orbit/ordinary-real-ray boundary. Goal
 3 Stage 1 must verify that complete evidence and correction C-027 rather than
 counting the quotient constructors alone or duplicating the ray work.
 
+Goal 2 also supplies the checked same-space hierarchy. In particular,
+all-pure-input basis measurement is output-row phase rather than channel
+equality, equal finite basis distributions need not determine a ray, and the
+quaternionic output-row phase acts on the left. Goal 3 must consume these
+relations and their strictness witnesses without inventing stronger
+same-space, cross-model, mixed-state, or channel conclusions.
+
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;
 choose the first dependency-ready incomplete stage or mandatory compiling

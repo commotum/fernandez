@@ -292,6 +292,16 @@ input or observation scope is stronger than its proof.
   `2355` for OutputPhase, `2356` for State, `2693` for Operator, and `2713`
   for HierarchyAudit; the combined audit/root/AxiomAudit build passes at
   `2769/2769`, and the current tree has 84 Lean sources including the root.
-- Semantic-manifest integration, documentation/Goal 3 count fold-back, final
-  default/downstream builds, scans, and the independent integrated closure
-  review remain in progress. Stage 8 is not yet complete.
+- `docs/Goal2SemanticAPIManifest.json` now contains 990 unique declarations,
+  preserving the first-941 structural hash
+  `72519cf742d5d2f2c2b3800961fda289159c2d5ca01bbad4de43948353fa9ca7`.
+  The 49 Stage 8 entries occur in exact `9/13/27` source order, have twelve
+  exact aggregate consumers (116 total consumers), and contribute 29 direct
+  audit labels (`9/8/12`, 236 total). The validator, JSON check, all 990
+  generated public-name checks, all 116 generated consumer checks, seven-axis
+  classification checks, public-root/audit boundary, frozen cohort checksum,
+  and diff checks pass. Review caught and repaired a manifest-generator scalar
+  classification bug before this evidence was recorded.
+- Documentation/Goal 3 count fold-back, final default/downstream builds, scans,
+  and the independent integrated closure review remain in progress. Stage 8 is
+  not yet complete.

@@ -109,11 +109,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The Stage 7 tree has 80 Lean sources including the public root. Strict
-  focused, adjacent-consumer, public-root, explicit-audit, and cached default
-  builds pass. The release audit contains 393 endpoints; the eleven local Stage
-  7 diagnostic endpoints and the complete release union use exactly `propext`,
-  `Classical.choice`, and `Quot.sound`.
+- The current Stage 8 tree has 84 Lean sources including the public root. The
+  three stable hierarchy leaves and non-root hierarchy audit strict-compile;
+  focused builds pass at `2355`, `2356`, `2693`, and `2713`, and the combined
+  hierarchy-audit/public-root/release-audit build passes at `2769/2769`. The
+  release audit contains 422 endpoints; all 33 local Stage 8 diagnostic
+  endpoints and the complete release union use exactly `propext`,
+  `Classical.choice`, and `Quot.sound`. Final default/downstream builds, scans,
+  documentation fold-back, and independent Stage 8 closure review remain due.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -172,13 +175,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 941 unique declarations:
-  the immutable 802-declaration Stage 6 prefix plus 139 Stage 7 declarations
-  (41 channel core, 40 phase-kernel, and 58 circuit declarations). Every item
-  has seven semantic axes and a named downstream consumer; all 941 public
-  names, 104 distinct consumers, and 207 direct release-audit labels resolve
-  exactly. The first-802 structural hash is
-  `6554f0c773ef602e3e8791c77142a37dda2c0fc97df5d8b1b41f8a162eadf2e0`,
+- `docs/Goal2SemanticAPIManifest.json` now contains 990 unique declarations:
+  the immutable 941-declaration Stage 7 prefix plus 49 Stage 8 declarations in
+  exact source order (`9` output-phase, `13` state/distribution, and `27`
+  operator/circuit hierarchy declarations). Every item has seven semantic axes
+  and a named downstream consumer; all 990 public names, 116 distinct
+  consumers, and 236 direct release-audit labels resolve exactly. The
+  first-941 structural hash is
+  `72519cf742d5d2f2c2b3800961fda289159c2d5ca01bbad4de43948353fa9ca7`,
   and the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
@@ -197,6 +201,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   channel invariance. Empty-index matrix equality is separated from vacuous
   density quantification, and no quaternionic, cross-model, partial-trace,
   mixed-top, Kraus, or instrument result is inferred.
+- Stage 8 now exports 49 stable hierarchy theorems with exact `49/49` non-root
+  allocation. For arbitrary rectangular matrices over all three scalars, with
+  only finite input indices, equality of every normalized pure-input basis
+  distribution is equivalent to one output-row sign/phase; quaternionic output
+  phase acts on the left. Finite-distribution equality is equivalent to all
+  singleton/event weights and to all same-universe finite deterministic
+  pushforwards. The real/complex global/projective/channel/all-effect graph,
+  circuit lifts, all-three-scalar state chain, certified-classical restrictions,
+  and every published failed converse are consumed by the non-root hierarchy
+  audit. Equal basis distributions still do not imply ray equality, and output
+  phase still does not imply channel equality. No quaternionic channel,
+  cross-model simulation, metric, partial-trace, mixed-top, or resource claim
+  is introduced.
 - Pinned mathlib probes also validate finite basis columns and the scoped L2
   induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
   Loewner matrices need `MatrixOrder`.

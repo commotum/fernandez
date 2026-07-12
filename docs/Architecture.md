@@ -513,14 +513,16 @@ output types are covered by the same theorem.
 kernel and evaluator APIs. On inhabited real/complex unitary spaces it gives
 the direct global-phase/projective iff, while channel and all-effect equality
 have named pure-input and basis-measurement consequences. The circuit wrappers
-compare only `OrderedCircuit.eval`. The non-root `HierarchyAudit.lean`
-allocates all 49 stable declarations exactly, packages the rational unitary
-twists as channel/all-effect counterexamples, separates complex and
-quaternionic distributions from rays, and consumes the certified-classical
-iff theorems only under their permutation certificates. It also records that
-empty finite-distribution and normalized-state types are uninhabited instead
-of testing theorems through impossible values. No hierarchy leaf adds a
-quaternionic channel, cross-model certificate, metric, or resource claim.
+compare only `OrderedCircuit.eval`. The three stable leaves export exactly
+`9 + 13 + 27 = 49` declarations. The non-root `HierarchyAudit.lean` allocates
+all 49 exactly, packages the rational unitary twists as channel/all-effect
+counterexamples, separates complex and quaternionic distributions from rays,
+and consumes the certified-classical iff theorems only under their permutation
+certificates. Its 33 local axiom endpoints are diagnostic rather than imports
+of the public root. It also records that empty finite-distribution and
+normalized-state types are uninhabited instead of testing theorems through
+impossible values. No hierarchy leaf adds a quaternionic channel, cross-model
+certificate, metric, or resource claim.
 
 ## Circuit implementation
 

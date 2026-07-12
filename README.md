@@ -54,6 +54,7 @@ import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.Ray
+import QuaternionicComputing.Semantics.Hierarchy.OutputPhase
 import QuaternionicComputing.Semantics.Hierarchy.State
 import QuaternionicComputing.Semantics.BasisBehavior
 import QuaternionicComputing.Semantics.BasisBehaviorCircuit
