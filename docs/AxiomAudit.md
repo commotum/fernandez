@@ -257,8 +257,9 @@ bounds, or a compiler/schedule construction.
 
 The non-root simulation audit adds two infrastructure aggregates allocating
 the decoder and postprocessing additions as `10 + 8`, and five semantic
-aggregates allocating the 18 wrappers by the five groups above. Four new local
-axiom prints bring that diagnostic leaf to 20 commands. The public-root audit
+aggregates allocating the 18 wrappers by the five groups above. Seven selected
+prints replace three older selected diagnostics, a net increase of four that
+brings the diagnostic leaf to 20 commands. The public-root audit
 adds all 36 declarations directly, bringing its total to 494 commands. Focused
 builds completed 2,347, 2,361, 2,365, and 2,385 jobs for the decoder,
 postprocessing, semantic-wrapper, and extended-audit leaves, respectively; the

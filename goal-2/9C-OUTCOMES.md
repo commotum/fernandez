@@ -12,21 +12,21 @@
   jobs. The root parser covers `491 + 3 = 494` blocks and the local parser
   covers `19 + 1 = 20`; every endpoint uses a subset and both collective
   unions are exactly `propext`, `Classical.choice`, and `Quot.sound`.
-- Stage 9C has exactly seven inventory touchpoints: five Stage 9C-owned frozen
-  families (`EQC-009`, `EQC-013`, `EQC-032`, `EQC-035`, and `EQC-038`) plus the
+- Stage 9C began with exactly seven inventory touchpoints: five Stage 9C-owned
+  frozen families (`EQC-009`, `EQC-013`, `EQC-032`, `EQC-035`, and `EQC-038`) plus the
   outcome slices of the Stage 9B-owned scheduled and composed families
   (`EQC-036` and `EQC-037`). `EQC-005` is an already-closed finite-event/
   pushforward dependency and is not reopened. Raw state families `EQC-031` and
   `EQC-034` remain separate from their observable families `EQC-032` and
   `EQC-035`.
 
-| Touchpoint | Strongest existing evidence | Exact remaining gap |
+| Touchpoint | Strongest pre-Stage 9C evidence | Gap Stage 9C was required to close |
 |---|---|---|
-| `EQC-009-REAL-COLUMNS-MEASUREMENT` | `realTopCombination_bottomWeight_of_rebit`, subsuming both canonical columns | no stable all-`Rebit` decoded-basis wrapper; the current sector decoder is audit-local |
+| `EQC-009-REAL-COLUMNS-MEASUREMENT` | `realTopCombination_bottomWeight_of_rebit`, subsuming both canonical columns | no stable all-`Rebit` decoded-basis wrapper; the sector decoder was audit-local |
 | `EQC-013-COMPLEX-COLUMNS-MEASUREMENT` | `complexTopCombination_bottomWeight_of_qubit`, subsuming both canonical columns | no stable all-`Qubit` decoded-basis wrapper; no reduced-density conclusion follows |
 | `EQC-032-C2R-OBSERVABLE` | `realifyCircuitOutput_bottomProbability` for every locally unitary circuit, normalized source input, and `Rebit` | no all-top decoded-basis relation with the full added-wire outcome carrier visible |
 | `EQC-035-Q2C-OBSERVABLE` | `complexifyCircuitOutput_bottomProbability` under the analogous quaternionic hypotheses | the same missing relation-valued wrapper and explicit decoder |
-| `EQC-038-POSTPROCESSING-SIMULATION` | primary bottom-distribution, event, and deterministic-pushforward equalities | current target distributions are already marginalized; an `id` decoder would erase the target carrier and marginal policy |
+| `EQC-038-POSTPROCESSING-SIMULATION` | primary bottom-distribution, event, and deterministic-pushforward equalities | target distributions were already marginalized; an `id` decoder would erase the target carrier and marginal policy |
 | outcome slice of `EQC-036-SCHEDULED-Q2C` | outcome conjunct of `scheduledQuaternionToComplex_exactSimulation` | no separately named supplied-schedule outcome relation; the old conjunction carries an irrelevant arity premise |
 | outcome slice of `EQC-037-Q2R-COMPOSED` | `quaternionToRealCircuitOutput_bottomProbability` | no explicit two-wire relation, full target distribution, event theorem, or postprocessing theorem |
 
@@ -351,11 +351,10 @@ mixed-top, randomized, or resource semantics.
   counts. Stage 9C adds no paper correction and no product/mixed-top, partial-
   trace, channel/all-effect, randomized, resource, compiler, or schedule-choice
   claim.
-- Independent source, semantic, and manifest review returned **PASS**. Final
-  documentation, Goal 3, and integrated milestone review remains the last
-  closure gate.
+- Independent source, semantic, manifest, documentation, Goal 3, and integrated
+  milestone reviews returned **PASS**. Stage 9C and the umbrella Stage 9
+  cross-model classification are complete.
 
 ## Completion Status
 
-- [ ] Final integrated documentation review is pending before Stage 9C and the
-  umbrella Stage 9 are marked complete.
+- [x] Stage 9C is complete. Stage 9 is complete; Stage 10 is next.

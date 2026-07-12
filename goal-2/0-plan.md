@@ -119,9 +119,9 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   `propext`, `Classical.choice`, and `Quot.sound`. Public-root downstream,
   regenerated manifest name/consumer, boundary/shortcut/artifact/Markdown/
   whitespace, frozen-checksum, documentation/Goal 3 fold-back, and diff checks
-  pass. Independent code, source, semantic, and manifest review returned
-  **PASS**; final documentation/integrated milestone review is the remaining
-  Stage 9C closure gate.
+  pass. Independent code, source, semantic, manifest, documentation, Goal 3,
+  and integrated milestone reviews returned **PASS** with no remaining Stage 9
+  defect.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -180,17 +180,19 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 1,064 unique declarations:
-  the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, and
-  16 Stage 9B wrappers in exact source order. Every item has seven semantic
-  axes and a named downstream consumer; all 1,064 public names, 133 distinct
-  consumers, and 272 direct release-audit labels resolve exactly. The
-  first-990 structural hash is
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,100 unique declarations:
+  the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, 16
+  Stage 9B wrappers, and 36 Stage 9C decoder/postprocessing/outcome declarations
+  in exact source order. Every item has seven semantic axes and a named
+  downstream consumer; all 1,100 public names, 140 distinct consumers, and 308
+  direct release-audit labels resolve exactly. The first-990 structural hash is
   `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
   and the preserved first-1,048 hash is
   `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`.
-  The full manifest hash is
+  The preserved first-1,064 hash is
   `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
+  the full manifest hash is
+  `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
@@ -233,8 +235,15 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   coefficient pairs, Equation 63 reindexing, one supplied schedule, and an
   explicit exact compiler remain visible in the types; no same-space, ray,
   outcome, channel, synthesis, or resource conclusion is inferred. Stage 9C
-  still owns the five decoded basis/distribution/event/postprocessing families,
-  which are the only remaining Stage 9 families.
+  adds explicit full-target one/two-wire decoders and closes the five decoded
+  basis/distribution/event/postprocessing families plus the scheduled and
+  composed outcome slices with 18 wrappers at separate raw-weight,
+  normalized-distribution, finite-event, and deterministic-pushforward levels.
+  Raw wrappers need no unitarity; normalized levels retain locally unitary
+  circuits and normalized inputs. One-wire decoding is exactly `pushforward
+  tailBits`; composed decoding removes the outer realification wire before the
+  inner complexification wire. No product/mixed-top, partial-trace, channel,
+  all-effect, randomized, or resource conclusion is inferred.
 - Pinned mathlib probes also validate finite basis columns and the scoped L2
   induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
   Loewner matrices need `MatrixOrder`.
@@ -804,7 +813,7 @@ failed converse or incomparability with exact witnesses.
 
 - [x] `9A-RELATIONS`
 - [x] `9B-WRAPPERS`
-- [ ] `9C-OUTCOMES`
+- [x] `9C-OUTCOMES`
 
 #### Big Picture Objective
 
@@ -967,7 +976,7 @@ use without learning the retrofit's implementation history.
 - [x] 6-DENSITY
 - [x] 7-CHANNELS
 - [x] 8-HIERARCHY
-- [ ] 9-CROSSMODEL
+- [x] 9-CROSSMODEL
 - [ ] 10-APPROX
 - [ ] 11-REGISTRY
 - [ ] 12-RELEASE
