@@ -1,0 +1,202 @@
+# 11-REGISTRY
+
+## Milestone Status
+
+- [ ] `11A-EXISTING`
+- [ ] `11B-REGISTRY`
+- [ ] `11C-DOCS`
+
+## Current Facts
+
+- Stage 10 is independently closed. The current tree has 97 Lean sources
+  including the public root, 1,269 Goal 2 semantic-manifest declarations, 164
+  resolving consumers, 348 direct manifest audit labels, 536 root axiom
+  commands, and 16 local approximation-audit commands. The combined build
+  passes at `2775/2775`, the cached default build passes at `2773`, and the root
+  and approximation audit unions are exactly `propext`, `Classical.choice`, and
+  `Quot.sound`.
+- `docs/Goal1ComparisonCohort.json` is the immutable pre-retrofit discovery
+  boundary: 51 families and 936 uniquely assigned public declarations. Its
+  checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+  The file intentionally retains historical provisional descriptions and must
+  not be rewritten by Stage 11.
+- The 51 families consist of 42 Goal 1 implementation/release families and
+  nine source-only families with empty declaration arrays. Earlier Goal 2
+  stages already supply proof-bearing exact, phase/ray, basis, density/channel,
+  hierarchy, cross-model, and metric overlays, but no single final registry
+  currently maps all 936 frozen declarations to their strongest checked
+  classification.
+- Twelve frozen families are first-owned by Stage 11 and contain 391
+  declarations: `EQC-010` (6), `EQC-015` (26), `EQC-017` (42), `EQC-018`
+  (41), `EQC-020` (32), `EQC-021` (12), `EQC-022` (30), `EQC-023` (21),
+  `EQC-024` (34), `EQC-029` (35), `EQC-039` (2), and `EQC-041` (110).
+  Most are algebraic-image, diagnostic, structural, or resource-support
+  families rather than behavioral equivalence relations. Their final
+  dispositions must be proof-bearing without relabeling them as behavior.
+- `docs/EquivalenceClassification.md` has the frozen 51-row family seed plus
+  proof-bearing overlays through Stage 10. Its opening still correctly labels
+  the seed provisional, but Stage 11 must add a final checked registry view,
+  resolve the ambiguity backlog, and distinguish frozen historical text from
+  final classifications.
+- `docs/Goal2SemanticAPIManifest.json` is independent of the frozen cohort. It
+  already covers all 1,269 Goal 2 semantic exports exactly once and must remain
+  an independently validated suffix-growing manifest rather than being merged
+  into the 936-declaration final classification registry.
+
+## Updated Assumptions
+
+- A new final overlay such as `docs/Goal2ClassificationRegistry.json` is safer
+  than mutating the frozen cohort. It should contain exactly 936 declaration
+  entries plus explicit family-level records for the nine source-only rows.
+- Every declaration-level entry needs its frozen family ID, seven semantic
+  axes, strongest final relation/category, proof-bearing Lean consumer or an
+  explicit nonbehavioral/resource/source-only disposition, and audit evidence.
+  A family label alone is insufficient.
+- Stable semantic wrappers belong in a narrow leaf such as
+  `Semantics/ExistingResults.lean`. Exhaustive allocations and concrete
+  consumers belong in a non-root `Semantics/ExistingResultsAudit.lean`. Purely
+  algebraic/resource declarations should be consumed and classified without
+  inventing behavioral predicates merely to give them a wrapper.
+- Existing exact theorem statements should remain unchanged. Stage 11 should
+  add thin named consequences or aggregate certificates only when the current
+  public API lacks a proof-bearing strongest classification.
+- Source-only rows stay source-only or Goal 3-owned unless an earlier Goal 2
+  result genuinely closes them. `EQC-042`, `EQC-043`, and `EQC-044` have Goal 2
+  overlays; `EQC-045`--`EQC-051` retain their exact Goal 3/excluded/unsupported
+  dispositions.
+- Registry validation must check Lean names and consumers, not just JSON
+  shape. It must preserve the frozen cohort checksum and independently recheck
+  the complete Goal 2 semantic manifest.
+
+## Big Picture Objective
+
+Give every frozen Goal 1 declaration and every source-only family one final,
+checked strongest classification. Close the remaining algebraic,
+representative, placement, schedule, compiler, diagnostic, and resource
+families without treating support mathematics as behavioral equivalence.
+Publish an executable registry checker and remove materially ambiguous
+equivalence/simulation wording across the project while leaving Goal 3's
+unimplemented models explicit.
+
+## Detailed Implementation Plan
+
+### `11A-EXISTING` — proof-bearing remaining families
+
+- Inventory the 391 declarations in the twelve Stage 11-owned families in
+  exact frozen order. Identify the strongest existing theorem or necessary thin
+  wrapper for each family and its weaker consequences/boundaries.
+- Add `QuaternionicComputing/Semantics/ExistingResults.lean` only for stable
+  named classifications that are missing. Keep algebraic image equivalences,
+  determinant/group facts, Kronecker/place identities, schedule enumeration,
+  exact compiler semantics, and structural resources visibly nonbehavioral.
+- Add a non-root `Semantics/ExistingResultsAudit.lean` whose source-order
+  aggregates allocate every new stable wrapper and consume every Stage
+  11-owned frozen declaration through genuine existing results. Include
+  concrete representative, image/nonimage, schedule, compiler, and resource
+  boundary checks.
+
+### `11B-REGISTRY` — exact declaration registry and checker
+
+- Create a final registry overlay with exactly 936 declaration entries. Preserve
+  the frozen family assignment and checksum; apply the checked Goal 2
+  classifications, including the `EQC-001` erratum and `EQC-042` Stage 10
+  refinement, only in the overlay.
+- Record family, same/cross/source space, subject, input scope, observation
+  scope, phase side, exactness, ancilla/marginal policy, strongest relation or
+  category, proof-bearing wrapper/consumer, weaker consequences, strictness
+  witness, final disposition, and Goal 3 boundary.
+- Add a maintained validator that proves exact frozen-declaration set/order,
+  unique family assignment, all required nonempty fields, allowed disposition
+  vocabulary, resolving Lean declarations/consumers, exact audit-label
+  intersection, no audit/public-root boundary violation, and unchanged frozen
+  checksum.
+- Independently revalidate all 1,269 Goal 2 semantic-manifest declarations,
+  164 consumers, 348 direct labels, seven axes, source order, prefix/full hashes,
+  and public-root/audit boundaries. Never add final-registry entries to the
+  semantic manifest merely because they are metadata.
+
+### `11C-DOCS` — final human classification and Goal 3 rebaseline
+
+- Convert `docs/EquivalenceClassification.md` from a provisional seed plus
+  overlays into a final family/declaration registry guide. Resolve every item
+  in its ambiguity backlog or record an exact remaining Goal 3/source
+  obstruction.
+- Repair materially ambiguous uses of “equal,” “equivalent,” “same behavior,”
+  “preserves,” and “simulates” in README, docstrings, architecture,
+  conventions, traceability, corrections, and release documentation.
+- Rebaseline Goal 3 from the actual Stage 11 release counts, final
+  classification dispositions, the two `closedByGoal2` ray rows, the metric
+  prerequisite, and the immutable residual worklist. Do not claim Goal 2 final
+  release until Stage 12 independently passes.
+
+## Build Structure
+
+- `Semantics/ExistingResults.lean`: stable thin classifications only; no audit
+  imports and no metadata-only proofs.
+- `Semantics/ExistingResultsAudit.lean`: non-root exhaustive allocations and
+  concrete boundary consumers.
+- `docs/Goal2ClassificationRegistry.json`: final overlay over the frozen
+  936-declaration cohort.
+- A maintained registry validator and generated Lean name/consumer checks;
+  temporary generated Lean artifacts remain untracked.
+- `QuaternionicComputing.lean`: imports only the stable wrapper leaf if one is
+  required.
+- `QuaternionicComputing/AxiomAudit.lean`: selected main wrapper endpoints;
+  exhaustive local endpoints stay in the non-root audit.
+- Focused builds target each new stable/audit leaf, then existing semantic
+  audits, the public root, release audit, generated checks, and a root-only
+  downstream classification smoke.
+
+## Boundary Checks
+
+- Algebraic `Equiv`/`MulEquiv` onto an embedding image remains algebraic and
+  nonbehavioral. Determinant/group membership is not operational simulation.
+- Matrix placement/reindexing is not a physical swap circuit or routing cost.
+  Schedule enumeration/counts are structural, not circuit equality.
+- Supplied exact compiler semantics prove neither compiler existence nor
+  synthesis, approximation, resource bounds without their explicit premises,
+  runtime, or uniformity.
+- One-input witnesses remain one-input. Basis/distribution equality remains
+  weaker than ray/channel equality. Cross-model wrappers retain every map,
+  added wire, coefficient/top policy, decoder, and observation scope.
+- Source-only rows are never made proof-bearing by a registry label. A Goal
+  3-owned claim remains unimplemented unless an actual Lean theorem closes it.
+- Final registry entries for Goal 2 declarations remain separate from the
+  frozen Goal 1 cohort and do not recursively expand the discovery boundary.
+
+## No-Cheating Checks
+
+- No family-level label substitutes for declaration-level exact-once coverage.
+- No empty or generic “classified” theorem is accepted unless its type contains
+  the actual strongest relation or it consumes the actual nonbehavioral result.
+- No impossible premise, broad `simp`/instance, false `Equivalence`, audit
+  import, checksum rewrite, generated tracked artifact, `sorry`, `admit`,
+  `sorryAx`, declaration axiom, `opaque`, `unsafe`, or heartbeat override.
+- Checker success must include generated Lean resolution of every declaration
+  and proof consumer, exact source/cohort set comparison, audit intersection,
+  allowed-disposition validation, and frozen checksum verification.
+
+## Completion Requirements
+
+- All 51 families have one final strongest checked family classification; all
+  936 frozen declarations have exactly one final registry entry with a real
+  proof consumer or justified nonbehavioral/resource disposition.
+- Every Stage 11-owned family is proof-bearing at its exact scope. No
+  algebraic, diagnostic, structural, or resource fact is mislabeled as
+  behavioral equivalence.
+- The final registry checker, generated 936-name/consumer checks, independent
+  1,269-entry semantic-manifest validator, frozen checksum, and exact audit
+  intersections pass.
+- Stable imports remain narrow; no stable/public leaf imports either audit.
+  Focused, adjacent, combined, default, warning-as-error, downstream smoke,
+  source/shortcut/false-equivalence/import/artifact/Markdown/whitespace/diff,
+  and axiom-union checks pass.
+- README, architecture, conventions, classification, traceability,
+  corrections, release/axiom reports, Goal 3, this report, and the master plan
+  agree. Independent source, mathematical, registry, documentation, Goal 3,
+  and integrated closure reviews return **PASS** before Stage 11 is checked.
+
+## Stage Results
+
+- Inventory and implementation pending.

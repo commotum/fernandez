@@ -907,6 +907,12 @@ precision or compilation.
 
 ### 11-REGISTRY
 
+#### Milestone Status
+
+- [ ] `11A-EXISTING`
+- [ ] `11B-REGISTRY`
+- [ ] `11C-DOCS`
+
 #### Big Picture Objective
 
 Give every discovered public semantic comparison a checked strongest
