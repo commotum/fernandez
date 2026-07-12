@@ -187,4 +187,25 @@ chronological-circuit wrappers.
 
 ## Stage Results
 
-- In progress.
+- `QuaternionicComputing/Semantics/Channel.lean` now supplies the Stage 7A
+  core with 41 explicitly named declarations plus one anonymous matrix
+  coercion instance. `UnitaryOperator` bundles a finite `RCLike` square matrix
+  with its actual unitary certificate; real and complex aliases, exact
+  extensionality, identity, and chronological `followedBy` composition are
+  exposed without an ambiguous multiplication instance.
+- `UnitaryOperator.evolve` delegates to the Stage 6 physical conjugation.
+  Identity and composition are exact: `U.followedBy V` stores `V * U` and
+  evolves first by `U`, then by `V`.
+- `ChannelEq` quantifies over every density input and compares the complete
+  evolved density. `AllMeasurementEq` quantifies over every density input and
+  every genuine `Effect`. Both are equivalence relations, respect exact
+  underlying matrices and chronological composition, and
+  `channelEq_iff_allMeasurementEq` proves their equivalence by invoking the
+  Stage 6 physical-effect separation theorem for each output pair.
+- The core imports only `EffectSeparation`; it has no phase, circuit,
+  quaternionic channel, arbitrary trace-test, or hidden nonempty API. Strict
+  warning-as-error compilation and the focused build pass at `2672/2672`; its
+  representative axiom union is exactly `propext`, `Classical.choice`, and
+  `Quot.sound`.
+- Stage 7B phase-kernel and Stage 7C circuit work remain in progress; Stage 7
+  is not yet complete.

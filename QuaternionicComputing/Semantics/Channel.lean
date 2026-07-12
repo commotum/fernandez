@@ -7,7 +7,7 @@ public import QuaternionicComputing.Semantics.EffectSeparation
 
 This leaf bundles a square `RCLike` matrix with its unitary certificate and
 defines its action on finite density matrices.  Composition is exposed in
-chronological order: `U.then V` means first apply `U`, then apply `V`, so its
+chronological order: `U.followedBy V` means first apply `U`, then apply `V`, so its
 underlying matrix is `V * U`.
 
 `ChannelEq U V` requires equality of the complete evolved density matrix for
@@ -111,37 +111,37 @@ theorem identity_coe :
 /--
 Chronological composition of unitary operators.
 
-`U.then V` applies `U` first and `V` second, and therefore stores `V * U`.
+`U.followedBy V` applies `U` first and `V` second, and therefore stores `V * U`.
 -/
-def then (U V : UnitaryOperator 𝕜 I) : UnitaryOperator 𝕜 I :=
+def followedBy (U V : UnitaryOperator 𝕜 I) : UnitaryOperator 𝕜 I :=
   ofMatrix (V.matrix * U.matrix)
     ((unitary (Matrix I I 𝕜)).mul_mem V.mem_unitary U.mem_unitary)
 
 /-- Chronological composition stores the later matrix on the left. -/
 @[simp]
-theorem then_coe (U V : UnitaryOperator 𝕜 I) :
-    ((U.then V : UnitaryOperator 𝕜 I) : Matrix I I 𝕜) =
+theorem followedBy_coe (U V : UnitaryOperator 𝕜 I) :
+    ((U.followedBy V : UnitaryOperator 𝕜 I) : Matrix I I 𝕜) =
       (V : Matrix I I 𝕜) * (U : Matrix I I 𝕜) :=
   rfl
 
 /-- Chronological composition is associative. -/
 @[simp]
-theorem then_assoc (U V W : UnitaryOperator 𝕜 I) :
-    (U.then V).then W = U.then (V.then W) := by
+theorem followedBy_assoc (U V W : UnitaryOperator 𝕜 I) :
+    (U.followedBy V).followedBy W = U.followedBy (V.followedBy W) := by
   apply ext_matrix
-  simp only [then_coe, Matrix.mul_assoc]
+  simp only [followedBy_coe, Matrix.mul_assoc]
 
 /-- Applying the identity first does not change a unitary operator. -/
 @[simp]
-theorem identity_then (U : UnitaryOperator 𝕜 I) :
-    identity.then U = U := by
+theorem identity_followedBy (U : UnitaryOperator 𝕜 I) :
+    identity.followedBy U = U := by
   apply ext_matrix
   simp
 
 /-- Applying the identity last does not change a unitary operator. -/
 @[simp]
-theorem then_identity (U : UnitaryOperator 𝕜 I) :
-    U.then identity = U := by
+theorem followedBy_identity (U : UnitaryOperator 𝕜 I) :
+    U.followedBy identity = U := by
   apply ext_matrix
   simp
 
@@ -164,15 +164,16 @@ theorem evolve_coe (U : UnitaryOperator 𝕜 I) (rho : DensityMatrix 𝕜 I) :
 @[simp]
 theorem identity_evolve (rho : DensityMatrix 𝕜 I) :
     (identity : UnitaryOperator 𝕜 I).evolve rho = rho := by
-  simpa only [evolve, identity] using DensityMatrix.unitaryConjugate_one rho
+  apply DensityMatrix.ext_matrix
+  simp [evolve]
 
 /-- Chronological composition evolves first by `U` and then by `V`. -/
-theorem then_evolve (U V : UnitaryOperator 𝕜 I)
+theorem followedBy_evolve (U V : UnitaryOperator 𝕜 I)
     (rho : DensityMatrix 𝕜 I) :
-    (U.then V).evolve rho = V.evolve (U.evolve rho) := by
-  simpa only [evolve, then, ofMatrix] using
-    (DensityMatrix.unitaryConjugate_comp U.matrix V.matrix
-      U.mem_unitary V.mem_unitary rho).symm
+    (U.followedBy V).evolve rho = V.evolve (U.evolve rho) := by
+  apply DensityMatrix.ext_matrix
+  simp only [evolve_coe, followedBy_coe, Matrix.conjTranspose_mul,
+    Matrix.mul_assoc]
 
 end UnitaryOperator
 
@@ -247,11 +248,11 @@ theorem allMeasurementEq (h : ChannelEq U V) : AllMeasurementEq U V := by
 Chronological composition is congruent for channel equality: related early
 and later operators compose to related complete channels.
 -/
-theorem then {A B : UnitaryOperator 𝕜 I}
+theorem followedBy {A B : UnitaryOperator 𝕜 I}
     (hUV : ChannelEq U V) (hAB : ChannelEq A B) :
-    ChannelEq (U.then A) (V.then B) := by
+    ChannelEq (U.followedBy A) (V.followedBy B) := by
   intro rho
-  rw [UnitaryOperator.then_evolve, UnitaryOperator.then_evolve]
+  rw [UnitaryOperator.followedBy_evolve, UnitaryOperator.followedBy_evolve]
   calc
     A.evolve (U.evolve rho) = A.evolve (V.evolve rho) :=
       congrArg A.evolve (hUV rho)
@@ -312,10 +313,10 @@ theorem channelEq (h : AllMeasurementEq U V) : ChannelEq U V := by
   exact h rho E
 
 /-- Chronological composition is congruent for all-measurement equality. -/
-theorem then {A B : UnitaryOperator 𝕜 I}
+theorem followedBy {A B : UnitaryOperator 𝕜 I}
     (hUV : AllMeasurementEq U V) (hAB : AllMeasurementEq A B) :
-    AllMeasurementEq (U.then A) (V.then B) :=
-  (hUV.channelEq.then hAB.channelEq).allMeasurementEq
+    AllMeasurementEq (U.followedBy A) (V.followedBy B) :=
+  (hUV.channelEq.followedBy hAB.channelEq).allMeasurementEq
 
 end AllMeasurementEq
 
