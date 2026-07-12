@@ -187,22 +187,33 @@ none may remain excluded merely because it is difficult.
   Stage 9C does not add product or mixed-top semantics, partial trace, channels,
   randomized algorithms, resource bounds, or compiler/schedule construction,
   and it adds no paper correction.
-  The current Goal 2 checkpoint is 90 Lean sources including the public root,
-  1,100 semantic-manifest declarations, 140 resolving consumers, 308 direct
-  manifest audit labels, 494 root axiom commands, and 20 local simulation-audit
-  commands, with exact axiom union `propext`, `Classical.choice`, and
-  `Quot.sound`. The root parser reports 491 nonempty plus three axiom-free
-  blocks; the local parser reports 19 nonempty plus one axiom-free block.
-  Focused Stage 9C decoder/postprocessing/outcome/audit builds completed 2,347,
-  2,361, 2,365, and 2,385 jobs, and the combined target completed 2,769. The
-  semantic-manifest hashes are
-  `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`
-  for the frozen first 1,064 items and
+  Stage 10 now supplies the rigorous semantic metric boundary. Its 169 stable
+  declarations cover scoped real/complex Euclidean induced operator distance,
+  native underlying-real quaternionic operator distance, directional mapped
+  comparison, real/complex global phase and quaternion central-sign budgets,
+  correctly right-sided normalized state-ray budgets, half-L1 total variation,
+  normalized output/event/pushforward bounds, zero-budget exact bridges, and
+  exact fixed-budget strictness witnesses. It introduces no quaternion matrix
+  norm instance or arbitrary unit-quaternion operator phase.
+  The current Goal 2 checkpoint is 97 Lean sources including the public root,
+  1,269 semantic-manifest declarations, 164 resolving consumers, 348 direct
+  manifest audit labels, 536 root axiom commands, 20 local simulation-audit
+  commands, and 16 local approximation-audit commands, with exact axiom union
+  `propext`, `Classical.choice`, and `Quot.sound`. The root parser reports 533
+  nonempty plus three axiom-free blocks; the approximation parser reports 16
+  nonempty blocks. Focused Stage 10 distribution/operator/phase/quaternion/
+  state/strictness/audit builds completed 2,345, 2,365, 2,372, 2,376, 2,378,
+  2,374, and 2,383 jobs. The semantic-manifest hashes are
   `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
-  for all 1,100 items; the frozen Goal 1 cohort checksum remains
+  for the preserved first 1,100 items and
+  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`
+  for all 1,269 items; the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Later Goal 2 approximation, registry-closure, and final-release stages remain
-  explicit unmet prerequisites, so Goal 3 must not be executed yet. Native
+  Goal 2 registry closure and final release remain explicit unmet
+  prerequisites, so Goal 3 must not be executed yet. Finite scalar encodings,
+  rounding/code-to-value certification, accumulated circuit error, approximate
+  compiler/synthesis construction, runtime, and uniformity remain assigned to
+  Goal 3 rather than Stage 10. Native
   quaternionic density/channel semantics, partial trace, Kraus maps,
   instruments, mixed-top or phase-kickback semantics, cross-model channel
   equality, and randomized/resource upgrades also remain outside Stage 9C.

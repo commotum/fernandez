@@ -244,13 +244,24 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   tailBits`; composed decoding removes the outer realification wire before the
   inner complexification wire. No product/mixed-top, partial-trace, channel,
   all-effect, randomized, or resource conclusion is inferred.
-- Pinned Stage 10 probes validate the scoped L2 induced operator norm for
-  finite rectangular `RCLike` matrices, a native unbundled quaternionic induced
-  norm through the underlying real continuous-linear action on `PiLp 2`, a
-  common all-three-scalar column L2 metric, and finite total variation with
-  event/pushforward bounds. Quaternion matrices cannot use the RCLike matrix
-  norm and will receive no global/scoped norm instance. Complex PSD still needs
-  `ComplexOrder`, and Loewner matrices need `MatrixOrder`.
+- Stage 10 now exports 169 stable declarations across six approximation leaves
+  as `24 + 23 + 48 + 43 + 17 + 14`. Real/complex matrices use the explicitly
+  scoped Euclidean induced L2 norm. Quaternionic matrices use a native
+  unbundled norm through their underlying-real continuous-linear action on
+  `PiLp 2`; no quaternion matrix norm/metric instance is added, and the native
+  norm is proved equal to the L2 norm after canonical complexification. Raw,
+  mapped, global-phase/central-sign, normalized right-state-ray, and half-L1
+  distribution budgets have zero/exact bridges and additive laws. Exact real,
+  complex-unitary, raw-phase-sensitive, and Boolean-distribution witnesses
+  refute fixed-budget transitivity. The non-root audit allocates all 169
+  declarations through 24 aggregates and 16 local axiom endpoints. The public
+  checkpoint is 97 Lean sources including the root, 1,269 semantic-manifest
+  declarations, 164 consumers, 348 direct manifest labels, and 536 root axiom
+  commands; both root and local approximation audit unions are exactly
+  `propext`, `Classical.choice`, and `Quot.sound`. Finite encoding, rounding,
+  accumulated circuit error, approximate compilation/synthesis, and runtime
+  remain Goal 3 work. Complex PSD still needs `ComplexOrder`, and Loewner
+  matrices need `MatrixOrder`.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

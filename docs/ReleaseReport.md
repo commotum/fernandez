@@ -671,21 +671,45 @@ nonempty and three axiom-free blocks; the local parser finds 19 nonempty and
 one axiom-free block. Every endpoint uses a subset, and both collective unions
 are exactly `propext`, `Classical.choice`, and `Quot.sound`.
 
+Stage 10 adds 169 stable declarations split
+`24 + 23 + 48 + 43 + 17 + 14` across six narrow approximation leaves. The
+real/complex operator distance is the scoped Euclidean induced L2 norm; the
+native quaternionic norm is the norm of an explicit underlying-real
+continuous linear action and is proved equal to canonical complexification's
+L2 norm without installing a quaternion matrix norm instance. Global
+phase/central-sign, normalized right-state-ray, and half-L1 distribution
+budgets have zero-exact bridges and additive laws. Exact real,
+complex-unitary, raw-phase-sensitive, and Boolean-distribution witnesses refute
+fixed-budget equivalence.
+
+The non-root `ApproximationAudit` allocates all 169 declarations through 24
+aggregates and concrete boundary consumers. Focused builds complete 2,345,
+2,365, 2,372, 2,376, 2,378, 2,374, and 2,383 jobs for the distribution,
+operator, operator-phase, quaternion, state, strictness, and audit leaves. The
+combined stable/audit/public-root/release-audit target completes 2,775 jobs;
+the cached default build completes 2,773. Stage 10 adds 42 root audit commands,
+bringing the root to 536, and the approximation audit contains 16 local
+commands. The root parser finds 533 nonempty and three axiom-free blocks; all
+16 approximation blocks are nonempty. Both exact unions remain `propext`,
+`Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
-root, axiom audit, and all Stage 9C source boundaries. The executable root audit
-now contains 494
+root, axiom audit, and all Stage 10 source boundaries. The executable root audit
+now contains 536
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
-Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, and 36 Stage 9C endpoints. All
+Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, 36 Stage 9C, and 42 Stage 10
+endpoints. All 16 local `ApproximationAudit` prints,
 20 local
 `SimulationAudit` prints,
 all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use only
 subsets of `propext`, `Classical.choice`, and `Quot.sound`; the collective union
-is exactly those three standard axioms. At the Stage 9C checkpoint, the parser
-finds 491 nonempty plus three axiom-free root blocks and 19 nonempty plus one
+is exactly those three standard axioms. At the Stage 10 checkpoint, the parser
+finds 533 nonempty plus three axiom-free root blocks, 16 nonempty local
+approximation blocks, and 19 nonempty plus one
 axiom-free local `SimulationAudit` block. See `AxiomAudit.md` for the
 interpretation.
 
@@ -748,10 +772,20 @@ the full 1,100-entry hash is
 The frozen Goal 1 checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
+Stage 10 appends all 169 stable declarations in exact source order. The
+manifest now has 1,269 entries, 164 distinct consumers, and 348 direct-audit
+labels. Its 24 Stage 10 consumer allocations are
+`15/5/4/2/5/8/8/13/11/11/5/7/1/12/7/5/5/5/3/6/13/4/9/5`.
+The preserved first-1,100 hash is
+`d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
+the full 1,269-entry hash is
+`298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`.
+The frozen Goal 1 cohort and checksum remain unchanged.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 9C. The public root imports
+and heartbeat-override scans are empty through Stage 10. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project

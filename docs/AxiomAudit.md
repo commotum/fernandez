@@ -266,10 +266,35 @@ postprocessing, semantic-wrapper, and extended-audit leaves, respectively; the
 combined stable/audit/public-root/axiom-audit target completed 2,769 jobs.
 Every new endpoint emits a subset of the same exact standard union below.
 
+Stage 10 adds 169 stable declarations split
+`24 + 23 + 48 + 43 + 17 + 14` across the real/complex operator, global-phase,
+native quaternionic operator, state/ray, finite-distribution, and strictness
+leaves. The non-root `Semantics/ApproximationAudit.lean` allocates the complete
+surface through 24 aggregates with exact group sizes
+`15/5/4/2/5/8/8/13/11/11/5/7/1/12/7/5/5/5/3/6/13/4/9/5`.
+Concrete consumers check the inhabited zero-wire basis, a nontrivial unitary,
+directional real-to-complex mapped zero closeness, quaternionic right-phase
+side, normalized singleton output bounds, finite Boolean events/pushforwards,
+and all strictness chains. The audit remains outside the public root.
+
+The local approximation audit contains 16 selected `#print axioms` endpoints;
+all 16 are nonempty and their union is exactly the standard three items below.
+The root audit adds 42 selected Stage 10 commands, bringing its total from 494
+to 536. Forty are literal fully qualified Stage 10 manifest intersections; two
+long strictness targets are printed under an opened namespace to retain the
+source line-length boundary. The root parser finds 533 nonempty and three
+axiom-free blocks. Focused builds complete 2,345, 2,365, 2,372, 2,376, 2,378,
+2,374, and 2,383 jobs for the distribution, operator, operator-phase,
+quaternion, state, strictness, and approximation-audit leaves. Every selected
+endpoint remains within the exact standard union below. The combined stable/
+audit/public-root/release-audit target completes 2,775 jobs, and the cached
+default build completes 2,773.
+
 ## Current checkpoint result
 
-The Stage 9C public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 494 public-root endpoints, all 20
+The Stage 10 public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 536 public-root endpoints, all 16
+local approximation endpoints, all 20
 local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
 endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
 and the retained local Stage 4C diagnostics individually depends on a subset
@@ -285,14 +310,17 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 9C checkpoint the parser reads 491
-nonempty and three axiom-free root blocks. The local simulation audit has 19
+from a focused build alone. At the Stage 10 checkpoint the parser reads 533
+nonempty and three axiom-free root blocks. The local approximation audit has
+16 nonempty blocks and no axiom-free block. The local simulation audit has 19
 nonempty blocks and one axiom-free block; all 20 resolve without an unknown
 identifier or `sorryAx` output.
 
-The Stage 9A--9C stable leaves and non-root audit pass warning-as-error
-compilation. This is a Stage 9C checkpoint, not a claim that Goal 2 is complete:
-approximation, registry closure, and the final release audit remain pending.
+The Stage 10 stable leaves and non-root audit pass warning-as-error compilation.
+This is a Stage 10 checkpoint, not a claim that Goal 2 is complete: registry
+closure and the final release audit remain pending. Finite scalar encoding,
+rounding, accumulated circuit error, approximate compiler construction, and
+runtime remain Goal 3 work rather than missing Stage 10 axioms.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

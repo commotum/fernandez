@@ -84,14 +84,27 @@ supplied data. Do not infer product/mixed-top semantics, partial trace,
 channels, randomized behavior, resource bounds, or compiler/schedule
 construction from these results. Focused decoder/postprocessing/outcome/audit
 builds completed 2,347, 2,361, 2,365, and 2,385 jobs; the combined target
-completed 2,769. The frozen first-1,064 manifest hash is
-`ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`,
-the full-1,100 hash is
+completed 2,769.
+
+Stage 10 contributes 169 stable metric declarations and 24 exact-allocation
+audit consumers. Reuse its scoped real/complex Euclidean induced operator
+distance, native underlying-real quaternionic distance, mapped comparison,
+global phase/central-sign budgets, correctly right-sided normalized state-ray
+budgets, half-L1 total variation, local output/event/pushforward bounds,
+zero-budget exact bridges, and strictness witnesses. Do not infer a quaternion
+matrix norm instance, arbitrary unit-quaternion operator phase, quotient-ray
+metric, encoded finite precision, accumulated circuit error, approximate
+compiler construction, runtime, or uniformity. The current checkpoint is 97
+Lean sources including the root, 1,269 manifest declarations, 164 consumers,
+348 direct manifest audit labels, 536 root axiom commands, and 16 local
+approximation-audit commands. The preserved first-1,100 manifest hash is
 `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`,
-and the frozen Goal 1 cohort checksum is
+the full-1,269 hash is
+`298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`,
+and the frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-Stages 9A--9C add no new paper correction. Goal 2 approximation,
-registry-closure, and final-release work remains prerequisite to Goal 3.
+Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
+Goal 2 registry closure and final-release work remain prerequisites to Goal 3.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

@@ -40,26 +40,27 @@
   explicitly mapped metric, complex/quaternion state rays, a normalized
   complex output-column bound, a complex-unitary fixed-budget nontransitivity
   chain `1, I, -1`, raw distance `d(I,-I)=2`, and a Boolean distribution chain.
-  Stage 10 will use the stronger native quaternion norm only after retaining
-  its explicit underlying-real construction in public names and documentation.
-- There is no finite-precision scalar encoder, rounding algorithm, primitive
-  gate synthesis procedure, accumulated circuit budget, runtime theorem, or
-  approximation relation in the current stable library. `EQC-042` is the
-  frozen exact-versus-approximate boundary assigned to this stage; Goal 3 still
-  owns numerical compilation and complexity consequences.
+  The stable implementation uses the stronger native quaternion norm, retains
+  its explicit underlying-real construction in public names/documentation, and
+  proves equality with canonical complexification's L2 operator norm.
+- Stage 10 now supplies semantic approximation relations over exact
+  mathematical values. There is still no finite-precision scalar encoder,
+  rounding algorithm, primitive gate synthesis procedure, accumulated circuit
+  budget, or runtime theorem. `EQC-042` is refined by the new metric boundary;
+  Goal 3 still owns numerical compilation and complexity consequences.
 
 ## Updated Assumptions
 
-- `operatorDistance` for real/complex matrices will be literal metric distance
-  under the explicitly opened L2 operator-norm scope. A named theorem will
-  identify it with `‖U - V‖` and the corresponding continuous-linear-map norm,
+- `operatorDistance` for real/complex matrices is literal metric distance
+  under the explicitly opened L2 operator-norm scope. Named theorems identify
+  it with `‖U - V‖` and the corresponding continuous-linear-map norm,
   preventing an entrywise or `ℓ∞` reinterpretation.
-- Quaternionic operator distance will be the native induced norm of the
-  underlying real-linear left action on finite quaternionic L2 columns. It will
-  not install a matrix norm instance and will not be called an `RCLike` or
-  complex spectral norm. A complexification-pullback distance may be exported
-  separately only if its relation to the native norm is proved; otherwise it
-  remains an explicitly mapped diagnostic.
+- Quaternionic operator distance is the native induced norm of the underlying
+  real-linear left action on finite quaternionic L2 columns. It installs no
+  matrix norm instance and is not called an `RCLike` or complex spectral norm.
+  `quaternionOperatorNorm_eq_l2_opNorm_complexify` proves exact equality with
+  the L2 operator norm of canonical complexification, so no unrelated mapped
+  diagnostic is substituted for the native construction.
 - Raw operator closeness is a budget relation. It is reflexive only for
   nonnegative budgets, symmetric at a fixed budget, and composes by adding
   budgets. It receives no `Equivalence` instance and no fixed-budget
@@ -258,4 +259,78 @@ runtime, and false equivalence claims outside Goal 2.
 
 ## Stage Results
 
-- Implementation pending.
+- Added six stable approximation leaves with exactly 169 public declarations:
+  `Operator` 24, `OperatorPhase` 23, `Quaternion` 48, `State` 43,
+  `Distribution` 17, and `Strictness` 14. Their focused builds pass at 2,365,
+  2,372, 2,376, 2,378, 2,345, and 2,374 jobs respectively, and every leaf
+  passes direct warning-as-error compilation.
+- `operatorDistance` is tied by theorem to the scoped L2 operator norm and its
+  continuous-linear-map realization. `OperatorClose 0` is exactly
+  `ExactOperatorEq`; multiplication, unitary additive composition, raw
+  mul-vector, and directional mapped zero-budget embedding laws compile. The
+  optional rectangular reindex-isometry extension was not exported: pinned
+  mathlib has no narrow norm-reindex lemma, it would require broader isometry
+  machinery, and no Stage 10 completion theorem depends on it.
+- `RealGlobalSignClose` and `ComplexGlobalPhaseClose` quantify one scalar for
+  the whole matrix and have exact zero-budget bridges plus valid
+  reflexive/monotone/symmetric/additive-budget laws. No quaternionic definition
+  occurs in that leaf.
+- Quaternionic matrices use `quaternionMulVecCLM`, an explicit underlying-real
+  continuous linear action on `PiLp 2`. The native norm detects zero, is
+  submultiplicative, bounds matrix action and product perturbations, and gives
+  the metric/budget laws. `QuaternionCentralSignClose` quantifies only a real
+  `s` with `s*s=1`. No quaternionic matrix norm/metric/RCLike/CStar instance is
+  installed. A checked real-linear L2 isometry proves
+  `quaternionOperatorNorm_eq_l2_opNorm_complexify`.
+- `columnL2Distance`, `ColumnClose`, and `RightUnitPhaseColumnClose` work over
+  all three scalar conventions. Right multiplication is an L2 isometry, and
+  the quaternionic composite witness has the noncommutative order
+  `theta * eta`. The normalized real/complex/quaternionic `*StateRayClose`
+  predicates remain on representatives, have zero-budget bridges to the exact
+  state-phase relations, and provide normalized output-column bounds without
+  unitarity or probability/channel overclaims.
+- `totalVariationDistance` is exactly half L1. It satisfies the metric laws,
+  is at most one, sharply bounds every finite point/event, and contracts under
+  deterministic pushforward. Its fixed-budget relation has only additive
+  composition.
+- The strictness leaf proves exact real `0,1,2` nontransitivity at budget `1`,
+  proves `1,I,-1` are genuine complex unitaries with distances
+  `sqrt 2, sqrt 2, 2`, separates raw distance `2` from zero global-phase
+  closeness, and proves the Boolean point/fair/point total-variation chain
+  `1/2,1/2,1`.
+- Added non-root `Semantics/ApproximationAudit.lean`. Its 24 source-order
+  aggregates allocate all 169 stable declarations exactly as
+  `15/5/4/2/5/8/8/13/11/11/5/7/1/12/7/5/5/5/3/6/13/4/9/5`.
+  Concrete consumers cover an inhabited zero-wire basis, a nontrivial unitary,
+  real-to-complex mapped zero closeness, quaternionic right phase, normalized
+  singleton output bounds, finite events/pushforwards, and every strictness
+  family. Its warning-as-error focused build passes at 2,383 jobs. All 16 local
+  audit commands are nonempty and have exact union `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- The public root exports all six stable leaves and no audit leaf. The root
+  audit adds 42 Stage 10 commands, reaching 536 total; its parser covers
+  `533 + 3` blocks and has the same exact standard-three union. The combined
+  stable/audit/public-root/release-audit build passes at 2,775 jobs, and the
+  cached default build passes at 2,773.
+- `docs/Goal2SemanticAPIManifest.json` preserves the first 1,100 entries with
+  hash `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
+  and appends all 169 declarations in exact source order. The manifest now has
+  1,269 declarations, 164 resolving consumers, and 348 direct audit labels;
+  the full hash is
+  `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`.
+  Generated checks resolve every name and consumer, all seven axes are
+  nonempty, and the frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+- `EQC-042`, C-024, traceability, conventions, architecture, mathlib API notes,
+  README, release/axiom reports, the master plan, and Goal 3 now distinguish
+  this exact-object metric layer from finite encoding, rounding,
+  code-to-value certification, accumulated circuit error, approximate
+  compilation/synthesis, runtime, and uniformity. Stage 10 introduces no new
+  paper correction; it sharpens the resolution of existing C-024.
+
+## Completion Status
+
+- Stage 10 implementation, allocation, manifest, public-root, and axiom gates
+  pass. Independent source, mathematical, manifest, documentation, and
+  integrated closure review remain required before `10-APPROX` is checked in
+  the master plan.
