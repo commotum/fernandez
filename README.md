@@ -54,6 +54,7 @@ import QuaternionicComputing.Semantics.Core
 import QuaternionicComputing.Semantics.Measurement
 import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.Ray
+import QuaternionicComputing.Semantics.Hierarchy.State
 import QuaternionicComputing.Semantics.BasisBehavior
 import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 import QuaternionicComputing.Semantics.Density
@@ -62,6 +63,7 @@ import QuaternionicComputing.Semantics.EffectSeparation
 import QuaternionicComputing.Semantics.Channel
 import QuaternionicComputing.Semantics.ChannelPhase
 import QuaternionicComputing.Semantics.ChannelCircuit
+import QuaternionicComputing.Semantics.Hierarchy.Operator
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexReal
 import QuaternionicComputing.Semantics.OperatorPhase.ComplexRealCircuit
 import QuaternionicComputing.Semantics.OperatorPhase.Quaternion
@@ -214,6 +216,23 @@ inhabited, their real/complex phase characterizations remain nonvacuous even
 at zero wires and need no extra caller-supplied nonempty evidence. No
 quaternionic, cross-model, decoded-marginal, or mixed-top channel theorem is
 claimed.
+
+The hierarchy leaves close the remaining same-space arrows. For arbitrary
+rectangular matrices with only a finite input type, agreement of every
+normalized pure input's computational-basis output weights is equivalent to
+one unit phase on each output row: a real sign, a complex phase, or a
+quaternionic phase multiplying on the left. No unitarity, nonempty-index, or
+finite-output premise is needed. Finite-distribution equality is likewise
+equivalent to agreement on every finite event and on every deterministic
+pushforward to a finite target in the same universe. Together with the ray and
+channel kernels, this gives the checked real/complex unitary chain
+`global phase ↔ projective action ↔ ChannelEq ↔ AllMeasurementEq`, while
+output-row phase is only
+`PureInputBasisMeasurementEq`. Exact unitary twists prove that neither
+output-row nor basis-only agreement implies channel equality; normalized
+complex and quaternionic examples prove that equal basis distributions need
+not determine a ray. The certified `SameBasisBehavior` equivalences remain
+restricted to supplied basis-permutation certificates.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

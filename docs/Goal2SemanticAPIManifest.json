@@ -15081,6 +15081,790 @@
         "exactness": "exact iff with no external Nonempty W assumption and no syntax/resource claim",
         "ancillaPolicy": "none; both circuits retain the same wire type and full BitBasis W, with no added wire, partial trace, marginalization, or decoding"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.realBasisMeasurementEq",
+      "relation": "realBasisMeasurementEq — all-normalized-pure-input basis agreement implies all basis-input agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_basisConsequences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration realBasisMeasurementEq",
+        "inputScope": "every normalized pure input is assumed; the conclusion specializes to every computational-basis input",
+        "observationScope": "equality of every computational-basis transition weight, a weakening of the all-pure-input premise",
+        "phase": "none is inferred; this theorem only forgets input scope and does not construct a phase witness",
+        "exactness": "exact implication valid for rectangular and empty input/output boundaries; no converse is claimed here",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.complexBasisMeasurementEq",
+      "relation": "complexBasisMeasurementEq — all-normalized-pure-input basis agreement implies all basis-input agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_basisConsequences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration complexBasisMeasurementEq",
+        "inputScope": "every normalized pure input is assumed; the conclusion specializes to every computational-basis input",
+        "observationScope": "equality of every computational-basis transition weight, a weakening of the all-pure-input premise",
+        "phase": "none is inferred; this theorem only forgets input scope and does not construct a phase witness",
+        "exactness": "exact implication valid for rectangular and empty input/output boundaries; no converse is claimed here",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.quaternionBasisMeasurementEq",
+      "relation": "quaternionBasisMeasurementEq — all-normalized-pure-input basis agreement implies all basis-input agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_basisConsequences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration quaternionBasisMeasurementEq",
+        "inputScope": "every normalized pure input is assumed; the conclusion specializes to every computational-basis input",
+        "observationScope": "equality of every computational-basis transition weight, a weakening of the all-pure-input premise",
+        "phase": "none is inferred; this theorem only forgets input scope and does not construct a phase witness",
+        "exactness": "exact implication valid for rectangular and empty input/output boundaries; no converse is claimed here",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.realOutputBasisSignEq",
+      "relation": "realOutputBasisSignEq — all-pure-input basis probabilities determine quaternionic output-row phase",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_rowConverses_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration realOutputBasisSignEq",
+        "inputScope": "every normalized pure input and every output coordinate; raw nonzero/zero rows are handled in the proof",
+        "observationScope": "the complete matrix entries are related by one unit phase per output row, not merely by basis-input probabilities",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact implication requiring only Fintype I; no hidden Nonempty, square, or unitary assumption",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.complexOutputBasisPhaseEq",
+      "relation": "complexOutputBasisPhaseEq — all-pure-input basis probabilities determine quaternionic output-row phase",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_rowConverses_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration complexOutputBasisPhaseEq",
+        "inputScope": "every normalized pure input and every output coordinate; raw nonzero/zero rows are handled in the proof",
+        "observationScope": "the complete matrix entries are related by one unit phase per output row, not merely by basis-input probabilities",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact implication requiring only Fintype I; no hidden Nonempty, square, or unitary assumption",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.PureInputBasisMeasurementEq.quaternionOutputLeftPhaseEq",
+      "relation": "quaternionOutputLeftPhaseEq — all-pure-input basis probabilities determine quaternionic output-row phase",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_rowConverses_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration quaternionOutputLeftPhaseEq",
+        "inputScope": "every normalized pure input and every output coordinate; raw nonzero/zero rows are handled in the proof",
+        "observationScope": "the complete matrix entries are related by one unit phase per output row, not merely by basis-input probabilities",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact implication requiring only Fintype I; no hidden Nonempty, square, or unitary assumption",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realOutputBasisSignEq_iff_pureInputBasisMeasurementEq",
+      "relation": "realOutputBasisSignEq_iff_pureInputBasisMeasurementEq — exact quaternionic output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration realOutputBasisSignEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "all normalized pure input columns and all output rows, including vacuous empty input/output boundaries",
+        "observationScope": "complete output-row phased matrix equality is exactly equivalent to every pure-input computational-basis probability",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact iff at the strongest rectangular scope with only Fintype I",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq",
+      "relation": "complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq — exact quaternionic output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "all normalized pure input columns and all output rows, including vacuous empty input/output boundaries",
+        "observationScope": "complete output-row phased matrix equality is exactly equivalent to every pure-input computational-basis probability",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact iff at the strongest rectangular scope with only Fintype I",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq",
+      "relation": "quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq — exact quaternionic output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.outputPhase_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary rectangular quaternionic matrices Matrix O I; only the input type I is finite, with no Fintype O, Nonempty, square, or unitarity premise",
+        "subject": "the public declaration quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "all normalized pure input columns and all output rows, including vacuous empty input/output boundaries",
+        "observationScope": "complete output-row phased matrix equality is exactly equivalent to every pure-input computational-basis probability",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact iff at the strongest rectangular scope with only Fintype I",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.FiniteDistribution.eq_iff_singletonEventWeight_eq",
+      "relation": "eq_iff_singletonEventWeight_eq — finite-distribution equality characterized by all singleton-event weights",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.finiteDistribution_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two FiniteDistribution values on one finite outcome type alpha",
+        "subject": "the public declaration eq_iff_singletonEventWeight_eq",
+        "inputScope": "all singleton outcomes of one finite source type; no Nonempty hypothesis is required",
+        "observationScope": "all singleton-event weights; singleton events recover every distribution coordinate",
+        "phase": "none; these are classical probability distributions",
+        "exactness": "exact iff for full bundled distribution equality, uniformly stated without a Nonempty premise",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.FiniteDistribution.eq_iff_eventWeight_eq",
+      "relation": "eq_iff_eventWeight_eq — finite-distribution equality characterized by all finite-event weights",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.finiteDistribution_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two FiniteDistribution values on one finite outcome type alpha",
+        "subject": "the public declaration eq_iff_eventWeight_eq",
+        "inputScope": "every finite event on one finite source type; no Nonempty hypothesis is required",
+        "observationScope": "all finite-event weights; singleton events prove the converse",
+        "phase": "none; these are classical probability distributions",
+        "exactness": "exact iff for full bundled distribution equality, uniformly stated without a Nonempty premise",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.State.FiniteDistribution.eq_iff_allPushforward_eq_sameUniverse",
+      "relation": "eq_iff_allPushforward_eq_sameUniverse — finite-distribution equality characterized by all deterministic pushforward distributions to every finite same-universe target",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.finiteDistribution_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two FiniteDistribution values on one finite outcome type alpha",
+        "subject": "the public declaration eq_iff_allPushforward_eq_sameUniverse",
+        "inputScope": "every finite target beta : Type u and every function from the source alpha : Type u; one fixed codomain is not sufficient",
+        "observationScope": "all deterministic pushforward distributions to every finite same-universe target; the identity target proves the converse",
+        "phase": "none; these are classical probability distributions",
+        "exactness": "exact iff for full bundled distribution equality, uniformly stated without a Nonempty premise",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.normalizedDistributionEq_iff_eventWeight_eq",
+      "relation": "normalizedDistributionEq_iff_eventWeight_eq — NormalizedDistributionEq characterized by all finite events",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two normalized states with the same scalar type, finite outcome type, weight function, and nonnegativity proof",
+        "subject": "the public declaration normalizedDistributionEq_iff_eventWeight_eq",
+        "inputScope": "every finite event on the outcome type I, including singleton events used for separation",
+        "observationScope": "equality of every induced finite-event probability",
+        "phase": "none; only outcome probabilities are compared, not state representatives or rays",
+        "exactness": "exact iff at the stated all-event or all-same-universe-pushforward scope",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.normalizedDistributionEq_iff_allPushforward_eq_sameUniverse",
+      "relation": "normalizedDistributionEq_iff_allPushforward_eq_sameUniverse — NormalizedDistributionEq characterized by same-universe deterministic pushforwards",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api; direct release endpoint pending",
+      "classification": {
+        "space": "two normalized states with the same scalar type, finite outcome type, weight function, and nonnegativity proof",
+        "subject": "the public declaration normalizedDistributionEq_iff_allPushforward_eq_sameUniverse",
+        "inputScope": "every finite target J in the same universe as outcome type I and every deterministic map I -> J; the identity map supplies the converse",
+        "observationScope": "equality of all complete deterministic pushforward distributions; no one fixed codomain is substituted",
+        "phase": "none; only outcome probabilities are compared, not state representatives or rays",
+        "exactness": "exact iff at the stated all-event or all-same-universe-pushforward scope",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisWeightEq_iff_eventWeight_eq",
+      "relation": "basisWeightEq_iff_eventWeight_eq — BasisWeightEq characterized by all finite events",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api; direct release endpoint pending",
+      "classification": {
+        "space": "two normalized states with the same scalar type, finite outcome type, weight function, and nonnegativity proof",
+        "subject": "the public declaration basisWeightEq_iff_eventWeight_eq",
+        "inputScope": "every finite event on the outcome type I, including singleton events used for separation",
+        "observationScope": "equality of every induced finite-event probability",
+        "phase": "none; only outcome probabilities are compared, not state representatives or rays",
+        "exactness": "exact iff at the stated all-event or all-same-universe-pushforward scope",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisWeightEq_iff_allPushforward_eq_sameUniverse",
+      "relation": "basisWeightEq_iff_allPushforward_eq_sameUniverse — BasisWeightEq characterized by same-universe deterministic pushforwards",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.normalizedState_observationCharacterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two normalized states with the same scalar type, finite outcome type, weight function, and nonnegativity proof",
+        "subject": "the public declaration basisWeightEq_iff_allPushforward_eq_sameUniverse",
+        "inputScope": "every finite target J in the same universe as outcome type I and every deterministic map I -> J; the identity map supplies the converse",
+        "observationScope": "equality of all complete deterministic pushforward distributions; no one fixed codomain is substituted",
+        "phase": "none; only outcome probabilities are compared, not state representatives or rays",
+        "exactness": "exact iff at the stated all-event or all-same-universe-pushforward scope",
+        "ancillaPolicy": "none; deterministic pushforward may relabel a classical outcome type but adds no quantum ancilla, embedding, marginal, or cross-model simulation"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.realRay_mk_eq",
+      "relation": "realRay_mk_eq — exact normalized-state representative equality implies quaternionic ray equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api; direct release endpoint pending",
+      "classification": {
+        "space": "two normalized quaternionic state representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration realRay_mk_eq",
+        "inputScope": "one pair of complete normalized representatives related by literal ExactStateEq",
+        "observationScope": "equality of the corresponding ray quotient constructors; no converse or measurement claim is bundled into this theorem",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from representative equality to quotient equality",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.complexRay_mk_eq",
+      "relation": "complexRay_mk_eq — exact normalized-state representative equality implies quaternionic ray equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two normalized quaternionic state representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration complexRay_mk_eq",
+        "inputScope": "one pair of complete normalized representatives related by literal ExactStateEq",
+        "observationScope": "equality of the corresponding ray quotient constructors; no converse or measurement claim is bundled into this theorem",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from representative equality to quotient equality",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactStateEq.quaternionRay_mk_eq",
+      "relation": "quaternionRay_mk_eq — exact normalized-state representative equality implies quaternionic ray equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two normalized quaternionic state representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration quaternionRay_mk_eq",
+        "inputScope": "one pair of complete normalized representatives related by literal ExactStateEq",
+        "observationScope": "equality of the corresponding ray quotient constructors; no converse or measurement claim is bundled into this theorem",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from representative equality to quotient equality",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealStatePhaseEq.basisWeightEq_of_realRay_mk_eq",
+      "relation": "basisWeightEq_of_realRay_mk_eq — equal quaternionic ray constructors imply computational-basis weight equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api; direct release endpoint pending",
+      "classification": {
+        "space": "two normalized quaternionic representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration basisWeightEq_of_realRay_mk_eq",
+        "inputScope": "equality of the two ray constructors, hence the scalar-correct phase relation between representatives",
+        "observationScope": "pointwise equality of every computational-basis weight; the converse from weights to ray equality is not claimed",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from quotient equality to BasisWeightEq",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexStatePhaseEq.basisWeightEq_of_complexRay_mk_eq",
+      "relation": "basisWeightEq_of_complexRay_mk_eq — equal quaternionic ray constructors imply computational-basis weight equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two normalized quaternionic representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration basisWeightEq_of_complexRay_mk_eq",
+        "inputScope": "equality of the two ray constructors, hence the scalar-correct phase relation between representatives",
+        "observationScope": "pointwise equality of every computational-basis weight; the converse from weights to ray equality is not claimed",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from quotient equality to BasisWeightEq",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.basisWeightEq_of_quaternionRay_mk_eq",
+      "relation": "basisWeightEq_of_quaternionRay_mk_eq — equal quaternionic ray constructors imply computational-basis weight equality",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.stateRay_chain_api; direct release endpoint pending",
+      "classification": {
+        "space": "two normalized quaternionic representatives on one finite index type and their same-scalar ray quotient",
+        "subject": "the public declaration basisWeightEq_of_quaternionRay_mk_eq",
+        "inputScope": "equality of the two ray constructors, hence the scalar-correct phase relation between representatives",
+        "observationScope": "pointwise equality of every computational-basis weight; the converse from weights to ray equality is not claimed",
+        "phase": "QuaternionRay quotients normalized representatives strictly by one unit quaternion on the right",
+        "exactness": "exact implication from quotient equality to BasisWeightEq",
+        "ancillaPolicy": "none; scalar, index type, and state dimension are unchanged"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realGlobalSignEq_iff_projectiveActionEq",
+      "relation": "realGlobalSignEq_iff_projectiveActionEq — inhabited unitary global phase iff normalized projective action",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.operator_projectiveKernel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on one finite, decidable, explicitly Nonempty square index type",
+        "subject": "the public declaration realGlobalSignEq_iff_projectiveActionEq",
+        "inputScope": "one operator-wide global sign/phase versus every normalized pure input column",
+        "observationScope": "the exact projective kernel of the inhabited real/complex unitary action",
+        "phase": "global relation is V = eta • U for one unit complex phase; projective output representatives use right phases",
+        "exactness": "exact iff; the Nonempty boundary is explicit and the theorem is same-space only",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexGlobalPhaseEq_iff_projectiveActionEq",
+      "relation": "complexGlobalPhaseEq_iff_projectiveActionEq — inhabited unitary global phase iff normalized projective action",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.operator_projectiveKernel_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on one finite, decidable, explicitly Nonempty square index type",
+        "subject": "the public declaration complexGlobalPhaseEq_iff_projectiveActionEq",
+        "inputScope": "one operator-wide global sign/phase versus every normalized pure input column",
+        "observationScope": "the exact projective kernel of the inhabited real/complex unitary action",
+        "phase": "global relation is V = eta • U for one unit complex phase; projective output representatives use right phases",
+        "exactness": "exact iff; the Nonempty boundary is explicit and the theorem is same-space only",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.realPureInputBasisMeasurementEq",
+      "relation": "realPureInputBasisMeasurementEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration realPureInputBasisMeasurementEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure input",
+        "phase": "none in the conclusion; channel equality is weakened to pure-input basis statistics",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.complexPureInputBasisMeasurementEq",
+      "relation": "complexPureInputBasisMeasurementEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration complexPureInputBasisMeasurementEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure input",
+        "phase": "none in the conclusion; channel equality is weakened to pure-input basis statistics",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.realOutputBasisSignEq",
+      "relation": "realOutputBasisSignEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration realOutputBasisSignEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "one unit phase on the left of each complete output row",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.complexOutputBasisPhaseEq",
+      "relation": "complexOutputBasisPhaseEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration complexOutputBasisPhaseEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "one unit phase on the left of each complete output row",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.realBasisMeasurementEq",
+      "relation": "realBasisMeasurementEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration realBasisMeasurementEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability on basis preparations",
+        "phase": "none in the conclusion; only basis-transition weights remain",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ChannelEq.complexBasisMeasurementEq",
+      "relation": "complexBasisMeasurementEq — ChannelEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.channel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries on the same finite square index type; no Nonempty premise is added",
+        "subject": "the public declaration complexBasisMeasurementEq",
+        "inputScope": "every density input in the ChannelEq premise, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability on basis preparations",
+        "phase": "none in the conclusion; only basis-transition weights remain",
+        "exactness": "exact one-way implication; the weaker observational relation is not promoted back to ChannelEq",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.realPureInputBasisMeasurementEq",
+      "relation": "realPureInputBasisMeasurementEq — AllMeasurementEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries, densities, and genuine Effects on the same finite square index type",
+        "subject": "the public declaration realPureInputBasisMeasurementEq",
+        "inputScope": "every density/effect pair in AllMeasurementEq, weakened to every normalized pure input",
+        "observationScope": "every pure-input basis probability",
+        "phase": "none in the conclusion; all-effect behavior is weakened to basis observations",
+        "exactness": "exact one-way implication through ChannelEq; no basis-only converse or arbitrary-test substitution",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.complexPureInputBasisMeasurementEq",
+      "relation": "complexPureInputBasisMeasurementEq — AllMeasurementEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries, densities, and genuine Effects on the same finite square index type",
+        "subject": "the public declaration complexPureInputBasisMeasurementEq",
+        "inputScope": "every density/effect pair in AllMeasurementEq, weakened to every normalized pure input",
+        "observationScope": "every pure-input basis probability",
+        "phase": "none in the conclusion; all-effect behavior is weakened to basis observations",
+        "exactness": "exact one-way implication through ChannelEq; no basis-only converse or arbitrary-test substitution",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.realBasisMeasurementEq",
+      "relation": "realBasisMeasurementEq — AllMeasurementEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two bundled quaternionic unitaries, densities, and genuine Effects on the same finite square index type",
+        "subject": "the public declaration realBasisMeasurementEq",
+        "inputScope": "every density/effect pair in AllMeasurementEq, weakened to computational-basis preparations and outcomes",
+        "observationScope": "every computational-basis transition probability",
+        "phase": "none in the conclusion; all-effect behavior is weakened to basis observations",
+        "exactness": "exact one-way implication through ChannelEq; no basis-only converse or arbitrary-test substitution",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.AllMeasurementEq.complexBasisMeasurementEq",
+      "relation": "complexBasisMeasurementEq — AllMeasurementEq implies weaker quaternionic basis-observation semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.allMeasurement_hierarchy_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two bundled quaternionic unitaries, densities, and genuine Effects on the same finite square index type",
+        "subject": "the public declaration complexBasisMeasurementEq",
+        "inputScope": "every density/effect pair in AllMeasurementEq, weakened to computational-basis preparations and outcomes",
+        "observationScope": "every computational-basis transition probability",
+        "phase": "none in the conclusion; all-effect behavior is weakened to basis observations",
+        "exactness": "exact one-way implication through ChannelEq; no basis-only converse or arbitrary-test substitution",
+        "ancillaPolicy": "none; both matrices keep the same scalar, row type, and input type, with no embedding, added wire, marginalization, or decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realCircuitOutputBasisSignEq_iff_pureInputBasisMeasurementEq",
+      "relation": "realCircuitOutputBasisSignEq_iff_pureInputBasisMeasurementEq — evaluator output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuit_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary same-wire quaternionic OrderedCircuit evaluators on full BitBasis W; local unitarity is not required",
+        "subject": "the public declaration realCircuitOutputBasisSignEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "every normalized pure evaluator input and every computational-basis output",
+        "observationScope": "complete evaluator rows up to scalar-correct left phases exactly characterize all pure-input basis weights",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact evaluator-backed iff; no circuit syntax, schedule, channel, or resource equivalence is inferred",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexCircuitOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq",
+      "relation": "complexCircuitOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq — evaluator output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuit_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary same-wire quaternionic OrderedCircuit evaluators on full BitBasis W; local unitarity is not required",
+        "subject": "the public declaration complexCircuitOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "every normalized pure evaluator input and every computational-basis output",
+        "observationScope": "complete evaluator rows up to scalar-correct left phases exactly characterize all pure-input basis weights",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact evaluator-backed iff; no circuit syntax, schedule, channel, or resource equivalence is inferred",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionCircuitOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq",
+      "relation": "quaternionCircuitOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq — evaluator output-row phase iff all-pure-input basis agreement",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuit_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two arbitrary same-wire quaternionic OrderedCircuit evaluators on full BitBasis W; local unitarity is not required",
+        "subject": "the public declaration quaternionCircuitOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq",
+        "inputScope": "every normalized pure evaluator input and every computational-basis output",
+        "observationScope": "complete evaluator rows up to scalar-correct left phases exactly characterize all pure-input basis weights",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact evaluator-backed iff; no circuit syntax, schedule, channel, or resource equivalence is inferred",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realCircuitGlobalSignEq_iff_projectiveActionEq",
+      "relation": "realCircuitGlobalSignEq_iff_projectiveActionEq — certified circuit global phase iff normalized projective evaluator action",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuit_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on one finite wire type; BitBasis W is inhabited even for zero wires",
+        "subject": "the public declaration realCircuitGlobalSignEq_iff_projectiveActionEq",
+        "inputScope": "one evaluator-wide scalar versus every normalized pure evaluator input",
+        "observationScope": "the exact real/complex projective kernel of the complete evaluated unitary",
+        "phase": "global evaluator relation is eval D = eta • eval C and projective outputs use right phases",
+        "exactness": "exact iff with BitBasis inhabitation discharging the matrix-level Nonempty premise",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexCircuitGlobalPhaseEq_iff_projectiveActionEq",
+      "relation": "complexCircuitGlobalPhaseEq_iff_projectiveActionEq — certified circuit global phase iff normalized projective evaluator action",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuit_characterizations_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on one finite wire type; BitBasis W is inhabited even for zero wires",
+        "subject": "the public declaration complexCircuitGlobalPhaseEq_iff_projectiveActionEq",
+        "inputScope": "one evaluator-wide scalar versus every normalized pure evaluator input",
+        "observationScope": "the exact real/complex projective kernel of the complete evaluated unitary",
+        "phase": "global evaluator relation is eval D = eta • eval C and projective outputs use right phases",
+        "exactness": "exact iff with BitBasis inhabitation discharging the matrix-level Nonempty premise",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.realPureInputBasisMeasurementEq",
+      "relation": "realPureInputBasisMeasurementEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration realPureInputBasisMeasurementEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure evaluator input",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.complexPureInputBasisMeasurementEq",
+      "relation": "complexPureInputBasisMeasurementEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration complexPureInputBasisMeasurementEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure evaluator input",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.realOutputBasisSignEq",
+      "relation": "realOutputBasisSignEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration realOutputBasisSignEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "one unit left phase per complete evaluator output row",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.complexOutputBasisPhaseEq",
+      "relation": "complexOutputBasisPhaseEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration complexOutputBasisPhaseEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "one unit left phase per complete evaluator output row",
+        "phase": "one unit-norm quaternion per output row acts strictly on the left: V y x = theta y * U y x",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.realBasisMeasurementEq",
+      "relation": "realBasisMeasurementEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration realBasisMeasurementEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability of the evaluated operators",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitChannelEq.complexBasisMeasurementEq",
+      "relation": "complexBasisMeasurementEq — CircuitChannelEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitChannel_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration complexBasisMeasurementEq",
+        "inputScope": "every evaluator density input in CircuitChannelEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability of the evaluated operators",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitChannelEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.realPureInputBasisMeasurementEq",
+      "relation": "realPureInputBasisMeasurementEq — CircuitAllMeasurementEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration realPureInputBasisMeasurementEq",
+        "inputScope": "every evaluator density input and genuine physical Effect in CircuitAllMeasurementEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure evaluator input",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitAllMeasurementEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.complexPureInputBasisMeasurementEq",
+      "relation": "complexPureInputBasisMeasurementEq — CircuitAllMeasurementEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration complexPureInputBasisMeasurementEq",
+        "inputScope": "every evaluator density input and genuine physical Effect in CircuitAllMeasurementEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis output probability after every normalized pure evaluator input",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitAllMeasurementEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.realBasisMeasurementEq",
+      "relation": "realBasisMeasurementEq — CircuitAllMeasurementEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration realBasisMeasurementEq",
+        "inputScope": "every evaluator density input and genuine physical Effect in CircuitAllMeasurementEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability of the evaluated operators",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitAllMeasurementEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.CircuitAllMeasurementEq.complexBasisMeasurementEq",
+      "relation": "complexBasisMeasurementEq — CircuitAllMeasurementEq implies weaker quaternionic evaluator basis semantics",
+      "owner": "goal-2/8-HIERARCHY",
+      "consumer": "QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.HierarchyAudit.circuitAllMeasurement_hierarchy_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified quaternionic unitary circuits on the same finite wire type and full BitBasis W",
+        "subject": "the public declaration complexBasisMeasurementEq",
+        "inputScope": "every evaluator density input and genuine physical Effect in CircuitAllMeasurementEq, weakened to normalized-pure or basis inputs exactly as named",
+        "observationScope": "every computational-basis transition probability of the evaluated operators",
+        "phase": "none in the conclusion",
+        "exactness": "exact one-way implication; the weaker observation is not promoted back to CircuitAllMeasurementEq",
+        "ancillaPolicy": "none; both evaluators keep the same scalar and full BitBasis W with no added wire, partial trace, marginalization, or cross-model decoding"
+      }
     }
   ]
 }

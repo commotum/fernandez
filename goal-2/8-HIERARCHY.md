@@ -246,6 +246,52 @@ input or observation scope is stronger than its proof.
 
 ## Stage Results
 
-- Inventory is in progress. No Stage 8 theorem is counted complete until the
-  selected row-phase proof, state converses, strictness audit, manifest,
-  builds, and independent closure review all pass.
+- `QuaternionicComputing/Semantics/Hierarchy/OutputPhase.lean` exports nine
+  stable theorems. For arbitrary rectangular real, complex, and quaternionic
+  matrices, with only a finite input type, all-normalized-pure-input basis
+  measurement agreement is exactly output-row phase: a real sign, a complex
+  unit phase, or a quaternionic unit phase multiplying entries on the left.
+  The proof normalizes arbitrary raw inputs and separates row functionals by a
+  zero-row/nonzero-pivot cancellation argument. It needs no output finiteness,
+  decidable equality, nonempty type, unitarity, or nonzero-row premise. Empty
+  input and output types strict-compile for all three scalars.
+- `QuaternionicComputing/Semantics/Hierarchy/State.lean` exports thirteen
+  stable theorems. Finite-distribution equality is iff singleton-event
+  equality, all finite-event equality, and every deterministic pushforward to
+  a finite target in the same universe. The normalized-distribution and
+  basis-weight aliases compile, as do the three exact-representative-to-ray
+  and three ray-constructor-to-basis-weight arrows. No nonempty premise is
+  hidden; empty distribution/state types are instead proved uninhabited.
+- `QuaternionicComputing/Semantics/Hierarchy/Operator.lean` exports 27 stable
+  covering arrows. It supplies the direct real/complex global-phase iff
+  projective-action kernels, channel/all-effect consequences at pure-input and
+  basis scopes, evaluator-backed real/complex/quaternion output-phase iff
+  theorems, circuit global/projective iffs, and circuit channel/all-effect
+  consequences. It contains no quaternionic channel declaration.
+- The non-root `QuaternionicComputing/Semantics/HierarchyAudit.lean` allocates
+  every stable declaration exactly once: `3 + 3 + 3 = 9` output-phase,
+  `3 + 4 + 6 = 13` state, and `2 + 6 + 4 + 5 + 6 + 4 = 27` operator/circuit,
+  for `49/49`. Its rectangular, empty-matrix, singleton-distribution,
+  strictness, certified-classical, schedule, and Kronecker consumers compile.
+  A first draft incorrectly tried to exercise the state iffs through impossible
+  `FiniteDistribution Empty` and `RealState Empty` arguments; review removed
+  them and replaced them with constructive `IsEmpty` theorems plus genuine
+  `Unit` consumers before any completion claim.
+- The audit bundles the existing rational real/complex input/output twists as
+  physical unitaries and proves exact failures of channel and all-effect
+  equality. It adds a normalized rational complex equal-distribution/not-ray
+  witness, gives the quaternionic product-ordering example exact
+  `OutputWeightEqAt` but not all-pure scope, consumes the left-phase and
+  rank-one-kernel boundaries, and rechecks all eighteen certified-basis matrix
+  and circuit iff theorems. All 33 local audit endpoints report exactly
+  `propext`, `Classical.choice`, and `Quot.sound`.
+- The public root imports only the three stable hierarchy leaves, not
+  `HierarchyAudit`. The root audit adds 29 representative Stage 8 endpoints,
+  bringing it to 422 commands. Direct warning-as-error compilation passes for
+  all new leaves, the public root, and AxiomAudit. Focused builds pass at
+  `2355` for OutputPhase, `2356` for State, `2693` for Operator, and `2713`
+  for HierarchyAudit; the combined audit/root/AxiomAudit build passes at
+  `2769/2769`, and the current tree has 84 Lean sources including the root.
+- Semantic-manifest integration, documentation/Goal 3 count fold-back, final
+  default/downstream builds, scans, and the independent integrated closure
+  review remain in progress. Stage 8 is not yet complete.

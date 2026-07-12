@@ -66,6 +66,11 @@ QuaternionicComputing/
     ChannelPhase.lean        real/complex projective and global-phase kernels
     ChannelCircuit.lean      evaluator-backed locally-unitary channel wrappers
     ChannelAudit.lean        non-root complete consumers and boundary examples
+    Hierarchy/
+      OutputPhase.lean       all-pure basis agreement iff output-row phase
+      State.lean             ray/distribution/event/postprocessing arrows
+      Operator.lean          unitary channel and circuit covering arrows
+    HierarchyAudit.lean      non-root hierarchy strictness and exact coverage
   Circuit/
     Placement.lean           noncommutative-safe contextual gate placement
     AddedWire.lean           shared distinguished-wire equivalences/reindexing
@@ -483,6 +488,39 @@ leaves, the public root imports only `Channel`, `ChannelPhase`, and
 `ChannelCircuit`. No channel leaf
 defines quaternionic positivity, partial trace, a Kraus map, an instrument,
 cross-model channel equality, or mixed-top simulation.
+
+The Stage 8 hierarchy is split into three stable leaves. `Hierarchy/State.lean`
+characterizes finite-distribution equality by singleton events, all finite
+events, and all deterministic pushforwards to finite targets in the same
+universe. It then exposes the exact-representative-to-ray and
+ray-constructor-to-basis-weight arrows for all three scalar systems.
+`Hierarchy/OutputPhase.lean` proves the stronger rectangular theorem: with
+only a finite input type,
+
+```text
+real output-row sign       ⇔ all-pure-input real basis weights
+complex output-row phase  ⇔ all-pure-input complex basis weights
+quaternion output-left phase ⇔ all-pure-input quaternion basis weights.
+```
+
+The proof needs no output finiteness, unitarity, decidable equality, nonzero
+row, or nonempty-index assumption. It extends normalized agreement to raw
+inputs and separates each row through a zero-row/nonzero-pivot cancellation
+argument; quaternion multiplication remains on the left. Empty input and
+output types are covered by the same theorem.
+
+`Hierarchy/Operator.lean` composes those results with the existing channel
+kernel and evaluator APIs. On inhabited real/complex unitary spaces it gives
+the direct global-phase/projective iff, while channel and all-effect equality
+have named pure-input and basis-measurement consequences. The circuit wrappers
+compare only `OrderedCircuit.eval`. The non-root `HierarchyAudit.lean`
+allocates all 49 stable declarations exactly, packages the rational unitary
+twists as channel/all-effect counterexamples, separates complex and
+quaternionic distributions from rays, and consumes the certified-classical
+iff theorems only under their permutation certificates. It also records that
+empty finite-distribution and normalized-state types are uninhabited instead
+of testing theorems through impossible values. No hierarchy leaf adds a
+quaternionic channel, cross-model certificate, metric, or resource claim.
 
 ## Circuit implementation
 
