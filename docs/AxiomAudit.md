@@ -3,9 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 458 `#print axioms` commands (442 at Stage 9A, 422
-at Stage 8, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5, and 305 at Stage
-4C).
+the public root. It now runs 494 `#print axioms` commands (458 at Stage 9B, 442
+at Stage 9A, 422 at Stage 8, 393 at Stage 7, 354 at Stage 6, 330 at Stage 5,
+and 305 at Stage 4C).
 Representative endpoint categories include:
 
 - quaternion scalar decomposition and phase correction;
@@ -58,6 +58,9 @@ Representative endpoint categories include:
   `Equiv` endpoints;
 - proof-bearing rectangular, reindexed, placed-gate, primary, scheduled,
   composed, and conditional-compiler simulation wrappers;
+- explicit full-target one- and two-added-wire outcome decoders, their exact
+  `tailBits` pushforward characterization, and decoded raw-weight,
+  distribution, event, and deterministic-pushforward simulation wrappers;
 - exact fixed-order and scheduled simulations;
 - count, arity, depth, dense-description, conditional compilation, finite
   distribution, event, and deterministic postprocessing results; and
@@ -232,10 +235,40 @@ wrapper and extended audit leaves, and the combined stable/audit/public-root/
 axiom-audit target completed 2,767 jobs. Every new endpoint emits a subset of
 the same exact standard union below.
 
+Stage 9C adds 36 stable declarations split `10 + 8 + 18` across
+`Simulation/OutcomeDecoder.lean`, `Simulation/Postprocessing.lean`, and
+`Semantics/SimulationOutcomes.lean`. The decoder leaf gives explicit full-
+target one- and two-added-wire decoders and proves that one-wire decoding is
+exactly deterministic pushforward by `tailBits`. The postprocessing additions
+package the full-target realification, complexification, and composed
+quaternion-to-real outcomes. In the composed decoder the outer realification
+wire is removed first and the inner complexification wire second.
+
+The 18 semantic wrappers are allocated exactly as `2 + 4 + 4 + 4 + 4`:
+two representative raw pointwise wrappers, then four wrappers each for
+complex-to-real, fixed-order quaternion-to-complex, supplied-schedule
+quaternion-to-complex, and composed quaternion-to-real simulation. Raw point
+wrappers need no local-unitarity hypothesis. Normalized distribution, event,
+and deterministic-pushforward wrappers use the required local-unitarity
+certificate; scheduled distribution-level wrappers use its pointwise form.
+The schedule remains supplied data. These endpoints do not add product or
+mixed-top semantics, partial traces, channels, randomized algorithms, resource
+bounds, or a compiler/schedule construction.
+
+The non-root simulation audit adds two infrastructure aggregates allocating
+the decoder and postprocessing additions as `10 + 8`, and five semantic
+aggregates allocating the 18 wrappers by the five groups above. Four new local
+axiom prints bring that diagnostic leaf to 20 commands. The public-root audit
+adds all 36 declarations directly, bringing its total to 494 commands. Focused
+builds completed 2,347, 2,361, 2,365, and 2,385 jobs for the decoder,
+postprocessing, semantic-wrapper, and extended-audit leaves, respectively; the
+combined stable/audit/public-root/axiom-audit target completed 2,769 jobs.
+Every new endpoint emits a subset of the same exact standard union below.
+
 ## Current checkpoint result
 
-The Stage 9B public-root checkpoint audit completed successfully under Lean
-4.31.0 and mathlib v4.31.0. Every one of the 458 public-root endpoints, all 16
+The Stage 9C public-root checkpoint audit completed successfully under Lean
+4.31.0 and mathlib v4.31.0. Every one of the 494 public-root endpoints, all 20
 local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
 endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
 and the retained local Stage 4C diagnostics individually depends on a subset
@@ -251,15 +284,14 @@ declaration in `QuaternionicComputing/`.
 
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. At the Stage 9B checkpoint the parser reads 455
-nonempty and three axiom-free root blocks. The local simulation audit has 15
-nonempty blocks and one axiom-free block; all 16 resolve without an unknown
+from a focused build alone. At the Stage 9C checkpoint the parser reads 491
+nonempty and three axiom-free root blocks. The local simulation audit has 19
+nonempty blocks and one axiom-free block; all 20 resolve without an unknown
 identifier or `sorryAx` output.
 
-The three stable Stage 9A/9B leaves and non-root audit pass warning-as-error
-compilation. This is a Stage 9B checkpoint, not a claim that Goal 2 is complete:
-Stage 9C, approximation, registry closure, and the final release audit remain
-pending.
+The Stage 9A--9C stable leaves and non-root audit pass warning-as-error
+compilation. This is a Stage 9C checkpoint, not a claim that Goal 2 is complete:
+approximation, registry closure, and the final release audit remain pending.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

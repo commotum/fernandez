@@ -123,15 +123,15 @@ mixed-top, randomized, or resource semantics.
   1. `realTopCombination_allRebit_raw_decodedBasisWeightAgreement`;
   2. `complexTopCombination_allQubit_raw_decodedBasisWeightAgreement`;
   3. `realifyCircuit_allRebit_raw_decodedBasisWeightAgreement`;
-  4. `realifyCircuit_allPureTop_decodedDistributionAgreement`;
+  4. `realifyCircuit_allRebit_decodedDistributionAgreement`;
   5. `realifyCircuit_decodedEventWeight_eq`;
   6. `realifyCircuit_decodedPushforward_eq`;
   7. `complexifyCircuit_allQubit_raw_decodedBasisWeightAgreement`;
-  8. `complexifyCircuit_allPureTop_decodedDistributionAgreement`;
+  8. `complexifyCircuit_allQubit_decodedDistributionAgreement`;
   9. `complexifyCircuit_decodedEventWeight_eq`;
   10. `complexifyCircuit_decodedPushforward_eq`;
   11. `scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement`;
-  12. `scheduledComplexifyCircuit_allPureTop_decodedDistributionAgreement`;
+  12. `scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement`;
   13. `scheduledComplexifyCircuit_decodedEventWeight_eq`;
   14. `scheduledComplexifyCircuit_decodedPushforward_eq`;
   15. `quaternionToRealCircuit_allPureTop_raw_decodedBasisWeightAgreement`;

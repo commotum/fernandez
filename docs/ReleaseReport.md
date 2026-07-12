@@ -25,8 +25,10 @@ directional cross-model relation leaf, its concrete representative-encoding
 leaf, and one non-root audit, bringing the checkpoint tree to 87 Lean sources
 including the public root. Stage 9B adds the stable proof-bearing simulation
 wrapper leaf and extends the existing non-root audit, bringing the checkpoint
-tree to 88 Lean sources including the public root. Goal 2 remains active:
-Stage 9C outcome classifications, approximation, registry closure, and the
+tree to 88 Lean sources including the public root. Stage 9C adds the stable
+outcome-decoder and semantic-outcome leaves and extends postprocessing plus the
+non-root audit, bringing the checkpoint tree to 90 Lean sources including the
+public root. Goal 2 remains active: approximation, registry closure, and the
 final release audit are later stages.
 
 The paper was treated as a mathematical source rather than a specification.
@@ -246,8 +248,10 @@ or an unsafe shortcut.
 - Stage 9A classifies the representative encodings and generic relation
   vocabulary. Stage 9B adds exact operator/state/reindex/schedule/compiler
   wrappers for all eleven assigned frozen families. Their coefficient pairs
-  are raw coordinates, schedules and compilers are supplied data, and decoded
-  outcome-family classifications remain pending in Stage 9C.
+  are raw coordinates, and schedules and compilers are supplied data. Stage 9C
+  adds explicit full-target one/two-wire decoders and 18 proof-bearing outcome
+  wrappers at the raw-weight, normalized-distribution, finite-event, and
+  deterministic-pushforward levels.
 
 ### Matrix embeddings and groups
 
@@ -474,8 +478,12 @@ representative-coordinate bijections. Stage 9B now gives the Goal 1
 operator/state, Equation 63 reindexing, placed-gate, supplied-schedule,
 composed, and conditional-compiler comparisons proof-bearing wrappers at their
 exact scopes. The decoded probability/distribution/event/postprocessing
-families still await Stage 9C. Neither checkpoint weakens the exact Goal 1
-theorems or promotes them to cross-model channel/all-effect claims.
+families now have Stage 9C wrappers whose source and full target carriers and
+decoders remain visible. Raw point weights need no unitarity; normalized
+distribution/event/pushforward results require local unitarity. Neither
+checkpoint weakens the exact Goal 1 theorems or promotes them to product/mixed-
+top, partial-trace, cross-model channel/all-effect, randomized, or resource
+claims.
 
 External/historical results, physical causality interpretations, bit
 commitment, channel/communication questions, alternative scalar systems, and
@@ -638,20 +646,39 @@ commands, bringing the checkpoint to 458 root commands and 16 local
 `SimulationAudit` commands. Their exact axiom union remains `propext`,
 `Classical.choice`, and `Quot.sound`.
 
+Stage 9C adds ten stable decoder declarations in
+`Simulation/OutcomeDecoder.lean`, eight new full-target/composed distribution
+and postprocessing declarations, and 18 stable wrappers in
+`Semantics/SimulationOutcomes.lean`. The one-wire distribution decoder equals
+`pushforward tailBits`; the two-wire decoder removes the outer realification
+wire and then the inner complexification wire. Five semantic audit aggregates
+allocate the wrappers as `2 + 4 + 4 + 4 + 4`, and two infrastructure
+aggregates allocate the ten decoder and eight postprocessing declarations.
+
+Focused builds completed 2,347 jobs for `OutcomeDecoder`, 2,361 for the updated
+`Postprocessing`, 2,365 for `SimulationOutcomes`, and 2,385 for the extended
+audit. The combined stable/audit/public-root/axiom-audit target completed 2,769
+jobs. Stage 9C adds 36 direct root commands, bringing the audit to 494, while
+the curated local `SimulationAudit` has 20 commands. The root parser finds 491
+nonempty and three axiom-free blocks; the local parser finds 19 nonempty and
+one axiom-free block. Every endpoint uses a subset, and both collective unions
+are exactly `propext`, `Classical.choice`, and `Quot.sound`.
+
 Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
-root, axiom audit, and all Stage 9B source boundaries. The executable root audit
-now contains 458
+root, axiom audit, and all Stage 9C source boundaries. The executable root audit
+now contains 494
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
-Stage 7, 29 Stage 8, 20 Stage 9A, and 16 Stage 9B endpoints. All 16 local
+Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, and 36 Stage 9C endpoints. All
+20 local
 `SimulationAudit` prints,
 all 33 local Stage 8 diagnostic prints, all
 11 local Stage 7 prints, all seven local Stage 6 prints, all 18 local Stage 5
 prints, the retained 12 local Stage 4C prints, and every root endpoint use only
 subsets of `propext`, `Classical.choice`, and `Quot.sound`; the collective union
-is exactly those three standard axioms. At the Stage 9B checkpoint, the parser
-finds 455 nonempty plus three axiom-free root blocks and 15 nonempty plus one
+is exactly those three standard axioms. At the Stage 9C checkpoint, the parser
+finds 491 nonempty plus three axiom-free root blocks and 19 nonempty plus one
 axiom-free local `SimulationAudit` block. See `AxiomAudit.md` for the
 interpretation.
 
@@ -704,10 +731,20 @@ the full 1,064-entry hash is
 `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`.
 The frozen Goal 1 cohort remains unchanged.
 
+Stage 9C appends 36 declarations exactly once: ten decoder declarations, eight
+new concrete full-distribution/postprocessing declarations, and 18 semantic
+wrappers. The manifest now has 1,100 entries, 140 distinct consumers, and 308
+direct-audit labels. The first 1,064 entries retain structural SHA-256
+`ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
+the full 1,100-entry hash is
+`d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`.
+The frozen Goal 1 checksum remains
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 9B. The public root imports
+and heartbeat-override scans are empty through Stage 9C. The public root imports
 no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project

@@ -46,10 +46,12 @@ quaternionic output-row phase acts on the left. Goal 3 must consume these
 relations and their strictness witnesses without inventing stronger
 same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 Stage 9B checkpoint has 88 Lean sources including the public
-root, 1,064 semantic-manifest declarations, 133 resolving consumers, 272 direct
-audit labels, 458 root axiom commands, and 16 local simulation-audit commands;
+The current Goal 2 Stage 9C checkpoint has 90 Lean sources including the public
+root, 1,100 semantic-manifest declarations, 140 resolving consumers, 308 direct
+audit labels, 494 root axiom commands, and 20 local simulation-audit commands;
 its exact axiom union remains `propext`, `Classical.choice`, and `Quot.sound`.
+The root audit parser reports 491 nonempty plus three axiom-free blocks, and the
+local parser reports 19 nonempty plus one axiom-free block.
 Stage 9A contributes 38 generic directional cross-model declarations and 20
 concrete encoding declarations.
 `ExactStateEncoding` is only a left-inverse certificate on the encoder image;
@@ -64,9 +66,32 @@ pairs are raw coordinates; Equation 63 remains a reindexing, not a circuit
 translator; schedules and exact compilers are supplied data, not choice,
 independence, existence, synthesis, or runtime results. Its six audit consumers
 allocate the wrappers as `2 + 3 + 4 + 3 + 2 + 2`; focused wrapper/audit builds
-complete 2,369 and 2,381 jobs and the combined target completes 2,767. Stage 9C
-outcome classifications and all later Goal 2 stages remain prerequisites.
-Stages 9A and 9B add no new paper correction.
+completed 2,369 and 2,381 jobs.
+
+Stage 9C contributes ten explicit full-target one/two-added-wire decoders,
+eight full-target postprocessing declarations, and 18 semantic wrappers. The
+semantic wrappers are allocated exactly as `2 + 4 + 4 + 4 + 4`: two
+representative raw pointwise results and four each for complex-to-real,
+fixed-order quaternion-to-complex, supplied-schedule quaternion-to-complex,
+and composed quaternion-to-real simulation. Two infrastructure aggregates
+separately cover the ten decoder and eight postprocessing declarations. The
+one-wire distribution decoder equals deterministic pushforward by `tailBits`.
+Composed quaternion-to-real decoding removes the outer realification wire
+first, then the inner complexification wire. Raw point wrappers need no local-
+unitarity hypothesis; normalized distribution, event, and pushforward wrappers
+retain the appropriate local-unitarity certificate, and schedules remain
+supplied data. Do not infer product/mixed-top semantics, partial trace,
+channels, randomized behavior, resource bounds, or compiler/schedule
+construction from these results. Focused decoder/postprocessing/outcome/audit
+builds completed 2,347, 2,361, 2,365, and 2,385 jobs; the combined target
+completed 2,769. The frozen first-1,064 manifest hash is
+`ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`,
+the full-1,100 hash is
+`d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`,
+and the frozen Goal 1 cohort checksum is
+`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+Stages 9A--9C add no new paper correction. Goal 2 approximation,
+registry-closure, and final-release work remains prerequisite to Goal 3.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

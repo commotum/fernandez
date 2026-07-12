@@ -172,17 +172,40 @@ none may remain excluded merely because it is difficult.
   than a circuit translator; schedules and exact compilers remain supplied
   data, with no schedule choice/independence or compiler existence/synthesis/
   runtime conclusion. Stage 9B also adds no paper correction.
-  The current Goal 2 checkpoint is 88 Lean sources including the public root,
-  1,064 semantic-manifest declarations, 133 resolving consumers, 272 direct
-  manifest audit labels, 458 root axiom commands, and 16 local simulation-audit
+  Stage 9C now adds explicit full-target one- and two-added-wire decoders,
+  including equality of the one-wire distribution decoder with deterministic
+  pushforward by `tailBits`. It adds 18 semantic outcome wrappers allocated as
+  `2 + 4 + 4 + 4 + 4`: two representative raw pointwise results, then four
+  each for complex-to-real, fixed-order quaternion-to-complex, supplied-
+  schedule quaternion-to-complex, and composed quaternion-to-real simulation.
+  Two infrastructure aggregates separately allocate the ten decoder and eight
+  postprocessing declarations. The composed quaternion-to-real decoder removes
+  the outer realification wire first and the inner complexification wire
+  second. Raw pointwise wrappers require no local unitarity; normalized
+  distribution, event, and deterministic-pushforward results require the
+  appropriate local-unitarity certificate. Schedules remain supplied data.
+  Stage 9C does not add product or mixed-top semantics, partial trace, channels,
+  randomized algorithms, resource bounds, or compiler/schedule construction,
+  and it adds no paper correction.
+  The current Goal 2 checkpoint is 90 Lean sources including the public root,
+  1,100 semantic-manifest declarations, 140 resolving consumers, 308 direct
+  manifest audit labels, 494 root axiom commands, and 20 local simulation-audit
   commands, with exact axiom union `propext`, `Classical.choice`, and
-  `Quot.sound`. Focused Stage 9B wrapper/audit builds completed 2,369 and 2,381
-  jobs, and the combined target completed 2,767. Later Goal 2 stages remain an
-  explicit unmet prerequisite, so Goal 3 must not be executed yet. In
-  particular, Stage 9C outcome classifications, quaternionic
-  density/channel semantics, partial trace, Kraus maps, instruments, mixed-top
-  or phase-kickback semantics, cross-model channel equality, and metric
-  approximation remain pending.
+  `Quot.sound`. The root parser reports 491 nonempty plus three axiom-free
+  blocks; the local parser reports 19 nonempty plus one axiom-free block.
+  Focused Stage 9C decoder/postprocessing/outcome/audit builds completed 2,347,
+  2,361, 2,365, and 2,385 jobs, and the combined target completed 2,769. The
+  semantic-manifest hashes are
+  `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`
+  for the frozen first 1,064 items and
+  `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`
+  for all 1,100 items; the frozen Goal 1 cohort checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+  Later Goal 2 approximation, registry-closure, and final-release stages remain
+  explicit unmet prerequisites, so Goal 3 must not be executed yet. Native
+  quaternionic density/channel semantics, partial trace, Kraus maps,
+  instruments, mixed-top or phase-kickback semantics, cross-model channel
+  equality, and randomized/resource upgrades also remain outside Stage 9C.
 - The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
   outcome, Equation 63, and finite resource results are already complete.
 - Mathlib has projectivization and alternating-map infrastructure, matrix
@@ -410,14 +433,21 @@ workstream before adding new mathematics.
 
 - Import the narrow Goal 2 leaves for exact, phase, basis, distribution,
   channel/all-effect, embedded-simulation, and approximate relations.
-- Reuse the Stage 9A directional certificate API and Stage 9B proof-bearing
-  wrappers at their actual strength:
+- Reuse the Stage 9A directional certificate API, Stage 9B proof-bearing
+  wrappers, and Stage 9C decoded-outcome API at their actual strength:
   generic left-inverse encodings remain directional, while the four canonical
   coordinate maps separately expose representative `LinearEquiv`/`Equiv`
   values. Stage 9B operator/state wrappers retain raw coefficient encoders,
   explicit reindexing/added wires, supplied schedules, and supplied compilers.
-  Never substitute any of these results for a ray, decoded outcome, channel,
-  product-state, compiler-existence, synthesis, or runtime theorem.
+  Stage 9C supplies explicit full-target one/two-wire decoders, decoded raw
+  point weights, and normalized distribution/event/pushforward results; the
+  one-wire decoder is exactly pushforward by `tailBits`, and composed
+  quaternion-to-real decoding removes the outer realification wire before the
+  inner complexification wire. Its schedules are still supplied, and its
+  normalized results retain their local-unitarity assumptions. Never
+  substitute any of these results for a ray, channel, product/mixed-state,
+  partial-trace, compiler-existence, synthesis, randomized, resource, or
+  runtime theorem.
 - Map every Goal 3 stage target to the strongest applicable relation and input/
   observation scope before implementation; flag claims needing a genuinely new
   relation rather than using vague equality prose.

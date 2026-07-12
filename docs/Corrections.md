@@ -695,7 +695,7 @@ a pure top/bottom product. The existing
 factorization reading fails for a normalized realified state. Mixed joint
 density encoders, no-correlation hypotheses, partial trace, channels, and
 all-effect semantics remain outside Stage 9A; Stage 9B does not alter those
-boundaries, and Stage 9C outcome wrappers remain pending.
+boundaries, and Stage 9C treats only explicit classical-basis outcome decoding.
 
 ## Goal 2 Stage 9B semantic-refinement note
 
@@ -715,3 +715,22 @@ no schedule choice or independence claim. Compiler wrappers retain supplied
 approximation, count bound, runtime, or complexity result. Decoded outcomes,
 mixed-top semantics, partial trace, cross-model channels, and all effects remain
 outside Stage 9B and are not silently promoted by the new classifications.
+
+## Goal 2 Stage 9C semantic-refinement note
+
+Stage 9C adds no new paper correction and does not change the correction count.
+It replaces implicit or already-marginalized outcome prose with explicit full-
+target one- and two-wire decoders and proof-bearing decoded-weight,
+distribution, finite-event, and deterministic-pushforward relations.
+
+This refinement makes assumptions sharper rather than changing a paper claim.
+Raw point-weight wrappers require no local unitarity and do not describe
+unnormalized weights as probabilities. Normalized distribution/event/
+pushforward wrappers require locally unitary circuits and normalized source
+states. One-wire distribution decoding equals `pushforward tailBits`; composed
+quaternion-to-real decoding removes the outer realification wire before the
+inner complexification wire. A scheduled theorem retains the caller-supplied
+schedule. None of these statements supplies product or mixed top-state
+factorization, partial trace, cross-model channel/all-effect semantics,
+randomized postprocessing, or a resource theorem, so no existing correction or
+Goal 3 obstruction is silently closed.

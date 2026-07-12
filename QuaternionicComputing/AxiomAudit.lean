@@ -666,7 +666,7 @@ set_option linter.style.longLine false in
 #print axioms
   QuaternionicComputing.Semantics.complexifyCircuit_decodedPushforward_eq
 #print axioms
-  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
+QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_raw_decodedBasisWeightAgreement
 #print axioms
   QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allQubit_decodedDistributionAgreement
 #print axioms
