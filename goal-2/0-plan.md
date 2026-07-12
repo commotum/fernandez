@@ -109,18 +109,17 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
 
 - Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
   `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The current Stage 8 tree has 84 Lean sources including the public root. The
-  three stable hierarchy leaves and non-root hierarchy audit strict-compile;
-  focused builds pass at `2355`, `2356`, `2693`, and `2713`, and the combined
-  hierarchy-audit/public-root/release-audit build passes at `2769/2769`. The
-  release audit contains 422 endpoints; all 33 local Stage 8 diagnostic
-  endpoints and the complete release union use exactly `propext`,
-  `Classical.choice`, and `Quot.sound`. The cached default build completes
-  `2762` jobs; the root-only warning-as-error downstream smoke, generated
-  manifest checks, boundary/shortcut/artifact/Markdown/whitespace scans, and
-  documentation/Goal 3 fold-back pass. The independent integrated closure
-  review reproduced every requirement and returned **PASS** with no semantic,
-  scope, proof, manifest, or release defect.
+- The current Stage 9A tree has 87 Lean sources including the public root. The
+  two stable simulation-semantics leaves and non-root audit strict-compile;
+  focused builds pass at `2345`, `2350`, and `2368`, the combined stable/audit/
+  public-root/release-audit build passes at `2766/2766`, and the cached default
+  build completes `2764` jobs. The release audit has 442 endpoints and the
+  local simulation audit has ten; their parsed unions are exactly `propext`,
+  `Classical.choice`, and `Quot.sound`. Root-only downstream smoke, regenerated
+  manifest name/consumer checks, boundary/shortcut/artifact/Markdown/whitespace
+  scans, frozen checksums, documentation/Goal 3 fold-back, and diff checks pass.
+  Independent code, manifest, and integrated closure reviews returned **PASS**
+  with no remaining semantic, scope, proof, manifest, or release defect.
 - `ExactOperatorEq` now names literal same-type matrix equality and
   `ExactCircuitEq` names literal equality of `OrderedCircuit.eval`.
   Multiplication, gatewise, and append congruence theorems compile through real
@@ -179,15 +178,16 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 990 unique declarations:
-  the immutable 941-declaration Stage 7 prefix plus 49 Stage 8 declarations in
-  exact source order (`9` output-phase, `13` state/distribution, and `27`
-  operator/circuit hierarchy declarations). Every item has seven semantic axes
-  and a named downstream consumer; all 990 public names, 116 distinct
-  consumers, and 236 direct release-audit labels resolve exactly. The
-  first-941 structural hash is
-  `72519cf742d5d2f2c2b3800961fda289159c2d5ca01bbad4de43948353fa9ca7`,
-  and the frozen Goal 1 cohort and checksum remain unchanged.
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,048 unique declarations:
+  the immutable 990-declaration Stage 8 prefix plus 58 Stage 9A declarations in
+  exact source order (38 generic relations and 20 concrete representative
+  encodings). Every item has seven semantic axes and a named downstream
+  consumer; all 1,048 public names, 127 distinct consumers, and 256 direct
+  release-audit labels resolve exactly. The first-990 structural hash is
+  `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
+  and the full manifest hash is
+  `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`.
+  The frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
   Born probabilities in `[0,1]`, and exact `U * ρ * Uᴴ` evolution with
@@ -218,15 +218,16 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   phase still does not imply channel equality. No quaternionic channel,
   cross-model simulation, metric, partial-trace, mixed-top, or resource claim
   is introduced.
-- Stage 9 owns exactly 18 frozen-cohort families: two representative-encoding
-  families in 9A, eleven operator/state/reindex/schedule/compiler wrapper
-  families in 9B, and five decoded basis/distribution/event/postprocessing
-  families in 9C. Existing theorems already contain the underlying exact
-  mapped-operator, state-intertwining, pure-top bottom-weight, distribution,
-  event, and deterministic-pushforward facts. The missing work is a reusable
-  directional cross-space vocabulary and proof-bearing wrappers that keep
-  scalar/index changes, added wires, top-state quantifiers, decoders, and
-  marginals explicit without upgrading them to same-space ray/channel claims.
+- Stage 9 owns exactly 18 frozen-cohort families: Stage 9A now closes the two
+  representative-encoding families with 38 generic directional declarations
+  and 20 concrete encoding declarations, including four raw real-linear and
+  four normalized-representative equivalences. The generic relations keep all
+  encoders, decoders, top-sector policies, and observation scopes explicit and
+  do not imply same-space, ray, product, mixed-state, or channel equality.
+  Stage 9B still owns eleven operator/state/reindex/schedule/compiler wrapper
+  families, and Stage 9C still owns five decoded basis/distribution/event/
+  postprocessing families. Those 16 families remain open despite audit-local
+  relation consumers in 9A.
 - Pinned mathlib probes also validate finite basis columns and the scoped L2
   induced operator norm for Stage 10. Complex PSD needs `ComplexOrder` and
   Loewner matrices need `MatrixOrder`.
@@ -791,6 +792,12 @@ failed converse or incomparability with exact witnesses.
 - The published diagram, theorem names, examples, and axiom audit agree.
 
 ### 9-CROSSMODEL
+
+#### Milestone Status
+
+- [x] `9A-RELATIONS`
+- [ ] `9B-WRAPPERS`
+- [ ] `9C-OUTCOMES`
 
 #### Big Picture Objective
 

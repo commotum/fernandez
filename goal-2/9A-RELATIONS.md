@@ -231,6 +231,35 @@ same-space equality name or hiding top/marginal policy.
   root blocks, for all 442 commands, and nine nonempty plus one axiom-free local
   blocks. Both unions are exactly `propext`, `Classical.choice`, and
   `Quot.sound`, with no unknown identifier or `sorryAx` output.
-- Semantic-manifest integration, documentation/Goal 3 fold-back, final default
-  builds/scans, and independent integrated 9A closure remain in progress. 9A
-  is not yet complete.
+- `docs/Goal2SemanticAPIManifest.json` appends the 58 stable declarations in
+  exact source order, for 1,048 unique items, 127 consumers, and 256 direct
+  root-audit labels. The exact allocation is
+  `5/6/4/4/2/5/8/2/2/10/10`; the first-990 structural hash remains
+  `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`,
+  the full manifest hash is
+  `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`,
+  and the frozen Goal 1 checksum remains
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+  Regenerated warning-as-error files resolve all 1,048 public names and all 127
+  consumers.
+- The default build passes at `2764/2764`; strict stable-leaf, audit, public-
+  root, release-audit, and root-only downstream-smoke checks pass. Hole,
+  declaration-axiom, opaque/unsafe/heartbeat, false-equivalence, public-audit-
+  import, artifact, whitespace, Markdown fence/table, stale-wording, and diff
+  scans pass. The tree has 87 Lean sources including the root.
+- README, the public-root docstring, Architecture, Conventions, MathlibAPI,
+  EquivalenceClassification, ReleaseReport, AxiomAudit, Traceability,
+  Corrections, and the Goal 3 plan/prompt record the exact representative-
+  coordinate strength and retain the ray, product, mixed-state, partial-trace,
+  channel, and all-effect boundaries. No paper correction or frozen-cohort
+  change was introduced, and all 16 Stage 9B/9C families remain pending.
+- Independent integrated review caught one stale import in the temporary
+  manifest-consumer generator. After adding the non-root `SimulationAudit`
+  import, a clean regeneration reported `names=1048 consumers=127` and both
+  generated files strict-compiled. The post-fix review reproduced every stage
+  gate and returned **PASS** with no remaining semantic, proof, scope,
+  manifest, audit, build, documentation, boundary, or hygiene defect.
+
+## Completion Status
+
+- [x] Stage 9A is complete. Stage 9 remains open for 9B and 9C.

@@ -581,6 +581,37 @@ set_option linter.style.longLine false in
 #print axioms QuaternionicComputing.Semantics.complexColumn0LinearEquiv
 #print axioms QuaternionicComputing.Semantics.complexColumn0StateEquiv
 
+#print axioms
+  QuaternionicComputing.Semantics.realifyMatrix_allCoefficient_stateIntertwining
+#print axioms
+  QuaternionicComputing.Semantics.complexifyMatrix_allCoefficient_stateIntertwining
+#print axioms QuaternionicComputing.Semantics.directRealify_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.realifyPlacedGate_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.complexifyPlacedGate_exactOperatorEmbedding
+#print axioms QuaternionicComputing.Semantics.realifyCircuit_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.realifyCircuit_allCoefficient_stateIntertwining
+#print axioms
+  QuaternionicComputing.Semantics.complexifyCircuit_allCoefficient_stateIntertwining
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_allCoefficient_stateIntertwining
+#print axioms
+  QuaternionicComputing.Semantics.scheduledComplexifyCircuit_eval_ne_of_source_ne
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.quaternionToRealCircuit_allCoefficient_stateIntertwining
+#print axioms
+  QuaternionicComputing.Semantics.compileRealifyCircuit_exactOperatorEmbedding
+#print axioms
+  QuaternionicComputing.Semantics.compileComplexifyCircuit_exactOperatorEmbedding
+
 #print axioms QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount
 #print axioms QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount
