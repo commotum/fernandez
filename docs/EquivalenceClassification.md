@@ -609,8 +609,9 @@ classifies the immutable cohort's 936 declarations exactly once across the same
 the 44 non-unresolved families names proof-bearing evidence or an explicit
 nonbehavioral/resource/support disposition; the seven unresolved rows
 have no invented Lean proof. The overlay also records all seven classification
-axes on every declaration, 43 direct-root audit assignments, and 893 non-root
-local-endpoint assignments.
+axes on every family and declaration, including the ten empty families, plus
+208 declaration-level direct-root audit assignments and 728 non-root local-
+endpoint assignments.
 
 The table below is a mechanically rendered family summary. Within each row,
 proof declarations retain JSON order and are joined by `<br>`; `—` means that

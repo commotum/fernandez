@@ -112,6 +112,7 @@ FAMILY_KEYS = {
     "slug",
     "origin",
     "declarationCount",
+    "classification",
     "finalStatus",
     "semanticClass",
     "evidenceMode",
@@ -550,6 +551,7 @@ def validate_registry(
         require(record.get("origin") == expected_origin, f"{label} origin must be {expected_origin}")
         expected_count = len(frozen["declarations"])
         require(record.get("declarationCount") == expected_count, f"{label} declaration count differs")
+        validate_classification(record.get("classification"), f"{label}.classification")
         require(record.get("finalStatus") in FINAL_STATUSES, f"{label}.finalStatus is invalid")
         obstruction = record.get("obstruction")
         require(obstruction is None or (isinstance(obstruction, str) and bool(obstruction)), f"{label}.obstruction is invalid")
@@ -619,12 +621,55 @@ def validate_registry(
             root_targets=root_targets,
             all_targets=all_targets,
         )
+        if declaration in root_targets:
+            require(
+                record["audit"]
+                == {"mode": "directRoot", "endpoint": declaration},
+                f"{label} is directly root-audited and must record its own endpoint",
+            )
     require(actual_pairs == flattened, "registry declaration set, family assignment, or order differs")
     require(len({name for _, name in actual_pairs}) == 936, "registry declarations are duplicated")
 
     declarations_by_number: dict[int, list[dict[str, Any]]] = {}
     for record in declarations:
         declarations_by_number.setdefault(family_number(record["familyId"]), []).append(record)
+    for number in range(1, 41):
+        require(
+            all(
+                record["classification"]
+                == family_by_number[number]["classification"]
+                for record in declarations_by_number[number]
+            ),
+            f"EQC-{number:03d} family axes drift from its homogeneous declaration axes",
+        )
+    require(
+        "arity, gate count, dense description size"
+        in family_by_number[41]["classification"]["subject"],
+        "EQC-041 family axes must summarize its heterogeneous resource subfamilies",
+    )
+    require(
+        "metric error budgets" in family_by_number[42]["classification"]["subject"]
+        and "zero-budget exact" in family_by_number[42]["classification"]["exactness"],
+        "EQC-042 family axes must record the final Stage 10 approximation boundary",
+    )
+    require(
+        "RealRay" in family_by_number[43]["classification"]["subject"]
+        and "real unit sign" in family_by_number[43]["classification"]["phase"],
+        "EQC-043 family axes must record the proved real-sign quotient",
+    )
+    require(
+        "basis-permutation implementation certificates"
+        in family_by_number[44]["classification"]["subject"]
+        and "every computational-basis input"
+        in family_by_number[44]["classification"]["inputScope"],
+        "EQC-044 family axes must record certified all-basis-input behavior",
+    )
+    require(
+        "every source quaternionic pure state"
+        in family_by_number[47]["classification"]["inputScope"]
+        and "mixed" not in family_by_number[47]["classification"]["inputScope"],
+        "EQC-047 must retain its pure-state reduced-matrix scope",
+    )
     for record in declarations_by_number[1]:
         scope = record["classification"]["inputScope"]
         require(
@@ -661,9 +706,8 @@ def validate_registry(
         translation_work["proofDeclarations"] == [translation_work_name]
         and "per-occurrence translation work"
         in translation_work["classification"]["subject"]
-        and translation_work["audit"]["endpoint"].endswith(
-            "ExistingResultsAudit.compiledResourceBounds_family"
-        ),
+        and translation_work["audit"]
+        == {"mode": "directRoot", "endpoint": translation_work_name},
         "translationWork_le_gateCount_mul must retain its generic work-bound classification",
     )
     translation_definition_name = (

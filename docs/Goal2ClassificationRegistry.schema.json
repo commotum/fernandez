@@ -265,6 +265,7 @@
         "slug",
         "origin",
         "declarationCount",
+        "classification",
         "finalStatus",
         "semanticClass",
         "evidenceMode",
@@ -293,6 +294,9 @@
         "declarationCount": {
           "type": "integer",
           "minimum": 0
+        },
+        "classification": {
+          "$ref": "#/$defs/classification"
         },
         "finalStatus": {
           "$ref": "#/$defs/finalStatus"

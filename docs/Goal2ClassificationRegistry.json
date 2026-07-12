@@ -49,7 +49,16 @@
       ],
       "finalDisposition": "A normalized same-space counterexample rejects left quaternionic phase as a natural state-ray convention; the frozen raw witness was valid but incorrectly described as normalized.",
       "goal3Boundary": "No Goal 3 upgrade is licensed: this is not a rejection of right phase and not circuit or channel inequivalence.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "state columns and one evolution",
+        "inputScope": "one explicit raw unnormalized pair of total weight 2, plus a normalized Bool-indexed replacement pair",
+        "observationScope": "ray preservation failure",
+        "phase": "quaternion left, deliberately rejected",
+        "exactness": "exact counterexample",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-002-Q-RIGHT-RAY",
@@ -78,7 +87,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Exact unit-right-phase equivalence is proved on normalized quaternionic representatives and identified with equality in QuaternionRay; distribution and unitary-evolution descent are proved.",
       "goal3Boundary": "No arbitrary quaternion operator phase or channel equality is inferred.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "quaternionic state columns",
+        "inputScope": "arbitrary compatible columns; normalized wrappers where probabilities are claimed",
+        "observationScope": "ray, basis weight, total weight, evolution",
+        "phase": "quaternion right",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-003-C-RIGHT-RAY",
@@ -107,7 +125,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Exact unit-phase equivalence is proved on normalized complex representatives, with right notation central by commutativity and with ray, distribution, and evolution descent.",
       "goal3Boundary": "No channel converse follows from equality of basis distributions.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "complex state columns",
+        "inputScope": "arbitrary compatible columns; normalized wrappers",
+        "observationScope": "ray, basis weight, total weight, evolution",
+        "phase": "complex right, equal to left by commutativity",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-004-NORMALIZED-BASIS-DIST",
@@ -132,7 +159,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Pointwise computational-basis weights of normalized states are exactly equality of their packaged finite distributions.",
       "goal3Boundary": "Vector, ray, all-pure-input, and channel equality remain strictly stronger or incomparable claims.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "normalized state and finite distribution",
+        "inputScope": "one normalized state or two distributions",
+        "observationScope": "full computational-basis distribution",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-005-EVENT-PUSHFORWARD-CONGRUENCE",
@@ -160,7 +196,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Pointwise finite-distribution equality yields all finite-event equalities and equality after every deterministic finite pushforward.",
       "goal3Boundary": "Randomized postprocessing, quantum partial trace, and channel equality are outside this family.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "finite distributions",
+        "inputScope": "one pair of pointwise-equal distributions",
+        "observationScope": "finite events and deterministic finite postprocessing",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "deterministic map supplies classical marginal/decoder"
+      }
     },
     {
       "id": "EQC-006-UNITARY-EVOLUTION-NORM",
@@ -185,7 +230,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "This is forward normalization-preserving support for supplied unitary evolution, not equality of pre- and post-evolution behavior.",
       "goal3Boundary": "Converse classifications of norm preservers remain in EQC-045 and Goal 3.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "matrix action on state",
+        "inputScope": "every compatible state under a supplied unitary",
+        "observationScope": "norm, total weight, normalization",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-007-REAL-COLUMNS-REPRESENTATIVE",
@@ -211,7 +265,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The two canonical complex-to-real encodings have explicit decoders and exact normalized-representative equivalences; this is coordinate bijectivity, not behavioral equivalence.",
       "goal3Boundary": "Complex phase descends through RealSectorOrbit, not through a canonical column as ordinary RealRay equality.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "complex representative to doubled real representative",
+        "inputScope": "arbitrary finite column",
+        "observationScope": "amplitudes, reconstruction, norm and inner product",
+        "phase": "none",
+        "exactness": "exact after encoding",
+        "ancillaPolicy": "one explicit top sector; no marginal"
+      }
     },
     {
       "id": "EQC-008-REAL-COLUMNS-INTERTWINING",
@@ -236,7 +299,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every raw real coefficient pair and source column satisfies exact cross-space matrix/state intertwining.",
       "goal3Boundary": "Raw coordinate coefficients are not normalized product ancillas, rays, densities, or decoded outcomes.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: complex matrix/column to doubled real matrix/column",
+        "subject": "rectangular matrix action on encoded raw state columns",
+        "inputScope": "every raw complex source column and every raw coefficient pair in ℝ × ℝ",
+        "observationScope": "exact equality of every evolved target amplitude after encoding",
+        "phase": "none; representatives are compared exactly",
+        "exactness": "exact AllTopStateIntertwining",
+        "ancillaPolicy": "explicit doubled sum coordinates and coefficient pair; no normalized or product-top interpretation"
+      }
     },
     {
       "id": "EQC-009-REAL-COLUMNS-MEASUREMENT",
@@ -261,7 +333,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every normalized Rebit coefficient yields exact decoded raw basis-weight agreement for every complex source column.",
       "goal3Boundary": "A mixed-top density/partial-trace extension remains Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: complex raw column to doubled real raw column",
+        "subject": "encoded raw complex state columns and decoded basis weights",
+        "inputScope": "every raw complex source column and every normalized Rebit coefficient",
+        "observationScope": "exact decoded computational-basis weights; raw weights are not necessarily probabilities",
+        "phase": "none",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement",
+        "ancillaPolicy": "explicit false/true sector sum; no product, mixed-top, or generic partial-trace claim"
+      }
     },
     {
       "id": "EQC-010-REAL-REDUCED-OUTER",
@@ -284,7 +365,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The two canonical real columns have the same explicit two-sector reduction of the real rank-one outer product, whose diagonal is the source basis-weight family.",
       "goal3Boundary": "Generic density matrices and a generic partial-trace theorem remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "rank-one outer matrices",
+        "inputScope": "every source pure column; two canonical encodings",
+        "observationScope": "reduced matrix and its computational diagonal",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "explicit two-sector diagonal-block sum, not generic partial trace"
+      }
     },
     {
       "id": "EQC-011-COMPLEX-COLUMNS-REPRESENTATIVE",
@@ -310,7 +400,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The two canonical quaternion-to-complex encodings have explicit decoders and exact normalized-representative equivalences; they are real-linear coordinate equivalences.",
       "goal3Boundary": "No quaternionic/complex linearity, phase quotient, channel equality, or measurement equality is inferred.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "quaternionic representative to doubled complex representative",
+        "inputScope": "arbitrary finite column",
+        "observationScope": "amplitudes, reconstruction, norm and inner product",
+        "phase": "source quaternion state phase remains right-sided",
+        "exactness": "exact after encoding",
+        "ancillaPolicy": "one explicit top sector; no marginal"
+      }
     },
     {
       "id": "EQC-012-COMPLEX-COLUMNS-INTERTWINING",
@@ -335,7 +434,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every raw complex coefficient pair and quaternionic source column satisfies exact cross-space matrix/state intertwining.",
       "goal3Boundary": "No right-phase quotient, normalized product-top state, density, or decoded outcome is bundled.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic matrix/column to doubled complex matrix/column",
+        "subject": "rectangular matrix action on encoded raw state columns",
+        "inputScope": "every raw quaternionic source column and every raw coefficient pair in ℂ × ℂ",
+        "observationScope": "exact equality of every evolved target amplitude after encoding",
+        "phase": "none; no right-phase quotient is applied",
+        "exactness": "exact AllTopStateIntertwining",
+        "ancillaPolicy": "explicit doubled sum coordinates and coefficient pair; no normalized or product-top interpretation"
+      }
     },
     {
       "id": "EQC-013-COMPLEX-COLUMNS-MEASUREMENT",
@@ -360,7 +468,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every normalized Qubit coefficient yields exact decoded raw basis-weight agreement for every quaternionic source column.",
       "goal3Boundary": "No reduced-density conclusion or mixed-top extension is claimed; those remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic raw column to doubled complex raw column",
+        "subject": "encoded raw quaternionic state columns and decoded basis weights",
+        "inputScope": "every raw quaternionic source column and every normalized Qubit coefficient",
+        "observationScope": "exact decoded computational-basis weights; raw weights are not necessarily probabilities",
+        "phase": "none",
+        "exactness": "exact AllTopDecodedBasisWeightAgreement",
+        "ancillaPolicy": "explicit false/true sector sum; no product, mixed-top, reduced-density, or partial-trace claim"
+      }
     },
     {
       "id": "EQC-014-BASIS-PREPARATION",
@@ -387,7 +504,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The XOR preparation matrix, full-support gate, and singleton circuit implement the certified all-basis-input permutation; the original ground-column claims are consequences.",
       "goal3Boundary": "Unknown-state preparation, primitive synthesis, uniform compilation, and runtime claims remain outside this family.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same scalar and computational-basis carrier",
+        "subject": "XOR basis-preparation matrix, full-support gate, and singleton circuit",
+        "inputScope": "every computational-basis input for the certified XOR permutation and entry behavior, plus a separate known-ground-input exact output-column theorem",
+        "observationScope": "certified basis permutation and evaluator entries for all basis inputs, plus exact ground-column preparation",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "no ancilla; full-support XOR gate"
+      }
     },
     {
       "id": "EQC-015-NONPRODUCT-WITNESS",
@@ -414,7 +540,16 @@
       ],
       "finalDisposition": "One normalized encoded pure state fails the explicit unnormalized top-times-bottom factorization predicate.",
       "goal3Boundary": "Operational entanglement, mixed-state, channel, and signaling consequences require Goal 3 machinery.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "one encoded pure state",
+        "inputScope": "one normalized rational source state",
+        "observationScope": "pure factorization obstruction",
+        "phase": "none",
+        "exactness": "exact negation",
+        "ancillaPolicy": "explicit added wire; no density marginal"
+      }
     },
     {
       "id": "EQC-016-PRODUCT-ORDER-RAY-WITNESS",
@@ -444,7 +579,16 @@
       ],
       "finalDisposition": "The fixed normalized product-input outputs have equal complete basis distributions but are not right-phase equivalent and determine distinct QuaternionRay values.",
       "goal3Boundary": "This one-input strictness witness is not channel or all-measurement inequivalence.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "two scheduled quaternionic outputs",
+        "inputScope": "one normalized pointwise-product ground input",
+        "observationScope": "state ray and complete basis-weight family",
+        "phase": "quaternion state phase right",
+        "exactness": "exact inequality plus exact equality",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-017-REALIFY-ALGEBRA",
@@ -469,7 +613,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Realification is an injective algebraic matrix embedding preserving the stated operations; it is explicitly nonbehavioral support.",
       "goal3Boundary": "No additional behavioral or Goal 3 conclusion follows from the algebra alone.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "matrix embedding",
+        "inputScope": "arbitrary compatible matrices",
+        "observationScope": "full matrix entries and algebraic operations",
+        "phase": "none",
+        "exactness": "exact mapped algebra",
+        "ancillaPolicy": "doubled sum indices"
+      }
     },
     {
       "id": "EQC-018-COMPLEXIFY-ALGEBRA",
@@ -494,7 +647,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Complexification is an injective algebraic matrix embedding preserving products and adjoints with multiplication order explicit.",
       "goal3Boundary": "No phase, circuit, observation, or channel relation is inferred from the block algebra.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "matrix embedding",
+        "inputScope": "arbitrary compatible quaternionic matrices",
+        "observationScope": "full matrix entries and algebraic operations",
+        "phase": "multiplication order explicit",
+        "exactness": "exact mapped algebra",
+        "ancillaPolicy": "doubled sum indices"
+      }
     },
     {
       "id": "EQC-019-DIRECT-REALIFY-REINDEX",
@@ -519,7 +681,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Direct realification agrees exactly with composed realification after the named row and column reindexings.",
       "goal3Boundary": "It is not unreindexed literal matrix equality and does not define a second circuit translator.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "two matrix representations",
+        "inputScope": "every compatible quaternionic matrix",
+        "observationScope": "full matrix after named row/column reindexing",
+        "phase": "none",
+        "exactness": "exact after reindex",
+        "ancillaPolicy": "four sectors ordered `[Re,ImI,ImK,ImJ]`; no circuit translator"
+      }
     },
     {
       "id": "EQC-020-UNITARY-IMAGE-EQUIVS",
@@ -544,7 +715,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Each source unitary group is multiplicatively equivalent exactly to the defined image of its embedding, not to the ambient target group.",
       "goal3Boundary": "Ambient surjectivity and computational-model equivalence are not consequences.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "unitary groups and homomorphism ranges",
+        "inputScope": "every unitary matrix in source group",
+        "observationScope": "algebraic multiplication and image membership",
+        "phase": "none",
+        "exactness": "exact algebraic equivalence onto range",
+        "ancillaPolicy": "changed scalar/dimension; no state decoder"
+      }
     },
     {
       "id": "EQC-021-DETERMINANT-IMAGE",
@@ -569,7 +749,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Realification and direct realification land in the stated special-orthogonal groups; quaternionic complexification has the proved determinant sign alternative only.",
       "goal3Boundary": "The positive-sign quaternion-to-complex determinant theorem remains Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "matrix/group image",
+        "inputScope": "every source matrix or unitary under stated hypotheses",
+        "observationScope": "determinant and target group membership",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "changed scalar/dimension"
+      }
     },
     {
       "id": "EQC-022-PROPER-IMAGE-WITNESSES",
@@ -596,7 +785,16 @@
       ],
       "finalDisposition": "Explicit target matrices lie outside each algebraic embedding image; these are proper-image diagnostics only.",
       "goal3Boundary": "Operational lower bounds or converse simulation separations remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "target matrix versus embedding image",
+        "inputScope": "explicit low-dimensional matrices",
+        "observationScope": "nonmembership in algebraic image",
+        "phase": "none",
+        "exactness": "exact counterexamples",
+        "ancillaPolicy": "no encoder/decoder or operational observation"
+      }
     },
     {
       "id": "EQC-023-KRONECKER-INTERCHANGE",
@@ -621,7 +819,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The crossing-entry commutation condition proves Kronecker interchange, with explicit success beyond the zero-one condition and explicit failure.",
       "goal3Boundary": "No necessity theorem for the sufficient commutation condition is proved.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "matrix products",
+        "inputScope": "arbitrary compatible matrices under explicit crossing commutation; explicit examples",
+        "observationScope": "full matrix equality or inequality",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "tensor-factor indices only"
+      }
     },
     {
       "id": "EQC-024-PLACE-ALGEBRA",
@@ -647,7 +854,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Contextual placement preserves multiplication, adjoints, injectivity, and unitarity after the explicit semantic split; this is nonbehavioral support.",
       "goal3Boundary": "Physical swaps, routing circuits, and routing cost remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "local versus contextual matrix",
+        "inputScope": "every local matrix and explicit split/support",
+        "observationScope": "full contextual operator",
+        "phase": "none",
+        "exactness": "exact after reindex/padding",
+        "ancillaPolicy": "semantic complement; no physical swaps"
+      }
     },
     {
       "id": "EQC-025-WIRE-EMBED-PLACEMENT",
@@ -673,7 +889,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Translated placed gates have exact mapped full-denotation embeddings with one explicit added wire.",
       "goal3Boundary": "No prepared/product ancilla, physical routing circuit, or resource claim is bundled.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "placed source gate and translated placed gate",
+        "inputScope": "every locality-certified gate",
+        "observationScope": "exact mapped denotation and support data",
+        "phase": "none",
+        "exactness": "exact operator embedding",
+        "ancillaPolicy": "one shared added top wire; same complement"
+      }
     },
     {
       "id": "EQC-026-ORDERED-EVAL",
@@ -699,7 +924,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Ordered circuits are exactly equal precisely when their chronological evaluator matrices are literally equal; gatewise and append congruence are proved.",
       "goal3Boundary": "Gate-list equality is sufficient but unnecessary; phase, resources, schedules, and cross-model maps remain separate.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "ordered circuits",
+        "inputScope": "every chronological list",
+        "observationScope": "exact operator denotation",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-027-SCHEDULE-INDEPENDENCE",
@@ -724,7 +958,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Any two supplied legal schedules are exactly circuit-equal under pairwise commutation of distinct occurrence denotations.",
       "goal3Boundary": "No converse and no generic disjoint-support implication without scalar commutation are claimed.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "two legal schedules of one occurrence family",
+        "inputScope": "all supplied schedules under pairwise-commuting global denotations",
+        "observationScope": "exact evaluated operator",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "no schedule selection; same finite occurrence family"
+      }
     },
     {
       "id": "EQC-028-ORDER-DISTINCTION-WITNESS",
@@ -753,7 +996,16 @@
       ],
       "finalDisposition": "The source schedules and exact complex translations are operator-distinct; one fixed normalized ground input agrees in all basis weights, but equality over all normalized pure inputs fails, as witnessed by a separate normalized interference input.",
       "goal3Boundary": "This does not assert channel, all-effect, or every-input inequivalence.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same quaternionic source space plus exact cross-space complexification clauses",
+        "subject": "two legal schedule circuits and evaluators, their exact complex translations, a fixed normalized ground input, and normalized pure inputs",
+        "inputScope": "fixed normalized ground input for all-basis-weight equality; one normalized interference input witnesses failure of all normalized pure input equality",
+        "observationScope": "source and translated ExactCircuitEq failure; fixed ground-input all-basis-weight equality; failure of PureInputBasisMeasurementEq; one translated decoded bottom-weight inequality",
+        "phase": "none",
+        "exactness": "exact equality and exact counterexamples at the stated scopes",
+        "ancillaPolicy": "source clauses have no ancilla; translated clauses use the explicit complexification AddedWire and canonical encoded input, with no product or mixed-top claim"
+      }
     },
     {
       "id": "EQC-029-SCHEDULE-ENUMERATION",
@@ -778,7 +1030,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "All finite chronological orders are enumerated exactly once and legal orders occur in the enumeration; precedence legality remains a separate predicate.",
       "goal3Boundary": "These combinatorial counts are not schedule independence or circuit behavior.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "finite lists/schedules",
+        "inputScope": "finite identifier type; empty or general precedence as stated",
+        "observationScope": "structural membership/count, not circuit behavior",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-030-C2R-OPERATOR",
@@ -803,7 +1064,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every complex ordered circuit has exact mapped operator denotation under the realification translation.",
       "goal3Boundary": "This is directional mapped equality with an explicit added wire, not same-space circuit equality.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: complex circuit evaluator to doubled real evaluator",
+        "subject": "source and translated circuit operators",
+        "inputScope": "every finite ordered complex circuit",
+        "observationScope": "exact full operator after the explicit wireRealify map",
+        "phase": "none",
+        "exactness": "exact ExactOperatorEmbedding",
+        "ancillaPolicy": "one explicit AddedWire in the target type; no prepared or product ancilla"
+      }
     },
     {
       "id": "EQC-031-C2R-STATE",
@@ -828,7 +1098,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every raw complex source column and real coefficient pair satisfies exact translated-circuit state intertwining.",
       "goal3Boundary": "Coefficients are not normalized product-top certificates; outcomes are classified separately.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: complex circuit state action to doubled real state action",
+        "subject": "translated-circuit evolution on encoded raw state columns",
+        "inputScope": "every raw complex source column and every raw coefficient pair in ℝ × ℝ",
+        "observationScope": "exact equality of every translated target amplitude",
+        "phase": "none",
+        "exactness": "exact AllTopStateIntertwining",
+        "ancillaPolicy": "one explicit coordinate sector/AddedWire; coefficients are not normalized or product-top certificates"
+      }
     },
     {
       "id": "EQC-032-C2R-OBSERVABLE",
@@ -855,7 +1134,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Complex-to-real simulation has separate exact raw decoded point-weight and normalized distribution/event/deterministic-pushforward guarantees.",
       "goal3Boundary": "Mixed top states, randomized postprocessing, partial trace, and channel equality remain outside this result.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: complex circuit output to decoded doubled-real output",
+        "subject": "raw and normalized translated-circuit outcome behavior at four separate levels",
+        "inputScope": "all raw point weights without unitarity; normalized distributions, finite events, and deterministic pushforwards under local unitarity and normalized source/top data",
+        "observationScope": "decoded point weights, full finite distribution, every finite event, and deterministic finite pushforwards",
+        "phase": "none",
+        "exactness": "exact decoded agreement at each named level",
+        "ancillaPolicy": "full AddedWire target retained until the explicit decoder; no product, mixed-top, or partial-trace claim"
+      }
     },
     {
       "id": "EQC-033-Q2C-OPERATOR",
@@ -880,7 +1168,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every quaternionic ordered circuit has exact mapped operator denotation under complexification.",
       "goal3Boundary": "This is directional mapped equality with an explicit added wire, not same-space circuit equality.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic circuit evaluator to doubled complex evaluator",
+        "subject": "source and translated circuit operators",
+        "inputScope": "every finite ordered quaternionic circuit",
+        "observationScope": "exact full operator after the explicit wireComplexify map",
+        "phase": "none",
+        "exactness": "exact ExactOperatorEmbedding",
+        "ancillaPolicy": "one explicit AddedWire in the target type; no prepared or product ancilla"
+      }
     },
     {
       "id": "EQC-034-Q2C-STATE",
@@ -905,7 +1202,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Every raw quaternionic source column and complex coefficient pair satisfies exact translated-circuit state intertwining.",
       "goal3Boundary": "No right-phase quotient, normalized product-top certificate, outcome, or channel result is bundled.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic circuit state action to doubled complex state action",
+        "subject": "translated-circuit evolution on encoded raw state columns",
+        "inputScope": "every raw quaternionic source column and every raw coefficient pair in ℂ × ℂ",
+        "observationScope": "exact equality of every translated target amplitude",
+        "phase": "none; no right-phase quotient is applied",
+        "exactness": "exact AllTopStateIntertwining",
+        "ancillaPolicy": "one explicit coordinate sector/AddedWire; coefficients are not normalized or product-top certificates"
+      }
     },
     {
       "id": "EQC-035-Q2C-OBSERVABLE",
@@ -932,7 +1238,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Quaternion-to-complex simulation has separate exact raw decoded point-weight and normalized distribution/event/deterministic-pushforward guarantees.",
       "goal3Boundary": "Mixed top states, partial trace, and channel equality remain outside this result.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic circuit output to decoded doubled-complex output",
+        "subject": "raw and normalized translated-circuit outcome behavior at four separate levels",
+        "inputScope": "all raw point weights without unitarity; normalized distributions, finite events, and deterministic pushforwards under local unitarity and normalized source/top data",
+        "observationScope": "decoded point weights, full finite distribution, every finite event, and deterministic finite pushforwards",
+        "phase": "none",
+        "exactness": "exact decoded agreement at each named level",
+        "ancillaPolicy": "full AddedWire target retained until the explicit decoder; no product, mixed-top, or partial-trace claim"
+      }
     },
     {
       "id": "EQC-036-SCHEDULED-Q2C",
@@ -961,7 +1276,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "One supplied legal schedule has exact mapped operator/state semantics and exact decoded outcome guarantees at their stated raw or normalized scopes.",
       "goal3Boundary": "No schedule selection, schedule independence, quotient, mixed-top, channel, or resource theorem follows.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: one supplied quaternionic schedule to its exact complex translation",
+        "subject": "scheduled circuit operator, raw state action, and decoded outcomes",
+        "inputScope": "one supplied legal schedule; raw point weights at raw scope; normalized levels add pointwise local unitarity and normalized source/top data",
+        "observationScope": "exact operator embedding, state intertwining, operator-gap preservation, decoded weights, distribution, events, and deterministic pushforwards at separate scopes",
+        "phase": "none",
+        "exactness": "exact per supplied schedule",
+        "ancillaPolicy": "one explicit AddedWire and decoder; no schedule choice, quotient, independence, product/mixed-top, channel, or resource claim"
+      }
     },
     {
       "id": "EQC-037-Q2R-COMPOSED",
@@ -990,7 +1314,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The composed quaternion-to-real translation has exact nested mapped operator/state semantics and exact two-wire decoded outcomes.",
       "goal3Boundary": "Both coordinate layers remain explicit; Equation 63 is not a second circuit translator and no mixed-top/channel claim follows.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross: quaternionic circuit to composed doubled-complex then doubled-real translation",
+        "subject": "composed operator/state action and two-wire decoded outcomes",
+        "inputScope": "every raw source column at raw levels; normalized outcome levels add local unitarity, normalized source state, and supplied Qubit × Rebit coefficients",
+        "observationScope": "exact composed operator/state action and decoded weights, distribution, events, and deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact mapped or decoded agreement at each named level",
+        "ancillaPolicy": "two explicit AddedWire layers; decode outer realification before inner complexification; no product/mixed-top or partial-trace claim"
+      }
     },
     {
       "id": "EQC-038-POSTPROCESSING-SIMULATION",
@@ -1017,7 +1350,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Primary, scheduled, and composed exact decoded distributions are closed under every finite event and deterministic finite pushforward.",
       "goal3Boundary": "Randomized postprocessing, channel equality, and resource accounting are not included.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross",
+        "subject": "source output and decoded target output distributions",
+        "inputScope": "every normalized pure input/top covered by primary simulations",
+        "observationScope": "full finite distribution, all finite events, deterministic pushforwards",
+        "phase": "none",
+        "exactness": "exact decoded agreement",
+        "ancillaPolicy": "added wire marginalized before comparison"
+      }
     },
     {
       "id": "EQC-039-EXACT-COMPILER-SEMANTICS",
@@ -1042,7 +1384,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "A supplied ExactGateCompiler produces a circuit exactly evaluator-equal to its source circuit.",
       "goal3Boundary": "Compiler existence, synthesis, approximation, primitive-count guarantees, and runtime remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same",
+        "subject": "source circuit and supplied expansion circuit",
+        "inputScope": "every circuit under a supplied exact compiler certificate",
+        "observationScope": "exact evaluated operator",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "compiler is ancilla-free on same wires unless separately stated"
+      }
     },
     {
       "id": "EQC-040-COMPILED-IMAGE-SEMANTICS",
@@ -1068,7 +1419,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Supplied exact target compilers preserve the mapped source evaluator exactly after realification or complexification.",
       "goal3Boundary": "No compiler existence, synthesis, approximation, gate-count bound, or runtime is inferred.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "cross then same-target compilation",
+        "subject": "image circuit and supplied compiled target",
+        "inputScope": "every source circuit under supplied compiler data",
+        "observationScope": "same embedded operator after compilation",
+        "phase": "none",
+        "exactness": "exact",
+        "ancillaPolicy": "same target wires; no extra compiler ancilla in present interface"
+      }
     },
     {
       "id": "EQC-041-STRUCTURAL-RESOURCE-EQUALITIES",
@@ -1092,7 +1452,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "This heterogeneous family is classified declaration-by-declaration as structural support or as exact gate-count, width, arity, dense-slot, depth, work, and compiler-resource claims; none is behavioral equivalence.",
       "goal3Boundary": "Uniform synthesis, physical routing cost, runtime, and bit complexity remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same or cross finite structural carrier exactly as typed by each declaration",
+        "subject": "arity, gate count, dense description size, support, depth, width, compilation, and translation-work resources",
+        "inputScope": "all supplied circuits, layerings, work functions, and explicit per-occurrence bounds at the named declaration",
+        "observationScope": "exact finite structural values or stated natural-number inequalities only",
+        "phase": "none",
+        "exactness": "exact structural definitions, equalities, certificates, and explicitly stated bounds",
+        "ancillaPolicy": "added-wire/shared-wire policies and supplied compilers remain explicit; no hidden decoder or workspace"
+      }
     },
     {
       "id": "EQC-042-EXACT-VS-APPROX-BOUNDARY",
@@ -1124,7 +1493,16 @@
       ],
       "finalDisposition": "Nonnegative operator, phase-aware state-ray, and half-L1 distribution error bounds are proved with zero-budget characterizations and explicit nontransitivity witnesses.",
       "goal3Boundary": "Finite scalar encoding, circuit-error accumulation, approximate compilation/synthesis, and runtime remain Goal 3 work.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same exact-valued finite operator, normalized-state, or finite-distribution space; mapped comparisons expose their target space",
+        "subject": "real, complex, and quaternionic exact objects equipped with explicit metric error budgets",
+        "inputScope": "all objects and nonnegative budgets at each named operator, phase-aware, state-ray, or distribution level",
+        "observationScope": "Euclidean induced operator distance, right-phase representative distance, or half-L1 total variation exactly as named",
+        "phase": "real global sign, complex global phase, quaternion central operator sign, and right-sided state phase remain distinct",
+        "exactness": "approximate budget relations with zero-budget exact characterizations and additive, not fixed-budget, composition",
+        "ancillaPolicy": "no hidden ancilla; mapped targets are explicit and no finite scalar encoding or rounding is present"
+      }
     },
     {
       "id": "EQC-043-REAL-SIGN-RAY",
@@ -1150,7 +1528,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "Real normalized representatives are exactly equivalent modulo the central sign, with RealRay equality, distribution, and evolution descent.",
       "goal3Boundary": "No converse from basis distributions and no arbitrary complex-phase realification are claimed.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same finite real normalized-state representative space",
+        "subject": "normalized real state representatives and their RealRay quotient",
+        "inputScope": "all normalized representatives, supplied unitaries, and locally unitary chronological circuits",
+        "observationScope": "ray equality, complete basis distribution, finite events, deterministic pushforwards, and descended evolution",
+        "phase": "one real unit sign on the right; commutativity makes the notation side-independent",
+        "exactness": "exact equivalence relation and exact quotient equality",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-044-BASIS-CLASSICAL-BEHAVIOR",
@@ -1177,7 +1564,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "SameBasisBehavior is defined only for operators carrying explicit all-input basis-permutation certificates and is characterized by certified phase and basis-measurement relations.",
       "goal3Boundary": "No raw transition biconditional or arbitrary-matrix behavior relation is accepted.",
-      "obstruction": null
+      "obstruction": null,
+      "classification": {
+        "space": "same finite scalar and computational-basis carrier for a matrix or evaluated circuit",
+        "subject": "operators and circuits carrying explicit basis-permutation implementation certificates",
+        "inputScope": "every computational-basis input under the certified permutation",
+        "observationScope": "induced classical permutation, correctly sided basis phase, and complete basis-input measurement behavior",
+        "phase": "scalar-specific unit input phase on the right and output phase on the left where noncommutative",
+        "exactness": "exact certified behavior and exact characterization theorems",
+        "ancillaPolicy": "none unless already present in the certified wire type; no hidden decoder"
+      }
     },
     {
       "id": "EQC-045-NORM-PRESERVER-CONVERSES",
@@ -1198,7 +1594,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/4-FOUNDATIONS must state and prove the scalar-specific converse classifications.",
-      "obstruction": "Norm-preserver converses are not proved: the current library supplies only forward unitary preservation, and a converse needs explicit scalar, linearity, dimension, and antiunitary exclusions."
+      "obstruction": "Norm-preserver converses are not proved: the current library supplies only forward unitary preservation, and a converse needs explicit scalar, linearity, dimension, and antiunitary exclusions.",
+      "classification": {
+        "space": "same finite scalar/vector space under scalar-specific hypotheses",
+        "subject": "linear, conjugate-linear, unitary, antiunitary, and norm-preserving maps",
+        "inputScope": "all vectors or rays under the assumptions required by the intended converse",
+        "observationScope": "norm, inner product, or ray preservation as separately stated",
+        "phase": "scalar and antiunitary conventions must be explicit",
+        "exactness": "exact source-level converse claim, currently unresolved",
+        "ancillaPolicy": "none"
+      }
     },
     {
       "id": "EQC-046-MIXED-TOP-OBSERVATIONAL",
@@ -1219,7 +1624,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/3-DENSITY must define joint mixed states, product/no-correlation hypotheses, and the decoded marginal theorem.",
-      "obstruction": "The current Rebit/Qubit coefficient theorems cover pure top representatives only; there is no joint mixed density model, product-density hypothesis, or partial trace supporting the paper claim."
+      "obstruction": "The current Rebit/Qubit coefficient theorems cover pure top representatives only; there is no joint mixed density model, product-density hypothesis, or partial trace supporting the paper claim.",
+      "classification": {
+        "space": "cross-model source system and encoded target system with an added top subsystem",
+        "subject": "joint mixed states and decoded target marginals",
+        "inputScope": "all source density inputs and top states satisfying explicit product and no-correlation hypotheses",
+        "observationScope": "decoded bottom reduced state or all stated bottom measurement outcomes",
+        "phase": "no representative phase quotient substitutes for mixed-state equality",
+        "exactness": "exact source claim, currently unresolved without density and partial-trace machinery",
+        "ancillaPolicy": "explicit top subsystem, product/no-correlation premise, and partial trace are required"
+      }
     },
     {
       "id": "EQC-047-QUATERNION-REDUCED-SEPARATION",
@@ -1240,7 +1654,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/3-DENSITY must formalize the two reduced matrices, diagonal agreement, and matrix inequality.",
-      "obstruction": "Direct quaternionic-to-complex basis weights are proved, but no density API constructs and compares the two reduced complex matrices required by the separation claim."
+      "obstruction": "Direct quaternionic-to-complex basis weights are proved, but no density API constructs and compares the two reduced complex matrices required by the separation claim.",
+      "classification": {
+        "space": "quaternionic source and doubled complex or real encoded target systems",
+        "subject": "source and encoded reduced matrices",
+        "inputScope": "every source quaternionic pure state under the paper's explicit encoding",
+        "observationScope": "full reduced-matrix comparison separately from computational-diagonal agreement",
+        "phase": "quaternionic state phase remains right-sided and does not identify reduced matrices",
+        "exactness": "exact source-level equality/inequality separation, currently unresolved",
+        "ancillaPolicy": "explicit added sector and a genuine reduction/partial-trace operation are required"
+      }
     },
     {
       "id": "EQC-048-COMPUTATIONAL-MODEL-EQUIVALENCE",
@@ -1261,7 +1684,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/12-UNIFORMITY and 13-REALQTM must supply the uniform computational models and resource accounting.",
-      "obstruction": "Finite per-circuit exact embeddings do not establish uniform algorithms, quantum Turing machine simulations, acceptance semantics, approximation policy, or complexity preservation."
+      "obstruction": "Finite per-circuit exact embeddings do not establish uniform algorithms, quantum Turing machine simulations, acceptance semantics, approximation policy, or complexity preservation.",
+      "classification": {
+        "space": "cross-model uniform circuit-family or machine descriptions",
+        "subject": "computational models, languages, acceptance behavior, and resource overhead",
+        "inputScope": "all encoded problem instances across a uniform family or machine computation",
+        "observationScope": "acceptance/output distributions and complexity resources under an explicit simulation definition",
+        "phase": "phase conventions are subordinate to the declared operational observation relation",
+        "exactness": "exact or approximate simulation must be specified with an error model; currently unresolved",
+        "ancillaPolicy": "encoders, decoders, workspace/top systems, initialization, and cleanup must be explicit"
+      }
     },
     {
       "id": "EQC-049-PHYSICAL-SWAP-SIMULATION",
@@ -1282,7 +1714,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/6-ROUTING must define the architecture, synthesize swap circuits, and prove denotation and cost.",
-      "obstruction": "Semantic placement and reindexing do not emit physical swaps or prove architecture-respecting circuit equality and routing cost."
+      "obstruction": "Semantic placement and reindexing do not emit physical swaps or prove architecture-respecting circuit equality and routing cost.",
+      "classification": {
+        "space": "abstractly reindexed circuit carrier versus a physically routed architecture",
+        "subject": "wire permutations, synthesized swap circuits, and routing resources",
+        "inputScope": "every placed gate or circuit under a specified connectivity architecture",
+        "observationScope": "exact denotation after routing together with swap/depth/size cost",
+        "phase": "none beyond the exact scalar semantics of the routed circuit",
+        "exactness": "exact source-level routing simulation claim, currently unresolved",
+        "ancillaPolicy": "architecture, temporary wires, swap initialization, and cleanup must be explicit"
+      }
     },
     {
       "id": "EQC-050-TOP-WIRE-PHASE-TRACKING",
@@ -1303,7 +1744,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/14-STRUCTURE must select and prove a convention-correct invariant-subspace/orbit replacement.",
-      "obstruction": "The paper's top-wire phase narrative has no fixed exact theorem; pure and maximally mixed top states behave differently and require an invariant-sector/orbit formulation."
+      "obstruction": "The paper's top-wire phase narrative has no fixed exact theorem; pure and maximally mixed top states behave differently and require an invariant-sector/orbit formulation.",
+      "classification": {
+        "space": "source phase orbit and encoded target system with an explicit top wire",
+        "subject": "invariant-subspace or orbit interpretation of top-wire phase tracking",
+        "inputScope": "all encoded source representatives and their translated evolutions under the selected formulation",
+        "observationScope": "phase-orbit evolution and exactly specified decoded observables",
+        "phase": "complex phase becomes a real sector rotation; quaternionic sidedness must remain explicit",
+        "exactness": "exact interpretive source claim, currently unresolved beyond the proved RealSectorOrbit case",
+        "ancillaPolicy": "the top wire/sector is explicit and is not assumed to be an independent product factor"
+      }
     },
     {
       "id": "EQC-051-OPERATIONAL-CONVERSE-SIMULATION",
@@ -1324,7 +1774,16 @@
       "strictnessWitnesses": [],
       "finalDisposition": "The source claim remains unresolved at its intended operational scope; nearby Goal 1/2 results are strictly weaker.",
       "goal3Boundary": "Goal 3/14-STRUCTURE and 16-CHANNELS must define an operational simulation relation before any converse separation.",
-      "obstruction": "Proper algebraic image witnesses do not establish operational nonsimulability until the allowed encoders, ancillas, decoders, observations, approximation, and resources are fixed."
+      "obstruction": "Proper algebraic image witnesses do not establish operational nonsimulability until the allowed encoders, ancillas, decoders, observations, approximation, and resources are fixed.",
+      "classification": {
+        "space": "cross-model source and target operational systems",
+        "subject": "a proposed converse failure for an explicitly chosen simulation relation",
+        "inputScope": "all inputs quantified by that operational relation, not merely ambient target matrices",
+        "observationScope": "encoded/decoded outcomes, channels, or other operational tests exactly as defined",
+        "phase": "state/operator phase and observable equality must be selected explicitly",
+        "exactness": "exact or approximate converse separation is currently unresolved",
+        "ancillaPolicy": "encoders, decoders, top/ancilla policy, marginalization, and allowed target operations are required"
+      }
     }
   ],
   "declarations": [
@@ -1574,8 +2033,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.normalizedQuaternionLeftPhase_rejection",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.not_leftPhaseEquivalent_gate_i_input"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -1638,8 +2097,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.normalizedQuaternionLeftPhase_rejection",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.phaseWitnessGate_normSq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -1772,8 +2231,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.rightPhaseEquivalent_equivalence"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -1806,8 +2265,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.rightPhaseEquivalent_gate"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -1976,8 +2435,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.QuaternionState.rightPhaseEquivalent_rightPhase"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2146,8 +2605,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.quaternionBasisWeight_right_smul_of_normSq_eq_one"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2248,8 +2707,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.quaternion_mulVec_right_smul"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2282,8 +2741,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_mulVec"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2316,8 +2775,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_quaternionBasisWeight"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2350,8 +2809,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.quaternionJ_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_quaternionTotalWeight"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.QuaternionStatePhaseEq.normalizedDistributionEq"
@@ -2418,8 +2877,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Complex.rightPhaseEquivalent_equivalence"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq"
@@ -2860,8 +3319,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_complexBasisWeight"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq"
@@ -2894,8 +3353,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_complexTotalWeight"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq"
@@ -2928,8 +3387,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.StatePhaseAudit.complexI_semantic_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.rightPhaseEquivalent_complex_mulVec"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.ComplexStatePhaseEq.normalizedDistributionEq"
@@ -3208,7 +3667,7 @@
       "consumer": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq"
+        "endpoint": "QuaternionicComputing.State.FiniteDistribution.eventWeight_eq_of_weight_eq"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq"
@@ -3373,7 +3832,7 @@
       "consumer": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq"
+        "endpoint": "QuaternionicComputing.State.FiniteDistribution.pushforward_eq_of_weight_eq"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq"
@@ -3505,7 +3964,7 @@
       "consumer": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.BasisWeightEq.pushforward_eq"
+        "endpoint": "QuaternionicComputing.State.FiniteDistribution.sum_pushforward_weight"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Semantics.BasisWeightEq.eventWeight_eq"
@@ -3537,7 +3996,7 @@
       "consumer": null,
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary"
+        "endpoint": "QuaternionicComputing.State.ComplexState.evolveUnitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -3627,7 +4086,7 @@
       "consumer": null,
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary"
+        "endpoint": "QuaternionicComputing.State.QuaternionState.evolveUnitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -3717,7 +4176,7 @@
       "consumer": null,
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary"
+        "endpoint": "QuaternionicComputing.State.RealState.evolveUnitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -3807,7 +4266,7 @@
       "consumer": null,
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary"
+        "endpoint": "QuaternionicComputing.State.complexTotalWeight_mulVec_of_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -3837,7 +4296,7 @@
       "consumer": null,
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.State.star_dotProduct_mulVec_of_mem_unitary"
+        "endpoint": "QuaternionicComputing.State.quaternionTotalWeight_mulVec_of_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -4299,8 +4758,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realColumn0_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -4609,8 +5068,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realColumn1_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -4764,8 +5223,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.realRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realColumns_orthogonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5104,8 +5563,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realify_mulVec_realColumn0"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5134,8 +5593,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realify_mulVec_realColumn1"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5194,8 +5653,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realColumn0_bottomWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5314,8 +5773,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.realTopCombination_bottomWeight_of_rebit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5426,8 +5885,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.realCanonicalColumns_reducedOuterAgreement",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.reducedRealOuter_diagonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5482,8 +5941,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.realCanonicalColumns_reducedOuterAgreement",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.reducedRealOuter_realColumns"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -5761,8 +6220,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexColumn0_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6102,8 +6561,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexColumn1_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6288,8 +6747,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.complexRepresentativeEncoding_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexColumns_orthogonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6783,8 +7242,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexify_mulVec_complexColumn0"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6813,8 +7272,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.matrixStateIntertwining_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexify_mulVec_complexColumn1"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6873,8 +7332,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexColumn0_bottomWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -6963,8 +7422,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexColumn1_bottomWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -7113,8 +7572,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.representativeOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.State.complexTopCombination_bottomWeight_of_qubit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -7395,8 +7854,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.basisPreparationGate_mulVec_ground"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -7491,8 +7950,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.basisPreparationMatrix_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -7555,8 +8014,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.eval_prepend_basisPreparation_mulVec_ground"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -8225,8 +8684,8 @@
       ],
       "consumer": "QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.nonProductWitness_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -8353,8 +8812,8 @@
       ],
       "consumer": "QuaternionicComputing.Simulation.NonProductWitness.encodedState_not_pureTopBottomProduct",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.nonProductWitness_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.NonProductWitness.sourceColumn_normalization"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -8884,8 +9343,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ProductInputOrderingWitness.groundColumn_product"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_basis_weights_eq"
@@ -9164,8 +9623,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_basis_weights_eq"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_basis_weights_eq"
@@ -9234,8 +9693,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionGroundOutputs_distributionEq_not_rayEq",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.stateResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_not_rightPhaseEquivalent"
       },
       "weakerTheorems": [
         "QuaternionicComputing.Circuit.ProductInputOrderingWitness.ground_outputs_basis_weights_eq"
@@ -10968,8 +11427,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.realifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_conjTranspose"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11028,8 +11487,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.realifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11058,8 +11517,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.realifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_map_ofReal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11088,8 +11547,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.realifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11118,8 +11577,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.realifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_mulVec"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11868,8 +12327,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.complexifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_conjTranspose"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -11958,8 +12417,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.complexifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -12048,8 +12507,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.complexifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -12108,8 +12567,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.complexifyAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_mul_complexificationJ"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -12558,8 +13017,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.card_directRealIndex"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -12858,8 +13317,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealify_conjTranspose"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -12918,8 +13377,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealify_eq_reindex"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -13308,8 +13767,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealify_injective"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -13338,8 +13797,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealify_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -13878,8 +14337,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realifyUnitaryEquivImage"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -13998,8 +14457,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_mem_orthogonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14148,8 +14607,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexifyUnitaryEquivImage"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14298,8 +14757,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_mem_symplectic"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14328,8 +14787,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14598,8 +15057,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.unitaryImageEquivalences_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealifyUnitaryEquivImage"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14718,8 +15177,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.determinantImage_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_det"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14778,8 +15237,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.determinantImage_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.realify_mem_specialOrthogonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14868,8 +15327,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.determinantImage_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_det_eq_one_or_neg_one_of_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -14958,8 +15417,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.determinantImage_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.complexify_det_star_fixed"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -15048,8 +15507,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.determinantImage_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Quaternion.directRealify_mem_specialOrthogonal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -15366,8 +15825,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.properImageWitnesses_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.ProperImage.complexWitness_specialUnitary_not_complexify"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -15686,8 +16145,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.properImageWitnesses_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.ProperImage.directWitness_specialOrthogonal_not_directRealify"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -16006,8 +16465,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.properImageWitnesses_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.ProperImage.realWitness_specialOrthogonal_not_realify"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -16428,8 +16887,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.kroneckerInterchange_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_i_j_failure"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -16458,8 +16917,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.kroneckerInterchange_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.QuaternionExamples.oneByOne_interchange_without_zeroOne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -16548,8 +17007,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.kroneckerInterchange_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.disjoint_kronecker_factors_commute_of_entrywiseCommute"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -16638,8 +17097,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.kroneckerInterchange_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Matrix.kronecker_mul_kronecker_of_entrywiseCommute"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -16793,8 +17252,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.placementAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.PlacedGate.denote_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -17072,8 +17531,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.placementAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.kronecker_one_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -17475,8 +17934,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.placementAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.place_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -17506,8 +17965,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.placementAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.place_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -17630,8 +18089,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.placementAlgebra_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.supportSplit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -18281,8 +18740,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.complexifyPlacedGate_denote"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -18312,8 +18771,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.isLocallyUnitary_complexifyPlacedGate"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -18343,8 +18802,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.isLocallyUnitary_realifyPlacedGate"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -18591,8 +19050,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.realifyPlacedGate_denote"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -18994,8 +19453,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.wireComplexify_place"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19304,8 +19763,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.wireRealify_place"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19490,8 +19949,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.reindex_mulVec_transportAddedColumn"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19521,8 +19980,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.sum_addedWireBottomWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19552,8 +20011,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.sum_addedWireBottomWeight_normalized"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19583,8 +20042,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.reindexPlacement_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.totalWeight_transportAddedColumn"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -19894,7 +20353,7 @@
       "consumer": "QuaternionicComputing.Semantics.ExactCircuitEq.append",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.ExactCircuitEq.append"
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.eval_append"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -20018,7 +20477,7 @@
       "consumer": "QuaternionicComputing.Semantics.ExactCircuitEq.append",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.ExactCircuitEq.append"
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.eval_map_of_denote_eq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -20049,7 +20508,7 @@
       "consumer": "QuaternionicComputing.Semantics.ExactCircuitEq.append",
       "audit": {
         "mode": "directRoot",
-        "endpoint": "QuaternionicComputing.Semantics.ExactCircuitEq.append"
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.eval_mem_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -20171,8 +20630,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.scheduledCircuit_exactCircuitEq_of_pairwise_commute",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.LegalSchedule.scheduledEval_eq_of_pairwise_commute"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -20271,8 +20730,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderSanity.eval_i_then_j_entry"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -20339,8 +20798,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderSanity.eval_j_then_i_entry"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21087,8 +21546,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.gate_supports_disjoint"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21291,8 +21750,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.iMixer_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21427,8 +21886,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.iThenJOutput_basis00_weight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21597,8 +22056,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.inputColumn_normalization"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21835,8 +22294,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.jMixer_unitary"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -21971,8 +22430,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.jThenIOutput_basis00_weight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22379,8 +22838,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.output_basis00_weight_ne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22515,8 +22974,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderingWitness.scheduled_operators_ne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22651,8 +23110,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.OrderingWitness.complexOutput_basis00_weight_ne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22685,8 +23144,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.OrderingWitness.complexified_scheduled_operators_ne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22787,8 +23246,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.OrderingWitness.iThenJComplexOutput_basis00_weight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -22889,8 +23348,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleResults_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.OrderingWitness.jThenIComplexOutput_basis00_weight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [
@@ -23147,8 +23606,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.LegalSchedule.index_lt_index_of_precedes"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23177,8 +23636,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.LegalSchedule.length_order"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23267,8 +23726,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.LegalSchedule.order_mem_allChronologicalOrders"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23387,8 +23846,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.LegalSchedule.scheduledCircuit_perm"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23477,8 +23936,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ScheduleCount.BoolChain.order_eq_schedule"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23567,8 +24026,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ScheduleCount.BoolChain.reverseOrder_not_legal"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23867,8 +24326,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.length_allChronologicalOrders"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -23957,8 +24416,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.scheduleEnumeration_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.mem_allChronologicalOrders_iff_exists_emptyLegalSchedule"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -24137,8 +24596,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.complexToReal_exactSimulation"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -24167,8 +24626,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_realifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -24437,8 +24896,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_realifyCircuit_mulVec_wireRealTopCombination"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -24921,8 +25380,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.Examples.realifyComplexICircuit_true_amplitude"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -24953,8 +25412,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.complexToRealOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.realifyCircuitOutput_bottomProbability"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -25327,8 +25786,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_complexifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -25357,8 +25816,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.quaternionToComplex_exactSimulation"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -25537,8 +25996,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.primaryCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_complexifyCircuit_mulVec_wireComplexTopCombination"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26021,8 +26480,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.Examples.complexifyQuaternionJCircuit_true_amplitude"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26053,8 +26512,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.quaternionToComplexOutcomes_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.complexifyCircuitOutput_bottomProbability"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26345,8 +26804,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_complexify_scheduledCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26379,8 +26838,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_complexify_scheduledCircuit_ne_of_scheduledEval_ne"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26413,8 +26872,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.scheduledCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.scheduledQuaternionToComplex_exactSimulation"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26447,8 +26906,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_quaternionToRealCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26583,8 +27042,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_bottomProbability"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26617,8 +27076,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.quaternionToRealCircuitOutput_nestedEncoding_apply"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26719,8 +27178,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.composedCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.quaternionToReal_exactSimulation"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26947,8 +27406,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.complexifyCircuitBottomDistribution_eq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -26979,8 +27438,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.complexifyCircuitOutput_eventWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27011,8 +27470,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.complexifyCircuitOutput_pushforward_eq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27107,8 +27566,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.realifyCircuitBottomDistribution_eq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27139,8 +27598,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.realifyCircuitOutput_eventWeight"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27171,8 +27630,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.outcomePostprocessing_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.realifyCircuitOutput_pushforward_eq"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27201,8 +27660,8 @@
       ],
       "consumer": "QuaternionicComputing.Circuit.ExactGateCompiler.compileCircuit_exactCircuitEq",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compilerResult_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ExactGateCompiler.eval_compileCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27262,8 +27721,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_compile_complexifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27293,8 +27752,8 @@
       ],
       "consumer": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api",
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.SimulationAudit.compiledCircuit_wrappers_api"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.eval_compile_realifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27349,8 +27808,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ExactGateCompiler.arityBound_compileCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27489,8 +27948,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ExactGateCompiler.gateCount_compileCircuit_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -27517,8 +27976,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.ExactGateCompiler.primitive_of_mem_compileCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28021,8 +28480,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.maxLocalArity_le_iff"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28049,8 +28508,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.maxLocalArity_map_eq_add_one_of_nonempty"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28133,8 +28592,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.mem_map_arity_provenance"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28245,8 +28704,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.totalDenseEntrySlots_map_eq_four_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28273,8 +28732,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.totalDenseEntrySlots_map_eq_sixteen_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28357,8 +28816,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.OrderedCircuit.translationWork_le_gateCount_mul"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28497,8 +28956,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.PlacedGate.denseEntrySlots_eq_four_pow"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28721,8 +29180,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.SupportLayering.depth_eq_gateCount_of_commonWire"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28749,8 +29208,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.SupportLayering.depth_le_gateCount"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -28917,8 +29376,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.card_addedWire"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29001,8 +29460,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.localArity_complexifyPlacedGate"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29029,8 +29488,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Circuit.localArity_realifyPlacedGate"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29309,8 +29768,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.depth_compileComplexifyCircuitSerialLayering_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29337,8 +29796,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.depth_compileRealifyCircuitSerialLayering_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29393,8 +29852,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.depth_complexifyCircuit_eq_gateCount"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29421,8 +29880,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.depth_quaternionToRealCircuit_eq_gateCount"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29477,8 +29936,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.depth_realifyCircuit_eq_gateCount"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29589,8 +30048,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.gateCount_compile_complexifyCircuit_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29617,8 +30076,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.compiledResourceBounds_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.gateCount_compile_realifyCircuit_le"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29869,8 +30328,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.maxLocalArity_complexifyCircuit_of_nonempty"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -29981,8 +30440,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.maxLocalArity_realifyCircuit_of_nonempty"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30009,8 +30468,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.mem_complexifyCircuit_arity"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30037,8 +30496,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.mem_quaternionToRealCircuit_arity"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30065,8 +30524,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.mem_realifyCircuit_arity"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30233,8 +30692,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.totalDenseEntrySlots_complexifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30261,8 +30720,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.totalDenseEntrySlots_quaternionToRealCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
@@ -30289,8 +30748,8 @@
       ],
       "consumer": null,
       "audit": {
-        "mode": "localEndpoint",
-        "endpoint": "QuaternionicComputing.Semantics.ExistingResultsAudit.translationResources_family"
+        "mode": "directRoot",
+        "endpoint": "QuaternionicComputing.Simulation.totalDenseEntrySlots_realifyCircuit"
       },
       "weakerTheorems": [],
       "strictnessWitnesses": [],
