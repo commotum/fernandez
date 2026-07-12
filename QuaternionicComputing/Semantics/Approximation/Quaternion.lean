@@ -143,10 +143,11 @@ theorem quaternionMulVecCLM_mul {m : Type u} {n : Type v} {l : Type w}
 
 /-- The real-CLM representation loses no quaternionic matrix entries. -/
 theorem quaternionMulVecCLM_injective {m : Type u} {n : Type v}
-    [Fintype m] [Fintype n] [DecidableEq n] :
+    [Fintype m] [Fintype n] :
     Function.Injective
       (quaternionMulVecCLM : Matrix m n ℍ[ℝ] →
         QuaternionEuclidean n →L[ℝ] QuaternionEuclidean m) := by
+  classical
   intro A B h
   apply Matrix.ext_of_mulVec_single
   intro j
@@ -190,7 +191,7 @@ theorem quaternionOperatorNorm_neg {m : Type u} {n : Type v}
   exact ContinuousLinearMap.opNorm_neg _
 
 theorem quaternionOperatorNorm_eq_zero_iff {m : Type u} {n : Type v}
-    [Fintype m] [Fintype n] [DecidableEq n]
+    [Fintype m] [Fintype n]
     (A : Matrix m n ℍ[ℝ]) :
     quaternionOperatorNorm A = 0 ↔ A = 0 := by
   constructor
@@ -271,7 +272,7 @@ theorem quaternionOperatorDistance_triangle {m : Type u} {n : Type v}
       quaternionOperatorNorm_add_le _ _
 
 theorem quaternionOperatorDistance_eq_zero_iff {m : Type u} {n : Type v}
-    [Fintype m] [Fintype n] [DecidableEq n]
+    [Fintype m] [Fintype n]
     (A B : Matrix m n ℍ[ℝ]) :
     quaternionOperatorDistance A B = 0 ↔ A = B := by
   rw [quaternionOperatorDistance, quaternionOperatorNorm_eq_zero_iff, sub_eq_zero]
@@ -380,7 +381,7 @@ theorem additive_trans (hAB : QuaternionOperatorClose ε A B)
     QuaternionOperatorClose (ε + δ) A C :=
   (quaternionOperatorDistance_triangle A B C).trans (add_le_add hAB hBC)
 
-theorem zero_iff_exactOperatorEq [DecidableEq n] :
+theorem zero_iff_exactOperatorEq :
     QuaternionOperatorClose 0 A B ↔ ExactOperatorEq A B := by
   constructor
   · intro h
@@ -465,7 +466,7 @@ theorem additive_trans (hUV : QuaternionCentralSignClose ε U V)
     have hchain := hVT.additive_trans hscaled
     simpa [add_comm, smul_smul] using hchain
 
-theorem zero_iff_quaternionCentralSignEq [DecidableEq n] :
+theorem zero_iff_quaternionCentralSignEq :
     QuaternionCentralSignClose 0 U V ↔ QuaternionCentralSignEq U V := by
   constructor
   · rintro ⟨s, hs, hclose⟩
