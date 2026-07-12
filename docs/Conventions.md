@@ -262,19 +262,21 @@ The library keeps the following levels distinct:
 1. literal vector equality;
 2. literal same-type matrix equality (`ExactOperatorEq`);
 3. literal equality of chronological circuit evaluations (`ExactCircuitEq`);
-4. representative equality up to a unit scalar on the documented side;
-5. literal equality in `RealRay`, `ComplexRay`, or `QuaternionRay`, which is
+4. equality of an explicitly certified computational-basis permutation
+   (`SameBasisBehavior` or `SameCircuitBasisBehavior`);
+5. representative equality up to a unit scalar on the documented side;
+6. literal equality in `RealRay`, `ComplexRay`, or `QuaternionRay`, which is
    exactly the corresponding representative relation;
-6. equality of embedded operators or embedded state evolution;
-7. one-input computational-basis output-weight agreement
+7. equality of embedded operators or embedded state evolution;
+8. one-input computational-basis output-weight agreement
    (`OutputWeightEqAt`);
-8. all-basis-input agreement (`BasisMeasurementEq`);
-9. all-normalized-pure-input basis agreement
+9. all-basis-input agreement (`BasisMeasurementEq`);
+10. all-normalized-pure-input basis agreement
    (`PureInputBasisMeasurementEq`); and
-10. equality of packaged computational-basis distributions
+11. equality of packaged computational-basis distributions
    (`NormalizedDistributionEq`).
 
-The three input scopes in items 7–9 are not interchangeable. The generic
+The three input scopes in items 8–10 are not interchangeable. The generic
 weight function need not normalize basis kets, so the theorem from
 all-normalized-pure-input agreement to all-basis-input agreement requires that
 normalization as an explicit hypothesis. Channel and all-physical-effect

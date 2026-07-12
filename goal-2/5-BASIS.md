@@ -2,10 +2,11 @@
 
 ## Current Facts
 
-- Stages 1--4 are independently complete. The tree has 69 Lean sources,
-  571 exact Goal 2 manifest entries, 59 resolving diagnostic consumers, 119
-  direct manifest/root-audit targets, and 305 public-root axiom commands using
-  exactly `propext`, `Classical.choice`, and `Quot.sound`.
+- Stages 1--4 are independently complete, and Stage 5 is integrated. The tree
+  has 72 Lean sources, 705 exact Goal 2 manifest entries, 73 resolving
+  diagnostic consumers, 144 direct manifest/root-audit targets, and 330
+  public-root axiom commands using exactly `propext`, `Classical.choice`, and
+  `Quot.sound`.
 - `Semantics.Measurement` already distinguishes one-input
   `OutputWeightEqAt`, all-basis-input `BasisMeasurementEq`, and
   all-normalized-pure-input `PureInputBasisMeasurementEq`. Stage 3 exports
@@ -16,10 +17,12 @@
   and the exact ground-column preparation theorem. This is a genuine consumer
   for certified basis action, but only its current theorem about one known
   prepared input is in the frozen cohort.
-- The source-level comparison `EQC-044-BASIS-CLASSICAL-BEHAVIOR` is still
-  unimplemented. The informal biconditional “`U|x>` is phased `|y>` iff
-  `V|x>` is phased `|y>`” can be true for two unrelated nonmonomial unitaries
-  because neither side ever maps a basis column to a basis column.
+- The source-level comparison `EQC-044-BASIS-CLASSICAL-BEHAVIOR` is now
+  implemented only on explicitly certified permutation operators and circuits.
+  The informal biconditional “`U|x>` is phased `|y>` iff `V|x>` is phased
+  `|y>`” remains diagnostic-only: it can be true for two unrelated
+  nonmonomial unitaries because neither side ever maps a basis column to a
+  basis column.
 - `BitBasis W` is inhabited even when `W` is empty. General finite index types
   may be empty, so permutation uniqueness and effectful examples must not rely
   on an impossible normalized state or a hidden nonempty premise.
@@ -156,4 +159,53 @@ transition biconditional is too weak.
 
 ## Stage Results
 
-- In progress.
+- The mathematical implementation is complete in two stable public leaves:
+  `Semantics/BasisBehavior.lean` contributes 90 declarations and
+  `Semantics/BasisBehaviorCircuit.lean` contributes 44, for 134 Stage 5
+  semantic exports.
+- `BasisTransition` and `BasisTransitionRelationEq` are explicitly diagnostic.
+  `BasisPermutationImplementation` instead carries an `Equiv.Perm` and an
+  all-input phased-one-hot proof. Unit phase implies nonzero phase, so
+  `permutation_unique` derives uniqueness rather than storing it as data.
+- `SameBasisBehavior` can be formed only from two implementation certificates.
+  Exact equality and real/complex global phase or quaternionic central sign
+  preserve it. On the certified real, complex, and quaternionic classes it is
+  equivalent to the correctly sided input phase, output phase, and
+  `BasisMeasurementEq`. Quaternionic input witnesses retain the order
+  `star a * b` on the right; output witnesses retain `b * star a` on the left.
+- `BasisClassicalUnitaryOperator` and `BasisClassicalCircuit` bundle unitarity
+  with the explicit permutation certificate. Circuit behavior is behavior of
+  `OrderedCircuit.eval`. The generic empty circuit implements the identity,
+  including on the inhabited zero-wire basis.
+- The existing `basisPreparationMatrix`, full-support gate denotation, and
+  singleton circuit now certify the all-input XOR permutation through the
+  actual permutation-matrix formula and unitarity proof. The separate
+  `basisPreparationCircuit_mulVec_ground` and historical prepended-circuit
+  theorem remain one-known-input statements; no arbitrary-state preparation
+  or uniform synthesis claim is made.
+- The non-root `Semantics/BasisBehaviorAudit.lean` has 14 exact-allocation
+  aggregate consumers covering all 134 exports: ten allocate the 90 core
+  declarations as `10/6/6/12/1/6/27/5/8/9`, and four allocate the 44 circuit
+  declarations as `12/18/3/11`. It contains 30 explicit diagnostics and 18
+  local axiom endpoints.
+- The strictness witness uses the exact real unitaries
+  `[[3/5,4/5],[-4/5,3/5]]` and
+  `[[5/13,12/13],[-12/13,5/13]]`. Every entry is nonzero; neither matrix has
+  any `BasisTransition` or certified permutation; their empty raw transition
+  relations are equal; but the `false → false` weights are `9/25` and
+  `25/169`. Thus the unrestricted transition biconditional cannot define
+  classical reversible behavior even on unitaries.
+- `EQC-014-BASIS-PREPARATION` is now classified by the all-input certified XOR
+  action plus its separately scoped one-ground-input consequence.
+  `EQC-044-BASIS-CLASSICAL-BEHAVIOR` is now classified by certified permutation
+  equality, with the scalar-sided phase and basis-measurement equivalences only
+  on the certified class. Neither row is upgraded to generic global phase,
+  projective action, channel equality, or all-effect equality.
+- Warning-as-error compilation and focused builds pass for the core, circuit,
+  and diagnostic leaves. All 18 local audit endpoints use exactly `propext`,
+  `Classical.choice`, and `Quot.sound`; forbidden-token and diff checks are
+  clean. The integrated public root builds in 2,573 jobs. The semantic manifest
+  contains 705 entries, including all 134 Stage 5 exports; 73 consumers include
+  the 14 Stage 5 allocation consumers; 144 direct labels include 25 Stage 5
+  labels; and the root axiom audit contains 330 commands with the same exact
+  three-axiom union.

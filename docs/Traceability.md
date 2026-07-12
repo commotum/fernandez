@@ -67,6 +67,18 @@ The two transferred ray rows are now proved as stated and `closedByGoal2`;
 mixed-top, phase-kickback, density, and channel claims remain open in their
 existing rows. Channels remain Stage 7.
 
+Stage 5 adds a certified-only classical reversible basis layer. A
+`BasisPermutationImplementation` supplies an explicit permutation and proves
+the phased one-hot action on every input column; `SameBasisBehavior` compares
+only two supplied certificates. On the certified real, complex, and
+quaternionic classes, equality of the permutation is equivalent to the
+correctly sided input phase, output phase, and basis-measurement relations,
+with evaluator-backed circuit versions. Two explicit nonmonomial real
+unitaries prove that equality of raw transition predicates can be vacuous and
+therefore is not the implemented behavior relation. Exact/global/central
+phase gives only a forward preservation result, and no generic projective,
+channel, or all-effect conclusion is added.
+
 ## Numbered definitions, theorems, lemmas, and corollary
 
 | ID | Source | Concise target and dependencies | Priority / stage | Status |
@@ -102,7 +114,7 @@ existing rows. Channels remain Stage 7.
 | `FER03-FND-LINEAR-ISOMETRY-UNITARY` | L50, FN2 | Complex-linear finite norm preservers are unitary; antiunitaries excluded by linearity. | P2 / mathlib matrix API | **intentionally excluded** as a background finite-dimensional linear-algebra characterization: the library represents allowed transformations directly by mathlib's `Matrix.unitaryGroup`/`unitary` predicates and proves the norm-preservation direction it consumes. It does not reprove the converse classification of all complex-linear norm preservers or the separate antiunitary theory |
 | `FER03-FND-FINITE-DIM-COMPLETE` | FN1 | Finite-dimensional inner-product spaces are complete. | P3 / 9-COVERAGE | **intentionally excluded**: existing background fact not used by finite matrix core |
 | `FER03-FND-ARBITRARY-WIRE-ROUTING` | L57, FN3 | Route noncontiguous gates with swaps under an explicit cost model. | P2 / `Circuit/Placement.lean`, 8-RESOURCES | **partially formalized**: `supportSplit` and `placeOnSupport` give semantics on every injective, possibly noncontiguous support; no physical swap synthesis or quadratic cost is inferred |
-| `FER03-FND-GROUND-STATE-WLOG` | L59, L561 | Absorb known basis input preparation into a circuit; not an unknown-state WLOG. | P1 / `Circuit/BasisPreparation.lean` | **corrected and proved** for a classically known computational-basis assignment: `basisPreparationGate` is a full-support XOR permutation gate, is locally/globally unitary, maps the ground basis column to the requested basis column, and `eval_prepend_basisPreparation_mulVec_ground` absorbs it into chronological evaluation. No unknown-state preparation or uniform runtime claim is made |
+| `FER03-FND-GROUND-STATE-WLOG` | L59, L561 | Absorb known basis input preparation into a circuit; not an unknown-state WLOG. | P1 / `Circuit/BasisPreparation.lean`, `Semantics/BasisBehavior.lean`, `Semantics/BasisBehaviorCircuit.lean` | **corrected and proved** for a classically known computational-basis assignment: `basisPreparationGate` is a full-support XOR permutation gate, is locally/globally unitary, maps the ground basis column to the requested basis column, and `eval_prepend_basisPreparation_mulVec_ground` absorbs it into chronological evaluation. Stage 5 additionally certifies the actual matrix, gate, and singleton circuit as implementing `x ↦ x XOR b` for every basis input. This all-input certificate is distinct from the one-known-ground-input preparation statement. No unknown-state preparation, primitive synthesis, or uniform runtime claim is made |
 | `FER03-FND-ANY-HILBERT-SCALARS` | L61 | Claim that any Hilbert scalar system automatically gives a sound circuit model. | P2 / `Circuit/Placement.lean`, `Matrix/KroneckerCommute.lean`, `Circuit/OrderingWitness.lean` | **partially formalized**: the library constructs finite subsystem placement explicitly, proves the exact entrywise-commutation boundary for tensor interchange, and gives an order-sensitive quaternionic witness; it does not attempt a classification of all Hilbert-space scalar systems (C-023) |
 | `FER03-FND-REAL-PRESERVERS-ORTHOGONAL` | L67–69 | A complex-linear map preserving the real subspace has a real matrix; norm preservation gives orthogonality. | P1 / 3-MATRICES | **partially formalized**: the matrix-level norm-preserving consequence needed here is `realify_mem_orthogonal`; the broader invariant-real-subspace characterization is not used by the simulations |
 | `FER03-FND-REAL-CIRCUIT-SOUNDNESS` | L119–134 | Products and legal placements of orthogonal gates remain orthogonal. | P1 / `Circuit/Placement.lean`, `Circuit/Basic.lean` | **corrected and proved**, generalized to any star ring by `place_mem_unitary`, `PlacedGate.denote_mem_unitary`, and `OrderedCircuit.eval_mem_unitary` |

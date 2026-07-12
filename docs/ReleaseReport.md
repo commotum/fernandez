@@ -9,9 +9,12 @@
 
 This repository reconstructs the important finite-dimensional mathematics of
 Fernandez and Schneeberger's *Quaternionic Computing*
-(`quant-ph/0307017v2`) as a reusable Lean library. Stage 4C adds three stable
-public leaves and one non-root diagnostic leaf to the previous 65-source tree,
-for 69 Lean sources including the public root.
+(`quant-ph/0307017v2`) as a reusable Lean library. At the Stage 4C checkpoint,
+three stable public leaves and one non-root diagnostic leaf extended the
+previous 65-source tree to 69 Lean sources including the public root. Stage 5
+adds the certified basis-behavior core, evaluator-backed circuit layer, and a
+non-root complete audit, bringing the tree to 72 Lean sources including the
+public root.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -69,6 +72,22 @@ or an unsafe shortcut.
 - Fixed-input, all-basis-input, and all-normalized-pure-input basis agreement
   are separate predicates, with finite distributions, events, and
   deterministic pushforwards downstream.
+- `BasisTransition` is only a raw phased-column diagnostic.
+  `BasisPermutationImplementation` instead carries an explicit permutation and
+  certifies every input column; `SameBasisBehavior` can be formed only from two
+  such certificates and compares their permutations.
+- On certified real, complex, and quaternionic operators, same basis behavior
+  is equivalent to the correctly sided input phase, output phase, and
+  `BasisMeasurementEq`. `BasisClassicalCircuit` and
+  `SameCircuitBasisBehavior` lift these exact characterizations through
+  `OrderedCircuit.eval` while storing local unitarity.
+- Exact equality and real/complex global phase or quaternionic central sign
+  preserve certified behavior. No converse to one global phase and no generic
+  projective, channel, or all-effect result is inferred.
+- Two exact rational real unitaries with every entry nonzero have equal empty
+  raw transition relations but unequal basis probabilities and no certified
+  permutation. Thus the tempting unrestricted transition biconditional is not
+  used as classical behavior.
 - Real and complex operators and evaluated circuits have distinct global,
   input-column, output-row, and all-pure-input projective-action relations.
 - Global phase implies both sided basis phases and projective action. Input
@@ -197,6 +216,7 @@ Representative exported declarations include:
 | Quaternion components | `Quaternion.complexPart`, `jPart`, `eq_complexPart_add_jPart_mul_j`, `complexPart_mul`, `jPart_mul` |
 | State/ray phase | `Real.SignEquivalent`, `Complex.RightPhaseEquivalent`, `Quaternion.RightPhaseEquivalent`, the three normalized `*StatePhaseEq` relations, and the quotient types `RealRay`, `ComplexRay`, `QuaternionRay` with `RebitRay`/`QubitRay`/`QuaterbitRay` aliases |
 | Ray quotient core | the three `*Ray.mk_eq_mk_iff` theorems, `RealRay.mk_eq_mk_iff_eq_or_eq_neg`, representative `exists_rep`/`inductionOn`/`lift` APIs, and `realRay_nonempty_iff`/`complexRay_nonempty_iff`/`quaternionRay_nonempty_iff` |
+| Certified basis behavior | `BasisPermutationImplementation`, `SameBasisBehavior`, `BasisClassicalUnitaryOperator`, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, the scalar `sameBasisBehavior_iff_*` families, and the certified XOR preparation declarations |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
 | Complex → real matrices | `Matrix.realify`, `realify_mul`, `realify_conjTranspose`, `realify_det`, `realify_mem_specialOrthogonal` |
@@ -218,7 +238,7 @@ QuaternionicComputing/
   Scalar/       quaternion decomposition and phase correction
   Matrix/       embeddings, group/determinant results, image witnesses
   State/        normalized columns, phase quotients, encodings, finite distributions
-  Semantics/    exact, measurement, state-phase, and operator-phase relations
+  Semantics/    exact, measurement, certified basis, state-, and operator-phase relations
   Circuit/      placement, chronology, scheduling, costs, diagnostics
   Simulation/   exact simulations, resources, examples, postprocessing
   AxiomAudit.lean
@@ -355,11 +375,28 @@ explicit-audit target completed 2,573 jobs, and the cached default build
 completed 2,571 jobs. All four Stage 4C leaves, the public root, and the axiom
 audit pass warning-as-error compilation.
 
-Warning-as-error source checks passed for the stable operator-phase and ray
-leaves, their diagnostic leaves, public root, axiom audit, and all Stage 4C
-source boundaries. The executable root audit now contains 305 `#print axioms`
-commands, including 19 Stage 4C endpoints. All 12 local Stage 4C diagnostic
-prints and every root endpoint use exactly the union `propext`,
+Stage 5 contributes 134 stable declarations: 90 in
+`Semantics/BasisBehavior.lean` and 44 in
+`Semantics/BasisBehaviorCircuit.lean`. Fourteen exact-allocation aggregates in
+the non-root `Semantics/BasisBehaviorAudit.lean` consume the full surface as
+90 core declarations and 44 circuit declarations, with no uncovered export.
+The diagnostic leaf also checks empty indices, the inhabited zero-wire circuit
+basis, a nonidentity Boolean permutation, all-input XOR behavior, and the
+separate one-ground-input preparation theorem. Its two rational unitary
+witnesses prove equal empty raw transition relations, no certified
+permutations, and unequal `false → false` basis weights `9/25` and `25/169`.
+The core, circuit, and diagnostic leaves pass focused builds and
+warning-as-error source checks. All 18 local Stage 5 axiom endpoints use exactly
+`propext`, `Classical.choice`, and `Quot.sound`. The integrated public-root
+build completed 2,573 jobs; the root axiom audit contains 330 commands, 25 of
+them Stage 5 endpoints.
+
+Warning-as-error source checks passed for the stable operator-phase, ray, and
+certified-basis leaves, their diagnostic leaves, public root, axiom audit, and
+all Stage 5 source boundaries. The executable root audit now contains 330
+`#print axioms` commands, including 19 Stage 4C and 25 Stage 5 endpoints. All
+18 local Stage 5 diagnostic prints, the retained 12 local Stage 4C prints, and
+every root endpoint use exactly the union `propext`,
 `Classical.choice`, and `Quot.sound`. See `AxiomAudit.md` for the interpretation.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
@@ -375,13 +412,16 @@ entries in exact public-source order. All seven axes are nonempty, all 571
 names and 59 distinct aggregate consumers resolve, and all 119 direct-audit
 labels match actual root commands. The first 487 entries retain structural
 SHA-256 `b44178bc6be2adb364fea5a88b88aaebf832b44eb36065435ed5aee89bee194a`;
-the frozen 936-declaration Goal 1 cohort retains checksum
+Stage 5 appends its 134 declarations exactly once, bringing the manifest to
+705 entries. The integrated checks resolve all 705 names, 73 distinct
+consumers including 14 Stage 5 consumers, and 144 direct-audit labels including
+25 Stage 5 labels. The frozen 936-declaration Goal 1 cohort retains checksum
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty for Stage 4C. The public root imports no
+and heartbeat-override scans are empty for Stage 5. The public root imports no
 diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
 
 ## Using the library in a future project
@@ -408,6 +448,11 @@ open QuaternionicComputing
 #check State.ComplexRay.realificationOrbit_distribution
 #check State.complexRay_realColumn0_lift_exists_iff_isEmpty
 #check Semantics.QuaternionStatePhaseEq.iff_quaternionRay_mk_eq
+#check Semantics.BasisPermutationImplementation
+#check Semantics.SameBasisBehavior
+#check Semantics.BasisClassicalCircuit
+#check Semantics.SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq
+#check Semantics.basisPreparationCircuit_eval_entry
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
 #check Simulation.quaternionToComplex_exactSimulation
@@ -424,6 +469,9 @@ When extending the library:
 - distinguish quaternionic input-right phase, output-left phase, central sign,
   and raw/normalized projective action; never use arbitrary unit-quaternion
   phase as matrix-wide global phase;
+- require an explicit `BasisPermutationImplementation` before calling two
+  operators or circuits classically basis-equivalent; never substitute the raw
+  transition biconditional or generic measurement equality;
 - preserve the chronological convention `[g₁,…,gₛ] ↦ Gₛ⋯G₁`;
 - use generic `unitary (Matrix … ℍ)` rather than the commutative-only
   `Matrix.unitaryGroup` for quaternionic matrices;

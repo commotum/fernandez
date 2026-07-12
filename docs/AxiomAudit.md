@@ -3,11 +3,9 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. At the Stage 4C checkpoint it ran 305 `#print axioms`
-commands (286 at the Stage 4B checkpoint). The final Stage 5 root total is
-recorded during public-root integration; the completed local Stage 5 audit is
-described below. The Stage 4C audit scope covers representative endpoints from
-every public layer, including:
+the public root. It now runs 330 `#print axioms` commands (305 at the Stage 4C
+checkpoint and 286 at the Stage 4B checkpoint). Representative endpoint
+categories include:
 
 - quaternion scalar decomposition and phase correction;
 - both primary matrix embeddings, Equation 63 direct realification, group
@@ -65,13 +63,13 @@ local axiom prints sample five of those aggregates plus the three side-order
 and central-sign diagnostics; they include the generic raw/normalized bridge,
 the dimension-two kernel, and the rank-one exception. The generic bridge proof
 itself covers the empty-input zero-column case; this diagnostic leaf does not
-contain a separate `Empty` specialization. The 305-command public-root count
+contain a separate `Empty` specialization. The 330-command public-root count
 does not fold these diagnostic-only commands into it.
 
 `State/RayAudit.lean` is likewise non-root. Four aggregate consumers cover all
 40 stable Stage 4A declarations, while seven local axiom prints sample those
 aggregates and the concrete rebit `-1`, qubit `I`, and quaterbit right-`j`
-constructor equalities. The 305-command root count includes eight independent
+constructor equalities. The 330-command root count includes eight independent
 public-ray endpoints but excludes these diagnostic-only prints.
 
 `State/RayDescentAudit.lean` is the non-root Stage 4B consumer. Its aggregate
@@ -91,14 +89,37 @@ proves the exact ordinary-`RealRay` obstruction. The non-root
 the complete surface as `28 + 13 + 25 + 10 + 8 = 84` declarations. Its 12
 local prints cover those aggregates and seven concrete boundary/consumer
 examples. The public-root audit instead adds 19 independent Stage 4C endpoints,
-bringing the executable root total to 305 commands; the public root does not
+bringing the Stage 4C executable root total to 305 commands; the public root does not
 import the diagnostic leaf.
+
+Stage 5 adds 134 stable declarations split `90 + 44` across
+`Semantics/BasisBehavior.lean` and `BasisBehaviorCircuit.lean`. The non-root
+`Semantics/BasisBehaviorAudit.lean` has 14 exact-allocation aggregate
+consumers: ten cover the 90 core declarations with allocation
+`10/6/6/12/1/6/27/5/8/9`, and four cover the 44 circuit declarations with
+allocation `12/18/3/11`. Its 30 explicit diagnostic declarations also include
+empty-index, nonidentity-permutation, and zero-wire checks. Eighteen local
+`#print axioms` endpoints cover the 14 aggregates plus those three boundary
+consumers and `unitary_vacuity_witness`.
+
+The vacuity endpoint proves that two everywhere-nonzero rational real unitary
+rotations have no `BasisTransition` at any input/output pair and admit no
+`BasisPermutationImplementation`. Their empty raw transition relations are
+equal, but their `false → false` basis weights are respectively `9/25` and
+`25/169`. This is an audit of the strict boundary between diagnostic raw
+transitions and certified behavior, not an additional public relation. The
+public root does not import `BasisBehaviorAudit.lean`.
+
+The public-root audit adds 25 independent Stage 5 endpoints, bringing its
+total to 330 commands. These root endpoints are separate from the 18 local
+diagnostic prints.
 
 ## Release result
 
-The Stage 4C release audit completed successfully under Lean 4.31.0 and
-mathlib v4.31.0. Every one of the 305 public-root endpoints and all 12 local
-Stage 4C diagnostic endpoints depended on a subset of exactly:
+The Stage 5 release audit completed successfully under Lean 4.31.0 and
+mathlib v4.31.0. Every one of the 330 public-root endpoints, all 18 local
+Stage 5 diagnostic endpoints, and the retained local Stage 4C diagnostics
+depended on a subset of exactly:
 
 - `propext` — propositional extensionality;
 - `Classical.choice` — mathlib's classical constructions on finite types; and
@@ -111,6 +132,10 @@ declaration in `QuaternionicComputing/`.
 Warning-as-error compilation and a parser over every emitted axiom block
 reproduced exactly this three-item union. No additional axiom was inferred
 from a focused build alone.
+
+The completed Stage 5 core, circuit, and non-root diagnostic leaves also pass
+warning-as-error compilation. All 18 local Stage 5 endpoints reproduce the
+same exact three-item union and introduce no project-specific axiom.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

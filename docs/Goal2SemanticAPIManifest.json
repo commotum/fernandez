@@ -9161,6 +9161,2150 @@
         "exactness": "exact iff between assignment existence and IsEmpty I",
         "ancillaPolicy": "the explicit doubled target sector I ⊕ I is retained; no marginalization can hide the phase-rotation obstruction"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisKet",
+      "relation": "basisKet — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration basisKet",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisKet_apply",
+      "relation": "basisKet_apply — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration basisKet_apply",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransition",
+      "relation": "BasisTransition — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransition",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq",
+      "relation": "BasisTransitionRelationEq — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq.refl",
+      "relation": "BasisTransitionRelationEq.refl — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq.refl",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq.symm",
+      "relation": "BasisTransitionRelationEq.symm — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq.symm",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq.trans",
+      "relation": "BasisTransitionRelationEq.trans — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq.trans",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq.equivalence",
+      "relation": "BasisTransitionRelationEq.equivalence — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq.equivalence",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisTransitionRelationEq.of_exact",
+      "relation": "BasisTransitionRelationEq.of_exact — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration BasisTransitionRelationEq.of_exact",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisTransition_iff_mulVec_basisKet",
+      "relation": "basisTransition_iff_mulVec_basisKet — raw phased-basis transition diagnostic",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.rawTransition_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix space Matrix I I R; generic matrices are admitted and no unitarity is implied",
+        "subject": "the public declaration basisTransition_iff_mulVec_basisKet",
+        "inputScope": "the basis input/output indices named by the declaration; the action characterization alone requires finite I",
+        "observationScope": "whether a selected input column is one unit-phased basis ket, or pointwise equality of that raw transition relation; no certified permutation or classical behavior",
+        "phase": "one column coefficient satisfying an explicit unitPhase predicate; multiplication-side physics is not inferred by this scalar-generic diagnostic",
+        "exactness": "exact definitional or propositional statement; relation equality may be vacuous when both nonmonomial matrices have no transitions",
+        "ancillaPolicy": "none; there is no circuit, added wire, marginal, or decoding policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation",
+      "relation": "BasisPermutationImplementation — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation.transition",
+      "relation": "BasisPermutationImplementation.transition — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation.transition",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation.basisTransition_iff",
+      "relation": "BasisPermutationImplementation.basisTransition_iff — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation.basisTransition_iff",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation.transition_target_unique",
+      "relation": "BasisPermutationImplementation.transition_target_unique — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation.transition_target_unique",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation.permutation_unique",
+      "relation": "BasisPermutationImplementation.permutation_unique — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation.permutation_unique",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisPermutationImplementation.ofPermMatrix",
+      "relation": "BasisPermutationImplementation.ofPermMatrix — certified basis-permutation implementation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.implementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "one same-type square matrix Matrix I I R together with an explicit Equiv.Perm I",
+        "subject": "the public declaration BasisPermutationImplementation.ofPermMatrix",
+        "inputScope": "every computational-basis input column, including empty index types without an impossible inhabitance premise",
+        "observationScope": "the complete entrywise unit-phased basis-ket target for every column and the resulting unique certified permutation; unitarity is not part of the generic certificate",
+        "phase": "one per-input coefficient satisfying the supplied unitPhase predicate; the coefficient is attached to the input column",
+        "exactness": "exact certificate, target iff, permutation uniqueness, or permutation-matrix constructor with mathlib orientation p.permMatrix implementing p.symm",
+        "ancillaPolicy": "none; the permutation acts on the full declared basis index"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior",
+      "relation": "SameBasisBehavior — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration SameBasisBehavior",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.refl",
+      "relation": "SameBasisBehavior.refl — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration SameBasisBehavior.refl",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.symm",
+      "relation": "SameBasisBehavior.symm — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration SameBasisBehavior.symm",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.trans",
+      "relation": "SameBasisBehavior.trans — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration SameBasisBehavior.trans",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.basisTransitionRelationEq",
+      "relation": "SameBasisBehavior.basisTransitionRelationEq — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration SameBasisBehavior.basisTransitionRelationEq",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.sameBasisBehavior",
+      "relation": "ExactOperatorEq.sameBasisBehavior — same certified classical basis behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.sameBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two same-type square matrices carrying explicit basis-permutation implementation certificates",
+        "subject": "the public declaration ExactOperatorEq.sameBasisBehavior",
+        "inputScope": "all basis inputs through both certificates; the predicate cannot be formed for arbitrary uncertified matrices",
+        "observationScope": "literal equality of the two certified permutations, with raw transition equality only as a proved weaker consequence",
+        "phase": "per-column phases are forgotten only after both unit-phase certificates are supplied",
+        "exactness": "exact equality/equivalence law or exact-operator implication on the certified class",
+        "ancillaPolicy": "none; no gate-list, resource, marginal, or channel claim"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealUnitSign",
+      "relation": "RealUnitSign — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration RealUnitSign",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexUnitPhase",
+      "relation": "ComplexUnitPhase — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration ComplexUnitPhase",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionUnitPhase",
+      "relation": "QuaternionUnitPhase — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration QuaternionUnitPhase",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realUnitSign_one",
+      "relation": "realUnitSign_one — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration realUnitSign_one",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexUnitPhase_one",
+      "relation": "complexUnitPhase_one — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration complexUnitPhase_one",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionUnitPhase_one",
+      "relation": "quaternionUnitPhase_one — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration quaternionUnitPhase_one",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.realUnitSign_ne_zero",
+      "relation": "realUnitSign_ne_zero — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration realUnitSign_ne_zero",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.complexUnitPhase_ne_zero",
+      "relation": "complexUnitPhase_ne_zero — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration complexUnitPhase_ne_zero",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.quaternionUnitPhase_ne_zero",
+      "relation": "quaternionUnitPhase_ne_zero — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration quaternionUnitPhase_ne_zero",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisPermutationImplementation",
+      "relation": "RealBasisPermutationImplementation — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration RealBasisPermutationImplementation",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisPermutationImplementation",
+      "relation": "ComplexBasisPermutationImplementation — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration ComplexBasisPermutationImplementation",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisPermutationImplementation",
+      "relation": "QuaternionBasisPermutationImplementation — scalar-specific unit-phase and certified-implementation support",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarImplementation_api; direct release endpoint pending",
+      "classification": {
+        "space": "real, complex, or quaternionic scalars and their corresponding square matrix implementation aliases",
+        "subject": "the public declaration QuaternionBasisPermutationImplementation",
+        "inputScope": "the scalar, matrix, permutation, and basis indices explicitly named by the declaration",
+        "observationScope": "unit normalization, nonzeroness, or a type-correct specialization of the all-column permutation certificate; no behavior is inferred from weights alone",
+        "phase": "real signs satisfy s*s=1, complex phases satisfy normSq=1, and quaternionic column phases satisfy normSq=1 on the right",
+        "exactness": "exact definition, normalization theorem, nonzero theorem, or transparent specialization",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.sameBasisBehavior",
+      "relation": "BasisMeasurementEq.sameBasisBehavior — basis measurement determines a certified permutation",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.measurementDeterminesBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two same-type certified square matrices with an abstract scalar weight map",
+        "subject": "the public declaration BasisMeasurementEq.sameBasisBehavior",
+        "inputScope": "every basis input and output, assuming weight 0 = 0 and every admitted unit phase has weight 1",
+        "observationScope": "all computational-basis entry weights determine equality of the already certified permutations; generic matrices are excluded",
+        "phase": "per-column unit phases are forgotten by the explicitly assumed weight law",
+        "exactness": "exact implication from BasisMeasurementEq to SameBasisBehavior under both implementation certificates",
+        "ancillaPolicy": "none; no marginalization or channel quantification"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.realInputBasisSignEq",
+      "relation": "SameBasisBehavior.realInputBasisSignEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.realInputBasisSignEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.complexInputBasisPhaseEq",
+      "relation": "SameBasisBehavior.complexInputBasisPhaseEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.complexInputBasisPhaseEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.quaternionInputRightPhaseEq",
+      "relation": "SameBasisBehavior.quaternionInputRightPhaseEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.quaternionInputRightPhaseEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.realOutputBasisSignEq",
+      "relation": "SameBasisBehavior.realOutputBasisSignEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.realOutputBasisSignEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.complexOutputBasisPhaseEq",
+      "relation": "SameBasisBehavior.complexOutputBasisPhaseEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.complexOutputBasisPhaseEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.quaternionOutputLeftPhaseEq",
+      "relation": "SameBasisBehavior.quaternionOutputLeftPhaseEq — same certified permutation yields scalar-correct input/output phase",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarPhase_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.quaternionOutputLeftPhaseEq",
+        "inputScope": "all basis entries, after equality of the two certified permutations",
+        "observationScope": "entrywise input-column or output-row phase equality on the certified monomial class, not generic operator or channel equality",
+        "phase": "real signs and complex unit phases use their scalar laws; quaternionic input witnesses are star(a)*b on the right and output witnesses b*star(a) on the left",
+        "exactness": "exact implication with an explicitly constructed normalized phase at every input or output index",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.realSameBasisBehavior",
+      "relation": "BasisMeasurementEq.realSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration BasisMeasurementEq.realSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.complexSameBasisBehavior",
+      "relation": "BasisMeasurementEq.complexSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration BasisMeasurementEq.complexSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisMeasurementEq.quaternionSameBasisBehavior",
+      "relation": "BasisMeasurementEq.quaternionSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration BasisMeasurementEq.quaternionSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealInputBasisSignEq.sameBasisBehavior",
+      "relation": "RealInputBasisSignEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration RealInputBasisSignEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexInputBasisPhaseEq.sameBasisBehavior",
+      "relation": "ComplexInputBasisPhaseEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ComplexInputBasisPhaseEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionInputRightPhaseEq.sameBasisBehavior",
+      "relation": "QuaternionInputRightPhaseEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration QuaternionInputRightPhaseEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealOutputBasisSignEq.sameBasisBehavior",
+      "relation": "RealOutputBasisSignEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration RealOutputBasisSignEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexOutputBasisPhaseEq.sameBasisBehavior",
+      "relation": "ComplexOutputBasisPhaseEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ComplexOutputBasisPhaseEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionOutputLeftPhaseEq.sameBasisBehavior",
+      "relation": "QuaternionOutputLeftPhaseEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration QuaternionOutputLeftPhaseEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.realBasisMeasurementEq",
+      "relation": "SameBasisBehavior.realBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.realBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.complexBasisMeasurementEq",
+      "relation": "SameBasisBehavior.complexBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.complexBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameBasisBehavior.quaternionBasisMeasurementEq",
+      "relation": "SameBasisBehavior.quaternionBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration SameBasisBehavior.quaternionBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_realInputBasisSignEq",
+      "relation": "sameBasisBehavior_iff_realInputBasisSignEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_realInputBasisSignEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_realOutputBasisSignEq",
+      "relation": "sameBasisBehavior_iff_realOutputBasisSignEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_realOutputBasisSignEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_realBasisMeasurementEq",
+      "relation": "sameBasisBehavior_iff_realBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_realBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_complexInputBasisPhaseEq",
+      "relation": "sameBasisBehavior_iff_complexInputBasisPhaseEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_complexInputBasisPhaseEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_complexOutputBasisPhaseEq",
+      "relation": "sameBasisBehavior_iff_complexOutputBasisPhaseEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_complexOutputBasisPhaseEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_complexBasisMeasurementEq",
+      "relation": "sameBasisBehavior_iff_complexBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_complexBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_quaternionInputRightPhaseEq",
+      "relation": "sameBasisBehavior_iff_quaternionInputRightPhaseEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_quaternionInputRightPhaseEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_quaternionOutputLeftPhaseEq",
+      "relation": "sameBasisBehavior_iff_quaternionOutputLeftPhaseEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_quaternionOutputLeftPhaseEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.sameBasisBehavior_iff_quaternionBasisMeasurementEq",
+      "relation": "sameBasisBehavior_iff_quaternionBasisMeasurementEq — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration sameBasisBehavior_iff_quaternionBasisMeasurementEq",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.realSameBasisBehavior",
+      "relation": "ExactOperatorEq.realSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ExactOperatorEq.realSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.complexSameBasisBehavior",
+      "relation": "ExactOperatorEq.complexSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ExactOperatorEq.complexSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactOperatorEq.quaternionSameBasisBehavior",
+      "relation": "ExactOperatorEq.quaternionSameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ExactOperatorEq.quaternionSameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealGlobalSignEq.sameBasisBehavior",
+      "relation": "RealGlobalSignEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration RealGlobalSignEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexGlobalPhaseEq.sameBasisBehavior",
+      "relation": "ComplexGlobalPhaseEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration ComplexGlobalPhaseEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCentralSignEq.sameBasisBehavior",
+      "relation": "QuaternionCentralSignEq.sameBasisBehavior — certified-class phase/measurement/exact characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedEquivalences_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic square matrices on one decidable basis type",
+        "subject": "the public declaration QuaternionCentralSignEq.sameBasisBehavior",
+        "inputScope": "all basis inputs and outputs through both permutation certificates",
+        "observationScope": "the declaration's exact implication or iff among certified permutation equality, input phase, output phase, and all-basis measurement equality",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and only central signs for a quaternionic global premise",
+        "exactness": "exact theorem restricted to the certified monomial class; it does not upgrade generic basis measurement to classical reversible behavior",
+        "ancillaPolicy": "none; same-space matrix comparison only"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator",
+      "relation": "BasisClassicalUnitaryOperator — certified basis-classical unitary operator bundle",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "a finite same-type square matrix space bundled with unitarity, an explicit Equiv.Perm I, and its implementation proof",
+        "subject": "the public declaration BasisClassicalUnitaryOperator",
+        "inputScope": "every basis input in finite I; the generic constructor uses a permutation matrix and records the p.symm orientation",
+        "observationScope": "the complete unitary operator plus its all-column classical permutation certificate, not a circuit syntax or resource statement",
+        "phase": "an explicit unitPhase predicate, specialized transparently to real signs, complex unit phases, or quaternionic right column phases",
+        "exactness": "exact bundled data or constructor",
+        "ancillaPolicy": "none; the full basis is retained"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.ofPermMatrix",
+      "relation": "BasisClassicalUnitaryOperator.ofPermMatrix — certified basis-classical unitary operator bundle",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "a finite same-type square matrix space bundled with unitarity, an explicit Equiv.Perm I, and its implementation proof",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.ofPermMatrix",
+        "inputScope": "every basis input in finite I; the generic constructor uses a permutation matrix and records the p.symm orientation",
+        "observationScope": "the complete unitary operator plus its all-column classical permutation certificate, not a circuit syntax or resource statement",
+        "phase": "an explicit unitPhase predicate, specialized transparently to real signs, complex unit phases, or quaternionic right column phases",
+        "exactness": "exact bundled data or constructor",
+        "ancillaPolicy": "none; the full basis is retained"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior",
+      "relation": "BasisClassicalUnitaryOperator.SameBasisBehavior — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.SameBasisBehavior",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.sameBasisBehavior_iff_permutation_eq",
+      "relation": "BasisClassicalUnitaryOperator.sameBasisBehavior_iff_permutation_eq — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.sameBasisBehavior_iff_permutation_eq",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior.refl",
+      "relation": "BasisClassicalUnitaryOperator.SameBasisBehavior.refl — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.SameBasisBehavior.refl",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior.symm",
+      "relation": "BasisClassicalUnitaryOperator.SameBasisBehavior.symm — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.SameBasisBehavior.symm",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior.trans",
+      "relation": "BasisClassicalUnitaryOperator.SameBasisBehavior.trans — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.SameBasisBehavior.trans",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.SameBasisBehavior.equivalence",
+      "relation": "BasisClassicalUnitaryOperator.SameBasisBehavior.equivalence — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.SameBasisBehavior.equivalence",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.sameBasisBehavior_of_matrix_eq",
+      "relation": "BasisClassicalUnitaryOperator.sameBasisBehavior_of_matrix_eq — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.sameBasisBehavior_of_matrix_eq",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalUnitaryOperator.basisTransitionRelationEq",
+      "relation": "BasisClassicalUnitaryOperator.basisTransitionRelationEq — same behavior of certified unitary operator bundles",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.bundledBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified basis-classical unitary bundles over one finite basis and scalar type",
+        "subject": "the public declaration BasisClassicalUnitaryOperator.basisTransitionRelationEq",
+        "inputScope": "all basis columns through the stored implementation certificates",
+        "observationScope": "equality of stored certified permutations, with equivalence laws, matrix-equality implication, and raw-transition consequence",
+        "phase": "the bundle's explicit unitPhase predicate; per-column phases are forgotten only within the certified class",
+        "exactness": "exact iff/equivalence/implication theorem",
+        "ancillaPolicy": "none; no circuit syntax or channel semantics"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisClassicalUnitaryOperator",
+      "relation": "RealBasisClassicalUnitaryOperator — certified basis-classical unitary operator bundle",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "a finite same-type square matrix space bundled with unitarity, an explicit Equiv.Perm I, and its implementation proof",
+        "subject": "the public declaration RealBasisClassicalUnitaryOperator",
+        "inputScope": "every basis input in finite I; the generic constructor uses a permutation matrix and records the p.symm orientation",
+        "observationScope": "the complete unitary operator plus its all-column classical permutation certificate, not a circuit syntax or resource statement",
+        "phase": "an explicit unitPhase predicate, specialized transparently to real signs, complex unit phases, or quaternionic right column phases",
+        "exactness": "exact bundled data or constructor",
+        "ancillaPolicy": "none; the full basis is retained"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisClassicalUnitaryOperator",
+      "relation": "ComplexBasisClassicalUnitaryOperator — certified basis-classical unitary operator bundle",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "a finite same-type square matrix space bundled with unitarity, an explicit Equiv.Perm I, and its implementation proof",
+        "subject": "the public declaration ComplexBasisClassicalUnitaryOperator",
+        "inputScope": "every basis input in finite I; the generic constructor uses a permutation matrix and records the p.symm orientation",
+        "observationScope": "the complete unitary operator plus its all-column classical permutation certificate, not a circuit syntax or resource statement",
+        "phase": "an explicit unitPhase predicate, specialized transparently to real signs, complex unit phases, or quaternionic right column phases",
+        "exactness": "exact bundled data or constructor",
+        "ancillaPolicy": "none; the full basis is retained"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisClassicalUnitaryOperator",
+      "relation": "QuaternionBasisClassicalUnitaryOperator — certified basis-classical unitary operator bundle",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.certifiedOperator_api; direct release endpoint pending",
+      "classification": {
+        "space": "a finite same-type square matrix space bundled with unitarity, an explicit Equiv.Perm I, and its implementation proof",
+        "subject": "the public declaration QuaternionBasisClassicalUnitaryOperator",
+        "inputScope": "every basis input in finite I; the generic constructor uses a permutation matrix and records the p.symm orientation",
+        "observationScope": "the complete unitary operator plus its all-column classical permutation certificate, not a circuit syntax or resource statement",
+        "phase": "an explicit unitPhase predicate, specialized transparently to real signs, complex unit phases, or quaternionic right column phases",
+        "exactness": "exact bundled data or constructor",
+        "ancillaPolicy": "none; the full basis is retained"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisPermutationImplementation.ofPermMatrix",
+      "relation": "RealBasisPermutationImplementation.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration RealBasisPermutationImplementation.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisPermutationImplementation.permutation_unique",
+      "relation": "RealBasisPermutationImplementation.permutation_unique — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration RealBasisPermutationImplementation.permutation_unique",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisPermutationImplementation.ofPermMatrix",
+      "relation": "ComplexBasisPermutationImplementation.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration ComplexBasisPermutationImplementation.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisPermutationImplementation.permutation_unique",
+      "relation": "ComplexBasisPermutationImplementation.permutation_unique — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration ComplexBasisPermutationImplementation.permutation_unique",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisPermutationImplementation.ofPermMatrix",
+      "relation": "QuaternionBasisPermutationImplementation.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration QuaternionBasisPermutationImplementation.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisPermutationImplementation.permutation_unique",
+      "relation": "QuaternionBasisPermutationImplementation.permutation_unique — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration QuaternionBasisPermutationImplementation.permutation_unique",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisClassicalUnitaryOperator.ofPermMatrix",
+      "relation": "RealBasisClassicalUnitaryOperator.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration RealBasisClassicalUnitaryOperator.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisClassicalUnitaryOperator.ofPermMatrix",
+      "relation": "ComplexBasisClassicalUnitaryOperator.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration ComplexBasisClassicalUnitaryOperator.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisClassicalUnitaryOperator.ofPermMatrix",
+      "relation": "QuaternionBasisClassicalUnitaryOperator.ofPermMatrix — scalar-specialized certified permutation or unitary constructor",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.specializedConstructors_api; direct release endpoint pending",
+      "classification": {
+        "space": "finite real, complex, or quaternionic square matrix space where required by unitarity, with one explicit permutation",
+        "subject": "the public declaration QuaternionBasisClassicalUnitaryOperator.ofPermMatrix",
+        "inputScope": "every basis input, including the permutation-matrix orientation p.symm",
+        "observationScope": "construction or uniqueness of the certified classical permutation and its unitary bundle",
+        "phase": "real sign, complex unit phase, or quaternionic unit right-column phase according to the declaration",
+        "exactness": "exact constructor or uniqueness theorem",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalCircuit",
+      "relation": "BasisClassicalCircuit — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration BasisClassicalCircuit",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalCircuit.eval_mem_unitary",
+      "relation": "BasisClassicalCircuit.eval_mem_unitary — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration BasisClassicalCircuit.eval_mem_unitary",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalCircuit.toOperator",
+      "relation": "BasisClassicalCircuit.toOperator — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration BasisClassicalCircuit.toOperator",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalCircuit.toOperator_matrix",
+      "relation": "BasisClassicalCircuit.toOperator_matrix — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration BasisClassicalCircuit.toOperator_matrix",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.BasisClassicalCircuit.toOperator_permutation",
+      "relation": "BasisClassicalCircuit.toOperator_permutation — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration BasisClassicalCircuit.toOperator_permutation",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealBasisClassicalCircuit",
+      "relation": "RealBasisClassicalCircuit — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration RealBasisClassicalCircuit",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexBasisClassicalCircuit",
+      "relation": "ComplexBasisClassicalCircuit — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration ComplexBasisClassicalCircuit",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionBasisClassicalCircuit",
+      "relation": "QuaternionBasisClassicalCircuit — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration QuaternionBasisClassicalCircuit",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior",
+      "relation": "SameCircuitBasisBehavior — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_permutation_eq",
+      "relation": "SameCircuitBasisBehavior.iff_permutation_eq — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_permutation_eq",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.refl",
+      "relation": "SameCircuitBasisBehavior.refl — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior.refl",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.symm",
+      "relation": "SameCircuitBasisBehavior.symm — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior.symm",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.trans",
+      "relation": "SameCircuitBasisBehavior.trans — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior.trans",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.equivalence",
+      "relation": "SameCircuitBasisBehavior.equivalence — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration SameCircuitBasisBehavior.equivalence",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_realCircuitInputBasisSignEq",
+      "relation": "SameCircuitBasisBehavior.iff_realCircuitInputBasisSignEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_realCircuitInputBasisSignEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_realCircuitOutputBasisSignEq",
+      "relation": "SameCircuitBasisBehavior.iff_realCircuitOutputBasisSignEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_realCircuitOutputBasisSignEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_realBasisMeasurementEq",
+      "relation": "SameCircuitBasisBehavior.iff_realBasisMeasurementEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_realBasisMeasurementEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_complexCircuitInputBasisPhaseEq",
+      "relation": "SameCircuitBasisBehavior.iff_complexCircuitInputBasisPhaseEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_complexCircuitInputBasisPhaseEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_complexCircuitOutputBasisPhaseEq",
+      "relation": "SameCircuitBasisBehavior.iff_complexCircuitOutputBasisPhaseEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_complexCircuitOutputBasisPhaseEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_complexBasisMeasurementEq",
+      "relation": "SameCircuitBasisBehavior.iff_complexBasisMeasurementEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_complexBasisMeasurementEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionCircuitInputRightPhaseEq",
+      "relation": "SameCircuitBasisBehavior.iff_quaternionCircuitInputRightPhaseEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_quaternionCircuitInputRightPhaseEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionCircuitOutputLeftPhaseEq",
+      "relation": "SameCircuitBasisBehavior.iff_quaternionCircuitOutputLeftPhaseEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_quaternionCircuitOutputLeftPhaseEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq",
+      "relation": "SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration SameCircuitBasisBehavior.iff_quaternionBasisMeasurementEq",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.sameCircuitBasisBehavior",
+      "relation": "ExactCircuitEq.sameCircuitBasisBehavior — certified basis-classical circuit behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.circuitBehavior_api; direct release endpoint pending",
+      "classification": {
+        "space": "same scalar and finite wire type W, with chronological OrderedCircuit evaluations on BitBasis W",
+        "subject": "the public declaration ExactCircuitEq.sameCircuitBasisBehavior",
+        "inputScope": "every computational-basis assignment through stored local-unitarity and permutation-implementation certificates",
+        "observationScope": "evaluated unitary matrix and equality of certified permutations; gate-list equality, schedules, and resources are excluded",
+        "phase": "the circuit bundle's explicit unitPhase predicate; exact evaluation equality implies behavior only with nonzero admitted phases",
+        "exactness": "exact bundle projection, equivalence law, operator forgetful map, or ExactCircuitEq implication",
+        "ancillaPolicy": "the full declared wire assignment is retained; no added wire or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.realSameCircuitBasisBehavior",
+      "relation": "ExactCircuitEq.realSameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration ExactCircuitEq.realSameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.complexSameCircuitBasisBehavior",
+      "relation": "ExactCircuitEq.complexSameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration ExactCircuitEq.complexSameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ExactCircuitEq.quaternionSameCircuitBasisBehavior",
+      "relation": "ExactCircuitEq.quaternionSameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration ExactCircuitEq.quaternionSameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitGlobalSignEq.sameCircuitBasisBehavior",
+      "relation": "RealCircuitGlobalSignEq.sameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration RealCircuitGlobalSignEq.sameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior",
+      "relation": "ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration ComplexCircuitGlobalPhaseEq.sameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior",
+      "relation": "QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior — scalar-certified circuit phase/measurement characterization",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.scalarCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "two certified real, complex, or quaternionic chronological circuits on the same finite wire type",
+        "subject": "the public declaration QuaternionCircuitCentralSignEq.sameCircuitBasisBehavior",
+        "inputScope": "all BitBasis W inputs and outputs through both stored implementation certificates",
+        "observationScope": "the declaration's exact certified iff or implication among permutation behavior, evaluated input/output phase, basis measurement, exact evaluation, or global/central phase",
+        "phase": "real signs, complex unit phases, quaternionic input-right/output-left phases, and central sign only for quaternionic global circuit phase",
+        "exactness": "exact theorem on certified circuits; no equality of gate lists, schedules, resources, or channels",
+        "ancillaPolicy": "the circuit's full wire basis is retained; no marginal policy"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.emptyBasisClassicalCircuit",
+      "relation": "emptyBasisClassicalCircuit — certified empty identity circuit",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.emptyCircuit_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "a chronological circuit over any finite wire type W, including W = Empty",
+        "subject": "the public declaration emptyBasisClassicalCircuit",
+        "inputScope": "every BitBasis W assignment; BitBasis Empty remains inhabited",
+        "observationScope": "the empty gate list evaluates to the identity and carries the identity certified permutation",
+        "phase": "requires only that scalar one satisfies the supplied unitPhase predicate",
+        "exactness": "exact constructor and computation laws",
+        "ancillaPolicy": "no added wires, gates, or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.emptyBasisClassicalCircuit_circuit",
+      "relation": "emptyBasisClassicalCircuit_circuit — certified empty identity circuit",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.emptyCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.emptyCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "a chronological circuit over any finite wire type W, including W = Empty",
+        "subject": "the public declaration emptyBasisClassicalCircuit_circuit",
+        "inputScope": "every BitBasis W assignment; BitBasis Empty remains inhabited",
+        "observationScope": "the empty gate list evaluates to the identity and carries the identity certified permutation",
+        "phase": "requires only that scalar one satisfies the supplied unitPhase predicate",
+        "exactness": "exact constructor and computation laws",
+        "ancillaPolicy": "no added wires, gates, or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.emptyBasisClassicalCircuit_permutation",
+      "relation": "emptyBasisClassicalCircuit_permutation — certified empty identity circuit",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.emptyCircuit_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.emptyCircuit_api; direct release endpoint pending",
+      "classification": {
+        "space": "a chronological circuit over any finite wire type W, including W = Empty",
+        "subject": "the public declaration emptyBasisClassicalCircuit_permutation",
+        "inputScope": "every BitBasis W assignment; BitBasis Empty remains inhabited",
+        "observationScope": "the empty gate list evaluates to the identity and carries the identity certified permutation",
+        "phase": "requires only that scalar one satisfies the supplied unitPhase predicate",
+        "exactness": "exact constructor and computation laws",
+        "ancillaPolicy": "no added wires, gates, or marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationMatrixImplementation",
+      "relation": "basisPreparationMatrixImplementation — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationMatrixImplementation",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationGateImplementation",
+      "relation": "basisPreparationGateImplementation — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationGateImplementation",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationOperator",
+      "relation": "basisPreparationOperator — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationOperator",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationOperator_matrix",
+      "relation": "basisPreparationOperator_matrix — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationOperator_matrix",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationOperator_permutation",
+      "relation": "basisPreparationOperator_permutation — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationOperator_permutation",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit",
+      "relation": "basisPreparationCircuit — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit_circuit",
+      "relation": "basisPreparationCircuit_circuit — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit_circuit",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit_permutation",
+      "relation": "basisPreparationCircuit_permutation — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "transitively exercised by QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api; direct release endpoint pending",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit_permutation",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit_basisTransition",
+      "relation": "basisPreparationCircuit_basisTransition — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit_basisTransition",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit_eval_entry",
+      "relation": "basisPreparationCircuit_eval_entry — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit_eval_entry",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.basisPreparationCircuit_mulVec_ground",
+      "relation": "basisPreparationCircuit_mulVec_ground — certified XOR basis-preparation behavior",
+      "owner": "goal-2/5-BASIS",
+      "consumer": "QuaternionicComputing.Semantics.BasisBehaviorAudit.basisPreparation_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "the existing full-support basis-preparation matrix, gate, operator, or singleton circuit over finite wires",
+        "subject": "the public declaration basisPreparationCircuit_mulVec_ground",
+        "inputScope": "the all-input certificate implements xorBasisEquiv b; the separately named mulVec theorem concerns only groundBasis W",
+        "observationScope": "complete XOR permutation/entry behavior for every input, with the known-ground-input state preparation kept as a strictly narrower theorem",
+        "phase": "the permutation entries use scalar one satisfying the supplied unitPhase predicate",
+        "exactness": "exact matrix, gate, circuit, permutation, transition, entry, or ground-column theorem",
+        "ancillaPolicy": "the original wire set is retained; basis preparation adds no wire and performs no marginalization"
+      }
     }
   ]
 }

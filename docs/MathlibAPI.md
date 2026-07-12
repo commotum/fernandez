@@ -650,7 +650,9 @@ without placeholders:
   the direct quaternion-to-real image;
 - noncommutative-safe contextual placement, added-wire reindexing, and unitary
   preservation;
-- unitary XOR preparation of any classically known computational-basis input;
+- unitary XOR preparation of any classically known computational-basis input,
+  together with explicit all-input permutation certificates for its matrix,
+  gate denotation, and singleton evaluator;
 - corrected Kronecker interchange under entrywise commutation, its
   commutative/zero–one special cases, and explicit quaternionic success and
   failure checks;

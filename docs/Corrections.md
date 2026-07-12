@@ -594,14 +594,21 @@ means the corrected mathematical target is known but not yet formalized;
 - **Repair:** for any known finite basis assignment `b`, XOR by `b` is packaged
   as a full-support permutation gate.  It is locally and globally unitary,
   sends the all-zero basis column exactly to `b`, and may be prepended to an
-  ordered circuit with the expected chronological semantics.  This proves the
-  finite basis-input reduction actually used by the paper, but does not claim
-  preparation of an unknown state, primitive synthesis, a discrete input
-  language, or uniform runtime.
+  ordered circuit with the expected chronological semantics. Stage 5 also
+  certifies the actual matrix, gate denotation, and singleton evaluator as the
+  all-input permutation `x ↦ x XOR b`. This proves the finite basis-input
+  reduction actually used by the paper while keeping the all-input classical
+  certificate distinct from the original one-known-ground-input theorem. It
+  does not claim preparation of an unknown state, primitive synthesis, a
+  discrete input language, or uniform runtime.
 - **Lean declarations:** `Circuit.groundBasis`, `xorBasisEquiv`,
   `basisPreparationMatrix_mem_unitary`,
   `basisPreparationGate_mulVec_ground`, and
-  `eval_prepend_basisPreparation_mulVec_ground`.
+  `eval_prepend_basisPreparation_mulVec_ground`; plus
+  `Semantics.basisPreparationMatrixImplementation`,
+  `basisPreparationGateImplementation`, `basisPreparationCircuit`,
+  `basisPreparationCircuit_eval_entry`, and
+  `basisPreparationCircuit_mulVec_ground`.
 - **Dependents:** the input convention in Definitions 2 and 5 and all resource
   or uniformity interpretations of state preparation; the central exact
   simulation theorems themselves do not require this reduction.
