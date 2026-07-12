@@ -921,7 +921,7 @@ use without learning the retrofit's implementation history.
 - [x] 4-RAYS
 - [x] 5-BASIS
 - [x] 6-DENSITY
-- [ ] 7-CHANNELS
+- [x] 7-CHANNELS
 - [ ] 8-HIERARCHY
 - [ ] 9-CROSSMODEL
 - [ ] 10-APPROX
