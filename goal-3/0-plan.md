@@ -201,23 +201,28 @@ none may remain excluded merely because it is difficult.
   non-root 15-endpoint audit. Its final overlay gives all 51 frozen comparison
   families and all 936 declarations exactly one checked disposition, including
   explicit axes for all ten empty families. The maintained validator and all
-  generated Lean name/evidence/consumer checks pass. The current Goal 2
-  checkpoint is 99 Lean sources including the public root, 1,275 semantic-
-  manifest declarations, 167 resolving consumers, 356 direct manifest audit
-  labels, 542 root axiom commands, and exact root/local axiom union `propext`,
-  `Classical.choice`, and `Quot.sound`. The root parser reports 539 nonempty
-  plus three axiom-free blocks; the existing-result parser reports 15 nonempty
-  blocks. The combined stable/audit/public-root/release-audit build completes
-  2,776 jobs. Stage 11 corrected two Stage 10 strictness entries that were
+  generated Lean name/evidence/consumer checks pass. Stage 12 closes the final
+  hierarchy gap with nine real/complex/quaternionic raw, normalized, and
+  circuit projective-to-input phase arrows plus a non-root three-endpoint
+  quaternionic strictness audit. The final Goal 2 release has 101 Lean sources
+  including the public root, 1,284 semantic-manifest declarations, 168
+  resolving consumers, 365 direct manifest audit labels, 551 root axiom
+  commands, and exact root/local axiom union `propext`, `Classical.choice`, and
+  `Quot.sound`. The root parser reports 548 nonempty plus three axiom-free
+  blocks; the existing-result and projective-input parsers report 15 and three
+  nonempty blocks. Clean/default/integrated/exhaustive builds complete 2,782,
+  2,775, 2,777, and 2,787 jobs. Stage 11 corrected two Stage 10 strictness entries that were
   genuinely printed in the root audit but mislabeled transitive in manifest
   metadata. The corrected first-1,269 structural hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
-  and the full-1,275 hash is
+  and the preserved first-1,275 hash is
   `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
+  the full-1,284 hash is
+  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Only Goal 2 Stage 12 final release remains an unmet prerequisite, so Goal 3
-  must not be executed yet. Finite scalar encodings,
+  Goal 2 is now a satisfied prerequisite; Goal 3 may begin at its first stage.
+  Finite scalar encodings,
   rounding/code-to-value certification, accumulated circuit error, approximate
   compiler/synthesis construction, runtime, and uniformity remain assigned to
   Goal 3 rather than Stage 10. Native

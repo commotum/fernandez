@@ -642,7 +642,8 @@ counterexamples to fixed-budget equivalence. These modules compare exact
 mathematical values; finite scalar encodings, rounding, accumulated circuit
 error, approximate compiler/synthesis construction, runtime, and uniformity
 remain Goal 3 work. The Goal 2 registry is closed; the independent final
-release gates remain Stage 12 work.
+Stage 12 release gates also passed, including the clean rebuild, downstream
+smoke test, exact axiom parsing, static scans, and independent reviews.
 
 `Semantics/ExistingResults.lean` supplies the six stable wrappers that the final
 classification pass found genuinely useful: a normalized rejection of left

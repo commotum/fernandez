@@ -827,8 +827,8 @@ the full 1,269-entry hash is
 `298a8b5ebdf9e428f203d383473269dc77ca7944ee0663286fe930b9b1a3f5dc`.
 The frozen Goal 1 cohort and checksum remain unchanged.
 
-Stage 11 appends the six stable existing-result wrappers exactly once. The
-semantic manifest now contains 1,275 unique declarations, 167 distinct
+Stage 11 appended the six stable existing-result wrappers exactly once. At
+that checkpoint the semantic manifest contained 1,275 unique declarations, 167 distinct
 consumers, and 356 direct-root audit labels. The corrected first-1,269
 structural hash is
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;

@@ -5,8 +5,8 @@ William A. Schneeberger's paper *Quaternionic Computing*
 (`quant-ph/0307017v2`) as a reusable Lean library.
 
 The source extraction is in `Fernandez/fernandez-2003.md`. Goal 1's completed
-paper reconstruction is recorded under `goal-1/`; Goal 2's semantic registry is
-closed and its final release audit remains active under `goal-2/`; the remaining
+paper reconstruction is recorded under `goal-1/`; Goal 2's semantic registry
+and final release audit are closed under `goal-2/`; the remaining
 mathematical frontier is reindexed under `goal-3/`. Lean-changing stages follow
 the authoritative incremental workflow in `BUILD-PLAN.md`.
 

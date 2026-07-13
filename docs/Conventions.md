@@ -719,8 +719,8 @@ than ray equality in general and is not used as the quotient relation.
 - The registry classifies evidence; it does not create mathematics by label.
   Proof declarations and consumers must resolve, audit endpoints must compile,
   and source-only rows must state both the obstruction and Goal 3 boundary.
-- Stage 11 closes the registry, not the release: Stage 12 clean-build,
-  downstream-import, scan, and independent-review gates remain pending.
+- Stage 11 closed the registry, and Stage 12 subsequently closed the release
+  through clean-build, downstream-import, scan, and independent-review gates.
 
 ## Simulation and abstract resources
 

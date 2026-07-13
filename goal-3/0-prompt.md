@@ -51,15 +51,18 @@ Goal 2 also supplies the checked same-space hierarchy. In particular,
 all-pure-input basis measurement is output-row phase rather than channel
 equality, equal finite basis distributions need not determine a ray, and the
 quaternionic output-row phase acts on the left. Goal 3 must consume these
-relations and their strictness witnesses without inventing stronger
+relations together with the final raw/normalized/circuit projective-to-input
+phase arrows: projective action implies both sided phase branches, while the
+input and output branches are incomparable and neither implies projective
+action. Goal 3 must consume these strictness witnesses without inventing stronger
 same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 Stage 11 checkpoint has 99 Lean sources including the public
-root, 1,275 semantic-manifest declarations, 167 resolving consumers, 356 direct
-audit labels, 542 root axiom commands, and 15 local existing-result audit
-commands. Its exact axiom union remains `propext`, `Classical.choice`, and
-`Quot.sound`. The root audit parser reports 539 nonempty plus three axiom-free
-blocks; the existing-result parser reports 15 nonempty blocks. The final
+The final Goal 2 release has 101 Lean sources including the public root, 1,284
+semantic-manifest declarations, 168 resolving consumers, 365 direct audit
+labels, 551 root axiom commands, 15 local existing-result commands, and three
+local projective-input commands. Its exact axiom union remains `propext`,
+`Classical.choice`, and `Quot.sound`. The root audit parser reports 548
+nonempty plus three axiom-free blocks. The final
 classification overlay contains 51 family records and all 936 frozen
 declarations exactly once, including all ten empty families, and its maintained
 validator plus generated Lean checks pass.
@@ -114,13 +117,15 @@ preserved first-1,100 manifest hash is
 while Stage 11 corrects two already-existing root strictness endpoints from
 transitive to direct metadata. The authoritative first-1,269 hash is therefore
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
-and the full-1,275 hash is
+and the preserved first-1,275 hash is
 `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
+The full-1,284 hash is
+`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
 The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
-Stage 11 registry closure is achieved. Only Goal 2 Stage 12 final release
-remains a prerequisite to Goal 3.
+Stage 11 registry closure and the Stage 12 release audit are achieved. Goal 2
+is a satisfied prerequisite to Goal 3.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;
