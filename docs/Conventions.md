@@ -142,7 +142,10 @@ arbitrary unit quaternion. The input family in
 `QuaternionOutputLeftPhaseEq` acts on the left. This multiplication order is
 part of the definitions and their composition theorems, not a cosmetic choice.
 The raw and normalized projective relations are equivalent for every finite
-rectangular input type without a unitarity or nonempty hypothesis.
+rectangular input type without a unitarity or nonempty hypothesis. Either
+relation determines the correctly sided input-column phase by specialization
+to computational-basis columns. Projective action also gives all-pure-input
+agreement and therefore the corresponding output-row phase.
 
 Circuit phase relations compare `OrderedCircuit.eval`, never gate lists,
 schedules, resources, or embeddings. Because `eval (C ++ L) = eval L * eval C`,
@@ -161,6 +164,11 @@ the raw/normalized equivalence remains valid at the empty type. A circuit
 wrapper instead acts on `BitBasis W = W → Bool`, which is inhabited and admits
 normalized basis states even when `W` has zero wires; that quantifier is not
 vacuous.
+
+Input-column and output-row phase remain incomparable with each other, and
+neither implies projective action. The non-root projective-input audit checks
+these failures over explicit quaternionic column/row twists; the stable arrows
+run only in the projective-to-sided-phase direction.
 
 The quaternionic converse is dimension-sensitive. For finite square matrices,
 `[DecidableEq I]`, explicit `1 < Fintype.card I`, and only `U` assumed unitary,
@@ -412,8 +420,10 @@ global phase <-> projective action <-> ChannelEq <-> AllMeasurementEq,
 ```
 
 with the existing inhabited matrix-space premise on the converse kernel.
-Input-column phase, output-row phase/all-pure basis agreement, and certified
-basis-permutation behavior are weaker or incomparable branches. The final
+Projective action implies both input-column phase and output-row/all-pure basis
+agreement. Those two sided-phase branches are weaker and incomparable with
+each other. Certified basis-permutation behavior is a separately restricted
+branch. The final
 branch is equivalent to input/output/basis agreement only when both operators
 carry explicit `BasisPermutationImplementation` certificates.
 
@@ -698,7 +708,7 @@ than ray equality in general and is not used as the quotient relation.
   declaration occurs exactly once and carries the seven axes `space`, `subject`,
   `inputScope`, `observationScope`, `phase`, `exactness`, and `ancillaPolicy`.
 - `Goal2SemanticAPIManifest.json` is independent of that overlay. It covers the
-  1,275 declarations introduced by Goal 2, with 167 consumers and 356 direct
+  1,284 declarations introduced by Goal 2, with 168 consumers and 365 direct
   root-audit labels; it never expands the frozen Goal 1 cohort.
 - A `proofBearingRelation`, `proofBearingCertificate`, or
   `proofBearingEquality` names the exact theorem inhabiting the stated scope.

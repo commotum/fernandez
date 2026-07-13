@@ -294,20 +294,26 @@ The final semantic classification is recorded in
 `docs/Goal2ClassificationRegistry.json` and rendered in
 `docs/EquivalenceClassification.md`. It assigns all 936 immutable Goal 1
 declarations exactly once across 51 families. The independent Goal 2 semantic
-manifest contains 1,275 unique public declarations, 167 consumers, and 356
+manifest contains 1,284 unique public declarations, 168 consumers, and 365
 direct root-audit labels. `Semantics.ExistingResults` exports six final thin
 classifications for earlier raw equalities and counterexamples; its 15-endpoint
-allocation audit remains outside the public root. The registry does not turn
+allocation audit remains outside the public root. The final
+`Semantics.Hierarchy.ProjectiveInput` leaf adds nine proof-bearing arrows from
+raw/normalized/circuit projective action to input-column phase; its three-
+endpoint strictness audit remains non-root. The registry does not turn
 algebraic embeddings, counts, or source-only claims into behavioral theorems.
-Stage 12 clean-release verification remains pending.
+The clean release builds, executable registry, downstream smoke, and axiom
+audits pass.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
 phase, and `RealProjectiveActionEq`/`ComplexProjectiveActionEq`. Matching
 circuit predicates compare only `OrderedCircuit.eval`. Global phase implies
 both basis-phase relations and projective action. Input-column phase preserves
-all basis-input weights; output-row phase and projective action preserve
-all-normalized-pure-input basis weights. Input phase is stable under a common
+all basis-input weights. Projective action determines input-column phase and,
+through all-pure-input agreement, output-row phase. Output-row phase and
+projective action preserve all-normalized-pure-input basis weights. Input phase
+is stable under a common
 later evolution, output phase under a common earlier evolution, and a common
 earlier projective evolution requires unitarity. These relations do not assert
 cross-model simulation, and input- or output-dependent basis phase is not
@@ -320,7 +326,11 @@ operator phase is restricted to `QuaternionCentralSignEq`, a real central
 `±1`; input-column phases multiply on the right, output-row phases on the
 left, and raw versus normalized all-input right-ray action are stated
 separately. The raw and normalized projective relations are equivalent on
-every finite input type, including the empty case where both are trivial.
+every finite input type, including the empty case where both are trivial, and
+either projective relation determines the correctly right-sided input-column
+phase. Explicit all-ones column/row twists prove input-right and output-left
+phase incomparable and prove that neither one-sided relation implies
+projective action.
 Four circuit wrappers compare evaluator semantics (there is deliberately no
 raw-projective wrapper); because `BitBasis W` is always inhabited, their
 normalized-input quantifier is nonvacuous even for zero wires. In square

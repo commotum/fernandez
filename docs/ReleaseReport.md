@@ -34,8 +34,10 @@ root. It supplies the semantic approximation boundary over exact mathematical
 values. Stage 11 adds the stable existing-results classification leaf and its
 non-root audit, bringing the checkpoint tree to 99 Lean sources including the
 public root. It closes the final 51-family/936-declaration registry while
-preserving the frozen historical seed. Goal 2 remains active only for the Stage
-12 release audit; finite encodings and numerical compilation remain Goal 3
+preserving the frozen historical seed. Stage 12 adds the stable
+projective-to-input hierarchy leaf and its non-root strictness audit, bringing
+the final tree to 101 Lean sources including the public root. The clean release
+audit is complete; finite encodings and numerical compilation remain Goal 3
 work.
 
 The paper was treated as a mathematical source rather than a specification.
@@ -112,9 +114,10 @@ or an unsafe shortcut.
   used as classical behavior.
 - Real and complex operators and evaluated circuits have distinct global,
   input-column, output-row, and all-pure-input projective-action relations.
-- Global phase implies both sided basis phases and projective action. Input
-  phase implies basis-input agreement; output phase and projective action imply
-  all-pure-input basis agreement.
+- Global phase implies both sided basis phases and projective action.
+  Projective action determines input-column phase and, through all-pure-input
+  agreement, output-row phase. Input phase implies basis-input agreement;
+  output phase and projective action imply all-pure-input basis agreement.
 - Sided composition laws follow chronological order. A common earlier
   projective evolution requires unitarity, and no arbitrary two-sided closure
   is exported. Input- and output-dependent phase families are not promoted to
@@ -125,8 +128,11 @@ or an unsafe shortcut.
 - Quaternionic operators have five side-sensitive comparisons: one central
   real sign, input-column unit phases on the right, output-row unit phases on
   the left, and raw versus normalized all-input right-ray action. The raw and
-  normalized projective relations are equivalent for every finite input type;
-  on an empty input type both are trivial for distinct but checked reasons.
+  normalized projective relations are equivalent for every finite input type
+  and determine input-right phase; on an empty input type both are trivial for
+  distinct but checked reasons. Explicit column/row twists prove input-right
+  and output-left phase incomparable and prove both one-sided converses to
+  projective action fail.
 - Four quaternionic circuit wrappers compare evaluator semantics. Their
   normalized-input quantifier is nonvacuous even on zero wires because
   `BitBasis W` is inhabited; no raw-projective circuit wrapper is exported.
@@ -732,10 +738,12 @@ Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
 root, axiom audit, and all Stage 10 and Stage 11 source boundaries. The
-executable root audit now contains 542
+executable root audit now contains 551
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
 Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, 36 Stage 9C, 42 Stage 10, and six
-Stage 11 endpoints. All 15 local `ExistingResultsAudit` prints, all 16 local
+Stage 11 endpoints, and nine Stage 12 endpoints. All 15 local
+`ExistingResultsAudit` prints, all three local `ProjectiveInputAudit` prints,
+all 16 local
 `ApproximationAudit` prints,
 20 local
 `SimulationAudit` prints,
@@ -834,6 +842,14 @@ prefix has 350 direct labels. No Lean theorem or selected root-audit endpoint
 changed; the two long targets now sit in their exact namespace scope for
 qualified parsing without a long-line warning.
 
+Stage 12 appends the nine stable projective-to-input arrows exactly once after
+that preserved Stage 11 prefix. The final semantic manifest contains 1,284
+unique declarations, 168 distinct consumers, and 365 direct-root audit labels.
+Its full structural hash is
+`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+The first-1,275 hash remains
+`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
+
 Independently, `Goal2ClassificationRegistry.json` preserves the 51 frozen
 family IDs and assigns every one of the 936 frozen declarations exactly once.
 All seven axes are populated, all proof/consumer/audit targets resolve, and the
@@ -845,10 +861,13 @@ The immutable cohort checksum remains
 The warning-as-error downstream generated-name and consumer files import only
 the public root or the named non-root audit and resolve all manifest targets.
 Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 11. The public root imports
-no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass
-for the Stage 11 checkpoint. Stage 12 clean-release verification remains
-pending.
+and heartbeat-override scans are empty through Stage 12. The public root imports
+no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
+After a full clean of the shared pinned cache, the baseline build completed
+2,782 jobs. The promoted current tree passes the 2,775-job default build, the
+2,777-job integrated root/audit build, and the 2,787-job exhaustive maintained-
+audit build. The full registry validator and public-root-only downstream smoke
+also pass.
 
 ## Using the library in a future project
 
@@ -906,6 +925,9 @@ open QuaternionicComputing
 #check Semantics.complexColumn0StateEquiv
 #check Semantics.QuaternionCentralSignEq
 #check Semantics.quaternionProjectiveActionEq_iff_centralSignEq_of_unitary
+#check Semantics.RealProjectiveActionEq.inputBasisSignEq
+#check Semantics.ComplexProjectiveActionEq.inputBasisPhaseEq
+#check Semantics.QuaternionProjectiveActionEq.inputRightPhaseEq
 #check Semantics.operatorDistance
 #check Semantics.operatorClose_zero_iff_exactOperatorEq
 #check Semantics.ComplexGlobalPhaseClose

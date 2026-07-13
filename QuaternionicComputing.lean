@@ -108,15 +108,19 @@ ordinary real ray exactly when the phase is `1` or `-1`.
 Real and complex evaluated operators and chronological circuits additionally
 have distinct global, input-column, output-row, and projective-action phase
 relations. Global phase implies both sided basis-phase relations and
-projective action; input-column phase guarantees basis-input measurement
-agreement, while output-row phase and projective action guarantee
-all-normalized-pure-input basis agreement. Chronological congruences preserve
+projective action. Raw or normalized projective action determines the
+input-column phase and, through all-pure-input agreement, the output-row phase.
+Input-column phase guarantees basis-input measurement agreement, while
+output-row phase and projective action guarantee all-normalized-pure-input
+basis agreement. Chronological congruences preserve
 the multiplication side, and common-earlier projective evolution carries an
 explicit local-unitarity premise. These relations are neither channel equality
 nor cross-model simulation. Quaternionic operators have a side-correct
 parallel layer: input phases act on the right, output phases act on the left,
 and global operator phase means only a central real sign. Raw and normalized
-all-input projective action coincide; for unitary square spaces of dimension
+all-input projective action coincide and determine input-right phase. Explicit
+column/row twists prove the input-right and output-left phase branches
+incomparable and strictly weaker than projective action. For unitary square spaces of dimension
 at least two their kernel is exactly the central signs, while rank one has the
 full unit-quaternion scalar family as an explicit exception.
 

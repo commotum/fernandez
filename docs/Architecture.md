@@ -423,7 +423,10 @@ handled separately, proves these last two relations equivalent for every
 finite rectangular input type without unitarity or nonemptiness assumptions.
 For an empty operator input type the normalized quantifier is vacuous and the
 raw relation tests only the unique zero column, so both sides are trivially
-true.
+true. `Hierarchy/ProjectiveInput.lean` further specializes raw action to basis
+columns and proves that either projective relation determines input-right
+phase. Its non-root audit uses explicit column/row twists to prove input-right
+and output-left phase incomparable and strictly weaker than projective action.
 
 `QuaternionCircuit.lean` owns the side-correct matrix composition laws and
 exactly four evaluator-backed wrappers: central sign, input-right phase,
@@ -654,9 +657,10 @@ behavior relation for nonbehavioral evidence.
 The Stage 11 registry is now closed. `Goal1ComparisonCohort.json` remains the
 immutable 51-family/936-declaration historical boundary;
 `Goal2ClassificationRegistry.json` is its final declaration-complete overlay,
-and `Goal2SemanticAPIManifest.json` independently covers 1,275 Goal 2 exports.
-The current source tree has 99 Lean files including the public root. Stage 12
-release verification remains pending.
+and `Goal2SemanticAPIManifest.json` independently covers 1,284 Goal 2 exports.
+The current source tree has 101 Lean files including the public root. Stage 12
+adds only the missing hierarchy arrows and their non-root strictness audit; it
+does not change the frozen registry or any paper-row disposition.
 
 ## Circuit implementation
 
@@ -869,8 +873,9 @@ determinant boundary is therefore explicit:
 
 - Every substantive module must compile without placeholders.
 - `QuaternionicComputing/AxiomAudit.lean` lists `#print axioms` commands for the
-  main public theorems. Its Stage 11 surface contains 542 commands; the non-root
-  `ExistingResultsAudit.lean` has 15 local endpoints.
+  main public theorems. Its final surface contains 551 commands; the non-root
+  `ExistingResultsAudit.lean` and `ProjectiveInputAudit.lean` have 15 and three
+  local endpoints respectively.
 - Heavy semantic diagnostics stay outside the public root; in particular,
   `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
   operator-phase leaves, and `Semantics/BasisBehaviorAudit.lean` consumes the
@@ -878,14 +883,16 @@ determinant boundary is therefore explicit:
   `Semantics/DensityAudit.lean` consumes the complete density/effect/separation
   surface and `Semantics/ChannelAudit.lean` consumes the complete
   channel/phase/circuit lift. `Semantics/ExistingResultsAudit.lean` similarly
-  consumes the final existing-result families. None becomes a transitive
-  dependency.
+  consumes the final existing-result families, and
+  `Semantics/ProjectiveInputAudit.lean` consumes all nine final hierarchy
+  arrows and their quaternionic strictness boundaries. None becomes a
+  transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage
   as corresponding declarations.
 - The frozen comparison cohort, final 936-declaration overlay, and independent
-  1,275-declaration Goal 2 manifest are checked separately. Registry labels are
+  1,284-declaration Goal 2 manifest are checked separately. Registry labels are
   accepted only with resolving proof/consumer/audit evidence or an explicit
   source-only obstruction.
 - Release verification includes a downstream import module that imports only
