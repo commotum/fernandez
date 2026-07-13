@@ -850,3 +850,18 @@ end QuaternionicComputing.Semantics.ApproximationStrictness
   QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.inputBasisPhaseEq
 #print axioms
   QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.inputRightPhaseEq
+
+/-! ## Goal 2 Stage 12: arbitrary real/complex projective kernels -/
+
+#print axioms
+  QuaternionicComputing.Semantics.RealRawProjectiveActionEq.globalSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.globalPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.RealProjectiveActionEq.globalSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexProjectiveActionEq.globalPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.globalSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.globalPhaseEq

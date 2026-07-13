@@ -439,8 +439,15 @@ def validate_manifest(
         root / "QuaternionicComputing/Semantics/Hierarchy/ProjectiveInput.lean"
     )
     require(projective_input.is_file(), "ProjectiveInput.lean is absent")
-    stage12_source = declaration_names(projective_input)
-    require(len(stage12_source) == 9, "Stage 12 public source count is not 9")
+    projective_kernel = (
+        root / "QuaternionicComputing/Semantics/Hierarchy/ProjectiveKernel.lean"
+    )
+    require(projective_kernel.is_file(), "ProjectiveKernel.lean is absent")
+    stage12_source = [
+        *declaration_names(projective_input),
+        *declaration_names(projective_kernel),
+    ]
+    require(len(stage12_source) == 15, "Stage 12 public source count is not 15")
     require(
         stage12_suffix == stage12_source,
         "Stage 12 manifest/source order differs",

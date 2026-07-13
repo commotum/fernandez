@@ -1,15 +1,16 @@
 module
 
-public import QuaternionicComputing.Semantics.Hierarchy.ProjectiveInput
+public import QuaternionicComputing.Semantics.Hierarchy.ProjectiveKernel
 
 /-!
 # Projective-to-input hierarchy audit
 
 This non-root leaf consumes all nine projective-to-input covering arrows and
-gives explicit quaternionic converse witnesses.  The witnesses use arbitrary
-two-by-two matrices, not unitary channels: input-column and output-row phase
-remain incomparable, while projective action is strictly stronger than each
-one-sided phase family.
+all six generic real/complex projective-kernel arrows, then gives explicit
+quaternionic converse witnesses.  The witnesses use arbitrary two-by-two
+matrices, not unitary channels: input-column and output-row phase remain
+incomparable, while projective action is strictly stronger than each one-sided
+phase family.
 
 The public root deliberately does not import this file.
 -/
@@ -64,6 +65,38 @@ theorem projectiveInput_arrows_api
     hCR.inputBasisSignEq,
     hCC.inputBasisPhaseEq,
     hCQ.inputRightPhaseEq⟩
+
+/-! ## Generic real and complex projective kernels -/
+
+/--
+A proof-term consumer for the arbitrary-matrix real and complex projective
+kernels at the raw, normalized, and evaluator-backed circuit levels.
+-/
+theorem realComplexProjectiveKernel_arrows_api
+    {O : Type u} {I : Type v} [Fintype I]
+    {UR VR : Matrix O I ℝ}
+    {UC VC : Matrix O I ℂ}
+    (hRawR : RealRawProjectiveActionEq UR VR)
+    (hRawC : ComplexRawProjectiveActionEq UC VC)
+    (hR : RealProjectiveActionEq UR VR)
+    (hC : ComplexProjectiveActionEq UC VC)
+    {W : Type*} [Fintype W]
+    {CR DR : Circuit.OrderedCircuit ℝ W}
+    {CC DC : Circuit.OrderedCircuit ℂ W}
+    (hCR : RealCircuitProjectiveActionEq CR DR)
+    (hCC : ComplexCircuitProjectiveActionEq CC DC) :
+    RealGlobalSignEq UR VR ∧
+      ComplexGlobalPhaseEq UC VC ∧
+      RealGlobalSignEq UR VR ∧
+      ComplexGlobalPhaseEq UC VC ∧
+      RealCircuitGlobalSignEq CR DR ∧
+      ComplexCircuitGlobalPhaseEq CC DC :=
+  ⟨hRawR.globalSignEq,
+    hRawC.globalPhaseEq,
+    hR.globalSignEq,
+    hC.globalPhaseEq,
+    hCR.globalSignEq,
+    hCC.globalPhaseEq⟩
 
 /-! ## Quaternionic strictness witnesses -/
 
@@ -193,6 +226,7 @@ theorem quaternionRowTwist_boundary :
 /-! ## Selected local axiom endpoints -/
 
 #print axioms projectiveInput_arrows_api
+#print axioms realComplexProjectiveKernel_arrows_api
 #print axioms quaternionColumnTwist_boundary
 #print axioms quaternionRowTwist_boundary
 

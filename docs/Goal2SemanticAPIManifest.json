@@ -20569,6 +20569,102 @@
         "exactness": "exact evaluator-backed implication",
         "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.globalSignEq",
+      "relation": "Raw real projective action determines one global sign",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same arbitrary real rectangular matrix space with finite input type",
+        "subject": "two raw all-input real linear matrix actions",
+        "inputScope": "every raw input column, including zero and empty-domain cases",
+        "observationScope": "literal matrix equality after one matrix-wide real sign",
+        "phase": "one unit real sign shared by every input and output coordinate",
+        "exactness": "exact implication; no unitarity, square, nonempty, rank, or output-finiteness premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.globalPhaseEq",
+      "relation": "Raw complex projective action determines one global phase",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same arbitrary complex rectangular matrix space with finite input type",
+        "subject": "two raw all-input complex linear matrix actions",
+        "inputScope": "every raw input column, including zero and empty-domain cases",
+        "observationScope": "literal matrix equality after one matrix-wide complex phase",
+        "phase": "one unit complex phase shared by every input and output coordinate",
+        "exactness": "exact implication; no unitarity, square, nonempty, rank, or output-finiteness premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.globalSignEq",
+      "relation": "Normalized real projective action determines one global sign",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same arbitrary real rectangular matrix space with finite input type",
+        "subject": "two normalized all-pure-input real matrix actions",
+        "inputScope": "every normalized pure input, extended exactly to every raw input",
+        "observationScope": "literal matrix equality after one matrix-wide real sign",
+        "phase": "one unit real sign shared by every normalized and raw input",
+        "exactness": "exact implication through the raw/normalized bridge; no unitarity or rank premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.globalPhaseEq",
+      "relation": "Normalized complex projective action determines one global phase",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same arbitrary complex rectangular matrix space with finite input type",
+        "subject": "two normalized all-pure-input complex matrix actions",
+        "inputScope": "every normalized pure input, extended exactly to every raw input",
+        "observationScope": "literal matrix equality after one matrix-wide complex phase",
+        "phase": "one unit complex phase shared by every normalized and raw input",
+        "exactness": "exact implication through the raw/normalized bridge; no unitarity or rank premise",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.globalSignEq",
+      "relation": "Real circuit projective action determines one evaluator-global sign",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real chronological-circuit evaluator space",
+        "subject": "two arbitrary OrderedCircuit evaluators",
+        "inputScope": "all normalized pure BitBasis inputs, including the zero-wire circuit space",
+        "observationScope": "literal evaluator equality after one circuit-wide real sign",
+        "phase": "one unit real sign shared by every evaluator input and output coordinate",
+        "exactness": "exact evaluator-backed implication without local-unitarity assumptions",
+        "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.globalPhaseEq",
+      "relation": "Complex circuit projective action determines one evaluator-global phase",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.realComplexProjectiveKernel_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex chronological-circuit evaluator space",
+        "subject": "two arbitrary OrderedCircuit evaluators",
+        "inputScope": "all normalized pure BitBasis inputs, including the zero-wire circuit space",
+        "observationScope": "literal evaluator equality after one circuit-wide complex phase",
+        "phase": "one unit complex phase shared by every evaluator input and output coordinate",
+        "exactness": "exact evaluator-backed implication without local-unitarity assumptions",
+        "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
+      }
     }
   ]
 }
