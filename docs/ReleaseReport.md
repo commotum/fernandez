@@ -1,6 +1,6 @@
 # Quaternionic Computing Lean Library — Release Report
 
-- Release date: 2026-07-12
+- Release date: 2026-07-13
 - Project version: 0.1.0
 - Lean: 4.31.0
 - Mathlib: v4.31.0 (`fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`)
@@ -34,11 +34,13 @@ root. It supplies the semantic approximation boundary over exact mathematical
 values. Stage 11 adds the stable existing-results classification leaf and its
 non-root audit, bringing the checkpoint tree to 99 Lean sources including the
 public root. It closes the final 51-family/936-declaration registry while
-preserving the frozen historical seed. Stage 12 adds the stable
-projective-to-input hierarchy leaf and its non-root strictness audit, bringing
-the final tree to 101 Lean sources including the public root. The clean release
-audit is complete; finite encodings and numerical compilation remain Goal 3
-work.
+preserving the frozen historical seed. Stage 12 first added the stable
+projective-to-input hierarchy leaf and its non-root strictness audit. The final
+semantic repair adds the generic real/complex projective-kernel leaf and extends
+that audit, bringing the current tree to 102 Lean sources including the public
+root. The earlier clean release evidence is retained as a pre-kernel checkpoint;
+the final post-kernel release verification is now complete. Finite encodings
+and numerical compilation remain Goal 3 work.
 
 The paper was treated as a mathematical source rather than a specification.
 Every important inventory item has one terminal disposition: among 101 rows,
@@ -230,8 +232,22 @@ or an unsafe shortcut.
   evaluator-backed circuit lifts. Its quaternionic contribution is limited to
   the output-left-phase circuit characterization; no quaternionic channel is
   introduced.
-- The three stable leaves export exactly `9 + 13 + 27 = 49` declarations. The
-  non-root hierarchy audit allocates all 49, checks rectangular and empty
+- `Hierarchy/ProjectiveInput.lean` proves that raw, normalized, and
+  evaluator-backed projective action determines the corresponding input-column
+  phase over all three scalar systems.
+- `Hierarchy/ProjectiveKernel.lean` proves the stronger commutative result. For
+  arbitrary rectangular real or complex matrices with a finite input type, raw
+  or normalized projective action forces one matrix-wide global sign or unit
+  phase. It includes zero matrices, empty input or output types, and rank one,
+  and needs no square, unitarity, rank, or output-finiteness premise. The circuit
+  consequences need no local-unitarity certificate.
+- Quaternionic scalars remain a deliberate exception: the row/column phase
+  cancellation uses commutativity. Square unitary dimension at least two has
+  only the central-sign kernel, while rank one admits the full unit-quaternion
+  scalar family.
+- The original three Stage 8 stable leaves export exactly `9 + 13 + 27 = 49`
+  declarations. The non-root hierarchy audit allocates all 49 and checks
+  rectangular and empty
   boundaries, and packages exact failed-converse witnesses. In particular,
   output-row phase and basis-only agreement do not imply channel equality, and
   equal basis distributions do not determine a ray.
@@ -374,7 +390,7 @@ Representative exported declarations include:
 | Certified basis behavior | `BasisPermutationImplementation`, `SameBasisBehavior`, `BasisClassicalUnitaryOperator`, `BasisClassicalCircuit`, `SameCircuitBasisBehavior`, the scalar `sameBasisBehavior_iff_*` families, and the certified XOR preparation declarations |
 | Densities and effects | `DensityMatrix`, `RealDensityMatrix`, `ComplexDensityMatrix`, `DensityMatrix.pure`, `basis`, `unitaryConjugate`; `Effect`, `RealEffect`, `ComplexEffect`, `Effect.projector`, `basis`, `bornValue`, `bornValue_mem_Icc`; and `DensityMatrix.eq_iff_forall_effect_bornValue_eq` |
 | Channels | `UnitaryOperator`, `ChannelEq`, `AllMeasurementEq`, `channelEq_iff_allMeasurementEq`; `RealRawProjectiveActionEq`, `ComplexRawProjectiveActionEq`, the real/complex global/projective `*_iff_channelEq` families; `UnitaryCircuit`, `CircuitChannelEq`, `CircuitAllMeasurementEq`, and their phase/append bridges |
-| Semantic hierarchy | `realOutputBasisSignEq_iff_pureInputBasisMeasurementEq`, `complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq`, `quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq`; `FiniteDistribution.eq_iff_eventWeight_eq`, `eq_iff_allPushforward_eq_sameUniverse`; and the channel/all-effect covering-arrow families in `Semantics.Hierarchy.Operator` |
+| Semantic hierarchy | `realOutputBasisSignEq_iff_pureInputBasisMeasurementEq`, `complexOutputBasisPhaseEq_iff_pureInputBasisMeasurementEq`, `quaternionOutputLeftPhaseEq_iff_pureInputBasisMeasurementEq`; `FiniteDistribution.eq_iff_eventWeight_eq`, `eq_iff_allPushforward_eq_sameUniverse`; the channel/all-effect covering arrows; the nine `*ProjectiveActionEq.input*PhaseEq` arrows; and the six real/complex `*ProjectiveActionEq.global*Eq` kernel arrows |
 | Cross-model certificates | `ExactStateEncoding`, `LosslessStateEncoding`, `ExactOperatorEmbedding`, `StateIntertwining`, `DecodedBasisWeightAgreement`, `DecodedDistributionAgreement`, the three `AllTop...` relations, and the four canonical `*LinearEquiv`/`*StateEquiv` values |
 | Operator/circuit phase | `RealGlobalSignEq`, `ComplexGlobalPhaseEq`, the real/complex input-, output-, and projective-action relations; `QuaternionCentralSignEq`, `QuaternionInputRightPhaseEq`, `QuaternionOutputLeftPhaseEq`, `QuaternionRawProjectiveActionEq`, `QuaternionProjectiveActionEq`; their evaluator-backed circuit wrappers, measurement arrows, and sided composition laws |
 | Quaternion projective kernel | `quaternionRawProjectiveActionEq_iff_projectiveActionEq`, `quaternionProjectiveActionEq_iff_centralSignEq_of_unitary`, `quaternionRankOneScalar_projectiveActionEq_iff_normSq_eq_one`, `quaternionRankOneJ_exception` |
@@ -738,11 +754,11 @@ Warning-as-error source checks passed for the stable operator-phase, ray,
 certified-basis, density, effect, separation, and channel leaves, their
 hierarchy and simulation-semantics leaves, their diagnostic leaves, public
 root, axiom audit, and all Stage 10 and Stage 11 source boundaries. The
-executable root audit now contains 551
+executable root audit now contains 557
 `#print axioms` commands, including 19 Stage 4C, 25 Stage 5, 24 Stage 6, 39
 Stage 7, 29 Stage 8, 20 Stage 9A, 16 Stage 9B, 36 Stage 9C, 42 Stage 10, and six
-Stage 11 endpoints, and nine Stage 12 endpoints. All 15 local
-`ExistingResultsAudit` prints, all three local `ProjectiveInputAudit` prints,
+Stage 11 endpoints, and 15 Stage 12 endpoints. All 15 local
+`ExistingResultsAudit` prints, all four local `ProjectiveInputAudit` prints,
 all 16 local
 `ApproximationAudit` prints,
 20 local
@@ -757,6 +773,11 @@ existing-results blocks, 16 nonempty local approximation blocks, and 19
 nonempty plus one
 axiom-free local `SimulationAudit` block. See `AxiomAudit.md` for the
 interpretation.
+
+The final Stage 12 parser reports 554 nonempty plus three axiom-free root
+blocks, 15 nonempty plus zero axiom-free existing-results blocks, and four
+nonempty plus zero axiom-free projective-input blocks. Each exact union is
+`{propext, Classical.choice, Quot.sound}`.
 
 At the Stage 4B checkpoint, the independent Goal 2 semantic manifest contained
 exactly 487 declarations:
@@ -842,11 +863,12 @@ prefix has 350 direct labels. No Lean theorem or selected root-audit endpoint
 changed; the two long targets now sit in their exact namespace scope for
 qualified parsing without a long-line warning.
 
-Stage 12 appends the nine stable projective-to-input arrows exactly once after
-that preserved Stage 11 prefix. The final semantic manifest contains 1,284
-unique declarations, 168 distinct consumers, and 365 direct-root audit labels.
-Its full structural hash is
-`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+Stage 12 appends the nine stable projective-to-input arrows and then the six
+generic real/complex projective-kernel arrows exactly once after that preserved
+Stage 11 prefix. The final semantic manifest contains 1,290 unique declarations,
+169 distinct consumers, and 371 direct-root audit labels. Its full structural
+hash is
+`3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
 The first-1,275 hash remains
 `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
 
@@ -858,16 +880,15 @@ and proved, two partially formalized, and seven unresolved source-only claims.
 The immutable cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 
-The warning-as-error downstream generated-name and consumer files import only
-the public root or the named non-root audit and resolve all manifest targets.
-Lean-source hole, project-axiom, opaque, unsafe, forbidden quotient-selection,
-and heartbeat-override scans are empty through Stage 12. The public root imports
-no diagnostic leaf; artifact and whitespace scans and `git diff --check` pass.
-After a full clean of the shared pinned cache, the baseline build completed
-2,782 jobs. The promoted current tree passes the 2,775-job default build, the
-2,777-job integrated root/audit build, and the 2,787-job exhaustive maintained-
-audit build. The full registry validator and public-root-only downstream smoke
-also pass.
+The warning-as-error generated-name and consumer files import only the public
+root or the named non-root audit and resolve all manifest targets. The expanded
+registry validator passes at `51/936/10`, `1290/169/371`, and seven axes.
+Before the final kernel leaf was added, a full clean of the shared pinned cache
+completed 2,782 jobs. The final post-kernel tree passes the 2,776-job default
+build, the 2,778-job integrated root/audit build, and the 2,788-job exhaustive
+maintained-audit build. Strict compilation passes for the stable kernel leaf,
+non-root audit, public root, and axiom audit. The public-root-only downstream
+smoke also passes.
 
 ## Using the library in a future project
 
@@ -928,6 +949,12 @@ open QuaternionicComputing
 #check Semantics.RealProjectiveActionEq.inputBasisSignEq
 #check Semantics.ComplexProjectiveActionEq.inputBasisPhaseEq
 #check Semantics.QuaternionProjectiveActionEq.inputRightPhaseEq
+#check Semantics.RealRawProjectiveActionEq.globalSignEq
+#check Semantics.ComplexRawProjectiveActionEq.globalPhaseEq
+#check Semantics.RealProjectiveActionEq.globalSignEq
+#check Semantics.ComplexProjectiveActionEq.globalPhaseEq
+#check Semantics.RealCircuitProjectiveActionEq.globalSignEq
+#check Semantics.ComplexCircuitProjectiveActionEq.globalPhaseEq
 #check Semantics.operatorDistance
 #check Semantics.operatorClose_zero_iff_exactOperatorEq
 #check Semantics.ComplexGlobalPhaseClose
@@ -951,6 +978,9 @@ When extending the library:
 - distinguish quaternionic input-right phase, output-left phase, central sign,
   and raw/normalized projective action; never use arbitrary unit-quaternion
   phase as matrix-wide global phase;
+- use `Hierarchy.ProjectiveKernel` for the arbitrary-rectangular real/complex
+  global kernel, and do not transport its commutative cancellation proof to
+  quaternionic matrices;
 - require an explicit `BasisPermutationImplementation` before calling two
   operators or circuits classically basis-equivalent; never substitute the raw
   transition biconditional or generic measurement equality;

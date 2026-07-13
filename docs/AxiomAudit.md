@@ -3,7 +3,7 @@
 ## Executable audit
 
 The audit source is `QuaternionicComputing/AxiomAudit.lean` and imports only
-the public root. It now runs 551 `#print axioms` commands (542 at Stage 11, 536
+the public root. It now runs 557 `#print axioms` commands (542 at Stage 11, 536
 at Stage 10, 494 at Stage 9C, 458 at Stage 9B, 442 at Stage 9A, 422 at Stage 8,
 393 at Stage 7, 354 at Stage 6, 330 at Stage 5, and 305 at Stage 4C).
 Representative endpoint categories include:
@@ -30,7 +30,8 @@ Representative endpoint categories include:
   empty/nonempty no-lift classification;
 - real/complex global operator phase, input-column phase, output-row phase,
   projective action, evaluator-backed circuit relations, and their sided
-  composition and measurement implications;
+  composition and measurement implications, including the arbitrary-
+  rectangular global projective kernel at zero, empty, and rank-one boundaries;
 - quaternionic central sign, input-right phase, output-left phase, raw and
   normalized projective action, evaluator-backed circuit relations, the
   dimension-at-least-two central kernel, and the full-unit-quaternion rank-one
@@ -313,22 +314,25 @@ completes 2,776 jobs. The separate final registry validator resolves all 936
 frozen declaration names and all named proof, consumer, and audit targets; it
 does not infer axiom cleanliness from metadata alone.
 
-Stage 12 adds nine stable projective-to-input hierarchy arrows and selects all
-nine directly in the root audit. `ProjectiveInputAudit.lean` remains non-root
-and selects its complete nine-arrow consumer plus two quaternionic strictness
-boundaries. The root parser now finds 548 nonempty and three axiom-free blocks;
-all three local projective-input blocks are nonempty. Each exact union is the
-same standard three items below. The final default, integrated, and exhaustive-
-audit builds complete 2,775, 2,777, and 2,787 jobs respectively.
+Stage 12 first added nine stable projective-to-input hierarchy arrows. The final
+kernel repair adds six more stable arrows: raw, normalized, and evaluator-backed
+projective action each determine one global sign or phase over real and complex
+scalars. All 15 are selected directly in the root audit.
+`ProjectiveInputAudit.lean` remains non-root and selects the complete nine-arrow
+consumer, the complete six-arrow kernel consumer, and two quaternionic
+strictness boundaries. The expanded root parser has 554 nonempty and three
+axiom-free blocks; all four local projective-input blocks are nonempty. Each
+exact union is the same standard three items below. The final post-kernel
+default, integrated, and exhaustive-audit builds complete 2,776, 2,778, and
+2,788 jobs respectively.
 
-## Current checkpoint result
+## Current post-repair audit result
 
-The final public-root audit completed successfully under Lean 4.31.0 and
-mathlib v4.31.0. Every one of the 551 public-root endpoints, all 15 local
-existing-results endpoints, all three local projective-input endpoints, all 16
-local approximation endpoints, all 20
-local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local Stage 7
-endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
+The expanded public-root audit uses Lean 4.31.0 and mathlib v4.31.0. Every one
+of the 557 public-root endpoints, all 15 local existing-results endpoints, all
+four local projective-input endpoints, all 16 local approximation endpoints,
+all 20 local simulation endpoints, all 33 local Stage 8 endpoints, all 11 local
+Stage 7 endpoints, all seven local Stage 6 endpoints, all 18 local Stage 5 endpoints,
 and the retained local Stage 4C diagnostics individually depends on a subset
 of the following exact three-item union:
 
@@ -340,20 +344,21 @@ No project-specific axiom appears.  Lean-source scans also find no `sorry`,
 `admit`, `sorryAx`, declaration-level `axiom` or `opaque`, or `unsafe`
 declaration in `QuaternionicComputing/`.
 
-Warning-as-error compilation and a parser over every emitted axiom block
-reproduced exactly this three-item union. No additional axiom was inferred
-from a focused build alone. The final parser reads 548 nonempty and three
+The exact parser over every emitted axiom block reproduces this three-item
+union. No additional axiom is inferred from a focused build alone. The
+expanded parser reads 554 nonempty and three
 axiom-free root blocks. The local existing-results audit has
 15 nonempty blocks and no axiom-free block; the local projective-input audit
-has three nonempty blocks and no axiom-free block. The local approximation audit has
-16 nonempty blocks and no axiom-free block. The local simulation audit has 19
+has four nonempty blocks and no axiom-free block. The local approximation audit
+has 16 nonempty blocks and no axiom-free block. The local simulation audit has 19
 nonempty blocks and one axiom-free block; all 20 resolve without an unknown
 identifier or `sorryAx` output.
 
-The Stage 11 and Stage 12 stable leaves and non-root audits pass
-warning-as-error compilation. The full release audit is closed. Finite scalar encoding,
-rounding, accumulated circuit error, approximate compiler construction, and
-runtime remain Goal 3 work rather than missing Stage 10 axioms.
+The Stage 11 and final Stage 12 stable leaves, non-root audits, public root, and
+axiom audit pass warning-as-error compilation. The full release audit is
+closed. Finite scalar encoding, rounding, accumulated circuit error,
+approximate compiler construction, and runtime remain Goal 3 work rather than
+missing Stage 10 axioms.
 
 This result does not mean the developments are constructive or axiom-free in a
 minimal-foundation sense.  It means the completed public results introduce no

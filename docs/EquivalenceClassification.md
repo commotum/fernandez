@@ -511,8 +511,8 @@ also holds over quaternions with output phases on the left, but Stage 8 draws
 no quaternionic channel edge.
 
 Every rejected branch converse in this diagram has checked evidence. Rational
-unitary input and output twists prove the two phase branches incomparable, show that
-input-column phase can change a superposition's output weights, and show that
+unitary input and output twists prove the two phase branches incomparable,
+show that input-column phase can change a superposition's output weights, and show that
 output-row/all-pure agreement can fail channel and all-effect equality. They
 also give both failures from `BasisMeasurementEq` to a coherent input/output
 phase branch. A rational complex coordinate-phase pair and the normalized
@@ -672,6 +672,11 @@ ExactOperatorEq -> central sign -> raw projective <-> normalized projective
                                          v                          v
                                             BasisMeasurementEq
 ```
+
+`ChannelEq` and `AllMeasurementEq` are intentionally absent from this
+arbitrary-matrix diagram. They apply only to bundled square unitaries; on an
+inhabited real or complex space they are equivalent to the common top-line
+global/projective relation. No quaternionic channel API is inferred.
 
 Quaternionic projective action retains only the displayed one-way arrow from
 central sign. The unitary rank-one matrix `quaternionRankOneScalar j` is

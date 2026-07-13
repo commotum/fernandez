@@ -6,9 +6,9 @@ William A. Schneeberger's paper *Quaternionic Computing*
 
 The source extraction is in `Fernandez/fernandez-2003.md`. Goal 1's completed
 paper reconstruction is recorded under `goal-1/`; Goal 2's semantic registry
-is closed under `goal-2/`, where the final post-kernel release rerun is tracked;
-the remaining mathematical frontier is reindexed under `goal-3/`. Lean-changing
-stages follow the authoritative incremental workflow in `BUILD-PLAN.md`.
+and final release verification are closed under `goal-2/`; the remaining
+mathematical frontier is reindexed under `goal-3/`. Lean-changing stages follow
+the authoritative incremental workflow in `BUILD-PLAN.md`.
 
 The project is pinned to Lean 4.31.0 and mathlib v4.31.0.  Once dependencies are
 available, build it with:
@@ -314,8 +314,10 @@ raw/normalized/circuit projective action to input-column phase.
 global-kernel consequences. Their four-endpoint consumer and strictness audit
 remains non-root. The registry does not turn algebraic embeddings, counts, or
 source-only claims into behavioral theorems. The pre-kernel clean release
-evidence passed; the final post-kernel build, smoke, and exact audit reruns are
-tracked by the Stage 12 release gate.
+evidence remains historical. The final post-kernel default, integrated, and
+exhaustive builds pass at `2776/2776`, `2778/2778`, and `2788/2788`; strict
+compilation, the expanded registry, exact axiom parsing, and the downstream
+public-root smoke also pass.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

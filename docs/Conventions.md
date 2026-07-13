@@ -356,11 +356,14 @@ agreement; genuine-effect separation proves the converse for each density
 input. Thus `ChannelEq ↔ AllMeasurementEq` over the generic `RCLike` core.
 
 The real and complex phase kernel uses the existing orientation
-`V = η • U`. One global sign/phase cancels from conjugation without an
-inhabited-index premise. Conversely, channel equality implies normalized and
-raw projective action, and on `[Nonempty I]` either projective relation forces
-one common global scalar. Consequently, for real and complex finite unitaries
-on an inhabited matrix index,
+`V = η • U`. For arbitrary rectangular matrices with a finite input type,
+global sign/phase, raw projective action, and normalized projective action have
+the same algebraic kernel. The converse combines column and row phase witnesses
+and tests sums of basis columns; it handles the zero matrix separately. One
+global sign/phase also cancels from unitary conjugation without an
+inhabited-index premise, while channel equality implies both projective
+relations. The named channel characterizations retain `[Nonempty I]`, so for
+real and complex finite unitaries on an inhabited matrix index,
 
 ```text
 global sign/phase
@@ -372,11 +375,12 @@ global sign/phase
 
 The normalization bridge splits the zero column from nonzero columns and uses
 a positive real inverse square root; no determinant or dimension-at-least-two
-argument occurs. The `Nonempty I` premise is essential for interpreting the
-matrix converse: there is no density input on an empty index, so `ChannelEq`
-is vacuous there. The separate empty-index theorems prove global phase from
-exact equality of the unique empty square matrices, not from that vacuous
-channel relation.
+argument occurs. The `Nonempty I` premise is essential to the physical reading
+of the named channel converse: there is no density input on an empty index, so
+`ChannelEq` is vacuous there. The generic rectangular projective theorem still
+covers an empty index algebraically because the matrices are uniquely empty.
+The separate empty-index channel theorems make that matrix fact explicit rather
+than treating vacuous density quantification as physical evidence.
 
 `UnitaryCircuit 𝕜 W` stores an `OrderedCircuit` and its local-unitarity
 certificate, then derives the `UnitaryOperator` of its evaluator.
@@ -438,6 +442,12 @@ each other. Certified basis-permutation behavior is a separately restricted
 branch. The final
 branch is equivalent to input/output/basis agreement only when both operators
 carry explicit `BasisPermutationImplementation` certificates.
+
+Before the channel specialization, the global/projective portion holds for
+arbitrary rectangular real and complex matrices, including zero, empty, and
+rank-one cases. It does not hold over arbitrary quaternionic matrices: the
+noncommutative scalar system retains the dimension-sensitive central-sign
+kernel and full-unit-quaternion rank-one exception described above.
 
 ## Directional cross-model certificates
 
@@ -720,7 +730,7 @@ than ray equality in general and is not used as the quotient relation.
   declaration occurs exactly once and carries the seven axes `space`, `subject`,
   `inputScope`, `observationScope`, `phase`, `exactness`, and `ancillaPolicy`.
 - `Goal2SemanticAPIManifest.json` is independent of that overlay. It covers the
-  1,284 declarations introduced by Goal 2, with 168 consumers and 365 direct
+  1,290 declarations introduced by Goal 2, with 169 consumers and 371 direct
   root-audit labels; it never expands the frozen Goal 1 cohort.
 - A `proofBearingRelation`, `proofBearingCertificate`, or
   `proofBearingEquality` names the exact theorem inhabiting the stated scope.
@@ -731,8 +741,9 @@ than ray equality in general and is not used as the quotient relation.
 - The registry classifies evidence; it does not create mathematics by label.
   Proof declarations and consumers must resolve, audit endpoints must compile,
   and source-only rows must state both the obstruction and Goal 3 boundary.
-- Stage 11 closed the registry, and Stage 12 subsequently closed the release
-  through clean-build, downstream-import, scan, and independent-review gates.
+- Stage 11 closed the registry. The expanded Stage 12 registry, exact axiom
+  parser, final builds, strict compilation, and downstream public-root smoke
+  all pass.
 
 ## Simulation and abstract resources
 
