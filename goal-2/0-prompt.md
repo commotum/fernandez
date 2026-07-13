@@ -40,10 +40,10 @@ projective-to-input hierarchy arrows and quaternionic converse witnesses. A
 final generic-kernel refinement adds six real/complex raw, normalized, and
 circuit projective-to-global arrows for arbitrary rectangular matrices, with
 no unitarity or nonempty-index assumption. Quaternionic rank one remains the
-explicit full-unit-phase exception. Finish the post-refinement builds, scans,
-validator, downstream smoke, documentation fold-back, and independent release
-verdicts in `goal-2/12-RELEASE.md` without weakening the explicit Goal 3
-boundaries.
+explicit full-unit-phase exception. The post-refinement builds, validator,
+downstream smoke, and axiom parsing now pass. Finish the final documentation
+scans and independent release verdicts in
+`goal-2/12-RELEASE.md` without weakening the explicit Goal 3 boundaries.
 
 At each iteration inspect the actual public API, AxiomAudit, frozen Goal 1
 comparison cohort, separate Goal 2 semantic API manifest, docs, traceability,

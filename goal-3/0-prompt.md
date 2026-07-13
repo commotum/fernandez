@@ -128,8 +128,8 @@ The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
 Stage 11 registry closure is achieved. Goal 2 becomes a satisfied prerequisite
-only after the final Stage 12 post-refinement builds, scans, documentation
-checks, and independent reviews pass.
+only after the remaining independent reviews pass and Stage 12 is formally
+closed.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

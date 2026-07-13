@@ -225,8 +225,8 @@ none may remain excluded merely because it is difficult.
   `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Goal 2 becomes a satisfied prerequisite only after the final post-refinement
-  builds, scans, documentation checks, and independent reviews pass.
+  Goal 2 becomes a satisfied prerequisite only after the remaining independent
+  reviews pass and Stage 12 is formally closed.
   Finite scalar encodings,
   rounding/code-to-value certification, accumulated circuit error, approximate
   compiler/synthesis construction, runtime, and uniformity remain assigned to

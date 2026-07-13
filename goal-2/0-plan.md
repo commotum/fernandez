@@ -304,9 +304,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   rank-one full unit-phase kernel remains the exact obstruction to an analogous
   central-sign arrow. The current tree has 102 Lean sources, 1,290 manifest
   declarations, 169 consumers, 371 direct labels, and 557 root audit commands;
-  `ProjectiveInputAudit` now has four endpoints. Earlier clean and first-repair
-  checks pass; final post-kernel builds, scans, documentation, and independent
-  release verdicts remain.
+  `ProjectiveInputAudit` now has four endpoints. The final default, integrated,
+  and exhaustive builds pass at `2776/2776`, `2778/2778`, and `2788/2788`;
+  the validator, strict compiles, exact axiom parser, and root-only downstream
+  smoke also pass. Final documentation scans and independent release verdicts
+  remain.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

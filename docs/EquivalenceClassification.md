@@ -925,4 +925,5 @@ the promoted tree passed the 2,775-job default build, the 2,777-job integrated
 root/audit build, and the 2,787-job exhaustive maintained-audit build, together
 with warning-as-error direct compilation and a public-root-only downstream
 smoke. Final post-refinement builds, static scans, and independent release
-reviews remain the closure gates recorded in `goal-2/12-RELEASE.md`.
+reviews were then rerun; only the independent release verdicts remain as
+closure gates in `goal-2/12-RELEASE.md`.

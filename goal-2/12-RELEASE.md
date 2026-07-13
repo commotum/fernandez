@@ -25,11 +25,11 @@
   Their collective axiom unions are exactly
   `propext`, `Classical.choice`, and `Quot.sound`.
 - The shared pinned dependency cache was cleaned and the baseline public tree
-  rebuilt at `2782/2782`. Before the generic kernel refinement, the default,
-  integrated, and exhaustive maintained-audit builds passed at `2775/2775`,
-  `2777/2777`, and `2787/2787`; warning-as-error compilation and the root-only
-  downstream smoke also passed. Final post-refinement build evidence remains a
-  `12B-AUDIT` obligation.
+  rebuilt at `2782/2782`. After the generic kernel refinement, the final
+  default, integrated, and exhaustive maintained-audit builds pass at
+  `2776/2776`, `2778/2778`, and `2788/2788`. Warning-as-error compilation of
+  the new stable leaf, local audit, public root, and root audit passes, as does
+  the strengthened root-only downstream smoke.
 - Goal 3 consumes a 101-row traceability table with status counts
   `23/33/26/16/3`, exactly two `closedByGoal2` ray rows, a 45-row residual
   ledger, and a separate exact assignment of unresolved source families
@@ -204,7 +204,8 @@ handoff, then record one final evidence-backed release report.
 - Exact audit parsing reports root `554 + 3 = 557`, existing-results `15 + 0`,
   and projective-input `4 + 0`, each with union exactly `propext`,
   `Classical.choice`, and `Quot.sound`.
-- The first hierarchy repair passed focused, default, integrated, exhaustive,
-  strict, validator, and downstream checks. Final post-generic-kernel builds,
-  scans, documentation checks, and independent release verdicts remain under
-  `12B-AUDIT` and `12C-REPORT`.
+- The final post-kernel default, integrated, and exhaustive builds pass at
+  `2776/2776`, `2778/2778`, and `2788/2788`. The full validator passes at
+  `51/936/10` and `1290/169/371`; strict compilation and the strengthened
+  downstream smoke pass. Final documentation scans and independent release
+  verdicts remain under `12B-AUDIT` and `12C-REPORT`.
