@@ -195,7 +195,7 @@ instead recorded in the separate Goal 2 semantic API manifest.
 | `RealGlobalSignEq` / `ComplexGlobalPhaseEq` | `V = η • U` for one matrix-wide unit sign/phase | Input-column phase, output-row phase, projective action, and simultaneous unitary membership | Not literal equality, channel equality, or cross-model equality |
 | `RealInputBasisSignEq` / `ComplexInputBasisPhaseEq` | One right phase per computational-basis input column | `BasisMeasurementEq`; preservation by a common later operator/circuit | Not all-pure-input agreement or projective action |
 | `RealOutputBasisSignEq` / `ComplexOutputBasisPhaseEq` | One left phase per output row | `BasisMeasurementEq`, `PureInputBasisMeasurementEq`, and preservation by a common earlier operator/circuit | Not projective action or channel equality |
-| `RealProjectiveActionEq` / `ComplexProjectiveActionEq` | Raw output rays agree for every normalized pure input | `PureInputBasisMeasurementEq`; common-later preservation; common-earlier preservation under unitarity | No output-normalization claim and no channel theorem |
+| `RealProjectiveActionEq` / `ComplexProjectiveActionEq` | Raw output rays agree for every normalized pure input | Input-column phase, `PureInputBasisMeasurementEq`, and hence output-row phase; common-later preservation; common-earlier preservation under unitarity | No output-normalization claim and no channel theorem for arbitrary rectangular matrices |
 | Eight `*Circuit*Eq` wrappers | The corresponding relation on `OrderedCircuit.eval` | Equivalence laws, exact-to-global lifts, and chronology-correct congruences | No gate-list, resource, schedule, embedding, or compiler equality |
 
 The checked forward shape is therefore not one total chain:
@@ -205,12 +205,15 @@ ExactOperatorEq
        |
        v
 real/complex global phase
-   /          |           \
-  v           v            v
-input phase  output phase  projective action
-  |           |                 |
-  v           v                 v
-BasisMeasurementEq     PureInputBasisMeasurementEq
+             |
+             v
+      projective action
+         /           \
+        v             v
+ input phase    PureInputBasisMeasurementEq <-> output phase
+        \             /
+         v           v
+          BasisMeasurementEq
 ```
 
 `OperatorPhase.ComplexRealAudit.real_unitary_strictness` and
@@ -242,8 +245,8 @@ and the dimension-sensitive kernel explicit.
 | `QuaternionCentralSignEq` | `V = s • U` for one real scalar with `s*s=1`; this is central `±1`, not arbitrary unit-quaternion phase | Input-right phase, output-left phase, raw and normalized projective action, and simultaneous unitary membership | Not literal equality, arbitrary quaternionic global phase, channel equality, or cross-model equality |
 | `QuaternionInputRightPhaseEq` | One unit quaternion multiplies each input column on the right | `BasisMeasurementEq`; preservation by a common later operator/circuit | Not output-left phase, all-pure-input agreement, projective action, or channel equality |
 | `QuaternionOutputLeftPhaseEq` | One unit quaternion multiplies each output row on the left | `BasisMeasurementEq`, `PureInputBasisMeasurementEq`, and preservation by a common earlier operator/circuit | Not input-right phase, projective action, or channel equality |
-| `QuaternionRawProjectiveActionEq` | Raw output columns lie on the same right ray for every raw input column | Equivalent to normalized projective action for every finite input type; arbitrary compatible common evolution on either side | No output-normalization or channel claim |
-| `QuaternionProjectiveActionEq` | Raw output columns lie on the same right ray for every normalized pure input | `PureInputBasisMeasurementEq`; common-later preservation; common-earlier preservation under unitarity | No output-normalization, channel, or all-effect theorem |
+| `QuaternionRawProjectiveActionEq` | Raw output columns lie on the same right ray for every raw input column | Input-right phase; equivalent to normalized projective action for every finite input type; arbitrary compatible common evolution on either side | No output-normalization or channel claim |
+| `QuaternionProjectiveActionEq` | Raw output columns lie on the same right ray for every normalized pure input | Input-right phase, `PureInputBasisMeasurementEq`, and hence output-left phase; common-later preservation; common-earlier preservation under unitarity | No output-normalization, channel, or all-effect theorem |
 | Four `QuaternionCircuit*Eq` wrappers | Central sign, input-right phase, output-left phase, or normalized projective action on `OrderedCircuit.eval` | Equivalence laws, exact-to-central-sign lift, and chronology-correct congruences | No raw-projective wrapper and no gate-list, resource, schedule, embedding, or compiler equality |
 
 The checked forward shape is:
@@ -253,12 +256,15 @@ ExactOperatorEq
        |
        v
 QuaternionCentralSignEq
-   /          |              \
-  v           v               v
-input-right  output-left   raw projective ⇔ normalized projective
-  |           |                                      |
-  v           v                                      v
-BasisMeasurementEq                    PureInputBasisMeasurementEq
+              |
+              v
+ raw projective <-> normalized projective
+          /                   \
+         v                     v
+  input-right      PureInputBasisMeasurementEq <-> output-left
+         \                     /
+          v                   v
+             BasisMeasurementEq
 ```
 
 The raw/normalized bridge needs only a finite input type. If that type is
@@ -277,11 +283,16 @@ projective triviality of `quaternionRankOneScalar q` is equivalent to
 `Quaternion.normSq q = 1` and to its unitarity. The checked `q = j` instance is
 unitary and projectively trivial but not central-sign equivalent.
 
-`QuaternionAudit.lean` is non-root and consumes all three public leaves. Its
+`QuaternionAudit.lean` is non-root and consumes all three original public
+leaves. Its
 order-sensitive composition checks, generic bridge consumer, dimension-two
 kernel consumer, rank-one family, and `j` witness are diagnostics rather than
 additional public semantics. The generic public bridge proof, not a separate
-audit specialization, covers the empty-input zero-column boundary. Stage 3C
+audit specialization, covers the empty-input zero-column boundary. The later
+`ProjectiveInputAudit.lean` supplies explicit all-ones column/row twists:
+input-right and output-left phase are incomparable, and neither one-sided
+relation implies projective action, while the new public arrows prove the
+reverse projective-to-input implication. Stage 3C
 adds no channel or all-measurement relation; those remain owned by later Goal
 2 stages.
 
@@ -473,7 +484,7 @@ counterexamples and consumes the already complete certified-classical layer.
 | Finite distributions versus events | Distribution equality is iff equality of every singleton event and iff equality of every finite event. | Empty outcome types admit no finite distribution; the audit proves `IsEmpty` rather than assuming an impossible value. |
 | Finite distributions versus deterministic postprocessing | Distribution equality is iff equality of every pushforward to a finite target in the same universe. | The converse uses the identity target. Forward preservation remains universe-polymorphic. No randomized postprocessor or runtime claim is included. |
 | Rays versus basis outcomes | Exact representatives imply equal ray constructors, and ray-constructor equality implies basis-weight equality for real, complex, and quaternionic normalized states. | Equal weights, distributions, events, and pushforwards do not imply ray equality. Rational complex and existing quaternionic witnesses prove the failure. |
-| Real/complex unitary kernel | On inhabited finite spaces, global sign/phase, projective action, `ChannelEq`, and `AllMeasurementEq` are pairwise connected by named iff theorems. | Input-column phase and output-row/all-pure agreement are weaker incomparable branches. The inhabited premise remains on the matrix kernel. |
+| Real/complex unitary kernel | On inhabited finite spaces, global sign/phase, projective action, `ChannelEq`, and `AllMeasurementEq` are pairwise connected by named iff theorems. Projective action also implies input-column phase and output-row/all-pure agreement. | The input-column and output-row branches are weaker and incomparable with each other; neither implies projective action. The inhabited premise remains on the matrix kernel. |
 | Certified classical behavior | The nine matrix and nine circuit `SameBasisBehavior` iff theorems are consumed unchanged. | Every result requires supplied permutation certificates. Raw basis-transition equivalence remains vacuous on explicit nonmonomial unitaries. |
 
 The checked complex-unitary graph is therefore
@@ -483,11 +494,12 @@ ExactOperatorEq
         |
         v
 ComplexGlobalPhaseEq <-> ProjectiveActionEq <-> ChannelEq <-> AllMeasurementEq
-       /                                      \
-      v                                        v
-InputBasisPhaseEq        OutputBasisPhaseEq <-> PureInputBasisMeasurementEq
-      \                                        /
-       +----------------> BasisMeasurementEq <-+
+                              /       \
+                             v         v
+             InputBasisPhaseEq       PureInputBasisMeasurementEq
+                       \               <-> OutputBasisPhaseEq
+                        v                       v
+                         BasisMeasurementEq
 ```
 
 The real graph replaces complex phase by a sign. The output-row/all-pure iff
@@ -599,6 +611,48 @@ record the Stage 10 refinement; neither rewrites the pre-retrofit discovery
 boundary. Finite scalar encoding, rounding, code-to-value error, accumulated
 circuit budgets, approximate compiler/synthesis construction, runtime, and
 uniformity remain Goal 3 work under C-024.
+
+## Stage 12 hierarchy completion
+
+The final semantic review found one missing valid covering arrow: equality of
+operator action on every right ray necessarily fixes each computational-basis
+column up to its own correctly sided phase. The stable
+`Semantics/Hierarchy/ProjectiveInput.lean` leaf proves this at all three API
+levels:
+
+- raw real, complex, and quaternionic projective action implies the matching
+  input-column sign/right-phase relation;
+- normalized projective action implies the same result through the already
+  proved raw/normalized bridge; and
+- all three chronological-circuit projective wrappers imply the corresponding
+  evaluator input-column relation.
+
+The proof specializes raw projective action to `Pi.single x 1`, symmetrizes the
+state phase witness, and reads off the complete `x`th output column. It needs
+only a finite input type: no unitarity, nonempty index, channel, schedule,
+resource, or cross-model assumption is used.
+
+The non-root `ProjectiveInputAudit.lean` closes the converse boundaries over
+explicit `Bool × Bool` quaternionic matrices. A constant-one matrix with
+distinct `i`/`j` column phases has input-right phase and basis agreement but
+has neither output-left phase, all-pure-input agreement, nor projective action.
+The row-phased analogue has output-left phase and all-pure-input agreement but
+has neither input-right phase nor projective action. Thus the final graph is:
+
+```text
+raw projective <-> normalized projective
+          /                   \
+         v                     v
+  input-column       PureInputBasisMeasurementEq <-> output-row
+         \                     /
+          v                   v
+             BasisMeasurementEq
+```
+
+Input-column and output-row phase remain incomparable with each other; each is
+strictly weaker than projective action. This correction adds a previously
+missing implication and witnesses its converses without changing any paper-row
+disposition or the frozen Goal 1 cohort.
 
 ## Final checked registry overlay
 
