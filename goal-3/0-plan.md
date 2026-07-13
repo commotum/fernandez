@@ -1,1208 +1,756 @@
-# Goal 3 — Close the Remaining *Quaternionic Computing* Frontier
+# Goal 3 — Verified Computational and Operational Completion
+
+Shorthand: `QC-COMPLETE`
+
+## Scope Reset
+
+This scaffold supersedes the previous 20-stage Goal 3 plan. Goal 2 is complete
+and has already supplied the semantic distinctions needed to state the
+remaining mathematics correctly. Goal 3 now has one focused purpose:
+
+> Complete the reusable computational and operational core of *Quaternionic
+> Computing*: turn the existing exact finite simulations into encoded,
+> approximate, synthesized, resource-aware, and uniform results, and add the
+> minimum native quaternionic mixed-state/channel theory needed to state and
+> verify operational simulation claims.
+
+The paper's speculative questions about protocols, physicality, multipath
+computation, and alternative scalar algebras are not silently discarded. They
+are an explicit research frontier, but settling every such open program is no
+longer allowed to block the core Goal 3 release. Stage `12-FRONTIER` must give
+each one an exact model requirement, obstruction, dependency path, and future
+theorem target.
+
+This is an intentional scope change authorized by the request to rebuild Goal
+3 after reviewing whether the old scaffold should still be pursued. It is not
+a claim that the excluded research questions have been solved.
 
 ## Big-Picture Objective
 
-Starting from the completed Goal 1 release and the required Goal 2 semantic-
-equivalence retrofit, tackle every paper item that remains not fully proved.
-Before Goal 2, the inventory has 47 such rows.  Goal 2 owns the two ray rows
-`FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY`, so the expected Goal 3
-baseline is 45 rows: 26 partially formalized, 16 intentionally excluded, and 3
-unresolved.  Stage 1 must recompute this baseline from the actual post-Goal-2
-traceability state rather than trusting the forecast.  Close ordinary
-formalization debt with proofs, corrected theorems, counterexamples, or exact
-reductions; recover the paper's hard claims when they are true; and turn its
-underspecified or genuinely open questions into precise models with
-substantive constructive, negative, or underdetermination results.
+The completed library already proves exact finite real/complex/quaternionic
+state, operator, circuit, measurement, and directional simulation results. It
+does not yet prove that those simulations are executable on finite input,
+stable under rounding, compiled from a constructed finite gate library,
+uniform in input size and precision, or efficient in a machine model. It also
+lacks native quaternionic densities, effects, partial trace, Kraus-style
+channels, and the operational comparisons needed for the paper's mixed-state
+and information-theoretic language.
 
-“Tackle everything” does not mean relabeling an open question as a theorem or
-pretending to settle an entire research field.  It means that no row remains
-untouched or hidden: every row receives an explicit model, target, dependency
-path, attempted resolution, checked evidence, and honest residual frontier.
+Goal 3 closes that gap. It must:
 
-Completion requires every post-Goal-2 partial or unresolved row—expected to be
-29—to leave those statuses through a proved positive result, a proved
-corrected/negative result, or a formal underdetermination theorem that settles
-what follows from the source's assumptions.  The 16 expected excluded rows
-must each gain
-either a proved/wrapped external result or a precise formal investigation with
-at least one nontrivial theorem, counterexample, or underdetermination result;
-none may remain excluded merely because it is difficult.
+1. freeze the exact remaining work against the completed Goal 2 release;
+2. resolve the central algebraic and ordering/resource proof gaps;
+3. construct the missing quaternionic mixed-state and channel layer;
+4. define executable finite encodings, rounding, compilation, and resource
+   models;
+5. prove a complete exact-to-approximate-to-uniform simulation theorem, or the
+   strongest useful corrected theorem supported by checked obstructions;
+6. turn every remaining interpretive or open source question into a precise,
+   traceable research problem without presenting it as a proved result; and
+7. publish a clean, reusable, audited release.
+
+If a paper claim is false or underspecified, success means a decisive
+counterexample, corrected theorem, or formal underdetermination result—not a
+weakened statement presented under the original name.
 
 ## Authoritative Inputs
 
-- `Fernandez/fernandez-2003.md` and `Fernandez/images/` are the paper source.
-- `docs/Traceability.md` is the 101-row source-to-Lean inventory.
-- `docs/Corrections.md` records the 27 current corrections and their effects.
+- `Fernandez/fernandez-2003.md` and `Fernandez/images/` are the local paper
+  source.
+- `docs/Traceability.md` is the canonical 101-row paper-to-Lean inventory.
+- `docs/Corrections.md` records the 27 current source and scope corrections.
 - `docs/ReleaseReport.md`, `docs/Architecture.md`, and `docs/Conventions.md`
-  describe the verified Goal 1 baseline.
-- `goal-1/0-plan.md` and its completed stage reports are prior evidence, not
-  work that should be repeated.
-- Completed `goal-2/0-plan.md` and its stage reports are a hard prerequisite.
-  Goal 3 must reuse its equality, phase, measurement, channel, embedded-
-  simulation, and approximation vocabulary rather than defining competitors.
-- `docs/EquivalenceClassification.md`, the frozen Goal 1 comparison cohort,
-  `docs/Goal2ClassificationRegistry.json`, and the Goal 2 semantic API manifest
-  are authoritative semantic inputs once Goal 2 completes. The final registry's
-  seven unresolved source-only families are a separate no-skip boundary ledger;
-  they do not change the immutable 47-row traceability cohort count.
-- Repository-root `BUILD-PLAN.md` is authoritative for every Lean-changing
-  stage.  Its narrow-module, import-hygiene, focused-build, adjacent-consumer,
-  boundary-check, reporting, and fold-back rules are goal requirements.
+  describe the released library.
+- `goal-1/` is the completed paper reconstruction.
+- `goal-2/` is the completed semantic-equivalence retrofit and a hard
+  prerequisite. Goal 3 must reuse its relations rather than create competing
+  local predicates.
+- `docs/Goal1ComparisonCohort.json` and its sidecar checksum are immutable
+  historical inputs.
+- `docs/Goal2ClassificationRegistry.json` and
+  `docs/Goal2SemanticAPIManifest.json` are the checked Goal 2 classification
+  and public semantic surfaces.
+- Repository-root `BUILD-PLAN.md` is mandatory for every Lean-changing stage.
+- Later primary literature may be used to repair, prove, or refute source
+  claims, but every imported theorem must be independently restated with the
+  assumptions required by the local model.
+
+## Current Facts and Assumptions
+
+- Lean is pinned to 4.31.0 and mathlib v4.31.0 at commit
+  `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
+- Goal 2 Stages 1–12 are complete. Its final release has 102 Lean sources
+  including the public root, 1,290 semantic-manifest declarations, 169
+  resolving consumers, 371 direct audit labels, and 557 root axiom commands.
+- The Goal 2 validator passes at 51 families, 936 frozen declarations, ten
+  empty families, 1,290 semantic declarations, 169 consumers, 371 direct
+  audits, and seven semantic axes.
+- The frozen cohort checksum is
+  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
+  The final Goal 2 semantic-manifest hash is
+  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
+- Goal 2's final root/local axiom union is exactly `propext`,
+  `Classical.choice`, and `Quot.sound`. No project-specific axiom or proof hole
+  is present in completed modules.
+- The current 101-row traceability disposition is 23 proved as stated, 33
+  corrected and proved, 26 partially formalized, 16 intentionally excluded,
+  and 3 unresolved.
+- Before Goal 2 there were 47 non-fully-proved rows. Goal 2 closed
+  `FER03-D01-REBIT` and `FER03-FND-COMPLEX-STATE-RAY`, leaving a forecast of 45
+  rows: 26 partial, 16 excluded, and 3 unresolved.
+- By default, all 29 partial or unresolved rows are Goal 3 core obligations.
+  Moving one to the research frontier requires a checked impossibility or
+  underdetermination result, or an explicit user-approved scope change.
+- The 16 already excluded rows remain mandatory frontier-accounting items but
+  are not all required to become full formal developments in Goal 3.
+- Seven source-only semantic families, `EQC-045` through `EQC-051`, remain a
+  separate no-skip ledger. They must be assigned to a core stage or the
+  research frontier without changing the 47/45 traceability arithmetic.
+- The previous Goal 3 contained only `0-plan.md`, `0-loop.md`, and
+  `0-prompt.md`; no feature stage had begun. Replacing that scaffold therefore
+  discards no completed Goal 3 implementation evidence.
+- `docs/EquivalenceClassification.md` still names three owners from the
+  superseded scaffold: old Stages 12/13 for `EQC-048`, old Stage 14 for
+  `EQC-050`, and old Stages 14/16 for `EQC-051`. Stage 1 must update those
+  cross-document owner labels to new Stages 10, 11, and 5/11 only after the
+  executable worklist confirms the mapping. They are known handoff metadata,
+  not current Goal 3 stage names.
+
+Stage `1-REBASE` must recompute every count and assignment from the actual
+files. The numbers above are release inputs, not permission to skip the
+executable rebaseline.
 
 ## Non-Negotiable Constraints and No-Cheating Rules
 
-- Never use `sorry`, `admit`, `sorryAx`, an unjustified axiom, a vacuous
-  hypothesis, or a definition engineered to make a target tautological.
-- Do not close a row by changing its label.  Closure evidence must address the
-  source claim or a clearly documented strongest justified correction.
-- A conditional theorem does not prove existence of its hypotheses.  Supplied
-  compilers, schedules, density certificates, dense-generator certificates,
-  and cost bounds must not be presented as constructed algorithms.
-- Keep exact algebra, finite encodings, approximation, computability,
-  uniformity, runtime, and complexity-class claims as separate layers.
-- Never infer exact equality from rounded data or call a rounded matrix
-  unitary without a proof or a certified projection/compilation step.
-- Keep quaternionic columns as right modules and quaternionic state/ray phase
-  on the right. In square unitary dimension at least two, genuine operator
-  projective phase is limited to the proved central real-sign kernel; rank one
-  instead has the proved full unit-quaternion family. Recheck dimensions,
-  sector order, multiplication order, adjoints, and chronological evaluation
-  at every abstraction boundary.
-- Do not use commutative tensor identities over quaternions.  Physical routing
-  gates must be emitted and counted; semantic reindexing is not a zero-cost
-  routing implementation.
-- Do not put an order on `ℍ` to reuse real/complex positive-semidefinite APIs.
-  Native quaternionic mixed states require a real quadratic-form or checked
-  complexification-based positivity convention.
-- A finite exact gate library and an approximately dense library are different
-  notions.  Precision dependence and compilation cost must be explicit.
-- Noncomputable mathematical definitions may support proofs, but executable
-  encoders, schedulers, compilers, and runtime theorems must have executable
-  definitions and extraction/evaluation checks.
-- The existing product-input ordering witness has equal computational-basis
-  weights.  It is not evidence of signaling, entanglement, bit commitment, or
-  a physical causality violation without the missing operational definitions.
-- A source question is not completed by defining a structure.  Its stage needs
-  a constructive theorem, decisive counterexample/no-go result, or formal
-  proof of underdetermination in the declared model.
-- Preserve the stable Goal 1 APIs.  Put experimental or heavy research
-  infrastructure in narrow leaves and promote it to the public root only after
-  it has a real downstream theorem and an axiom audit.
-- Do not start Goal 3 implementation before Goal 2 is complete and its clean
-  release evidence is recorded.  Do not duplicate or bypass Goal 2 relations
-  with ad hoc local predicates.
-- Keep Goal 2's cross-model relations directional and retain every encoder,
-  decoder, and top-sector policy. A representative `LinearEquiv` or `Equiv` is
-  not ordinary ray, circuit, channel, product-state, or all-effect equivalence.
-- Record every new source correction and all transitive effects immediately.
-  Preserve unrelated user changes and never track generated build artifacts.
+- Never use `sorry`, `admit`, `sorryAx`, an unjustified axiom, an impossible or
+  vacuous premise, or a definition engineered to make the target tautological.
+- Do not close a traceability row by changing its label. Closure evidence must
+  address the source claim or a clearly documented strongest correction.
+- Preserve Goal 2's distinctions among exact equality, state ray, global
+  phase, sided basis phase, projective action, basis behavior, measurement,
+  channel behavior, cross-model simulation, and approximation.
+- Quaternionic state and input-column phase multiply on the right;
+  output-row phase multiplies on the left. Do not introduce an arbitrary
+  unit-quaternion operator phase. Preserve the proved rank-one exception and
+  central-sign higher-dimensional kernel.
+- Do not use commutative tensor identities over quaternions. Every tensor,
+  placement, adjoint, trace, and multiplication order must be checked.
+- Do not impose an order on `ℍ` to reuse real/complex positive-semidefinite
+  APIs. Native quaternionic positivity must use a justified real quadratic
+  form, Hermitian spectral convention, or proved complexification criterion.
+- A semantic reindexing is not a physical swap network. Routing gates must be
+  emitted, evaluated, and counted.
+- A supplied schedule, compiler, synthesis certificate, density certificate,
+  or universal-set certificate is data—not an existence theorem or algorithm.
+- Executable encoders, schedulers, compilers, and uniform generators must be
+  computable definitions with evaluation tests. Noncomputable mathematics may
+  support proofs but cannot stand in for runtime construction.
+- Rounded entries are not automatically unitary. Any finite-precision path
+  must include a proved projection, normalization, or synthesis step and must
+  keep value error separate from code and runtime bounds.
+- Fixed-budget approximation is not an equivalence relation. Triangle and
+  composition theorems must expose accumulated budgets.
+- A finite exact gate set, an approximately universal set, a uniform compiler,
+  and an efficient compiler are four separate claims.
+- A basis-only or one-input witness is not channel, signaling,
+  entanglement, cryptographic, or complexity-class evidence.
+- Do not infer physicality or a claim about Nature from a chosen mathematical
+  definition. Such conclusions belong in the frontier unless a conditional
+  theorem states every operational premise explicitly.
+- Preserve the stable Goal 1/Goal 2 public APIs. New experimental machinery
+  begins in narrow leaves and is promoted only after it has a real consumer,
+  documentation, and axiom audit.
+- Keep runtime/API, proof-side, diagnostic, fallback, and temporary modules
+  distinct as required by `BUILD-PLAN.md`.
+- A blocked proof must become a smaller proof obligation, counterexample
+  search, alternate construction, or explicit frontier item. It may not simply
+  disappear from the ledger.
 
-## Current Facts
+## Required Closure Outcomes
 
-- Goal 1 pins Lean 4.31.0 and mathlib v4.31.0 at commit
-  `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f`.
-- The pre-Goal-2 Goal 1 baseline has 44 Lean sources. Clean public-root and
-  explicit audit builds pass; 186 audited endpoints use only `propext`,
-  `Classical.choice`, and `Quot.sound`.
-- The traceability checksum is exactly 101 rows: 21 proved as stated, 33
-  corrected and proved, 28 partially formalized, 16 intentionally excluded,
-  and 3 unresolved.
-- Those counts are the pre-Goal-2 baseline.  Goal 2 is expected to close the two
-  ray rows and may legitimately settle additional semantic obligations; Goal 3
-  Stage 1 must derive its actual worklist and counts after that fold-back.
-- Goal 2 Stage 4C has now closed exactly those two transferred rows as proved
-  as stated. The current traceability disposition is therefore 23 proved as
-  stated, 33 corrected and proved, 26 partially formalized, 16 intentionally
-  excluded, and 3 unresolved. The expected 45-row Goal 3 worklist is unchanged,
-  but Stage 1 must still recompute it against the completed Goal 2 release.
-- Goal 2 Stages 1--12 are complete: its inventory, exact/measurement core,
-  normalized representative phase layer, real/complex operator-phase layer,
-  quaternionic operator-phase classification, and normalized ray-quotient core
-  are complete. `RealRay`, `ComplexRay`, and `QuaternionRay` have exact
-  scalar-correct quotient equality and exact nonempty/empty index boundaries.
-  Goal 2 Stage 4B has also descended basis distributions, finite events,
-  deterministic pushforwards, supplied unitary evolution, and locally-unitary
-  chronological-circuit evolution for all three scalar systems, with exact
-  identity and composition order laws. Stage 4C now adds the exact
-  complex-to-real embedding-orbit boundary: `ComplexRay` is equivalent to
-  `RealSectorOrbit`, the bottom marginal distribution is preserved, and
-  canonical-column descent to ordinary `RealRay` exists only on an empty
-  index. Correction C-027 records that rays precede representative embeddings.
-  Therefore `FER03-D01-REBIT` and
-  `FER03-FND-COMPLEX-STATE-RAY` are proved as stated and `closedByGoal2`. The
-  quaternionic layer proves the side-correct five-relation vocabulary,
-  raw/normalized bridge, dimension-at-least-two central-sign kernel, and full
-  unit-quaternion rank-one exception. Stage 5 adds certified classical
-  computational-basis behavior for real, complex, and quaternionic matrices
-  and chronological circuits: equality is equality of proved all-column
-  permutations, never the vacuous raw transition biconditional. On the
-  certified class it is equivalent to scalar-correct input phase, output
-  phase, and basis measurement; the existing preparation circuit implements
-  the all-input XOR permutation while its known-ground-input theorem remains
-  separately scoped. Stage 6 adds the finite real/complex physical core:
-  positive-semidefinite trace-one densities, Loewner-interval effects,
-  real-valued Born probabilities in `[0,1]`, exact `U * ρ * Uᴴ` evolution,
-  pure/basis compatibility, and separation by genuine physical effects.
-  Stage 7 adds bundled real/complex-style unitary operators and certified
-  chronological circuits. Its same-space `ChannelEq` compares complete
-  evolved densities for every input, `AllMeasurementEq` quantifies over every
-  genuine effect, and the two relations are equivalent. On explicitly
-  inhabited real and complex matrix spaces, global sign/phase, raw and
-  normalized projective action, channel equality, and all-effect agreement
-  have exact iff characterizations; the evaluator-backed circuit forms retain
-  chronological append order and cover zero-wire circuits without a redundant
-  nonempty premise. Stage 8 adds the checked implication/strictness hierarchy:
-  all-pure-input basis measurement is exactly output-row sign/phase for
-  rectangular real, complex, and quaternionic matrices with finite input
-  indices; finite-distribution equality is exactly all finite events and all
-  same-universe finite deterministic pushforwards; and the real/complex
-  global/projective/channel/all-effect graph is explicit. Equal basis
-  distributions still do not recover rays, and output-row phase still does not
-  recover channels. Stage 9A now adds 38 generic directional cross-model
-  declarations and 20 concrete representative-encoding declarations. The
-  generic API keeps encoders, decoders, observation maps, and `Top`/`Input`
-  policy types explicit; `ExactStateEncoding` is only a left-inverse certificate
-  on the encoder image. For all four canonical columns, separate right inverses
-  prove the stronger raw `ℝ`-linear equivalences and normalized-representative
-  `Equiv`s. These do not identify ordinary ray spaces: complex realification
-  still uses `RealSectorOrbit`. Nor do normalized `Rebit`/`Qubit` coefficient
-  parameters certify product top/bottom states; the existing non-product
-  witness refutes that reading. Stage 9A adds no paper correction.
-  Stage 9B now adds 16 proof-bearing wrappers for all eleven assigned frozen
-  operator/state/reindex/schedule/compiler families. Raw coefficient pairs are
-  not pure/product top states; Equation 63 remains a named reindexing rather
-  than a circuit translator; schedules and exact compilers remain supplied
-  data, with no schedule choice/independence or compiler existence/synthesis/
-  runtime conclusion. Stage 9B also adds no paper correction.
-  Stage 9C now adds explicit full-target one- and two-added-wire decoders,
-  including equality of the one-wire distribution decoder with deterministic
-  pushforward by `tailBits`. It adds 18 semantic outcome wrappers allocated as
-  `2 + 4 + 4 + 4 + 4`: two representative raw pointwise results, then four
-  each for complex-to-real, fixed-order quaternion-to-complex, supplied-
-  schedule quaternion-to-complex, and composed quaternion-to-real simulation.
-  Two infrastructure aggregates separately allocate the ten decoder and eight
-  postprocessing declarations. The composed quaternion-to-real decoder removes
-  the outer realification wire first and the inner complexification wire
-  second. Raw pointwise wrappers require no local unitarity; normalized
-  distribution, event, and deterministic-pushforward results require the
-  appropriate local-unitarity certificate. Schedules remain supplied data.
-  Stage 9C does not add product or mixed-top semantics, partial trace, channels,
-  randomized algorithms, resource bounds, or compiler/schedule construction,
-  and it adds no paper correction.
-  Stage 10 now supplies the rigorous semantic metric boundary. Its 169 stable
-  declarations cover scoped real/complex Euclidean induced operator distance,
-  native underlying-real quaternionic operator distance, directional mapped
-  comparison, real/complex global phase and quaternion central-sign budgets,
-  correctly right-sided normalized state-ray budgets, half-L1 total variation,
-  normalized output/event/pushforward bounds, zero-budget exact bridges, and
-  exact fixed-budget strictness witnesses. It introduces no quaternion matrix
-  norm instance or arbitrary unit-quaternion operator phase.
-  Stage 11 adds six stable strongest-scope existing-result wrappers and a
-  non-root 15-endpoint audit. Its final overlay gives all 51 frozen comparison
-  families and all 936 declarations exactly one checked disposition, including
-  explicit axes for all ten empty families. The maintained validator and all
-  generated Lean name/evidence/consumer checks pass. Stage 12 closes the final
-  hierarchy gaps with nine real/complex/quaternionic raw, normalized, and
-  circuit projective-to-input phase arrows and six generic real/complex
-  projective-to-global arrows. The latter need no unitarity, square-matrix,
-  nonempty-index, or finite-output assumption. Quaternionic rank one remains
-  the explicit full-unit-phase obstruction to a central-sign arrow. The current
-  completed Goal 2 release has 102 Lean sources including the public root,
-  1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
-  manifest audit labels, 557 root axiom commands, and exact root/local axiom
-  union `propext`, `Classical.choice`, and `Quot.sound`. The root parser reports
-  554 nonempty plus three axiom-free
-  blocks; the existing-result and projective-input parsers report 15 and four
-  nonempty blocks. Before the generic kernel refinement, clean/default/
-  integrated/exhaustive builds completed 2,782, 2,775, 2,777, and 2,787 jobs.
-  The final default, integrated root/audit, all-15-audit-module, and combined
-  root/audit/all-maintained targets complete 2,776, 2,778, 2,788, and 2,792
-  jobs.
-  Stage 11 corrected two Stage 10 strictness entries that were
-  genuinely printed in the root audit but mislabeled transitive in manifest
-  metadata. After the final stale-pending-label repair, the authoritative
-  first-1,269 structural hash is
-  `181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399`
-  and the first-1,275 hash is
-  `41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`;
-  the full-1,290 hash is
-  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`;
-  the frozen Goal 1 cohort checksum remains
-  `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Goal 2 is a satisfied prerequisite: all independent reviews pass and Stage
-  12 is formally closed.
-  Finite scalar encodings,
-  rounding/code-to-value certification, accumulated circuit error, approximate
-  compiler/synthesis construction, runtime, and uniformity remain assigned to
-  Goal 3 rather than Stage 10. Native
-  quaternionic density/channel semantics, partial trace, Kraus maps,
-  instruments, mixed-top or phase-kickback semantics, cross-model channel
-  equality, and randomized/resource upgrades also remain Goal 3 work.
-- The main scalar, matrix, state, placement, ordered-circuit, exact simulation,
-  outcome, Equation 63, and finite resource results are already complete.
-- Mathlib has projectivization and alternating-map infrastructure, matrix
-  positive-semidefiniteness over ordered/`RCLike` scalars, permutation
-  matrices, and Turing-machine definitions.  It does not provide a ready
-  quantum density/partial-trace library, Pfaffian theorem, quantum-channel
-  library, or BQP framework.
-- Mathlib's `LinearAlgebra/SymplecticGroup.lean` still lists determinant one as
-  a TODO and proves only that the determinant is a unit.
-- The determinant sign is nevertheless expected to be provable algebraically:
-  wedge the canonical symplectic 2-form to a nonzero top alternating form,
-  combine symplectic preservation with the determinant action on top forms,
-  and cancel.  A Pfaffian covariance proof is the fallback.
-- The paper's missing logarithmic-depth construction has a concrete candidate.
-  A two-rail Bell-basis splitter can intertwine one logical real complex
-  structure `J` with `J` acting on either output rail.  A balanced tree can
-  supply one phase rail per gate occurrence and later uncompute it.  This must
-  be checked against the library's exact sign convention; it is phase-reference
-  encoding, not cloning.
-- The advertised bounded generic synthesis is false or underspecified under
-  standard readings.  A finite discrete library has only finitely many words
-  under a fixed length bound, while a paired diagonal symplectic phase family
-  already gives infinitely many targets inside the complexification image.  A
-  corrected constructive synthesis is expected to scale like the dense matrix
-  size, not `O(2^d)` without further structure.
-- Exact finite universality is impossible for a continuous unitary group;
-  approximate/dense universality is the meaningful interpretation.  A finite
-  quaternionic dense generator remains a substantial mathematical target, not
-  a consequence of the existing conditional compiler interface.
-- The ten explicit source questions, bit-commitment sketch, physicality prose,
-  and destructive-interference explanation are research prompts rather than
-  supplied theorem statements.  They require new operational models.
+Every core row must end in exactly one of these evidence-backed outcomes:
 
-## Permitted Closure Outcomes
+- **proved as stated**;
+- **corrected and proved**;
+- **refuted**, with a Lean counterexample and strongest useful replacement; or
+- **formally underdetermined**, with two checked models satisfying the stated
+  assumptions but disagreeing on the claim, or an equivalent precise
+  independence result.
 
-Every row must finish Goal 3 with one of the following evidence-backed
-outcomes, recorded in traceability and the new closure ledger:
+`partially formalized` and `unresolved` are not terminal Goal 3 core outcomes.
+A core row may move to the research frontier only under the scope-change rule
+above. Frontier rows retain their canonical traceability status until a future
+goal supplies the missing mathematics.
 
-1. **Proved:** a faithful formal statement is proved.
-2. **Corrected and proved:** an error or missing hypothesis is documented and
-   the strongest useful corrected result is proved.
-3. **Refuted:** a faithful formal reading is disproved by a theorem or checked
-   counterexample, with a nearby correct result supplied.
-4. **Resolved under explicit assumptions:** both the assumptions and the
-   theorem are formal, and no existence/runtime conclusion is inferred beyond
-   them.
-5. **Formally underdetermined:** two incompatible extensions satisfy all
-   source-supplied constraints, proving that the prose does not determine a
-   unique mathematical claim.
-6. **Open after a completed case study:** allowed only for a genuine source
-   research question that was already intentionally excluded, after a precise
-   model and a nontrivial formal result have been delivered.  This outcome may
-   not be used for any row that is partial/unresolved at the post-Goal-2 Goal 3
-   baseline.  The
-   remaining question must receive a new frontier ID and exact theorem target.
+## Provisional Core Ownership
 
-The six labels above are closure-ledger outcomes, not silent replacements for
-the existing five canonical traceability statuses.  Stage 1 must encode this
-mapping: an originally partial/unresolved row may finish only as **proved as
-stated** or **corrected and proved**, with refutation, conditional repair, or
-underdetermination recorded inside the status narrative and backed by a Lean
-theorem.  An originally excluded research question may remain **intentionally
-excluded** only after its required formal case study; any residual open theorem
-gets a new ID.  The checker must enforce this policy.
+Stage `1-REBASE` must verify this assignment against the canonical
+traceability table. It contains each of the 29 default core rows exactly once:
 
-## Exact Closure Ledger
+| Stage | Default core rows | Count |
+|---|---|---:|
+| `2-ALGEBRA` | `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP`; `FER03-FND-REAL-PRESERVERS-ORTHOGONAL` | 2 |
+| `3-ORDERING` | `FER03-FND-ARBITRARY-WIRE-ROUTING`; `FER03-R-TOPO-SORT-COMPLEXITY`; `FER03-Q-CUT-POSET` | 3 |
+| `4-QDENSITY` | `FER03-R-PARTIAL-TRACE-BLOCK-SUM`; `FER03-R-ARBITRARY-TOP-REBIT`; `FER03-Q-ARBITRARY-TOP-QUBIT` | 3 |
+| `5-QCHANNELS` | `FER03-INT-FREE-NONLOCAL-CORRELATION` | 1 |
+| `6-FANOUT` | `FER03-R-REAL-GATE-OPTIMIZATION`; `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | 2 |
+| `7-ENCODING` | `FER03-R-LOCAL-GATE-COST`; `FER03-R-PREPROCESSING-COST`; `FER03-RES-UNIFORM-CIRCUIT-WITHOUT-UNIVERSAL-SET`; `FER03-RES-EXPLICIT-MATRIX-ARITY` | 4 |
+| `8-ERROR` | `FER03-FND-FINITE-PRECISION` | 1 |
+| `9-SYNTHESIS` | `FER03-RES-GENERIC-DECOMPOSITION`; `FER03-RES-CONSTANT-D`; `FER03-RES-ARBITRARY-D-OVERHEAD` | 3 |
+| `10-UNIFORMITY` | `FER03-D02-REAL-ALGORITHM`; `FER03-D05-QUATERNIONIC-ALGORITHM`; `FER03-R-COMPUTATIONAL-UNIVERSALITY`; `FER03-RES-QUATERNIONIC-UNIVERSAL-SET`; `FER03-RES-ABSTRACT-LITTLE-OVERHEAD`; `FER03-INT-PREFERRED-PATH-BQP` | 6 |
+| `11-STRUCTURE` | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT`; `FER03-INT-NOT-NPLUS1-REBITS` | 4 |
+| **Total** | 26 partial plus 3 unresolved | **29** |
 
-The table assigns the expected 45 post-Goal-2 rows exactly once.  Stage 1 must
-replace this forecast with the actual post-Goal-2 worklist and verify its
-checksum mechanically before implementation begins.  Any additional row
-settled by Goal 2 is removed with an explicit dependency record; no row may
-simply disappear.
+The seven source-only families have this provisional ownership:
 
-Expected prerequisite dispositions:
+| Family | Owner |
+|---|---|
+| `EQC-045-NORM-PRESERVER-CONVERSES` | `2-ALGEBRA` |
+| `EQC-046-MIXED-TOP-OBSERVATIONAL` | `4-QDENSITY` |
+| `EQC-047-QUATERNION-REDUCED-SEPARATION` | `4-QDENSITY` |
+| `EQC-048-COMPUTATIONAL-MODEL-EQUIVALENCE` | `10-UNIFORMITY` |
+| `EQC-049-PHYSICAL-SWAP-SIMULATION` | `3-ORDERING` |
+| `EQC-050-TOP-WIRE-PHASE-TRACKING` | `11-STRUCTURE` |
+| `EQC-051-OPERATIONAL-CONVERSE-SIMULATION` | `5-QCHANNELS`, then `11-STRUCTURE` |
 
-| Goal 2 owner | Transferred rows | Required Goal 2 disposition |
-|---|---|---|
-| Phase/ray classification | `FER03-D01-REBIT`; `FER03-FND-COMPLEX-STATE-RAY` | `closedByGoal2`, with quotient/evolution/outcome theorems and updated canonical traceability status |
+The 16 baseline excluded rows have these provisional disposition paths:
 
-The final Goal 2 classification registry also carries seven source-only family
-boundaries into Goal 3. They overlap the mathematical work below but are not
-additional traceability rows and must not be added to the 47/45 counts:
+| Path | Rows | Count |
+|---|---|---:|
+| Stage 2 prerequisite candidates | `FER03-FND-LINEAR-ISOMETRY-UNITARY`; `FER03-FND-FINITE-DIM-COMPLETE` | 2 |
+| External computation result | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | 1 |
+| Protocols and information theory | `FER03-INT-BIT-COMMITMENT`; `FER03-OPEN-QUATERBIT-TELEPORTATION`; `FER03-OPEN-CHANNEL-CAPACITY`; `FER03-OPEN-COMMUNICATION-COMPLEXITY`; `FER03-OPEN-REBIT-INFORMATION-THEORY` | 5 |
+| Physical interpretation | `FER03-INT-RULE-OUT-PHYSICALITY` | 1 |
+| Multipath and interference | `FER03-INT-DESTRUCTIVE-INTERFERENCE-CAUSE`; `FER03-OPEN-ALL-EVALUATION-PATHS`; `FER03-OPEN-PATH-WEIGHTS`; `FER03-OPEN-PATH-INTERFERENCE`; `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | 5 |
+| Alternative scalars and complexity | `FER03-OPEN-OTHER-SCALARS`; `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | 2 |
+| **Total** | Baseline intentionally excluded rows | **16** |
 
-| Registry family | Goal 3 owner | Required boundary |
-|---|---|---|
-| `EQC-045-NORM-PRESERVER-CONVERSES` | `4-FOUNDATIONS` | Scalar-specific linear/antiunitary norm-preserver converses with exact hypotheses |
-| `EQC-046-MIXED-TOP-OBSERVATIONAL` | `3-DENSITY` | Joint density, product/no-correlation top hypothesis, partial trace, and decoded marginal |
-| `EQC-047-QUATERNION-REDUCED-SEPARATION` | `3-DENSITY` | Pure-state quaternionic reduced-matrix inequality separated from diagonal agreement |
-| `EQC-048-COMPUTATIONAL-MODEL-EQUIVALENCE` | `12-UNIFORMITY`; `13-REALQTM` | Uniform encoders/decoders, acceptance behavior, error, and resource overhead |
-| `EQC-049-PHYSICAL-SWAP-SIMULATION` | `6-ROUTING` | Physical swap network, exact denotation, architecture, and routing cost |
-| `EQC-050-TOP-WIRE-PHASE-TRACKING` | `14-STRUCTURE` | Convention-correct invariant-subspace/orbit formulation with explicit decoded observables |
-| `EQC-051-OPERATIONAL-CONVERSE-SIMULATION` | `14-STRUCTURE`; `16-CHANNELS` | Explicit operational relation with allowed encoders, ancillas, decoders, marginals, and tests before any converse separation |
+Baseline excluded background facts may be absorbed by a core stage when they
+are small prerequisites, but they must still retain their own traceability IDs
+and evidence. Every other row remains assigned to Stage 12 unless a core stage
+produces a checked terminal result.
 
-| Stage | Traceability rows | Baseline | Required direction |
-|---|---|---:|---|
-| 3-DENSITY | `FER03-R-PARTIAL-TRACE-BLOCK-SUM`; `FER03-R-ARBITRARY-TOP-REBIT`; `FER03-Q-ARBITRARY-TOP-QUBIT` | 3 partial | Joint density matrices, partial trace, and mixed product/no-correlation top densities |
-| 4-FOUNDATIONS | `FER03-FND-LINEAR-ISOMETRY-UNITARY`; `FER03-FND-FINITE-DIM-COMPLETE`; `FER03-FND-REAL-PRESERVERS-ORTHOGONAL`; `FER03-INT-NOT-NPLUS1-REBITS` | 2 partial + 2 excluded | Close background facts and prove the exact linear-dimension limitation |
-| 5-DETERMINANT | `FER03-T05-QUATERNION-COMPLEXIFICATION-GROUP` | 1 partial | Prove the missing `det = 1` branch and the corrected special-unitary image theorem |
-| 6-ROUTING | `FER03-FND-ARBITRARY-WIRE-ROUTING`; `FER03-R-TOPO-SORT-COMPLEXITY`; `FER03-Q-CUT-POSET` | 3 partial | Counted swap routing, verified topological sort, and corrected temporal cuts |
-| 7-PHASEFANOUT | `FER03-R-REAL-GATE-OPTIMIZATION`; `FER03-R-MULTI-ANCILLA-LOG-DEPTH` | 1 partial + 1 unresolved | Optimized real gates and an exact logarithmic-depth construction or faithful-model class-wide no-go |
-| 8-ENCODING | `FER03-R-LOCAL-GATE-COST`; `FER03-R-PREPROCESSING-COST`; `FER03-RES-UNIFORM-CIRCUIT-WITHOUT-UNIVERSAL-SET`; `FER03-RES-EXPLICIT-MATRIX-ARITY` | 4 partial | Executable codes, translators, validators, and bit/work bounds |
-| 9-APPROX | `FER03-FND-FINITE-PRECISION` | 1 partial | Certified rounding and accumulated state/outcome error bounds |
-| 10-SYNTHESIS | `FER03-RES-GENERIC-DECOMPOSITION`; `FER03-RES-CONSTANT-D`; `FER03-RES-ARBITRARY-D-OVERHEAD` | 2 partial + 1 unresolved | Refute unsupported bounds and instantiate a corrected explicit synthesis theorem |
-| 11-UNIVERSALITY | `FER03-RES-QUATERNIONIC-UNIVERSAL-SET` | 1 unresolved | Prove one width-independent finite bounded-arity schema dense at every quaterbit width, or a model-wide no-go |
-| 12-UNIFORMITY | `FER03-D02-REAL-ALGORITHM`; `FER03-D05-QUATERNIONIC-ALGORITHM`; `FER03-R-COMPUTATIONAL-UNIVERSALITY`; `FER03-RES-ABSTRACT-LITTLE-OVERHEAD`; `FER03-INT-PREFERRED-PATH-BQP` | 5 partial | Encoded uniform families, runtime, randomized outcomes, and corrected class containment |
-| 13-REALQTM | `FER03-T01-BERNSTEIN-VAZIRANI-REAL-QTM` | 1 excluded | Independently state and prove the external approximate-real QTM result or its strongest verified correction |
-| 14-STRUCTURE | `FER03-FND-ANY-HILBERT-SCALARS`; `FER03-R-PHASE-TRACKING-INTERPRETATION`; `FER03-INT-QUATERNION-PHASE-QUBIT` | 3 partial | Exact complex-structure and subsystem characterizations |
-| 15-MULTIPATH | `FER03-INT-DESTRUCTIVE-INTERFERENCE-CAUSE`; `FER03-OPEN-ALL-EVALUATION-PATHS`; `FER03-OPEN-PATH-WEIGHTS`; `FER03-OPEN-PATH-INTERFERENCE`; `FER03-OPEN-BEYOND-QUANTUM-SPEEDUP` | 5 excluded | Classical-mixture and coherent-path models, counterexamples, and underdetermination/complexity results |
-| 16-CHANNELS | `FER03-INT-FREE-NONLOCAL-CORRELATION`; `FER03-OPEN-CHANNEL-CAPACITY`; `FER03-OPEN-REBIT-INFORMATION-THEORY` | 1 partial + 2 excluded | Native quaternionic mixed/channel semantics, witness classification, and proved comparisons or obstructions |
-| 17-PROTOCOLS | `FER03-INT-BIT-COMMITMENT`; `FER03-OPEN-QUATERBIT-TELEPORTATION`; `FER03-OPEN-COMMUNICATION-COMPLEXITY` | 3 excluded | Formal protocols and a proof, attack, comparison, or underdetermination result for each scoped question |
-| 18-PHYSICALITY | `FER03-INT-RULE-OUT-PHYSICALITY` | 1 excluded | A conditional information-theoretic no-go theorem or formal underdetermination, never a claim about Nature by definition |
-| 19-ALGEBRAS | `FER03-OPEN-OTHER-SCALARS`; `FER03-OPEN-ALGEBRAIC-COMPLEXITY-PICTURE` | 2 excluded | Concrete octonion/finite-field interface results and a precise algebraic-model comparison |
+## Success Metrics and Final Verification
 
-Forecast checksum: partial `3+2+1+3+1+4+1+2+5+3+1 = 26`; excluded
-`2+1+5+2+3+1+2 = 16`; unresolved `1+1+1 = 3`.
+Goal 3 is complete only when:
+
+- an executable worklist accounts for all 47 pre-Goal-2 rows as two
+  `closedByGoal2` rows plus 45 Goal 3 rows, and separately accounts for all
+  seven `EQC-045`–`EQC-051` families;
+- all 29 default core rows have terminal closure outcomes and checked evidence;
+- the 16 excluded rows have complete research-frontier specifications and no
+  release prose implies they were proved;
+- the quaternionic determinant, ordering/routing, density/channel, encoding,
+  approximation, synthesis, uniformity, and structural obligations have the
+  outcomes required by their stages;
+- the library exposes an end-to-end theorem stack from exact mathematical
+  simulation through encoded inputs, certified approximation, compiled
+  circuits, decoded outcomes, and explicit resource bounds—or documents the
+  exact checked obstruction to the strongest unavailable layer;
+- main public results are directly covered by the executable axiom audit;
+- representative downstream consumers import only the stable public root;
+- focused, adjacent, strict warning-as-error, trust/audit, default, and final
+  clean builds pass as required by the affected modules;
+- source scans find no proof hole, project axiom, unsafe/opaque shortcut,
+  unlimited-heartbeat escape, tracked generated artifact, or audit import in
+  stable code;
+- traceability, corrections, architecture, conventions, release report,
+  worklist, frontier ledger, stage reports, and public names agree; and
+- `git diff --check` and maintained Markdown structure checks pass.
 
 ## Dependency Shape
 
 ```text
-1-REBASE -> 2-SEMANTICS
-2-SEMANTICS
-  ├─ 3-DENSITY -> 14-STRUCTURE -> 15-MULTIPATH
-  │                    └────────> 16-CHANNELS -> 17-PROTOCOLS -> 18-PHYSICALITY
-  ├─ 4-FOUNDATIONS -> 5-DETERMINANT
-  ├─ 6-ROUTING -> 7-PHASEFANOUT
-  └─ 8-ENCODING -> 9-APPROX -> 10-SYNTHESIS -> 12-UNIFORMITY
-                                      └──────> 11-UNIVERSALITY
-8-ENCODING + 9-APPROX -> 13-REALQTM
-3-DENSITY + 14-STRUCTURE -> 16-CHANNELS
-4-FOUNDATIONS + 14-STRUCTURE -> 19-ALGEBRAS
-all stages -> 20-RELEASE
+1-REBASE
+  ├──> 2-ALGEBRA
+  ├──> 3-ORDERING ───────────────┐
+  ├──> 4-QDENSITY -> 5-QCHANNELS│
+  ├──> 6-FANOUT ─────────────────┤
+  └──> 7-ENCODING -> 8-ERROR ────┤
+                                  v
+                             9-SYNTHESIS
+                                  |
+                                  v
+                            10-UNIFORMITY
+
+2-ALGEBRA + 5-QCHANNELS + 6-FANOUT + 10-UNIFORMITY
+                         -> 11-STRUCTURE
+
+all core stages -> 12-FRONTIER -> 13-RELEASE
 ```
 
-Every mathematical Goal 3 workstream therefore has `2-SEMANTICS` as a
-transitive prerequisite; the additional arrows record its domain-specific
-dependencies.
-
-## Mandatory Compiling Milestones
-
-The numbered stages are closure workstreams, not permission to batch several
-library-sized changes into one unverified edit.  Before implementing any broad
-workstream below, create the listed sub-stage reports (for example
-`6A-SWAPS.md`) and complete them independently.  The umbrella checkbox remains
-open until every milestone and its source-facing consumer is verified.
-
-| Workstream | Required milestones and independent exits |
-|---|---|
-| 6-ROUTING | `6A-SWAPS`: emitted adjacent-swap network and semantics; `6B-TOPOSORT`: in-memory executable sorter/cycle certificate and work count; `6C-CUTS`: order-ideal/maximal-chain theorems consuming schedules |
-| 7-PHASEFANOUT | `7A-REALOPT`: independent real-gate optimization; `7B-SPLITTER`: two-rail orthogonal/intertwining smoke theorem; `7C-RAILTREE`: balanced code and resource arithmetic; `7D-MULTITOPSIM`: circuit/operator/state/outcome simulation and depth theorem |
-| 8-ENCODING | `8A-SCALARCODE`: exact component codecs/round trips; `8B-CIRCUITCODE`: gate/DAG/schedule codecs and validators; `8C-CODECOST`: executable translations plus bit/output/work bounds |
-| 10-SYNTHESIS | `10A-GATEMODELS`: exact/approximate primitive semantics and image-internal no-go; `10B-FACTOR`: mathematical two-level factorization; `10C-LOCALIZE`: bounded-local decomposition/lower bound; `10D-COMPILER`: encoded standard-library compiler and simulation consumer |
-| 11-UNIVERSALITY | `11A-DEFINITIONS`: exact/dense/kernel-correct notions; `11B-LIE`: fixed-dimension Lie generation; `11C-ALLWIDTH`: one finite bounded-arity schema across all widths; `11D-DENSITY`: closure theorem and public certificate |
-| 12-UNIFORMITY | `12A-FAMILIES`: encoded generators/postprocessors; `12B-RAMCOST`: executable translation and explicit work proofs; `12C-TMBRIDGE`: machine-level polynomial bridge; `12D-BQP`: library-relative then standard-library bounded-error containment |
-| 13-REALQTM | `13A-SOURCE`: primary statement audit; `13B-QTMMODEL`: finite-time semantics; `13C-STABILITY`: approximation/error theorem; `13D-SIMULATOR`: real-amplitude construction and overhead |
-| 16-CHANNELS | `16A-QDENSITY`: native quaternionic positivity/closure; `16B-CHANNELS`: channels/instruments/marginals; `16C-WITNESS`: exact operational classification; `16D-CAPACITY`: scoped capacity/rebit case study |
-| 17-PROTOCOLS | `17A-TELEPORT`: protocol/cost theorem; `17B-COMMUNICATION`: communication model/comparison; `17C-COMMITMENT`: faithful sketch completion and security/attack/underdetermination result |
-| 19-ALGEBRAS | `19A-OCTONIONS`: nonassociative model/counterexample; `19B-FINITEFIELD`: probability obstruction/repair data; `19C-ALGCOMPLEXITY`: shared-interface comparison theorem |
-
-If current facts reveal another workstream crossing dependency layers, split it
-in `0-plan.md` before implementation rather than stretching one stage report.
-
-## Success Metrics and Verification Requirements
-
-- A machine-checked ledger accounts for the immutable 47-row pre-Goal-2 cohort:
-  each ID is either `closedByGoal2` with evidence or appears exactly once in
-  the Goal 3 worklist.  The expected Goal 3 worklist has 45 IDs.
-- Every row partial/unresolved at the Goal 3 baseline—expected 29—leaves those
-  canonical statuses.  Negative, conditional, or underdetermination
-  resolutions require a proved theorem with precise scope; residual questions
-  receive new IDs.
-- Every originally excluded row has new formal evidence or a completed formal
-  case study; changing documentation alone is insufficient.
-- All public mathematical results compile with no holes or project axioms and
-  are included in `QuaternionicComputing/AxiomAudit.lean`.
-- Executable claims have `#eval`/test fixtures and do not obtain computability
-  from classical choice or noncomputable decoders.
-- Cost theorems count input/output bit length, arithmetic/model assumptions,
-  schedules, routing gates, approximation precision, and primitive synthesis
-  at the layer where each matters.
-- Focused leaf and adjacent-consumer builds pass at each stage.  Any public
-  root/high-fanout change triggers the broader builds required by
-  `BUILD-PLAN.md`.
-- Final verification includes a clean `lake build`, explicit
-  `lake build QuaternionicComputing.AxiomAudit`, warning-as-error checks,
-  proof-hole/project-axiom/unsafe/opaque scans, forbidden-shortcut scans,
-  traceability checksum, downstream import smoke test, and `git diff --check`.
-
-## Stages
-
-### 1-REBASE
-
-#### Big Picture Objective
-
-Freeze an exact, executable definition of the remaining work before changing
-mathematics or statuses.
-
-#### Detailed Implementation Plan
-
-- Refuse to begin until Goal 2 is marked complete and its build, audit, frozen
-  cohort-registry check, semantic API-manifest check, traceability fold-back,
-  and downstream smoke evidence are present.
-- Create `docs/RemainingWork.md` accounting for the immutable 47-row cohort:
-  mark each row `closedByGoal2` with evidence or assign it to Goal 3 with its
-  post-Goal-2 status, dependencies, intended closure outcome, primary route,
-  fallback, and verification witness.
-- Add a separate seven-family section for `EQC-045`--`EQC-051`, preserving the
-  Goal 2 registry IDs, owners, exact obstructions, and closure evidence without
-  counting them as seven additional traceability rows or silently merging them.
-- Re-read the source sections and relevant citations for each hard/external
-  item; use primary literature and record versions rather than relying on the
-  paper's summaries.
-- Add a checker that parses traceability, recomputes current status/correction/
-  audit counts, verifies every pre-Goal-2 ID is closed by Goal 2 or assigned
-  exactly once to Goal 3, validates canonical-status/closure-outcome mapping,
-  and enforces new IDs for residual open work.
-- Recompute the Lean source/module count, public-root closure, executable axiom-
-  audit endpoint count, correction count, and downstream import surface after
-  Goal 2; do not retain Goal 1 release numbers as current evidence.
-- Record clean Goal 1 and Goal 2 build/audit baselines and inspect current diffs
-  before any feature work.
-
-#### Completion Requirements
-
-- All 47 cohort IDs are accounted for exactly once.  Forecast Goal 3 totals are
-  45 rows with categories 26/16/3, but the checker-derived post-Goal-2 totals
-  replace the forecast.
-- All seven unresolved Goal 2 registry families are also assigned exactly once
-  to the owners above and linked to overlapping traceability rows without
-  changing the 47/45 ledger totals.
-- Every row has a stage, concrete success test, and non-tautological fallback.
-- The closure-outcome taxonomy is mapped unambiguously to the canonical
-  traceability statuses and enforced by the checker.
-- All correction dependencies present after Goal 2 are linked where relevant,
-  including C-001–C-026 and every correction added during Goal 2.
-- Baseline builds, audit, scans, and diff state are recorded in `1-REBASE.md`.
-
-### 2-SEMANTICS
-
-#### Big Picture Objective
-
-Integrate Goal 2's rigorous comparison vocabulary into every remaining Goal 3
-workstream before adding new mathematics.
-
-#### Detailed Implementation Plan
-
-- Import the narrow Goal 2 leaves for exact, phase, basis, distribution,
-  channel/all-effect, embedded-simulation, and approximate relations.
-- Reuse the Stage 9A directional certificate API, Stage 9B proof-bearing
-  wrappers, and Stage 9C decoded-outcome API at their actual strength:
-  generic left-inverse encodings remain directional, while the four canonical
-  coordinate maps separately expose representative `LinearEquiv`/`Equiv`
-  values. Stage 9B operator/state wrappers retain raw coefficient encoders,
-  explicit reindexing/added wires, supplied schedules, and supplied compilers.
-  Stage 9C supplies explicit full-target one/two-wire decoders, decoded raw
-  point weights, and normalized distribution/event/pushforward results; the
-  one-wire decoder is exactly pushforward by `tailBits`, and composed
-  quaternion-to-real decoding removes the outer realification wire before the
-  inner complexification wire. Its schedules are still supplied, and its
-  normalized results retain their local-unitarity assumptions. Never
-  substitute any of these results for a ray, channel, product/mixed-state,
-  partial-trace, compiler-existence, synthesis, randomized, resource, or
-  runtime theorem.
-- Map every Goal 3 stage target to the strongest applicable relation and input/
-  observation scope before implementation; flag claims needing a genuinely new
-  relation rather than using vague equality prose.
-- Add downstream `example`/`#check` smoke consumers showing that the existing
-  central simulations, ordering witnesses, and distribution results inhabit
-  their public Goal 2 classifications. Do not create duplicate wrapper
-  theorems; add a new wrapper only when a later Goal 3 result introduces
-  genuinely new semantics.
-- Record how Goal 2 closed the two transferred ray rows and remove any duplicate
-  quotient work from Goal 3.
-
-#### Completion Requirements
-
-- Every remaining stage names its comparison relation, phase convention, input
-  scope, observation scope, exact/approximate status, and encoding/marginal
-  policy.
-- No Goal 2 definition is duplicated or weakened by a local Goal 3 predicate.
-- Downstream smoke consumers compile against the public Goal 2 API and all
-  transferred rows have explicit `closedByGoal2` evidence.
-- Focused semantic-wrapper builds, public-root build, classification checker,
-  and axiom spot-audit pass.
-
-### 3-DENSITY
-
-#### Big Picture Objective
-
-Build the finite real/complex mixed-state and partial-trace layer needed to
-prove the paper's arbitrary mixed top-wire statements.
-
-#### Detailed Implementation Plan
-
-- Extend Goal 2's finite real/complex density/effect and unitary-channel core;
-  do not redefine its `DensityMatrix`, `Effect`, `ChannelEq`, or
-  `AllMeasurementEq` APIs.  Add narrow `State/PartialTrace.lean` and
-  `State/MixedTop.lean` leaves with convex mixtures, partial trace, and the
-  simulator-specific mixed-top constructions.
-- Define partial trace as an explicit finite diagonal-block sum on product
-  indices and prove Hermiticity, positivity, trace preservation, linearity,
-  tensor-product, and pure rank-one laws.
-- Prove the explicit equivalence between the simulator's `AddedWire`/sum basis
-  and the product index used by partial trace, so the generic API consumes the
-  existing embedded states rather than a parallel toy representation.
-- Express the realification and complexification top encodings as frames and
-  prove bottom distributions for every supplied joint density satisfying an
-  explicit tensor-product/no-correlation top hypothesis, including maximally
-  mixed and off-diagonal top-density examples. Do not reuse a normalized
-  `Rebit`/`Qubit` coefficient parameter as if it were that joint-state
-  certificate.
-- Keep native quaternionic density matrices out of this stage; they require the
-  separate positivity convention in Stage 16.
-
-#### Completion Requirements
-
-- The generic block-sum partial trace theorem is proved, not just the existing
-  rank-one special case.
-- Both arbitrary mixed-top claims quantify over actual density matrices, not
-  only pure states or ensemble syntax.
-- Tensor-product/no-correlation hypotheses are explicit and proved of the
-  actual joint density; no result is generalized to entangled top/bottom
-  inputs.
-- The three assigned rows close with focused builds, numerical sanity checks,
-  traceability updates, and audited axioms.
-
-### 4-FOUNDATIONS
-
-#### Big Picture Objective
-
-Close the finite-dimensional background facts and replace the paper's
-`n+1`-rebit overreach with an exact linear-dimension theorem.
-
-#### Detailed Implementation Plan
-
-- Locate and wrap the strongest matching mathlib completeness and
-  norm-preserving-linear-map results; prove missing finite matrix equivalences
-  between norm preservation and unitarity.
-- Prove that a complex-linear transformation preserving the real subspace has
-  real entries and that unitary preservation then gives an orthogonal real
-  matrix.
-- Compare real dimensions of quaternionic `N`-columns and `(2N)`-dimensional
-  real columns and prove there is no injective real-linear state-vector map of
-  the required `n+1`-rebit dimension when `N > 0`.
-- Document that this rules out only faithful real-linear vector embeddings,
-  not every conceivable operational simulation or nonlinear encoding.
-
-#### Completion Requirements
-
-- The two background exclusions become exact imported/wrapped or newly proved
-  theorems with matching assumptions.
-- The real-preserver characterization is bidirectional at the matrix level.
-- The dimension no-go theorem has explicit nonzero hypotheses and is not sold
-  as a universal simulation lower bound.
-- All four assigned rows and C-017 are updated with builds and axiom evidence.
-
-### 5-DETERMINANT
-
-#### Big Picture Objective
-
-Prove that the complexification of every quaternionic unitary has determinant
-one and finish the corrected special-unitary group theorem.
-
-#### Detailed Implementation Plan
-
-- Add a proof leaf such as `Matrix/SymplecticDeterminant.lean` rather than
-  expanding the existing high-fanout determinant core.
-- Define the canonical symplectic 2-form from `Matrix.J`, recursively wedge it
-  using `AlternatingMap.domCoprod`, and compute a nonzero value of its top
-  exterior power on the standard basis, including rank zero.
-- Prove that a symplectic matrix preserves this top form while its action on a
-  top alternating form scales by `det`; cancel the nonzero value to prove a
-  reusable `symplectic_det_eq_one` theorem.
-- If the alternating-map route is structurally blocked, implement the minimal
-  Pfaffian API and covariance theorem instead.  A fallback is not completion
-  until one route proves the sign.
-- Apply the theorem to `Quaternion.complexify_mem_symplectic`, export the
-  special-unitary result, and reconcile the image/equivalence documentation.
-
-#### Completion Requirements
-
-- `det (Quaternion.complexify U) = 1` compiles for every finite quaternionic
-  unitary, including the empty-index edge case.
-- The proof does not use connectedness, a Study determinant, or a Pfaffian as
-  an axiom/opaque placeholder.
-- Theorem 5, C-004, all dependents, public exports, and the axiom audit are
-  updated; the previous `±1` theorem remains as a reusable weaker fact.
-- Focused and adjacent group/simulation builds pass.
-
-### 6-ROUTING
-
-#### Big Picture Objective
-
-Turn semantic placement and supplied schedules into explicit, counted routing
-and finite-DAG algorithms, while correcting the paper's temporal-cut claim.
-
-#### Detailed Implementation Plan
-
-- Add wire-permutation and swap leaves.  Prove that adjacent two-wire swap is a
-  real `0–1` unitary placed gate over every supported coefficient star ring.
-- Implement an adjacent-swap network on `Fin n`, prove its permutation/evaluator
-  semantics and a quadratic bound, then route a noncontiguous support to
-  canonical slots, apply the local gate, and unroute.
-- Lift routing gatewise to circuits with exact count/arity/depth statements and
-  a quaternionic noncontiguous example.
-- Define in-memory finite decidable precedence DAGs, executable topological
-  sorting that returns a `LegalSchedule` or cycle witness, and an explicit work
-  counter.  Their byte/string serialization belongs to Stage 8.
-- Define temporal cuts as order ideals.  Prove that prefixes of a legal schedule
-  form a maximal chain and characterize the converse; disprove or correct any
-  claim that one sort totally orders every cut.
-
-#### Completion Requirements
-
-- Physical swaps appear in emitted circuits and resource counts; no semantic
-  equivalence is charged as zero gates.
-- Topological sort is executable and its soundness/completeness and stated work
-  bound are proved.
-- Cut/schedule theorems state exactly which cuts are ordered.
-- All three rows close with focused builds, `#eval` fixtures, routing examples,
-  and boundary scans.
-
-### 7-PHASEFANOUT
-
-#### Big Picture Objective
-
-Recover or decisively delimit the paper's missing multi-top logarithmic-depth
-complex-to-real simulation and implement the real-gate optimization.
-
-#### Detailed Implementation Plan
-
-- Define the exact real complex-structure matrix `J` used by `Matrix.realify`.
-  Construct and prove orthogonal a two-rebit splitter whose fresh-ancilla
-  restriction maps the logical basis to the appropriate Bell basis and
-  intertwines logical `J` with `J` on either output rail.
-- Recursively build a balanced splitter tree with
-  `m = 2^ceilLog2(max 1 s)` rails, prove `m < 2s` for `s > 0`, and prove every
-  rail realizes the same logical complex structure on the code space.
-- Assign distinct rails to gate occurrences, lift each source support layer,
-  and prove the translated gates preserve the code.  Reverse the splitter tree
-  to decode.
-- Target exact resources: width `n+m`, gate count `s+2(m-1)`, translated local
-  arity `d+1`, splitter arity two, and support depth
-  `t+2*ceilLog2(max 1 s)`, adjusting statements if checked edge cases require.
-- Add an optimized branch for provably real source gates that acts only on
-  bottom wires and prove its evaluator and improved resource facts.
-- If the candidate fails, isolate the first false intertwining/composition
-  obligation, prove a no-go for that architecture, and continue to the next
-  explicit encoding.  A candidate-specific failure does not refute the paper's
-  existential claim, and falling back to the one-shared-wire theorem does not
-  resolve it.
-
-#### Completion Requirements
-
-- An exact operator/state/distribution theorem and explicit ancilla tradeoff
-  prove the corrected logarithmic-depth claim.  A negative completion requires
-  a theorem ruling out the claim under a faithful explicit resource model, not
-  merely failure of the proposed splitter.
-- The construction is described as phase-reference encoding, never cloning.
-- Empty circuits, one gate, non-power-of-two gate counts, and mixed real/complex
-  gate lists are tested.
-- C-015 and both assigned rows close with resource proofs, focused/full
-  affected builds, and axiom audit entries.
-
-### 8-ENCODING
-
-#### Big Picture Objective
-
-Give circuits, gates, schedules, and exactly representable scalars executable
-finite descriptions with honest bit and work costs.
-
-#### Detailed Implementation Plan
-
-- Add an `Encoding/` layer for bit strings, dyadic/rational real components,
-  complex/quaternion tuples, dense gates, supports, circuit DAGs, schedules,
-  and deterministic/randomized postprocessing descriptions.
-- Supply decoders, round-trip theorems, Boolean well-formedness/unitarity or
-  certificate validators where decidable, and malformed-input rejection.
-- Implement code-level realification, complexification, routing, scheduling,
-  and exact gate-list translation; prove decoding commutes with semantic maps.
-- Define bit length, read/write work, and output-size counters.  Prove bounds
-  that include scalar component lengths, indices, supports, and all emitted
-  entries rather than only matrix dimension.
-- Add `#eval` fixtures for valid and invalid small circuits.
-
-#### Completion Requirements
-
-- No function claims to computably encode an arbitrary real number.  Exact
-  codes cover a declared countable scalar class; general scalars pass to Stage
-  9 approximation certificates.
-- Translation algorithms are executable and preserve evaluator semantics on
-  decoded exact inputs.
-- Local/preprocessing/description bounds follow from the actual code and work
-  counters, not supplied constants alone.
-- All four assigned rows close with focused builds, evaluation tests, and
-  documentation of the encoding model.
-
-### 9-APPROX
-
-#### Big Picture Objective
-
-Bridge arbitrary mathematical gates to finite descriptions with quantified
-error, extending Goal 2's metric comparison vocabulary without weakening the
-exact Goal 1 theorems.
-
-#### Detailed Implementation Plan
-
-- Reuse Goal 2's `operatorDistance`/approximate-comparison relations, norm
-  conventions, and basic observable bounds.  Add encoded scalar, matrix,
-  circuit, state, and distribution approximation leaves with certified
-  code-to-value error and accumulation relations.
-- Prove componentwise-to-matrix bounds, submultiplicative/telescoping circuit
-  error, normalized-state error, basis-event error, and total-variation bounds.
-- Distinguish rounded matrices from exact unitary primitive circuits.  Add a
-  certified unitary approximation/compiler interface and prove the guarantees
-  only from its certificate.
-- Provide two deliberately separate APIs: an executable quantizer for encoded
-  Cauchy/approximation oracles (and rational/dyadic inputs), and a semantic
-  existential approximation certificate for arbitrary Lean `ℝ` values.  There
-  is no executable function from arbitrary `ℝ` to finite code.
-- Implement precision budgeting across gates and show how requested output
-  tolerance determines per-gate tolerances and code size.
-- Reconcile the paper's finite-precision footnote with the exact simulation
-  theorems rather than altering those theorems.
-
-#### Completion Requirements
-
-- At least one executable encoded-oracle approximation family supplies codes
-  with a proved convergence/error theorem; arbitrary mathematical reals use
-  only the separate semantic existence interface.
-- No theorem concludes exact equality or exact unitarity from rounding.
-- Accumulated error includes every gate and produces an observable-distribution
-  guarantee suitable for Stage 12.
-- `FER03-FND-FINITE-PRECISION` and C-024 close with focused builds and audits.
-
-### 10-SYNTHESIS
-
-#### Big Picture Objective
-
-Settle the unsupported generic decomposition bound and replace it with proved
-results in explicit primitive-gate models.
-
-#### Detailed Implementation Plan
-
-- Define finite discrete, continuously parameterized local, exact, and
-  approximate gate-library models before counting elementary gates.
-- Prove that a finite discrete library has only finitely many words of length
-  at most `K`; use the paired symplectic family
-  `diag(exp(i*θ), exp(-i*θ))` (and identity blocks), explicitly exhibited as
-  complexifications of diagonal unit quaternions, to refute bounded exact
-  generic generation inside the actual target image.
-- Construct a reusable exact two-level/QR-style decomposition with a checked
-  `O(m^2)`-scale count for `m × m` unitaries.  Classify this mathematical
-  continuous-parameter factorization as noncomputable unless its parameters
-  are encoded, then give the strongest justified localization to one-/two-
-  qubit primitives with explicit arity and parameter assumptions.
-- Prove a formal parameter-dimension lower bound for continuously parameterized
-  bounded-local gates.  If the first manifold route is disproportionate, seek
-  a smaller algebraic/smooth-dimension lemma or split out its prerequisite; do
-  not mark the stage complete while this remains a faithful unresolved reading
-  of the source claim.
-- Also prove a two-model underdetermination theorem if needed: unrestricted
-  full-arity primitives trivialize the count, while a finite exact library
-  cannot cover the target.  This diagnoses the missing primitive semantics but
-  does not replace the bounded-local lower bound when that is the intended
-  reading.
-- Instantiate `ExactGateCompiler` where the encoded exact model permits it and
-  build an epsilon-dependent compiler into one declared standard finite
-  complex gate library, with semantic and runtime/precision certificates for
-  Stage 12.  Propagate corrected count/depth bounds to Table 1.
-
-#### Completion Requirements
-
-- The paper's `2^(d+1)` statement is either proved under a faithful explicit
-  gate model or formally refuted; ambiguity is not retained as “unresolved.”
-- A constructive replacement compiler is implemented and semantically proved,
-  not merely postulated as structure data.
-- The standard finite-complex-library approximation compiler needed by Stage
-  12 is either constructed here or assigned to an explicit new prerequisite
-  stage; standard-gate BQP cannot rely on the QR theorem alone.
-- Constant-`d` and arbitrary-`d` consequences state exact dependence on matrix
-  size, precision, primitive model, and serialization.
-- The three assigned rows and C-013/C-014/C-019 close with focused builds,
-  small decompositions, and end-to-end compiled simulations.
-
-### 11-UNIVERSALITY
-
-#### Big Picture Objective
-
-Resolve the conjectured finite quaternionic universal gate set under a precise
-approximate/dense meaning.
-
-#### Detailed Implementation Plan
-
-- Reuse Goal 2's operator-action kernel, right-phase, and approximation
-  conventions.  Define exact word generation, topological closure, and epsilon
-  generation in its operator norm on the compact symplectic matrix group, plus
-  local placement of one finite bounded-arity gate schema whose labels do not
-  depend on total circuit width.
-  Quotient operators only by a rigorously proved kernel of their action on
-  right-phase rays (expected at most the central `±I`), never by arbitrary unit
-  quaternion right phase.
-- Prove exact finite universality impossible for nontrivial continuous target
-  groups by countability or the stronger bounded-word result from Stage 10.
-- Investigate a concrete approximate candidate: a finite complex universal
-  library embedded in `ℍ`, one irrational quaternionic-direction rotation,
-  and inverses/entangling placement.
-- Formalize the Lie-algebra decomposition of the compact symplectic target,
-  prove that conjugates of the added quaternionic direction generate the
-  missing complement, and use a verified compact-Lie closure theorem or build
-  the needed special case to prove density.
-- Lift the fixed-arity generators by placement and prove density in every
-  `Sp(2^n)` from one width-independent schema, with any small-width base cases
-  or exceptions stated explicitly.  A fixed-`n`, `n`-dependent dense set is
-  only an intermediate theorem and does not resolve the source claim.
-- Export a dense-generator certificate and only then connect it to approximate
-  synthesis.  Efficiency is a separate Stage 12 obligation.
-- If a candidate fails, record its counterexample and test another candidate.
-  Failure of one finite set does not refute existence of some finite dense set.
-
-#### Completion Requirements
-
-- Exact and approximate universality have separate theorem names and outcomes.
-- A concrete finite candidate is proved dense, or a decisive theorem rules out
-  the entire approximate-universality class under the source's intended model.
-  A candidate-specific no-go or conditional interface alone does not complete
-  the stage.
-- The same finite labels and arity bound work at every circuit width; allowed
-  central operator phases, topology, placement, and small-width cases are
-  explicit.  Stage 12 handles effective word finding and runtime, not existence
-  of a width-independent universal schema.
-- The unresolved row receives a proved resolution and axiom-audited public or
-  research-leaf theorem.
-
-### 12-UNIFORMITY
-
-#### Big Picture Objective
-
-Upgrade finite semantic simulations to encoded uniform algorithms and honest
-bounded-error complexity results.
-
-#### Detailed Implementation Plan
-
-- Define encoded real, complex, and ordered quaternionic circuit families,
-  uniform generators, input/output conventions, and deterministic plus finite
-  randomized postprocessing kernels.
-- Connect executable translation, routing, scheduling, approximation, and
-  synthesis to an explicit list/RAM cost model, then build the required
-  Turing-machine bridge before using standard polynomial-time terminology.
-- Define library-relative bounded-error language classes and prove closure
-  under the translated generators and postprocessors.
-- First prove exact library-relative containment by taking the finite target
-  library to be the realified/complexified image of a finite encoded source
-  library.  This does not require solving Stage 11.
-- For standard fixed-gate BQP, use the encoded epsilon-dependent complex
-  compiler produced by Stage 10 (or an explicit prerequisite split), with
-  Stage 9 error accumulation.  Alternatively prove gate-library invariance
-  from an explicitly admissible finite complex library.  Do not infer this
-  bridge from quaternionic source density.
-- State separately what is proved for each supplied legal quaternionic
-  schedule and what would be needed to choose or sample schedules uniformly.
-
-#### Completion Requirements
-
-- The real and quaternionic algorithm definitions have actual finite encodings,
-  generators, schedulers, postprocessing, and runtime statements.
-- A supplied `LegalSchedule` or compiler structure is not used as evidence of
-  computability or polynomial time.
-- The corrected computational-universality/overhead/BQP theorems include
-  precision and bounded-error accounting and compile end to end.
-- All five assigned rows close with executable examples, cost verification,
-  traceability, and axiom audit updates.
-
-### 13-REALQTM
-
-#### Big Picture Objective
-
-Independently verify the external Bernstein–Vazirani approximate-real-amplitude
-QTM result instead of leaving it as an attributed exclusion.
-
-#### Detailed Implementation Plan
-
-- Retrieve and audit the primary theorem statement, conventions, error metric,
-  time overhead, amplitude class, and measurement semantics.
-- Define only the finite-time quantum Turing-machine configuration/operator
-  layer needed for the theorem, reusing mathlib Turing-machine infrastructure
-  where it genuinely matches.
-- Formalize amplitude approximation and stability over a bounded computation,
-  then construct the real-amplitude simulator and prove output-distribution and
-  time/space overhead.
-- If the cited statement differs materially from the paper's paraphrase,
-  formalize the source theorem and record the correction rather than proving a
-  convenient circuit analogue under the QTM label.
-
-#### Completion Requirements
-
-- The primary theorem or strongest faithful correction is stated and proved
-  without importing it as an axiom.
-- Approximation, halting/time bounds, and acceptance probabilities are explicit.
-- A finite-circuit theorem alone cannot close this QTM row unless an actual
-  circuit/QTM equivalence theorem is also proved.
-- The external row gains reproducible source mapping, focused builds, and axiom
-  audit coverage.
-
-### 14-STRUCTURE
-
-#### Big Picture Objective
-
-Replace heuristic phase and “any Hilbert space” prose with exact structural
-and operational statements.
-
-#### Detailed Implementation Plan
-
-- Define the real complex structure `J` and characterize the image of
-  realification as the real matrices commuting with it.  Give the analogous
-  conjugate-symplectic characterization for quaternionic complexification.
-- State all image, intertwining, ray, and outcome results using the Goal 2
-  embedded-operator/state/observable relation names and classification axes.
-- Formalize a subsystem/circuit-scalar interface containing the associative
-  star algebra, real-valued weight, local composition, placement coherence,
-  and measurement laws actually needed by the circuit model.
-- Provide real, complex, and quaternionic instances and prove that Hilbert
-  structure alone does not supply this interface.
-- State the exact pure-state, ray, and basis-outcome facts already available for
-  the product-input ordering witness, but defer mixed-state correlation and
-  signaling classification to Stage 16's native quaternionic operational API.
-- Translate “top wire stores phase” into invariant-subspace/intertwining
-  theorems, not a degree-of-freedom slogan.
-
-#### Completion Requirements
-
-- Both embedding-image characterizations are bidirectional with explicit
-  dimensions and signs.
-- The scalar interface has real consumers and does not encode desired
-  simulation theorems as fields.
-- The witness is not called entangled, signaling, or nonlocal at this layer.
-- All three assigned rows close with corrected formal statements, examples,
-  and audits.
-
-### 15-MULTIPATH
-
-#### Big Picture Objective
-
-Give rigorous finite meanings to “following all evaluation paths” and determine
-what the paper's missing weighting/interference rule can and cannot imply.
-
-#### Detailed Implementation Plan
-
-- Add `Path/ClassicalMixture.lean`: distributions over legal schedules,
-  averaged output density/distribution, normalization, and exact complex
-  simulation by linearity.
-- Add `Path/Coherent.lean`: amplitude-weighted sums of scheduled operators or
-  outputs, the exact normalization/unitarity obligations, and small
-  counterexamples showing normalized coefficients alone do not make the sum a
-  valid evolution.
-- Prove underdetermination by constructing two inequivalent multi-path
-  extensions that agree with every single-path axiom supplied by the paper.
-- Analyze enumeration/sampling cost and prove only conditional complexity
-  consequences from an explicit efficiently samplable/compilable weighting
-  rule.
-- Formalize concrete interference identities and counterexamples sufficient to
-  separate “interference occurs” from “interference causes computational
-  speedup.”
-
-#### Completion Requirements
-
-- Classical mixing and coherent superposition are separate APIs and theorems.
-- At least one nontrivial valid multi-path model and one invalid naive model are
-  proved; no arbitrary weight rule is chosen and called canonical.
-- The beyond-BQP question receives a theorem, reduction, or formal
-  underdetermination result in a declared model.
-- All five assigned rows gain formal evidence and exact residual frontiers.
-
-### 16-CHANNELS
-
-#### Big Picture Objective
-
-Establish a sound channel layer and use it to obtain concrete real/quaternionic
-information-theoretic results.
-
-#### Detailed Implementation Plan
-
-- Extend Goal 2's same-space real/complex density, effect, unitary-channel,
-  `ChannelEq`, and `AllMeasurementEq` layer with finite Kraus channels,
-  instruments, trace preservation, complete positivity where meaningful,
-  marginals, product states, and data processing.
-- Define native quaternionic density positivity by a real quadratic form or a
-  proved complexification characterization; prove unitary conjugation and the
-  chosen partial trace preserve it.  Never synthesize an order on `ℍ`.
-- Define product/separable states, marginals, local operations, and signaling
-  tests, then classify the existing product-input ordering witness exactly.
-  Distinguish ray change, computational-distribution equality, correlation,
-  entanglement, and signaling.
-- State channel-capacity quantities only after fixing tensor composition,
-  allowed encodings/decodings, asymptotic regularization, and entropy or
-  operational alternatives.
-- Prove at least one substantive rebit-vs-qubit and quaternionic-vs-complex
-  channel comparison, equality, separation, or obstruction.
-
-#### Completion Requirements
-
-- Channel and native quaternionic mixed-state definitions satisfy checked
-  positivity/normalization closure laws and small exact examples.
-- Capacity claims name the channel class, resource, regularization, and scalar
-  model; no informal “capacity changes” theorem is accepted.
-- The correlation row and both source questions have precise results or formal
-  proofs that the declared axioms underdetermine them, plus named residual
-  targets where applicable.
-- New heavy APIs remain narrow until downstream results and audits justify
-  promotion.
-
-### 17-PROTOCOLS
-
-#### Big Picture Objective
-
-Test the paper's bit-commitment sketch and the teleportation/communication
-questions in explicit adversarial and costed protocol models.
-
-#### Detailed Implementation Plan
-
-- Define local parties, admissible operations, classical messages, schedules,
-  correctness, information cost, and compositional execution using Stage 16
-  channels.
-- Formalize exact/approximate teleportation and the classical-bit cost for a
-  quaterbit under the chosen subsystem convention; prove a protocol or lower
-  bound rather than relying on dimension counting alone.
-- Define communication-complexity problems and costs and prove at least one
-  comparison or simulation theorem between scalar models.
-- Define hiding, binding, cheating strategies, opening verification, and the
-  security parameter for bit commitment.  Encode the paper's sketch, then
-  prove security or exhibit a formal attack/underspecification witness.
-
-#### Completion Requirements
-
-- The existing equal-basis-weight ordering witness is not used as security or
-  signaling evidence without an operational theorem.
-- Teleportation and communication results include all classical/quantum or
-  quaternionic resources and exact/approximate conventions.
-- The bit-commitment row closes with a full scoped security proof, a scoped
-  attack on a faithful minimal completion, or a formal underdetermination
-  theorem exhibiting two completions that satisfy every stated sketch
-  constraint but differ in hiding/binding.  Prose about Alice and Bob is
-  insufficient.
-- All three rows have executable finite examples where possible and axiom-
-  audited theorems.
-
-### 18-PHYSICALITY
-
-#### Big Picture Objective
-
-Translate the claim that information-theoretic principles “rule out”
-quaternionic physics into a valid conditional theorem—or prove that the stated
-principles do not determine that conclusion.
-
-#### Detailed Implementation Plan
-
-- Identify explicit operational axioms from the cited reconstruction/no-bit-
-  commitment programs and formalize only those needed for a finite no-go.
-- Connect Stage 17's actual bit-commitment outcome to the axioms and prove the
-  corresponding incompatibility implication if its premises hold.
-- Separate algebraic order dependence, no-signaling, relativistic causality,
-  cryptographic impossibility, and empirical physicality.
-- If multiple operational completions satisfy the paper's mathematical core
-  but disagree on the physicality criterion, prove formal underdetermination.
-
-#### Completion Requirements
-
-- No theorem declares a model physically false by definition or appeal to
-  authority.
-- The result is a precise implication from named operational axioms, or a
-  checked underdetermination theorem.
-- Every dependence on Stage 16–17 definitions is explicit and the source prose
-  is reclassified accurately.
-- The assigned row gains a substantive formal result and documented limits.
-
-### 19-ALGEBRAS
-
-#### Big Picture Objective
-
-Test how far the circuit architecture extends beyond `ℝ`, `ℂ`, and `ℍ`, using
-concrete nonassociative and finite-field cases rather than a vague taxonomy.
-
-#### Detailed Implementation Plan
-
-- Implement or reuse a minimal octonion model and prove an explicit associator
-  counterexample showing why unparenthesized matrix/circuit products and the
-  current placement laws fail; identify any alternative-tree semantics that
-  remains coherent.
-- Prove the finite-field obstruction to ordinary nonnegative real Born weights
-  or state the additional valuation/embedding data required by a viable model.
-- Factor the Stage 14 circuit-scalar interface into necessary laws and classify
-  the real, complex, quaternionic, octonionic, and selected finite-field cases.
-- Formulate a finite algebraic complexity comparison and prove at least one
-  simulation, separation, or impossibility theorem.
-
-#### Completion Requirements
-
-- The stage does not claim a classification of all scalar systems without a
-  proof; it delivers checked representative successes/failures.
-- Octonion nonassociativity and finite-field probability issues are executable
-  examples plus general lemmas, not prose observations.
-- Both source questions gain precise case-study results and named remaining
-  classification targets.
-- Experimental modules remain isolated from the stable associative core.
-
-### 20-RELEASE
-
-#### Big Picture Objective
-
-Reconcile the entire 101-row inventory and publish the expanded library and
-research boundary in a form another Lean project can trust and reuse.
-
-#### Detailed Implementation Plan
-
-- Re-run the closure checker and independently review every one of the 47
-  pre-Goal-2 cohort rows, including each `closedByGoal2` disposition, every new
-  correction, and every dependency effect.
-- Reconcile `EQC-045`--`EQC-051` separately against their Goal 3 owners and
-  operational obstructions; none may disappear merely because the overlapping
-  traceability row has a different identifier.
-- Stabilize module boundaries, namespace names, public imports, docstrings,
-  examples, research/diagnostic separation, and downstream usage guidance.
-- Update README, Architecture, Conventions, Traceability, Corrections,
-  RemainingWork, ReleaseReport, and AxiomAudit documentation.
-- Run clean builds, strict checks, downstream smoke tests, executable fixtures,
-  source scans, tracked-artifact checks, and an independent requirement audit.
-
-#### Completion Requirements
-
-- The immutable 47-row cohort has no unexamined item; Goal 2 dispositions and
-  Goal 3 closure outcomes satisfy the rules above and totals reconcile with the
-  101-row source inventory.
-- The seven unresolved Goal 2 classification families have terminal Goal 3
-  evidence or new frontier IDs, while remaining separate from the 47-row
-  arithmetic.
-- No original partial/unresolved row retains either status.  A corrected,
-  negative, conditional, or underdetermination theorem moves it to **corrected
-  and proved**; any residual research question receives a new frontier ID.
-  No excluded item remains supported by prose alone.
-- All completed modules contain no holes or project axioms, and every main new
-  result appears in the executable axiom audit.
-- Clean public-root/audit builds, warning-as-error checks, all executable tests,
-  downstream import smoke, whitespace/forbidden-token/artifact scans, and
-  `git diff --check` pass and are recorded.
-- The final report distinguishes completed formalization from genuinely open
-  scientific research and gives precise instructions for extending each.
+Independent stages may proceed in parallel only when they do not edit the same
+core modules or change a shared convention. Public-root promotion remains
+serialized through the relevant stage's integration checks.
+
+## Stage Index
+
+1. `1-REBASE` — freeze the actual post-Goal-2 worklist and checker.
+2. `2-ALGEBRA` — close determinant and finite-dimensional foundation gaps.
+3. `3-ORDERING` — executable schedules, physical routing, and temporal cuts.
+4. `4-QDENSITY` — native quaternionic densities, effects, and partial trace.
+5. `5-QCHANNELS` — quaternionic channels and operational complex simulation.
+6. `6-FANOUT` — real-gate optimization and multi-top depth/resource results.
+7. `7-ENCODING` — executable scalar, circuit, schedule, and output encodings.
+8. `8-ERROR` — certified rounding and accumulated semantic error.
+9. `9-SYNTHESIS` — construct compilers and prove corrected resource bounds.
+10. `10-UNIFORMITY` — uniform algorithms, universality, runtime, and BQP scope.
+11. `11-STRUCTURE` — phase tracking, scalar structure, and converse boundaries.
+12. `12-FRONTIER` — precise handoff for genuinely open research programs.
+13. `13-RELEASE` — final clean build, audit, documentation, and reusable release.
+
+## 1-REBASE
+
+### Big Picture Objective
+
+Replace every forecast with an executable, checksum-backed statement of the
+actual work remaining after Goal 2.
+
+### Detailed Implementation Plan
+
+- Re-run the complete Goal 2 validator and record the public-root, audit,
+  checksum, source-count, traceability, correction, and worktree baselines.
+- Create `docs/Goal3Worklist.json` with all 47 pre-Goal-2 non-fully-proved IDs:
+  two `closedByGoal2` entries and 45 Goal 3 entries.
+- Give every Goal 3 entry its current status, source location, owning stage,
+  dependencies, required closure outcome, primary proof route, fallback route,
+  and concrete verification witness.
+- Add a separate section for `EQC-045`–`EQC-051` without counting those
+  families as additional traceability rows.
+- Create `docs/RemainingWork.md` as the generated or mechanically checked human
+  view of the worklist.
+- Add a validator that checks IDs, counts, status arithmetic, ownership,
+  correction links, source links, stage names, and absence of duplicates.
+- Replace the superseded Goal 3 owner labels in
+  `docs/EquivalenceClassification.md` from the validator-confirmed mapping;
+  do not edit the frozen Goal 1 cohort.
+- Re-read the primary source passages and identify later primary literature
+  needed by the algebra, channel, synthesis, uniformity, and structural tracks.
+
+### Completion Requirements
+
+- The checker proves `47 = 2 + 45`, with the 45 rows partitioned exactly into
+  26 partial, 16 excluded, and 3 unresolved at baseline.
+- The seven Goal 2 source-only families occur exactly once in the separate
+  boundary ledger.
+- Every default core row is assigned to Stages 2–11; every excluded row is
+  assigned to a core stage or Stage 12 with an explicit reason.
+- Goal 2 counts, hashes, checksum, build evidence, and axiom union reproduce.
+- The worklist and human view are generated from or checked against one source
+  of truth.
+- Focused validator tests, Markdown checks, and `git diff --check` pass.
+
+## 2-ALGEBRA
+
+### Big Picture Objective
+
+Close the finite-dimensional algebraic facts on which the corrected simulation
+and complexity statements depend.
+
+### Detailed Implementation Plan
+
+- Settle the remaining quaternion-complexification determinant-one branch using
+  the narrowest justified route: symplectic determinant, Pfaffian congruence,
+  connectedness, Study determinant positivity, or a checked counterexample.
+- Export the strongest corrected special-unitary image theorem and propagate
+  its exact target dimension and assumptions.
+- Close the finite-dimensional linear-isometry/unitary, completeness, and real
+  norm-preserver/orthogonal facts assigned by the Stage 1 worklist.
+- Resolve the norm-preserver converse boundary in `EQC-045` with explicit
+  scalar-specific linear or antiunitary hypotheses.
+- Keep expensive determinant/Pfaffian arguments in proof leaves and expose a
+  small stable API with downstream matrix/simulation consumers.
+
+### Completion Requirements
+
+- Every Stage 2 worklist row has a terminal closure outcome and named Lean
+  evidence.
+- The determinant result excludes the `-1` branch or proves why it cannot be
+  excluded under the stated hypotheses.
+- All dimensions, nonempty assumptions, scalar conventions, and group targets
+  are explicit in theorem signatures.
+- Focused matrix builds, adjacent simulation/resource consumers, strict
+  compilation, axiom checks, counterexample tests, and static scans pass.
+- Corrections and dependent traceability rows are updated immediately.
+
+## 3-ORDERING
+
+### Big Picture Objective
+
+Turn supplied finite schedules and semantic reindexings into executable,
+verified ordering and routing infrastructure with honest costs.
+
+### Detailed Implementation Plan
+
+- Define an executable topological-sort procedure for the paper's finite gate
+  precedence data, returning either a certified legal schedule or a certified
+  cycle obstruction.
+- Prove permutation completeness, precedence preservation, evaluator
+  compatibility, termination, and an explicit complexity bound.
+- Define physical adjacent-swap routing for arbitrary wire placements and prove
+  exact denotation, restored spectators, width, gate count, and depth bounds.
+- Formalize the corrected temporal-cut/poset object needed by multi-top and
+  scheduling arguments; distinguish a chosen schedule from schedule-independent
+  semantics.
+- Retain the existing exact schedule API as a low-level certificate interface.
+
+### Completion Requirements
+
+- Every Stage 3 worklist row has a terminal closure outcome.
+- The scheduler evaluates on representative finite examples and rejects a
+  cyclic example with a proof-bearing result.
+- Routing emits actual gates; no reindexing or equivalence is counted as a
+  zero-cost swap.
+- Correctness, resource, and runtime theorems compile through real consumers.
+- Focused/adjacent builds, executable evaluations, strict checks, audit checks,
+  shortcut scans, and `git diff --check` pass.
+
+## 4-QDENSITY
+
+### Big Picture Objective
+
+Build the minimum reusable native quaternionic mixed-state and measurement
+layer needed for partial trace and operational simulation.
+
+### Detailed Implementation Plan
+
+- Select and document a quaternionic Hermitian positivity convention based on
+  real quadratic forms or proved complexification; do not add an order instance
+  to `ℍ`.
+- Define finite quaternionic density matrices and effects with normalization,
+  convexity, pure-state constructors, and real-valued Born probabilities.
+- Prove preservation/reflection results under quaternion complexification.
+- Define partial trace with explicit basis/tensor association and prove trace,
+  positivity, product-state, pure-state, and marginal laws.
+- Formalize the mixed-top hypotheses needed by the paper's arbitrary-top rebit
+  and qubit simulations; distinguish product, uncorrelated, and arbitrary mixed
+  top states.
+- Supply small finite examples and a diagnostic separating equal diagonal
+  weights from equal reduced states.
+
+### Completion Requirements
+
+- Every Stage 4 worklist row and `EQC-046`/`EQC-047` has a terminal closure
+  outcome or an explicit checked obstruction assigned by Stage 1.
+- Density/effect constructors are nonempty in intended finite dimensions and
+  expose the empty-index boundary honestly.
+- Born values are real and bounded; partial trace is well-defined and preserves
+  the proved invariants.
+- No proof relies on a fictitious quaternion order or commutative tensor law.
+- Focused algebra/state builds, complexification consumers, examples, strict
+  compilation, axiom audit, and scans pass.
+
+## 5-QCHANNELS
+
+### Big Picture Objective
+
+Define quaternionic channels and determine their exact operational relationship
+to complex channels and decoded measurements.
+
+### Detailed Implementation Plan
+
+- Define the narrowest mathematically justified finite quaternionic channel
+  model, beginning with unitary conjugation and extending to Kraus-style maps
+  only after positivity and trace preservation are proved.
+- Add effects, instruments, outcome distributions, composition, identities,
+  and marginal/partial-trace compatibility.
+- Prove complexification simulation for preparations, transformations, and
+  measurements, including explicit encoders, decoders, ancillas, and tested
+  observables.
+- State operational equality only at the strongest verified scope; do not infer
+  a converse from nonsurjectivity of an algebraic embedding.
+- Reclassify the product-input ordering witness using the new mixed/channel
+  semantics: prove signaling/non-signaling or record a formal obstruction,
+  without substituting ray inequality for a channel claim.
+
+### Completion Requirements
+
+- The Stage 5 core row and relevant `EQC-051` obligation have terminal checked
+  outcomes.
+- Every channel constructor has positivity and trace-preservation evidence.
+- Complex simulation preserves the declared preparation/channel/effect outcome
+  probabilities, with every policy visible.
+- Any converse or separation theorem names the exact allowed operational tests.
+- Focused/adjacent builds, channel-law tests, downstream consumers, strict
+  compilation, axiom checks, and scans pass.
+
+## 6-FANOUT
+
+### Big Picture Objective
+
+Settle the paper's real-gate optimization and logarithmic multi-top simulation
+claims with physical circuits and exact resource accounting.
+
+### Detailed Implementation Plan
+
+- Reconstruct the real-gate optimization target from emitted circuit syntax,
+  not from arithmetic edits to old resource formulas.
+- Define the two-rail/top-sector splitter and prove its exact intertwining and
+  observable behavior.
+- Build an executable balanced rail tree with explicit ancillas, routing,
+  chronology, and cleanup.
+- Prove the strongest valid depth, size, width, and fanout theorem for the
+  multi-top simulation; if the advertised class-wide logarithmic depth is
+  false, prove a corrected model-specific theorem or a no-go result.
+- Keep phase tracking as an invariant-subspace/orbit statement rather than a
+  claim that one qubit literally stores arbitrary quaternionic phase.
+
+### Completion Requirements
+
+- Both Stage 6 worklist rows have terminal closure outcomes.
+- The construction is executable and its evaluator theorem is consumed by the
+  simulation layer.
+- All routing and ancilla operations are emitted and counted.
+- Claimed asymptotics follow from exact recurrences and explicit hypotheses.
+- Small-width evaluations, focused/adjacent builds, strict/audit checks, and
+  resource-formula scans pass.
+
+## 7-ENCODING
+
+### Big Picture Objective
+
+Give circuits, schedules, scalar parameters, inputs, and outputs finite
+machine-level representations with executable validation and decoding.
+
+### Detailed Implementation Plan
+
+- Define finite encodings for the selected exact scalar sublanguage, gates,
+  wire indices, ordered circuits, schedules, precision requests, and measured
+  outputs.
+- Prove decode/encode laws, malformed-input rejection, size bounds, and
+  compatibility with the stable exact semantics.
+- Implement the real and quaternionic uniform-generator interfaces and
+  deterministic/randomized postprocessing interfaces needed later.
+- Separate dense matrix descriptions from bounded-arity gate codes and record
+  every bit-length convention.
+- Do not use host floating-point values as exact unitaries or exact proof data.
+
+### Completion Requirements
+
+- All four Stage 7 worklist rows have terminal closure outcomes.
+- Encoders, decoders, validators, and representative generators evaluate on
+  regression examples.
+- Round-trip theorems and explicit code-size bounds compile.
+- Invalid schedules, dimensions, gates, and precision requests are rejected.
+- Focused runtime/proof builds, extraction/evaluation tests, downstream
+  consumers, strict/audit checks, and scans pass.
+
+## 8-ERROR
+
+### Big Picture Objective
+
+Connect finite scalar approximation to certified state, circuit, and outcome
+error without confusing approximate values with exact unitaries.
+
+### Detailed Implementation Plan
+
+- Define a computable rounding target and prove scalar/matrix error bounds.
+- Provide a certified route from encoded approximants to legal gates: exact
+  synthesis into a finite library, normalization/projection with proof, or a
+  rejection result when certification fails.
+- Prove telescoping circuit error bounds with explicit dependence on gate count,
+  placement, chronology, and local error budgets.
+- Transport operator error to normalized state-ray, decoded distribution,
+  finite-event, and deterministic-postprocessing error.
+- Prove zero-error compatibility with Goal 2's exact semantic relations.
+
+### Completion Requirements
+
+- The Stage 8 finite-precision row has a terminal closure outcome.
+- Every approximation theorem exposes its metric, budget, and normalization or
+  legality hypotheses.
+- Accumulation bounds are proved rather than inserted as arithmetic constants.
+- Executable examples demonstrate accepted and rejected approximants.
+- Focused metric/encoding builds, circuit and outcome consumers, strict/audit
+  checks, and scans pass.
+
+## 9-SYNTHESIS
+
+### Big Picture Objective
+
+Replace supplied compiler certificates with constructed compilation procedures
+and prove the strongest correct gate-count, depth, and runtime bounds.
+
+### Detailed Implementation Plan
+
+- Select explicit finite target gate libraries and state exact universality or
+  density assumptions separately from compiler construction.
+- Implement exact decomposition where available and approximate synthesis where
+  necessary, using Stage 7 encodings and Stage 8 error certificates.
+- Prove compiler termination, semantic correctness/error, width, ancilla,
+  gate-count, depth, code-size, and runtime bounds.
+- Re-examine the paper's generic-decomposition, constant-arity, and
+  arbitrary-arity overhead claims; refute unsupported constants and publish the
+  strongest constructed replacements.
+- Ensure quaternionic compilation proceeds through an explicitly proved
+  simulation/complexification path rather than an assumed quaternionic tensor
+  compiler.
+
+### Completion Requirements
+
+- All three Stage 9 worklist rows have terminal closure outcomes.
+- No theorem quantifies over a supplied compiler while claiming compiler
+  existence.
+- At least one nontrivial encoded circuit compiles and its decoded outcome/error
+  theorem evaluates.
+- Resource and runtime theorems follow from the executable implementation.
+- Focused compiler builds, executable tests, adjacent simulations, strict/audit
+  checks, and forbidden-supplied-data scans pass.
+
+## 10-UNIFORMITY
+
+### Big Picture Objective
+
+Lift the finite constructions to uniform algorithm families and settle the
+paper's computational-equivalence and complexity claims at an explicit error
+and resource scale.
+
+### Detailed Implementation Plan
+
+- Define encoded uniform real, complex, and quaternionic circuit families with
+  input-size and precision parameters, executable generators, acceptance
+  events, and runtime measures.
+- Prove the uniform complex-to-real and ordered quaternionic-to-complex
+  simulations using the constructed scheduler, encoding, error, and synthesis
+  layers.
+- Construct a width-independent finite bounded-arity universal/dense schema for
+  the selected model, or prove a precise no-go and formulate the strongest
+  corrected family-dependent theorem.
+- State and prove the resulting BQP containment/equality only after generator,
+  approximation, success-probability, and polynomial-overhead obligations are
+  established.
+- Treat circuit/QTM correspondence as a separate theorem; use external results
+  only after restating all encoding and approximation hypotheses.
+
+### Completion Requirements
+
+- All six Stage 10 partial/unresolved worklist rows have terminal outcomes.
+- The uniform theorem quantifies input size and precision and exposes width,
+  size, depth, random bits, error, and runtime overhead.
+- Preferred schedules remain supplied or computed according to Stage 3; no
+  schedule-independence claim is smuggled into BQP language.
+- The universal-set result is constructive, or its impossibility/corrected
+  boundary is checked.
+- Generator evaluations, complexity-bound arithmetic, focused/adjacent builds,
+  strict/audit checks, and scans pass.
+
+## 11-STRUCTURE
+
+### Big Picture Objective
+
+Resolve the remaining structural and interpretive partial claims using the
+completed operational and uniform layers.
+
+### Detailed Implementation Plan
+
+- Formalize the exact complex-structure or invariant-subspace data needed to
+  compare real, complex, and quaternionic models without assuming an
+  unjustified left scalar multiplication.
+- Give a precise phase-tracking theorem for the added top sector and distinguish
+  coefficient bookkeeping, ray quotient, subsystem factorization, and
+  operational observability.
+- Settle the “not `n+1` rebits” limitation at its strongest justified scope.
+- Address norm-preserver converses (`EQC-045`) with scalar-specific linear or
+  antiunitary hypotheses.
+- State any converse simulation using the operational relations from Stage 5,
+  not algebraic image nonsurjectivity alone.
+
+### Completion Requirements
+
+- All four Stage 11 structural rows and assigned source-only families have
+  terminal closure outcomes.
+- Every scalar action side and linearity convention is explicit.
+- No dimension-count or image-properness theorem is presented as an
+  operational separation without a proved bridge.
+- Positive and negative examples compile through public consumers.
+- Focused structure builds, channel/uniformity consumers, strict/audit checks,
+  and scans pass.
+
+## 12-FRONTIER
+
+### Big Picture Objective
+
+Create an honest, precise handoff for source questions that are genuine future
+research rather than prerequisites of the reusable computational core.
+
+### Detailed Implementation Plan
+
+- Create `docs/ResearchFrontier.md` covering every baseline intentionally
+  excluded row and any user-approved core-to-frontier transfer.
+- For each item record the exact source claim/question, current Lean boundary,
+  missing definitions, minimum assumptions, dependency on Goal 3 core,
+  falsifiable theorem candidates, counterexample routes, relevant primary
+  literature, and recommended future goal.
+- Group, without merging IDs: real-QTM/external results; multipath semantics;
+  protocols and communication; capacity/rebit information theory; physicality;
+  and alternative scalar algebras.
+- Formalize any cheap decisive boundary theorem exposed by the completed core;
+  do not retain a frontier label merely to avoid a now-straightforward proof.
+- Add checker coverage so no excluded row or source-only family disappears.
+
+### Completion Requirements
+
+- All 16 baseline excluded rows occur exactly once in the frontier or have a
+  checked terminal result elsewhere.
+- Every frontier entry has a precise model gap and at least one concrete future
+  theorem/counterexample target; vague “future work” is insufficient.
+- Release prose distinguishes unproved research questions from proved Goal 3
+  results.
+- Frontier IDs and dependencies are mechanically checked against the worklist.
+- Documentation, link, Markdown, and `git diff --check` checks pass.
+
+## 13-RELEASE
+
+### Big Picture Objective
+
+Publish the computational and operational completion as a clean, reusable Lean
+library with an exact frontier boundary.
+
+### Detailed Implementation Plan
+
+- Reconcile every Goal 3 worklist row, correction, source-only family, public
+  declaration, audit endpoint, consumer, and frontier entry.
+- Stabilize namespaces, imports, docstrings, examples, and public-root exposure;
+  keep audits, diagnostics, and generators non-public.
+- Produce the final Goal 3 report: formalized mathematics, theorem stack,
+  algorithms, resource bounds, corrections, refutations, underdetermination
+  results, omitted research, project structure, build/audit evidence, and
+  downstream usage.
+- Run a clean pinned default build, all maintained audits/examples, strict
+  warning-as-error compilation, trust/axiom parsing, registry/worklist
+  validators, source/artifact/import/Markdown/whitespace scans, and downstream
+  public-root smoke tests.
+- Obtain independent mathematical, implementation/resource, audit/release, and
+  documentation/frontier reviews; repair and rerun affected checks.
+
+### Completion Requirements
+
+- Every default core row has a terminal evidence-backed outcome; no partial or
+  unresolved core status remains.
+- Every excluded/frontier row is accounted for without being called proved.
+- The exact-to-encoded-to-approximate-to-compiled-to-uniform theorem stack, or
+  its strongest checked corrected boundary, is documented and imported through
+  the stable API.
+- Quaternionic density/channel results and their complex simulation scope are
+  explicit and audited.
+- Completed modules contain no proof hole, project axiom, unsafe/opaque
+  shortcut, or unexplained fallback.
+- Clean builds, audits, validators, downstream smoke tests, scans, and
+  `git diff --check` pass after final documentation edits.
+- All independent reviews return **PASS**.
 
 ## Stage Status
 
-- [ ] 1-REBASE
-- [ ] 2-SEMANTICS
-- [ ] 3-DENSITY
-- [ ] 4-FOUNDATIONS
-- [ ] 5-DETERMINANT
-- [ ] 6-ROUTING
-- [ ] 7-PHASEFANOUT
-- [ ] 8-ENCODING
-- [ ] 9-APPROX
-- [ ] 10-SYNTHESIS
-- [ ] 11-UNIVERSALITY
-- [ ] 12-UNIFORMITY
-- [ ] 13-REALQTM
-- [ ] 14-STRUCTURE
-- [ ] 15-MULTIPATH
-- [ ] 16-CHANNELS
-- [ ] 17-PROTOCOLS
-- [ ] 18-PHYSICALITY
-- [ ] 19-ALGEBRAS
-- [ ] 20-RELEASE
+- [ ] `1-REBASE`
+- [ ] `2-ALGEBRA`
+- [ ] `3-ORDERING`
+- [ ] `4-QDENSITY`
+- [ ] `5-QCHANNELS`
+- [ ] `6-FANOUT`
+- [ ] `7-ENCODING`
+- [ ] `8-ERROR`
+- [ ] `9-SYNTHESIS`
+- [ ] `10-UNIFORMITY`
+- [ ] `11-STRUCTURE`
+- [ ] `12-FRONTIER`
+- [ ] `13-RELEASE`

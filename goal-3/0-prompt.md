@@ -1,161 +1,71 @@
 # Goal 3 Continuation Prompt
 
 ```text
-After Goal 2 is fully complete, work autonomously through goal-3/0-plan.md using
-goal-3/0-loop.md and the authoritative Lean workflow in BUILD-PLAN.md. Do not
-start Goal 3 before Goal 2's clean build, audit, frozen cohort-registry check,
-semantic API-manifest check, traceability fold-back, and downstream smoke
-evidence are recorded.
+Work autonomously through goal-3/0-plan.md using goal-3/0-loop.md and the
+mandatory Lean workflow in BUILD-PLAN.md.
 
-The objective is to tackle every remaining item from the verified Lean
-formalization of Fernandez and Schneeberger's “Quaternionic Computing.” The
-immutable pre-Goal-2 cohort has 47 non-fully-proved rows. Goal 2 owns two ray
-rows, so the forecast Goal 3 worklist is 45 rows: 26 partially formalized, 16
-intentionally excluded, and 3 unresolved. Recompute the actual post-Goal-2
-worklist before implementation and account for every cohort row as either
-closedByGoal2 or assigned exactly once to Goal 3. Close ordinary proof and
-engineering gaps; prove, correct, or refute the determinant, multi-top
-depth, synthesis, universality, uniformity, and BQP claims; and give every
-external, interpretive, information-theoretic, multi-path, and alternative-
-scalar question a precise model plus a substantive constructive, negative,
-reduction, or underdetermination result.
+Goal 1 reconstructed Fernandez and Schneeberger's “Quaternionic Computing.”
+Goal 2 is complete and supplies the checked semantic vocabulary for exact
+equality, scalar-correct state/ray phase, operator projective action, basis
+behavior, measurement, channels, directional cross-model simulation, and
+approximation. Do not redefine or bypass those relations.
 
-Separately consume the seven unresolved source-only families in
-`docs/Goal2ClassificationRegistry.json` without adding them to the 47/45 row
-counts: `EQC-045` to foundations; `EQC-046`/`047` to density;
-`EQC-048` to uniformity/real QTM; `EQC-049` to routing; `EQC-050` to structure;
-and `EQC-051` to structure/channels. Preserve each exact obstruction and require
-an explicit operational relation—with allowed encoders, ancillas, decoders,
-marginals, and tests—before claiming any converse simulation separation.
+Goal 3 must complete the reusable computational and operational core: freeze
+the exact post-Goal-2 worklist; close the determinant, finite-dimensional,
+ordering, routing, and phase-fanout gaps; construct native quaternionic
+densities, effects, partial trace, and channels; add executable finite
+encodings, certified rounding and accumulated error, constructed synthesis,
+uniform circuit families, explicit resource/runtime bounds, and the strongest
+correct computational-equivalence theorem; then resolve the remaining
+structural phase/converse boundaries and publish a clean release.
 
-Do not treat relabeling, definitions alone, conditional structures, supplied
-schedules/compilers/certificates, or a green build as completion. Never use
-sorry, admit, sorryAx, unjustified axioms, vacuous hypotheses, noncomputable
-stand-ins for executable algorithms, or definitions engineered to make a
-claim tautological. Keep exact versus approximate, finite semantics versus
-encoding/runtime, and operator/ray/outcome/operational claims separate. Keep
-quaternionic state/ray phase on the right, limit operator projective phase to
-the proved central-sign kernel in dimensions at least two with the full
-unit-quaternion rank-one exception explicit, respect
-noncommutativity and chronology, count physical routing and synthesis, and do
-not infer entanglement, signaling, security, causality, or physicality without
-explicit definitions and proofs.
+The baseline is a 101-row traceability inventory. Before Goal 2 there were 47
+non-fully-proved rows; Goal 2 closed two ray rows, leaving a forecast of 45:
+26 partially formalized, 16 intentionally excluded, and 3 unresolved. Stage
+1-REBASE must mechanically recompute this rather than trust the forecast. By
+default all 29 partial or unresolved rows are core obligations and must finish
+as proved, corrected-and-proved, refuted by a Lean counterexample, or formally
+underdetermined. Moving one to the research frontier requires checked evidence
+or explicit user approval. The 16 already excluded rows must remain exactly
+accounted for in a precise research-frontier handoff; they do not all have to
+become full formal developments in this goal. Track the seven source-only
+families EQC-045 through EQC-051 separately without changing the 47/45 counts.
 
-Goal 2 now records the two transferred ray rows `closedByGoal2` only after
-combining quotient constructors, descended evolution/outcome operations, and
-the checked Stage 4C cross-model sector-orbit/ordinary-real-ray boundary. Goal
-3 Stage 1 must verify that complete evidence and correction C-027 rather than
-counting the quotient constructors alone or duplicating the ray work.
+Never use sorry, admit, sorryAx, an unjustified axiom, a vacuous premise,
+unsafe/opaque shortcuts, unlimited-heartbeat escapes, or definitions engineered
+to force a result. Registry labels and green builds are not proofs. Supplied
+schedules, compilers, synthesis certificates, universal-set certificates, and
+density certificates are data, not constructed algorithms. Runtime encoders,
+schedulers, compilers, and generators must be executable and tested.
 
-Goal 2 also supplies the checked same-space hierarchy. In particular,
-all-pure-input basis measurement is output-row phase rather than channel
-equality, equal finite basis distributions need not determine a ray, and the
-quaternionic output-row phase acts on the left. Goal 3 must consume these
-relations together with the raw/normalized/circuit projective-to-input phase
-arrows: projective action implies both sided phase branches, while the input
-and output branches are incomparable and neither implies projective action.
-Over real and complex scalars, the generic raw, normalized, and circuit kernel
-theorems further collapse projective agreement to one global sign or phase for
-arbitrary rectangular matrices with finite input. Quaternionic rank one keeps
-the full unit-quaternion exception. Goal 3 must consume these results without
-inventing stronger same-space, cross-model, mixed-state, or channel conclusions.
+Preserve quaternionic right-module conventions: state and input-column phase
+act on the right, output-row phase acts on the left, and arbitrary unit
+quaternions are not global operator phase. Preserve the higher-dimensional
+central-sign kernel and rank-one exception. Do not use commutative tensor laws
+over quaternions or impose an order on ℍ. Do not count semantic reindexing as a
+physical swap. Do not call rounded matrices unitary without certification.
+Keep exact values, encodings, approximation, synthesis, uniformity, runtime,
+and complexity claims separate. Basis-only or one-input evidence is not a
+channel, signaling, protocol, physicality, or complexity theorem.
 
-The completed Goal 2 release has 102 Lean sources including the public
-root, 1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
-audit labels, 557 root axiom commands, 15 local existing-result commands, and
-four local projective-input/kernel commands. Its exact axiom union remains
-`propext`, `Classical.choice`, and `Quot.sound`. The root audit parser reports
-554 nonempty plus three axiom-free blocks. The final
-classification overlay contains 51 family records and all 936 frozen
-declarations exactly once, including all ten empty families, and its maintained
-validator plus generated Lean checks pass.
-The final default, integrated root/audit, all-15-audit-module, and combined
-root/audit/all-maintained targets pass at `2776/2776`, `2778/2778`,
-`2788/2788`, and `2792/2792`.
-Stage 9A contributes 38 generic directional cross-model declarations and 20
-concrete encoding declarations.
-`ExactStateEncoding` is only a left-inverse certificate on the encoder image;
-the four canonical columns separately have stronger raw real-linear and
-normalized-representative equivalences. Keep those results distinct from ray,
-circuit, channel, product-state, and all-effect equivalence. A normalized
-`Rebit`/`Qubit` top-sector value is a coefficient parameter, not a mixed joint
-density or a top/bottom factorization certificate; the non-product witness
-rules out that reading. Stage 9B contributes 16 exact wrappers for all eleven
-assigned operator/state/reindex/schedule/compiler families. Its coefficient
-pairs are raw coordinates; Equation 63 remains a reindexing, not a circuit
-translator; schedules and exact compilers are supplied data, not choice,
-independence, existence, synthesis, or runtime results. Its six audit consumers
-allocate the wrappers as `2 + 3 + 4 + 3 + 2 + 2`; focused wrapper/audit builds
-completed 2,369 and 2,381 jobs.
+At every iteration: inspect actual sources, APIs, audits, validators, docs,
+traceability, corrections, worklist/frontier data, tests, and Git state; update
+0-plan.md facts before implementation; select the first dependency-ready
+incomplete stage; create or refresh only its stage report from the template in
+0-loop.md; implement that stage in narrow modules; add real consumers,
+diagnostics, executable tests, no-cheating checks, and axiom coverage; run
+focused and adjacent builds plus every proportionate strict/full/validator/
+scan/diff check; record exact evidence; fold results into the plan and canonical
+docs; and continue. If stopping, leave the stage resumable with the smallest
+obstruction, failed experiments, next construction, safe build state, and exact
+resume point.
 
-Stage 9C contributes ten explicit full-target one/two-added-wire decoders,
-eight full-target postprocessing declarations, and 18 semantic wrappers. The
-semantic wrappers are allocated exactly as `2 + 4 + 4 + 4 + 4`: two
-representative raw pointwise results and four each for complex-to-real,
-fixed-order quaternion-to-complex, supplied-schedule quaternion-to-complex,
-and composed quaternion-to-real simulation. Two infrastructure aggregates
-separately cover the ten decoder and eight postprocessing declarations. The
-one-wire distribution decoder equals deterministic pushforward by `tailBits`.
-Composed quaternion-to-real decoding removes the outer realification wire
-first, then the inner complexification wire. Raw point wrappers need no local-
-unitarity hypothesis; normalized distribution, event, and pushforward wrappers
-retain the appropriate local-unitarity certificate, and schedules remain
-supplied data. Do not infer product/mixed-top semantics, partial trace,
-channels, randomized behavior, resource bounds, or compiler/schedule
-construction from these results. Focused decoder/postprocessing/outcome/audit
-builds completed 2,347, 2,361, 2,365, and 2,385 jobs; the combined target
-completed 2,769.
-
-Stage 10 contributes 169 stable metric declarations and 24 exact-allocation
-audit consumers. Reuse its scoped real/complex Euclidean induced operator
-distance, native underlying-real quaternionic distance, mapped comparison,
-global phase/central-sign budgets, correctly right-sided normalized state-ray
-budgets, half-L1 total variation, local output/event/pushforward bounds,
-zero-budget exact bridges, and strictness witnesses. Do not infer a quaternion
-matrix norm instance, arbitrary unit-quaternion operator phase, quotient-ray
-metric, encoded finite precision, accumulated circuit error, approximate
-compiler construction, runtime, or uniformity. At Stage 10 closure the project
-had 97 Lean sources, 1,269 manifest declarations, 164 consumers, 348 manifest
-entries then labeled direct, and 536 root audit commands; the combined build
-completed 2,775 jobs and the cached default build completed 2,773. After the
-final release-metadata repair, the first-1,100 manifest hash is
-`372ee113efa5376a0eeec4519f4142dc3b93a0d4f898e18c555ba26edc0d3aab`,
-the authoritative first-1,269 hash is
-`181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399`,
-and the first-1,275 hash is
-`41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`.
-The full-1,290 hash is
-`49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
-The frozen Goal 1 cohort checksum remains
-`65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
-Stage 11 registry closure is achieved. Goal 2 is a satisfied prerequisite: all
-independent reviews pass and Stage 12 is formally closed.
-
-At each iteration, inspect the actual source, files, builds, primary references,
-closure ledger, traceability, corrections, and diff; update current facts;
-choose the first dependency-ready incomplete stage or mandatory compiling
-milestone; create or refresh only its stage file;
-implement the smallest proof/API/algorithm/counterexample that advances that
-stage; run focused and adjacent builds plus the required executable, audit,
-scan, checksum, and diff checks; record exact evidence; fold results back into
-the plan and documentation; and continue.
-
-For every Lean-changing stage follow BUILD-PLAN.md: use narrow dependency
-layers, classify declarations, include Build Structure and Boundary Checks,
-run touched-leaf and real-consumer builds, and do not promote experimental
-research APIs prematurely.
-
-Completion means the original tackle-all objective is genuinely achieved: all
-47 pre-Goal-2 cohort rows are accounted for by Goal 2 or Goal 3; every row
-partial/unresolved at the Goal 3 baseline leaves those statuses through proved
-or corrected-and-proved results; every excluded/open item has new formal
-evidence or a completed formal case study; the pinned project builds without
-holes or project axioms; all main exports pass the executable axiom audit; and
-genuinely open scientific questions are carried forward under new exact theorem
-IDs rather than hidden or overstated.
-
-The seven unresolved Goal 2 registry families must also be closed or assigned
-new frontier IDs, but remain a separate overlay ledger rather than inflating
-the 47-row traceability arithmetic.
+Completion means the original reset Goal 3 objective is actually achieved:
+the worklist is exact; every core row has a terminal checked outcome; encoded,
+approximate, compiled, uniform, resource-aware simulation is proved at its
+strongest justified scope; quaternionic mixed-state/channel semantics and
+their operational simulation boundary are established; all excluded research
+questions remain visibly and precisely handed off; public APIs and docs agree;
+and the clean pinned build, audits, validators, downstream smoke tests, static
+scans, and independent release reviews all pass.
 ```
