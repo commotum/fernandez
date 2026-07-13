@@ -37,12 +37,16 @@ REGISTRY_TABLE_END = "<!-- GOAL2-REGISTRY-TABLE:END -->"
 
 FROZEN_SHA256 = "65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b"
 STAGE10_MANIFEST_COUNT = 1269
+STAGE11_MANIFEST_COUNT = 1275
 STAGE9C_MANIFEST_COUNT = 1100
 STAGE9C_STRUCTURAL_SHA256 = (
     "d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870"
 )
 STAGE10_STRUCTURAL_SHA256 = (
     "c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229"
+)
+STAGE11_STRUCTURAL_SHA256 = (
+    "bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f"
 )
 DIRECT_LABEL = "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean"
 
@@ -383,7 +387,7 @@ def validate_manifest(
     require(tuple(axes or []) == AXES, "manifest classification axes changed")
     items = manifest.get("items")
     require(isinstance(items, list), "Goal 2 manifest items must be an array")
-    require(len(items) >= STAGE10_MANIFEST_COUNT, "Goal 2 manifest lost its Stage 10 prefix")
+    require(len(items) >= STAGE11_MANIFEST_COUNT, "Goal 2 manifest lost its Stage 11 prefix")
 
     names: list[str] = []
     consumers: list[str] = []
@@ -410,6 +414,8 @@ def validate_manifest(
     require(prefix1100 == STAGE9C_STRUCTURAL_SHA256, f"first-1100 manifest hash changed: {prefix1100}")
     prefix1269 = structural_hash(items[:STAGE10_MANIFEST_COUNT])
     require(prefix1269 == STAGE10_STRUCTURAL_SHA256, f"first-1269 manifest hash changed: {prefix1269}")
+    prefix1275 = structural_hash(items[:STAGE11_MANIFEST_COUNT])
+    require(prefix1275 == STAGE11_STRUCTURAL_SHA256, f"first-1275 manifest hash changed: {prefix1275}")
 
     stage10_source = [
         name
@@ -421,20 +427,33 @@ def validate_manifest(
         names[STAGE9C_MANIFEST_COUNT:STAGE10_MANIFEST_COUNT] == stage10_source,
         "Stage 10 manifest/source order differs",
     )
-    suffix = names[STAGE10_MANIFEST_COUNT:]
+    stage11_suffix = names[STAGE10_MANIFEST_COUNT:STAGE11_MANIFEST_COUNT]
     existing_results = root / "QuaternionicComputing/Semantics/ExistingResults.lean"
-    if suffix:
-        require(existing_results.is_file(), "manifest has a Stage 11 suffix but ExistingResults.lean is absent")
-        require(suffix == declaration_names(existing_results), "Stage 11 manifest/source order differs")
+    require(existing_results.is_file(), "ExistingResults.lean is absent")
+    require(
+        stage11_suffix == declaration_names(existing_results),
+        "Stage 11 manifest/source order differs",
+    )
+    stage12_suffix = names[STAGE11_MANIFEST_COUNT:]
+    projective_input = (
+        root / "QuaternionicComputing/Semantics/Hierarchy/ProjectiveInput.lean"
+    )
+    require(projective_input.is_file(), "ProjectiveInput.lean is absent")
+    stage12_source = declaration_names(projective_input)
+    require(len(stage12_source) == 9, "Stage 12 public source count is not 9")
+    require(
+        stage12_suffix == stage12_source,
+        "Stage 12 manifest/source order differs",
+    )
 
     root_targets, _ = audit_target_sets(root)
     intersection = set(names) & root_targets
     require(set(direct_names) == intersection, "manifest direct labels differ from root-audit intersection")
-    baseline = items[:STAGE10_MANIFEST_COUNT]
+    baseline = items[:STAGE11_MANIFEST_COUNT]
     baseline_consumers = {item["consumer"] for item in baseline}
     baseline_direct = [item for item in baseline if item["axiomAudit"] == DIRECT_LABEL]
-    require(len(baseline_consumers) == 164, "Stage 10 consumer baseline changed")
-    require(len(baseline_direct) == 350, "corrected Stage 10 direct-audit baseline changed")
+    require(len(baseline_consumers) == 167, "Stage 11 consumer baseline changed")
+    require(len(baseline_direct) == 356, "Stage 11 direct-audit baseline changed")
     return manifest, set(names), set(consumers)
 
 

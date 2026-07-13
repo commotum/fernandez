@@ -34,6 +34,7 @@ AUDIT_MODULES = (
     "QuaternionicComputing.Semantics.SimulationAudit",
     "QuaternionicComputing.Semantics.ApproximationAudit",
     "QuaternionicComputing.Semantics.ExistingResultsAudit",
+    "QuaternionicComputing.Semantics.ProjectiveInputAudit",
 )
 
 KINDS = (

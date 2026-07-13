@@ -20425,6 +20425,150 @@
         "exactness": "exact conditional theorem; no compiler existence or synthesis",
         "ancillaPolicy": "none; the compiler certificate and primitive predicate remain explicit data"
       }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealRawProjectiveActionEq.inputBasisSignEq",
+      "relation": "Raw real projective action implies input-column sign equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real rectangular matrix space with finite input type",
+        "subject": "raw all-input operator rays and computational-basis input columns",
+        "inputScope": "every raw input column, specialized constructively to each basis column",
+        "observationScope": "complete output-column equality up to one real sign per input basis index",
+        "phase": "one unit real sign multiplying each input column on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.inputBasisPhaseEq",
+      "relation": "Raw complex projective action implies input-column phase equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex rectangular matrix space with finite input type",
+        "subject": "raw all-input operator rays and computational-basis input columns",
+        "inputScope": "every raw input column, specialized constructively to each basis column",
+        "observationScope": "complete output-column equality up to one complex phase per input basis index",
+        "phase": "one unit complex phase multiplying each input column on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.inputRightPhaseEq",
+      "relation": "Raw quaternionic projective action implies input-right-phase equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic rectangular matrix space with finite input type",
+        "subject": "raw all-input right rays and computational-basis input columns",
+        "inputScope": "every raw input column, specialized constructively to each basis column",
+        "observationScope": "complete output-column equality up to one quaternionic right phase per input basis index",
+        "phase": "one unit quaternion multiplying each input column strictly on the right",
+        "exactness": "exact implication",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealProjectiveActionEq.inputBasisSignEq",
+      "relation": "Normalized real projective action implies input-column sign equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real rectangular matrix space with finite input type",
+        "subject": "normalized all-pure-input operator rays and computational-basis input columns",
+        "inputScope": "every normalized pure input, extended to raw columns before basis specialization",
+        "observationScope": "complete output-column equality up to one real sign per input basis index",
+        "phase": "one unit real sign multiplying each input column on the right",
+        "exactness": "exact implication through the raw/normalized bridge",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexProjectiveActionEq.inputBasisPhaseEq",
+      "relation": "Normalized complex projective action implies input-column phase equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex rectangular matrix space with finite input type",
+        "subject": "normalized all-pure-input operator rays and computational-basis input columns",
+        "inputScope": "every normalized pure input, extended to raw columns before basis specialization",
+        "observationScope": "complete output-column equality up to one complex phase per input basis index",
+        "phase": "one unit complex phase multiplying each input column on the right",
+        "exactness": "exact implication through the raw/normalized bridge",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.inputRightPhaseEq",
+      "relation": "Normalized quaternionic projective action implies input-right-phase equality",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic rectangular matrix space with finite input type",
+        "subject": "normalized all-pure-input right rays and computational-basis input columns",
+        "inputScope": "every normalized pure input, extended to raw columns before basis specialization",
+        "observationScope": "complete output-column equality up to one quaternionic right phase per input basis index",
+        "phase": "one unit quaternion multiplying each input column strictly on the right",
+        "exactness": "exact implication through the raw/normalized bridge",
+        "ancillaPolicy": "none"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.inputBasisSignEq",
+      "relation": "Real circuit projective equality implies evaluator input-column signs",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same real chronological-circuit evaluator space",
+        "subject": "two OrderedCircuit evaluators and their input basis columns",
+        "inputScope": "all normalized pure BitBasis inputs, including the inhabited zero-wire basis",
+        "observationScope": "complete evaluator-column equality up to one real sign per basis input",
+        "phase": "one unit real sign multiplying each evaluator input column on the right",
+        "exactness": "exact evaluator-backed implication",
+        "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.inputBasisPhaseEq",
+      "relation": "Complex circuit projective equality implies evaluator input-column phases",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same complex chronological-circuit evaluator space",
+        "subject": "two OrderedCircuit evaluators and their input basis columns",
+        "inputScope": "all normalized pure BitBasis inputs, including the inhabited zero-wire basis",
+        "observationScope": "complete evaluator-column equality up to one complex phase per basis input",
+        "phase": "one unit complex phase multiplying each evaluator input column on the right",
+        "exactness": "exact evaluator-backed implication",
+        "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
+      }
+    },
+    {
+      "declaration": "QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.inputRightPhaseEq",
+      "relation": "Quaternionic circuit projective equality implies evaluator input-right phases",
+      "owner": "goal-2/12-RELEASE",
+      "consumer": "QuaternionicComputing.Semantics.ProjectiveInputAudit.projectiveInput_arrows_api",
+      "axiomAudit": "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean",
+      "classification": {
+        "space": "same quaternionic chronological-circuit evaluator space",
+        "subject": "two OrderedCircuit evaluators and their input basis columns",
+        "inputScope": "all normalized pure BitBasis inputs, including the inhabited zero-wire basis",
+        "observationScope": "complete evaluator-column equality up to one quaternionic right phase per basis input",
+        "phase": "one unit quaternion multiplying each evaluator input column strictly on the right",
+        "exactness": "exact evaluator-backed implication",
+        "ancillaPolicy": "no gate-list, schedule, resource, or added-wire conclusion"
+      }
     }
   ]
 }

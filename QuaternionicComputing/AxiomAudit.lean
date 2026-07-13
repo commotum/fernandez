@@ -829,3 +829,24 @@ end QuaternionicComputing.Semantics.ApproximationStrictness
   QuaternionicComputing.Semantics.quaternionOrderingWitness_scopeBoundary
 #print axioms
   QuaternionicComputing.Circuit.ExactGateCompiler.compileCircuit_exactCircuitEq
+
+/-! ## Goal 2 Stage 12: projective action determines input-column phase -/
+
+#print axioms
+  QuaternionicComputing.Semantics.RealRawProjectiveActionEq.inputBasisSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexRawProjectiveActionEq.inputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionRawProjectiveActionEq.inputRightPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.RealProjectiveActionEq.inputBasisSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexProjectiveActionEq.inputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionProjectiveActionEq.inputRightPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.RealCircuitProjectiveActionEq.inputBasisSignEq
+#print axioms
+  QuaternionicComputing.Semantics.ComplexCircuitProjectiveActionEq.inputBasisPhaseEq
+#print axioms
+  QuaternionicComputing.Semantics.QuaternionCircuitProjectiveActionEq.inputRightPhaseEq
