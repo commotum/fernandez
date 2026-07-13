@@ -39,7 +39,8 @@ theorem inputBasisSignEq
     Real.signEquivalent_symm (h (Pi.single x (1 : ℝ)))
   refine ⟨s, hs, ?_⟩
   intro y x
-  simpa only [Matrix.mulVec_single_one] using congrFun (hcolumn x) y
+  simpa only [Matrix.mulVec_single_one, Matrix.col_apply] using
+    congrFun (hcolumn x) y
 
 end RealRawProjectiveActionEq
 
@@ -56,7 +57,8 @@ theorem inputBasisPhaseEq
     Complex.rightPhaseEquivalent_symm (h (Pi.single x (1 : ℂ)))
   refine ⟨eta, heta, ?_⟩
   intro y x
-  simpa only [Matrix.mulVec_single_one] using congrFun (hcolumn x) y
+  simpa only [Matrix.mulVec_single_one, Matrix.col_apply] using
+    congrFun (hcolumn x) y
 
 end ComplexRawProjectiveActionEq
 
@@ -77,8 +79,7 @@ theorem inputRightPhaseEq
       (h (Pi.single x (1 : ℍ[ℝ])))
   refine ⟨phi, hphi, ?_⟩
   intro y x
-  simpa only [Matrix.mulVec_single_one, Pi.smul_apply,
-    MulOpposite.smul_eq_mul_unop] using congrFun (hcolumn x) y
+  simpa [Matrix.col_apply] using congrFun (hcolumn x) y
 
 end QuaternionRawProjectiveActionEq
 

@@ -1,7 +1,6 @@
 module
 
 public import QuaternionicComputing.Semantics.Hierarchy.ProjectiveInput
-public import QuaternionicComputing.Semantics.StatePhaseAudit
 
 /-!
 # Projective-to-input hierarchy audit
@@ -80,6 +79,15 @@ def quaternionColumnTwist : Matrix Bool Bool ℍ[ℝ] :=
 def quaternionRowTwist : Matrix Bool Bool ℍ[ℝ] :=
   fun y _ ↦ if y then j else i
 
+/-- The normalized real-coordinate quaternionic column `(3/5,4/5)`. -/
+def quaternionThreeFour : QuaternionState Bool :=
+  ⟨fun x ↦ if x then
+      (⟨4 / 5, 0, 0, 0⟩ : ℍ[ℝ])
+    else (⟨3 / 5, 0, 0, 0⟩ : ℍ[ℝ]), by
+    norm_num [quaternionTotalWeight, totalWeight, basisWeight,
+      quaternionWeight, Fintype.univ_bool,
+      _root_.Quaternion.normSq_def']⟩
+
 /-- The column twist has exactly the advertised right input phases. -/
 theorem quaternionColumnTwist_inputRightPhaseEq :
     QuaternionInputRightPhaseEq quaternionAllOnes quaternionColumnTwist := by
@@ -108,12 +116,11 @@ theorem quaternionColumnTwist_not_pureInputBasisMeasurementEq :
     ¬ PureInputBasisMeasurementEq quaternionWeight
       quaternionAllOnes quaternionColumnTwist := by
   intro h
-  have hw := h StatePhaseAudit.normalizedPhaseWitnessState false
+  have hw := h quaternionThreeFour false
   norm_num [OutputWeightEqAt, BasisWeightEq, basisWeight,
     quaternionWeight, Matrix.mulVec, dotProduct, Fintype.univ_bool,
     quaternionAllOnes, quaternionColumnTwist,
-    StatePhaseAudit.normalizedPhaseWitnessState,
-    StatePhaseAudit.normalizedPhaseWitnessInput,
+    quaternionThreeFour,
     _root_.Quaternion.normSq_def', i, j] at hw
 
 /-- Complete strictness boundary for the input-column quaternionic branch. -/
