@@ -190,10 +190,15 @@ name the remaining useful semantic boundaries, while algebraic, structural,
 resource, and source-only families retain explicit nonbehavioral or obstruction
 dispositions. At that checkpoint the separate Goal 2 manifest covered 1,275
 new declarations without rewriting the frozen seed. Stage 12 adds nine
-projective-to-input hierarchy arrows and explicit quaternionic sided-phase
-strictness witnesses; the current manifest therefore covers 1,284 declarations
-while the 101-row paper inventory, all terminal statuses, and the frozen
-51-family/936-declaration registry remain unchanged.
+projective-to-input hierarchy arrows and six generic real/complex
+projective-to-global arrows. The generic raw theorem covers arbitrary
+rectangular matrices with finite input and needs no unitarity, nonempty-index,
+square-matrix, or finite-output assumption; normalized and circuit forms follow.
+The non-root audit retains the quaternionic sided-phase strictness witnesses and
+the full unit-quaternion rank-one boundary. The current manifest therefore
+covers 1,290 declarations while the 101-row paper inventory, all terminal
+statuses, the 45-row Goal 3 residual ledger, the separate `EQC-045`--`EQC-051`
+assignment, and the frozen 51-family/936-declaration registry remain unchanged.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 

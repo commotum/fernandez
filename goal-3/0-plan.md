@@ -202,26 +202,31 @@ none may remain excluded merely because it is difficult.
   families and all 936 declarations exactly one checked disposition, including
   explicit axes for all ten empty families. The maintained validator and all
   generated Lean name/evidence/consumer checks pass. Stage 12 closes the final
-  hierarchy gap with nine real/complex/quaternionic raw, normalized, and
-  circuit projective-to-input phase arrows plus a non-root three-endpoint
-  quaternionic strictness audit. The final Goal 2 release has 101 Lean sources
-  including the public root, 1,284 semantic-manifest declarations, 168
-  resolving consumers, 365 direct manifest audit labels, 551 root axiom
-  commands, and exact root/local axiom union `propext`, `Classical.choice`, and
-  `Quot.sound`. The root parser reports 548 nonempty plus three axiom-free
-  blocks; the existing-result and projective-input parsers report 15 and three
-  nonempty blocks. Clean/default/integrated/exhaustive builds complete 2,782,
-  2,775, 2,777, and 2,787 jobs. Stage 11 corrected two Stage 10 strictness entries that were
+  hierarchy gaps with nine real/complex/quaternionic raw, normalized, and
+  circuit projective-to-input phase arrows and six generic real/complex
+  projective-to-global arrows. The latter need no unitarity, square-matrix,
+  nonempty-index, or finite-output assumption. Quaternionic rank one remains
+  the explicit full-unit-phase obstruction to a central-sign arrow. The current
+  Goal 2 release candidate has 102 Lean sources including the public root,
+  1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
+  manifest audit labels, 557 root axiom commands, and exact root/local axiom
+  union `propext`, `Classical.choice`, and `Quot.sound`. The root parser reports
+  554 nonempty plus three axiom-free
+  blocks; the existing-result and projective-input parsers report 15 and four
+  nonempty blocks. Before the generic kernel refinement, clean/default/
+  integrated/exhaustive builds completed 2,782, 2,775, 2,777, and 2,787 jobs.
+  Stage 11 corrected two Stage 10 strictness entries that were
   genuinely printed in the root audit but mislabeled transitive in manifest
   metadata. The corrected first-1,269 structural hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
   and the preserved first-1,275 hash is
   `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
-  the full-1,284 hash is
-  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`;
+  the full-1,290 hash is
+  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Goal 2 is now a satisfied prerequisite; Goal 3 may begin at its first stage.
+  Goal 2 becomes a satisfied prerequisite only after the final post-refinement
+  builds, scans, documentation checks, and independent reviews pass.
   Finite scalar encodings,
   rounding/code-to-value certification, accumulated circuit error, approximate
   compiler/synthesis construction, runtime, and uniformity remain assigned to

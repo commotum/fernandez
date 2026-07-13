@@ -70,7 +70,10 @@ QuaternionicComputing/
       OutputPhase.lean       all-pure basis agreement iff output-row phase
       State.lean             ray/distribution/event/postprocessing arrows
       Operator.lean          unitary channel and circuit covering arrows
+      ProjectiveInput.lean   projective action to input-column phase
+      ProjectiveKernel.lean  arbitrary real/complex global projective kernels
     HierarchyAudit.lean      non-root hierarchy strictness and exact coverage
+    ProjectiveInputAudit.lean non-root projective arrows and scalar strictness
     Simulation.lean          directional cross-model relation vocabulary
     SimulationEncoding.lean  representative coordinate equivalences
     SimulationWrappers.lean  exact matrix/circuit/schedule/compiler wrappers
@@ -411,6 +414,17 @@ generic two-sided congruence. `ComplexRealAudit.lean` remains outside the root;
 its rational `3/5,4/5` unitary family proves the advertised strictness and
 incomparability results are not singular-matrix artifacts.
 
+`Hierarchy/ProjectiveKernel.lean` closes the commutative-scalar kernel at its
+natural generality. For arbitrary rectangular real or complex matrices with a
+finite input type, raw projective action forces one matrix-wide global sign or
+unit complex phase. The normalized theorem follows through the exact raw/
+normalized bridge, and the circuit theorem compares arbitrary evaluators
+without a local-unitarity premise. The proof treats the zero matrix separately;
+for nonzero matrices it combines input-column and output-row witnesses, using
+a sum of two basis columns when their supports are disjoint. It therefore
+covers zero matrices, empty input and output types, and rank one without square,
+unitarity, rank, or output-finiteness assumptions.
+
 `OperatorPhase/Quaternion.lean` keeps five noncommutative comparisons
 separate. `QuaternionCentralSignEq` permits only one central real scalar
 `s` with `s*s=1`; it is not arbitrary unit-quaternion phase.
@@ -427,6 +441,9 @@ true. `Hierarchy/ProjectiveInput.lean` further specializes raw action to basis
 columns and proves that either projective relation determines input-right
 phase. Its non-root audit uses explicit column/row twists to prove input-right
 and output-left phase incomparable and strictly weaker than projective action.
+There is no quaternionic analogue of the arbitrary-rectangular global-kernel
+theorem: the commutative proof step that identifies a row phase with a column
+phase is invalid for noncentral quaternionic scalars.
 
 `QuaternionCircuit.lean` owns the side-correct matrix composition laws and
 exactly four evaluator-backed wrappers: central sign, input-right phase,
@@ -641,9 +658,9 @@ real, complex-unitary, raw-phase-sensitive, and Boolean-distribution
 counterexamples to fixed-budget equivalence. These modules compare exact
 mathematical values; finite scalar encodings, rounding, accumulated circuit
 error, approximate compiler/synthesis construction, runtime, and uniformity
-remain Goal 3 work. The Goal 2 registry is closed; the independent final
-Stage 12 release gates also passed, including the clean rebuild, downstream
-smoke test, exact axiom parsing, static scans, and independent reviews.
+remain Goal 3 work. The Goal 2 registry is closed. Its pre-kernel Stage 12
+release gates passed; the final post-kernel rebuild, downstream smoke, exact
+axiom parsing, static scans, and independent reviews are tracked separately.
 
 `Semantics/ExistingResults.lean` supplies the six stable wrappers that the final
 classification pass found genuinely useful: a normalized rejection of left
@@ -658,10 +675,11 @@ behavior relation for nonbehavioral evidence.
 The Stage 11 registry is now closed. `Goal1ComparisonCohort.json` remains the
 immutable 51-family/936-declaration historical boundary;
 `Goal2ClassificationRegistry.json` is its final declaration-complete overlay,
-and `Goal2SemanticAPIManifest.json` independently covers 1,284 Goal 2 exports.
-The current source tree has 101 Lean files including the public root. Stage 12
-adds only the missing hierarchy arrows and their non-root strictness audit; it
-does not change the frozen registry or any paper-row disposition.
+and `Goal2SemanticAPIManifest.json` independently covers 1,290 Goal 2 exports.
+The current source tree has 102 Lean files including the public root. Stage 12
+adds the missing projective-input and generic real/complex projective-kernel
+arrows plus their non-root consumer/strictness audit; it does not change the
+frozen registry or any paper-row disposition.
 
 ## Circuit implementation
 
@@ -874,8 +892,8 @@ determinant boundary is therefore explicit:
 
 - Every substantive module must compile without placeholders.
 - `QuaternionicComputing/AxiomAudit.lean` lists `#print axioms` commands for the
-  main public theorems. Its final surface contains 551 commands; the non-root
-  `ExistingResultsAudit.lean` and `ProjectiveInputAudit.lean` have 15 and three
+  main public theorems. Its expanded surface contains 557 commands; the non-root
+  `ExistingResultsAudit.lean` and `ProjectiveInputAudit.lean` have 15 and four
   local endpoints respectively.
 - Heavy semantic diagnostics stay outside the public root; in particular,
   `OperatorPhase/QuaternionAudit.lean` consumes all three public quaternionic
@@ -885,15 +903,15 @@ determinant boundary is therefore explicit:
   surface and `Semantics/ChannelAudit.lean` consumes the complete
   channel/phase/circuit lift. `Semantics/ExistingResultsAudit.lean` similarly
   consumes the final existing-result families, and
-  `Semantics/ProjectiveInputAudit.lean` consumes all nine final hierarchy
-  arrows and their quaternionic strictness boundaries. None becomes a
-  transitive dependency.
+  `Semantics/ProjectiveInputAudit.lean` consumes all nine projective-to-input
+  arrows, all six real/complex global-kernel arrows, and the quaternionic
+  strictness boundaries. None becomes a transitive dependency.
 - Small exact examples guard signs, multiplication order, placement, and
   outcome semantics.
 - `docs/Traceability.md` and `docs/Corrections.md` are updated in the same stage
   as corresponding declarations.
 - The frozen comparison cohort, final 936-declaration overlay, and independent
-  1,284-declaration Goal 2 manifest are checked separately. Registry labels are
+  1,290-declaration Goal 2 manifest are checked separately. Registry labels are
   accepted only with resolving proof/consumer/audit evidence or an explicit
   source-only obstruction.
 - Release verification includes a downstream import module that imports only

@@ -51,18 +51,21 @@ Goal 2 also supplies the checked same-space hierarchy. In particular,
 all-pure-input basis measurement is output-row phase rather than channel
 equality, equal finite basis distributions need not determine a ray, and the
 quaternionic output-row phase acts on the left. Goal 3 must consume these
-relations together with the final raw/normalized/circuit projective-to-input
-phase arrows: projective action implies both sided phase branches, while the
-input and output branches are incomparable and neither implies projective
-action. Goal 3 must consume these strictness witnesses without inventing stronger
-same-space, cross-model, mixed-state, or channel conclusions.
+relations together with the raw/normalized/circuit projective-to-input phase
+arrows: projective action implies both sided phase branches, while the input
+and output branches are incomparable and neither implies projective action.
+Over real and complex scalars, the generic raw, normalized, and circuit kernel
+theorems further collapse projective agreement to one global sign or phase for
+arbitrary rectangular matrices with finite input. Quaternionic rank one keeps
+the full unit-quaternion exception. Goal 3 must consume these results without
+inventing stronger same-space, cross-model, mixed-state, or channel conclusions.
 
-The final Goal 2 release has 101 Lean sources including the public root, 1,284
-semantic-manifest declarations, 168 resolving consumers, 365 direct audit
-labels, 551 root axiom commands, 15 local existing-result commands, and three
-local projective-input commands. Its exact axiom union remains `propext`,
-`Classical.choice`, and `Quot.sound`. The root audit parser reports 548
-nonempty plus three axiom-free blocks. The final
+The current Goal 2 release candidate has 102 Lean sources including the public
+root, 1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
+audit labels, 557 root axiom commands, 15 local existing-result commands, and
+four local projective-input/kernel commands. Its exact axiom union remains
+`propext`, `Classical.choice`, and `Quot.sound`. The root audit parser reports
+554 nonempty plus three axiom-free blocks. The final
 classification overlay contains 51 family records and all 936 frozen
 declarations exactly once, including all ten empty families, and its maintained
 validator plus generated Lean checks pass.
@@ -119,13 +122,14 @@ transitive to direct metadata. The authoritative first-1,269 hash is therefore
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
 and the preserved first-1,275 hash is
 `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
-The full-1,284 hash is
-`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+The full-1,290 hash is
+`3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
 The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
-Stage 11 registry closure and the Stage 12 release audit are achieved. Goal 2
-is a satisfied prerequisite to Goal 3.
+Stage 11 registry closure is achieved. Goal 2 becomes a satisfied prerequisite
+only after the final Stage 12 post-refinement builds, scans, documentation
+checks, and independent reviews pass.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

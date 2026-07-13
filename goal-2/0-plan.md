@@ -182,13 +182,14 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 1,284 unique declarations:
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,290 unique declarations:
   the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, 16
   Stage 9B wrappers, 36 Stage 9C decoder/postprocessing/outcome declarations,
-  169 Stage 10 metric declarations, six Stage 11 existing-result wrappers, and
-  nine Stage 12 projective-to-input hierarchy arrows in exact source order.
+  169 Stage 10 metric declarations, six Stage 11 existing-result wrappers, nine
+  Stage 12 projective-to-input arrows, and six Stage 12 generic real/complex
+  projective-kernel arrows in exact source order.
   Every item has seven semantic axes and a named downstream consumer; all
-  1,284 public names, 168 distinct consumers, and 365
+  1,290 public names, 169 distinct consumers, and 371
   direct release-audit labels resolve exactly.
   The first-990 structural hash is
   `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
@@ -204,7 +205,7 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   and the preserved first-1,275 hash is
   `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
   The current full hash is
-  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`;
+  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`;
   the old `298a...` hash is historical Stage 10-at-closure evidence only;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
@@ -295,12 +296,17 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   raw/normalized projective action implies the correctly sided input-column
   phase for real, complex, and quaternionic matrices, with evaluator-backed
   circuit lifts. The new stable leaf exports nine declarations; a non-root
-  three-endpoint audit proves quaternion input/output phase incomparability and
-  both one-sided failures to imply projective action. The current tree has 101
-  Lean sources, 1,284 manifest declarations, 168 consumers, 365 direct labels,
-  and 551 root audit commands. Clean/default/integrated/exhaustive builds and
-  the full validator/downstream/axiom checks pass; final scans, documentation,
-  and independent release verdicts remain.
+  audit proves quaternion input/output phase incomparability and both one-sided
+  failures to imply projective action. A final generic-kernel review then
+  proves six stronger real/complex raw, normalized, and circuit arrows:
+  arbitrary rectangular projective agreement already forces one global sign
+  or phase without unitarity or nonempty-index assumptions. The quaternionic
+  rank-one full unit-phase kernel remains the exact obstruction to an analogous
+  central-sign arrow. The current tree has 102 Lean sources, 1,290 manifest
+  declarations, 169 consumers, 371 direct labels, and 557 root audit commands;
+  `ProjectiveInputAudit` now has four endpoints. Earlier clean and first-repair
+  checks pass; final post-kernel builds, scans, documentation, and independent
+  release verdicts remain.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
@@ -998,6 +1004,9 @@ use without learning the retrofit's implementation history.
 
 - Stabilize semantic namespaces, imports, relation names, docstrings, examples,
   registry tooling, and public-root exposure.
+- Verify the complete projective kernel: raw, normalized, and circuit
+  projective agreement collapses to global sign/phase over real and complex
+  scalars, while quaternionic rank one remains an explicit noncentral boundary.
 - Extend `QuaternionicComputing/AxiomAudit.lean` with every main relation,
   hierarchy theorem, quotient descent, channel theorem, cross-model wrapper,
   distance theorem, and strictness witness.

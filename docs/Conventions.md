@@ -126,6 +126,15 @@ not promote input-column or output-row phase families: input-dependent phases
 can change interference, and output-dependent phases can be exposed by a later
 basis change.
 
+At the purely algebraic level, the real/complex projective kernel is more
+general. For arbitrary rectangular matrices with a finite input type, raw or
+normalized projective action forces one matrix-wide global sign or unit complex
+phase. This includes zero matrices, empty input or output types, and rank one;
+it needs no square, unitarity, rank, or output-finiteness premise. The circuit
+form applies the same statement to arbitrary evaluators. These theorems do not
+turn a phase relation into a physical channel when no density semantics has
+been supplied.
+
 Quaternionic operator phase uses five distinct predicates:
 
 ```text
@@ -176,7 +185,10 @@ raw or normalized projective action between `U` and `V` is equivalent to one
 central real sign. Rank one is excluded for a mathematical reason: every unit
 quaternion defines a unitary, projectively trivial scalar matrix, and
 `Quaternion.j` is not a central sign. None of these phase relations is channel
-equality or all-effect equality.
+equality or all-effect equality. In particular, the arbitrary-rectangular
+real/complex global-kernel proof is not transported to quaternions: its row/
+column phase cancellation uses scalar commutativity, and noncentral unit
+quaternions supply the sharp scalar-side exception.
 
 ## Certified computational-basis behavior
 

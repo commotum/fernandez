@@ -785,6 +785,16 @@ input basis column. The new stable leaf proves the real, complex, quaternionic,
 and evaluator-backed circuit versions. A non-root audit supplies explicit
 quaternionic input/output sided-phase incomparability and converse failures.
 
+A final semantic review also found that the real and complex projective kernel
+is stronger than the earlier unitary characterization exposed by the channel
+layer. Raw projective agreement for arbitrary rectangular matrices already
+forces one global real sign or complex unit phase when only the input index is
+finite. The new generic proof handles zero matrices and empty index types and
+needs no unitarity, square-matrix, nonempty-index, or finite-output hypothesis;
+normalized and evaluator-backed circuit consequences follow. The analogous
+quaternionic conclusion is deliberately absent because the proved rank-one
+full unit-quaternion kernel supplies an exact noncentral obstruction.
+
 This repairs the library's classification graph, not a statement in the paper.
 It changes no paper-row disposition, frozen cohort entry, correction C-001--
 C-027, source-only obstruction, or Goal 3 residual claim.

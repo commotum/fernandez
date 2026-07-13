@@ -6,9 +6,9 @@ William A. Schneeberger's paper *Quaternionic Computing*
 
 The source extraction is in `Fernandez/fernandez-2003.md`. Goal 1's completed
 paper reconstruction is recorded under `goal-1/`; Goal 2's semantic registry
-and final release audit are closed under `goal-2/`; the remaining
-mathematical frontier is reindexed under `goal-3/`. Lean-changing stages follow
-the authoritative incremental workflow in `BUILD-PLAN.md`.
+is closed under `goal-2/`, where the final post-kernel release rerun is tracked;
+the remaining mathematical frontier is reindexed under `goal-3/`. Lean-changing
+stages follow the authoritative incremental workflow in `BUILD-PLAN.md`.
 
 The project is pinned to Lean 4.31.0 and mathlib v4.31.0.  Once dependencies are
 available, build it with:
@@ -56,6 +56,8 @@ import QuaternionicComputing.Semantics.StatePhase
 import QuaternionicComputing.Semantics.Ray
 import QuaternionicComputing.Semantics.Hierarchy.OutputPhase
 import QuaternionicComputing.Semantics.Hierarchy.State
+import QuaternionicComputing.Semantics.Hierarchy.ProjectiveInput
+import QuaternionicComputing.Semantics.Hierarchy.ProjectiveKernel
 import QuaternionicComputing.Semantics.BasisBehavior
 import QuaternionicComputing.Semantics.BasisBehaviorCircuit
 import QuaternionicComputing.Semantics.Density
@@ -241,18 +243,26 @@ rectangular matrices with only a finite input type, agreement of every
 normalized pure input's computational-basis output weights is equivalent to
 one unit phase on each output row: a real sign, a complex phase, or a
 quaternionic phase multiplying on the left. No unitarity, nonempty-index, or
-finite-output premise is needed. Finite-distribution equality is likewise
-equivalent to agreement on every finite event and on every deterministic
-pushforward to a finite target in the same universe. Together with the ray and
-channel kernels, this gives, on an inhabited finite space, the checked
-real/complex unitary chain
+finite-output premise is needed. Over real and complex scalars, raw or
+normalized projective action is also equivalent to one matrix-wide global
+sign or phase for arbitrary rectangular matrices. This stronger kernel covers
+zero matrices, empty input or output types, and rank one without square,
+unitarity, rank, or output-finiteness assumptions; evaluator-backed circuit
+consequences need no local-unitarity certificate. The analogous quaternionic
+collapse is false because noncentral phases do not commute: only square unitary
+dimension at least two forces a central sign, while rank one admits every unit
+quaternion.
+
+Finite-distribution equality is likewise equivalent to agreement on every
+finite event and on every deterministic pushforward to a finite target in the
+same universe. Together with the ray and channel kernels, this gives, on an
+inhabited finite space, the checked real/complex unitary chain
 `global phase ↔ projective action ↔ ChannelEq ↔ AllMeasurementEq`, while
-output-row phase is only
-`PureInputBasisMeasurementEq`. Exact unitary twists prove that neither
-output-row nor basis-only agreement implies channel equality; normalized
-complex and quaternionic examples prove that equal basis distributions need
-not determine a ray. The certified `SameBasisBehavior` equivalences remain
-restricted to supplied basis-permutation certificates.
+output-row phase is only `PureInputBasisMeasurementEq`. Exact unitary twists
+prove that neither output-row nor basis-only agreement implies channel
+equality; normalized complex and quaternionic examples prove that equal basis
+distributions need not determine a ray. The certified `SameBasisBehavior`
+equivalences remain restricted to supplied basis-permutation certificates.
 
 Cross-model comparisons use a separate directional API.
 `ExactStateEncoding` exposes an encoder and decoder and means only that the
@@ -294,16 +304,18 @@ The final semantic classification is recorded in
 `docs/Goal2ClassificationRegistry.json` and rendered in
 `docs/EquivalenceClassification.md`. It assigns all 936 immutable Goal 1
 declarations exactly once across 51 families. The independent Goal 2 semantic
-manifest contains 1,284 unique public declarations, 168 consumers, and 365
+manifest contains 1,290 unique public declarations, 169 consumers, and 371
 direct root-audit labels. `Semantics.ExistingResults` exports six final thin
 classifications for earlier raw equalities and counterexamples; its 15-endpoint
 allocation audit remains outside the public root. The final
 `Semantics.Hierarchy.ProjectiveInput` leaf adds nine proof-bearing arrows from
-raw/normalized/circuit projective action to input-column phase; its three-
-endpoint strictness audit remains non-root. The registry does not turn
-algebraic embeddings, counts, or source-only claims into behavioral theorems.
-The clean release builds, executable registry, downstream smoke, and axiom
-audits pass.
+raw/normalized/circuit projective action to input-column phase.
+`Semantics.Hierarchy.ProjectiveKernel` adds the six generic real/complex
+global-kernel consequences. Their four-endpoint consumer and strictness audit
+remains non-root. The registry does not turn algebraic embeddings, counts, or
+source-only claims into behavioral theorems. The pre-kernel clean release
+evidence passed; the final post-kernel build, smoke, and exact audit reruns are
+tracked by the Stage 12 release gate.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row
@@ -317,9 +329,11 @@ is stable under a common
 later evolution, output phase under a common earlier evolution, and a common
 earlier projective evolution requires unitarity. These relations do not assert
 cross-model simulation, and input- or output-dependent basis phase is not
-promoted to channel equality. The separate channel layer proves that, for
-bundled real/complex square unitaries on an inhabited finite space, one global
-phase and all-input projective action are each exactly `ChannelEq`.
+promoted to channel equality. For arbitrary rectangular matrices, however,
+all-input projective action itself forces one common global phase, including
+the zero, empty, and rank-one boundaries. The separate channel layer proves
+that, for bundled real/complex square unitaries on an inhabited finite space,
+this same kernel is exactly `ChannelEq`.
 
 Quaternionic matrices have a side-sensitive five-relation layer. One global
 operator phase is restricted to `QuaternionCentralSignEq`, a real central
@@ -330,8 +344,10 @@ every finite input type, including the empty case where both are trivial, and
 either projective relation determines the correctly right-sided input-column
 phase. Explicit all-ones column/row twists prove input-right and output-left
 phase incomparable and prove that neither one-sided relation implies
-projective action.
-Four circuit wrappers compare evaluator semantics (there is deliberately no
+projective action. Unlike the real/complex result, projective action cannot be
+collapsed to one quaternionic matrix-wide unit phase: noncentral scalars do not
+commute through arbitrary matrix entries. Four circuit wrappers compare
+evaluator semantics (there is deliberately no
 raw-projective wrapper); because `BitBasis W` is always inhabited, their
 normalized-input quantifier is nonvacuous even for zero wires. In square
 dimension at least two, with decidable finite indices and only the first

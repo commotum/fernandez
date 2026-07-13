@@ -37,7 +37,7 @@ boundary.
   checksum.
 - Final classifications belong in `Goal2ClassificationRegistry.json`. It
   covers the 936 frozen declarations, whereas the independent semantic API
-  manifest covers the 1,284 declarations introduced by Goal 2. Neither file is
+  manifest covers the 1,290 declarations introduced by Goal 2. Neither file is
   a substitute for the proof declaration and audit endpoint named by its rows.
 - “Same space” means the compared objects have the same scalar and index type.
   “Cross space” includes scalar change, dimension change, reindexing, encoding,
@@ -54,6 +54,11 @@ boundary.
   two is exactly a central real sign, and proves the one-dimensional full-unit-
   quaternion exception. An arbitrary unit quaternion is therefore never
   treated as matrix-wide operator global phase.
+- Over the real and complex scalars, the final arbitrary-rectangular kernel is
+  stronger: raw projective action, normalized projective action, and one
+  matrix-wide sign/phase are equivalent for every finite input type. This
+  includes zero matrices, empty input or output types, and rank-one matrices;
+  it requires no unitarity, squareness, rank, or output-finiteness hypothesis.
 - An `Eq`, `Equiv`, `MulEquiv`, group-image theorem, resource equality, or green
   build is not behavioral evidence unless a theorem explicitly inhabits the
   relevant behavioral relation.
@@ -186,53 +191,54 @@ result.
 
 ## Stage 3B proof-bearing realization
 
-Stage 3B adds same-space real and complex operator/circuit phase vocabulary.
-It does not enlarge the frozen Goal 1 cohort. Every new stable declaration is
-instead recorded in the separate Goal 2 semantic API manifest.
+Stage 3B introduced the same-space real and complex operator/circuit phase
+vocabulary. Stage 12 later completed its generic projective kernel; the table
+below gives the final checked meaning. Neither stage enlarges the frozen Goal 1
+cohort. Every new stable declaration is instead recorded in the separate Goal
+2 semantic API manifest.
 
 | Relation family | Checked meaning | Valid checked consequences | Deliberately excluded upgrade |
 |---|---|---|---|
-| `RealGlobalSignEq` / `ComplexGlobalPhaseEq` | `V = η • U` for one matrix-wide unit sign/phase | Input-column phase, output-row phase, projective action, and simultaneous unitary membership | Not literal equality, channel equality, or cross-model equality |
+| `RealGlobalSignEq` / `ComplexGlobalPhaseEq` | `V = η • U` for one matrix-wide unit sign/phase | Equivalent to raw and normalized projective action; implies input-column phase, output-row phase, and simultaneous unitary membership | Not literal equality, channel equality for arbitrary rectangular matrices, or cross-model equality |
 | `RealInputBasisSignEq` / `ComplexInputBasisPhaseEq` | One right phase per computational-basis input column | `BasisMeasurementEq`; preservation by a common later operator/circuit | Not all-pure-input agreement or projective action |
 | `RealOutputBasisSignEq` / `ComplexOutputBasisPhaseEq` | One left phase per output row | `BasisMeasurementEq`, `PureInputBasisMeasurementEq`, and preservation by a common earlier operator/circuit | Not projective action or channel equality |
-| `RealProjectiveActionEq` / `ComplexProjectiveActionEq` | Raw output rays agree for every normalized pure input | Input-column phase, `PureInputBasisMeasurementEq`, and hence output-row phase; common-later preservation; common-earlier preservation under unitarity | No output-normalization claim and no channel theorem for arbitrary rectangular matrices |
+| `RealProjectiveActionEq` / `ComplexProjectiveActionEq` | Output rays agree for every normalized pure input | Equivalent to raw projective action and one global sign/phase; hence input-column phase, `PureInputBasisMeasurementEq`, and output-row phase | No output-normalization claim and no channel theorem for arbitrary rectangular matrices |
 | Eight `*Circuit*Eq` wrappers | The corresponding relation on `OrderedCircuit.eval` | Equivalence laws, exact-to-global lifts, and chronology-correct congruences | No gate-list, resource, schedule, embedding, or compiler equality |
 
-The checked forward shape is therefore not one total chain:
+The final checked shape is therefore not one total chain:
 
 ```text
 ExactOperatorEq
        |
        v
-real/complex global phase
-             |
-             v
-      projective action
-         /           \
-        v             v
- input phase    PureInputBasisMeasurementEq <-> output phase
-        \             /
-         v           v
-          BasisMeasurementEq
+real/complex global phase <-> raw projective <-> normalized projective
+                                      /                 \
+                                     v                   v
+                              input phase   PureInputBasisMeasurementEq
+                                     \                   <-> output phase
+                                      v                         v
+                                        BasisMeasurementEq
 ```
 
 `OperatorPhase.ComplexRealAudit.real_unitary_strictness` and
 `complex_unitary_strictness` use the unitary rotation
 `[[3/5,4/5],[-4/5,3/5]]`. They prove exact equality is strictly stronger than
-global phase; global phase is strictly stronger than either basis-sided phase;
-input and output phase are incomparable; input phase can change a
-superposed-input basis distribution; and output phase can preserve every
-pure-input basis distribution while failing projective action. The zero-wire
-`-1` and `I` circuit witnesses separately prove nontrivial circuit global phase
-without exact circuit equality.
+global phase; global phase/projective action is strictly stronger than either
+basis-sided phase; input and output phase are incomparable; input phase can
+change a superposed-input basis distribution; and output phase can preserve
+every pure-input basis distribution while failing projective action. The
+zero-wire `-1` and `I` circuit witnesses separately prove nontrivial circuit
+global phase without exact circuit equality.
 
 Projective action is meaningful without assuming the operator preserves
-normalization, but the rectangular operator relation is vacuous on an empty
-input index because there is no normalized input. Later converse and kernel
-characterizations must state positive-cardinality/nonempty and unitarity
-hypotheses explicitly. Circuit projective action is not vacuous: `BitBasis W`
-is inhabited and admits normalized basis states even for zero wires. Stage 3C
-supplies the separate noncommutative classification below.
+normalization. On an empty input type the normalized quantifier is vacuous,
+but the raw relation is true on the unique zero input and every matrix has no
+columns; both therefore agree with global sign/phase. An empty output type and
+rank-one matrices are covered without special hypotheses as well. Only the
+later channel characterization needs an inhabited square space and unitarity.
+Circuit projective action is nonvacuous because `BitBasis W` is inhabited and
+admits normalized basis states even for zero wires. Stage 3C supplies the
+separate noncommutative classification below.
 
 ## Stage 3C proof-bearing realization
 
@@ -433,38 +439,32 @@ through this physical-effect separation result.
 ## Stage 7 proof-bearing realization
 
 Stage 7 supplies the same-space real/complex unitary-channel classification
-without changing the frozen Goal 1 cohort or any paper-row disposition. A
-`UnitaryOperator` bundles the unitary proof required for physical evolution;
-the relations do not accept arbitrary square matrices as channels.
+without changing the frozen Goal 1 cohort or any paper-row disposition. Stage
+12 later strengthens its projective/global row for arbitrary rectangular
+matrices. A `UnitaryOperator` bundles the unitary proof required for physical
+evolution; the channel relations do not accept arbitrary square matrices.
 
 | Relation or object | Exact checked meaning | Proved equivalences and implications | Deliberately excluded upgrade |
 |---|---|---|---|
 | `ChannelEq U V` | For every density input `ρ`, the complete outputs `U.evolve ρ` and `V.evolve ρ` are equal as density matrices. | Equivalence relation; exact bundled/matrix equality implies it; chronological composition is congruent. | Not equality only on pure states, basis inputs, diagonal entries, or decoded cross-model outcomes. |
 | `AllMeasurementEq U V` | For every density input `ρ` and every genuine `Effect`, all Born values after `U` and `V` agree. | `ChannelEq U V ↔ AllMeasurementEq U V`, with the converse proved through physical-effect separation for each output pair. | The quantifier is not restricted to basis effects and does not range over arbitrary trace-test matrices. |
-| `RealRawProjectiveActionEq` / `ComplexRawProjectiveActionEq` | Every raw input column produces outputs on the same correctly sided real-sign/complex-right-phase ray. | Equivalent to the existing normalized projective relation for every finite input type by explicit zero/nonzero normalization. | Not a channel relation for arbitrary nonunitary or rectangular matrices. |
-| Real/complex global phase on bundled unitaries | `V = η • U` for one matrix-wide real sign or complex unit phase. | Global phase implies `ChannelEq` in every finite dimension. On `[Nonempty I]`, global phase, raw projective action, normalized projective action, `ChannelEq`, and `AllMeasurementEq` are equivalent. | Input-column and output-row phase families remain outside this kernel and are not upgraded. No determinant or dimension-at-least-two premise is used. |
+| `RealRawProjectiveActionEq` / `ComplexRawProjectiveActionEq` | Every raw input column produces outputs on the same correctly sided real-sign/complex-right-phase ray. | For arbitrary rectangular matrices with finite input type, equivalent to normalized projective action and one global sign/phase, including zero, empty, and rank-one cases. | Not a channel relation for arbitrary nonunitary or rectangular matrices. |
+| Real/complex global phase on bundled unitaries | `V = η • U` for one matrix-wide real sign or complex unit phase. | Global phase implies `ChannelEq` in every finite dimension. On an inhabited square unitary space, the already unconditional projective/global kernel is additionally equivalent to `ChannelEq` and `AllMeasurementEq`. | Input-column and output-row phase families remain outside this kernel and are not upgraded. No determinant or dimension-at-least-two premise is used. |
 | `CircuitChannelEq` / `CircuitAllMeasurementEq` | Apply the corresponding operator relation to `OrderedCircuit.eval` after storing a local-unitarity certificate in `UnitaryCircuit`. | Exact evaluator equality, global phase, projective action, and chronological append lift. The two circuit relations are equivalent and each is an equivalence relation. | No gate-list, schedule, resource, compilation, cross-model, or decoded-marginal equality. |
 
-The matrix-level implication structure for inhabited real and complex unitary
-spaces is now checked as
+The arbitrary-rectangular projective kernel is unconditional:
 
 ```text
-Exact bundled/matrix equality
-              │
-              ▼
 global sign/phase ⇔ raw projective action ⇔ normalized projective action
-              │                                      │
-              └──────────────▶ ChannelEq ⇔ AllMeasurementEq
 ```
 
-The phase/projective/channel equivalences require `Nonempty I` in the matrix
-API. This is not a technical convenience: no density matrix exists on an
-empty index, so `ChannelEq` and `AllMeasurementEq` are physically vacuous
-there. The named empty-index phase theorems instead use exact equality of the
-unique empty square matrices. For circuits, `BitBasis W = W → Bool` is
-canonically inhabited even when `W` is empty, so the corresponding evaluator
-characterizations discharge the matrix premise internally and remain
-nonvacuous at zero wires.
+For inhabited real and complex square unitary spaces, the same node is also
+equivalent to `ChannelEq` and `AllMeasurementEq`. Only this channel extension
+requires `Nonempty I`; no density matrix exists on an empty index, so the two
+channel relations are physically vacuous there. The projective/global theorem
+itself covers the unique empty square matrices without a separate premise. For
+circuits, `BitBasis W = W → Bool` is canonically inhabited even when `W` is
+empty, so the evaluator characterizations remain nonvacuous at zero wires.
 
 Stage 7 introduces no quaternionic density/effect/channel theory, arbitrary
 trace-test semantics, partial trace, Kraus channel, instrument, cross-model
@@ -473,10 +473,11 @@ Those omissions are scope boundaries rather than failed converses.
 
 ## Stage 8 proof-bearing realization
 
-Stage 8 closes the valid implication graph without changing the frozen Goal 1
-cohort or a paper-row disposition. Its 49 stable declarations add missing
-covering arrows and finite-observation converses; the non-root audit owns the
-counterexamples and consumes the already complete certified-classical layer.
+Stage 8 closed the then-known implication graph without changing the frozen
+Goal 1 cohort or a paper-row disposition. Its 49 stable declarations add
+covering arrows and finite-observation converses; Stage 12 later supplies the
+projective-input and generic projective-kernel completion. The non-root audit
+owns the counterexamples and consumes the certified-classical layer.
 
 | Comparison | Strongest checked result | Exact boundary |
 |---|---|---|
@@ -484,7 +485,7 @@ counterexamples and consumes the already complete certified-classical layer.
 | Finite distributions versus events | Distribution equality is iff equality of every singleton event and iff equality of every finite event. | Empty outcome types admit no finite distribution; the audit proves `IsEmpty` rather than assuming an impossible value. |
 | Finite distributions versus deterministic postprocessing | Distribution equality is iff equality of every pushforward to a finite target in the same universe. | The converse uses the identity target. Forward preservation remains universe-polymorphic. No randomized postprocessor or runtime claim is included. |
 | Rays versus basis outcomes | Exact representatives imply equal ray constructors, and ray-constructor equality implies basis-weight equality for real, complex, and quaternionic normalized states. | Equal weights, distributions, events, and pushforwards do not imply ray equality. Rational complex and existing quaternionic witnesses prove the failure. |
-| Real/complex unitary kernel | On inhabited finite spaces, global sign/phase, projective action, `ChannelEq`, and `AllMeasurementEq` are pairwise connected by named iff theorems. Projective action also implies input-column phase and output-row/all-pure agreement. | The input-column and output-row branches are weaker and incomparable with each other; neither implies projective action. The inhabited premise remains on the matrix kernel. |
+| Real/complex projective and unitary kernels | On every finite-input rectangular space, raw projective action, normalized projective action, and global sign/phase are equivalent. On inhabited square unitary spaces, that common relation is also equivalent to `ChannelEq` and `AllMeasurementEq`. | The input-column and output-row branches are weaker and incomparable with each other; neither implies projective action. Only the channel extension needs inhabitedness and unitarity. |
 | Certified classical behavior | The nine matrix and nine circuit `SameBasisBehavior` iff theorems are consumed unchanged. | Every result requires supplied permutation certificates. Raw basis-transition equivalence remains vacuous on explicit nonmonomial unitaries. |
 
 The checked complex-unitary graph is therefore
@@ -493,21 +494,24 @@ The checked complex-unitary graph is therefore
 ExactOperatorEq
         |
         v
-ComplexGlobalPhaseEq <-> ProjectiveActionEq <-> ChannelEq <-> AllMeasurementEq
-                              /       \
-                             v         v
-             InputBasisPhaseEq       PureInputBasisMeasurementEq
-                       \               <-> OutputBasisPhaseEq
-                        v                       v
-                         BasisMeasurementEq
+ComplexGlobalPhaseEq <-> RawProjectiveActionEq <-> ProjectiveActionEq
+                                                    /       \
+                                                   v         v
+                                   InputBasisPhaseEq         PureInputBasisMeasurementEq
+                                             \               <-> OutputBasisPhaseEq
+                                              v                       v
+                                               BasisMeasurementEq
+
+On inhabited square unitaries, the top line is also
+              <-> ChannelEq <-> AllMeasurementEq
 ```
 
 The real graph replaces complex phase by a sign. The output-row/all-pure iff
 also holds over quaternions with output phases on the left, but Stage 8 draws
 no quaternionic channel edge.
 
-Every missing converse in this diagram has checked evidence. Rational unitary
-input and output twists prove the two phase branches incomparable, show that
+Every rejected branch converse in this diagram has checked evidence. Rational
+unitary input and output twists prove the two phase branches incomparable, show that
 input-column phase can change a superposition's output weights, and show that
 output-row/all-pure agreement can fail channel and all-effect equality. They
 also give both failures from `BasisMeasurementEq` to a coherent input/output
@@ -614,11 +618,11 @@ uniformity remain Goal 3 work under C-024.
 
 ## Stage 12 hierarchy completion
 
-The final semantic review found one missing valid covering arrow: equality of
-operator action on every right ray necessarily fixes each computational-basis
+The final semantic review first found a missing valid covering arrow: equality
+of operator action on every ray necessarily fixes each computational-basis
 column up to its own correctly sided phase. The stable
-`Semantics/Hierarchy/ProjectiveInput.lean` leaf proves this at all three API
-levels:
+`Semantics/Hierarchy/ProjectiveInput.lean` leaf proves nine such arrows at all
+three API levels:
 
 - raw real, complex, and quaternionic projective action implies the matching
   input-column sign/right-phase relation;
@@ -632,27 +636,57 @@ state phase witness, and reads off the complete `x`th output column. It needs
 only a finite input type: no unitarity, nonempty index, channel, schedule,
 resource, or cross-model assumption is used.
 
-The non-root `ProjectiveInputAudit.lean` closes the converse boundaries over
-explicit `Bool × Bool` quaternionic matrices. A constant-one matrix with
-distinct `i`/`j` column phases has input-right phase and basis agreement but
-has neither output-left phase, all-pure-input agreement, nor projective action.
-The row-phased analogue has output-left phase and all-pure-input agreement but
-has neither input-right phase nor projective action. Thus the final graph is:
+The same review then exposed a stronger scalar split. The six declarations in
+`Semantics/Hierarchy/ProjectiveKernel.lean` prove that, over `ℝ` and `ℂ`,
+raw projective action already determines one matrix-wide sign or unit phase.
+Via the existing raw/normalized bridge and the evaluator wrappers, this holds
+at the raw, normalized, and circuit levels. The matrix result is arbitrary
+rectangular and needs only finite input: zero matrices, empty input or output
+types, and rank-one matrices are all included, with no unitarity, squareness,
+rank, nonempty-index, or output-finiteness premise.
+
+The proof combines the input-column and output-row phase witnesses. Over a
+commutative field, overlapping supports force their phases to agree; disjoint
+nonzero columns are compared by applying projective agreement to the sum of
+two basis columns. The zero matrix is handled separately. This commutative
+argument is deliberately unavailable over quaternions.
+
+The scalar-split final hierarchy is therefore:
 
 ```text
-raw projective <-> normalized projective
-          /                   \
-         v                     v
-  input-column       PureInputBasisMeasurementEq <-> output-row
-         \                     /
-          v                   v
-             BasisMeasurementEq
+ℝ / ℂ:
+ExactOperatorEq -> global sign/phase <-> raw projective <-> normalized projective
+                                             /                  \
+                                            v                    v
+                                  input-column      PureInputBasisMeasurementEq
+                                            \                    <-> output-row
+                                             v                          v
+                                                BasisMeasurementEq
+
+ℍ:
+ExactOperatorEq -> central sign -> raw projective <-> normalized projective
+                                         /                  \
+                                        v                    v
+                              input-right       PureInputBasisMeasurementEq
+                                        \                    <-> output-left
+                                         v                          v
+                                            BasisMeasurementEq
 ```
 
-Input-column and output-row phase remain incomparable with each other; each is
-strictly weaker than projective action. This correction adds a previously
-missing implication and witnesses its converses without changing any paper-row
-disposition or the frozen Goal 1 cohort.
+Quaternionic projective action retains only the displayed one-way arrow from
+central sign. The unitary rank-one matrix `quaternionRankOneScalar j` is
+projectively trivial but not central-sign equivalent, so even unitarity does
+not recover the converse in dimension one. In square unitary dimension at
+least two, the separate `QuaternionKernel.lean` theorem does recover exactly
+the central-sign kernel.
+
+The non-root `ProjectiveInputAudit.lean` is the proof-term consumer for all
+nine projective-to-input arrows and all six real/complex kernel declarations.
+Its explicit `Bool × Bool` quaternionic column and row twists also prove that
+input-column and output-row phase remain incomparable and that each one-sided
+relation is strictly weaker than projective action. The audit exports four
+selected local axiom endpoints. These repairs change no paper-row disposition
+and do not alter the frozen Goal 1 cohort.
 
 ## Final checked registry overlay
 
@@ -862,23 +896,28 @@ stage rather than Goal 2 as a whole.
 
 Stage 12 preserves the complete 1,275-entry Stage 11 manifest prefix at
 `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`
-and appends the nine `Hierarchy.ProjectiveInput` declarations in exact source
-order. The complete manifest now has 1,284 declarations, 168 distinct
-consumers, 365 direct root-audit labels, and structural hash
+and appends the nine `Hierarchy.ProjectiveInput` declarations followed by the
+six `Hierarchy.ProjectiveKernel` declarations, each in exact source order. The
+intermediate first-1,284 prefix has structural hash
 `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+The complete manifest now has 1,290 declarations, 169 distinct consumers, 371
+direct root-audit labels, and structural hash
+`3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
 The frozen 51-family/936-declaration registry and its checksum are unchanged.
 
-The executable validator passes at `51/936/10`, `1284/168/365`, and seven
+The executable validator passes at `51/936/10`, `1290/169/371`, and seven
 axes, including generated Lean resolution of every declaration and consumer.
-The source tree has 101 Lean files including the public root. The root audit
-has 551 commands (`548 + 3`), `ExistingResultsAudit` has 15, and the new
-`ProjectiveInputAudit` has three; every exact collective union is
-`{propext, Classical.choice, Quot.sound}`.
+The source tree has 102 Lean files including the public root. The root audit
+has 557 commands (`554 + 3`), `ExistingResultsAudit` has 15, and
+`ProjectiveInputAudit` has four; every exact collective union is
+`{propext, Classical.choice, Quot.sound}`. The new
+`realComplexProjectiveKernel_arrows_api` endpoint consumes all six generic
+kernel declarations as proof terms; the public root directly audits each one.
 
 After the shared pinned dependency cache was cleaned, the baseline public tree
-rebuilt successfully in 2,782 jobs. The promoted current tree passes the 2,775-
-job default build, the 2,777-job stable/local-audit/root/release-audit build,
-and the 2,787-job exhaustive maintained-audit build. Warning-as-error direct
-compilation and a downstream file importing only `QuaternionicComputing` also
-pass. Final static scans and independent release reviews remain the last
-closure gate recorded in `goal-2/12-RELEASE.md`.
+rebuilt successfully in 2,782 jobs. Before the final generic-kernel refinement,
+the promoted tree passed the 2,775-job default build, the 2,777-job integrated
+root/audit build, and the 2,787-job exhaustive maintained-audit build, together
+with warning-as-error direct compilation and a public-root-only downstream
+smoke. Final post-refinement builds, static scans, and independent release
+reviews remain the closure gates recorded in `goal-2/12-RELEASE.md`.
