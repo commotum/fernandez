@@ -682,6 +682,10 @@ The current source tree has 102 Lean files including the public root. Stage 12
 adds the missing projective-input and generic real/complex projective-kernel
 arrows plus their non-root consumer/strictness audit; it does not change the
 frozen registry or any paper-row disposition.
+The final metadata audit replaces 792 legacy `direct release endpoint pending`
+descriptions with `direct release endpoint not selected`. The validator now
+rejects pending manifest dispositions; declaration order, consumers, selected
+root endpoints, and Lean code are unchanged.
 
 ## Circuit implementation
 

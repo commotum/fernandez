@@ -408,6 +408,11 @@ def validate_manifest(
         validate_classification(item.get("classification"), f"{label}.classification")
         if item["axiomAudit"] == DIRECT_LABEL:
             direct_names.append(declaration)
+        else:
+            require(
+                "direct release endpoint not selected" in item["axiomAudit"],
+                f"{label}.axiomAudit lacks a completed non-direct disposition",
+            )
 
     require(len(names) == len(set(names)), "Goal 2 manifest declarations are duplicated")
     require(

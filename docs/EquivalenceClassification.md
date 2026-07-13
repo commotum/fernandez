@@ -875,8 +875,8 @@ named proof/consumer/audit targets. The family summary between the marker
 comments is checked against the JSON rather than maintained independently.
 
 Stage 11 adds six stable `Semantics/ExistingResults.lean` wrappers and 15
-non-root `ExistingResultsAudit` endpoints. The independent Goal 2 semantic API
-manifest preserves its corrected first-1,269 structural hash
+non-root `ExistingResultsAudit` endpoints. At that checkpoint, the independent
+Goal 2 semantic API manifest had corrected first-1,269 structural hash
 `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
 and contains 1,275 unique declarations, 167 distinct consumers, and 356 direct
 root-audit labels; its full structural hash is
@@ -899,15 +899,18 @@ stage rather than Goal 2 as a whole.
 
 ## Stage 12 release evidence
 
-Stage 12 preserves the complete 1,275-entry Stage 11 manifest prefix at
-`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`
-and appends the nine `Hierarchy.ProjectiveInput` declarations followed by the
-six `Hierarchy.ProjectiveKernel` declarations, each in exact source order. The
-intermediate first-1,284 prefix has structural hash
-`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+Stage 12 preserves the complete 1,275-entry Stage 11 declaration prefix and
+appends the nine `Hierarchy.ProjectiveInput` declarations followed by the six
+`Hierarchy.ProjectiveKernel` declarations, each in exact source order. The
+final metadata audit also replaces 792 obsolete `direct release endpoint
+pending` descriptions by `direct release endpoint not selected`. The corrected
+first-1,275 prefix hash is
+`41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`;
+the corrected intermediate first-1,284 hash is
+`a388f30f70f96a67c54f66a11224cc3153a23a9a3e792b59f1cbe004208f30bb`.
 The complete manifest now has 1,290 declarations, 169 distinct consumers, 371
 direct root-audit labels, and structural hash
-`3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
+`49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
 The frozen 51-family/936-declaration registry and its checksum are unchanged.
 
 The executable validator passes at `51/936/10`, `1290/169/371`, and seven

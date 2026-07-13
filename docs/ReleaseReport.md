@@ -865,13 +865,16 @@ changed; the two long targets now sit in their exact namespace scope for
 qualified parsing without a long-line warning.
 
 Stage 12 appends the nine stable projective-to-input arrows and then the six
-generic real/complex projective-kernel arrows exactly once after that preserved
-Stage 11 prefix. The final semantic manifest contains 1,290 unique declarations,
-169 distinct consumers, and 371 direct-root audit labels. Its full structural
-hash is
-`3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
-The first-1,275 hash remains
-`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
+generic real/complex projective-kernel arrows exactly once after the Stage 11
+declaration prefix. The final audit also changes 792 obsolete `direct release
+endpoint pending` descriptions to `direct release endpoint not selected`.
+No declaration, consumer, or selected direct endpoint changes. The final
+semantic manifest contains 1,290 unique declarations, 169 distinct consumers,
+371 direct-root audit labels, and 919 completed non-direct audit dispositions.
+Its full structural hash is
+`49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
+The corrected first-1,275 hash is
+`41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`.
 
 Independently, `Goal2ClassificationRegistry.json` preserves the 51 frozen
 family IDs and assigns every one of the 936 frozen declarations exactly once.

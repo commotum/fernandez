@@ -798,3 +798,12 @@ full unit-quaternion kernel supplies an exact noncentral obstruction.
 This repairs the library's classification graph, not a statement in the paper.
 It changes no paper-row disposition, frozen cohort entry, correction C-001--
 C-027, source-only obstruction, or Goal 3 residual claim.
+
+The final integrated audit also repaired release metadata, not mathematics:
+792 older semantic-manifest entries still described an intentionally unselected
+direct root endpoint as `pending`, despite naming their actual transitive audit
+consumer. They now say `direct release endpoint not selected`, matching the
+Stage 10 convention and final audit policy. The validator rejects any future
+pending audit label. This changes structural manifest hashes but no declaration
+name, order, proof, consumer, selected endpoint, classification count, frozen
+cohort entry, paper correction, or Goal 3 residual.

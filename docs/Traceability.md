@@ -199,6 +199,10 @@ the full unit-quaternion rank-one boundary. The current manifest therefore
 covers 1,290 declarations while the 101-row paper inventory, all terminal
 statuses, the 45-row Goal 3 residual ledger, the separate `EQC-045`--`EQC-051`
 assignment, and the frozen 51-family/936-declaration registry remain unchanged.
+The final manifest audit changes 792 obsolete `direct release endpoint pending`
+descriptions to the completed disposition `direct release endpoint not
+selected`. This metadata repair changes structural hashes but no paper row,
+Lean declaration, consumer, selected endpoint, registry family, or Goal 3 row.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 

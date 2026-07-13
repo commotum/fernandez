@@ -732,6 +732,10 @@ than ray equality in general and is not used as the quotient relation.
 - `Goal2SemanticAPIManifest.json` is independent of that overlay. It covers the
   1,290 declarations introduced by Goal 2, with 169 consumers and 371 direct
   root-audit labels; it never expands the frozen Goal 1 cohort.
+- Every manifest `axiomAudit` value is a completed disposition: either a direct
+  root target or an exact transitive/local allocation whose direct root endpoint
+  is explicitly `not selected`. The final partition is 371 direct and 919
+  non-direct entries. The validator rejects stale `pending` wording.
 - A `proofBearingRelation`, `proofBearingCertificate`, or
   `proofBearingEquality` names the exact theorem inhabiting the stated scope.
   A `counterexample` proves a bounded non-arrow. `nonbehavioralDisposition`,

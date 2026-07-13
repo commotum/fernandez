@@ -327,6 +327,11 @@ default, integrated root/audit, and all-15-audit-module builds complete 2,776,
 2,778, and 2,788 jobs respectively. The union of the public root, root audit,
 and all 15 maintained audit modules completes 2,792 jobs.
 
+The final integrated metadata audit replaced 792 obsolete `direct release
+endpoint pending` descriptions with `direct release endpoint not selected`.
+Those declarations were already covered by their named transitive consumers;
+no root/local target or parser count changed.
+
 ## Current post-repair audit result
 
 The expanded public-root audit uses Lean 4.31.0 and mathlib v4.31.0. Every one

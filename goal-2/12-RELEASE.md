@@ -200,7 +200,7 @@ handoff, then record one final evidence-backed release report.
   index types and needs no unitarity. Quaternionic rank one remains the exact
   obstruction to adding the analogous central-sign arrow.
 - The public root imports only the two stable leaves. All nine declarations are
-  appended after the preserved 1,275-entry semantic-manifest prefix; the six
+  appended after the preserved 1,275-entry declaration prefix; the six
   generic kernel declarations follow them. All 15 are selected directly by
   the root axiom audit. The current manifest is `1290/169/371` with seven axes
   and full hash
@@ -209,8 +209,10 @@ handoff, then record one final evidence-backed release report.
   still ended `direct release endpoint pending`. They are transitively covered
   declarations for which a direct root endpoint is intentionally not selected.
   The wording is now exact, the validator rejects any future pending label,
-  and all affected prefix/full hashes were recomputed without changing names,
-  order, consumers, direct selections, Lean code, or the frozen cohort.
+  and the manifest partitions into 371 direct and 919 completed non-direct
+  dispositions. All affected prefix/full hashes were recomputed without
+  changing names, order, consumers, direct selections, Lean code, or the
+  frozen cohort.
 - Exact audit parsing reports root `554 + 3 = 557`, existing-results `15 + 0`,
   and projective-input `4 + 0`, each with union exactly `propext`,
   `Classical.choice`, and `Quot.sound`.
