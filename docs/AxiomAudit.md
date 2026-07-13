@@ -362,7 +362,8 @@ identifier or `sorryAx` output.
 
 The Stage 11 and final Stage 12 stable leaves, non-root audits, public root, and
 axiom audit pass warning-as-error compilation. The executable release audit
-passes; independent closure review remains. Finite scalar encoding, rounding,
+and all independent closure reviews pass. Goal 2 is complete. Finite scalar
+encoding, rounding,
 accumulated circuit error,
 approximate compiler construction, and runtime remain Goal 3 work rather than
 missing Stage 10 axioms.

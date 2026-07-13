@@ -114,8 +114,8 @@ none may remain excluded merely because it is difficult.
   as stated. The current traceability disposition is therefore 23 proved as
   stated, 33 corrected and proved, 26 partially formalized, 16 intentionally
   excluded, and 3 unresolved. The expected 45-row Goal 3 worklist is unchanged,
-  but Stage 1 must still recompute it after all later Goal 2 stages finish.
-- Goal 2 Stages 1--11 are implemented: its inventory, exact/measurement core,
+  but Stage 1 must still recompute it against the completed Goal 2 release.
+- Goal 2 Stages 1--12 are complete: its inventory, exact/measurement core,
   normalized representative phase layer, real/complex operator-phase layer,
   quaternionic operator-phase classification, and normalized ray-quotient core
   are complete. `RealRay`, `ComplexRay`, and `QuaternionRay` have exact
@@ -207,7 +207,7 @@ none may remain excluded merely because it is difficult.
   projective-to-global arrows. The latter need no unitarity, square-matrix,
   nonempty-index, or finite-output assumption. Quaternionic rank one remains
   the explicit full-unit-phase obstruction to a central-sign arrow. The current
-  Goal 2 release candidate has 102 Lean sources including the public root,
+  completed Goal 2 release has 102 Lean sources including the public root,
   1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
   manifest audit labels, 557 root axiom commands, and exact root/local axiom
   union `propext`, `Classical.choice`, and `Quot.sound`. The root parser reports
@@ -229,8 +229,8 @@ none may remain excluded merely because it is difficult.
   `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
-  Goal 2 becomes a satisfied prerequisite only after the remaining independent
-  reviews pass and Stage 12 is formally closed.
+  Goal 2 is a satisfied prerequisite: all independent reviews pass and Stage
+  12 is formally closed.
   Finite scalar encodings,
   rounding/code-to-value certification, accumulated circuit error, approximate
   compiler/synthesis construction, runtime, and uniformity remain assigned to

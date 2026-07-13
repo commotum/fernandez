@@ -293,8 +293,7 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   independent Stage 11 reviews pass. The final registry has 33 proved, nine
   corrected-and-proved, two partially formalized, and seven unresolved family
   dispositions, with exact 208 direct-root and 728 local-endpoint declaration
-  audit assignments. Stage 11 is complete; Stage 12 is the first incomplete
-  stage.
+  audit assignments. Stage 11 is complete.
 - Stage 12 semantic review found and repaired one missing valid covering arrow:
   raw/normalized projective action implies the correctly sided input-column
   phase for real, complex, and quaternionic matrices, with evaluator-backed
@@ -311,8 +310,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   and all-15-audit-module builds pass at `2776/2776`, `2778/2778`, and
   `2788/2788`; their combined root/audit/all-maintained target passes at
   `2792/2792`. The validator, strict compiles, exact axiom parser, and root-only
-  downstream smoke also pass. Final documentation scans pass; only the
-  independent release verdicts and formal Stage 12 closure remain.
+  downstream smoke also pass. Final documentation scans pass. Independent
+  semantic, release/build/axiom, Goal 3/documentation, and integrated reviews
+  all returned **PASS** after independently reproducing the 792-description
+  metadata repair and the final 371-direct/919-non-direct partition. Stage 12
+  and Goal 2 are complete.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
@@ -1054,4 +1056,4 @@ use without learning the retrofit's implementation history.
 - [x] 9-CROSSMODEL
 - [x] 10-APPROX
 - [x] 11-REGISTRY
-- [ ] 12-RELEASE
+- [x] 12-RELEASE

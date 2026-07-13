@@ -930,5 +930,5 @@ with warning-as-error direct compilation and a public-root-only downstream
 smoke. The final default, integrated root/audit, and all-15-audit-module builds
 then passed at `2776/2776`, `2778/2778`, and `2788/2788`; their combined
 public-root, root-audit, and all-maintained-audits target passed at `2792/2792`.
-Static scans were rerun; only the independent release verdicts remain as
-closure gates in `goal-2/12-RELEASE.md`.
+Static scans were rerun, and the semantic, release/build/axiom, Goal 3/docs,
+and integrated reviews all returned **PASS**. Stage 12 and Goal 2 are closed.

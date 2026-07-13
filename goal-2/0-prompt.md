@@ -25,7 +25,7 @@ right, output-row phase on the left, and operator phase limited to the proved
 central/projective kernel with the rank-one exception explicit. Require a
 certified basis permutation for SameBasisBehavior.
 
-Stages 1--11 are independently closed. Stage 11 supplies six stable
+Stages 1--12 are independently closed. Stage 11 supplies six stable
 existing-result wrappers plus the checked 51-family/936-declaration registry,
 final human classification ledger, and Goal 3 rebaseline.
 The current checkpoint has 102 Lean sources including the public root, 1,290
@@ -34,16 +34,17 @@ manifest audit labels, 557 root axiom commands, and exact root/local axiom
 union `propext`, `Classical.choice`, and `Quot.sound`. Stage 10 supplies the
 honest exact-object metric boundary while
 finite encodings, rounding, accumulated circuit error, approximate compilation/
-synthesis, runtime, and uniformity remain Goal 3 work. Stage 12 release remains
-the first incomplete stage. Its semantic review added the missing nine
+synthesis, runtime, and uniformity remain Goal 3 work. Stage 12's semantic
+review added the missing nine
 projective-to-input hierarchy arrows and quaternionic converse witnesses. A
 final generic-kernel refinement adds six real/complex raw, normalized, and
 circuit projective-to-global arrows for arbitrary rectangular matrices, with
 no unitarity or nonempty-index assumption. Quaternionic rank one remains the
 explicit full-unit-phase exception. The post-refinement builds, validator,
-downstream smoke, axiom parsing, and final documentation scans now pass. Finish
-the independent release verdicts in
-`goal-2/12-RELEASE.md` without weakening the explicit Goal 3 boundaries.
+downstream smoke, axiom parsing, final documentation scans, and all four
+independent release reviews pass. Goal 2 is complete; continue any remaining
+mathematical work through `goal-3/0-plan.md` without weakening its explicit
+boundaries.
 
 At each iteration inspect the actual public API, AxiomAudit, frozen Goal 1
 comparison cohort, separate Goal 2 semantic API manifest, docs, traceability,

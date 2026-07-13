@@ -60,7 +60,7 @@ arbitrary rectangular matrices with finite input. Quaternionic rank one keeps
 the full unit-quaternion exception. Goal 3 must consume these results without
 inventing stronger same-space, cross-model, mixed-state, or channel conclusions.
 
-The current Goal 2 release candidate has 102 Lean sources including the public
+The completed Goal 2 release has 102 Lean sources including the public
 root, 1,290 semantic-manifest declarations, 169 resolving consumers, 371 direct
 audit labels, 557 root axiom commands, 15 local existing-result commands, and
 four local projective-input/kernel commands. Its exact axiom union remains
@@ -129,9 +129,8 @@ The full-1,290 hash is
 The frozen Goal 1 cohort checksum remains
 `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
 Stages 9A--10 add no new paper correction; Stage 10 refines existing C-024.
-Stage 11 registry closure is achieved. Goal 2 becomes a satisfied prerequisite
-only after the remaining independent reviews pass and Stage 12 is formally
-closed.
+Stage 11 registry closure is achieved. Goal 2 is a satisfied prerequisite: all
+independent reviews pass and Stage 12 is formally closed.
 
 At each iteration, inspect the actual source, files, builds, primary references,
 closure ledger, traceability, corrections, and diff; update current facts;

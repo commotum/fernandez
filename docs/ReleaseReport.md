@@ -39,8 +39,8 @@ projective-to-input hierarchy leaf and its non-root strictness audit. The final
 semantic repair adds the generic real/complex projective-kernel leaf and extends
 that audit, bringing the current tree to 102 Lean sources including the public
 root. The earlier clean release evidence is retained as a pre-kernel checkpoint;
-the final post-kernel release verification passes, with independent closure
-review still pending. Finite encodings
+the final post-kernel release verification and all independent closure reviews
+pass. Goal 2 is complete. Finite encodings
 and numerical compilation remain Goal 3 work.
 
 The paper was treated as a mathematical source rather than a specification.

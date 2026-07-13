@@ -3,12 +3,12 @@
 ## Milestone Status
 
 - [x] `12A-CLEAN`
-- [ ] `12B-AUDIT`
-- [ ] `12C-REPORT`
+- [x] `12B-AUDIT`
+- [x] `12C-REPORT`
 
 ## Current Facts
 
-- Stages 1--11 are independently closed. The current public tree has 102 Lean
+- Stages 1--12 are independently closed. The current public tree has 102 Lean
   sources including `QuaternionicComputing.lean`, 1,290 semantic-manifest
   declarations, 169 resolving consumers, 371 direct audit labels, and a
   51-family/936-declaration final classification registry.
@@ -220,6 +220,11 @@ handoff, then record one final evidence-backed release report.
   builds pass at `2776/2776`, `2778/2778`, and `2788/2788`; their combined
   root/audit/all-maintained target passes at `2792/2792`. The full validator
   passes at `51/936/10` and `1290/169/371`; strict compilation and the
-  strengthened downstream smoke pass. Final documentation scans pass; only
-  the independent release verdicts and formal closure remain under
-  `12B-AUDIT` and `12C-REPORT`.
+  strengthened downstream smoke pass. Final documentation scans pass.
+- Independent semantic, release/build/axiom, Goal 3/documentation, and
+  integrated closure reviews all returned **PASS** after the metadata repair.
+  The release reviewer independently confirmed that exactly 792 audit
+  descriptions changed, no semantic field changed, the final partition is
+  371 direct plus 919 completed non-direct declarations, and all hashes,
+  checksums, counts, builds, audit unions, and import boundaries agree.
+  Stage 12 and Goal 2 are complete.
