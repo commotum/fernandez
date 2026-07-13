@@ -307,8 +307,8 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   `ProjectiveInputAudit` now has four endpoints. The final default, integrated,
   and exhaustive builds pass at `2776/2776`, `2778/2778`, and `2788/2788`;
   the validator, strict compiles, exact axiom parser, and root-only downstream
-  smoke also pass. Final documentation scans and independent release verdicts
-  remain.
+  smoke also pass. Final documentation scans pass; only the independent release
+  verdicts and formal Stage 12 closure remain.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

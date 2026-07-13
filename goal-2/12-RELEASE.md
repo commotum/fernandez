@@ -207,5 +207,6 @@ handoff, then record one final evidence-backed release report.
 - The final post-kernel default, integrated, and exhaustive builds pass at
   `2776/2776`, `2778/2778`, and `2788/2788`. The full validator passes at
   `51/936/10` and `1290/169/371`; strict compilation and the strengthened
-  downstream smoke pass. Final documentation scans and independent release
-  verdicts remain under `12B-AUDIT` and `12C-REPORT`.
+  downstream smoke pass. Final documentation scans pass; only the independent
+  release verdicts and formal closure remain under `12B-AUDIT` and
+  `12C-REPORT`.
