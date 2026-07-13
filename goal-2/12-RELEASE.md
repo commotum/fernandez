@@ -2,29 +2,33 @@
 
 ## Milestone Status
 
-- [ ] `12A-CLEAN`
+- [x] `12A-CLEAN`
 - [ ] `12B-AUDIT`
 - [ ] `12C-REPORT`
 
 ## Current Facts
 
-- Stages 1--11 are independently closed. The current public tree has 99 Lean
-  sources including `QuaternionicComputing.lean`, 1,275 semantic-manifest
-  declarations, 167 resolving consumers, 356 direct audit labels, and a
+- Stages 1--11 are independently closed. The current public tree has 101 Lean
+  sources including `QuaternionicComputing.lean`, 1,284 semantic-manifest
+  declarations, 168 resolving consumers, 365 direct audit labels, and a
   51-family/936-declaration final classification registry.
 - The frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
   The corrected first-1,269 semantic-manifest hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
-  the full 1,275-entry hash is
+  the preserved first-1,275 hash is
   `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
-- The root axiom audit has 542 commands (`539 + 3`) and the existing-results
-  audit has 15 (`15 + 0`). Their collective axiom unions are exactly
+  The full 1,284-entry hash is
+  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+- The root axiom audit has 551 commands (`548 + 3`), the existing-results
+  audit has 15 (`15 + 0`), and the projective-input audit has three (`3 + 0`).
+  Their collective axiom unions are exactly
   `propext`, `Classical.choice`, and `Quot.sound`.
-- The latest combined stable/audit/root/release-audit build passes at
-  `2776/2776`; a root-only downstream smoke resolves all six Stage 11 wrappers.
-  Stage 12 must still reproduce the release from a clean build directory and
-  independently audit the complete published surface.
+- The shared pinned dependency cache was cleaned and the baseline public tree
+  rebuilt at `2782/2782`. After the Stage 12 repair, the current default build
+  passes at `2775/2775`, the stable/local-audit/root/release-audit build at
+  `2777/2777`, and the exhaustive maintained-audit build at `2787/2787`.
+  Warning-as-error compilation and the root-only downstream smoke pass.
 - Goal 3 consumes a 101-row traceability table with status counts
   `23/33/26/16/3`, exactly two `closedByGoal2` ray rows, a 45-row residual
   ledger, and a separate exact assignment of unresolved source families
@@ -32,9 +36,10 @@
 
 ## Updated Assumptions
 
-- Stage 12 should not add mathematical API unless a release audit finds an
-  actual defect. Its main work is reproducibility, independent cross-checking,
-  final documentation, and downstream usability.
+- The release audit found an actual hierarchy defect: raw and normalized
+  projective action must imply input-column phase, but the public graph omitted
+  that covering arrow. Stage 12 therefore adds a narrow nine-theorem stable
+  leaf and a three-endpoint non-root strictness audit before final verification.
 - The public root should remain the only import needed by downstream users.
   Audit leaves, generated checks, registry implementation details, and the
   paper's original organization remain non-public implementation evidence.
@@ -98,13 +103,17 @@ handoff, then record one final evidence-backed release report.
 
 ## Build Structure
 
-- No new stable Lean module is planned. Existing semantic leaves remain the
-  public implementation; `QuaternionicComputing.lean` is the downstream root.
+- `Semantics/Hierarchy/ProjectiveInput.lean` owns the nine missing raw,
+  normalized, and circuit projective-to-input covering arrows.
+- `Semantics/ProjectiveInputAudit.lean` remains non-root and owns the complete
+  consumer plus explicit quaternionic sided-phase converse witnesses.
 - `QuaternionicComputing/AxiomAudit.lean` and all `*Audit.lean` leaves remain
   proof-side verification and are not imported by the public root.
 - Registry generators write only temporary files outside the repository.
 - Focused targets: `QuaternionicComputing.Semantics.ExistingResults`,
   `QuaternionicComputing.Semantics.ExistingResultsAudit`,
+  `QuaternionicComputing.Semantics.Hierarchy.ProjectiveInput`,
+  `QuaternionicComputing.Semantics.ProjectiveInputAudit`,
   `QuaternionicComputing`, and `QuaternionicComputing.AxiomAudit`.
 - Adjacent verification includes the default `lake build`, strict direct Lean
   compilation, complete registry-generated checks, and a public-root-only
@@ -138,11 +147,11 @@ handoff, then record one final evidence-backed release report.
 
 - Pinned clean default and explicit audit builds pass; all required stable and
   audit leaves strict-compile; the public-root downstream smoke compiles.
-- The full registry validator passes at exactly `51/936/10`, `1275/167/356`,
+- The full registry validator passes at exactly `51/936/10`, `1284/168/365`,
   and seven axes; hashes, frozen checksum, audit intersections, and source order
   reproduce exactly.
-- Root/local audit counts and unions match the documented `542`, `15`, and
-  `{propext, Classical.choice, Quot.sound}` evidence.
+- Root/local audit counts and unions match the documented `551`, `15`, `3`,
+  and `{propext, Classical.choice, Quot.sound}` evidence.
 - All shortcut, proof-hole, import, artifact, Markdown, whitespace, stale-path,
   and diff checks pass after the final documentation edits.
 - Independent semantic, release/audit, Goal 3/documentation, and integrated
@@ -154,4 +163,30 @@ handoff, then record one final evidence-backed release report.
 
 ## Stage Results
 
-- Pending execution.
+- Pinned Lean 4.31.0 and mathlib v4.31.0 at
+  `fabf563a7c95a166b8d7b6efca11c8b4dc9d911f` were verified from the actual
+  toolchain, manifest, and checkout. Lake's normal clean operation removed the
+  shared generated cache, and the public baseline rebuilt at `2782/2782`.
+- Independent semantic review found the missing projective-to-input covering
+  arrow. Added `Hierarchy/ProjectiveInput.lean` with exactly nine declarations:
+  raw, normalized, and evaluator-backed circuit arrows over real, complex, and
+  quaternionic scalars. Each proof specializes projective action to a basis
+  column and retains the correct phase side.
+- Added non-root `ProjectiveInputAudit.lean`. Its column- and row-phased
+  all-ones quaternionic matrices prove input/output phase incomparability and
+  that neither one-sided relation implies projective action. All three local
+  audit endpoints have the standard three-axiom union.
+- The public root imports only the stable leaf. All nine declarations are
+  appended after the preserved 1,275-entry semantic-manifest prefix and are
+  selected directly by the root axiom audit. The complete validator passes at
+  `51/936/10`, `1284/168/365`, and seven axes; full hash is
+  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+- Focused strict builds pass at `2690/2690` and `2691/2691`; the current default,
+  integrated, and exhaustive-audit builds pass at `2775/2775`, `2777/2777`,
+  and `2787/2787`. Direct public-root and root-audit warning-as-error compiles
+  pass. The root-only downstream smoke checks representative APIs at every
+  semantic layer, including all three circuit arrows.
+- Exact audit parsing reports root `548 + 3 = 551`, existing-results `15 + 0`,
+  and projective-input `3 + 0`, each with union exactly `propext`,
+  `Classical.choice`, and `Quot.sound`. Static scans, final documentation, and
+  independent release verdicts remain under `12B-AUDIT` and `12C-REPORT`.

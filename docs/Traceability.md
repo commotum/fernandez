@@ -188,9 +188,12 @@ nine corrected and proved, two partially formalized, and seven unresolved
 source-only claims. Six thin stable wrappers in `Semantics/ExistingResults`
 name the remaining useful semantic boundaries, while algebraic, structural,
 resource, and source-only families retain explicit nonbehavioral or obstruction
-dispositions. The separate Goal 2 manifest covers 1,275 new declarations and
-does not rewrite the frozen seed. Stage 12 release verification remains
-pending.
+dispositions. At that checkpoint the separate Goal 2 manifest covered 1,275
+new declarations without rewriting the frozen seed. Stage 12 adds nine
+projective-to-input hierarchy arrows and explicit quaternionic sided-phase
+strictness witnesses; the current manifest therefore covers 1,284 declarations
+while the 101-row paper inventory, all terminal statuses, and the frozen
+51-family/936-declaration registry remain unchanged.
 
 ## Numbered definitions, theorems, lemmas, and corollary
 

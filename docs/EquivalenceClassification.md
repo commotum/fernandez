@@ -37,7 +37,7 @@ boundary.
   checksum.
 - Final classifications belong in `Goal2ClassificationRegistry.json`. It
   covers the 936 frozen declarations, whereas the independent semantic API
-  manifest covers the 1,275 declarations introduced by Goal 2. Neither file is
+  manifest covers the 1,284 declarations introduced by Goal 2. Neither file is
   a substitute for the proof declaration and audit endpoint named by its rows.
 - “Same space” means the compared objects have the same scalar and index type.
   “Cross space” includes scalar change, dimension change, reindexing, encoding,
@@ -857,3 +857,28 @@ project-specific axiom was introduced. The source tree contains 99 Lean files
 including the public root. Stage 12's clean release, downstream, scan, and
 independent-review gates remain pending, so these results close the registry
 stage rather than Goal 2 as a whole.
+
+## Stage 12 release evidence
+
+Stage 12 preserves the complete 1,275-entry Stage 11 manifest prefix at
+`bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`
+and appends the nine `Hierarchy.ProjectiveInput` declarations in exact source
+order. The complete manifest now has 1,284 declarations, 168 distinct
+consumers, 365 direct root-audit labels, and structural hash
+`a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`.
+The frozen 51-family/936-declaration registry and its checksum are unchanged.
+
+The executable validator passes at `51/936/10`, `1284/168/365`, and seven
+axes, including generated Lean resolution of every declaration and consumer.
+The source tree has 101 Lean files including the public root. The root audit
+has 551 commands (`548 + 3`), `ExistingResultsAudit` has 15, and the new
+`ProjectiveInputAudit` has three; every exact collective union is
+`{propext, Classical.choice, Quot.sound}`.
+
+After the shared pinned dependency cache was cleaned, the baseline public tree
+rebuilt successfully in 2,782 jobs. The promoted current tree passes the 2,775-
+job default build, the 2,777-job stable/local-audit/root/release-audit build,
+and the 2,787-job exhaustive maintained-audit build. Warning-as-error direct
+compilation and a downstream file importing only `QuaternionicComputing` also
+pass. Final static scans and independent release reviews remain the last
+closure gate recorded in `goal-2/12-RELEASE.md`.

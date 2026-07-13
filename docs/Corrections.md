@@ -773,5 +773,18 @@ Its seven unresolved families are explicit Goal 3 boundaries, not new
 corrections and not assumed axioms. In particular, the registry does not turn a
 unitary-image `MulEquiv` into computational-model equivalence, a one-input
 ordering witness into channel inequivalence, a two-sector reduced outer into
-generic partial trace, or a supplied exact compiler into synthesis. Stage 12
-release verification remains pending.
+generic partial trace, or a supplied exact compiler into synthesis.
+
+## Goal 2 Stage 12 hierarchy-refinement note
+
+Stage 12 adds no paper correction and does not change the correction count. An
+independent release review found that the formal hierarchy documentation had
+omitted a valid implication already forced by the definitions: raw or
+normalized projective action determines one correctly sided phase for each
+input basis column. The new stable leaf proves the real, complex, quaternionic,
+and evaluator-backed circuit versions. A non-root audit supplies explicit
+quaternionic input/output sided-phase incomparability and converse failures.
+
+This repairs the library's classification graph, not a statement in the paper.
+It changes no paper-row disposition, frozen cohort entry, correction C-001--
+C-027, source-only obstruction, or Goal 3 residual claim.

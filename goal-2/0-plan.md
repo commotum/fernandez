@@ -182,12 +182,13 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   source-level families whose missing models or proofs remain explicit.
   `docs/Goal1ComparisonCohort.json` assigns 936 public declarations uniquely;
   its SHA-256 checksum is frozen in `docs/Goal1ComparisonCohort.sha256`.
-- `docs/Goal2SemanticAPIManifest.json` now contains 1,275 unique declarations:
+- `docs/Goal2SemanticAPIManifest.json` now contains 1,284 unique declarations:
   the immutable 990-declaration Stage 8 prefix, 58 Stage 9A declarations, 16
   Stage 9B wrappers, 36 Stage 9C decoder/postprocessing/outcome declarations,
-  169 Stage 10 metric declarations, and six Stage 11 existing-result wrappers
-  in exact source order. Every item has seven semantic axes and a named
-  downstream consumer; all 1,275 public names, 167 distinct consumers, and 356
+  169 Stage 10 metric declarations, six Stage 11 existing-result wrappers, and
+  nine Stage 12 projective-to-input hierarchy arrows in exact source order.
+  Every item has seven semantic axes and a named downstream consumer; all
+  1,284 public names, 168 distinct consumers, and 365
   direct release-audit labels resolve exactly.
   The first-990 structural hash is
   `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
@@ -200,8 +201,10 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   Stage 11 corrected two Stage 10 strictness entries that were directly printed
   in the root audit but mislabeled transitive. The corrected first-1,269 hash is
   `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
-  and the current full hash is
-  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
+  and the preserved first-1,275 hash is
+  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
+  The current full hash is
+  `a372726bee9bf0dff73bc2100db4196f501395491ba7b5e2e95e19efbcaed983`;
   the old `298a...` hash is historical Stage 10-at-closure evidence only;
   the frozen Goal 1 cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
@@ -278,7 +281,7 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   structural, and resource family. Stage 11B publishes a final overlay with 51
   family records and all 936 frozen declarations exactly once, including all
   ten empty families; the maintained validator and generated Lean checks pass.
-  The current tree has 99 Lean sources including the root, 1,275 semantic-
+  The Stage 11 closure tree had 99 Lean sources including the root, 1,275 semantic-
   manifest declarations, 167 consumers, 356 direct labels, and 542 root axiom
   commands. Stage 11C closes the human classification ledger and Goal 3
   fold-back. Both validator modes, generated Lean checks, warning-as-error
@@ -288,6 +291,16 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   dispositions, with exact 208 direct-root and 728 local-endpoint declaration
   audit assignments. Stage 11 is complete; Stage 12 is the first incomplete
   stage.
+- Stage 12 semantic review found and repaired one missing valid covering arrow:
+  raw/normalized projective action implies the correctly sided input-column
+  phase for real, complex, and quaternionic matrices, with evaluator-backed
+  circuit lifts. The new stable leaf exports nine declarations; a non-root
+  three-endpoint audit proves quaternion input/output phase incomparability and
+  both one-sided failures to imply projective action. The current tree has 101
+  Lean sources, 1,284 manifest declarations, 168 consumers, 365 direct labels,
+  and 551 root audit commands. Clean/default/integrated/exhaustive builds and
+  the full validator/downstream/axiom checks pass; final scans, documentation,
+  and independent release verdicts remain.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement
