@@ -191,23 +191,26 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   Every item has seven semantic axes and a named downstream consumer; all
   1,290 public names, 169 distinct consumers, and 371
   direct release-audit labels resolve exactly.
-  The first-990 structural hash is
-  `8b4225e3d4f2fdf30938af7c2e0771e59e65f6c23288c87bf5ac17a5d5ef57dd`
-  and the preserved first-1,048 hash is
-  `3094cfd9a97646f24dbbb58002eacdddbe5dad746c80c920087059760638b7b5`.
-  The preserved first-1,064 hash is
-  `ece77e3bd826d5f2db8cc63d14a6733910c5563cb473c5f518111eaccdfcade4`;
-  the preserved first-1,100 hash is
-  `d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870`;
-  Stage 11 corrected two Stage 10 strictness entries that were directly printed
-  in the root audit but mislabeled transitive. The corrected first-1,269 hash is
-  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
-  and the preserved first-1,275 hash is
-  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
-  The current full hash is
-  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`;
-  the old `298a...` hash is historical Stage 10-at-closure evidence only;
-  the frozen Goal 1 cohort and checksum remain unchanged.
+  The authoritative post-release-metadata-repair structural hashes are:
+  first 990
+  `befe21f67a4338c5c2153bffc23628b1b7871cf74662cdbbe7e73ca3dee7d5b6`,
+  first 1,048
+  `cf56e0c41f4dea302036fa03f76ced8d74960de0893d910e176ecccfc740eaa9`,
+  first 1,064
+  `aea3af60e5e8374c1bac8b2d30e25a059e5eb9bbeac2b48d7fdcb023e7519bb2`,
+  first 1,100
+  `372ee113efa5376a0eeec4519f4142dc3b93a0d4f898e18c555ba26edc0d3aab`,
+  first 1,269
+  `181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399`,
+  first 1,275
+  `41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`,
+  and full 1,290
+  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
+  The final audit mechanically changed 792 stale `direct release endpoint
+  pending` labels to `direct release endpoint not selected`; declaration order,
+  counts, consumers, and selected direct endpoints did not change. Earlier
+  hashes remain historical stage-checkpoint evidence only. The frozen Goal 1
+  cohort and checksum remain unchanged.
 - Stage 6 implements positive-semidefinite trace-one densities,
   Loewner-interval effects, rank-one and basis physical effects, real-valued
   Born probabilities in `[0,1]`, and exact `U * ρ * Uᴴ` evolution with

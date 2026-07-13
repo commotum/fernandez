@@ -15,11 +15,13 @@
 - The frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
   The corrected first-1,269 semantic-manifest hash is
-  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`;
-  the preserved first-1,275 hash is
-  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`.
+  `181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399`;
+  the corrected first-1,275 hash is
+  `41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`.
+  The first-1,284 hash is
+  `a388f30f70f96a67c54f66a11224cc3153a23a9a3e792b59f1cbe004208f30bb`.
   The full 1,290-entry hash is
-  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
+  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
 - The root axiom audit has 557 commands (`554 + 3`), the existing-results
   audit has 15 (`15 + 0`), and the projective-input audit has four (`4 + 0`).
   Their collective axiom unions are exactly
@@ -202,7 +204,13 @@ handoff, then record one final evidence-backed release report.
   generic kernel declarations follow them. All 15 are selected directly by
   the root axiom audit. The current manifest is `1290/169/371` with seven axes
   and full hash
-  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`.
+  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`.
+- The integrated review found 792 legacy manifest audit descriptions that
+  still ended `direct release endpoint pending`. They are transitively covered
+  declarations for which a direct root endpoint is intentionally not selected.
+  The wording is now exact, the validator rejects any future pending label,
+  and all affected prefix/full hashes were recomputed without changing names,
+  order, consumers, direct selections, Lean code, or the frozen cohort.
 - Exact audit parsing reports root `554 + 3 = 557`, existing-results `15 + 0`,
   and projective-input `4 + 0`, each with union exactly `propext`,
   `Classical.choice`, and `Quot.sound`.

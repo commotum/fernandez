@@ -220,12 +220,13 @@ none may remain excluded merely because it is difficult.
   jobs.
   Stage 11 corrected two Stage 10 strictness entries that were
   genuinely printed in the root audit but mislabeled transitive in manifest
-  metadata. The corrected first-1,269 structural hash is
-  `c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229`
-  and the preserved first-1,275 hash is
-  `bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f`;
+  metadata. After the final stale-pending-label repair, the authoritative
+  first-1,269 structural hash is
+  `181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399`
+  and the first-1,275 hash is
+  `41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924`;
   the full-1,290 hash is
-  `3146d7785774b7cff4b0a3bd7335a3fe6e55e220722b1672251edcf506980fa3`;
+  `49a2ad069b61bdb9fbd6a3a6175265781867d7a71a3a7d996b5cd0df283766b4`;
   the frozen Goal 1 cohort checksum remains
   `65efcf04b626ab77b08d4019fd8148750fd8e858f5cfe6263db4faddaa18ef3b`.
   Goal 2 becomes a satisfied prerequisite only after the remaining independent

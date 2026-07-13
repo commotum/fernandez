@@ -40,13 +40,13 @@ STAGE10_MANIFEST_COUNT = 1269
 STAGE11_MANIFEST_COUNT = 1275
 STAGE9C_MANIFEST_COUNT = 1100
 STAGE9C_STRUCTURAL_SHA256 = (
-    "d98dc2ee741dd792c204e088c396c7cbf95b1cc02f98fadceeccf94938da0870"
+    "372ee113efa5376a0eeec4519f4142dc3b93a0d4f898e18c555ba26edc0d3aab"
 )
 STAGE10_STRUCTURAL_SHA256 = (
-    "c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229"
+    "181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399"
 )
 STAGE11_STRUCTURAL_SHA256 = (
-    "bbea85679b6e8425f398f8ab984736472450a440cad984315d4dbd2c62def45f"
+    "41d4a61d8857204b142b2bcd67b97f93d21aea3bf829260e5a035686be26a924"
 )
 DIRECT_LABEL = "direct #print axioms target in QuaternionicComputing/AxiomAudit.lean"
 
@@ -400,6 +400,10 @@ def validate_manifest(
         names.append(declaration)
         for field in ("relation", "owner", "consumer", "axiomAudit"):
             nonempty_string(item.get(field), f"{label}.{field}")
+        require(
+            "pending" not in item["axiomAudit"].lower(),
+            f"{label}.axiomAudit retains stale pending release metadata",
+        )
         consumers.append(lean_name(item["consumer"], f"{label}.consumer"))
         validate_classification(item.get("classification"), f"{label}.classification")
         if item["axiomAudit"] == DIRECT_LABEL:

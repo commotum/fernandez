@@ -11,7 +11,7 @@
     "semanticAPI": {
       "path": "docs/Goal2SemanticAPIManifest.json",
       "baselineCount": 1269,
-      "baselineStructuralSha256": "c9c5e6845f8f2087a690859aad3c9cce4e752f4167d40ce742d246efb0e88229"
+      "baselineStructuralSha256": "181f1fa00548d886dbcd66d3ca758fb255f7ebb03121d3d1dc3ea9c75a337399"
     }
   },
   "classificationAxes": [
