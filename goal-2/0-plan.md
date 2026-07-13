@@ -305,10 +305,11 @@ and Goal 2 must not preempt Goal 3 by making unproved operational claims.
   central-sign arrow. The current tree has 102 Lean sources, 1,290 manifest
   declarations, 169 consumers, 371 direct labels, and 557 root audit commands;
   `ProjectiveInputAudit` now has four endpoints. The final default, integrated,
-  and exhaustive builds pass at `2776/2776`, `2778/2778`, and `2788/2788`;
-  the validator, strict compiles, exact axiom parser, and root-only downstream
-  smoke also pass. Final documentation scans pass; only the independent release
-  verdicts and formal Stage 12 closure remain.
+  and all-15-audit-module builds pass at `2776/2776`, `2778/2778`, and
+  `2788/2788`; their combined root/audit/all-maintained target passes at
+  `2792/2792`. The validator, strict compiles, exact axiom parser, and root-only
+  downstream smoke also pass. Final documentation scans pass; only the
+  independent release verdicts and formal Stage 12 closure remain.
 - Stage 2 focused, adjacent, public-root, warning-as-error, manifest, and axiom
   checks pass. `EQC-004`, `EQC-005`, `EQC-006`, and `EQC-026` have
   proof-bearing realizations; Stage 3 can build on the exact and measurement

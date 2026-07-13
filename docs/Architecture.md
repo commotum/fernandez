@@ -659,9 +659,10 @@ counterexamples to fixed-budget equivalence. These modules compare exact
 mathematical values; finite scalar encodings, rounding, accumulated circuit
 error, approximate compiler/synthesis construction, runtime, and uniformity
 remain Goal 3 work. The Goal 2 registry and expanded exact axiom parsing are
-closed. The final post-kernel default, integrated, and exhaustive builds pass
-at `2776/2776`, `2778/2778`, and `2788/2788`; strict stable/audit/root checks
-and the downstream public-root smoke pass as well.
+closed. The final post-kernel default, integrated, and audit-only builds pass
+at `2776/2776`, `2778/2778`, and `2788/2788`. Their combined public-root,
+root-audit, and all-maintained-audits target passes at `2792/2792`; strict
+stable/audit/root checks and the downstream public-root smoke pass as well.
 
 `Semantics/ExistingResults.lean` supplies the six stable wrappers that the final
 classification pass found genuinely useful: a normalized rejection of left

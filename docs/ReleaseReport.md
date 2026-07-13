@@ -886,10 +886,11 @@ root or the named non-root audit and resolve all manifest targets. The expanded
 registry validator passes at `51/936/10`, `1290/169/371`, and seven axes.
 Before the final kernel leaf was added, a full clean of the shared pinned cache
 completed 2,782 jobs. The final post-kernel tree passes the 2,776-job default
-build, the 2,778-job integrated root/audit build, and the 2,788-job exhaustive
-maintained-audit build. Strict compilation passes for the stable kernel leaf,
-non-root audit, public root, and axiom audit. The public-root-only downstream
-smoke also passes.
+build, the 2,778-job integrated root/audit build, and the 2,788-job build of all
+15 generator-listed maintained audit modules. The combined public-root,
+root-audit, and all-maintained-audits target passes 2,792 jobs. Strict
+compilation passes for the stable kernel leaf, non-root audit, public root, and
+axiom audit. The public-root-only downstream smoke also passes.
 
 ## Using the library in a future project
 

@@ -69,6 +69,9 @@ four local projective-input/kernel commands. Its exact axiom union remains
 classification overlay contains 51 family records and all 936 frozen
 declarations exactly once, including all ten empty families, and its maintained
 validator plus generated Lean checks pass.
+The final default, integrated root/audit, all-15-audit-module, and combined
+root/audit/all-maintained targets pass at `2776/2776`, `2778/2778`,
+`2788/2788`, and `2792/2792`.
 Stage 9A contributes 38 generic directional cross-model declarations and 20
 concrete encoding declarations.
 `ExactStateEncoding` is only a left-inverse certificate on the encoder image;

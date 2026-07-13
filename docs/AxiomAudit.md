@@ -323,8 +323,9 @@ consumer, the complete six-arrow kernel consumer, and two quaternionic
 strictness boundaries. The expanded root parser has 554 nonempty and three
 axiom-free blocks; all four local projective-input blocks are nonempty. Each
 exact union is the same standard three items below. The final post-kernel
-default, integrated, and exhaustive-audit builds complete 2,776, 2,778, and
-2,788 jobs respectively.
+default, integrated root/audit, and all-15-audit-module builds complete 2,776,
+2,778, and 2,788 jobs respectively. The union of the public root, root audit,
+and all 15 maintained audit modules completes 2,792 jobs.
 
 ## Current post-repair audit result
 

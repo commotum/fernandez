@@ -26,10 +26,12 @@
   `propext`, `Classical.choice`, and `Quot.sound`.
 - The shared pinned dependency cache was cleaned and the baseline public tree
   rebuilt at `2782/2782`. After the generic kernel refinement, the final
-  default, integrated, and exhaustive maintained-audit builds pass at
-  `2776/2776`, `2778/2778`, and `2788/2788`. Warning-as-error compilation of
-  the new stable leaf, local audit, public root, and root audit passes, as does
-  the strengthened root-only downstream smoke.
+  default, integrated root/audit, and all-15-audit-module builds pass at
+  `2776/2776`, `2778/2778`, and `2788/2788`. Their combined public-root,
+  root-audit, and all-maintained-audits target passes at `2792/2792`.
+  Warning-as-error compilation of the new stable leaf, local audit, public
+  root, and root audit passes, as does the strengthened root-only downstream
+  smoke.
 - Goal 3 consumes a 101-row traceability table with status counts
   `23/33/26/16/3`, exactly two `closedByGoal2` ray rows, a 45-row residual
   ledger, and a separate exact assignment of unresolved source families
@@ -204,9 +206,10 @@ handoff, then record one final evidence-backed release report.
 - Exact audit parsing reports root `554 + 3 = 557`, existing-results `15 + 0`,
   and projective-input `4 + 0`, each with union exactly `propext`,
   `Classical.choice`, and `Quot.sound`.
-- The final post-kernel default, integrated, and exhaustive builds pass at
-  `2776/2776`, `2778/2778`, and `2788/2788`. The full validator passes at
-  `51/936/10` and `1290/169/371`; strict compilation and the strengthened
-  downstream smoke pass. Final documentation scans pass; only the independent
-  release verdicts and formal closure remain under `12B-AUDIT` and
-  `12C-REPORT`.
+- The final post-kernel default, integrated root/audit, and all-15-audit-module
+  builds pass at `2776/2776`, `2778/2778`, and `2788/2788`; their combined
+  root/audit/all-maintained target passes at `2792/2792`. The full validator
+  passes at `51/936/10` and `1290/169/371`; strict compilation and the
+  strengthened downstream smoke pass. Final documentation scans pass; only
+  the independent release verdicts and formal closure remain under
+  `12B-AUDIT` and `12C-REPORT`.

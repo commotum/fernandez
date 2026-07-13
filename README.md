@@ -316,9 +316,10 @@ global-kernel consequences. Their four-endpoint consumer and strictness audit
 remains non-root. The registry does not turn algebraic embeddings, counts, or
 source-only claims into behavioral theorems. The pre-kernel clean release
 evidence remains historical. The final post-kernel default, integrated, and
-exhaustive builds pass at `2776/2776`, `2778/2778`, and `2788/2788`; strict
-compilation, the expanded registry, exact axiom parsing, and the downstream
-public-root smoke also pass.
+audit-only builds pass at `2776/2776`, `2778/2778`, and `2788/2788`.
+The combined public-root, root-audit, and all-maintained-audits build passes at
+`2792/2792`; strict compilation, the expanded registry, exact axiom parsing,
+and the downstream public-root smoke also pass.
 
 Real and complex matrices have four separate phase comparisons:
 `RealGlobalSignEq`/`ComplexGlobalPhaseEq`, input-column phase, output-row

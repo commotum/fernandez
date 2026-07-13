@@ -215,6 +215,9 @@ none may remain excluded merely because it is difficult.
   blocks; the existing-result and projective-input parsers report 15 and four
   nonempty blocks. Before the generic kernel refinement, clean/default/
   integrated/exhaustive builds completed 2,782, 2,775, 2,777, and 2,787 jobs.
+  The final default, integrated root/audit, all-15-audit-module, and combined
+  root/audit/all-maintained targets complete 2,776, 2,778, 2,788, and 2,792
+  jobs.
   Stage 11 corrected two Stage 10 strictness entries that were
   genuinely printed in the root audit but mislabeled transitive in manifest
   metadata. The corrected first-1,269 structural hash is

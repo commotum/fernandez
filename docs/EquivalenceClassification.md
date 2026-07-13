@@ -924,6 +924,8 @@ rebuilt successfully in 2,782 jobs. Before the final generic-kernel refinement,
 the promoted tree passed the 2,775-job default build, the 2,777-job integrated
 root/audit build, and the 2,787-job exhaustive maintained-audit build, together
 with warning-as-error direct compilation and a public-root-only downstream
-smoke. Final post-refinement builds, static scans, and independent release
-reviews were then rerun; only the independent release verdicts remain as
+smoke. The final default, integrated root/audit, and all-15-audit-module builds
+then passed at `2776/2776`, `2778/2778`, and `2788/2788`; their combined
+public-root, root-audit, and all-maintained-audits target passed at `2792/2792`.
+Static scans were rerun; only the independent release verdicts remain as
 closure gates in `goal-2/12-RELEASE.md`.
